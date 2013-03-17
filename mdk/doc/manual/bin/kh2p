@@ -1,0 +1,65 @@
+#!/bin/bash
+
+if test $# -lt 2
+then
+	echo "$0 <index.php params> <image file> [crop]"
+	exit 1
+fi
+
+indexPage=$1
+imgFile=$2
+cropParam=$3
+
+#Don't overwrite existing screenshots
+if [ -e "$imgFile" ]
+then
+	exit 0
+fi
+
+#if there are 5 parameters, croping will be enabled
+#cropping: all above and left from X:140 and Y=100 will be cropped
+if test $# -eq 5
+then
+	cropX=$cropParam
+	cropY=110
+	crop=1
+else
+	crop=0
+fi
+
+rm $imgFile 2> /dev/null
+
+ext=`echo $imgFile | cut -d'.' -f2`
+
+if test $ext != "png"
+then
+	file="`echo $imgFile | cut -d'.' -f1`.png"
+else
+	file=$imgFile
+fi
+
+echo "HTML->$ext generating $imgFile"
+wget "http://$M23USER:$M23PWD@127.0.0.1/m23admin/index.php?$indexPage" -O /dev/null -o /dev/null
+
+khtml2png2 -t 60 --auto=ID_marker "http://$M23USER:$M23PWD@127.0.0.1/m23admin/index.php?$indexPage&captureLoad=1" $file 2>&1 | grep -v "missing on display" | grep -v "unable to open module file"
+
+if test $ext != "png"
+then
+	#select, if cropping should be enabled
+	if test $crop -eq 1
+		then
+			convert -crop +$cropX+$cropY $file $imgFile
+		else
+			convert $file $imgFile
+	fi
+
+	rm -f $file # 2> /dev/null
+else
+	if test $crop -eq 1
+	then
+		convert -crop +$cropX+$cropY $imgFile $imgFile
+	fi
+
+	echo "PNG-> Compressing $imgFile"
+	convert +dither -colors 256 -depth 8 $imgFile $imgFile
+fi

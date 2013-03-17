@@ -1,0 +1,19 @@
+\section{Client integrieren}
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/de/client_assimilate.png} \\
+Sie können bestehende Debian-Systeme mit m23 administrieren, indem Sie sie integrieren und somit m23 bekannt machen. Für eine reibungslose Integration ist es erforderlich, daß der Client komplett hochgefahren und über das Netzwerk erreichbar ist. Nun werden nur noch drei Angaben benötigt:\\
+\begin{itemize}
+\item \textbf{Clientname}: Geben Sie hier einen Namen an, über den der Client im m23-Server verwaltet werden soll. Dieser Name muß nicht zwangsläufig mit dem Hostnamen des Clients identisch sein.\\
+\item \textbf{IP-Adresse}: Dies ist die (ggf. temporäre) IP-Adresse des Clients.\\
+\item \textbf{Name des Ubuntu-Benutzers (nur bei Ubuntu-Systemen, bei Debian leerlassen)}: Geben Sie hier einen Benutzernamen an, der auf dem Rechner ein Konto besitzt und mit dem man sich per SSH einloggen kann. Außerdem muß dieser Benutzer mittels sudo und seinem Paßwort Befehle als root ausführen können. Dies wird nur bei Computern benötigt, auf denen Ubuntu installiert ist oder bei denen das Einloggen als root deaktiviert ist.\\
+\item \textbf{Root-Paßwort oder Paßwort des Ubuntu-Benutzers}: Das aktuelle Root-Paßwort des Clients bei Debian-Systemen oder das Paßwort eines Benutzers bei Ubuntu-Systemen. Sie können dieses Feld allerdings auch leer lassen, wenn Sie eine manuelle Integration vorziehen.\\
+\end{itemize}
+Klicken Sie anschließend auf \textit{"Integrieren"}. Die Integration läuft nun im Hintergrund.\\
+\subsection{Hinweis}
+Für eine automatische Integration wird auf der Clientseite ein laufender SSH-Dämon, der das Einloggen als "root" erlaubt, sowie das Programm "wget" und das Paket "coreutils" vorrausgesetzt. Weiterhin ist es erforderlich, daß Pakete aus dem Internet per APT installiert werden können.\\
+\subsection{Manuelle Integration}
+Sollte auf dem Client kein SSH-Dämon laufen, so ist es auch möglich, den Integrationsprozeß auf dem Client per Hand anzustoßen. Führen Sie dazu folgende Befehle als "root" in der Konsole des Clients aus (serverIP dabei durch die IP des m23-Servers ersetzen):\\
+\begin{verbatim}
+cd /tmp; wget http://$\langle$serverIP$\rangle$/work.php -O work.php; sh work.php
+\end{verbatim}
+\subsection{Hinweis für die Integration von Ubuntu-Systemen}
+Ubuntusysteme lassen sich normalerweise nur manuell integrieren, da bei der Standardinstallation  kein laufender SSH-Dämon vorhanden ist. Starten Sie deshalb auf dem Ubuntu-Rechner eine Root-Konsole und beginnen Sie mit der manuellen Integration.\\

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Der andere DHCP-Server kann NICHT deaktiviert werden</TITLE>
+<META NAME="description" CONTENT="Der andere DHCP-Server kann NICHT deaktiviert werden">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="previous" HREF="node105.html">
+<LINK REL="up" HREF="node104.html">
+<LINK REL="next" HREF="node107.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1794"
+  HREF="node107.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1790"
+  HREF="node104.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1786"
+  HREF="node105.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1792"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1795"
+  HREF="node107.html">Clientpartitionierung und -formatierung</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1791"
+  HREF="node104.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1787"
+  HREF="node105.html">Der andere DHCP-Server kann</A>
+ &nbsp; <B>  <A NAME="tex2html1793"
+  HREF="node1.html">Inhalt</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00922000000000000000">
+Der andere DHCP-Server kann NICHT deaktiviert werden</A>
+</H2>
+In diesem Falle m&#252;ssen Sie die Konfiguration des anderen DHCP-Servers per Hand anpassen und ggf. einen TFTP-Server einrichten. Wie die Konfiguration genau vorzunehmen ist, entnehmen Sie bitte der Dokumentation Ihres DHCP- und des TFTP-Servers. 
+<BR>
+<OL>
+<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">&#34;gPXE/DHCP&#34;</SPAN> unter <SPAN  CLASS="textit">&#34;Boottyp&#34;</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">&#34;Clientname&#34;</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+<BR></LI>
+<LI>Konfigurieren Sie Ihren DHCP-Server so, da&#223; der m23-Client den in der m23-Weboberfl&#228;che angegebenen Rechnernamen zugewiesen bekommt.
+<BR></LI>
+<LI>Der Kernel-Name, den Ihr DHCP-Server an den m23-Client &#252;bermittelt, mu&#223; <SPAN  CLASS="textbf">m23pxeinstall-i386</SPAN> (f&#252;r 32-Bit-Rechner) bzw. <SPAN  CLASS="textbf">m23pxeinstall-amd64</SPAN> (f&#252;r 64-Bit-Rechner) hei&#223;en.
+<BR></LI>
+<LI>Ihren DHCP-Server m&#252;ssen Sie zudem so konfigurieren, da&#223; er an den m23-Client folgende Werte als Kernel-Parameter verteilt:
+<BR>
+m23server=textbf<SPAN CLASS="MATH"></SPAN>m23-Server-Hostname oder IP<SPAN CLASS="MATH"></SPAN>&#34; devfs=nomount vga=normal load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=<SPAN  CLASS="textbf">45000</SPAN> initrd=initrd.gz root=/dev/ram0 rw
+<BR>
+Ersetzen Sie hierbei <SPAN  CLASS="textbf"><SPAN CLASS="MATH"></SPAN>m23-Server-Hostname oder IP<SPAN CLASS="MATH"></SPAN></SPAN> durch den vom m23-Client aufl&#246;sbaren Rechnernamen (FQHN) des m23-Servers oder durch dessen IP. Evtl. m&#252;ssen Sie die <SPAN  CLASS="textbf">45000</SPAN> durch den in der Datei /m23/inc/kernelRamDisk.inc angegebenen Wert ersetzen.
+<BR></LI>
+<LI>Richten Sie den DHCP-Server so ein, da&#223; der Client das PXE-Bootimage (/m23/tftp/m23pxeinstall-i386 bzw. /m23/tftp/m23pxeinstall-amd64) und die PXE-Initrd (/m23/tftp/initrd-i386.gz bzw. /m23/tftp/initrd-amd64.gz) vom m23-Server herunterl&#228;dt und daraus startet.
+<BR></LI>
+<LI>Sollte sich der DHCP-Server nicht so einrichten lassen, so m&#252;ssen Sie ggf. einen eigenen TFTP-Server auf demselben Rechner einrichten, der auch Ihren DHCP-Server beinhaltet. Als Basis f&#252;r die Einrichtung des TFTPs k&#246;nnen Sie die Konfigurationsdateien aus dem Verzeichnis /m23/tftp/ verwenden.
+<BR></LI>
+</OL>
+	<SPAN  CLASS="textbf">Sie ben&#246;tigen Unterst&#252;tzung bei der Einrichtung und Konfiguration von m23 oder anderen OpenSource-Komponenten?</SPAN>
+	Dann schauen Sie doch mal beim Support f&#252;r m23, Linux und OpenSource von goos-habermann.de vorbei.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1794"
+  HREF="node107.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1790"
+  HREF="node104.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1786"
+  HREF="node105.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1792"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1795"
+  HREF="node107.html">Clientpartitionierung und -formatierung</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1791"
+  HREF="node104.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1787"
+  HREF="node105.html">Der andere DHCP-Server kann</A>
+ &nbsp; <B>  <A NAME="tex2html1793"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+dodger
+2012-11-22
+</ADDRESS>
+</BODY>
+</HTML>

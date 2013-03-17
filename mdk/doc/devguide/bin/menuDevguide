@@ -1,0 +1,61 @@
+#!/bin/bash
+. /mdk/bin/docFunctions.inc
+
+ctime=`find /mdk/doc/devguide/devguide.pdf -printf "[%TD %TH:%TM:%TS]"`
+
+menuDevguideSel=`menuDevguideSel 2>/dev/null` || menuDevguideSel=/tmp/lilom23$$
+dialog --backtitle "MDK documentation generator" --default-item "ja" --clear --title "Development guide generator" \
+        --menu "Select what you want to do\nDevguide was updated on $ctime " 11 50 3 \
+        "generate"  "generate development guide" \
+        "upload"  "upload the development guide" \
+		"help" "help" 2> $menuDevguideSel
+retval=$?
+case $retval in
+    1)
+       exit;;
+    255)
+       exit;;
+esac
+
+
+choice=`cat $menuDevguideSel`
+
+if test $choice == "generate"
+then
+	/mdk/doc/devguide/bin/makeDoc.sh
+	/mdk/doc/devguide/bin/menuDevguide
+fi
+
+if test $choice == "upload"
+then
+	release=`date +"%Y-%m-%d"`
+	datetime=`date +"%Y-%m-%d %H:%M:%S"`
+	version=`grep version /m23/inc/version.php | cut -d'"' -f2`
+
+	uploadHtml /mdk/doc/devguide/ /home/project-web/m23/htdocs/docs/devguide/
+	uploadPDFFRS /mdk/doc/devguide/devguide.pdf
+	
+	echo "
+	<?
+		\$downloads[\$i++] = array (
+			title => \"The m23 development guide (English)\",
+			descr => \"Das offizielle m23-Entwicklerhandbuch (englisch, pdf) --- The official guide for developers to develop for m23 (English, pdf)\",
+			version => \"$version\",
+			size => \"`find -L /mdk/doc/devguide/devguide.pdf -printf %s`\",
+			date => \"$datetime\",
+			filename => \"devguide.pdf\",
+			url => \"http://sourceforge.net/projects/m23/files/docs/$release/devguide.pdf/download\"
+		);
+	?>" > /matrix23/arbeit/wwwTests/cms/data/home/Downloads/docs/devguide.pdf.php
+	
+	#Upload the changed manual download link page
+	/matrix23/arbeit/wwwTests/cms-upload devguide.pdf.php
+	
+	/mdk/doc/devguide/bin/menuDevguide
+fi
+
+if test $choice == "help"
+then
+	dialog --backtitle "m23 Software Development Kit (MDK)" --textbox help/menuDevguide.hlp 22 80
+	/mdk/doc/devguide/bin/menuDevguide
+fi

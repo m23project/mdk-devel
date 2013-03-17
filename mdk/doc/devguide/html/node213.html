@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>CLIENT_addClient</TITLE>
+<META NAME="description" CONTENT="CLIENT_addClient">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node214.html">
+<LINK REL="previous" HREF="node212.html">
+<LINK REL="up" HREF="node190.html">
+<LINK REL="next" HREF="node214.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html5743"
+  HREF="node214.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html5739"
+  HREF="node190.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html5733"
+  HREF="node212.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html5741"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5744"
+  HREF="node214.html">CLIENT_IPexists</A>
+<B> Up:</B> <A NAME="tex2html5740"
+  HREF="node190.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html5734"
+  HREF="node212.html">CLIENT_isBasesystemInstalledFromImage</A>
+ &nbsp; <B>  <A NAME="tex2html5742"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION008723000000000000000">
+CLIENT_addClient</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the database and prepares the client for the installation
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>data['client']: client name
+</LI>
+<LI>data['office']: office
+</LI>
+<LI>data['name']: name of the user
+</LI>
+<LI>data['familyname']: family name of the user
+</LI>
+<LI>data['email']: email
+</LI>
+<LI>data['mac']: client MAC
+</LI>
+<LI>data['ip']: IP of the client
+</LI>
+<LI>data['netmask']: netmask of the client
+</LI>
+<LI>data['gateway']: gateway of the client
+</LI>
+<LI>data['dns1']: DNS server 1
+</LI>
+<LI>data['dns2']: DNS server 2
+</LI>
+<LI>data['pxe']: if true PXE is the boot standard, otherwise Etherboot
+</LI>
+<LI>data['newgroup']: group of the client
+</LI>
+<LI>data['language']: client language
+</LI>
+<LI>data['firstpw']: password for the first user login
+</LI>
+<LI>data['rootpassword']: root password
+</LI>
+<LI>options['packageProxy']: the ip of the proxy the packages should be fetched from
+</LI>
+<LI>options['packagePort']: the proxy port
+</LI>
+<LI>options['netRootPwd']: password for root during network booting
+</LI>
+<LI>options['ldaptype']: type of the LDAP server
+</LI>
+<LI>options['ldapserver']: name of the LDAP server
+</LI>
+<LI>options['nfshomeserver']: NFS home server with full path
+</LI>
+<LI>options['login']: login name for the user
+</LI>
+<LI>options['userID']: user ID for the LDAP account
+</LI>
+<LI>options['groupID']: group ID for the LDAP account
+</LI>
+<LI>options['addNewLocalLogin']		= $_POST[addNewLocalLogin];
+</LI>
+<LI>options['timeZone']: POSIX timezone
+</LI>
+<LI>options['getSystemtimeByNTP']: "yes", if the system time should be set with NTP
+</LI>
+<LI>options['installPrinter']: "yes", if printer drivers should be installed and printers detected
+</LI>
+<LI>clientAddType: can be CLIENT_ADD_TYPE_add if the client should be added, CLIENT_ADD_TYPE_define if it should be defined for mass installation or CLIENT_ADD_TYPE_assimilate if the client should be imported into the m23 system.
+</LI>
+<LI>cryptRootPw: set to true, if the password should be encrypted or false, if it's already encrypted
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html5743"
+  HREF="node214.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html5739"
+  HREF="node190.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html5733"
+  HREF="node212.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html5741"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5744"
+  HREF="node214.html">CLIENT_IPexists</A>
+<B> Up:</B> <A NAME="tex2html5740"
+  HREF="node190.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html5734"
+  HREF="node212.html">CLIENT_isBasesystemInstalledFromImage</A>
+ &nbsp; <B>  <A NAME="tex2html5742"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

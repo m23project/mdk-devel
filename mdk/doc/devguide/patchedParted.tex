@@ -1,0 +1,58 @@
+\section{parted}
+The devlopers of parted decided to change the default visible size for partitions and harddisks from megabyte to dynamically changing measurement. This makes it very difficult to make an accurate partitioning if the size of a partition is given out on a gigabyte basis.
+
+\subsection{Patching parted}
+The measurement has to be set to megabyte to get an accurate output of partition and harddisk sizes. This is done by the following patch:
+\begin{verbatim*}
+diff -r ./libparted/exception.c ../parted-1.8.7/libparted/exception.c
+131,145c131,145
+< //    if (e->type == PED_EXCEPTION_BUG)
+< //            fprintf (stderr,
+< //                    _("A bug has been detected in GNU Parted.  "
+< //                    "Refer to the web site of parted "
+< //                    "http://www.gnu.org/software/parted/parted.html "
+< //                    "for more informations of what could be useful "
+< //                    "for bug submitting!  "
+< //                    "Please email a bug report to "
+< //                    "bug-parted@gnu.org containing at least the "
+< //                    "version (%s) and the following message:  "),
+< //                    VERSION);
+< //    else
+< //            fprintf (stderr, "%s: ",
+< //                     ped_exception_get_type_string (e->type));
+< //    fprintf (stderr, "%s\n", e->message);
+---
+>       if (e->type == PED_EXCEPTION_BUG)
+>               fprintf (stderr,
+>                       _("A bug has been detected in GNU Parted.  "
+>                       "Refer to the web site of parted "
+>                       "http://www.gnu.org/software/parted/parted.html "
+>                       "for more informations of what could be useful "
+>                       "for bug submitting!  "
+>                       "Please email a bug report to "
+>                       "bug-parted@gnu.org containing at least the "
+>                       "version (%s) and the following message:  "),
+>                       VERSION);
+>       else
+>               fprintf (stderr, "%s: ",
+>                        ped_exception_get_type_string (e->type));
+>       fprintf (stderr, "%s\n", e->message);
+diff -r ./libparted/unit.c ../parted-1.8.7/libparted/unit.c
+70c70
+< static PedUnit default_unit = PED_UNIT_MEGABYTE;
+---
+> static PedUnit default_unit = PED_UNIT_COMPACT;
+\end{verbatim*}
+
+\subsection{Compiling}
+Compiling has to be done with the following line:
+\begin{verbatim*}
+./configure --without-readline --prefix=/usr --disable-debug
+\end{verbatim*}
+Readline support should be removed to decrease the size of the bootimage. Prefix mus be set to make it use the default Debian installation root. Debug must be disabled to remove silly debugging information of libparted that makes the output of m23hwscanner corrupt.
+
+\subsection{Building the Debian package}
+There are no Debian package building scripts included so the package is built with
+\begin{verbatim*}
+checkinstall -D
+\end{verbatim*}

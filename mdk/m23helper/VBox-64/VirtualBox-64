@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for mnt in `grep amd64 /etc/fstab | tr -s "[ \t]" | cut -d' ' -f2`
+do
+	umount $mnt 2> /dev/null
+	mount $mnt
+done
+
+cd /amd64
+chroot . /bin/VBox64-start

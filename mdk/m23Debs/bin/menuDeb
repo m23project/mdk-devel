@@ -1,0 +1,263 @@
+#!/bin/bash
+
+if [ `whoami` != "root" ]
+then
+	echo "You MUST BE root here. Switch to root account and start again. Now press \"enter\" to leave."
+	read gaga
+	exit
+fi
+
+. /mdk/m23Debs/bin/m23Deb.inc
+. /mdk/bin/sf-frsFunctions.inc
+. /tmp/menuVars
+. /mdk/bin/forkFunctions.inc
+
+#deletes package doubles and recreate the package index
+deleteDoublesmakeIndexAndReturn()
+{
+	cd /mdk/m23Debs/debs
+	deleteOldDoubles
+	makePackages
+	echo "Packages created. Press enter."
+	read
+}
+
+
+
+
+
+tmp=`ls -t /mdk/m23Debs/debs/hwsetup* | head -n1`
+knoppixver=`find "$tmp" -type f -printf "%TD %TH:%TM"`
+tmp=`ls -t /mdk/m23Debs/debs/m23hwscanner* | head -n1`
+hwscannerver=`find "$tmp" -type f -printf "%TD %TH:%TM"`
+tmp=`ls -t /mdk/m23Debs/debs/m23-skel* | head -n1`
+extraver=`find "$tmp" -type f -printf "%TD %TH:%TM"`
+
+debOption=`debOption 2>/dev/null` || debOption=/tmp/debOption$$
+dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 deb package builder" \
+        --menu "Main menu" 19 76 12 \
+	"-extra-" "--Special m23 packages for the client--"\
+	"knoppix" "fetches and build static Knoppix debs (hwsetup and co.) [$knoppixver]" \
+	"m23extra" "build m23-ksp.,-skel,-initsc.,m23-vbox [$extraver]" \
+	"upload" "upload the packages to SF"\
+	"squidcl" "Remove Packages* from local Squid"\
+	"emptysquid" "Remove ALL from local Squid"\
+	"-m23inst-" "--m23 server software installation packages--"\
+	"build" "check for file changes and (re)create the packages"\
+	"directuplinst" "upload the m23 installation packages directly"\
+	"uploadtesting" "upload the m23 installation packages as testing"\
+	"help" "view the help file for this menu" \
+	"quit" "quit menu" 2> $debOption
+retval=$?
+case $retval in
+    1)
+       exit;;
+    255)
+       exit;;
+esac
+
+#"uplinst" "upload the m23 installation packages"\
+#"hwscanner" "build m23 hwscanner [$hwscannerver]" \
+
+
+choice=`cat $debOption`
+
+rm $debOption
+
+#upload m23 server software installation packages directly (without tux03)
+if test $choice == "directuplinst"
+then
+	cd $serverPackagesPool
+
+	#Makes the Release file and signs it
+	mkRelease
+
+	#build md5 sums
+	md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
+
+	#Merge the m23testing repository into the release directory
+	ssh tux05 m23UpdateInstFromm23Testing
+
+	#upload all files and rename not needed to *~
+	rsync -razPy --delete-after --bwlimit=45 . /mdk/m23update/updates/0.5.0/*.info tux05:/m23inst
+
+	ssh tux05 m23instUpload-start
+fi
+
+
+
+
+
+#upload m23 server software installation packages as testing
+if test $choice == "uploadtesting"
+then
+	cd $serverPackagesPool
+
+	#Makes the Release file and signs it
+	mkRelease
+
+	#build md5 sums
+	md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
+
+	#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
+	ShellSFssh "cp -u /home/project-web/m23/htdocs/m23inst/*.deb /home/project-web/m23/htdocs/m23testing/"
+
+	#upload all files
+	rsync -razPy --delete-after --bwlimit=55 . hhabermann,m23@web.sf.net:/home/project-web/m23/htdocs/m23testing
+	ShellSFssh "cp /home/project-web/m23/htdocs/m23testing/* /home/frs/project/m/m2/m23/m23testing/"
+fi
+
+
+
+
+
+#upload m23 server software installation packages
+if test $choice == "uplinst"
+then
+	deleteOldDoubles
+	#checks for changes and new files in the package directory and writes the filenames to /tmp/m23instUpload.list
+	#newPackages
+
+	#Makes the Release file and signs it (and make sure we are in the same directory afterwards than before)
+	cur=`pwd`
+	cd $serverPackagesPool
+	mkRelease
+	cd $cur
+
+	#number of the last uploaded patch
+	unr=`cat /mdk/m23update/updates/uploadnr`
+
+	rm /tmp/m23instUpload.list 2> /dev/null
+
+	#get all patch numbers
+	for nr in `find /mdk/m23update/updates/0.5.0/ -printf "%f\n" | grep info$ | cut -d'.' -f1 | sort`
+	do
+		#check if the patch number is greater than the biggest uploaded patch number
+		if test $nr -gt $unr
+		then
+			echo "/mdk/m23update/updates/0.5.0/$nr.info" >> /tmp/m23instUpload.list
+		fi
+	done
+
+	fileList=`awk -v ORS='' '{print($0" ")}' /tmp/m23instUpload.list`
+	if test "$fileList"
+	then
+		#clean out old files
+		ssh tux03 rm /mnt/hda6/m23inst/* 2> /dev/null
+		#copy new files
+		scp $fileList $serverPackagesPool/* tux03:/mnt/hda6/m23inst
+		#start upload process
+		ssh tux03 m23instUpload-start
+		#write the last updated upload number
+		echo $nr > /mdk/m23update/updates/uploadnr
+	else
+		echo ">>>nothing to upload"
+		read muh
+	fi
+
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+#build m23 server software installation packages
+if test $choice == "build"
+then
+	/mdk/m23Debs/bin/mkm23Debs
+	deleteOldDoubles
+	makePackages
+
+	isDevelReturn
+	if [ $? -ne 0 ]
+	then
+		patchnr=`grep patchLevel /m23/inc/version.php | cut -d'"' -f2`
+		patchInfoFile="/mdk/m23update/updates/0.5.0/$patchnr.info"
+		writeNewestChangelogToPatchInfo > $patchInfoFile
+
+		echo "Please edit/enter a description after pressing \"Return\""
+		read
+		nano $patchInfoFile
+	fi
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+#build static Knoppix debs
+if test $choice == "knoppix"
+then
+	/mdk/m23Debs/bin/getBuildKnoppixDebs
+	deleteDoublesmakeIndexAndReturn
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+#build the m23 hwscanner packages
+if test $choice == "hwscanner"
+then
+	/mdk/m23Debs/bin/mkhwscanner2
+	deleteDoublesmakeIndexAndReturn
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+#build the m23 extra packages (m23-skel, m23-kspash)
+if test $choice == "m23extra"
+then
+	/mdk/m23Debs/bin/mkm23extradeb
+	deleteDoublesmakeIndexAndReturn
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+if test $choice == "upload"
+then
+	uploadClientPackagesToSF
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+if test $choice == "help"
+then
+	dialog --backtitle "m23 Software Development Kit (MDK)" --textbox /mdk/m23Debs/bin/help/menuDebs.hlp 22 80
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+if test $choice == "squidcl"
+then
+	grep -l -r Packages /var/spool/squid/ | xargs rm
+	/mdk/m23Debs/bin/menuDeb
+fi
+
+
+
+
+
+if test $choice == "emptysquid"
+then
+	/etc/init.d/squid stop
+	rm /var/spool/squid/* -r
+	squid -z
+	/etc/init.d/squid start
+	/mdk/m23Debs/bin/menuDeb
+fi

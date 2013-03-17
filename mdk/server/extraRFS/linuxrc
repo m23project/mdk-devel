@@ -1,0 +1,9 @@
+#!/bin/sh
+/bin/HWMiniInit.sh
+
+mv /dev/random /dev/random-blocks
+ln -s /dev/urandom /dev/random
+
+echo "0" > /proc/sys/kernel/printk
+
+/bin/m23install.sh

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cd /mdk/m23Translator
+
+version=`grep '$version=' config.php | cut -d'"' -f2`
+
+cp config.php /tmp
+
+cat /tmp/config.php | sed 's/\$dbHost=\"[a-zA-Z0-9]*\"/\$dbHost=\"\"/' | sed 's/\$dbUser=\"[a-zA-Z0-9]*\"/\$dbUser=\"\"/' | sed 's/\$dbPass=\"[a-zA-Z0-9]*\"/\$dbPass=\"\"/' | sed 's/\$dbName=\"[a-zA-Z0-9]*\"/\$dbName=\"\"/' > config.php
+
+#remove backups
+rm `find | grep '~'`
+
+#copy the translator to the tmp
+cp -r /mdk/m23Translator /tmp/m23Translator-$version
+
+cd /tmp
+
+#compress it
+tar cfvj m23Translator-$version.tar.bz2 m23Translator-$version
+
+cp /tmp/config.php /mdk/m23Translator

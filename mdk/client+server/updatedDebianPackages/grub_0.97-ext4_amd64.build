@@ -1,0 +1,989 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: Warnung: verwende ein root-werde-Befehl obwohl bereits root
+dpkg-buildpackage: setze CFLAGS auf Standardwert: -g -O2
+dpkg-buildpackage: setze CPPFLAGS auf Standardwert: 
+dpkg-buildpackage: setze LDFLAGS auf Standardwert: 
+dpkg-buildpackage: setze FFLAGS auf Standardwert: -g -O2
+dpkg-buildpackage: setze CXXFLAGS auf Standardwert: -g -O2
+dpkg-buildpackage: Quellpaket grub
+dpkg-buildpackage: Quellversion 0.97-ext4
+dpkg-buildpackage: Quellen geändert durch dodger <hauke@goos-habermann.de>
+dpkg-buildpackage: Host-Architektur amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-arch-stamp build-indep-stamp configure-stamp config.log
+chmod +x debian/script
+# Add here commands to clean up after the build process.
+/usr/bin/make distclean
+make[1]: Entering directory `/updates/gr/grub-0.97'
+make[1]: *** Keine Regel, um »distclean« zu erstellen.  Schluss.
+make[1]: Leaving directory `/updates/gr/grub-0.97'
+make: [clean] Fehler 2 (ignoriert)
+# The Makefile doesn't clean up the generated info files so we will do
+# it here so the doco is uptodate.
+( cd docs && rm -f *.info* )
+# clean up generated html documentation
+( cd docs && rm -f *.html )
+# clean up documentation directory removing created dirs.
+( cd docs && rm -rf grub multiboot )
+# remove files that will be change due our automake and autoconf rebuilding
+rm -f ./docs/Makefile.in ./lib/Makefile.in ./stage1/Makefile.in ./Makefile.in ./netboot/Makefile.in ./stage2/Makefile.in ./configure ./aclocal.m4 ./grub/Makefile.in ./util/Makefile.in
+# reverse patches we applied. this has to happen after make distclean
+/usr/bin/make -s -f debian/rules unpatch
+dh_clean
+ dpkg-source -b grub-0.97
+dpkg-source: Information: verwende Quellformat »1.0«
+dpkg-source: Information: baue grub unter Benutzung des existierenden grub_0.97.orig.tar.gz
+dpkg-source: Information: baue grub in grub_0.97-ext4.diff.gz
+dpkg-source: Warnung: ausführbarer Modus 0755 von »debian/script« wird nicht im Diff dargestellt werden
+dpkg-source: Warnung: ignoriere Löschen der Datei Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei configure
+dpkg-source: Warnung: ignoriere Löschen der Datei aclocal.m4
+dpkg-source: Warnung: ignoriere Löschen der Datei docs/grub.info
+dpkg-source: Warnung: ignoriere Löschen der Datei docs/multiboot.info
+dpkg-source: Warnung: ignoriere Löschen der Datei docs/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei lib/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei stage1/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei netboot/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei stage2/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei grub/Makefile.in
+dpkg-source: Warnung: ignoriere Löschen der Datei util/Makefile.in
+dpkg-source: Information: baue grub in grub_0.97-ext4.dsc
+ debian/rules build
+dh_testdir
+# Add here commands to patch the source..
+set -e ; for i in `cat debian/patches/00list | grep -v ^#` ; \
+	do \
+	echo "--- $i ---" ; patch -p1 < debian/patches/$i ; \
+	done
+--- cvs-sync.patch ---
+patching file ChangeLog
+patching file THANKS
+patching file acinclude.m4
+patching file configure.ac
+patching file docs/Makefile.am
+patching file docs/fdl.texi
+patching file docs/grub-install.8
+patching file docs/grub-md5-crypt.8
+patching file docs/grub-terminfo.8
+patching file docs/grub.8
+patching file docs/grub.texi
+patching file docs/mbchk.1
+patching file docs/multiboot.texi
+patching file grub/asmstub.c
+patching file grub/main.c
+patching file lib/device.c
+patching file netboot/cs89x0.c
+patching file netboot/cs89x0.h
+patching file netboot/etherboot.h
+patching file netboot/main.c
+patching file netboot/natsemi.c
+patching file netboot/sis900.c
+patching file stage1/Makefile.am
+patching file stage2/bios.c
+patching file stage2/boot.c
+patching file stage2/builtins.c
+patching file stage2/disk_io.c
+patching file stage2/iso9660.h
+patching file stage2/shared.h
+patching file stage2/stage2.c
+patching file util/grub-install.in
+patching file util/mkbimage
+--- menu.lst_gnu-hurd.diff ---
+patching file docs/menu.lst
+Hunk #1 succeeded at 14 with fuzz 2.
+patching file docs/menu.lst
+--- graphics.diff ---
+patching file configure.ac
+Hunk #1 succeeded at 606 (offset 11 lines).
+patching file stage2/asm.S
+patching file stage2/builtins.c
+patching file stage2/char_io.c
+patching file stage2/cmdline.c
+patching file stage2/graphics.c
+patching file stage2/graphics.h
+patching file stage2/Makefile.am
+patching file stage2/shared.h
+Hunk #1 succeeded at 796 (offset 4 lines).
+Hunk #2 succeeded at 880 (offset 4 lines).
+patching file stage2/stage2.c
+Hunk #20 succeeded at 740 (offset 3 lines).
+Hunk #21 succeeded at 784 (offset 4 lines).
+Hunk #22 succeeded at 1093 (offset 4 lines).
+patching file stage2/term.h
+--- raid.diff ---
+patching file util/grub-install.in
+--- raid_cciss.diff ---
+patching file lib/device.c
+Hunk #2 succeeded at 842 with fuzz 1 (offset 32 lines).
+--- xfs_freeze.diff ---
+patching file util/grub-install.in
+Hunk #1 succeeded at 470 (offset 48 lines).
+--- 2gb_limit.diff ---
+patching file stage2/char_io.c
+Hunk #1 succeeded at 1231 (offset 56 lines).
+Hunk #2 succeeded at 1248 (offset 56 lines).
+patching file stage2/shared.h
+Hunk #1 succeeded at 921 (offset 10 lines).
+--- kfreebsd.diff ---
+patching file stage2/boot.c
+patching file stage2/freebsd.h
+--- grub-special_device_names.diff ---
+patching file lib/device.c
+Hunk #1 succeeded at 973 (offset -142 lines).
+--- grub-xvd_drives.diff ---
+patching file lib/device.c
+Hunk #2 succeeded at 798 (offset 18 lines).
+--- initrd_max_address.diff ---
+patching file stage2/boot.c
+Hunk #1 succeeded at 831 (offset 21 lines).
+--- splashimage_help.diff ---
+patching file docs/grub.texi
+Hunk #1 succeeded at 2184 with fuzz 2 (offset 293 lines).
+Hunk #2 succeeded at 2564 (offset 303 lines).
+--- grub-install_addsyncs.diff ---
+patching file util/grub-install.in
+Hunk #1 succeeded at 384 (offset 33 lines).
+Hunk #2 succeeded at 513 (offset 52 lines).
+--- grub-install_regexp.diff ---
+patching file util/grub-install.in
+Hunk #1 succeeded at 179 (offset 48 lines).
+Hunk #2 succeeded at 196 (offset 48 lines).
+--- grub-install_aoe_support.diff ---
+patching file util/grub-install.in
+--- grub-install_xvd.diff ---
+patching file util/grub-install.in
+--- geometry-26kernel.diff ---
+patching file lib/device.c
+Hunk #3 succeeded at 1126 (offset 111 lines).
+Hunk #4 succeeded at 1161 (offset 113 lines).
+--- print_func.diff ---
+patching file docs/grub.texi
+Hunk #1 succeeded at 2681 (offset -4 lines).
+Hunk #2 succeeded at 3088 (offset -4 lines).
+patching file stage2/builtins.c
+Hunk #1 succeeded at 2595 (offset 272 lines).
+Hunk #2 succeeded at 5161 (offset 294 lines).
+--- mprotect.diff ---
+patching file grub/asmstub.c
+Hunk #2 succeeded at 154 (offset 6 lines).
+--- savedefault.diff ---
+patching file stage2/builtins.c
+Hunk #1 succeeded at 86 (offset 4 lines).
+Hunk #2 succeeded at 3516 (offset 291 lines).
+Hunk #3 succeeded at 3694 (offset 291 lines).
+patching file stage2/stage2.c
+Hunk #1 succeeded at 934 (offset 43 lines).
+--- find-grub-dir.diff ---
+patching file util/grub-set-default.in
+--- intelmac.diff ---
+patching file stage2/asm.S
+--- crossreference_manpages.diff ---
+patching file docs/help2man
+patching file docs/Makefile.am
+patching file docs/grub.8.additions
+patching file docs/grub-install.8.additions
+--- ext3_256byte_inode.diff ---
+patching file stage2/fsys_ext2fs.c
+--- use_grub-probe_in_grub-install.diff ---
+patching file util/grub-install.in
+patching file util/grub-install.in
+--- ext4.patch ---
+patching file stage2/fsys_ext2fs.c
+Hunk #2 succeeded at 239 (offset 45 lines).
+Hunk #3 succeeded at 371 (offset 53 lines).
+Hunk #4 succeeded at 400 (offset 53 lines).
+Hunk #5 succeeded at 420 (offset 53 lines).
+touch patch-stamp
+dh_testdir
+# Add here commands to configure the package.
+aclocal-1.9 && automake-1.9 && autoconf
+CC=gcc LDFLAGS=-static ./configure \
+		--host=x86_64-linux-gnu \
+		--build=x86_64-linux-gnu \
+		--prefix=/usr \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--disable-auto-linux-mem-opt
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for x86_64-linux-gnu-gcc... gcc
+checking for x86_64-linux-gnu-gcc... (cached) gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking dependency style of gcc... (cached) gcc3
+checking for x86_64-linux-gnu-ranlib... no
+checking for ranlib... ranlib
+checking whether -Wundef works... yes
+checking whether -falign-loops works... yes
+checking whether linker accepts `--build-id=none'... yes
+checking for x86_64-linux-gnu-objcopy... no
+checking for objcopy... objcopy
+checking if C symbols get an underscore after compilation... no
+checking whether objcopy works for absolute addresses... yes
+checking whether addr32 must be in the same line as the instruction... yes
+checking for .code16 addr32 assembler support... yes
+checking whether an absolute indirect call/jump must not be prefixed with an asterisk... no
+checking if start is defined by the compiler... no
+checking if _start is defined by the compiler... yes
+checking if __bss_start is defined by the compiler... yes
+checking if _edata is defined by the compiler... yes
+checking if edata is defined by the compiler... yes
+checking if end is defined by the compiler... yes
+checking if _end is defined by the compiler... yes
+checking for opendisk in -lutil... no
+checking for wgetch in -lncurses... no
+checking for wgetch in -lcurses... no
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking ncurses/curses.h usability... no
+checking ncurses/curses.h presence... no
+checking for ncurses/curses.h... no
+checking ncurses.h usability... yes
+checking ncurses.h presence... yes
+checking for ncurses.h... yes
+checking curses.h usability... yes
+checking curses.h presence... yes
+checking for curses.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating stage1/Makefile
+config.status: creating stage2/Makefile
+config.status: creating docs/Makefile
+config.status: creating lib/Makefile
+config.status: creating util/Makefile
+config.status: creating grub/Makefile
+config.status: creating netboot/Makefile
+config.status: creating util/grub-image
+config.status: creating util/grub-install
+config.status: creating util/grub-md5-crypt
+config.status: creating util/grub-terminfo
+config.status: creating util/grub-set-default
+config.status: creating config.h
+config.status: executing depfiles commands
+touch configure-stamp
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory `/updates/gr/grub-0.97'
+/usr/bin/make  all-recursive
+make[2]: Entering directory `/updates/gr/grub-0.97'
+Making all in netboot
+make[3]: Entering directory `/updates/gr/grub-0.97/netboot'
+make[3]: Für das Ziel »all« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/netboot'
+Making all in stage2
+make[3]: Entering directory `/updates/gr/grub-0.97/stage2'
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o pre_stage2_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-bios.o -MD -MP -MF ".deps/pre_stage2_exec-bios.Tpo" -c -o pre_stage2_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/pre_stage2_exec-bios.Tpo" ".deps/pre_stage2_exec-bios.Po"; else rm -f ".deps/pre_stage2_exec-bios.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-boot.o -MD -MP -MF ".deps/pre_stage2_exec-boot.Tpo" -c -o pre_stage2_exec-boot.o `test -f 'boot.c' || echo './'`boot.c; \
+	then mv -f ".deps/pre_stage2_exec-boot.Tpo" ".deps/pre_stage2_exec-boot.Po"; else rm -f ".deps/pre_stage2_exec-boot.Tpo"; exit 1; fi
+boot.c: In function 'load_image':
+boot.c:69: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+boot.c:103: warning: pointer targets in passing argument 1 of 'grub_strcmp' differ in signedness
+boot.c: In function 'bsd_boot':
+boot.c:1091: warning: pointer targets in assignment differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-builtins.o -MD -MP -MF ".deps/pre_stage2_exec-builtins.Tpo" -c -o pre_stage2_exec-builtins.o `test -f 'builtins.c' || echo './'`builtins.c; \
+	then mv -f ".deps/pre_stage2_exec-builtins.Tpo" ".deps/pre_stage2_exec-builtins.Po"; else rm -f ".deps/pre_stage2_exec-builtins.Tpo"; exit 1; fi
+builtins.c:91: warning: 'savedefault_shell' declared 'static' but never defined
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-char_io.o -MD -MP -MF ".deps/pre_stage2_exec-char_io.Tpo" -c -o pre_stage2_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/pre_stage2_exec-char_io.Tpo" ".deps/pre_stage2_exec-char_io.Po"; else rm -f ".deps/pre_stage2_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-cmdline.o -MD -MP -MF ".deps/pre_stage2_exec-cmdline.Tpo" -c -o pre_stage2_exec-cmdline.o `test -f 'cmdline.c' || echo './'`cmdline.c; \
+	then mv -f ".deps/pre_stage2_exec-cmdline.Tpo" ".deps/pre_stage2_exec-cmdline.Po"; else rm -f ".deps/pre_stage2_exec-cmdline.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-common.o -MD -MP -MF ".deps/pre_stage2_exec-common.Tpo" -c -o pre_stage2_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/pre_stage2_exec-common.Tpo" ".deps/pre_stage2_exec-common.Po"; else rm -f ".deps/pre_stage2_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-console.o -MD -MP -MF ".deps/pre_stage2_exec-console.Tpo" -c -o pre_stage2_exec-console.o `test -f 'console.c' || echo './'`console.c; \
+	then mv -f ".deps/pre_stage2_exec-console.Tpo" ".deps/pre_stage2_exec-console.Po"; else rm -f ".deps/pre_stage2_exec-console.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-disk_io.o -MD -MP -MF ".deps/pre_stage2_exec-disk_io.Tpo" -c -o pre_stage2_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/pre_stage2_exec-disk_io.Tpo" ".deps/pre_stage2_exec-disk_io.Po"; else rm -f ".deps/pre_stage2_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_ext2fs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_ext2fs.Tpo" -c -o pre_stage2_exec-fsys_ext2fs.o `test -f 'fsys_ext2fs.c' || echo './'`fsys_ext2fs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_ext2fs.Tpo" ".deps/pre_stage2_exec-fsys_ext2fs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_ext2fs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_fat.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_fat.Tpo" -c -o pre_stage2_exec-fsys_fat.o `test -f 'fsys_fat.c' || echo './'`fsys_fat.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_fat.Tpo" ".deps/pre_stage2_exec-fsys_fat.Po"; else rm -f ".deps/pre_stage2_exec-fsys_fat.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_ffs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_ffs.Tpo" -c -o pre_stage2_exec-fsys_ffs.o `test -f 'fsys_ffs.c' || echo './'`fsys_ffs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_ffs.Tpo" ".deps/pre_stage2_exec-fsys_ffs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_ffs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_iso9660.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_iso9660.Tpo" -c -o pre_stage2_exec-fsys_iso9660.o `test -f 'fsys_iso9660.c' || echo './'`fsys_iso9660.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_iso9660.Tpo" ".deps/pre_stage2_exec-fsys_iso9660.Po"; else rm -f ".deps/pre_stage2_exec-fsys_iso9660.Tpo"; exit 1; fi
+fsys_iso9660.c: In function 'iso9660_mount':
+fsys_iso9660.c:123: warning: pointer targets in passing argument 1 of 'grub_memcmp' differ in signedness
+fsys_iso9660.c: In function 'iso9660_dir':
+fsys_iso9660.c:178: warning: pointer targets in initialization differ in signedness
+fsys_iso9660.c:203: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:231: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:332: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:334: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:336: warning: pointer targets in passing argument 4 of 'iso9660_devread' differ in signedness
+fsys_iso9660.c:384: warning: pointer targets in passing argument 1 of 'print_a_completion' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_jfs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_jfs.Tpo" -c -o pre_stage2_exec-fsys_jfs.o `test -f 'fsys_jfs.c' || echo './'`fsys_jfs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_jfs.Tpo" ".deps/pre_stage2_exec-fsys_jfs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_jfs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_minix.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_minix.Tpo" -c -o pre_stage2_exec-fsys_minix.o `test -f 'fsys_minix.c' || echo './'`fsys_minix.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_minix.Tpo" ".deps/pre_stage2_exec-fsys_minix.Po"; else rm -f ".deps/pre_stage2_exec-fsys_minix.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_reiserfs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_reiserfs.Tpo" -c -o pre_stage2_exec-fsys_reiserfs.o `test -f 'fsys_reiserfs.c' || echo './'`fsys_reiserfs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_reiserfs.Tpo" ".deps/pre_stage2_exec-fsys_reiserfs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_reiserfs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_ufs2.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_ufs2.Tpo" -c -o pre_stage2_exec-fsys_ufs2.o `test -f 'fsys_ufs2.c' || echo './'`fsys_ufs2.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_ufs2.Tpo" ".deps/pre_stage2_exec-fsys_ufs2.Po"; else rm -f ".deps/pre_stage2_exec-fsys_ufs2.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_vstafs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_vstafs.Tpo" -c -o pre_stage2_exec-fsys_vstafs.o `test -f 'fsys_vstafs.c' || echo './'`fsys_vstafs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_vstafs.Tpo" ".deps/pre_stage2_exec-fsys_vstafs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_vstafs.Tpo"; exit 1; fi
+fsys_vstafs.c: In function 'vstafs_read':
+fsys_vstafs.c:189: warning: declaration of 'a' shadows a global declaration
+fsys_vstafs.c:66: warning: shadowed declaration is here
+fsys_vstafs.c:191: warning: declaration of 'curr_ext' shadows a global declaration
+fsys_vstafs.c:65: warning: shadowed declaration is here
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-fsys_xfs.o -MD -MP -MF ".deps/pre_stage2_exec-fsys_xfs.Tpo" -c -o pre_stage2_exec-fsys_xfs.o `test -f 'fsys_xfs.c' || echo './'`fsys_xfs.c; \
+	then mv -f ".deps/pre_stage2_exec-fsys_xfs.Tpo" ".deps/pre_stage2_exec-fsys_xfs.Po"; else rm -f ".deps/pre_stage2_exec-fsys_xfs.Tpo"; exit 1; fi
+fsys_xfs.c: In function 'next_dentry':
+fsys_xfs.c:371: warning: pointer targets in assignment differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-gunzip.o -MD -MP -MF ".deps/pre_stage2_exec-gunzip.Tpo" -c -o pre_stage2_exec-gunzip.o `test -f 'gunzip.c' || echo './'`gunzip.c; \
+	then mv -f ".deps/pre_stage2_exec-gunzip.Tpo" ".deps/pre_stage2_exec-gunzip.Po"; else rm -f ".deps/pre_stage2_exec-gunzip.Tpo"; exit 1; fi
+gunzip.c: In function 'gunzip_test_header':
+gunzip.c:280: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c:296: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c:311: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c: In function 'get_byte':
+gunzip.c:497: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-hercules.o -MD -MP -MF ".deps/pre_stage2_exec-hercules.Tpo" -c -o pre_stage2_exec-hercules.o `test -f 'hercules.c' || echo './'`hercules.c; \
+	then mv -f ".deps/pre_stage2_exec-hercules.Tpo" ".deps/pre_stage2_exec-hercules.Po"; else rm -f ".deps/pre_stage2_exec-hercules.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-md5.o -MD -MP -MF ".deps/pre_stage2_exec-md5.Tpo" -c -o pre_stage2_exec-md5.o `test -f 'md5.c' || echo './'`md5.c; \
+	then mv -f ".deps/pre_stage2_exec-md5.Tpo" ".deps/pre_stage2_exec-md5.Po"; else rm -f ".deps/pre_stage2_exec-md5.Tpo"; exit 1; fi
+md5.c: In function 'md5_update':
+md5.c:169: warning: pointer targets in passing argument 1 of 'md5_transform' differ in signedness
+md5.c: In function 'md5_password':
+md5.c:249: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:250: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:265: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:274: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-serial.o -MD -MP -MF ".deps/pre_stage2_exec-serial.Tpo" -c -o pre_stage2_exec-serial.o `test -f 'serial.c' || echo './'`serial.c; \
+	then mv -f ".deps/pre_stage2_exec-serial.Tpo" ".deps/pre_stage2_exec-serial.Po"; else rm -f ".deps/pre_stage2_exec-serial.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-smp-imps.o -MD -MP -MF ".deps/pre_stage2_exec-smp-imps.Tpo" -c -o pre_stage2_exec-smp-imps.o `test -f 'smp-imps.c' || echo './'`smp-imps.c; \
+	then mv -f ".deps/pre_stage2_exec-smp-imps.Tpo" ".deps/pre_stage2_exec-smp-imps.Po"; else rm -f ".deps/pre_stage2_exec-smp-imps.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-stage2.o -MD -MP -MF ".deps/pre_stage2_exec-stage2.Tpo" -c -o pre_stage2_exec-stage2.o `test -f 'stage2.c' || echo './'`stage2.c; \
+	then mv -f ".deps/pre_stage2_exec-stage2.Tpo" ".deps/pre_stage2_exec-stage2.Po"; else rm -f ".deps/pre_stage2_exec-stage2.Tpo"; exit 1; fi
+stage2.c: In function 'cmain':
+stage2.c:941: warning: value computed is not used
+stage2.c:942: warning: passing argument 1 of 'grub_strcpy' from incompatible pointer type
+stage2.c:942: warning: passing argument 2 of 'grub_strcpy' from incompatible pointer type
+stage2.c:944: warning: passing argument 1 of 'grub_strcpy' from incompatible pointer type
+stage2.c:944: warning: passing argument 2 of 'grub_strcpy' from incompatible pointer type
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-terminfo.o -MD -MP -MF ".deps/pre_stage2_exec-terminfo.Tpo" -c -o pre_stage2_exec-terminfo.o `test -f 'terminfo.c' || echo './'`terminfo.c; \
+	then mv -f ".deps/pre_stage2_exec-terminfo.Tpo" ".deps/pre_stage2_exec-terminfo.Po"; else rm -f ".deps/pre_stage2_exec-terminfo.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-tparm.o -MD -MP -MF ".deps/pre_stage2_exec-tparm.Tpo" -c -o pre_stage2_exec-tparm.o `test -f 'tparm.c' || echo './'`tparm.c; \
+	then mv -f ".deps/pre_stage2_exec-tparm.Tpo" ".deps/pre_stage2_exec-tparm.Po"; else rm -f ".deps/pre_stage2_exec-tparm.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_UFS2=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_VSTAFS=1 -DFSYS_JFS=1 -DFSYS_XFS=1 -DFSYS_ISO9660=1 -DUSE_MD5_PASSWORDS=1 -m32 -Wall -g -O2 -MT pre_stage2_exec-graphics.o -MD -MP -MF ".deps/pre_stage2_exec-graphics.Tpo" -c -o pre_stage2_exec-graphics.o `test -f 'graphics.c' || echo './'`graphics.c; \
+	then mv -f ".deps/pre_stage2_exec-graphics.Tpo" ".deps/pre_stage2_exec-graphics.Po"; else rm -f ".deps/pre_stage2_exec-graphics.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o pre_stage2.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,8200 pre_stage2_exec-asm.o pre_stage2_exec-bios.o pre_stage2_exec-boot.o pre_stage2_exec-builtins.o pre_stage2_exec-char_io.o pre_stage2_exec-cmdline.o pre_stage2_exec-common.o pre_stage2_exec-console.o pre_stage2_exec-disk_io.o pre_stage2_exec-fsys_ext2fs.o pre_stage2_exec-fsys_fat.o pre_stage2_exec-fsys_ffs.o pre_stage2_exec-fsys_iso9660.o pre_stage2_exec-fsys_jfs.o pre_stage2_exec-fsys_minix.o pre_stage2_exec-fsys_reiserfs.o pre_stage2_exec-fsys_ufs2.o pre_stage2_exec-fsys_vstafs.o pre_stage2_exec-fsys_xfs.o pre_stage2_exec-gunzip.o pre_stage2_exec-hercules.o pre_stage2_exec-md5.o pre_stage2_exec-serial.o pre_stage2_exec-smp-imps.o pre_stage2_exec-stage2.o pre_stage2_exec-terminfo.o pre_stage2_exec-tparm.o pre_stage2_exec-graphics.o  
+objcopy -O binary pre_stage2.exec pre_stage2
+rm -f stage2_size.h
+set dummy `ls -l pre_stage2`; \
+	echo "#define STAGE2_SIZE $6" > stage2_size.h
+/usr/bin/make  all-am
+make[4]: Entering directory `/updates/gr/grub-0.97/stage2'
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-boot.o -MD -MP -MF ".deps/libgrub_a-boot.Tpo" -c -o libgrub_a-boot.o `test -f 'boot.c' || echo './'`boot.c; \
+	then mv -f ".deps/libgrub_a-boot.Tpo" ".deps/libgrub_a-boot.Po"; else rm -f ".deps/libgrub_a-boot.Tpo"; exit 1; fi
+boot.c: In function 'load_image':
+boot.c:69: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+boot.c:103: warning: pointer targets in passing argument 1 of 'grub_strcmp' differ in signedness
+boot.c: In function 'bsd_boot':
+boot.c:1091: warning: pointer targets in assignment differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-builtins.o -MD -MP -MF ".deps/libgrub_a-builtins.Tpo" -c -o libgrub_a-builtins.o `test -f 'builtins.c' || echo './'`builtins.c; \
+	then mv -f ".deps/libgrub_a-builtins.Tpo" ".deps/libgrub_a-builtins.Po"; else rm -f ".deps/libgrub_a-builtins.Tpo"; exit 1; fi
+builtins.c:3620: warning: 'savedefault_helper' defined but not used
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-char_io.o -MD -MP -MF ".deps/libgrub_a-char_io.Tpo" -c -o libgrub_a-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/libgrub_a-char_io.Tpo" ".deps/libgrub_a-char_io.Po"; else rm -f ".deps/libgrub_a-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-cmdline.o -MD -MP -MF ".deps/libgrub_a-cmdline.Tpo" -c -o libgrub_a-cmdline.o `test -f 'cmdline.c' || echo './'`cmdline.c; \
+	then mv -f ".deps/libgrub_a-cmdline.Tpo" ".deps/libgrub_a-cmdline.Po"; else rm -f ".deps/libgrub_a-cmdline.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-common.o -MD -MP -MF ".deps/libgrub_a-common.Tpo" -c -o libgrub_a-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/libgrub_a-common.Tpo" ".deps/libgrub_a-common.Po"; else rm -f ".deps/libgrub_a-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-disk_io.o -MD -MP -MF ".deps/libgrub_a-disk_io.Tpo" -c -o libgrub_a-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/libgrub_a-disk_io.Tpo" ".deps/libgrub_a-disk_io.Po"; else rm -f ".deps/libgrub_a-disk_io.Tpo"; exit 1; fi
+disk_io.c:131: warning: conflicting types for built-in function 'log2'
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_ext2fs.o -MD -MP -MF ".deps/libgrub_a-fsys_ext2fs.Tpo" -c -o libgrub_a-fsys_ext2fs.o `test -f 'fsys_ext2fs.c' || echo './'`fsys_ext2fs.c; \
+	then mv -f ".deps/libgrub_a-fsys_ext2fs.Tpo" ".deps/libgrub_a-fsys_ext2fs.Po"; else rm -f ".deps/libgrub_a-fsys_ext2fs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_fat.o -MD -MP -MF ".deps/libgrub_a-fsys_fat.Tpo" -c -o libgrub_a-fsys_fat.o `test -f 'fsys_fat.c' || echo './'`fsys_fat.c; \
+	then mv -f ".deps/libgrub_a-fsys_fat.Tpo" ".deps/libgrub_a-fsys_fat.Po"; else rm -f ".deps/libgrub_a-fsys_fat.Tpo"; exit 1; fi
+fsys_fat.c:58: warning: conflicting types for built-in function 'log2'
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_ffs.o -MD -MP -MF ".deps/libgrub_a-fsys_ffs.Tpo" -c -o libgrub_a-fsys_ffs.o `test -f 'fsys_ffs.c' || echo './'`fsys_ffs.c; \
+	then mv -f ".deps/libgrub_a-fsys_ffs.Tpo" ".deps/libgrub_a-fsys_ffs.Po"; else rm -f ".deps/libgrub_a-fsys_ffs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_iso9660.o -MD -MP -MF ".deps/libgrub_a-fsys_iso9660.Tpo" -c -o libgrub_a-fsys_iso9660.o `test -f 'fsys_iso9660.c' || echo './'`fsys_iso9660.c; \
+	then mv -f ".deps/libgrub_a-fsys_iso9660.Tpo" ".deps/libgrub_a-fsys_iso9660.Po"; else rm -f ".deps/libgrub_a-fsys_iso9660.Tpo"; exit 1; fi
+fsys_iso9660.c:60: warning: conflicting types for built-in function 'log2'
+fsys_iso9660.c: In function 'iso9660_mount':
+fsys_iso9660.c:123: warning: pointer targets in passing argument 1 of 'grub_memcmp' differ in signedness
+fsys_iso9660.c: In function 'iso9660_dir':
+fsys_iso9660.c:178: warning: pointer targets in initialization differ in signedness
+fsys_iso9660.c:203: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:231: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:332: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:334: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:336: warning: pointer targets in passing argument 4 of 'iso9660_devread' differ in signedness
+fsys_iso9660.c:384: warning: pointer targets in passing argument 1 of 'print_a_completion' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_jfs.o -MD -MP -MF ".deps/libgrub_a-fsys_jfs.Tpo" -c -o libgrub_a-fsys_jfs.o `test -f 'fsys_jfs.c' || echo './'`fsys_jfs.c; \
+	then mv -f ".deps/libgrub_a-fsys_jfs.Tpo" ".deps/libgrub_a-fsys_jfs.Po"; else rm -f ".deps/libgrub_a-fsys_jfs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_minix.o -MD -MP -MF ".deps/libgrub_a-fsys_minix.Tpo" -c -o libgrub_a-fsys_minix.o `test -f 'fsys_minix.c' || echo './'`fsys_minix.c; \
+	then mv -f ".deps/libgrub_a-fsys_minix.Tpo" ".deps/libgrub_a-fsys_minix.Po"; else rm -f ".deps/libgrub_a-fsys_minix.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_reiserfs.o -MD -MP -MF ".deps/libgrub_a-fsys_reiserfs.Tpo" -c -o libgrub_a-fsys_reiserfs.o `test -f 'fsys_reiserfs.c' || echo './'`fsys_reiserfs.c; \
+	then mv -f ".deps/libgrub_a-fsys_reiserfs.Tpo" ".deps/libgrub_a-fsys_reiserfs.Po"; else rm -f ".deps/libgrub_a-fsys_reiserfs.Tpo"; exit 1; fi
+fsys_reiserfs.c:370: warning: conflicting types for built-in function 'log2'
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_ufs2.o -MD -MP -MF ".deps/libgrub_a-fsys_ufs2.Tpo" -c -o libgrub_a-fsys_ufs2.o `test -f 'fsys_ufs2.c' || echo './'`fsys_ufs2.c; \
+	then mv -f ".deps/libgrub_a-fsys_ufs2.Tpo" ".deps/libgrub_a-fsys_ufs2.Po"; else rm -f ".deps/libgrub_a-fsys_ufs2.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_vstafs.o -MD -MP -MF ".deps/libgrub_a-fsys_vstafs.Tpo" -c -o libgrub_a-fsys_vstafs.o `test -f 'fsys_vstafs.c' || echo './'`fsys_vstafs.c; \
+	then mv -f ".deps/libgrub_a-fsys_vstafs.Tpo" ".deps/libgrub_a-fsys_vstafs.Po"; else rm -f ".deps/libgrub_a-fsys_vstafs.Tpo"; exit 1; fi
+fsys_vstafs.c: In function 'vstafs_read':
+fsys_vstafs.c:189: warning: declaration of 'a' shadows a global declaration
+fsys_vstafs.c:66: warning: shadowed declaration is here
+fsys_vstafs.c:191: warning: declaration of 'curr_ext' shadows a global declaration
+fsys_vstafs.c:65: warning: shadowed declaration is here
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-fsys_xfs.o -MD -MP -MF ".deps/libgrub_a-fsys_xfs.Tpo" -c -o libgrub_a-fsys_xfs.o `test -f 'fsys_xfs.c' || echo './'`fsys_xfs.c; \
+	then mv -f ".deps/libgrub_a-fsys_xfs.Tpo" ".deps/libgrub_a-fsys_xfs.Po"; else rm -f ".deps/libgrub_a-fsys_xfs.Tpo"; exit 1; fi
+fsys_xfs.c: In function 'next_dentry':
+fsys_xfs.c:371: warning: pointer targets in assignment differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-gunzip.o -MD -MP -MF ".deps/libgrub_a-gunzip.Tpo" -c -o libgrub_a-gunzip.o `test -f 'gunzip.c' || echo './'`gunzip.c; \
+	then mv -f ".deps/libgrub_a-gunzip.Tpo" ".deps/libgrub_a-gunzip.Po"; else rm -f ".deps/libgrub_a-gunzip.Tpo"; exit 1; fi
+gunzip.c: In function 'gunzip_test_header':
+gunzip.c:280: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c:296: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c:311: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+gunzip.c: In function 'get_byte':
+gunzip.c:497: warning: pointer targets in passing argument 1 of 'grub_read' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-md5.o -MD -MP -MF ".deps/libgrub_a-md5.Tpo" -c -o libgrub_a-md5.o `test -f 'md5.c' || echo './'`md5.c; \
+	then mv -f ".deps/libgrub_a-md5.Tpo" ".deps/libgrub_a-md5.Po"; else rm -f ".deps/libgrub_a-md5.Tpo"; exit 1; fi
+md5.c: In function 'md5_update':
+md5.c:169: warning: pointer targets in passing argument 1 of 'md5_transform' differ in signedness
+md5.c: In function 'md5_password':
+md5.c:249: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:250: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:265: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+md5.c:274: warning: pointer targets in passing argument 1 of 'md5_update' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-serial.o -MD -MP -MF ".deps/libgrub_a-serial.Tpo" -c -o libgrub_a-serial.o `test -f 'serial.c' || echo './'`serial.c; \
+	then mv -f ".deps/libgrub_a-serial.Tpo" ".deps/libgrub_a-serial.Po"; else rm -f ".deps/libgrub_a-serial.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-stage2.o -MD -MP -MF ".deps/libgrub_a-stage2.Tpo" -c -o libgrub_a-stage2.o `test -f 'stage2.c' || echo './'`stage2.c; \
+	then mv -f ".deps/libgrub_a-stage2.Tpo" ".deps/libgrub_a-stage2.Po"; else rm -f ".deps/libgrub_a-stage2.Tpo"; exit 1; fi
+stage2.c: In function 'cmain':
+stage2.c:941: warning: value computed is not used
+stage2.c:942: warning: passing argument 1 of 'grub_strcpy' from incompatible pointer type
+stage2.c:942: warning: passing argument 2 of 'grub_strcpy' from incompatible pointer type
+stage2.c:944: warning: passing argument 1 of 'grub_strcpy' from incompatible pointer type
+stage2.c:944: warning: passing argument 2 of 'grub_strcpy' from incompatible pointer type
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-terminfo.o -MD -MP -MF ".deps/libgrub_a-terminfo.Tpo" -c -o libgrub_a-terminfo.o `test -f 'terminfo.c' || echo './'`terminfo.c; \
+	then mv -f ".deps/libgrub_a-terminfo.Tpo" ".deps/libgrub_a-terminfo.Po"; else rm -f ".deps/libgrub_a-terminfo.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-tparm.o -MD -MP -MF ".deps/libgrub_a-tparm.Tpo" -c -o libgrub_a-tparm.o `test -f 'tparm.c' || echo './'`tparm.c; \
+	then mv -f ".deps/libgrub_a-tparm.Tpo" ".deps/libgrub_a-tparm.Po"; else rm -f ".deps/libgrub_a-tparm.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../lib -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -m32 -Wall -g -O2 -MT libgrub_a-graphics.o -MD -MP -MF ".deps/libgrub_a-graphics.Tpo" -c -o libgrub_a-graphics.o `test -f 'graphics.c' || echo './'`graphics.c; \
+	then mv -f ".deps/libgrub_a-graphics.Tpo" ".deps/libgrub_a-graphics.Po"; else rm -f ".deps/libgrub_a-graphics.Tpo"; exit 1; fi
+rm -f libgrub.a
+ar cru libgrub.a libgrub_a-boot.o libgrub_a-builtins.o libgrub_a-char_io.o libgrub_a-cmdline.o libgrub_a-common.o libgrub_a-disk_io.o libgrub_a-fsys_ext2fs.o libgrub_a-fsys_fat.o libgrub_a-fsys_ffs.o libgrub_a-fsys_iso9660.o libgrub_a-fsys_jfs.o libgrub_a-fsys_minix.o libgrub_a-fsys_reiserfs.o libgrub_a-fsys_ufs2.o libgrub_a-fsys_vstafs.o libgrub_a-fsys_xfs.o libgrub_a-gunzip.o libgrub_a-md5.o libgrub_a-serial.o libgrub_a-stage2.o libgrub_a-terminfo.o libgrub_a-tparm.o libgrub_a-graphics.o 
+ranlib libgrub.a
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o start_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o start.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,8000 start_exec-start.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o start_eltorito_exec-start_eltorito.o `test -f 'start_eltorito.S' || echo './'`start_eltorito.S
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o start_eltorito.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,7C00 start_eltorito_exec-start_eltorito.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o e2fs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o e2fs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-common.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-common.Tpo" -c -o e2fs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-common.Tpo" ".deps/e2fs_stage1_5_exec-common.Po"; else rm -f ".deps/e2fs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-char_io.Tpo" -c -o e2fs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-char_io.Tpo" ".deps/e2fs_stage1_5_exec-char_io.Po"; else rm -f ".deps/e2fs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-disk_io.Tpo" -c -o e2fs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-disk_io.Tpo" ".deps/e2fs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/e2fs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-stage1_5.Tpo" -c -o e2fs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-stage1_5.Tpo" ".deps/e2fs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/e2fs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-fsys_ext2fs.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-fsys_ext2fs.Tpo" -c -o e2fs_stage1_5_exec-fsys_ext2fs.o `test -f 'fsys_ext2fs.c' || echo './'`fsys_ext2fs.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-fsys_ext2fs.Tpo" ".deps/e2fs_stage1_5_exec-fsys_ext2fs.Po"; else rm -f ".deps/e2fs_stage1_5_exec-fsys_ext2fs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_EXT2FS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT e2fs_stage1_5_exec-bios.o -MD -MP -MF ".deps/e2fs_stage1_5_exec-bios.Tpo" -c -o e2fs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/e2fs_stage1_5_exec-bios.Tpo" ".deps/e2fs_stage1_5_exec-bios.Po"; else rm -f ".deps/e2fs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o e2fs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 e2fs_stage1_5_exec-start.o e2fs_stage1_5_exec-asm.o e2fs_stage1_5_exec-common.o e2fs_stage1_5_exec-char_io.o e2fs_stage1_5_exec-disk_io.o e2fs_stage1_5_exec-stage1_5.o e2fs_stage1_5_exec-fsys_ext2fs.o e2fs_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o fat_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o fat_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-common.o -MD -MP -MF ".deps/fat_stage1_5_exec-common.Tpo" -c -o fat_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/fat_stage1_5_exec-common.Tpo" ".deps/fat_stage1_5_exec-common.Po"; else rm -f ".deps/fat_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-char_io.o -MD -MP -MF ".deps/fat_stage1_5_exec-char_io.Tpo" -c -o fat_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/fat_stage1_5_exec-char_io.Tpo" ".deps/fat_stage1_5_exec-char_io.Po"; else rm -f ".deps/fat_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/fat_stage1_5_exec-disk_io.Tpo" -c -o fat_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/fat_stage1_5_exec-disk_io.Tpo" ".deps/fat_stage1_5_exec-disk_io.Po"; else rm -f ".deps/fat_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/fat_stage1_5_exec-stage1_5.Tpo" -c -o fat_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/fat_stage1_5_exec-stage1_5.Tpo" ".deps/fat_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/fat_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-fsys_fat.o -MD -MP -MF ".deps/fat_stage1_5_exec-fsys_fat.Tpo" -c -o fat_stage1_5_exec-fsys_fat.o `test -f 'fsys_fat.c' || echo './'`fsys_fat.c; \
+	then mv -f ".deps/fat_stage1_5_exec-fsys_fat.Tpo" ".deps/fat_stage1_5_exec-fsys_fat.Po"; else rm -f ".deps/fat_stage1_5_exec-fsys_fat.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FAT=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT fat_stage1_5_exec-bios.o -MD -MP -MF ".deps/fat_stage1_5_exec-bios.Tpo" -c -o fat_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/fat_stage1_5_exec-bios.Tpo" ".deps/fat_stage1_5_exec-bios.Po"; else rm -f ".deps/fat_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o fat_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 fat_stage1_5_exec-start.o fat_stage1_5_exec-asm.o fat_stage1_5_exec-common.o fat_stage1_5_exec-char_io.o fat_stage1_5_exec-disk_io.o fat_stage1_5_exec-stage1_5.o fat_stage1_5_exec-fsys_fat.o fat_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o ffs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o ffs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-common.o -MD -MP -MF ".deps/ffs_stage1_5_exec-common.Tpo" -c -o ffs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-common.Tpo" ".deps/ffs_stage1_5_exec-common.Po"; else rm -f ".deps/ffs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/ffs_stage1_5_exec-char_io.Tpo" -c -o ffs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-char_io.Tpo" ".deps/ffs_stage1_5_exec-char_io.Po"; else rm -f ".deps/ffs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/ffs_stage1_5_exec-disk_io.Tpo" -c -o ffs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-disk_io.Tpo" ".deps/ffs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/ffs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/ffs_stage1_5_exec-stage1_5.Tpo" -c -o ffs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-stage1_5.Tpo" ".deps/ffs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/ffs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-fsys_ffs.o -MD -MP -MF ".deps/ffs_stage1_5_exec-fsys_ffs.Tpo" -c -o ffs_stage1_5_exec-fsys_ffs.o `test -f 'fsys_ffs.c' || echo './'`fsys_ffs.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-fsys_ffs.Tpo" ".deps/ffs_stage1_5_exec-fsys_ffs.Po"; else rm -f ".deps/ffs_stage1_5_exec-fsys_ffs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_FFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ffs_stage1_5_exec-bios.o -MD -MP -MF ".deps/ffs_stage1_5_exec-bios.Tpo" -c -o ffs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/ffs_stage1_5_exec-bios.Tpo" ".deps/ffs_stage1_5_exec-bios.Po"; else rm -f ".deps/ffs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o ffs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 ffs_stage1_5_exec-start.o ffs_stage1_5_exec-asm.o ffs_stage1_5_exec-common.o ffs_stage1_5_exec-char_io.o ffs_stage1_5_exec-disk_io.o ffs_stage1_5_exec-stage1_5.o ffs_stage1_5_exec-fsys_ffs.o ffs_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o iso9660_stage1_5_exec-start_eltorito.o `test -f 'start_eltorito.S' || echo './'`start_eltorito.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o iso9660_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-common.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-common.Tpo" -c -o iso9660_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-common.Tpo" ".deps/iso9660_stage1_5_exec-common.Po"; else rm -f ".deps/iso9660_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-char_io.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-char_io.Tpo" -c -o iso9660_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-char_io.Tpo" ".deps/iso9660_stage1_5_exec-char_io.Po"; else rm -f ".deps/iso9660_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-disk_io.Tpo" -c -o iso9660_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-disk_io.Tpo" ".deps/iso9660_stage1_5_exec-disk_io.Po"; else rm -f ".deps/iso9660_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-stage1_5.Tpo" -c -o iso9660_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-stage1_5.Tpo" ".deps/iso9660_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/iso9660_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-fsys_iso9660.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-fsys_iso9660.Tpo" -c -o iso9660_stage1_5_exec-fsys_iso9660.o `test -f 'fsys_iso9660.c' || echo './'`fsys_iso9660.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-fsys_iso9660.Tpo" ".deps/iso9660_stage1_5_exec-fsys_iso9660.Po"; else rm -f ".deps/iso9660_stage1_5_exec-fsys_iso9660.Tpo"; exit 1; fi
+fsys_iso9660.c: In function 'iso9660_mount':
+fsys_iso9660.c:123: warning: pointer targets in passing argument 1 of 'grub_memcmp' differ in signedness
+fsys_iso9660.c: In function 'iso9660_dir':
+fsys_iso9660.c:178: warning: pointer targets in initialization differ in signedness
+fsys_iso9660.c:203: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:231: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:332: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:334: warning: pointer targets in assignment differ in signedness
+fsys_iso9660.c:336: warning: pointer targets in passing argument 4 of 'iso9660_devread' differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_ISO9660=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT iso9660_stage1_5_exec-bios.o -MD -MP -MF ".deps/iso9660_stage1_5_exec-bios.Tpo" -c -o iso9660_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/iso9660_stage1_5_exec-bios.Tpo" ".deps/iso9660_stage1_5_exec-bios.Po"; else rm -f ".deps/iso9660_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o iso9660_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 iso9660_stage1_5_exec-start_eltorito.o iso9660_stage1_5_exec-asm.o iso9660_stage1_5_exec-common.o iso9660_stage1_5_exec-char_io.o iso9660_stage1_5_exec-disk_io.o iso9660_stage1_5_exec-stage1_5.o iso9660_stage1_5_exec-fsys_iso9660.o iso9660_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o jfs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o jfs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-common.o -MD -MP -MF ".deps/jfs_stage1_5_exec-common.Tpo" -c -o jfs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-common.Tpo" ".deps/jfs_stage1_5_exec-common.Po"; else rm -f ".deps/jfs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/jfs_stage1_5_exec-char_io.Tpo" -c -o jfs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-char_io.Tpo" ".deps/jfs_stage1_5_exec-char_io.Po"; else rm -f ".deps/jfs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/jfs_stage1_5_exec-disk_io.Tpo" -c -o jfs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-disk_io.Tpo" ".deps/jfs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/jfs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/jfs_stage1_5_exec-stage1_5.Tpo" -c -o jfs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-stage1_5.Tpo" ".deps/jfs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/jfs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-fsys_jfs.o -MD -MP -MF ".deps/jfs_stage1_5_exec-fsys_jfs.Tpo" -c -o jfs_stage1_5_exec-fsys_jfs.o `test -f 'fsys_jfs.c' || echo './'`fsys_jfs.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-fsys_jfs.Tpo" ".deps/jfs_stage1_5_exec-fsys_jfs.Po"; else rm -f ".deps/jfs_stage1_5_exec-fsys_jfs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_JFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT jfs_stage1_5_exec-bios.o -MD -MP -MF ".deps/jfs_stage1_5_exec-bios.Tpo" -c -o jfs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/jfs_stage1_5_exec-bios.Tpo" ".deps/jfs_stage1_5_exec-bios.Po"; else rm -f ".deps/jfs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o jfs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 jfs_stage1_5_exec-start.o jfs_stage1_5_exec-asm.o jfs_stage1_5_exec-common.o jfs_stage1_5_exec-char_io.o jfs_stage1_5_exec-disk_io.o jfs_stage1_5_exec-stage1_5.o jfs_stage1_5_exec-fsys_jfs.o jfs_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o minix_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o minix_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-common.o -MD -MP -MF ".deps/minix_stage1_5_exec-common.Tpo" -c -o minix_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/minix_stage1_5_exec-common.Tpo" ".deps/minix_stage1_5_exec-common.Po"; else rm -f ".deps/minix_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-char_io.o -MD -MP -MF ".deps/minix_stage1_5_exec-char_io.Tpo" -c -o minix_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/minix_stage1_5_exec-char_io.Tpo" ".deps/minix_stage1_5_exec-char_io.Po"; else rm -f ".deps/minix_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/minix_stage1_5_exec-disk_io.Tpo" -c -o minix_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/minix_stage1_5_exec-disk_io.Tpo" ".deps/minix_stage1_5_exec-disk_io.Po"; else rm -f ".deps/minix_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/minix_stage1_5_exec-stage1_5.Tpo" -c -o minix_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/minix_stage1_5_exec-stage1_5.Tpo" ".deps/minix_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/minix_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-fsys_minix.o -MD -MP -MF ".deps/minix_stage1_5_exec-fsys_minix.Tpo" -c -o minix_stage1_5_exec-fsys_minix.o `test -f 'fsys_minix.c' || echo './'`fsys_minix.c; \
+	then mv -f ".deps/minix_stage1_5_exec-fsys_minix.Tpo" ".deps/minix_stage1_5_exec-fsys_minix.Po"; else rm -f ".deps/minix_stage1_5_exec-fsys_minix.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_MINIX=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT minix_stage1_5_exec-bios.o -MD -MP -MF ".deps/minix_stage1_5_exec-bios.Tpo" -c -o minix_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/minix_stage1_5_exec-bios.Tpo" ".deps/minix_stage1_5_exec-bios.Po"; else rm -f ".deps/minix_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o minix_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 minix_stage1_5_exec-start.o minix_stage1_5_exec-asm.o minix_stage1_5_exec-common.o minix_stage1_5_exec-char_io.o minix_stage1_5_exec-disk_io.o minix_stage1_5_exec-stage1_5.o minix_stage1_5_exec-fsys_minix.o minix_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o reiserfs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o reiserfs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-common.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-common.Tpo" -c -o reiserfs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-common.Tpo" ".deps/reiserfs_stage1_5_exec-common.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-char_io.Tpo" -c -o reiserfs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-char_io.Tpo" ".deps/reiserfs_stage1_5_exec-char_io.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-disk_io.Tpo" -c -o reiserfs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-disk_io.Tpo" ".deps/reiserfs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-stage1_5.Tpo" -c -o reiserfs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-stage1_5.Tpo" ".deps/reiserfs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-fsys_reiserfs.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-fsys_reiserfs.Tpo" -c -o reiserfs_stage1_5_exec-fsys_reiserfs.o `test -f 'fsys_reiserfs.c' || echo './'`fsys_reiserfs.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-fsys_reiserfs.Tpo" ".deps/reiserfs_stage1_5_exec-fsys_reiserfs.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-fsys_reiserfs.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_REISERFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT reiserfs_stage1_5_exec-bios.o -MD -MP -MF ".deps/reiserfs_stage1_5_exec-bios.Tpo" -c -o reiserfs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/reiserfs_stage1_5_exec-bios.Tpo" ".deps/reiserfs_stage1_5_exec-bios.Po"; else rm -f ".deps/reiserfs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o reiserfs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 reiserfs_stage1_5_exec-start.o reiserfs_stage1_5_exec-asm.o reiserfs_stage1_5_exec-common.o reiserfs_stage1_5_exec-char_io.o reiserfs_stage1_5_exec-disk_io.o reiserfs_stage1_5_exec-stage1_5.o reiserfs_stage1_5_exec-fsys_reiserfs.o reiserfs_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o ufs2_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o ufs2_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-common.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-common.Tpo" -c -o ufs2_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-common.Tpo" ".deps/ufs2_stage1_5_exec-common.Po"; else rm -f ".deps/ufs2_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-char_io.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-char_io.Tpo" -c -o ufs2_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-char_io.Tpo" ".deps/ufs2_stage1_5_exec-char_io.Po"; else rm -f ".deps/ufs2_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-disk_io.Tpo" -c -o ufs2_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-disk_io.Tpo" ".deps/ufs2_stage1_5_exec-disk_io.Po"; else rm -f ".deps/ufs2_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-stage1_5.Tpo" -c -o ufs2_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-stage1_5.Tpo" ".deps/ufs2_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/ufs2_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-fsys_ufs2.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-fsys_ufs2.Tpo" -c -o ufs2_stage1_5_exec-fsys_ufs2.o `test -f 'fsys_ufs2.c' || echo './'`fsys_ufs2.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-fsys_ufs2.Tpo" ".deps/ufs2_stage1_5_exec-fsys_ufs2.Po"; else rm -f ".deps/ufs2_stage1_5_exec-fsys_ufs2.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_UFS2=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT ufs2_stage1_5_exec-bios.o -MD -MP -MF ".deps/ufs2_stage1_5_exec-bios.Tpo" -c -o ufs2_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/ufs2_stage1_5_exec-bios.Tpo" ".deps/ufs2_stage1_5_exec-bios.Po"; else rm -f ".deps/ufs2_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o ufs2_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 ufs2_stage1_5_exec-start.o ufs2_stage1_5_exec-asm.o ufs2_stage1_5_exec-common.o ufs2_stage1_5_exec-char_io.o ufs2_stage1_5_exec-disk_io.o ufs2_stage1_5_exec-stage1_5.o ufs2_stage1_5_exec-fsys_ufs2.o ufs2_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o vstafs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o vstafs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-common.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-common.Tpo" -c -o vstafs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-common.Tpo" ".deps/vstafs_stage1_5_exec-common.Po"; else rm -f ".deps/vstafs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-char_io.Tpo" -c -o vstafs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-char_io.Tpo" ".deps/vstafs_stage1_5_exec-char_io.Po"; else rm -f ".deps/vstafs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-disk_io.Tpo" -c -o vstafs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-disk_io.Tpo" ".deps/vstafs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/vstafs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-stage1_5.Tpo" -c -o vstafs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-stage1_5.Tpo" ".deps/vstafs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/vstafs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-fsys_vstafs.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-fsys_vstafs.Tpo" -c -o vstafs_stage1_5_exec-fsys_vstafs.o `test -f 'fsys_vstafs.c' || echo './'`fsys_vstafs.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-fsys_vstafs.Tpo" ".deps/vstafs_stage1_5_exec-fsys_vstafs.Po"; else rm -f ".deps/vstafs_stage1_5_exec-fsys_vstafs.Tpo"; exit 1; fi
+fsys_vstafs.c: In function 'vstafs_read':
+fsys_vstafs.c:189: warning: declaration of 'a' shadows a global declaration
+fsys_vstafs.c:66: warning: shadowed declaration is here
+fsys_vstafs.c:191: warning: declaration of 'curr_ext' shadows a global declaration
+fsys_vstafs.c:65: warning: shadowed declaration is here
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_VSTAFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT vstafs_stage1_5_exec-bios.o -MD -MP -MF ".deps/vstafs_stage1_5_exec-bios.Tpo" -c -o vstafs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/vstafs_stage1_5_exec-bios.Tpo" ".deps/vstafs_stage1_5_exec-bios.Po"; else rm -f ".deps/vstafs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o vstafs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 vstafs_stage1_5_exec-start.o vstafs_stage1_5_exec-asm.o vstafs_stage1_5_exec-common.o vstafs_stage1_5_exec-char_io.o vstafs_stage1_5_exec-disk_io.o vstafs_stage1_5_exec-stage1_5.o vstafs_stage1_5_exec-fsys_vstafs.o vstafs_stage1_5_exec-bios.o  
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o xfs_stage1_5_exec-start.o `test -f 'start.S' || echo './'`start.S
+gcc  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1 -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c -o xfs_stage1_5_exec-asm.o `test -f 'asm.S' || echo './'`asm.S
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-common.o -MD -MP -MF ".deps/xfs_stage1_5_exec-common.Tpo" -c -o xfs_stage1_5_exec-common.o `test -f 'common.c' || echo './'`common.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-common.Tpo" ".deps/xfs_stage1_5_exec-common.Po"; else rm -f ".deps/xfs_stage1_5_exec-common.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-char_io.o -MD -MP -MF ".deps/xfs_stage1_5_exec-char_io.Tpo" -c -o xfs_stage1_5_exec-char_io.o `test -f 'char_io.c' || echo './'`char_io.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-char_io.Tpo" ".deps/xfs_stage1_5_exec-char_io.Po"; else rm -f ".deps/xfs_stage1_5_exec-char_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-disk_io.o -MD -MP -MF ".deps/xfs_stage1_5_exec-disk_io.Tpo" -c -o xfs_stage1_5_exec-disk_io.o `test -f 'disk_io.c' || echo './'`disk_io.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-disk_io.Tpo" ".deps/xfs_stage1_5_exec-disk_io.Po"; else rm -f ".deps/xfs_stage1_5_exec-disk_io.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-stage1_5.o -MD -MP -MF ".deps/xfs_stage1_5_exec-stage1_5.Tpo" -c -o xfs_stage1_5_exec-stage1_5.o `test -f 'stage1_5.c' || echo './'`stage1_5.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-stage1_5.Tpo" ".deps/xfs_stage1_5_exec-stage1_5.Po"; else rm -f ".deps/xfs_stage1_5_exec-stage1_5.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-fsys_xfs.o -MD -MP -MF ".deps/xfs_stage1_5_exec-fsys_xfs.Tpo" -c -o xfs_stage1_5_exec-fsys_xfs.o `test -f 'fsys_xfs.c' || echo './'`fsys_xfs.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-fsys_xfs.Tpo" ".deps/xfs_stage1_5_exec-fsys_xfs.Po"; else rm -f ".deps/xfs_stage1_5_exec-fsys_xfs.Tpo"; exit 1; fi
+fsys_xfs.c: In function 'next_dentry':
+fsys_xfs.c:371: warning: pointer targets in assignment differ in signedness
+if gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../stage1  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -fno-builtin -nostdinc  -DSUPPORT_SERIAL=1 -DSUPPORT_HERCULES=1 -DSUPPORT_GRAPHICS=1 -DNO_DECOMPRESSION=1 -DSTAGE1_5=1 -DFSYS_XFS=1 -DNO_BLOCK_FILES=1 -m32 -Wall -g -O2 -MT xfs_stage1_5_exec-bios.o -MD -MP -MF ".deps/xfs_stage1_5_exec-bios.Tpo" -c -o xfs_stage1_5_exec-bios.o `test -f 'bios.c' || echo './'`bios.c; \
+	then mv -f ".deps/xfs_stage1_5_exec-bios.Tpo" ".deps/xfs_stage1_5_exec-bios.Po"; else rm -f ".deps/xfs_stage1_5_exec-bios.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o xfs_stage1_5.exec -nostdlib -Wl,-N -Wl,-Ttext -Wl,2000 xfs_stage1_5_exec-start.o xfs_stage1_5_exec-asm.o xfs_stage1_5_exec-common.o xfs_stage1_5_exec-char_io.o xfs_stage1_5_exec-disk_io.o xfs_stage1_5_exec-stage1_5.o xfs_stage1_5_exec-fsys_xfs.o xfs_stage1_5_exec-bios.o  
+objcopy -O binary start.exec start
+objcopy -O binary start_eltorito.exec start_eltorito
+rm -f stage2
+cat start pre_stage2 > stage2
+rm -f stage2_eltorito
+cat start_eltorito pre_stage2 > stage2_eltorito
+objcopy -O binary e2fs_stage1_5.exec e2fs_stage1_5
+objcopy -O binary fat_stage1_5.exec fat_stage1_5
+objcopy -O binary ffs_stage1_5.exec ffs_stage1_5
+objcopy -O binary iso9660_stage1_5.exec iso9660_stage1_5
+objcopy -O binary jfs_stage1_5.exec jfs_stage1_5
+objcopy -O binary minix_stage1_5.exec minix_stage1_5
+objcopy -O binary reiserfs_stage1_5.exec reiserfs_stage1_5
+objcopy -O binary ufs2_stage1_5.exec ufs2_stage1_5
+objcopy -O binary vstafs_stage1_5.exec vstafs_stage1_5
+objcopy -O binary xfs_stage1_5.exec xfs_stage1_5
+make[4]: Leaving directory `/updates/gr/grub-0.97/stage2'
+make[3]: Leaving directory `/updates/gr/grub-0.97/stage2'
+Making all in stage1
+make[3]: Entering directory `/updates/gr/grub-0.97/stage1'
+gcc  -fno-builtin -nostdinc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -m32 -Wall -g -O2 -c stage1.S
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o stage1.exec -nostdlib -Wl,-N,-Ttext,7C00 stage1.o  
+objcopy -O binary stage1.exec stage1
+make[3]: Leaving directory `/updates/gr/grub-0.97/stage1'
+Making all in lib
+make[3]: Entering directory `/updates/gr/grub-0.97/lib'
+if gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../stage2 -I../stage1 -m32 -Wall -g -O2 -MT getopt.o -MD -MP -MF ".deps/getopt.Tpo" -c -o getopt.o getopt.c; \
+	then mv -f ".deps/getopt.Tpo" ".deps/getopt.Po"; else rm -f ".deps/getopt.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../stage2 -I../stage1 -m32 -Wall -g -O2 -MT getopt1.o -MD -MP -MF ".deps/getopt1.Tpo" -c -o getopt1.o getopt1.c; \
+	then mv -f ".deps/getopt1.Tpo" ".deps/getopt1.Po"; else rm -f ".deps/getopt1.Tpo"; exit 1; fi
+if gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -I../stage2 -I../stage1 -m32 -Wall -g -O2 -MT device.o -MD -MP -MF ".deps/device.Tpo" -c -o device.o device.c; \
+	then mv -f ".deps/device.Tpo" ".deps/device.Po"; else rm -f ".deps/device.Tpo"; exit 1; fi
+rm -f libcommon.a
+ar cru libcommon.a getopt.o getopt1.o device.o 
+ranlib libcommon.a
+make[3]: Leaving directory `/updates/gr/grub-0.97/lib'
+Making all in grub
+make[3]: Entering directory `/updates/gr/grub-0.97/grub'
+if gcc -DHAVE_CONFIG_H -I. -I. -I..  -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_HERCULES=1 -DSUPPORT_SERIAL=1  -I../stage2 -I../stage1 -I../lib -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -m32 -Wall -g -O2 -MT main.o -MD -MP -MF ".deps/main.Tpo" -c -o main.o main.c; \
+	then mv -f ".deps/main.Tpo" ".deps/main.Po"; else rm -f ".deps/main.Tpo"; exit 1; fi
+main.c: In function 'main':
+main.c:144: warning: the address of 'config_file' will always evaluate as 'true'
+if gcc -DHAVE_CONFIG_H -I. -I. -I..  -DGRUB_UTIL=1 -DFSYS_EXT2FS=1 -DFSYS_FAT=1 -DFSYS_FFS=1 -DFSYS_ISO9660=1 -DFSYS_JFS=1 -DFSYS_MINIX=1 -DFSYS_REISERFS=1 -DFSYS_UFS2=1 -DFSYS_VSTAFS=1 -DFSYS_XFS=1 -DUSE_MD5_PASSWORDS=1 -DSUPPORT_HERCULES=1 -DSUPPORT_SERIAL=1  -I../stage2 -I../stage1 -I../lib -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef  -m32 -Wall -g -O2 -MT asmstub.o -MD -MP -MF ".deps/asmstub.Tpo" -c -o asmstub.o asmstub.c; \
+	then mv -f ".deps/asmstub.Tpo" ".deps/asmstub.Po"; else rm -f ".deps/asmstub.Tpo"; exit 1; fi
+gcc  -m32 -Wall -g -O2  -static -Wl,--build-id=none -o grub  main.o asmstub.o ../stage2/libgrub.a  ../lib/libcommon.a  
+make[3]: Leaving directory `/updates/gr/grub-0.97/grub'
+Making all in util
+make[3]: Entering directory `/updates/gr/grub-0.97/util'
+if gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wall -Wmissing-prototypes -Wunused -Wshadow -Wpointer-arith -falign-jumps=1 -falign-loops=1 -falign-functions=1 -Wundef -I../lib -I../docs -m32 -Wall -g -O2 -MT mbchk.o -MD -MP -MF ".deps/mbchk.Tpo" -c -o mbchk.o mbchk.c; \
+	then mv -f ".deps/mbchk.Tpo" ".deps/mbchk.Po"; else rm -f ".deps/mbchk.Tpo"; exit 1; fi
+gcc -I../lib -I../docs -m32 -Wall -g -O2  -static -Wl,--build-id=none -o mbchk  mbchk.o ../lib/libcommon.a 
+make[3]: Leaving directory `/updates/gr/grub-0.97/util'
+Making all in docs
+make[3]: Entering directory `/updates/gr/grub-0.97/docs'
+restore=: && backupdir=".am$$" && \
+	am__cwd=`pwd` && cd . && \
+	rm -rf $backupdir && mkdir $backupdir && \
+	if (/bin/sh /updates/gr/grub-0.97/missing --run makeinfo --version) >/dev/null 2>&1; then \
+	  for f in grub.info grub.info-[0-9] grub.info-[0-9][0-9] grub.i[0-9] grub.i[0-9][0-9]; do \
+	    if test -f $f; then mv $f $backupdir; restore=mv; else :; fi; \
+	  done; \
+	else :; fi && \
+	cd "$am__cwd"; \
+	if /bin/sh /updates/gr/grub-0.97/missing --run makeinfo   -I . \
+	 -o grub.info grub.texi; \
+	then \
+	  rc=0; \
+	  cd .; \
+	else \
+	  rc=$?; \
+	  cd . && \
+	  $restore $backupdir/* `echo "./grub.info" | sed 's|[^/]*$||'`; \
+	fi; \
+	rm -rf $backupdir; exit $rc
+restore=: && backupdir=".am$$" && \
+	am__cwd=`pwd` && cd . && \
+	rm -rf $backupdir && mkdir $backupdir && \
+	if (/bin/sh /updates/gr/grub-0.97/missing --run makeinfo --version) >/dev/null 2>&1; then \
+	  for f in multiboot.info multiboot.info-[0-9] multiboot.info-[0-9][0-9] multiboot.i[0-9] multiboot.i[0-9][0-9]; do \
+	    if test -f $f; then mv $f $backupdir; restore=mv; else :; fi; \
+	  done; \
+	else :; fi && \
+	cd "$am__cwd"; \
+	if /bin/sh /updates/gr/grub-0.97/missing --run makeinfo   -I . \
+	 -o multiboot.info multiboot.texi; \
+	then \
+	  rc=0; \
+	  cd .; \
+	else \
+	  rc=$?; \
+	  cd . && \
+	  $restore $backupdir/* `echo "./multiboot.info" | sed 's|[^/]*$||'`; \
+	fi; \
+	rm -rf $backupdir; exit $rc
+make[3]: Leaving directory `/updates/gr/grub-0.97/docs'
+make[3]: Entering directory `/updates/gr/grub-0.97'
+make[3]: Für das Ziel »all-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97'
+make[2]: Leaving directory `/updates/gr/grub-0.97'
+make[1]: Leaving directory `/updates/gr/grub-0.97'
+## the creation of these manpages here is temporary,
+## when building grub finally works with the version
+## of autoconf in debian we can use MAINTAINER_MODE_TRUE
+# create man page for grub
+( cd docs && ./help2man \
+	--name="the grub shell" \
+	--include=grub.8.additions \
+	--section=8 --output=grub.8 \
+	../grub/grub )
+# create man page for grub-install
+( cd util && chmod 755 grub-install )
+( cd docs && ./help2man \
+	--name="install GRUB on your drive" \
+	--include=grub-install.8.additions \
+	--section=8 --output=grub-install.8 \
+	../util/grub-install )
+# create man page for mbchk
+( cd docs && ./help2man \
+	--name="check the format of a Multiboot kernel" \
+	--section=1 --output=mbchk.1 \
+	../util/mbchk )
+# create man page for grub-md5-crypt
+( cd util && chmod 755 grub-md5-crypt )
+( cd docs && ./help2man \
+	--name="Encrypt a password in MD5 format" \
+	--section=8 --output=grub-md5-crypt.8 \
+	../util/grub-md5-crypt )
+touch build-arch-stamp
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_clean -k -s 
+dh_installdirs -s
+# Add here commands to install the package into debian/grub.
+/usr/bin/make install DESTDIR=/updates/gr/grub-0.97/debian/grub/
+make[1]: Entering directory `/updates/gr/grub-0.97'
+Making install in netboot
+make[2]: Entering directory `/updates/gr/grub-0.97/netboot'
+make[3]: Entering directory `/updates/gr/grub-0.97/netboot'
+make[3]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/netboot'
+make[2]: Leaving directory `/updates/gr/grub-0.97/netboot'
+Making install in stage2
+make[2]: Entering directory `/updates/gr/grub-0.97/stage2'
+/usr/bin/make  install-am
+make[3]: Entering directory `/updates/gr/grub-0.97/stage2'
+make[4]: Entering directory `/updates/gr/grub-0.97/stage2'
+test -z "/usr/lib/grub/x86_64-pc" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc"
+ /usr/bin/install -c -m 644 'stage2' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/stage2'
+ /usr/bin/install -c -m 644 'stage2_eltorito' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/stage2_eltorito'
+ /usr/bin/install -c -m 644 'e2fs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/e2fs_stage1_5'
+ /usr/bin/install -c -m 644 'fat_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/fat_stage1_5'
+ /usr/bin/install -c -m 644 'ffs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/ffs_stage1_5'
+ /usr/bin/install -c -m 644 'iso9660_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/iso9660_stage1_5'
+ /usr/bin/install -c -m 644 'jfs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/jfs_stage1_5'
+ /usr/bin/install -c -m 644 'minix_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/minix_stage1_5'
+ /usr/bin/install -c -m 644 'reiserfs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/reiserfs_stage1_5'
+ /usr/bin/install -c -m 644 'ufs2_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/ufs2_stage1_5'
+ /usr/bin/install -c -m 644 'vstafs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/vstafs_stage1_5'
+ /usr/bin/install -c -m 644 'xfs_stage1_5' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/xfs_stage1_5'
+make[4]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[4]: Leaving directory `/updates/gr/grub-0.97/stage2'
+make[3]: Leaving directory `/updates/gr/grub-0.97/stage2'
+make[2]: Leaving directory `/updates/gr/grub-0.97/stage2'
+Making install in stage1
+make[2]: Entering directory `/updates/gr/grub-0.97/stage1'
+make[3]: Entering directory `/updates/gr/grub-0.97/stage1'
+test -z "/usr/lib/grub/x86_64-pc" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc"
+ /usr/bin/install -c -m 644 'stage1' '/updates/gr/grub-0.97/debian/grub//usr/lib/grub/x86_64-pc/stage1'
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/stage1'
+make[2]: Leaving directory `/updates/gr/grub-0.97/stage1'
+Making install in lib
+make[2]: Entering directory `/updates/gr/grub-0.97/lib'
+make[3]: Entering directory `/updates/gr/grub-0.97/lib'
+make[3]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/lib'
+make[2]: Leaving directory `/updates/gr/grub-0.97/lib'
+Making install in grub
+make[2]: Entering directory `/updates/gr/grub-0.97/grub'
+make[3]: Entering directory `/updates/gr/grub-0.97/grub'
+test -z "/usr/sbin" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/sbin"
+  /usr/bin/install -c 'grub' '/updates/gr/grub-0.97/debian/grub//usr/sbin/grub'
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/grub'
+make[2]: Leaving directory `/updates/gr/grub-0.97/grub'
+Making install in util
+make[2]: Entering directory `/updates/gr/grub-0.97/util'
+make[3]: Entering directory `/updates/gr/grub-0.97/util'
+test -z "/usr/bin" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/bin"
+  /usr/bin/install -c 'mbchk' '/updates/gr/grub-0.97/debian/grub//usr/bin/mbchk'
+test -z "/usr/sbin" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/sbin"
+ /usr/bin/install -c 'grub-install' '/updates/gr/grub-0.97/debian/grub//usr/sbin/grub-install'
+ /usr/bin/install -c 'grub-md5-crypt' '/updates/gr/grub-0.97/debian/grub//usr/sbin/grub-md5-crypt'
+ /usr/bin/install -c 'grub-terminfo' '/updates/gr/grub-0.97/debian/grub//usr/sbin/grub-terminfo'
+ /usr/bin/install -c 'grub-set-default' '/updates/gr/grub-0.97/debian/grub//usr/sbin/grub-set-default'
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97/util'
+make[2]: Leaving directory `/updates/gr/grub-0.97/util'
+Making install in docs
+make[2]: Entering directory `/updates/gr/grub-0.97/docs'
+make[3]: Entering directory `/updates/gr/grub-0.97/docs'
+make[3]: Für das Ziel »install-exec-am« ist nichts zu tun.
+test -z "/usr/share/info" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/share/info"
+ /usr/bin/install -c -m 644 './grub.info' '/updates/gr/grub-0.97/debian/grub//usr/share/info/grub.info'
+ /usr/bin/install -c -m 644 './multiboot.info' '/updates/gr/grub-0.97/debian/grub//usr/share/info/multiboot.info'
+test -z "/usr/share/man/man1" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/share/man/man1"
+ /usr/bin/install -c -m 644 './mbchk.1' '/updates/gr/grub-0.97/debian/grub//usr/share/man/man1/mbchk.1'
+test -z "/usr/share/man/man8" || mkdir -p -- "/updates/gr/grub-0.97/debian/grub//usr/share/man/man8"
+ /usr/bin/install -c -m 644 './grub.8' '/updates/gr/grub-0.97/debian/grub//usr/share/man/man8/grub.8'
+ /usr/bin/install -c -m 644 './grub-install.8' '/updates/gr/grub-0.97/debian/grub//usr/share/man/man8/grub-install.8'
+ /usr/bin/install -c -m 644 './grub-md5-crypt.8' '/updates/gr/grub-0.97/debian/grub//usr/share/man/man8/grub-md5-crypt.8'
+ /usr/bin/install -c -m 644 './grub-terminfo.8' '/updates/gr/grub-0.97/debian/grub//usr/share/man/man8/grub-terminfo.8'
+make[3]: Leaving directory `/updates/gr/grub-0.97/docs'
+make[2]: Leaving directory `/updates/gr/grub-0.97/docs'
+make[2]: Entering directory `/updates/gr/grub-0.97'
+make[3]: Entering directory `/updates/gr/grub-0.97'
+make[3]: Für das Ziel »install-exec-am« ist nichts zu tun.
+make[3]: Für das Ziel »install-data-am« ist nichts zu tun.
+make[3]: Leaving directory `/updates/gr/grub-0.97'
+make[2]: Leaving directory `/updates/gr/grub-0.97'
+make[1]: Leaving directory `/updates/gr/grub-0.97'
+# make install puts the info files in the grub package but we want them
+# in the grub-legacy-doc / multiboot-doc packages so lets clean shop and
+# let dh_installinfo do the work
+rm -rf debian/grub/usr/share/info
+# Cleanup filesystems not used natively in Debian.
+# (non-native filesystems are supported via stage2)
+mkdir debian/grub/usr/lib/grub/tmp/
+mv debian/grub/usr/lib/grub/*-*/*_stage1_5 \
+		debian/grub/usr/lib/grub/tmp/
+for i in e2fs jfs minix reiserfs xfs fat ; do \
+		mv debian/grub/usr/lib/grub/tmp/${i}_stage1_5 \
+		debian/grub/usr/lib/grub/*-*/ ; \
+	done
+rm -rf debian/grub/usr/lib/grub/tmp/
+mkdir -p /updates/gr/grub-0.97/debian/grub/usr/share/lintian/overrides
+cd /updates/gr/grub-0.97/debian/grub && find ./usr/bin/ -name mbchk \
+		| sed -e "s%.*%grub: statically-linked-binary &%g" \
+	> /updates/gr/grub-0.97/debian/grub/usr/share/lintian/overrides/grub
+cd /updates/gr/grub-0.97/debian/grub && find ./usr/sbin/ -name grub \
+		| sed -e "s%.*%grub: statically-linked-binary &%g" \
+	>> /updates/gr/grub-0.97/debian/grub/usr/share/lintian/overrides/grub
+dh_install -s
+/usr/bin/make -f debian/rules DH_OPTIONS=-a binary-common
+make[1]: Entering directory `/updates/gr/grub-0.97'
+cp debian/update-grub.wrapper debian/grub/sbin/update-grub
+# Add a wrapper for grub-install. Remove it post-etch
+cp debian/grub-install.wrapper debian/grub/sbin/grub-install
+dh_testdir
+dh_testroot
+dh_installchangelogs ChangeLog
+dh_installdocs
+dh_installexamples
+dh_installinfo
+dh_installman
+dh_strip
+dh_compress 
+dh_fixperms
+dh_makeshlibs
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dpkg-gencontrol: Warnung: unbekannte Substitutionsvariable ${shlibs:Depends}
+dh_md5sums
+dh_builddeb
+dpkg-deb: Baue Paket »grub« in »../grub_0.97-ext4_amd64.deb«.
+make[1]: Leaving directory `/updates/gr/grub-0.97'
+dh_testdir
+# create html documentation from texi files
+( cd docs && texi2html -split_chapter grub.texi )
+( cd docs && texi2html -split_chapter multiboot.texi )
+touch build-indep-stamp
+dh_testdir
+dh_testroot
+dh_clean -k -i 
+dh_installdirs -i
+# Add here commands to install the indep part of the package into
+# debian/<package>-doc.
+#INSTALLDOC#
+dh_install -i
+/usr/bin/make -f debian/rules DH_OPTIONS=-i binary-common
+make[1]: Entering directory `/updates/gr/grub-0.97'
+cp debian/update-grub.wrapper debian/grub/sbin/update-grub
+# Add a wrapper for grub-install. Remove it post-etch
+cp debian/grub-install.wrapper debian/grub/sbin/grub-install
+dh_testdir
+dh_testroot
+dh_installchangelogs ChangeLog
+dh_installdocs
+dh_installexamples
+dh_installinfo
+dh_installman
+dh_strip
+dh_compress 
+dh_fixperms
+dh_makeshlibs
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: Baue Paket »grub-disk« in »../grub-disk_0.97-ext4_all.deb«.
+dpkg-deb: Baue Paket »grub-doc« in »../grub-doc_0.97-ext4_all.deb«.
+dpkg-deb: Baue Paket »grub-legacy-doc« in »../grub-legacy-doc_0.97-ext4_all.deb«.
+dpkg-deb: Baue Paket »multiboot-doc« in »../multiboot-doc_0.97-ext4_all.deb«.
+make[1]: Leaving directory `/updates/gr/grub-0.97'
+ dpkg-genchanges  >../grub_0.97-ext4_amd64.changes
+dpkg-genchanges: füge Originalquellen beim Hochladen nicht hinzu
+dpkg-buildpackage: Binär und Diff hochzuladen (Originalquellen NICHT enthalten)
+Now signing changes and any dsc files...
+ signfile grub_0.97-ext4.dsc dodger <hauke@goos-habermann.de>
+gpg: übersprungen "dodger <hauke@goos-habermann.de>": Geheimer Schlüssel ist nicht vorhanden
+gpg: [stdin]: clearsign failed: Geheimer Schlüssel ist nicht vorhanden
+debsign: gpg error occurred!  Aborting....

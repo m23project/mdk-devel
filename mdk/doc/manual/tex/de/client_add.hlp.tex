@@ -1,0 +1,45 @@
+\section{Client hinzufügen}(mit * gekennzeichnete Felder müssen auf jeden Fall korrekt ausgefüllt werden)\\
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/de/client_add.png} \\
+\begin{itemize}
+\item \textbf{Voreinstellung:} Sie können bereits gespeicherte Konfigurationen auswählen und anschließend laden oder löschen. Möchten Sie die aktuelle Konfiguration speichern, geben Sie einen aussagekräftigen Namen ein und klicken auf \textit{"Speichern"}.\\
+\item \textbf{Sprache:}Hier können Sie die Sprache für Ihren m23-Client auswählen. Diese Sprache wird für die Tastatur-, Desktop- und Konsolen-Einstellung verwendet.\\
+\item \textbf{Anmeldungsname:} Der Name mit dem sich der Benutzer beim Client anmeldet.\\
+\item \textbf{Clientname:} Ist der einmalige Name Ihres Clients, dieser sollte nicht mehrfach verwendet werden.\\
+\item \textbf{Abteilung:} Diese Angabe ist freiwillig, hier können Sie eintragen, wo sich der Rechner befindet (z.B. Raumnummer etc.).\\
+\item \textbf{Vorname:} Vorname des Benutzers, entspricht dem Loginnamen\\
+\item \textbf{Nachname:} Nachname des Benutzers\\
+\item \textbf{eMail:} eMail-Adresse des Benutzers\\
+\item \textbf{Boottyp:} Bootstandard für das Booten der Clients über das Netzwerk (Hinweis: Falls Sie m23 mit einem vorhanden DHCP-Server verwenden möchten, lesen Sie bitte folgende Seite: externalDHCP)\\
+\item \textbf{Bootloader:} Wählen Sie hier, welchen Bootloader/Bootmanager/Urlader Sie zum Starten des Linux-Kernels und evtl. anderen, bereits installierten Betriebssystemen verwenden möchten. Sie haben die Wahl zwischen LILO (LInux LOader) und GRUB (GRand Unified Bootloader).\\
+\subsection{Hinweis}
+Alle mit m23 0.6.4 oder höher installierten Clients beinhalten einen Paßwortschutz, der das Editieren der Bootparameter verhindert. Zum Freischalten der Bootmanager-Editierfunktion ist die Eingabe des Netzwerkbootpaßwortes nötig. Dies kann im Kontrollzentrum unter \textit{"Client-Direkt-Verbindung"} abgefragt werden.\\
+\item \textbf{Rechnerarchitektur:} Wahl ob 32- oder 64-bittige Software auf dem Client installiert werden soll. Sehen Sie hierzu auch den Hinweis unten auf der Seite.\\
+\item \textbf{MAC-Adresse:} MAC-Adresse der Client-Netzwerkkarte (z.B. 00:D0:B7:23:86:5C)\\
+\item \textbf{IP-Adresse:} gewünschte IP-Adresse des Clients (z.B. 192.168.1.23)\\
+\item \textbf{Netzwerkmaske:} Netzwerkmaske des Netzwerkes (z.B. 255.255.255.0)\\
+\item \textbf{Gateway:} Gateway-IP für Internet- oder andere Verbindungen außerhalb des Netzwerkes\\
+\item \textbf{DNS1:} IP-Adresse des DNS-Servers zum Auflösen der Internetnamen\\
+\item \textbf{DNS2 (optional):} IP des Backup-DNS-Servers\\
+\item \textbf{Paket-Proxy:} Der Client versucht die Softwarepakete von der angegebenen Proxy-Server-IP zu beziehen. Im Standardfall ist dies die IP des m23-Servers, alternativ kann auch ein anderer Proxy-Server angegeben werden. Wenn das Feld leer gelassen wird, so lädt der Client die Softwarepakete aus dem Internet herunter. Geben Sie bitte auch die Port-Addresse der Proxy-Servers an. Beim m23-Server ist dies der Port 2323. Wird der \textit{"Client hinzufügen"}-Dialog geöffnet, so ist der m23-Server als Proxy voreingestellt.\\
+\item \textbf{Gruppe (optional):} Angabe der Clientgruppe für den Client\\
+\item \textbf{Benutzer-Paßwort:} Es wird standardmäßig ein 6-stelliges Zufallspaßwort erstellt, das für den ersten Login auf dem Client benutzt wird. Sie können aber auch ein anderes Passwort vorgeben.\\
+\item \textbf{Root-Paßwort:} Es wird standardmäßig ein 8-stelliges Zufallspaßwort erstellt, das für den Root-Zugang auf dem Client benutzt wird. Sie können aber auch ein anderes Passwort vorgeben.\\
+\item \textbf{Zeitzone:} Hier können Sie die Zeitzone festlegen, die von Client benutzt werden soll.\\
+\item \textbf{Systemzeit per NTP ermitteln:} Setzen Sie diese Option, wenn Sie wünschen, daß die Uhrzeit des Clients beim Systemstart über das Internet abgeglichen werden soll.\\
+\item \textbf{Druckertreiber installieren und angeschlossene Drucker erkennen:} Wenn Sie diese Option wählen, werden Druckertreiber auf dem Client installiert sowie angeschlossene Drucker erkannt.\\
+\item \textbf{Anmeldungsdaten lokal auf dem Client speichern.:}Setzen Sie hier einen Haken, um die lokale Benutzeranmeldung des Clients zu verwenden.\\
+\item \textbf{LDAP nicht benutzen}: Um nur die lokale Benutzeranmeldung des Clients zu verwenden, wählen Sie \textit{"LDAP nicht benutzen"}. \\
+\item \textbf{Anmeldungsdaten vom gewählten LDAP-Server lesen.}: Wünschen Sie hingegen, die bereits in einen LDAP-Server eingetragene Benutzerauthentifizierungsdaten zu nutzen, klicken Sie auf \textit{"Anmeldungsdaten vom gewählten LDAP-Server lesen."}.\\
+\item \textbf{Anmeldungsdaten in den LDAP-Server speichern.}: Wollen Sie hingegen die oben angegebenen Benutzerdaten in die LDAP-Datenbank des m23-Servers eintragen und für Clientlogins nutzen, so wählen Sie \textit{"Anmeldungsdaten in den LDAP-Server speichern."}. Bei Auswahl dieser Option ist ein LDAP-Server mit Vollzugriff erforderlich, da die oben angegebenen Benutzerdaten auf dem LDAP geschrieben werden.\\
+\item \textbf{Benutzer-ID, Gruppen-ID}: Zusätzlich müssen Sie die \textit{"Benutzer-ID"} und \textit{"Gruppen-ID"} für den Benutzer auswählen. Dies ist insbesondere wichtig, wenn Sie NFS für das Speichern der Heimatverzeichnisse verwenden wollen.\\
+\item \textbf{LDAP-Servername}: Zuletzt müssen Sie einen LDAP-Server aus der Auswahlliste bei \textit{"LDAP-Servername"} auswählen. Sollte der gewünschte LDAP-Server nicht vorhanden sein, so können Sie ihn durch einen Klick auf \textit{"LDAP-Server verwalten"} hinzufügen.\\
+\item \textbf{Heimatverzeichnis auf NFS:} Diese Option sorgt dafür, daß die Benutzerdaten auf einem zentralen NFS-Server gespeichert werden, sodaß auf diese (in Kombination mit LDAP) von jedem Client aus zugegriffen werden kann. Um NFS zu aktivieren, geben Sie den Rechnernamen bzw. die IP-Adresse und den Pfad zum Speichern der Heimatverzeichnisse an z.B. \\
+\begin{verbatim}
+192.168.1.42/nfs/home
+\end{verbatim}
+.\\
+\end{itemize}
+\subsection{Hinweis:}
+Nach dem Anlegen startet der Client, durchläuft eine Hardwareerkennungssequenz, in der Informationen wie Größe der verwendeten Festplatte etc. an den Server gesendet werden. Nach Abschluß des Datentransfers wechselt der Client auf Status \textit{"gelb"} und Sie können den Client einrichten. Klicken Sie dazu im Menü auf \textit{"Clients"} $\rightarrow$ \textit{"Einrichten"}.\\
+\subsection{Hinweis zur Rechnerarchitektur}
+m23 unterstützt nativ 32- und 64-bittige Rechner. Eine 32-Bit Distribution kann auch auf einem 64-Bit Rechner installiert werden. Umgekehrt ist dies allerdings nicht möglich. Um das volle Potential einer vorhandenen 64-Bit-CPU auszunutzen, sollten Sie \textit{"amd64"} auswählen. Unter \textit{"amd64"} fallen nicht nur die CPUs von AMD sondern auch die von Intel. Beispielhaft seien hier die Intel-CPUs Pentium D, Pentium Extreme Edition, Celeron D und Core 2 sowie die AMD-CPUs AMD Sempron, Athlon 64, Athlon X2 und Phenom genannt.\\

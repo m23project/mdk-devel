@@ -1,0 +1,185 @@
+#!/bin/bash
+# File: /usr/lib/nagios/plugins/check_debSourceChecker
+
+
+
+
+
+#Check the parameter amount
+if [ $# -ne 1 ]
+then
+	echo "Usage: $0 <Debian repository URL>
+  Checks a Debian repository by downloading Debian repository index files and randomly choosen Debian packages.
+  E.g.: $0 'http://switch.dl.sourceforge.net/project/m23/trinity/3.5.12/trinity-builddeps/ squeeze main'
+"
+	exit 3
+fi
+
+
+
+
+
+
+#Check if the parameter is a valid URL
+in="$1"
+if [ $(echo $in | egrep -c "(^http://|^ftp://)") -eq 0 ]
+then
+	echo "ERR: \$in\ is NOT a valid Debian repository URL."
+	exit 2
+fi
+
+url=$(echo -n "$in" | cut -d' ' -f1)
+distr=$(echo -n "$in" | cut -d' ' -f2 | sed 's#\./#/#')
+branch=$(echo -n "$in" | cut -d' ' -f3)
+
+packagesURLName="/tmp/debSrcChkPackages.name"
+
+
+
+
+#Check a Packges index file
+checkPackages()
+{
+	out="$1"
+	ret=0
+
+	#Check if the file is compressed and must be decompressed before reading
+	if [ $(echo $out | grep -c "bz2^") -gt 0 ]
+	then
+		echo bunzip2 $out
+		bunzip2 $out
+		ret=$?
+	fi
+
+	if [ $(echo $out | grep -c "gz^") -gt 0 ]
+	then
+		echo gunzip $out
+		gunzip $out
+		ret=$?
+	fi
+
+	#Check if the extraction worked
+	if [ $ret -ne 0 ]
+	then
+		echo "ERR: The package source file \"$out\" could NOT be extracted."
+		exit 2
+	fi
+
+	checkDebs
+}
+
+
+
+
+#Downloads and checks 5 randomly selected Debian packages from the Packages source list file
+checkDebs()
+{
+	debName="/tmp/debSrcChkDeb.deb"
+
+	#Check if the Package source file contains needed values
+	if grep "Filename: " /tmp/debSrcChkPackages > /dev/null && grep "Package: " /tmp/debSrcChkPackages > /dev/null && grep "MD5sum: " /tmp/debSrcChkPackages > /dev/null
+	then
+		a=1
+	else
+		echo "ERR: Faulty package source file from \"$(cat $packagesURLName)\"."
+	fi
+
+	#Choose 5 packages from the list
+	grep Filename /tmp/debSrcChkPackages | cut -d' ' -f2 | sort -R | head -5 | sed 's#\./#/#' | while read packageName
+	do
+		#Generate the download URL
+		debURL="$url$packageName"
+
+		#Download the Debian package
+		wget -q "$debURL" -O $debName
+		ret=$?
+
+		#Check if the download worked
+		if [ $ret -ne 0 ]
+		then
+			echo "ERR: The package \"$debURL\" could NOT be downloaded."
+			exit 2
+		fi
+
+		#Check if the file is a Debian package
+		if [ $(file $debName | grep -c Debian) -eq 0 ]
+		then
+			echo "ERR: The file \"$debURL\" is NOT a Debian package."
+			exit 2
+		fi
+	done
+
+	echo "OK: The package source from \"$(cat $packagesURLName)\" worked."
+}
+
+
+
+
+checkNormalRepository()
+{
+	#Run thru the different Packages index files
+	for packagesName in Packages Packages.bz2 Packages.gz
+	do
+		#Run thru the architectures
+		for arch in i386 amd64
+		do
+			#File name for storing the Packages file
+			out="/tmp/debSrcChk$packagesName"
+	
+			#The URL where to download the Packages file from
+			packagesURL="$url/dists/$distr/$branch/binary-$arch/$packagesName"
+			echo $packagesURL > $packagesURLName
+	
+			wget -q $packagesURL -O $out
+			ret=$?
+	
+			#Check if the file could be downloaded
+			if [ $ret -eq 0 ]
+			then
+				checkPackages "$out"
+			else
+				echo "ERR: The package source file \"$out\" could NOT be downloaded from \"$packagesURL\"."
+				exit 2
+			fi
+		done
+	done
+}
+
+checkFlatRepository()
+{
+	#Run thru the different Packages index files
+	for packagesName in Packages Packages.bz2 Packages.gz
+	do
+		#File name for storing the Packages file
+		out="/tmp/debSrcChk$packagesName"
+
+		#The URL where to download the Packages file from
+		packagesURL="$url/$packagesName"
+		echo $packagesURL > $packagesURLName
+
+		wget -q $packagesURL -O $out
+		ret=$?
+
+		#Check if the file could be downloaded
+		if [ $ret -eq 0 ]
+		then
+			checkPackages "$out"
+		else
+			echo "ERR: The package source file \"$out\" could NOT be downloaded from \"$packagesURL\"."
+			exit 2
+		fi
+	done
+}
+
+
+
+if [ $distr = '/' ]
+then	
+	checkFlatRepository
+else
+	checkNormalRepository
+fi
+
+
+rm /tmp/debSrcChk*
+exit 0

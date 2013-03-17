@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+menulst="/boot/grub/menu.lst"
+
+imgdev=`grep ^root $menulst | grep hd | tail -n1 | sed 's/root[ \t]*//g'`
+
+cp $menulst /tmp/m23.grub
+
+for commentout in splashimage foreground background color viewport
+do
+	sed "s/^$commentout/# &/g" /tmp/m23.grub > /tmp/m23.grub2
+	mv /tmp/m23.grub2 /tmp/m23.grub
+done
+
+echo "#m23 spash image for GRUB and visual settings
+
+splashimage=$imgdev/boot/grub/splashimages/m23-rock-grub.xpm.gz
+foreground = ffffff
+background = 6f87ab
+color black/white light-gray/white
+viewport 3 1 80 22
+" > /tmp/m23-splash.grub
+
+cat /tmp/m23-splash.grub /tmp/m23.grub > $menulst
+rm /tmp/m23-splash.grub /tmp/m23.grub
+
+db_stop

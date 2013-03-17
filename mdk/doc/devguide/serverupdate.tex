@@ -1,0 +1,36 @@
+\section{How to create the server update files?}
+m23 has a mechnism that makes it easy for the user to update the m23 server. The information for the update is fetched from the internet. There is a php script that generates the needed update information from single files. This files contain information about the new codename, the new version number, a describing text, a script that is exectued at the beginning and at the end of the update.
+\subsection{The files}
+All files for an update have to begin with the version number (e.g. 0.4.5):
+\begin{itemize}
+\item 0.4.5.begin: conatins the bas script that is executed a the beginning
+\item 0.4.5.end: conatins the bas script that is executed a the end
+\item 0.4.5.info: contains only the codename of the m23 release (e.g. shiver)
+\item 0.4.5.text: helds the decribing text of the update. There you should put a changelog
+\end{itemize} 
+\subsubsection{xxx.begin}
+This is only an example, don't assume it will work.
+\begin{verbatim}
+wget http://m23.sf.net/newdata.tb2
+tar xfvj newdata.tb2
+\end{verbatim}
+\subsubsection{xxx.end}
+\begin{verbatim}
+rm newdata.tb2
+\end{verbatim}
+
+\subsubsection{xxx.info}
+\begin{verbatim}
+shiver
+\end{verbatim}
+
+\subsubsection{xxx.text}
+You can use html tags in your release information.
+\begin{verbatim}
+This is the new shiver update. There will be the following changes:
+<ul>
+ <li> bigger</li>
+ <li> louder</li>
+ <li> ...
+</ul>
+\end{verbatim} 

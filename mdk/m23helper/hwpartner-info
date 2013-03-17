@@ -1,0 +1,67 @@
+#!/bin/bash
+
+
+extraInfo()
+{
+	lspci -k -x | egrep -B5 '(Kernel modules|Kernel driver in use)' | grep -A5 -i "$1" | awk 'BEGIN {
+	show=1
+	}
+	/--/ {
+	show=!show;
+	}
+
+	{
+		if (show == 1)
+			print
+	}
+	' | grep -v Subsystem
+}
+
+
+
+echo 'CPU(s):'
+cat /proc/cpuinfo | grep "model name" | tr -s '[:blank:]' | sed 's/model name[ \t]*: //g' | awk '{ i += 1; print i": "$0 }'
+
+echo 'CPU(s) mit Virtualisierungsfunktion:'
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
+echo 'CPU(s) mit 64-Bit-Unterstützung:'
+grep -c ' lm ' /proc/cpuinfo
+
+echo 'CPU-Info:'
+lscpu | head -4
+
+
+
+echo 'Ram:'
+dmidecode --type memory | grep Size | tr -s '[:blank:]' | sed 's/[ \t]*Size: //g' | awk '{ i += 1; print i": "$0 }'
+
+echo 'Ram-Hersteller:'
+dmidecode --type memory | grep Manufacturer | tr -s '[:blank:]' | sed 's/[ \t]*Manufacturer: //g' | awk '{ i += 1; print i": "$0 }'
+
+
+
+echo 'Grafikkarte:'
+extraInfo 'VGA compatible controller'
+
+
+
+echo 'Festplatte(n):'
+parted -l | grep '/dev/'
+extraInfo 'IDE interface'
+extraInfo 'SATA controller'
+
+
+
+echo 'Soundkarte'
+extraInfo 'Audio device'
+
+
+
+echo 'USB'
+extraInfo 'USB Controller'
+
+
+
+echo 'Netzwerkkarte(n)'
+extraInfo 'Ethernet controller'

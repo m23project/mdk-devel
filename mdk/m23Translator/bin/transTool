@@ -1,0 +1,352 @@
+#!/usr/bin/php
+
+<?php
+
+define (COMP_NONE,0);
+define (COMP_GZ,1);
+define (COMP_BZ,2);
+
+
+
+
+
+/**
+**name checkParams($user,$password,$language,$url)
+**description Checks if the given parameters are correct and prints out an error message on every error.
+**parameter user: name of the user
+**parameter password: password for the account
+**parameter language: name or short name of the language
+**parameter url: URL to the translation page
+**returns true: if all parameters are ok
+**returns false: if there is an error in at least one parameter
+**/
+function checkParams($user,$password,$language,$url)
+{
+	$ok=true;
+	
+	if (empty($user))
+	{
+		echo("Error: You have to enter your user name!\n");
+		$ok=false;
+	}
+
+	if (empty($password))
+	{
+		echo("Error: You have to enter your password!\n");
+		$ok=false;
+	}
+
+	if (empty($language))
+	{
+		echo("Error: You have to enter the language of the text!\n");
+		$ok=false;
+	};
+
+	if (empty($url))
+	{
+		echo("Error: You have to enter the URL of the translation page!\n");
+		$ok=false;
+	};
+
+	echo("\n");
+	return($ok);
+};
+
+
+
+
+
+/**
+**name checkWildcards($wildcard)
+**description Checks the wildcards after the d/l/f scheme and exits the script of something is wrong.
+**parameter wildcard: selects directories, languages and filenames to search for
+**/
+function checkWildcards($wildcard)
+{
+	$wcS=split("/",$wildcard);
+	
+	if (count($wcS) != 3)
+		{
+			echo("Error: Wildcards invalid.\n\n");
+			showHelp();
+			exit;
+		};
+
+};
+
+
+
+
+
+/**
+**name checkCompressFunctions()
+**description Checks for a working decompression function.
+**returns COMP_NONE: no compression supported
+**returns COMP_GZ: gzip compression possible
+**returns COMP_BZ: bzip compression possible
+**/
+function checkCompressFunctions()
+{
+	if (bzdecompress(urldecode("BZh41AY%26SYD%AB1%0F%00%00%01%09%00%18%00%00%02+%00%21%98%19%84aw%24S%85%09%04J%B3%10%F0")) == "m23") return (COMP_BZ);
+
+	if (gzuncompress(urldecode("x%9C%CB52%06%00%01%E1%00%D3")) == "m23") return (COMP_GZ);
+
+	return(COMP_NONE);
+};
+
+
+
+
+
+/**
+**name nullcompress($in)
+**description Returns the input string.
+**parameter in: input string
+**returns input string
+**/
+function nullcompress($in)
+{
+	return($in);
+};
+
+
+
+
+
+/**
+**name downloadArray($url,$cmd)
+**description Returns the array containing the data .
+**parameter url: URL to the translation page
+**parameter cmd: show: for showing the file names
+**parameter wildcard: selects directories, languages and filenames to search for
+**returns array with file informations
+**/
+function downloadArray($url,$cmd,$wildcard)
+{
+	switch(checkCompressFunctions())
+		{
+			case COMP_NONE: $decomp=nullcompress; $cName="null"; break;
+			case COMP_GZ: $decomp=gzuncompress; $cName="gz"; break;
+			case COMP_BZ: $decomp=bzdecompress; $cName="bz"; break;
+		};
+
+	checkWildcards($wildcard);
+	$wildcard=urlencode($wildcard);
+
+	$cmd = "wget $url/export.php --post-data=\"cmd=$cmd&compress=$cName&wc=$wildcard\" -O/tmp/transTool.tmp";
+
+	exec($cmd);
+
+	$arr=file_get_contents("/tmp/transTool.tmp");
+
+	unlink("/tmp/transTool.tmp");
+
+	$arr=$decomp($arr);
+
+	return(unserialize($arr));
+};
+
+
+
+
+
+/**
+**name show($url)
+**description Shows file names.
+**parameter url: URL to the translation page
+**parameter wildcard: selects directories, languages and filenames to search for
+**/
+function show($url,$wildcard)
+{
+	$arr=downloadArray($url,"show",$wildcard);
+
+	foreach ($arr as $file)
+		echo("$file[dir]/$file[lang]/$file[name]\n");
+}
+
+
+
+
+
+/**
+**name show($url)
+**description Shows file names.
+**parameter url: URL to the translation page
+**parameter wildcard: selects directories, languages and filenames to search for
+**/
+function download($url,$wildcard)
+{
+	$arr=downloadArray($url,"download",$wildcard);
+
+	foreach ($arr as $file)
+		{
+			if (!is_dir("$file[dir]"))
+				mkdir("$file[dir]");
+			if (!is_dir("$file[dir]/$file[lang]"))
+				mkdir("$file[dir]/$file[lang]");
+			
+			$fileName= "$file[dir]/$file[lang]/$file[name]";
+			
+			$fout=fopen($fileName,"w");
+
+			fwrite($fout,$file[text]);
+			fclose($fout);
+			touch($fileName,$file[modTime],$file[modTime]);
+
+			$mT=strftime("%Y-%m-%d %T",$file[modTime]);
+
+			fputs(STDOUT,"$fileName: $mT\n");
+			fflush(STDOUT);
+		};
+}
+
+
+
+
+
+/**
+**name upload($fileNames,$user,$password,$language,$url)
+**description Uploads files to the translation page.
+**parameter fileNames: Array that contains the names of files to upload
+**parameter user: name of the user
+**parameter password: password for the account
+**parameter language: name or short name of the language
+**parameter url: URL to the translation page
+**parameter original: true if it is the original text that should be translated or false if it's a translation
+**returns true: if all parameters are ok
+**returns false: if there is an error in at least one parameter
+**/
+function upload($fileNames,$user,$password,$language,$url,$original,$directory)
+{
+	if (!checkParams($user,$password,$language,$url))
+		{
+			showHelp();
+			exit(3);
+		};
+
+	$cmd = "wget -q $url/import.php --post-file=/tmp/transTool.post -O/dev/stdout";
+	
+	$fout=fopen("/tmp/transTool.post","w");
+
+	//set if it is an original text or a translation
+	if ($original)
+		$add="&t=o";
+	else
+		$add="&t=t";
+		
+	if (!empty($directory))
+		$add.="&d=$directory";
+
+	fwrite($fout,"u=$user&p=$password&l=$language".$add);
+
+	$fileNr=0;
+	foreach ($fileNames as $fileName)
+	{
+		$fin = fopen($fileName,"r");
+		$fileName = basename($fileName);
+		$article = urlencode(fread($fin,5000000));
+		fwrite($fout,"&f$fileNr=$fileName&a$fileNr=$article");
+		fclose($fin);
+		$fileNr++;
+	}
+
+	fwrite($fout,"&fileNr=$fileNr");
+	fclose($fout);
+	system($cmd);
+}
+
+
+
+function showHelp()
+{
+echo("transTool <command> <wildcards e.g. d/l/f or *> [parameter]
+
+<command> can be:
+  orig     - Uploads an original text
+             needed parameters: -u -p -l -h -d <text file>
+  trans    - Uploads a translation text
+             needed parameters: -u -p -l -h -d <text file>
+  show     - Shows existing directories, files and their languages.
+             needed parameters: d/l/f
+  download - Shows existing directories, files and their languages.
+             needed parameters: d/l/f
+
+	
+[parameter] can be:
+    -u=<username>  User name of a valid user on the translation page
+    -p=<password>  Password of a valid user on the translation page
+    -l=<language>  Language name (or short name) the file is written in
+    -h=<url>       URL to the translation page (e.g. m23.sf.net/translator)
+    -d=<dir>       Virtual directory on the translation page
+    -c=<conffile>  Name of the config file in ~/.transTool
+    <text file>    Name of the text file to upload (wildcards are alowed)
+    <directory>/<language>/<filename> (d/l/f) enter the parts that should be
+                   searched or leave blank if this part doesn't matter.
+                   e.g. you want all files: //
+                   or all german files: /de/
+                   or all files from the directory \"foo\": foo//
+                   or all files from the directory \"foo\" with the
+                   language \"de\": foo/de/
+");
+};
+
+
+if ($argc < 3)
+	{
+		showHelp();
+		exit(2);
+	}
+
+//load config file
+for ($i=2; $i < count($argv); $i++)
+{
+	$param = $argv[$i];
+	$value = substr($param,3,strlen($param)-3);
+
+	if (strpos($param,"-c=") === 0)
+		{
+			$configFile = exec("echo \$HOME")."/.transTool/$value";
+			if (file_exists($configFile))
+				include($configFile);
+			else
+				{
+					echo("Error: Config file \"$configFile \" doesn't exist!");
+					exit(5);
+				}
+		}
+}
+
+
+
+
+//interpret the command line parameters
+$nr=0;
+for ($i=2; $i < count($argv); $i++)
+{
+	$param = $argv[$i];
+	$value = substr($param,3,strlen($param)-3);
+
+	if (strpos($param,"-u=") === 0)
+		$user = $value;
+	elseif (strpos($param,"-p=")===0)
+		$password = $value;
+	elseif (strpos($param,"-l=")===0)
+		$language = $value;
+	elseif (strpos($param,"-h=")===0)
+		$url = $value;
+	elseif (strpos($param,"-d=")===0)
+		$directory = $value;
+	elseif (strpos($param,"-c=")===0)
+		$configName = $value;
+	else $fileNames[$nr++] = $param;
+};
+
+switch ($argv[1])
+{
+	case "orig": upload($fileNames,$user,$password,$language,$url,true,$directory); break;
+	case "trans": upload($fileNames,$user,$password,$language,$url,false,$directory); break;
+	case "show": show($url,$argv[2]); break;
+	case "download": download($url,$argv[2]); break;
+	default: showHelp(); exit(3);
+}
+?>

@@ -1,0 +1,13 @@
+cd "$1" 
+        ls *.deb | sort -r | awk -vFS='_' '
+BEGIN {
+last=""
+}
+
+{
+        if (last != $1)
+                last=$1
+        else
+                system("rm "$0);
+}'
+

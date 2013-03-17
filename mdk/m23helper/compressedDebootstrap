@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]
+then
+	echo "$0 <suite> [arch]"
+	exit 1
+fi
+
+suite=$1
+
+#Figure out the architecture to download the packages
+if [ $2 ]
+then
+	arch=$2
+else
+	arch=`dpkg-architecture | grep DEB_HOST_ARCH= | cut -d'=' -f2`
+fi
+
+mkdir "$suite-$arch"
+cd "$suite-$arch"
+
+#Debootstrap the distribution
+debootstrap --arch=$arch --include="parted wget" $suite .
+
+#Delete the packages
+rm ./var/cache/apt/archives/* 2> /dev/null
+
+#Compress the debootstrapped dir
+tar -c --same-owner . | 7za a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si ../"$suite-$arch.tar.7z"
+
+cd ..
+rm -r "$suite-$arch"

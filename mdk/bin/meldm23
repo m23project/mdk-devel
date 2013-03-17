@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. /mdk/bin/forkFunctions.inc
+
+
+
+
+diffExcludeMeld $(getm23DevelDir) $(getm23ReleaseDir) '/doc/changelogNew' 'doc/changelogComplete' 'var/cache' '/tmp/' '/extraDebs/'
+
+#diffExcludeMeld $(getmdkDevelDir) $(getmdkReleaseDir) '/kernel/' '/kernelNmodules/' '/tmpRoot/' '/compiled/' '/busyBox/' 'deb.changed' 'deb.md5' 'deb.del' 'deb.new' '/src/' 'extraRFS/bin' 'iso/pool' 'knoppix' 'toolchain-amd64' 'outdated' 'translator'

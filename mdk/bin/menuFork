@@ -1,0 +1,74 @@
+#!/bin/bash
+
+. /mdk/bin/forkFunctions.inc
+
+status=$(forkStatusMessage)
+forkMenuOption="/tmp/menuForkChoice$$"
+
+# Get the name of the non root user
+nonRootUser=$(users | sed 's/ /\n/g' | sort -u | grep -v "^root$" | head -1)
+
+# Allow all access to the X session of the non root user
+su $nonRootUser -c xhost +
+
+dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "Fork tool" \
+	--menu "$status
+Main menu" 20 75 11 \
+	"makeSymlinkm23mdk" "Makes m23/MDK symlinks" \
+	"makeDevel" "Makes a development copy of m23/MDK" \
+	"switchDevel" "Switches to m23/MDKs development version"\
+	"switchRelease" "Switches to m23/MDKs release version"\
+	"meldm23" "Check for differences in m23"\
+	"meldmdk" "Check for differences in MDK"\
+	"moveDevel2Release" "Makes the development copy the current release"\
+	"help" "help"\
+	"quit" "quit menu" 2> $forkMenuOption
+retval=$?
+case $retval in
+	1)
+		exit;;
+	255)
+		exit;;
+esac
+
+choice=`cat $forkMenuOption`
+rm $forkMenuOption
+
+case $choice in
+
+	"makeDevel")
+		makeDevel
+		/mdk/bin/menuFork
+		exit;;
+
+	"switchDevel")
+		switchDevel
+		/mdk/bin/menuFork
+		exit;;
+
+	"switchRelease")
+		switchRelease
+		/mdk/bin/menuFork
+		exit;;
+
+	"makeSymlinkm23mdk")
+		makeSymlinkm23mdk
+		/mdk/bin/menuFork
+		exit;;
+
+	"moveDevel2Release")
+		moveDevel2Release
+		/mdk/bin/menuFork
+		exit;;
+
+	"meldm23")
+		diffExcludeMeld $(getm23DevelDir) $(getm23ReleaseDir) $nonRootUser '/doc/changelogNew' 'doc/changelogComplete' 'var/cache' '/tmp/' '/extraDebs/'
+		/mdk/bin/menuFork
+		exit;;
+
+	"meldmdk")
+		diffExcludeMeld $(getmdkDevelDir) $(getmdkReleaseDir) $nonRootUser '/kernel/' '/kernelNmodules/' '/tmpRoot/' '/compiled/' '/busyBox/' 'deb.changed' 'deb.md5' 'deb.del' 'deb.new' '/src/' 'extraRFS/bin' 'iso/pool' 'knoppix' 'toolchain-amd64' 'outdated' 'translator'
+		/mdk/bin/menuFork
+		exit;;
+
+esac

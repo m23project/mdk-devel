@@ -1,0 +1,224 @@
+Section "ServerLayout"
+	Identifier     "XFree86 Configured"
+	Screen      0  "Screen0" 0 0
+	InputDevice    "Keyboard0" "CoreKeyboard"
+	InputDevice    "PS/2 Mouse" "CorePointer"
+	InputDevice    "Serial Mouse" "CorePointer"
+        InputDevice    "USB Mouse" "CorePointer"
+#       InputDevice    "AlpsPad" "AlwaysCore"
+#       InputDevice    "SynPad" "AlwaysCore"
+# compiz, beryl 3D-Support with DRI & Composite
+        Option         "AIGLX"     "true"
+EndSection
+
+Section "ServerFlags"
+	Option "AllowMouseOpenFail"  "true"
+	@@NOPM@@
+EndSection
+
+Section "Files"
+	RgbPath      "/usr/share/X11/rgb"
+	ModulePath   "/usr/lib/xorg/modules"
+	FontPath     "/usr/share/fonts/X11/misc:unscaled"
+	FontPath     "/usr/share/fonts/X11/75dpi:unscaled"
+	FontPath     "/usr/share/fonts/X11/100dpi:unscaled"
+	FontPath     "/usr/share/fonts/X11/Type1"
+	FontPath     "/usr/share/fonts/X11/Speedo"
+	FontPath     "/usr/share/fonts/X11/PEX"
+# Additional fonts: Locale, Gimp, TTF...
+	FontPath     "/usr/share/fonts/X11/cyrillic"
+#	FontPath     "/usr/share/fonts/X11/latin2/75dpi"
+#	FontPath     "/usr/share/fonts/X11/latin2/100dpi"
+# True type and type1 fonts are also handled via xftlib, see /etc/X11/XftConfig!
+	FontPath     "/var/lib/defoma/x-ttcidfont-conf.d/dirs/TrueType"
+	FontPath     "/usr/share/fonts/truetype"
+	FontPath     "/usr/share/fonts/latex-ttf-fonts"
+EndSection
+
+Section "Module"
+# Comments: see http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=346408
+	Load  "dbe" # Double Buffering Extension, very important.
+	Load  "dri" # This shouldn't be available choice if user has selected driver vga, vesa or nv.
+	Load  "glx" # GLX Extension.
+	Load  "freetype" # Freetype fonts.
+	Load  "type1"  # Type 1 fonts
+	Load  "record" # Developer extension, usually not needed
+#	Load  "extmod" # This is okay, but if you look into "man xorg.conf" you'll find option NOT to include DGA extension with extmod, and for a good reason.. DGA causes instability as it access videoram without consulting X about it.
+	SubSection      "extmod"
+		Option          "omit xfree86-dga"
+	EndSubSection
+#	Load  "speedo" # Speedo fonts, this module doesn't exist in Xorg 7.0.17
+# The following are deprecated/unstable/unneeded in Xorg 7.0
+#       Load  "ddc"  # ddc probing of monitor, this should be never present, as it gets automatically loaded.
+#	Load  "GLcore" # This should be never present, as it gets automatically loaded.
+#       Load  "bitmap" # Should be never present, as it gets automatically loaded. This is a font module, and loading it in xorg.conf makes X try to load it twice.
+EndSection
+
+Section "Extensions"
+	# beryl and compiz need this, but it can cause bad (end even softreset-resistant)
+	# effects in some graphics cards, especially nv.
+	@@COMPOSITE@@
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "kbd"
+        Option      "CoreKeyboard"
+	Option "XkbRules" "xorg"
+	Option "XkbModel" "pc105"
+	Option "XkbLayout" "de"
+	Option "XkbVariant" "nodeadkeys"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Serial Mouse"
+	Driver      "mouse"
+	Option      "Protocol" "Microsoft"
+	Option      "Device" "/dev/ttyS0"
+	Option      "Emulate3Buttons" "true"
+	Option      "Emulate3Timeout" "70"
+	Option	    "SendCoreEvents"  "true"
+EndSection
+
+Section "InputDevice"
+	Identifier  "PS/2 Mouse"
+	Driver      "mouse"
+	Option      "Protocol" "PS/2"
+	Option      "Device" "/dev/psaux"
+	Option      "Emulate3Buttons" "true"
+	Option      "Emulate3Timeout" "70"
+	Option	    "SendCoreEvents"  "true"
+EndSection
+
+Section "InputDevice"
+        Identifier      "USB Mouse"
+        Driver          "mouse"
+        Option          "Device"                "/dev/input/mice"
+	Option		"SendCoreEvents"	"true"
+        Option          "Protocol"              "IMPS/2"
+        Option          "ZAxisMapping"          "4 5"
+        Option          "Buttons"               "5"
+EndSection
+
+Section "InputDevice"
+	Driver		"synaptics"
+	Identifier	"AlpsPad"
+	Option		"Device"		"/dev/psaux"
+	Option		"Protocol"		"auto-dev"
+	Option		"LeftEdge"		"130"
+	Option		"RightEdge"		"840"
+	Option		"TopEdge"		"130"
+	Option		"BottomEdge"		"640"
+	Option		"FingerLow"		"7"
+	Option		"FingerHigh"		"8"
+	Option		"MaxTapTime"		"180"
+	Option		"MaxTapMove"		"110"
+	Option		"EmulateMidButtonTime"	"75"
+	Option		"VertScrollDelta"	"20"
+	Option		"HorizScrollDelta"	"20"
+	Option		"MinSpeed"		"0.60"
+	Option		"MaxSpeed"		"1.10"
+	Option		"AccelFactor"		"0.030"
+	Option		"EdgeMotionMinSpeed"	"200"
+	Option		"EdgeMotionMaxSpeed"	"200"
+	Option		"UpDownScrolling"	"1"
+	Option		"CircularScrolling"	"1"
+	Option		"CircScrollDelta"	"0.1"
+	Option		"CircScrollTrigger"	"2"
+	Option		"SHMConfig"		"on"
+	Option		"Emulate3Buttons"	"on"
+EndSection
+
+Section "InputDevice"
+	Driver		"synaptics"
+	Identifier	"SynPad"
+	Option		"Device"		"/dev/psaux"
+	Option		"Protocol"		"auto-dev"
+	Option		"LeftEdge"		"1700"
+	Option		"RightEdge"		"5300"
+	Option		"TopEdge"		"1700"
+	Option		"BottomEdge"		"4200"
+	Option		"FingerLow"		"25"
+	Option		"FingerHigh"		"30"
+	Option		"MaxTapTime"		"180"
+	Option		"MaxTapMove"		"220"
+	Option		"VertScrollDelta"	"100"
+	Option		"MinSpeed"		"0.09"
+	Option		"MaxSpeed"		"0.18"
+	Option		"AccelFactor"		"0.0015"
+	Option		"SHMConfig"		"on"
+EndSection
+
+#
+# Auto-generated by KNOPPIX mkxf86config
+@@MONITOR@@
+
+Section "Device"
+	### Available Driver options are:-
+# sw_cursor is needed for some ati and radeon cards
+        #Option     "sw_cursor"
+        #Option     "hw_cursor"
+        #Option     "NoAccel"
+        #Option     "ShowCache"
+        #Option     "ShadowFB"
+        #Option     "UseFBDev"
+        #Option     "Rotate"
+	Identifier  "Card0"
+# auto-generated by KNOPPIX mkxorgconfig
+	Driver      "@@XMODULE@@"
+	VendorName  "All"
+	BoardName   "All"
+#	BusID       "PCI:1:0:0"
+#
+# compiz, beryl 3D-Support with DRI & Composite
+	Option "XAANoOffscreenPixmaps"
+	Option "AllowGLXWithComposite" "true"
+	Option "EnablePageFlip" "true"
+	Option "TripleBuffer" "true"
+
+# This two lines are (presumably) needed to prevent fonts from being scrambled
+        Option  "XaaNoScanlineImageWriteRect" "true"
+        Option  "XaaNoScanlineCPUToScreenColorExpandFill" "true"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Card0"
+	Monitor    "Monitor0"
+	DefaultColorDepth 16
+	Option "AddARGBGLXVisuals" "true"
+	Option "DisableGLXRootClipping" "true"
+	SubSection "Display"
+		Depth     1
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     4
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     8
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     15
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     16
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     24
+		@@MODES@@
+	EndSubSection
+	SubSection "Display"
+		Depth     32
+		@@MODES@@
+	EndSubSection
+EndSection
+
+Section "DRI"
+	Mode 0666
+EndSection
+

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>./inc/vm.php</TITLE>
+<META NAME="description" CONTENT="./inc/vm.php">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="previous" HREF="node968.html">
+<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node974.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html15480"
+  HREF="node974.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html15476"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html15472"
+  HREF="node972.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html15478"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html15481"
+  HREF="node974.html">VM_shutdownAndDisableNetbootAfterInstall</A>
+<B> Up:</B> <A NAME="tex2html15477"
+  HREF="node133.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html15473"
+  HREF="node972.html">UPDATE_getInfo</A>
+ &nbsp; <B>  <A NAME="tex2html15479"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION008340000000000000000">
+./inc/vm.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for managing virtual clients.
+<BR>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html15482"
+  HREF="node974.html">VM_shutdownAndDisableNetbootAfterInstall</A>
+<LI><A NAME="tex2html15483"
+  HREF="node975.html">VM_rebootAndActivateNetboot</A>
+<LI><A NAME="tex2html15484"
+  HREF="node976.html">VM_shutdownAndDisableNetbootAfterInstall</A>
+<LI><A NAME="tex2html15485"
+  HREF="node977.html">VM_shutdownAndDisableNetboot</A>
+<LI><A NAME="tex2html15486"
+  HREF="node978.html">VM_rebootChangeBootDevice</A>
+<LI><A NAME="tex2html15487"
+  HREF="node979.html">VM_getVBoxVersion</A>
+<LI><A NAME="tex2html15488"
+  HREF="node980.html">VM_setVBoxAddonAsDefault</A>
+<LI><A NAME="tex2html15489"
+  HREF="node981.html">VM_downloadedVBoxAddons</A>
+<LI><A NAME="tex2html15490"
+  HREF="node982.html">VM_getVBoxAddonDefaultVersion</A>
+<LI><A NAME="tex2html15491"
+  HREF="node983.html">VM_generateVBOXaddonDownloadCMD</A>
+<LI><A NAME="tex2html15492"
+  HREF="node984.html">VM_downloadVBOXaddons</A>
+<LI><A NAME="tex2html15493"
+  HREF="node985.html">VM_VBOXaddonDownloadDialog</A>
+<LI><A NAME="tex2html15494"
+  HREF="node986.html">VM_wasVBoxAddonDownloaded</A>
+<LI><A NAME="tex2html15495"
+  HREF="node987.html">VM_listDownloadableVBoxAddons</A>
+<LI><A NAME="tex2html15496"
+  HREF="node988.html">VM_stopVM</A>
+<LI><A NAME="tex2html15497"
+  HREF="node989.html">VM_pauseVM</A>
+<LI><A NAME="tex2html15498"
+  HREF="node990.html">VM_resumeVM</A>
+<LI><A NAME="tex2html15499"
+  HREF="node991.html">VM_webAction</A>
+<LI><A NAME="tex2html15500"
+  HREF="node992.html">VM_delete</A>
+<LI><A NAME="tex2html15501"
+  HREF="node993.html">VM_vmSwNr2Name</A>
+<LI><A NAME="tex2html15502"
+  HREF="node994.html">VM_getHTMLStatusBlock</A>
+<LI><A NAME="tex2html15503"
+  HREF="node995.html">VM_activateNetboot</A>
+<LI><A NAME="tex2html15504"
+  HREF="node996.html">VM_convertSwitchStatusInfo</A>
+<LI><A NAME="tex2html15505"
+  HREF="node997.html">VM_getSWandHost</A>
+<LI><A NAME="tex2html15506"
+  HREF="node998.html">VM_getStatus</A>
+<LI><A NAME="tex2html15507"
+  HREF="node999.html">VM_GUIstepCreateGuest</A>
+<LI><A NAME="tex2html15508"
+  HREF="node1000.html">VM_GUIstepCheckHost</A>
+<LI><A NAME="tex2html15509"
+  HREF="node1001.html">VM_GUIstepSelectHost</A>
+<LI><A NAME="tex2html15510"
+  HREF="node1002.html">VM_getAllVMHosts</A>
+<LI><A NAME="tex2html15511"
+  HREF="node1003.html">VM_setVisualURL</A>
+<LI><A NAME="tex2html15512"
+  HREF="node1004.html">VM_setHostInDB</A>
+<LI><A NAME="tex2html15513"
+  HREF="node1005.html">VM_setGuestInDB</A>
+<LI><A NAME="tex2html15514"
+  HREF="node1006.html">VM_statusIcons</A>
+<LI><A NAME="tex2html15515"
+  HREF="node1007.html">VM_createDiskImage</A>
+<LI><A NAME="tex2html15516"
+  HREF="node1008.html">VM_delVMCMD</A>
+<LI><A NAME="tex2html15517"
+  HREF="node1009.html">VM_activateNetbootCMD</A>
+<LI><A NAME="tex2html15518"
+  HREF="node1010.html">VM_createVM</A>
+<LI><A NAME="tex2html15519"
+  HREF="node1011.html">VM_startVM</A>
+<LI><A NAME="tex2html15520"
+  HREF="node1012.html">VM_startVMCommandFile</A>
+<LI><A NAME="tex2html15521"
+  HREF="node1013.html">VM_stopVMCommandFile</A>
+<LI><A NAME="tex2html15522"
+  HREF="node1014.html">VM_status</A>
+<LI><A NAME="tex2html15523"
+  HREF="node1015.html">VM_parseVBOXdisk</A>
+<LI><A NAME="tex2html15524"
+  HREF="node1016.html">VM_parseVBOXstate</A>
+<LI><A NAME="tex2html15525"
+  HREF="node1017.html">VM_parseVBOXNic</A>
+<LI><A NAME="tex2html15526"
+  HREF="node1018.html">VM_parseStatus</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

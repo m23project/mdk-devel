@@ -1,0 +1,71 @@
+\section{How to make network bootimages?}
+\subsection{Introduction}
+What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.\\
+A client runs for first start up thru the following sequence:\\
+\begin{itemize}
+\item get IP, netmask, bootimage name, ... from the m23 DHCP server
+\item fetch the bootimage from the server with TFTP protocoll
+\item load and extract the image to the client memory
+\item start the contained kernel
+\item kernel loades the included initrd
+\item start up script fetches IP, netmask, etc. from the server again
+\item the script fetches the first job for the client and saves the job script file
+\item the script is executed and the next job will be fetched from the server
+\end{itemize} 
+This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+\subsection{creating a new bootimage}
+In the /mdk/bootimage directory you can find the mkBootImage.sh script that generates the bootimage for PXE and Etherboot standard. The bootimages will be stored in /m23/tftp/ as m23pxeinstall (PXE kernel), initrd.gz (initial ramdisk for PXE) and m23install (Etherboot). To generate the Etherboot files you need to install \textbf{mknbi}.\\
+\subsubsection{How it works?}
+it creates a blank file of 17MB size
+\begin{verbatim}
+> dd if=/dev/zero of=initrd bs=1k count=23000
+\end{verbatim}
+sets up a loop device
+\begin{verbatim}
+> losetup /dev/loop1 initrd
+\end{verbatim}
+the 23MB file will be formated with EXT2
+\begin{verbatim}
+> mke2fs -m 0 -N 10000 /dev/loop1
+\end{verbatim}
+mount the file
+\begin{verbatim}
+> mount /dev/loop1 mnt
+\end{verbatim}
+copy needed files from root2 and hardware informations to the mounted image
+\begin{verbatim}
+> cp -rdpR root2/* mnt/
+> cp -rdpR /usr/share/hwdata/*  root2/usr/share/hwdata/
+\end{verbatim}
+umnount the image
+\begin{verbatim}
+> umount mnt
+\end{verbatim}
+set "down" the loop device
+\begin{verbatim}
+> losetup -d /dev/loop1
+\end{verbatim}
+set correct file permissions
+\begin{verbatim}
+> chmod 0555 bzImage
+> chown root:root bzImage
+\end{verbatim}
+set boot device in kernel
+\begin{verbatim}
+> rdev bzImage /dev/ram0
+\end{verbatim}
+generate bootimage for Etherboot
+\begin{verbatim}
+> mknbi-linux bzImage --first32pm --output=/m23/tftp/m23install --ip=dhcp
+	--rootdir=/dev/ram0 initrd
+\end{verbatim}
+generate files for PXE
+\begin{verbatim}
+> cp bzImage /m23/tftp/m23pxeinstall
+> gzip initrd
+> mv initrd.gz /m23/tftp/initrd.gz
+\end{verbatim}
+
+\subsection{What can you do with this SDK?}
+Modify all files in root2. These files are the files for a kind of Mini Linux distribution. You should be familar to Linux, if you want to change a thing. linurc will be the first script executed after network boot. If you want to do automatic execution this is the right place. \subsubsection{Build a new kernel}
+Copy your new kernel to bzImage in the SDK directory and don't forget to copy the modules to root2/lib/modules. In the m23client-Install*.conf file you get the configuration for the kernel we used.

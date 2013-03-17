@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+
+# Linux Mint 13 Maya
+if [ $(grep 'packages.linuxmint.com' /etc/apt/sources.list | grep -c maya) -eq 1 ]
+then
+	rm /etc/init/m23-xorg-configurator*
+else
+	#Check, if the system uses upstart (Ubuntu)
+	if [ `dpkg --get-selections | grep upstart | grep -c -v deinstall` -gt 0 ]
+	then
+		find /etc/rc* | grep hwcheck$ | xargs rm 2> /dev/null
+		find /etc/rc* | grep m23-xorg-configurator$ | xargs rm 2> /dev/null
+	fi
+fi
+
+db_stop

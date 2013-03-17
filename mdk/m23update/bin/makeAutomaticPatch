@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd /mdk/m23update
+
+#check for changes
+bin/md5Check c 4Update
+
+#get next patch nr
+nr=`bin/nextIndexNr updates/updatenr`
+
+#make the tar
+bin/md5Check t 4Update updates/$nr.tb2
+
+#replace the old index with the new
+bin/md5Check m 4Update
+
+#show report
+bin/md5Check r 4Update

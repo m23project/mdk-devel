@@ -1,0 +1,5 @@
+#!/bin/sh
+for i in `find /mdk/m23Debs/debs/ | grep deb$` # | grep -v "_any"
+do
+	/mdk/m23Debs/bin/changeDepArch.sh $i amd64 /mdk/m23Debs/debsamd64
+done

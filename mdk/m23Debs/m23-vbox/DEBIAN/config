@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+#Get MySQL user and password
+dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+#Check if the m23 database is accessible (this is possible if the package is installed on the m23 server)
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost'" | mysql -u $dbadmin -p$dbadmpass m23 1> /dev/null 2> /dev/null
+if [ $? -ne 0 ]
+then
+	#The package is installed on a m23 client (or another system)
+	db_input high m23-vbox/m23server || true
+	db_go
+fi

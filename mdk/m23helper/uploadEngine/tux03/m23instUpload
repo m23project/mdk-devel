@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd /mnt/hda6/m23inst
+
+#delete all files that are on the SF server
+wget http://m23.sourceforge.net/m23inst/ -q -O -  | grep deb | cut -d'"' -f6 | xargs rm
+
+#build md5 sums
+md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
+
+#rsync --bwlimit=10 -P *.deb Packages* *.info all.md5 tux05:/m23inst
+#upload all files and rename not needed to *~ 
+rsync -brazPy --delete --bwlimit=18 . tux05:/m23inst
+
+ssh tux05 m23instUpload-start

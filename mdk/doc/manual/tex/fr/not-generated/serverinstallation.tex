@@ -1,0 +1,118 @@
+\chapter{Installation du serveur}
+\section{Préparations}
+Avant que vous commenciez avec l'installation de votre serveur m23, vous devriez faire quelques considérations:
+\begin{itemize}
+\item Est-ce que mon serveur et les clients accordent les exigences (regardez le chapitre précédent)?
+\item Comment est-ce que mon réseau est organisé?
+\item Quel numéro IP est-ce que je veux assigner au serveur?
+\item Quels sont les ajustements pour le masque du réseau, la passerelle, le serveur de noms de domaine et le numéro IP du réseau?
+\item Est-ce que le lecteur CD-ROM de mon serveur est capable d'amorcer?
+\end{itemize}
+
+\section{Commencer avec l'installation}
+Connectez le serveur au réseau et inserez le CD de l'installation de m23 dans le lecteur. Tenez les ajustements de réseau nécessaires à main. L'installation s'explique de soi et ne devrait pas poser des problèmes à quelqu'un qui a des connaissance des concepts fondamentals de l'administration d'un réseau. Au suivant, vous verrez des copies d'écran de l'installation, que le serveur va parcourir. Ne vous inquiétez pas quand il y a encore d'autres affichages sur votre moniteur pendant la procedure de l'installation - je ne le croyais pas utile de démontrer toutes affichages d'état en des copies d'écran  ;).\\\\
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst1.png}\\
+Ceci est l'affichage d'amor\c{c}age du CD de l'installation de m23. Après que vous ayez appuyé sur la touche Retour, le système d'exploitation Linux amorcera du CD et commencera avec le programme de l'installation.
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst2.png}\\
+Vous pouvez choisir si vous voulez exécuter le programme d'installation en allemand ou en anglais. Ici, nous supposons que vous vous déciderez pour l'anglais. 
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst3.png}\\
+Un petit $\ll$Bienvenu$\gg$.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst4.png}\\
+Entrez le mot de passe de la racine. Root (racine) est l'administrateur du système avec accès illimité au serveur m23. Vous devriez choisir un mot de passe qui ne peut pas être deviné facilement et qui consiste au moins de 10 caractères. Vous devriez aussi employer des caractères spéciaux, des chiffres et des majuscules et des minuscules.\\
+Comme le mot de passe n'est pas montrée, il sera controlé par une deuxième entrée dans le dialogue suivant.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst5.png}\\
+Le $\ll$hostname$\gg$ est le nom pour le serveur.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst6.png}
+\\
+L'adresse IP que vous voulez assigner au serveur. Vous devriez choisir l'adresse d'une fa\c{c}on qui rend les clients capable d'atteindre le serveur sans l'emploi d'un routeur.
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst7.png}\\
+L'adresse du réseau. C'est l'adresse sous laquelle le réseau est accessible.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst8.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst9.png}
+\\
+Le masque du réseau indique, quelle partie de l'adresse IP appartient au ordinateur particulier et quelle partie masque le réseau.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst10.png}
+\\
+L'IP de la passerelle indique l'adresse IP, par laquelle les demandes aux adresses IP sont dirigées, qui se trouvent hors du réseau du serveur.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst11.png}
+\\
+Pour la dissolution des noms URL en des adresses IP, il est nécessaire d'employer un serveur de noms DNS, qui exécute la transformation. Par exemple, ftp.debian.org devient 128.101.80.131. Si vous ne connaissez pas de serveur de noms DNS, vous pouvez utiliser l'adresse IP 134.245.10.36. Celle-ci est l'adresse du serveur de noms DNS de l'université de Kiel.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst12.png}
+\\
+Ici, vous avez la possibilité de contr\^oler, si vos entrées sont correctes. Si vous voulez continuer avec l'installation, choisissez $\ll$Yes$\gg$, sinon, vous pouvez corriger vos entrées après avoir choisi $\ll$No$\gg$.
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst13.png}
+\\
+Ici, vous pouvez choisir si vous voulez employer le disque dur tout entier du serveur pour m23. Cela a pour résultat que 2 partitions seront établies, une pour le système d'exploitation Debian/Linux et une pour la permutation. S'il y a plusieurs disques durs, le premier sera utilisé. Mais vous pouvez aussi utiliser des partitions que vous avez établies auparavant si vous souhaitez un partitionnement spécial.\\\\
+\underline{Information supplémentaire concernant le partitionnement}
+Notez que, pendant l'installation, le serveur sera effacé complètement si vous n'avez pas établi deux partitions sur le premier disque dur (hda ou sda) avec un programme comme Parted, fdisk, cfdisk etc. comme c'est indiqué au suivant:
+\begin{itemize}
+\item une partition pour m23 d'une taille de 4 GB au moins
+\item une partition pour la permutation pour Linux (recommandé d'une taille deux fois la taille de la mémoire vive)
+\end{itemize}
+Notez les adresses des partitions, s.v.p. Par exemple la première partition du premier disque dur est nommée hda1 et la deuxième hada2. Si vous utilisez une partition étendue, la première partition dans la partition étendue sera nommée hda5, la deuxième hda6 etc. Vous serez demandé ces adresses pendant l'installation, si vous avez choisi le type $\ll$experte$\gg$ pour le partitionnement.
+Nous recommandons à la plupart des utilisateurs de sauvegarder les données et de laisser m23 partitionner et formater le serveur entier.
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst14.png}
+\\
+Le dernier avertissement ;)
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst15.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst16.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst17.png}
+\\
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst18.png}
+\\
+Ici, vous pouvez décider si vous voulez installer le gestionnaire d'amor\c{c}age LILO (LInux LOader). Ceci sera installé dans le MBR (MasterBootRecord) du premier disque dur. Si vous vous décidez contre, vous devez installer un gestionnaire d'amor\c{c}age vous-même. Sinon, le serveur m23 ne peut pas amorcer.
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/en/inst19.png}
+\\
+L'installation est terminée ;)
+\section{Fin de l'installation}
+\underline{Notez}: Vous n'avez pas besoin d'un moniteur en service normal, excepté que vous le voulez utiliser aussi pour le travail. Comme le serveur m23 est basée sur un système Debian GNU/Linux, vous pouvez ouvrir un session comme root comme d'habitude et installer du logiciel additionel comme c'est l'usage avec Debian. Regardez \underline{www.debian.org} pour des informations supplémentaires.\\
+Maintenant, vous pouvez ajouter votre premier client!

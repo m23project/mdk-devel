@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Connecting to the server</TITLE>
+<META NAME="description" CONTENT="Connecting to the server">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2588"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2584"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2578"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2586"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2589"
+  HREF="node40.html">Disconnecting from the server</A>
+<B> Up:</B> <A NAME="tex2html2585"
+  HREF="node38.html">Filling main.cpp</A>
+<B> Previous:</B> <A NAME="tex2html2579"
+  HREF="node38.html">Filling main.cpp</A>
+ &nbsp; <B>  <A NAME="tex2html2587"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00625100000000000000">
+Connecting to the server</A>
+</H3>
+<PRE>
+#include &lt;mysql/mysql.h&gt;
+
+MYSQL connection;
+
+void connect(char *server, char *dbuser, char *passw)
+{
+  if (!mysql_connect(&amp;connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&amp;connection));
+      exit(2);
+  }
+  mysql_select_db(&amp;connection,"m23");
+};
+</PRE>
+
+<OL>
+<LI>First of all we have to include the necessary header file: <SPAN  CLASS="textit">#include &lt;mysql/mysql.h&gt;</SPAN>
+</LI>
+<LI>The mysql_connect function requires a <SPAN  CLASS="textbf">MYSQL</SPAN> variable (here called
+<SPAN  CLASS="textit">connection</SPAN>) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql_connect will return 0, otherwise we get an error, print an error message and quit.
+
+<P>
+</LI>
+<LI>mysql_error will generate a human readable error message.
+
+<P>
+</LI>
+<LI>At least we should choose our database, this is done with mysql_select_db. Now the connection should be established.
+
+<P>
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

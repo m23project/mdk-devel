@@ -1,0 +1,39 @@
+\section{installing NVIDIA drivers}
+\subsection{getting the needed packages}
+You need the following packages:
+\begin{itemize}
+\item xlibmesa-dev
+\item xlibmesa3
+\item xlibmesa3-gl
+\item xlibmesa3-glu
+\item nvidia-glx-src
+\item nvidia-kernel-src
+\item kernel-headers-???
+\item fakeroot
+\end{itemize}
+Where ??? stand for your current installed kernel. You can get the current kernel name by typing:\\
+\begin{verbatim}
+uname -r
+\end{verbatim}
+Search for the correct kernel with:\\
+\begin{verbatim}
+apt-cache search kernel headers
+\end{verbatim}
+A right kernel header package name may look like this: \textit{kernel-headers-2.4.20-3-k7}.
+\subsection{make the GLX driver}
+Go to \textbf{/usr/src/nvidia-glx-???} and make the driver with:
+\begin{verbatim}
+dpkg-buildpackage -us -uc
+\end{verbatim}
+You'll find the driver in \textbf{/usr/src}, the \textit{nvidia-glx_???.deb} package is the the driver and  \textit{nvidia-glx-dev_???.deb} the development package.
+
+\subsection{kernel driver}
+Exctract the kernel driver with:\\
+\begin{verbatim}
+tar xfvz nvidia-kernel-src.tar.gz
+\end{verbatim}
+Go to \textbf{/usr/src/modules/nvidia-kernel-???} and execute the following command:
+\begin{verbatim}
+debian/rules kdist_image KSRC=/usr/src/kernel-headers-???
+\end{verbatim}
+Where ??? is the version of the kernel headers.

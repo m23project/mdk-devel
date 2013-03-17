@@ -1,0 +1,41 @@
+#remove HTML comments
+#cat $1 | sed 's/[<][!]--[^>]*--[>]//g' | sed 's/noheading//' > /tmp/html2latex.tmp
+
+#convert underline
+#cat /tmp/html2latex.tmp | sed 's/[<][u,U][>]/\\underline{/g' | sed 's/[<]\/[u,U][>]/\}/g' > /tmp/html2latex.tmp
+
+#convert bold
+#cat /tmp/html2latex.tmp | sed 's/[<][b,B][>]/\\textbf{/g' | sed 's/[<]\/[b,B][>]/\}/g' > /tmp/html2latex.tmp
+
+#convert italic
+#cat /tmp/html2latex.tmp | sed 's/[<][e,E][m,M][>]/\\textit{/g' | sed 's/[<]\/[e,E][m,M][>]/\}/g' > /tmp/html2latex.tmp
+
+#convert unordered list
+#cat /tmp/html2latex.tmp | sed 's/[<][u,U][l,L][>]/\\begin{itemize\}/g' | sed 's/[<]\/[u,U][l,L][>]/\\end{itemize\}/g' > /tmp/html2latex.tmp
+
+#convert ordered list
+#cat /tmp/html2latex.tmp | sed 's/[<][o,O][l,L][>]/\\begin{itemize\}/g' | sed 's/[<]\/[o,O][l,L][>]/\\end{itemize\}/g' > /tmp/html2latex.tmp
+
+#convert list items
+#cat /tmp/html2latex.tmp | sed 's/[<][l,L][i,I][>]/\\item /g' | sed 's/[<]\/[l,L][i,I][>]//g' > /tmp/html2latex.tmp
+
+#remove center
+#cat /tmp/html2latex.tmp | sed 's/[<][c,C][e,E][n,N][t,T][e,E][r,R][>]//g' | sed 's/[<]\/[c,C][e,E][n,N][t,T][e,E][r,R][>]//g' > /tmp/html2latex.tmp
+
+#remove img tag
+#cat /tmp/html2latex.tmp | sed 's/[<]img[a-z,A-Z,0-9,.,/, ,",=,:,_]*[>]//g' > /tmp/html2latex.tmp
+
+#convert h2
+#cat /tmp/html2latex.tmp | sed 's/[<][h,H][1-9][>]/\\subsection{/g' | sed 's/[<]\/[h,H][1-9][>]/\}/g' > /tmp/html2latex.tmp
+
+#remove link tag
+#cat /tmp/html2latex.tmp | sed 's/[<][a,A][ ][a-z,A-Z,0-9,.,/, ,",=,:,_,-]*[>]//g' | sed 's/[<]\/[a,A][>]//g'> /tmp/html2latex.tmp
+
+#remove <br>
+#cat /tmp/html2latex.tmp | sed 's/[<][b,B][r,R][>]//g' > /tmp/html2latex.tmp
+
+#convert -
+#cat /tmp/html2latex.tmp | sed 's/[-]/\\-/g' > /tmp/html2latex.tmp
+
+#remove &nbsp;
+#cat /tmp/html2latex.tmp | sed 's/[&][n,N][b,B][s,S][p,P][;]//g' > /tmp/html2latex.tmp

@@ -1,0 +1,254 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          m23hwdetect
+# Required-Start:    $local_fs udev
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Configurates hardware
+### END INIT INFO
+
+# /etc/init.d/m23hwdetect
+# Configurates hardware
+# (C) Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+
+
+
+
+#Exit on Ubuntu at once
+if [ -f /etc/issue ] && [ `grep Ubuntu /etc/issue -c 2> /dev/null` -gt 0 ]
+then
+	exit 0
+fi
+
+
+
+
+
+#Make sure that there is an executable usleep
+checkForUsleep() {
+usleep 1 2> /dev/null
+if [ $? -ne 0 ]
+then
+	touch /bin/usleep
+	chmod +x /bin/usleep
+fi
+}
+
+
+
+
+
+#Run thru the found modules (and maybe existing module options) and check if there are specified modules in kernel parameter m23modules
+loadFoundModules() {
+for moduleOption in `cat /tmp/modulesToProbe | sort -u` $m23modules
+do
+	#get the name of the module: split from the options
+	moduleName=`echo $moduleOption | cut -d' ' -f1`
+
+	#only load it if it is not already loaded
+	if [ `lsmod 2> /dev/null | grep $moduleName -c` -eq 0 ]
+	then
+		statFile="/dev/stdout"
+		echo -n -e "\rLoading: $moduleOption" >> $statFile
+		modprobe $moduleOption 2>&1 | cat >> $statFile
+	fi
+done
+echo
+}
+
+
+
+
+
+activateNet() {
+#/tmp/ethFound will be set if at least one ethX device could be activated
+rm /tmp/ethFound 2> /dev/null
+
+#Activate all ethernet interfaces
+for i in `seq 0 9`
+do
+	/sbin/ifconfig -s eth$i 2> /dev/null > /dev/null
+
+	if [ $? -ne 0 ]
+	then
+		/sbin/ifconfig eth$i 1.1.1.$i 2> /dev/null
+	
+		if [ $? -eq 0 ]
+		then
+			touch /tmp/ethFound
+		fi
+	else
+		touch /tmp/ethFound
+	fi
+done
+}
+
+
+
+
+
+#Add modules provided and found by hwinfo
+addHWInfoModules() {
+if [ `which hwinfo | wc -l` -gt 0 ]
+then
+	hwinfo | grep "  Driver: " | cut -d'"' -f2 >> /tmp/modulesToProbe
+	hwinfo | grep modprobe | grep Driver | cut -d'"' -f2 | sed 's#modprobe ##g' | sed 's#; # #g' >> /tmp/modulesToProbe
+fi
+}
+
+
+
+
+
+#Add modules provided and found by discover
+addDiscoverModules() {
+if [ `which discover | wc -l` -gt 0 ]
+then
+	discover --data-path=linux/module/name --data-path=linux/module/options --format="%s %s" --enable-bus=all 2> /dev/null | grep -E -v '^ *$' >> /tmp/modulesToProbe
+fi
+}
+
+
+
+
+
+#Add modules provided and found by hwsetup
+addHWSetupModules() {
+if [ `which hwsetup | wc -l` -gt 0 ]
+then
+	hwsetup -v | grep driver | cut -d' ' -f2 | grep -v '(null)' >> /tmp/modulesToProbe
+fi
+}
+
+
+
+
+
+#Adds all network modules, if no eth devices could be activated
+tryAllNetworkModulesIfNoEthExists() {
+if [ ! -f /tmp/ethFound ]
+then
+	find /lib/modules/`uname -r`/kernel/drivers/net -printf "%f\n" | grep ko$ | cut -d'.' -f1 | grep -v dummy | grep -v bond | sort -u > /tmp/modulesToProbe
+fi
+loadFoundModules
+activateNet
+}
+
+
+
+
+
+#base hardware scanner that used the hardware IDs that are stored in the modules
+addBaseScanner() {
+
+if [ ! -e /sbin/modinfo ]
+then
+	return
+fi
+
+kernel=`uname -r`
+cacheDir="/var/cache/baseScanner/$kernel"
+
+if [ ! -d $cacheDir ]
+then
+	mkdir -p $cacheDir
+	cd $cacheDir
+
+	echo -n "Building ID cache..."
+	find /lib/modules/$kernel -type f | while read mod
+	do
+		modname=`basename "$mod" | cut -d'.' -f1`
+		modinfo $mod > $modname.ids 2> /dev/null
+	done
+	echo " done"
+fi
+
+cd $cacheDir
+
+echo -n "Finding modules by ID in cache..."
+lspci -n | cut -d' ' -f3 | sort -u | while read devID
+do
+	id1=`echo $devID | cut -d':' -f1`
+	id2=`echo $devID | cut -d':' -f2`
+	grep -i $id2 * | grep -i $id1 | cut -d':' -f1 | cut -d'.' -f1 >> /tmp/modulesToProbe
+done
+echo " done"
+}
+
+
+
+
+
+#Mount proc
+mount /proc 2> /dev/null
+mount /dev/pts 2> /dev/null
+
+# Load acpi fan and thermal modules if available, to avoid machine overheating.
+modprobe fan >/dev/null 2>&1
+modprobe thermal >/dev/null 2>&1
+
+export TERM_TYPE=pts
+
+#Disable screensaver
+setterm -blank 0
+
+
+
+
+
+#Make sure the hwdata is available under /usr/share/misc (this is used for hwinfo, lspci and hwsetup)
+if [ ! -d /usr/share/misc ] && [ -d /usr/share/hwdata ]
+then
+	ln -s /usr/share/hwdata /usr/share/misc 2> /dev/null
+fi
+
+
+
+
+
+#Stop complainig about missing xorg.conf by creating it
+mkdir -p /etc/X11
+touch /etc/X11/xorg.conf
+#Store the kernel error message level to a file
+cat /proc/sys/kernel/printk > /tmp/printk.level
+#Set kernel error messages to no output
+echo 0 > /proc/sys/kernel/printk
+
+
+
+
+
+#Build a list of modules, that should be loaded
+echo usbhid > /tmp/modulesToProbe
+
+checkForUsleep
+addHWInfoModules
+addDiscoverModules
+addHWSetupModules
+addBaseScanner
+loadFoundModules
+activateNet
+tryAllNetworkModulesIfNoEthExists
+
+
+
+
+
+#Make the console working again after killing dialog
+reset
+
+
+
+
+
+#Restore the kernel error message level from a file
+cat /tmp/printk.level > /proc/sys/kernel/printk
+
+
+
+
+
+#Run the old hwcheck script
+/etc/init.d/hwcheck

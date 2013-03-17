@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>fstab</TITLE>
+<META NAME="description" CONTENT="fstab">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="up" HREF="node60.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2870"
+  HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2866"
+  HREF="node60.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2860"
+  HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2868"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2871"
+  HREF="node62.html">lilo.conf</A>
+<B> Up:</B> <A NAME="tex2html2867"
+  HREF="node60.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html2861"
+  HREF="node60.html">editing files</A>
+ &nbsp; <B>  <A NAME="tex2html2869"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00642100000000000000">
+fstab</A>
+</H3>
+Copy your existing /etc/fstab to the new /etc/ directory. Adjust the line for your boot device, e.g. your new boot device is hda3 so you have to change <SPAN  CLASS="textit">/dev/hda2       /               ext3   defaults           0       0</SPAN> to <SPAN  CLASS="textit">/dev/hda1       /               ext3   defaults           0       0</SPAN> .
+Your new fstab may look like this:
+<PRE>
+# /etc/fstab file system info, created by the m23 project
+#  &lt;file system&gt; &lt;mount point&gt;  &lt;type&gt; &lt;options&gt;     &lt;dump&gt;  &lt;pass&gt;
+proc             /proc          proc   defaults      0       0
+/dev/hda1        none           swap    sw           0       0
+/dev/hda3       /               ext3   defaults           0       0
+/dev/cdrom      /mnt/cdrom      auto    ro,noauto,user,exec     0 0
+/dev/fd0        /mnt/floppy     auto    user,noauto             0 0
+</PRE> 
+
+<P>
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

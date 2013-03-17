@@ -1,0 +1,23 @@
+\section{Paketquellenliste bearbeiten}\subsection{Information}
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/de/client_sourceslist.png} \\
+Softwarepakete können von verschiedenen Quellen (HTTP,FTP,CDRom, etc.) installiert werden. Verschiedene Quellen werden dann benötigt, wenn nicht alle Softwarepakete von einem Medium installiert werden können. Um Ihnen eine einfache Möglichkeit zu bieten, die Quellen zu verwalten, geben Sie diese ein, wie bei der ausgewählten Distribution gewohnt.\\
+\begin{itemize}
+	\item \textbf{Laden einer Paketquelle}: Zum Laden wählen Sie rechts oben aus der Liste die Paketquelle aus, die Sie laden möchten. Nach Klicken auf \textit{"Laden"} wird diese in den Editor geladen.\\
+	\item \textbf{Löschen der Paketquelle}: Um die in den Editor geladene Paketquelle zu löschen, klicken Sie auf dem \textit{"Löschen"}-Button und stimmen im nachfolgenden Dialog dem Löschen zu.\\
+	\item \textbf{Speichern der Paketquelle}: Es wird immer die in den Editor geladene Paketquelle gespeichert, unabhängig davon, welche rechts oben in der Auswahlliste angezeigt wird. Wählen Sie zuerst die Distribution aus, für die die Paketliste gelten soll. Nach der Distributionswahl kann es geschehen, daß Sie zusätzlich Angaben zu der Distribution machen müssen. Wählen Sie zusätzlich die Benutzeroberflächen aus der Liste unter dem Editor aus, die von der Paketquellenliste unterstützt werden. Suchen Sie einen Namen für die Paketliste aus und tragen Sie diesen in das Eingabefeld unter \textit{"Paketquellenname"} ein. Sollten Sie eine Paketquelle geladen haben, so wird der Name automatisch eingetragen. Wenn Sie möchten, können Sie einen Kommentar in das Feld \textit{"Beschreibung"} eingeben. Klicken Sie anschließend auf \textit{"Speichern"}.\\
+	\item \textbf{Paketquelle testen}: Nachdem Sie eine Paketquelle eingegeben haben, sollten Sie testen, ob alle Quellen ordnungsgemäß funktionieren. Nach einem Klick auf den \textit{"Test"}-Button wird versucht, die Paketbeschreibungen der Quellen herunterzuladen. Nach Abschluß des Testes wird unten ein Testbericht angezeigt. Es kann durchaus mehrere Minuten dauern, bis der Testbericht erscheint. Dies ist abhängig von der Geschwindigkeit Ihrer Internetverbindung und der Geschwindigkeit der benutzten Quellpaket-Server.\\
+	\item \textbf{Mirror angeben}: Möchten Sie einen anderen Mirror (voreingestellt ist ftp.debian.org) für die Installation des Basissystems verwenden, so geben Sie diesen in einer neuen Zeile der Paketquelle wie folgt an: \\
+\begin{verbatim}
+#mirror: [URL zu den Paketen]
+\end{verbatim}
+. Mit \textit{URL zu den Paketen} ist das Protokoll, der Hostname bzw. die IP und das Verzeichnis gemeint, wo die Pakete zu finden sind. Eine gültige Zeile könnte z.B. so aussehen \\
+\begin{verbatim}
+#mirror: http://192.168.7.14/debianCDs
+\end{verbatim}
+.\\
+\end{itemize}
+\subsection{Hinweis}
+\begin{itemize}
+\item Speichern Sie eine Paketquelle unter einem bereits existierenden Namen ab, so wird die alte Paketquelle mit dem Inhalt der neuen überschrieben.\\
+\item \textbf{Benutzeroberflächen} sind direkt an eine Paketquellenliste gebunden. D.h. wenn Sie eine bestimmte Paketquellenliste für einen Client benutzen, können Sie nur die Benutzeroberflächen verwenden, die Sie in diesem Dialog für die Paketquellenliste freigeschaltet haben. Sie sollten hier deshalb nur die Benutzeroberflächen auswählen, die garantiert von den Paketquellen unterstützt werden.\\
+\end{itemize}

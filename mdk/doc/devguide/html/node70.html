@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>booting your new system</TITLE>
+<META NAME="description" CONTENT="booting your new system">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="previous" HREF="node69.html">
+<LINK REL="up" HREF="node58.html">
+<LINK REL="next" HREF="node71.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2973"
+  HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2969"
+  HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2965"
+  HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2971"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2974"
+  HREF="node71.html">How to create a</A>
+<B> Up:</B> <A NAME="tex2html2970"
+  HREF="node58.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html2966"
+  HREF="node69.html">system update and installation</A>
+ &nbsp; <B>  <A NAME="tex2html2972"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00647000000000000000">
+booting your new system</A>
+</H2>
+To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
+Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
+<PRE>
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        initrd=/initrd.img
+</PRE>
+vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

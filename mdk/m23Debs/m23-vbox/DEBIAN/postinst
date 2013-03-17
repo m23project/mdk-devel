@@ -1,0 +1,230 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+#Get MySQL user and password
+dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+#check if we are reconfiguring
+if [ "$1" = "reconfigure" ] || [ "${DEBCONF_RECONFIGURE}" = "1" ]
+then
+	reconf=true
+else
+	reconf=false
+fi
+
+
+
+
+
+#Create a symlink to the System-V-Init directory to get the VMs run that were started before the system was stopped.
+ln -s /m23/vms/bin/restoreVMsStates /etc/rcS.d/S42restoreVMsStates 2> /dev/null
+
+#Add the user m23-vbox to the tty group to allow access by "screen"
+#addgroup m23-vbox tty
+usermod -a -G tty m23-vbox
+sed -i -e '/TTYMODE/s/620/660/' /etc/default/devpts
+chmod 660 /dev/pts/*
+
+
+
+
+#Create the m23 VirtualBox user
+#Check if we can get the ID of the user (if it works, the user exists)
+id m23-vbox 2> /dev/null 1> /dev/null
+if [ $? -ne 0 ]
+then
+	#generate a random password
+	pw=`dd if=/dev/urandom bs=1M count=1 2> /dev/null | md5sum - | cut -d' ' -f1`
+	#create the user the VMs will run under
+	useradd -m -g users -d /home/m23-vbox -s /bin/bash -p "$pw" m23-vbox
+	#Add to the VirtualBox group to allow access to the needed /dev/vboxdrv
+	adduser m23-vbox vboxusers
+fi
+
+
+
+
+
+#Create the VirtualBox settings directory
+if [ ! -d /home/m23-vbox/.VirtualBox ]
+then
+mkdir -p /home/m23-vbox/.VirtualBox
+#Create the settings file with
+# * Registration data filled in
+# * Checking for updates disabled
+# * Path for machines and virtual harddisks changed to /m23/vms/vbox/
+rm /home/m23-vbox/.VirtualBox/VirtualBox.xml 2> /dev/null
+cat >> /home/m23-vbox/.VirtualBox/VirtualBox.xml << "VBoxEOF"
+<?xml version="1.0"?>
+<!-- Sun xVM VirtualBox Global Configuration -->
+<VirtualBox xmlns="http://www.innotek.de/VirtualBox-settings" version="1.7-linux">
+<Global>
+	<USBDeviceFilters/>
+	<ExtraData>
+	<ExtraDataItem name="GUI/RegistrationData" value="triesLeft=0"/>
+	<ExtraDataItem name="GUI/UpdateDate" value="never"/>
+	<ExtraDataItem name="GUI/SuppressMessages" value=",remindAboutAutoCapture"/>
+	</ExtraData>
+	<MachineRegistry/>
+	<MediaRegistry>
+	<HardDisks/>
+	<DVDImages/>
+	<FloppyImages/>
+	</MediaRegistry>
+	<SystemProperties defaultMachineFolder="/m23/vms/vbox/" defaultHardDiskFolder="/m23/vms/vbox/" defaultHardDiskFormat="VDI" remoteDisplayAuthLibrary="VRDPAuth" webServiceAuthLibrary="VRDPAuth" HWVirtExEnabled="false" LogHistoryCount="3"/>
+</Global>
+</VirtualBox>
+VBoxEOF
+
+#Correct access rights
+chown m23-vbox /home/m23-vbox/.VirtualBox -R
+fi
+
+
+
+
+
+#Set a random password for the VNC access
+if [ ! -e /home/m23-vbox/.vnc/passwd ]
+then
+	mkdir -p /home/m23-vbox/.vnc
+	
+	if [ ! -d /m23/inc/ ]
+	then
+		mkdir -p /m23/inc/
+	fi
+
+	#Create a 8 character password with at least one number and one upper case character
+	pw=`pwgen -n -c -B 8 1 2> /dev/null`
+	#If pwgen could not create the password (e.g. it's not installed) generate the password via dd and urandom.
+	if [ $? -ne 0 ]
+	then
+		pw=`dd if=/dev/urandom bs=1M count=1 2> /dev/null | md5sum - | cut -d' ' -f1 | dd bs=8 count=1 2> /dev/null`
+	fi
+
+	#Encrypt the password via x11vnc (x11vnc isn't used later)
+	x11vnc -storepasswd "$pw" /home/m23-vbox/.vnc/passwd
+	echo "<?php
+	\$vncpasswd=\"$pw\";
+?>" > /m23/inc/vncpasswd.php
+
+	chmod 400 /m23/inc/vncpasswd.php /home/m23-vbox/.vnc/passwd
+	chown www-data.www-data /m23/inc/vncpasswd.php
+	chown m23-vbox /home/m23-vbox/ -R
+fi
+
+
+
+
+
+#Allow the user www-data to run VirtualBox and VBoxManage under the user m23-vbox without password
+if test `grep -c "^www-data          ALL= (m23-vbox) NOPASSWD:/usr/bin/VirtualBox, /usr/bin/VBoxManage" /etc/sudoers` -eq 0
+then
+	echo "www-data          ALL= (m23-vbox) NOPASSWD:/usr/bin/VirtualBox, /usr/bin/VBoxManage" >> /etc/sudoers
+fi
+
+
+
+
+
+#Check if the m23 database is accessible (this is possible if the package is installed on the m23 server)
+echo "SELECT COUNT(*) FROM clients" | mysql -u $dbadmin -p$dbadmpass m23 1> /dev/null 2> /dev/null
+if [ $? -eq 0 ]
+then
+	#Get the VNC password
+	pw=`grep vncpasswd /m23/inc/vncpasswd.php | cut -d'"' -f2`
+	#Make the server VBOX server by setting software type and virtualisation role
+# 	define('VM_SW_VBOX',1);
+# 	define('VM_ROLE_HOST',1);
+	echo "UPDATE clients SET vmVisualPassword = '$pw', vmSoftware = (vmSoftware | 1), vmRole = (vmRole | 1) WHERE client = 'localhost' LIMIT 1" | mysql -u $dbadmin -p$dbadmpass m23
+else
+	db_get m23-vbox/m23server
+	##Check if the m23 server IP is not empty
+	if [ "$RET" ]
+	then
+		#Assign the IP of the m23 from DEBCONF to the variable
+		m23server=$RET
+
+		#Get the VNC password
+		pw=`grep vncpasswd /m23/inc/vncpasswd.php | cut -d'"' -f2`
+
+		#Try to fetch the m23 client ID
+		id=`cat /m23clientID 2> /dev/null`
+		if test $id
+		then
+			idvar="?m23clientID=$id"
+		fi
+
+		#Tell the m23 server the password for the VNC management console
+		wget -T5 -t0 --post-data="password=$pw&VMtype=1&type=MSR_VM_setHostInDB" "https://$m23server/postMessage.php?$idvar" -q  --no-check-certificate
+	fi
+fi
+
+
+
+
+
+#Disable MOTD for root and m23-vbox
+touch /root/.hushlogin /home/m23-vbox/.hushlogin
+
+
+
+
+
+#Fix some permissions
+mkdir -p /m23/vms/vbox /m23/vms/runningVMs
+chown m23-vbox -R /m23/vms/ /home/m23-vbox/.hushlogin
+chmod +x /m23/vms/bin/restoreVMsStates
+
+
+
+
+echo "Creating background process to install \"linux-headers-`uname -r`\" and compiling the VirtualBox module after finishing the installation process"
+#Create a file that installs the kernel headers and compiles the VirtualBox module after finishing the installation process
+rm /tmp/m23-vbox-afterInstall.sh 2> /dev/null
+cat >> /tmp/m23-vbox-afterInstall.sh << "VBoxAfterInstallEOF"
+#!/bin/sh
+
+#Loop while there is a package installation process active
+while [ `ps -A | egrep -c "(apt-get|aptitude|dpkg)"` -gt 0 ]
+do
+	sleep 5
+done
+
+#Try to install the header for the currently installed kernel
+apt-get install -y --force-yes "linux-headers-`uname -r`"
+
+#Compile the VirtualBox kernel module
+if [ -f /etc/init.d/vboxdrv ]
+then
+	/etc/init.d/vboxdrv setup
+	/etc/init.d/vboxdrv start
+fi
+
+if [ `dpkg --get-selections | grep virtualbox-ose-dkms -c` -gt 0 ]
+then
+	dpkg-reconfigure virtualbox-ose-dkms
+fi
+
+if [ `dpkg --get-selections | grep virtualbox-ose-guest-utils -c` -gt 0 ]
+then
+	apt-get remove -y --force-yes virtualbox-ose-guest-utils
+
+	#Only reboot, if it's not the m23 server.
+	if [ ! -f /m23/inc/client.php ]
+	then
+		reboot
+	fi
+fi
+
+lilo
+
+VBoxAfterInstallEOF
+chmod +x /tmp/m23-vbox-afterInstall.sh
+#Run in screen
+screen -dmS m23-vbox-afterInstall /tmp/m23-vbox-afterInstall.sh
+
+db_stop

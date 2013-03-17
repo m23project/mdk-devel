@@ -1,0 +1,12 @@
+--- mkxf86config.sh.bak	2007-11-08 14:58:32.000000000 +0100
++++ mkxf86config.sh	2007-11-08 15:01:26.000000000 +0100
+@@ -324,7 +325,8 @@
+ fi
+ 
+ # PS/2 bug: Some keyboards are incorrectly used as mice in XFree. :-(
+-PSMOUSE="$(ls -l1 /dev/mouse* 2>/dev/null | awk '/psaux/{print $NF ; exit 0}')"
++[ -f /etc/sysconfig/mouse ] && . /etc/sysconfig/mouse
++PSMOUSE="$(ls -l1 /dev/mouse* 2>/dev/null | awk '/psaux/{print $NF ; exit 0}' && echo $XMOUSETYPE | awk '/PS\/2/{print $NF ; exit 0}')"
+ if [ -n "$PSMOUSE" ]; then
+ PSMOUSE=""
+ else

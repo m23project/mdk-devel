@@ -1,0 +1,4 @@
+for fkt in `grep "()" m23InstallerConfigure.inc  | cut -d'(' -f1`
+do
+	grep $fkt m23InstallerBase.inc
+done

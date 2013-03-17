@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>translating the messages</TITLE>
+<META NAME="description" CONTENT="translating the messages">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node24.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2429"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2425"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2419"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2427"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2430"
+  HREF="node28.html">translating the help texts</A>
+<B> Up:</B> <A NAME="tex2html2426"
+  HREF="node24.html">How to translate m23?</A>
+<B> Previous:</B> <A NAME="tex2html2420"
+  HREF="node26.html">generate the language file</A>
+ &nbsp; <B>  <A NAME="tex2html2428"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00613000000000000000">
+translating the messages</A>
+</H2>
+Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
+<BR>
+Now translate the text between the ' " 's.
+e.g.
+<PRE>
+$I18N_help="Help";
+</PRE>
+becomes
+<PRE>
+$I18N_help="Hilfe";
+</PRE>
+Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

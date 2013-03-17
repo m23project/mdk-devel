@@ -1,0 +1,144 @@
+#!/bin/sh
+#. /mdk/bin/knoppix.functions
+. /mdk/bin/archFunctions.inc
+. /mdk/bin/menuFunctions.inc
+
+
+
+
+
+#builds a static Knoppix Debian package
+mkStaticKnoppix()
+{
+if test $# -lt 1
+then
+	echo "$0 <package name to build> <arch> <extra dir>"
+	echo "<package name to build>: Name of the package directory in /mdk/m23Debs/"
+	echo "<arch>: Change the architecture of the package (e.g. amd64)"
+	echo "<extra dir>: Store the package in another directory under /mdk/m23Debs/"
+	exit 1
+fi
+
+packageName=$1
+packageArch=$2
+packageDir=$3
+
+#delete existing old package directories
+rm -r $packageName*
+
+#download and extract the fetched source
+
+localArchAptSource $packageName
+
+srcDir=`find -maxdepth 1 -type d | grep $packageName`
+cd $srcDir
+echo $srcDir
+
+if [ $packageName = "hwdata-knoppix" ]
+then
+	wget http://pciids.sourceforge.net/pci.ids -O pci.ids
+fi
+
+#set make options to static
+if grep LDFLAGS Makefile
+then
+	#Makefile has LDFLAGS set: now exchange it with the static commands
+	cat Makefile | sed 's#LDFLAGS=#LDFLAGS=-static -L /mdk/m23helper/kudzu-1.2.57.1 -I /mdk/m23helper/kudzu-1.2.57.1 #g' > Makefile.new
+	#cat Makefile | sed 's#LDFLAGS=#LDFLAGS=-static -L ../extract/usr/lib/ -I ../extract/usr/include/kudzu/ #g' > Makefile.new
+else
+	#Makefile has LDFLAGS not set: make new line with static commands
+	echo "LDFLAGS=-static -L /mdk/m23helper/kudzu-1.2.57.1 -I /mdk/m23helper/kudzu-1.2.57.1" > Makefile.new
+	#echo "LDFLAGS=-static -L ../extract/usr/lib/ -I ../extract/usr/include/" > Makefile.new
+	cat Makefile >> Makefile.new
+fi
+mv Makefile.new Makefile
+
+cat Makefile | sed 's#LIBS=-lkudzu -lpci#LIBS=-lkudzu -lpci -lz#g' > Makefile.new
+
+mv Makefile.new Makefile
+
+#remove dependencies
+grep -v Depends: debian/control > control
+mv control debian/control
+
+if test $packageArch
+then
+	cat debian/control | sed "s/Architecture: [0-9a-z]*/Architecture: $packageArch/" > control
+	mv control debian/control
+fi
+
+#apply patch if available
+if [ -f /mdk/m23helper/knoppix-patches/$packageName.patch ]
+then
+	patch < /mdk/m23helper/knoppix-patches/$packageName.patch
+fi
+
+#build the package
+dpkg-buildpackage -us -uc -rfakeroot
+if [ $? -ne 0 ]
+then
+	echo "ERROR building package $packageName"
+	echo "Press enter to continue"
+	read maha
+fi
+
+cd ..
+
+#check if a different package directory should be used
+if test $packageDir
+then
+	debDir="../$packageDir"
+else
+	debDir="../debs"
+fi
+
+mkdir $debDir
+mv *.deb $debDir
+}
+
+
+
+
+
+#prepares the building of Knoppix packages e.g. makes a local sources.list and downloads the kudzu development files
+prepareStaticKnoppixBuild()
+{
+echo "deb-src http://ftp.de.debian.org/archive/debian/ etch main non-free contrib
+deb-src http://ftp.de.debian.org/debian/ lenny main non-free contrib
+deb-src http://debian-knoppix.alioth.debian.org ./
+" > ./sources.list
+
+	localArchAptUpdate
+
+#	localArchAptDownload kudzu-patched-dev kudzu-patched #kudzu-knoppix-dev
+
+	mkdir extract
+	for deb in /tmp/kud/kudzu-knoppix-dev*.deb #/mdk/m23Debs/debs/kudzu-patched-dev* #archivs/kudzu-patched-dev* kudzu-knoppix-dev*
+	do
+		dpkg-deb -X $deb extract
+	done
+}
+
+
+
+
+#***********************build as static debs*********
+cd /mdk/m23Debs/knoppix-static
+
+rm -r *
+
+prepareStaticKnoppixBuild
+
+#check if we are compiling on a 32 or 64 bit machine
+if [ -n `uname -m | awk '/i[3-9]86/ {print($0)}'` ]
+then
+	mkStaticKnoppix hwsetup i386
+else
+	mkStaticKnoppix hwsetup amd64
+fi
+#mkStaticKnoppix ddcxinfo-knoppix all
+mkStaticKnoppix xf86config-knoppix all
+mkStaticKnoppix xorgconfig-knoppix all
+mkStaticKnoppix hwdata-knoppix all
+
+cd ../debs

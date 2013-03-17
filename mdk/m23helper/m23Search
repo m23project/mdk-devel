@@ -1,0 +1,7 @@
+#!/bin/sh
+
+find /m23/inc/ /m23/data+scripts/ 2> /dev/null | grep php$ | xargs grep -i "$1" > /tmp/m23Search
+
+grep -v OptionPage.php /tmp/m23Search | grep -v phpMyAdmin | grep -v phpldapadmin
+
+rm /tmp/m23Search

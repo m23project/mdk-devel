@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+dbname="m23"
+dbserver="localhost"
+
+#get username and password of the debian MySQL system
+dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+sqlfile="/tmp/mb2008.sql"
+. /usr/share/wwwconfig-common/mysql-exec.sh
+rm /tmp/mb2008.sql
+
+db_stop

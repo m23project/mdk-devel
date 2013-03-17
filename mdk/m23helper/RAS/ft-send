@@ -1,0 +1,23 @@
+#!/bin/bash
+
+tmp="/tmp/$$-ft-bot.ft"
+
+cat >> $tmp << "EOF"
+#!/usr/bin/freetalk -s
+!#
+EOF
+
+cat ~/.freetalk/freetalk.scm >> $tmp
+
+echo "
+(if (ft-login-blocking)
+   (begin
+     (ft-send-message \"$1\" \"$2\")
+     (ft-disconnect))
+   (display \"Could not connect\n\"))
+" >> $tmp
+
+chmod +x $tmp
+$tmp
+rm $tmp
+

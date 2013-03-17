@@ -1,0 +1,50 @@
+\section{debugging m23 scripts}
+If you write your own m23 scripts for special jobs, you will need a kind of debugging solution.
+
+\subsection{Activate PHP debugging}
+You can activate the PHP warning messages if you call:
+\begin{verbatim}
+/m23/bin/phpDebug
+\end{verbatim}
+to deactivate the debugging mode simply call:
+\begin{verbatim}
+/m23/bin/phpNormal
+\end{verbatim}
+
+\subsection{Turn on m23 script debugging}
+If you want to see the messages behind the blue status screens of the normal m23 client installation, you can turn on the debugging mode. You can do it by setting the debugging status for your client IP.
+\begin{itemize}
+\item call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+\item select the database "m23"
+\item select the table "remotevar"
+\item click on "Browse"
+\item click on "Insert new row"
+\item enter the ip of your client in the "ip" field, "debug" in the "var" field and "1" in the "value" field.
+\end{itemize}
+
+\subsection{Turn off m23 script debugging}
+You have two possibillities to deactivate the script debugging: the first solution is temporary the second is usefuly to stop debugging for a longer time.
+\begin{enumerate}
+\item Edit the row for your client in the "remotevar" table. Set the value from the "value" field to "0".
+\item Delete the row of your client in the "remotevar" table.
+\end{enumerate} 
+
+\subsection{Set script status}
+After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
+\begin{itemize}
+\item call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+\item select the database "m23"
+\item select the table "clientjobs"
+\item click on "Browse"
+\item search for your job script
+\item click on "Edit"
+\item enter "waiting" at the "status" field
+\item click on "Go" to save your changes
+\end{itemize}
+This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
+
+\subsection{get the output of your script}
+You should turn off your client and overtake its ip. Now you can get the generated script by:
+\begin{verbatim}
+wget http://serverIP/work.php
+\end{verbatim}

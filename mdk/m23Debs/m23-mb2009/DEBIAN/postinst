@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+dbname="m23"
+dbserver="localhost"
+
+#get username and password of the debian MySQL system
+dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+#Change the IP in the SQL dump to the current m23 server ip
+serverIP=`grep address /etc/network/interfaces | cut -d's' -f3 | cut -d' ' -f2 | head -1`
+sed "s/192.168.1.77/$serverIP/g" /tmp/mb2009.sql > /tmp/mb2009s.sql
+
+#Add the recommended packages and the package source list to the DB
+sqlfile="/tmp/mb2009s.sql"
+. /usr/share/wwwconfig-common/mysql-exec.sh
+rm /tmp/mb2009*.sql
+
+#Download and extract the pool for the Musterbüro 2009
+if [ ! -d /m23/data+scripts/pool/mb2009b ]
+then
+	cd /m23/data+scripts/pool/
+
+	down=true
+	export down
+
+	#Check if the pool archive exists
+	if [ -f mb2009b.tar.gz ]
+	then
+		#Check if it has the correct checksum
+		echo "671543b52314b07fa4bbc3dc9a9b469d  mb2009b.tar.gz" | md5sum -c /dev/stdin
+
+		#Set the download flag according to the md5sum result
+		if [ $? -ne 0 ]
+		then
+			down=true
+		else
+			down=false
+		fi
+
+		export down
+	fi
+
+	if $down
+	then
+		false
+		while [ $? -ne 0 ]
+		do
+			wget -c "http://downloads.sourceforge.net/project/m23/pool/mb2009b.tar.gz" -O mb2009b.tar.gz
+		done
+	fi
+
+	tar xfvz mb2009b.tar.gz
+	chown www-data.www-data mb2009b -R
+	rm mb2009b.tar.gz
+fi
+
+#Change the IP in the sourceslist of the pool
+sed "s/192.168.1.77/$serverIP/g" /m23/data+scripts/pool/mb2009b/sourceslist.m23pool > /tmp/sourceslist.m23pool
+cat /tmp/sourceslist.m23pool > /m23/data+scripts/pool/mb2009b/sourceslist.m23pool
+rm /tmp/sourceslist.m23pool
+
+
+db_stop

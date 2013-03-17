@@ -1,0 +1,65 @@
+#!/bin/bash
+
+filterFileList()
+{
+	#$1: exclude list file name
+	#$2: file to be filtered
+
+	for i in `cat $1`
+	do
+		grep -v $i $2 > /tmp/tempMD5Index
+		if [ $? -ne 0 ]
+		then
+			echo "ERROR while processing the filter: \"$i\" (from \"$1\") on file \"$2\"!"
+			read muhu
+		fi
+		mv -f /tmp/tempMD5Index $2
+	done
+}
+
+
+
+
+
+#adds empty dummy files into all subdirectories starting from the given directory
+addDummyFiles()
+{
+	#$1: name of the directory
+	`find $1 -xtype d | awk '{print("touch "$0"/dummy")}'` 2> /dev/null
+}
+
+
+
+
+
+#removes the dummy files from all subdirectories starting from the given directory
+delDummyFiles()
+{
+	#$1: name of the directory
+	`find $1 -xtype d | awk '{print("rm "$0"/dummy")}'` 2> /dev/null
+}
+
+
+
+
+
+#generate commands to create directories that are missing in the file list
+createMissingDirsCommands()
+{
+dirfile=$1 #file that contains all diretory names
+filefile=$2 #file that contains all file names with full path
+outfile=$3 #file name to write directory creation and chown/chmod commands to
+
+rm $outfile 2> /dev/null
+
+#search for all directories that are not included in the full path names of the files
+for d in `cat $dirfile`
+do
+	if test `grep -c "^$d" $filefile` -eq 0
+	then
+		find "$d" -maxdepth 0 -printf "mkdir -p \"%p\"
+		chown %u.%g \"%p\"
+		chmod %m \"%p\"\n" >> $outfile
+	fi
+done
+}

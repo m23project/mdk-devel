@@ -1,0 +1,19 @@
+#!/bin/sh
+
+sudo apt-get install sysbench mesa-utils
+
+mkdir /tmp/bench
+cd /tmp/bench
+
+hdbench()
+{
+sysbench --num-threads=16 --test=fileio --file-total-size=3G --file-test-mode=rndrw prepare
+sysbench --num-threads=16 --test=fileio --file-total-size=3G --file-test-mode=rndrw run
+sysbench --num-threads=16 --test=fileio --file-total-size=3G --file-test-mode=rndrw cleanup
+}
+
+sysbench --test=cpu --cpu-max-prime=1000000 --num-threads=64 run&
+hdbench&
+glxgears -fullscreen&
+
+rmdir /tmp/bench

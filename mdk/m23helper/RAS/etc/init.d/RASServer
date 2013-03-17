@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+### BEGIN INIT INFO
+# Provides:					RASServer
+# Required-Start:		$remote_fs $syslog
+# Required-Stop:		 $remote_fs $syslog
+# Should-Start:			$network $named $time
+# Should-Stop:			 $network $named $time
+# Default-Start:		 2 3 4 5
+# Default-Stop:			0 1 6
+# Short-Description: Start and stop the RASServer
+# Description:			 Start and stop the RASServer
+### END INIT INFO
+#
+
+
+# Create links
+# cd /etc
+# ln -s ../init.d/RASServer rc0.d/K21RASServer
+# ln -s ../init.d/RASServer rc1.d/K21RASServer
+# ln -s ../init.d/RASServer rc2.d/S19RASServer
+# ln -s ../init.d/RASServer rc3.d/S19RASServer
+# ln -s ../init.d/RASServer rc4.d/S19RASServer
+# ln -s ../init.d/RASServer rc5.d/S19RASServer
+# ln -s ../init.d/RASServer rc6.d/K21RASServer
+
+
+set -e
+set -u
+${DEBIAN_SCRIPT_DEBUG:+ set -v -x}
+
+test -x /home/ras/RASServer || exit 0
+
+. /lib/lsb/init-functions
+
+export RASUser="ras"
+
+# Safeguard (relative paths, core dumps..)
+cd /
+umask 077
+
+
+case "${1:-''}" in
+	'start')
+		ssh $RASUser@localhost /home/ras/RASServer start
+	;;
+
+	'stop')
+		ssh $RASUser@localhost /home/ras/RASServer stop
+	;;
+
+	'restart')
+		ssh $RASUser@localhost /home/ras/RASServer restart
+	;;
+
+	*)
+
+	echo "Usage: $0 start|stop|restart"
+	exit 1
+	;;
+esac
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dpkg --get-selections | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g' | while read pkg
+do
+	echo "$pkg"
+	apt-cache policy "$pkg" | grep http | head -1
+done

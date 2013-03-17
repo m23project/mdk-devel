@@ -1,0 +1,132 @@
+#!/bin/bash
+
+menuUpdateSel=`menuUpdateSel 2>/dev/null` || menuUpdateSel=/tmp/updatem23$$
+dialog --backtitle "MDK update builder" --clear --title "Select what you want to do" \
+		--menu "Select action" 12 52 5 \
+		"Update"  "Updates the index file" \
+		"Check"  "Check for changes" \
+		"Report"  "Shows a report of the changes" \
+		"Patch"  "Makes a patch containing changed files" \
+		"Upload"  "Uploads all new patches to m23.sf.net" \
+		2> $menuUpdateSel
+retval=$?
+case $retval in
+	1)
+	   exit;;
+	255)
+	   exit;;
+esac
+
+cd /mdk/m23update
+m23version=`grep version /m23/inc/version.php | cut -d'"' -f2`
+
+choice=`cat $menuUpdateSel`
+
+if test $choice == "Update"
+then
+	echo "Enter \"yes\" and press enter to continue"
+	read input
+	if test $input == "yes"
+	then
+		bin/md5Check u 4Update
+	fi
+	bin/menuUpdate
+fi
+
+if test $choice == "Check"
+then
+	#change the modification time => version.php will be recognised as a changed file
+	touch -m /m23/inc/version.php
+
+	bin/md5Check c 4Update
+	bin/menuUpdate
+fi
+
+if test $choice == "Report"
+then
+	bin/md5Check r 4Update
+	bin/menuUpdate
+fi
+
+if test $choice == "Patch"
+then
+	nr=`bin/nextIndexNr updates/updatenr`
+	#make a backup of the old index
+	oldnr=`cat updates/updatenr`
+	cp index4Update.md5 index4Update.md5.$oldnr
+
+	#exchange the patch level on the server
+	#find the line to replace
+	patchNrLine=`grep m23_patchLevel /m23/inc/version.php`
+	#replace the old line with the new one (contains the new patch number)
+	cat /m23/inc/version.php | sed "s/$patchNrLine/\$m23_patchLevel=\"$nr\";/" > /tmp/version.php
+	#store user, groupID and the permission bits
+	userGroup=`find /m23/inc/version.php -printf 'chown %u.%g /m23/inc/version.php'`
+	perm=`find /m23/inc/version.php -printf 'chmod %m /m23/inc/version.php'`
+	mv /tmp/version.php /m23/inc/version.php
+	#restore user, groupID and the permissions
+	$userGroup
+	$perm
+
+	mkdir -p updates/$m23version
+	bin/md5Check t 4Update "updates/$m23version/$nr.tb2"
+	find "updates/$m23version/$nr.tb2" -printf "%s\n" > "updates/$m23version/$nr.size"
+	bin/md5Check m 4Update
+
+	echo "Please enter a description after pressing \"Return\""
+	read
+	nano updates/$m23version/$nr.info
+
+	bin/menuUpdate
+fi
+
+
+if test $choice == "Upload"
+then
+	cd updates/$m23version
+	
+	#number of the last uploaded patch
+	unr=`cat ../uploadnr`
+	
+	files=""
+	infofiles=""
+	
+	#get all patch numbers
+	for nr in `ls *.tb2 | cut -d'.' -f1 | sort`
+	do
+		#check if the patch number is greater than the biggest uploaded patch number
+		if test $nr -gt $unr
+			then
+				files="$files `ls $nr.start $nr.end $nr.size 2> /dev/null`"
+				infofiles="$infofiles `ls $nr.info`"
+
+				#upload the tar.bz2 archiv to the SF FRS
+				/mdk/m23update/sf-upload/sf-upload -pr m23 -p patches -r $nr -f "$nr.tb2" -type .bz2
+			fi
+	done
+	
+	files="$files $infofiles"
+	files=`echo $files | sed 's/\n/ /g'`
+
+	if test `echo $files | wc -w` -gt 0
+	then
+		echo "Press enter to start upload to SF Web"
+		read
+		scp $files hhabermann@shell.sf.net:/home/groups/m/m2/m23/htdocs/m23patch/$m23version/
+
+		#check if the upload was ok
+		if test $? -eq 0
+		then
+			#store the biggest patch number as latest uploaded patch number
+			ls *.tb2 | cut -d'.' -f1 | sort | tail -n1 > ../uploadnr
+		else
+			echo "There was an error during upload to /home/groups/m/m2/m23/htdocs/m23patch/$m23version/"
+			read
+		fi
+	else
+		echo "nothing to upload"
+		read
+	fi
+	
+	/mdk/m23update/bin/menuUpdate
+fi

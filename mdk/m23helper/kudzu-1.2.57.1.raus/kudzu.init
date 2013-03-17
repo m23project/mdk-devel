@@ -1,0 +1,71 @@
+#!/bin/bash
+#
+# kudzu		This scripts runs the kudzu hardware probe.
+#
+# chkconfig: 345 05 95
+# description: 	This runs the hardware probe, and optionally configures \
+#		changed hardware.
+
+# Source function library.
+. /etc/init.d/functions
+
+KUDZU_ARGS=
+
+# Do we want to do a safe probe?
+. /etc/sysconfig/kudzu
+
+if [ "$SAFE" != "no" ]; then
+	KUDZU_ARGS="-s"
+fi
+
+RETVAL=$?
+
+case "$1" in
+ start)
+	echo -n $"Checking for hardware changes"
+	rm -f /var/run/Xconfig
+	rm -f /var/run/Xconfig-failed
+
+        # Have a 30 second timeout.
+ 	/sbin/kudzu $KUDZU_ARGS
+	RETVAL=$?
+	if [ "$RETVAL" -eq 0 ]; then
+  	   action "" /bin/true
+	else
+	   action "" /bin/false
+	fi
+
+	# We don't want to run this on random runlevel changes.
+	touch /var/lock/subsys/kudzu
+	# However, if they did configure X and want runlevel 5, let's
+	# switch to it...
+	if [ -f /var/run/Xconfig ]; then
+	    grep -q "^id:5:initdefault:" /etc/inittab && telinit 5
+	    rm -f /var/run/Xconfig
+	fi
+	# If X configuration failed, give them a sane default.
+	if [ -f /var/run/Xconfig-failed ]; then
+	    telinit 3
+	    rm -f /var/run/Xconfig-failed
+	fi
+	;;
+ status)
+ 	base=kudzu
+ 	if [ -f /var/lock/subsys/kudzu ]; then
+	  echo $"${base} has run"
+	  exit 0
+	fi
+	echo $"${base} is stopped"
+	exit 3
+	;;
+ stop)
+ 	# Do not re-run without user intervention
+ 	# rm -f /var/lock/subsys/kudzu
+ 	;;
+ *)
+ 	echo $"Usage: $0 {start|stop}"
+	exit 1
+	;;
+esac
+
+exit $RETVAL

@@ -1,0 +1,173 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_get slapd/password1
+if [ -z $RET ]
+then
+	db_get m23-ldap/LDAPpass
+	temp=$RET
+#	db_set m23-ldap/LDAPpass ""
+	RET=$temp
+fi
+ldappwd=$RET
+
+db_get slapd/domain
+ldapdomain=$RET
+
+db_get shared/organization
+ldaporg=$RET
+
+if [ -f /etc/php4/apache/php.ini ]
+then
+	if test `grep -l "^extension=ldap.so" /etc/php4/apache/php.ini`
+	then
+			echo "LDAP is activated in php.ini"
+	else
+			echo "Activating LDAP in php.ini"
+			echo "extension=ldap.so" >> /etc/php4/apache/php.ini
+	fi
+fi
+
+
+#Make sure /etc/ldap/slapd.conf exists
+touch /etc/ldap/slapd.conf
+
+debian_version=`sed 's/[^0-9]//g' /etc/debian_version`
+
+#Execute only on Debian Squeeze and never
+if [ $debian_version -gt 599 ]
+then
+#Add caching to improve performance (http://wiki.debian.org/LDAP/OpenLDAPSetup)
+if [ `grep -c 'pres,sub,eq' /etc/ldap/slapd.conf` -lt 3 ]
+then
+echo 'index   objectClass             eq
+index   cn                      pres,sub,eq
+index   sn                      pres,sub,eq
+index   uid                     pres,sub,eq
+index   displayName             pres,sub,eq
+index   default                 sub
+index   uidNumber               eq
+index   gidNumber               eq
+index   mail,givenName          eq,subinitial
+index   dc                      eq' >> /etc/ldap/slapd.conf
+
+/etc/init.d/slapd stop
+slapindex
+chown -R openldap:openldap /var/lib/ldap
+/etc/init.d/slapd start
+fi
+
+fi
+
+
+#add the needed schemata to the slapd.conf if they don't exist
+export m23searchLine=`awk -v START=0 -v SEARCH="/etc/ldap/schema/inetorgperson.schema" 'match($0,SEARCH)&&NR>START {print NR; exit}' /etc/ldap/slapd.conf`
+m23searchLine=`expr $m23searchLine \+ 1`
+if test `awk -v RS='pheeSheiso2sieseegaxeekeitoongei' -v SEARCH="include         /etc/ldap/schema/misc.schema
+include         /etc/ldap/schema/openldap.schema" '
+BEGIN { FOUND=0;}
+{if (index($0, SEARCH) > 0) { FOUND++; }}
+END {print(FOUND);}
+' /etc/ldap/slapd.conf` -lt 1
+then
+
+userGroup=`find /etc/ldap/slapd.conf -printf 'chown %u.%g /etc/ldap/slapd.conf'`
+perm=`find /etc/ldap/slapd.conf -printf 'chmod %m /etc/ldap/slapd.conf'`
+
+awk -v LINENR=$m23searchLine -v INSERT="include         /etc/ldap/schema/misc.schema
+include         /etc/ldap/schema/openldap.schema" -v ADD=1 '
+BEGIN {LINENR+=ADD}
+NR==LINENR {print INSERT"\n"$0}
+NR!=LINENR {print $0}' /etc/ldap/slapd.conf > /etc/ldap/slapd.conf#m23
+
+mv /etc/ldap/slapd.conf#m23 /etc/ldap/slapd.conf
+
+$userGroup
+$perm
+
+killall -9 slapd
+
+/etc/init.d/slapd start
+/etc/init.d/slapd restart
+fi
+
+
+
+
+#add LDAP entry for managing the users
+rm /tmp/ldap.ldif 2> /dev/null
+
+echo "
+version: 1
+
+# Entry 1: ou=people,dc=$ldapdomain
+dn: ou=people,dc=$ldapdomain
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=Group,dc=$ldapdomain
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
+
+" >> /tmp/ldap.ldif
+
+sleep 5
+
+ldapadd -x -D "cn=admin,dc=$ldapdomain" -w $ldappwd -f /tmp/ldap.ldif
+ret=$?
+rm /tmp/ldap.ldif
+
+
+
+if [ -f /etc/init.d/apache ]
+then
+	/etc/init.d/apache restart
+fi
+
+if [ -f /etc/init.d/apache2 ]
+then
+	/etc/init.d/apache2 restart
+fi
+
+
+
+
+
+#check if there is an m23-LDAP entry
+if test ! -f /m23/data+scripts/m23admin/phpldapadmin/config.php || test `grep m23-LDAP /m23/data+scripts/m23admin/phpldapadmin/config.php -c` -eq 0
+then
+#if not => add it
+IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1`
+
+echo "<?
+include(\"/m23/inc/ldap.php\");
+include(\"/m23/inc/server.php\");
+include(\"/m23/inc/edit.php\");
+
+LDAP_addServerTophpLdapAdmin(\"m23-LDAP\",\"$IPINT\",\"dc=$ldapdomain\",\"$ldappwd\");
+
+?>" | php
+fi
+
+
+
+
+
+#fix code for exchanging \' with ' in /m23/data+scripts/m23admin/phpldapadmin/config.php
+if test `grep "\\\'" /m23/data+scripts/m23admin/phpldapadmin/config.php -c` -gt 0
+then
+	userGroup=`find /m23/data+scripts/m23admin/phpldapadmin/config.php -printf 'chown %u.%g /m23/data+scripts/m23admin/phpldapadmin/config.php'`
+	perm=`find /m23/data+scripts/m23admin/phpldapadmin/config.php -printf 'chmod %m /m23/data+scripts/m23admin/phpldapadmin/config.php'`
+
+	sed "s/\\\'/\'/g" /m23/data+scripts/m23admin/phpldapadmin/config.php > /tmp/ldapconf.php
+	mv /tmp/ldapconf.php /m23/data+scripts/m23admin/phpldapadmin/config.php
+
+	$userGroup
+	$perm
+fi
+
+
+db_stop

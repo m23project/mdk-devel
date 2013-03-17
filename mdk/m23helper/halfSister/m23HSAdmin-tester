@@ -1,0 +1,108 @@
+#!/bin/bash
+
+
+
+
+
+
+checkForm23HSAdmin()
+{
+	found=$(whereis m23HSAdmin | cut -d' ' -f2 | grep -c m23HSAdmin)
+	if [ $found -gt 0 ]
+	then
+		echo "OK: m23HSAdmin found"
+	else
+		echo "ERROR: m23HSAdmin missing!"
+		exit 1
+	fi
+}
+
+
+
+
+checkPKG()
+{
+	echo "Package functions"
+	echo "================="
+
+	pkgUpdateCache
+
+	for pkg in testdisk
+	do
+		#Get the name of the package
+		pkgName=$(m23HSAdmin pkgSearch $pkg | sed 's/###.*//' | grep "^$pkg$")
+
+
+		#Check that the package is not installed currently
+		if [ $(m23HSAdmin pkgInstalledList | grep ^$pkg -c) -eq 0 ]
+		then
+			echo "OK pkgInstalledList: \"$pkgName\" is not installed! Will continue!"
+		else
+			echo "IGN pkgInstalledList: \"$pkgName\" is installed! Will skip this package!"
+			continue
+		fi
+
+		#Check that the package is not in the package status file
+		m23HSAdmin pkgWritePackageStatusFile
+		if [ $(grep "ii $pkg" /tmp/packagestatus -c) -eq 0 ]
+		then
+			echo "OK pkgWritePackageStatusFile: \"$pkgName\" is not installed!"
+		else
+			echo "ERROR pkgWritePackageStatusFile:: \"$pkgName\" is installed!"
+			exit 2
+		fi
+
+		#Check if the package is included in the preview
+		if [ $(m23HSAdmin pkgInstallPreview $pkgName | grep $pkgName -c) -gt 0 ]
+		then
+			echo "OK pkgInstallPreview: \"$pkgName\" installation preview"
+		else
+			echo "ERROR pkgInstallPreview: \"$pkgName\" installation preview"
+			exit 3
+		fi
+
+		#Do a real installation
+		m23HSAdmin pkgInstall $pkgName
+		if [ $(m23HSAdmin pkgInstalledList | grep ^$pkg -c) -gt 0 ]
+		then
+			echo "OK pkgInstall: \"$pkgName\" installation worked!"
+		else
+			echo "ERROR pkgInstall: \"$pkgName\" installation failed!"
+			exit 4
+		fi
+
+		#Check if the package is included in the preview
+		if [ $(m23HSAdmin pkgDeinstallPreview $pkgName | grep $pkgName -c) -gt 0 ]
+		then
+			echo "OK pkgDeinstallPreview: \"$pkgName\" deinstallation preview"
+		else
+			echo "ERROR pkgDeinstallPreview: \"$pkgName\" deinstallation preview"
+			exit 5
+		fi
+
+		#Deinstall the package again
+		m23HSAdmin pkgDeinstall $pkgName
+		if [ $(m23HSAdmin pkgInstalledList | grep ^$pkg -c) -eq 0 ]
+		then
+			echo "OK pkgDeinstall: \"$pkgName\" deinstalled installed!"
+		else
+			echo "ERROR pkgDeinstall: \"$pkgName\" deinstallation failed!"
+			exit 6
+		fi
+	done
+
+	#Check if the package sources list contains at least 2 line
+	if [ $(m23HSAdmin pkgShowSourcesList | wc -l) gt 1 ]
+	then
+		echo "OK pkgShowSourcesList: Package source contains lines!"
+	else
+		echo "ERROR pkgShowSourcesList: Package source contains NO lines!"
+		exit 7
+	fi
+}
+
+
+
+checkForm23HSAdmin
+
+checkPKG

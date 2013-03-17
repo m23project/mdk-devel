@@ -1,0 +1,25 @@
+m23 deb package builder
+=======================
+
+== m23 extra packages ==
+
+Knoppix: Rebuild the needed Knoppix Debian packages as static compiled
+versions to make it install under woody.
+
+m23extra: Build all m23 extra packages that are needed for special jobs.
+
+packages: Generate an index of the build Debian packages that is needed, if
+you want to upload the packages and make them available for installation with
+apt.
+
+upload: Uploads the Debian packages and Packages* to SourceForge.
+
+== m23 server installation packages ==
+
+build: All files corresponding to a packages are checked for changes. If 
+there are new, delected or changed files the Debian package will be recreated.
+This ensures that the newest file releases are includes in the packages.
+
+uplinst: Uploads the packages to SF.
+
+directuplinst: Uploads the packages to SF without my internal server.

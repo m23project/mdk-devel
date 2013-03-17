@@ -1,0 +1,84 @@
+#!/bin/sh
+
+if test $# -lt 2
+then
+	echo "$0 <package name to build> <increase version 0=no, 1=yes> <arch> <extra dir>"
+	echo "<package name to build>: Name of the package directory in /mdk/m23Debs/"
+	echo "<increase version 0=no, 1=yes>: Automatic increasement of the version number"
+	echo "<arch>: Change the architecture of the package (e.g. amd64)"
+	echo "<extra dir>: Store the package in another directory under /mdk/m23Debs/"
+	exit 1
+fi
+
+packageName=$1
+packageIncVer=$2
+packageArch=$3
+packageDir=$4
+
+#check if the package directory exists
+if test -d /mdk/m23Debs/$packageName
+then
+	cd /mdk/m23Debs/$packageName
+	find | grep ~$ | xargs rm 2> /dev/null
+else
+	echo "package \"/mdk/m23Debs/$packageName\" doesn't exist!"
+	exit 1
+fi
+
+#check if the needed control file exists in the package directory
+if test -f control
+then
+	#get architecture, package version and name
+	arch=`grep Architecture control | cut -d' ' -f2`
+	ver=`grep Version control | cut -d' ' -f2`
+	package=`grep Package control | cut -d' ' -f2`
+
+	#check if the version number should get increased
+	if test $packageIncVer -gt 0
+	then
+		over=$ver
+		#increase subnumber
+		#e.g. ver=1.0-1	
+		main=`echo $ver | cut -d'-' -f1`	#1.0
+		sub=`echo $ver | cut -d'-' -f2`		#1
+		sub=`expr $sub \+ 1`				#2
+		ver="$main-$sub"					#1.0-2
+		cat control | sed "s/Version:[0-9. -]*/Version: $ver/" > /tmp/control
+		mv /tmp/control .
+	fi
+
+	#check if the package architecture should get changed
+	if test $packageArch
+	then
+		cat control | sed "s/Architecture: [0-9a-z]*/Architecture: $packageArch/" > /tmp/control
+		mv /tmp/control .
+		arch=$packageArch
+	fi
+else
+	echo "the file \"control\" is missing!"
+	exit 1
+fi
+
+if test -d debian
+then
+	mkdir -p debian/DEBIAN
+	find ./debian -type d | xargs chmod 755
+	cp control debian/DEBIAN
+	cp postinst debian/DEBIAN
+	cp conffiles debian/DEBIAN 2> /dev/null
+else
+	echo "the directory \"debian\" with the installation files is missing!"
+	exit 1
+fi
+
+dpkg-deb --build debian
+
+if test $packageDir
+then
+	debDir="../$packageDir"
+else
+	debDir="../debs"
+fi
+
+mkdir -p $debDir
+mv debian.deb $debDir/$package"_"$ver"_"$arch.deb

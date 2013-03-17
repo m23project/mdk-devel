@@ -1,0 +1,309 @@
+#!/bin/bash
+
+#	The RASChatAccountManager for managing chat accounts.
+#	Copyright (C) 2011 Hauke Goos-Habermann (hhabermann@pc-kiel.de)
+#
+#	This program is free software; you can redistribute it and/or modify it under the terms
+#	of the GNU General Public License as published by the Free Software Foundation; either
+#	version 3 of the License, or any later version.
+#
+#	This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+#	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#	See the GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License along with this program;
+#	see the file COPYING.  If not, write to the Free Software Foundation, Inc., 59 Temple
+#	Place - Suite 330, Boston, MA 02111-1307, USA.
+
+
+
+
+
+if [ -f ~/.RAS.config ]
+then
+	. ~/.RAS.config
+else
+	echo "~/.RAS.config not found"
+	exit 1
+fi
+
+
+
+
+
+helpPage()
+{
+	echo "This script manages the RASServer (m23 remote administration service).
+
+Usage: $0 <action> <parameter 1> <parameter 2> <parameter ...>
+
+Actions:"
+
+	awk '
+
+	BEGIN {
+		show=1
+	}
+
+	/^# name / {
+		gsub("^# name ","")
+		l=l$0
+	}
+
+	/^# parameter / {
+		gsub("^# parameter ","")
+		l=l" <"$0">"
+		show=1
+	}
+
+	/^# description / {
+		gsub("^# description ","")
+		d="ö"$0
+	}
+
+	/^#####/ {
+		if (show == 1)
+		{
+			print(l""d)
+			l=" * "
+			show=0
+		}
+	}
+
+	' $0 | sort | sed 's/ö/\n   /g'
+}
+
+
+
+
+
+#####
+# name md5x5
+# description Hashes an input value 5 times with md5
+# parameter Input string
+#####
+md5x5()
+{
+	echo -n "$1" | md5sum - | cut -d' ' -f1 | awk -vORS='' '{print}' | md5sum - | cut -d' ' -f1 | awk -vORS='' '{print}' | md5sum - | cut -d' ' -f1 | awk -vORS='' '{print}' | md5sum - | cut -d' ' -f1 | awk -vORS='' '{print}' | md5sum - | cut -d' ' -f1 | awk -vORS='' '{print}'
+}
+
+
+
+
+
+#####
+# name getNextAccountNumber
+# description Gets the next available account number.
+# parameter none
+#####
+getNextAccountNumber()
+{
+	#Get the highest account number
+	nr=$(grep '$users\[[0-9]*\] = array' $cfgChatU | sort -r | head -1 | sed -e 's/$users\[//g' -e 's/\].*//g')
+
+	#Increment the number
+	nr=$[ $nr + 1 ]
+
+	echo $nr
+}
+
+
+
+
+
+#####
+# name checkName
+# description Check, if the account is given
+# parameter Account name
+#####
+checkName()
+{
+	if [ -z "$1" ]
+	then
+		echo "Error: No account name given!"
+		exit 1
+	fi
+}
+
+
+
+
+
+#####
+# name checkName
+# description Check, if the account is given
+# parameter Account name
+#####
+getPass()
+{
+	name="$1"
+
+	#Some simple salt at the beginning
+	pass='m23';
+
+	checkName "$name"
+
+	#Add the www password
+	pass=$pass$($RASServer getAccountInfo $name-www | grep ^pass | tr -s '[:blank:]' | cut -d' ' -f2)
+	#Add the ssh password
+	pass=$pass$($RASServer getAccountInfo $name-ssh | grep ^pass | tr -s '[:blank:]' | cut -d' ' -f2)
+
+	#Hash it to get the final password
+	md5x5 "$pass"
+}
+
+
+
+
+adjustAdminChannels()
+{
+aNr=$1
+
+tmp="/tmp/users$$.php"
+
+awk "
+BEGIN {
+	rightUser=0
+	hide=0
+}
+
+/AJAX_CHAT_ADMIN;/ {
+	rightUser=1
+}
+
+/'channels'/ {
+	if (rightUser == 1)
+	{
+		#Disable newlines after every print
+		ORS=\"\"
+
+		#\$1 represents the first part of the line before the space (e.g. \$users[2]['channels'])
+		print \$1\" = array(\"
+
+		#add the array elements
+		for (i=0; i < $aNr; i++)
+			print i\",\"
+
+		hide = 1
+		rightUser = 0
+		#enables newlines after every print
+		ORS=\"\n\"
+
+		#Close the array
+		print \"$aNr);\"
+	}
+}
+
+{
+	if (hide == 0)
+		print
+	else
+		hide = 0
+}
+
+" $cfgChatU > $tmp
+
+cat $tmp > $cfgChatU
+
+rm $tmp
+
+}
+
+
+
+
+
+#####
+# name createNewAccount
+# description Creates a new account for the chat
+# parameter Name of the new account
+#####
+createNewAccount()
+{
+	name="$1"
+
+	checkName "$name"
+
+	#Get the htaccess password
+	htpass=$(getPass "$name")
+
+	#Get the chat password
+	chatpass=$(md5x5 "$htpass")
+
+	#Get the account number
+	aNr=$(getNextAccountNumber)
+
+	#Remove the PHP closing tags
+	sed -i '/?>/d' $cfgChatC $cfgChatU
+
+	#Add a new user
+	echo "// Registered user:
+\$users[$aNr] = array();
+\$users[$aNr]['userRole'] = AJAX_CHAT_USER;
+\$users[$aNr]['userName'] = '$name';
+\$users[$aNr]['password'] = '$chatpass';
+\$users[$aNr]['channels'] = array(0,$aNr);" >> $cfgChatU
+	echo '?>' >> $cfgChatU
+
+	#Add a new channel for the user
+	echo "\$channels[$aNr] = '$name';" >> $cfgChatC
+	echo '?>' >> $cfgChatC
+	
+	htpasswd -b $cfgChatHtpasswd $name $htpass
+
+	adjustAdminChannels $aNr
+}
+
+
+
+
+
+#####
+# name enable
+# description Enables the htaccess for a chat account
+# parameter Name of the account
+#####
+enable()
+{
+	name="$1"
+
+	checkName "$name"
+
+	#Get the htaccess password
+	htpass=$(getPass "$name")
+
+	htpasswd -b $cfgChatHtpasswd $name $htpass
+}
+
+
+
+
+
+#####
+# name disable
+# description Disables the htaccess for a chat account
+# parameter Name of the account
+#####
+disable()
+{
+	name="$1"
+
+	checkName "$name"
+
+	htpasswd -D $cfgChatHtpasswd $name
+}
+
+
+
+
+
+#Make sure, the action doesn't begin with one or more "-" (e.g. if the user decides to use --help)
+action=`echo "$1" | sed 's/^-*//g'`
+
+if [ `grep "$action()" $0 -c` -lt 1 ] || [ $# -eq 0 ]
+then
+	helpPage
+else
+	shift
+	$action $@
+fi

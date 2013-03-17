@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_get m23-tftp/configureTFTP
+if [ "$RET" = "true" ]
+then
+	if [ -f /etc/inetd.conf ]
+	then
+		sed 's/^tftp/# tftp/g' /etc/inetd.conf > /tmp/inetd.conf
+		echo "tftp dgram udp4 wait root /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /m23/tftp -r blksize" >> /tmp/inetd.conf
+		mv /tmp/inetd.conf /etc
+		chown root.root /etc/inetd.conf
+		chmod 644 /etc/inetd.conf
+	fi
+	
+	echo '#Defaults for tftpd-hpa
+RUN_DAEMON="yes"
+OPTIONS="-l -s /m23/tftp"
+' > /etc/default/tftpd-hpa
+	/etc/init.d/tftpd-hpa start
+
+	#For Debian Etch
+	if [ -f /etc/init.d/inetd ]
+	then
+		/etc/init.d/inetd restart
+	fi
+
+	#For Debian Lenny
+	if [ -f /etc/init.d/openbsd-inetd ]
+	then
+		/etc/init.d/openbsd-inetd restart
+	fi
+
+	#For Debian Squeeze
+	if [ -f /etc/default/tftpd-hpa ]
+	then
+		echo 'TFTP_OPTIONS="--verbose --verbose --secure"
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/m23/tftp"
+TFTP_ADDRESS="0.0.0.0:69"' > /etc/default/tftpd-hpa
+		/etc/init.d/tftpd-hpa restart
+	fi
+fi
+
+db_stop

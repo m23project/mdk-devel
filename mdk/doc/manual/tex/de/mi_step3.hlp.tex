@@ -1,0 +1,24 @@
+\section{Generator-Optionen}
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/de/mi_step3.png} \\
+Hier können Sie die Parameter für die Generatoren der folgenden Eigenschaften festlegen:\\
+\begin{itemize}
+\item \textbf{Clientname}: Sie können hier den Client-Basis-Namen und eine Startnummer vorgeben. Die Clientnamen werden dann in der benötigten Anzahl nach dem Schema $\langle$Client-Basis-Name$\rangle$$\langle$fortlaufende Nummer$\rangle$ erstellt. Bereits vergebene Client-Namen werden bei der Generierung übersprungen. Bsp.: Client-Basis-Name=m23client, Startnummer=12 generiert die Clientnamen m23client12, m23client13, ...\\
+\item \textbf{Anmeldungsname}: Dies ist der Name, mit dem sich der Benutzer am Client anmelden kann. Es stehen zwei Methoden zur Generierung zur Verfügung. Die inkrementelle Variante verhält sich identisch zur Erstellung bei \textit{"Clientname"}. Zusätzlich ist das Bilden aus dem ersten Buchstaben des Vornamens und dem vollständigen Nachnamen möglich (\textit{"Aus Vor- und Nachnamen erstellen"}).\\
+\item \textbf{Vorname}: Die Generierung der Vornamen (die zugleich die Loginnamen sind) geschieht analog zu den Clientnamen.\\
+\item \textbf{IP-Adresse}: Legen sie hier die IP-Adressen-Bereiche fest, in denen nach freien IP-Adressen gesucht werden soll. Standardmäßig werden nur IP-Adressen generiert, die nicht bereits von m23-Clients benutzt werden. Sie können aber auch angeben, daß jede IP-Adresse vor der Verwendung "angepingt" werden soll. Sollte sich unter einer oder mehreren IP-Adressen ein Rechner melden, so werden diese IPs nicht verwendet.\\
+\item \textbf{Netzwerkmaske}: Die Netzwerkmasken werden automatisch nach Schema der Netzwerk-Klassen berechnet. Dieses ist per Definition folgendermaßen:\\
+\begin{tabular}{|c|c|c|}
+\hline
+Von & Bis & Netzwerkmaske\\
+	 \hline
+0.0.0.0 & 127.255.255.255 & 255.0.0.0\\
+	 \hline
+128.000.000.000 & 191.255.255.255 & 255.255.0.0\\
+	 \hline
+192.000.000.000 & 255.255.255.255 & 255.255.255.0\\
+	 \hline
+\end{tabular}
+\item \textbf{Erstes Login}: Für dieses Login können die Paßwörter komplett zufällig (\textit{"Zufalls-Paßwörter"}) oder nach einem zufälligen aber für Menschen leichter merkbaren Schema (\textit{"PwGen-Paßwörter"}) angelegt werden. Außerdem kann die Länge der generierten Paßwörter zwischen 6 und 8 Zeichen Länge variiert werden. Es wird empfohlen, die voreingestellte Länge von 8 beizubehalten.\\
+\item \textbf{Benutzer-ID}: Legen Sie hier die Startnummer fest, ab der freie Benutzer-IDs gesucht und verwendet werden sollen.\\
+\item \textbf{Gruppen-ID}: Legen Sie hier die Startnummer fest, ab der freie Gruppen-IDs gesucht und verwendet werden sollen.\\
+\end{itemize}

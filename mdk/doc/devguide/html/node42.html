@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node43.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node29.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2622"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2618"
+  HREF="node29.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2612"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2620"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2623"
+  HREF="node43.html">The complete program</A>
+<B> Up:</B> <A NAME="tex2html2619"
+  HREF="node29.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2613"
+  HREF="node41.html">Send SQL statements</A>
+ &nbsp; <B>  <A NAME="tex2html2621"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00626000000000000000">
+Example</A>
+</H2>
+<PRE>
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
+
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
+
+  rows=mysql_num_rows(res); //&lt;&lt;2
+
+
+  for (int i=0; i &lt; rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //&lt;&lt;3
+
+        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
+
+        for (int fnr=0; fnr &lt; fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
+    }
+
+  mysql_free_result(res); //&lt;&lt;6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+</PRE>
+
+<OL>
+<LI>Get the number of fields of the table.
+</LI>
+<LI>Get the amount of result rows.
+</LI>
+<LI>Fetch a row (one by one) and store the result in <SPAN  CLASS="textit">row</SPAN>.
+</LI>
+<LI>Store the lengths (in characters) of the result fields.
+</LI>
+<LI>Print the fields of one row.
+</LI>
+<LI>Free the memory by deleting the result data.
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

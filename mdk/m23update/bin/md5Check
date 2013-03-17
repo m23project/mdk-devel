@@ -1,0 +1,284 @@
+#!/bin/bash
+
+. /mdk/m23update/bin/m23update.functions
+
+#file name to store the file names and MD5s in
+dbFile="index$2.md5"
+
+#the directories to be checked for changess
+checkDirs=`cat "include$2" 2> /dev/null`
+
+#makes an index file from all files in $checkDirs
+mkIndex()
+{
+	#$1 file name to store the file names and MD5s in
+	#$2 exclude and include level
+	#$3 set to a filename to store the filtered filelist under this name
+
+	rm /tmp/tempMD5Index 2> /dev/null
+	
+	#Check if the include files is empty (e.g. needed for meta packages without files included)
+	if [ -z "$checkDirs" ]
+	then
+		echo "No files in include files"
+		return 1
+	fi
+
+	echo "Building file list..."
+
+	find $checkDirs \( -xtype f -print \) , \( -type l -print \) , \( -type p -print \) , \( -type c -print \) , \( -type b -print \) | sort -u > /tmp/tempFiles
+	
+	#add empty directories to the file list
+	find $checkDirs -type d -empty >> /tmp/tempFiles
+
+	echo "Excluding unwanted files"
+	filterFileList "exclude$2" /tmp/tempFiles
+
+	if test $3
+	then
+		echo "Sorted file list stored in $3"
+		mv /tmp/tempFiles $3
+
+		echo "Building directory list..."
+		find $checkDirs -type d > /tmp/tempDirs
+		echo "Excluding unwanted directories"
+		filterFileList "exclude$2" /tmp/tempDirs
+
+		#generate commands to create directories that are missing in the file list
+		#rm /mkMissingDirectories.sh
+		#createMissingDirsCommands /tmp/tempDirs $3 /mkMissingDirectories.sh
+		#echo "/mkMissingDirectories.sh" >> $3
+	else
+		echo "Generating fingerprints (from time,ID,permission)..."
+		#for i in `cat /tmp/tempFiles`
+		cat /tmp/tempFiles | while read i
+		do
+			#md5=`md5sum $i | cut -d' ' -f1`
+			#md5 is so slow
+			#md5 sum is replaced by: year month day hour minute second size groupID userID permissionBits 
+			md5=`find $i -printf %TY%Tm%Td%TH%TM%TS%s%G%U%m`
+			echo $i $md5 >> /tmp/tempMD5Index
+		done
+		
+		mv /tmp/tempMD5Index $1
+		rm /tmp/tempFiles
+	
+		echo "Index stored in $1"
+	fi
+}
+
+
+
+
+
+#check for changes of the files: changed file names are stored in index.changed, new in index.new and deleted in index.del
+checkChanges()
+{
+	#$1: exclude, include nr
+
+	if test ! -f "index$1.md5"
+	then
+		echo "index$1.md5 is missing. Please update"
+		read
+		exit 1
+	fi
+	
+	mkIndex "index$1.md5new" $1
+
+	#Check if the new index was created (it is possible that there is no index e.g. if a meta package should be build)
+	ls "index$1.md5" "index$1.md5new" 2> /dev/null > /dev/null
+	if [ $? -ne 0 ]
+	then
+		return 1
+	fi
+
+	diff "index$1.md5" "index$1.md5new" | grep / > "index$1.diff"
+
+	#all file name dupes have been changed
+	cat "index$1.diff" | cut -d' ' -f2 | sort | uniq -d > "index$1.changed"
+	
+	cat "index$1.diff" | grep '>' | cut -f2 -d' ' > "index$1.new"
+
+	#remove all changed file names from the new file list
+	for i in `cat "index$1.changed"`
+	do
+		grep -v "$i$" "index$1.new" > /tmp/tempMD5Index
+		mv /tmp/tempMD5Index "index$1.new"
+	done
+
+	#remove all changed file names from the deleted file list
+	cat "index$1.diff" | grep '<' | cut -f2 -d' ' > "index$1.de"l
+	for i in `cat "index$1.changed"`
+	do
+		grep -v "$i$" "index$1.del" > /tmp/tempMD5Index
+		mv /tmp/tempMD5Index "index$1.del"
+	done
+};
+
+
+
+
+
+#shows which files are new, changed and deleted
+showReport()
+{
+	#$1: exclude, include nr
+	echo "New files:" > /tmp/updateReport.md5
+	cat "index$1.new" >> /tmp/updateReport.md5
+	echo "Changed files:" >> /tmp/updateReport.md5
+	cat "index$1.changed" >> /tmp/updateReport.md5
+	echo "Deleted files:" >> /tmp/updateReport.md5
+	cat "index$1.del" >> /tmp/updateReport.md5
+
+	less /tmp/updateReport.md5
+	rm /tmp/updateReport.md5
+};
+
+
+
+
+
+#makes a bz2 tar from the new and changed files. a script for deletion the deleted files is included too.
+makeTar()
+{
+	#$1: exclude, include nr
+	#$2: tar.bz2 file name
+
+	#add the bash execution line
+	echo "#!/bin/bash" > /tmp/removeFiles.sh
+	#add "rm " in front of every file name which should be deleted
+	cat "index$1.del" | awk '{print("rm "$0)}' >> /tmp/removeFiles.sh
+	chmod +x /tmp/removeFiles.sh
+
+	#add the remove script to the file list
+	echo "/tmp/removeFiles.sh" > /tmp/updatedFilelist
+	#add the new and changed files
+	cat "index$1.new" "index$1.changed" >> /tmp/updatedFilelist
+
+	tar cvjp --same-owner -f $2 -T /tmp/updatedFilelist
+};
+
+
+
+
+
+#shows a help text
+showHelp()
+{
+	echo "Description: md5Check generates an index from the files in $checkDirs, can detect changes and make a bz2 tar from the changes."
+	echo "Usage: $0 <command> <nr> [tar.bz2 file name]"
+	echo "<command> must be one of the following"
+	echo "	u <nr>: update the index file.";
+	echo "	c <nr>: check for changes and store the result in index.new/del/changed."
+	echo "	r <nr>: show a report of the changes."
+	echo "	t <nr> <tar.bz2 file name>: makes a bz2 tar from the new and changed files. a script for deletion the deleted files is included too."
+	echo "	m <nr>: replace the old index with the new"
+	echo "	f <nr> <file list name>: Builds a file list and filteres out unwanted files and stores the result."
+	echo "	h <nr>: Returns \"true\" if there have been files changed, deleted or added."
+}
+
+
+
+
+
+#checks if the amount of command line parameters is equal to the given number
+checkParams()
+{
+	if test $2 != $1
+		then
+			showHelp
+			exit 23
+		fi
+}
+
+
+
+
+
+#replace the old index with the new
+moveIndex()
+{
+	#$1: exclude, include nr
+	mv "index$1.md5new" "index$1.md5"
+}
+
+
+indexNewerThan()
+{
+	#$1 exclude, include nr
+	#$2 duration in seconds the index must be newer as
+	curTime=`date +%s`
+
+	#check if all needed files are there
+	ls "index$1.changed" "index$1.del" "index$1.new"> /dev/null
+
+	if test $? -eq 0
+	then
+		for ftime in `find "index$1.changed" "index$1.del" "index$1.new" -printf "%C@\n" | cut -d'.' -f1`
+		do
+			if test `expr $curTime \- $ftime` -gt $2
+			then
+				#this file was modified more than $2 seconds ago
+				return 1
+			fi
+		done
+		return 0
+	else
+		#no, at least one file is missing
+		return 1
+	fi
+};
+
+hasChanges()
+{
+	#$1 exclude, include nr
+
+	#check if we have to check for changes
+	if indexNewerThan $1 60
+	then
+		true
+	else
+		checkChanges $1
+	fi
+
+	changedBytes=`du index$1.changed index$1.del index$1.new  -c -s | tail -1 | sed 's/\t/#/' | cut -d '#' -f1`
+	if test $changedBytes -gt 0
+	then
+		exit 0
+	else
+		exit 1
+	fi
+}
+
+
+
+
+#$1 action nr
+#$2 in/exclude number
+#$3 tar.bz2 file name
+
+case $1 in
+	u)
+		checkParams $# 2
+		mkIndex $dbFile $2;;
+	c)
+		checkParams $# 2
+		checkChanges $2;;
+	r)
+		checkParams $# 2
+		showReport $2;;
+	t)
+		checkParams $# 3
+		makeTar $2 $3;;
+	m)
+		checkParams $# 2
+		moveIndex $2;;
+	f)
+		checkParams $# 3
+		mkIndex $dbFile $2 $3;;
+	h)
+		checkParams $# 2
+		hasChanges $2;;
+	*)
+		showHelp;;
+esac

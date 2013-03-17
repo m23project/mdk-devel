@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+
+if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule ]
+then
+	rm /m23/etc/.htpasswd
+	# Remove my changes to the db.
+	db_purge
+fi
+
+db_stop

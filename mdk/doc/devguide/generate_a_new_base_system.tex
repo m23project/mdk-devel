@@ -1,0 +1,100 @@
+\section{How to generate a new base system?}
+
+\subsection{install necessary system files}
+\begin{verbatim}
+debootstrap --arch=i386 woody .
+\end{verbatim}
+This may run in to an error, but it doesn't matter. Simply follow this guide ;) .
+
+\subsection{editing files}
+\subsubsection{fstab}
+Copy your existing /etc/fstab to the new /etc/ directory. Adjust the line for your boot device, e.g. your new boot device is hda3 so you have to change \textit{/dev/hda2       /               ext3   defaults           0       0} to \textit{/dev/hda1       /               ext3   defaults           0       0} .
+Your new fstab may look like this:
+\begin{verbatim}
+# /etc/fstab file system info, created by the m23 project
+#  <file system> <mount point>  <type> <options>     <dump>  <pass>
+proc             /proc          proc   defaults      0       0
+/dev/hda1        none           swap    sw           0       0
+/dev/hda3       /               ext3   defaults           0       0
+/dev/cdrom      /mnt/cdrom      auto    ro,noauto,user,exec     0 0
+/dev/fd0        /mnt/floppy     auto    user,noauto             0 0
+\end{verbatim} 
+
+\subsubsection{lilo.conf}
+You can use your current lilo.conf and edit some values like \textit{root}. You may choose a different kernel than in your current system so you have to adjust the \textit{image} parameter too. But first it is essetial to have a lilo.conf with the correct \textit{root} value, \textit{image} doesn't matter at the moment.
+\begin{verbatim}
+boot=/dev/hda
+map=/boot/map
+install=/boot/boot-menu.b
+compact
+prompt
+vga=normal
+delay=10
+timeout=20
+
+default=m23Server3
+
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        append="hdb=scsi-ide"
+        initrd=/initrd.img
+\end{verbatim}
+
+\subsubsection{sources.list}
+Your sources.list should look like this:
+\begin{verbatim}
+ deb http://security.debian.org/ woody/updates main contrib non-free
+ deb http://ftp.de.debian.org/debian/ stable main non-free contrib
+ deb http://ftp.szczepanek.de/ftp/trusteddebian/ stable main contrib
+\end{verbatim}
+You can add more sources if preferred.
+
+\subsubsection{/etc/network}
+Simply copy your old /etc/network directory to the new /etc.
+
+\subsection{step in to your new system}
+You can enter your new system (without reboot) with:
+\begin{verbatim}
+chroot .
+\end{verbatim}
+
+\subsection{source update and cleanup}
+I think we don't need mailx :) .
+\begin{verbatim}
+apt-get update
+apt-get remove mailx
+\end{verbatim}
+
+\subsection{installing a kernel}
+You can list all available kernels with the following command:
+\begin{verbatim}
+apt-cache search kernel | grep kernel-image
+\end{verbatim}
+Pick one out adjust the \textit{image} value in your new \textit{lilo.conf}. To install your new kernel type the following:
+\begin{verbatim}
+apt-get install myChosenKernel-Image
+\end{verbatim}
+
+\subsubsection{in case of an error}
+If you get an error with the \textit{mkinitrd} command try it manualy. Adjust \textit{/boot/initrd.img-2.4.20-1-386-sec} to the filename you entered in the \textit{lilo.conf}. You have to adjust the \textit{/lib/modules/...} and the root device after \textit{-r} also.
+\begin{verbatim}
+mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
+\end{verbatim}
+
+\subsection{system update and installation of additional packages}
+\begin{verbatim}
+apt-get dist-upgrade -u
+apt-get install ssh
+\end{verbatim}
+
+\subsection{booting your new system}
+To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like \textit{vmlinuz-2.4.20-1-386-sec}.
+Edit your \textbf{current} /etc/lilo.conf and add a new section like this:
+\begin{verbatim}
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        initrd=/initrd.img
+\end{verbatim}
+vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new \textit{lilo.conf}.

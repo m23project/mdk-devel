@@ -1,0 +1,142 @@
+\section{Screen}
+\subsection{Purpose}
+Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells. It is used for logging in the current installation process of the client.
+
+\subsection{Patching}
+The patch solves the problem with getpwuid, that the current user can't be figured out. If applied this patch is applied, root is the current user, otherwise screen can't be executed.\\\\
+This should be used for the booimage only, because it can be a security risk.
+
+\subsubsection{screen 4.0.3}
+\begin{verbatim}
+272a273,299
+> //fetch records not from utmp but returns a pointer to hard coded values
+> static struct passwd *fakePPP()
+> {
+>       struct passwd *ppp;
+>       ppp = malloc(sizeof(struct passwd));
+>
+>       ppp->pw_name = malloc(5);
+>       strcpy(ppp->pw_name,"root");
+>
+>       ppp->pw_passwd = malloc(5);
+>       strcpy(ppp->pw_passwd,"root");
+>
+>       ppp->pw_uid = 0;
+>       ppp->pw_gid = 0;
+>
+>       ppp->pw_gecos = malloc(5);
+>       strcpy(ppp->pw_gecos,"root");
+>
+>       ppp->pw_dir = malloc(2);
+>       strcpy(ppp->pw_dir,"/");
+>
+>       ppp->pw_shell = malloc(8);
+>       strcpy(ppp->pw_shell,"/bin/sh");
+>
+>       return(ppp);
+> }
+>
+279,328d305
+<   int n;
+< #ifdef SHADOWPW
+<   struct spwd *sss = NULL;
+<   static char *spw = NULL;
+< #endif
+<
+<   if (!ppp && !(ppp = getpwnam(name)))
+<     return NULL;
+<
+<   /* Do password sanity check..., allow ##user for SUN_C2 security */
+< #ifdef SHADOWPW
+< pw_try_again:
+< #endif
+<   n = 0;
+<   if (ppp->pw_passwd[0] == '#' && ppp->pw_passwd[1] == '#' &&
+<       strcmp(ppp->pw_passwd + 2, ppp->pw_name) == 0)
+<     n = 13;
+<   for (; n < 13; n++)
+<     {
+<       char c = ppp->pw_passwd[n];
+<       if (!(c == '.' || c == '/' || c == '$' ||
+<           (c >= '0' && c <= '9') ||
+<           (c >= 'a' && c <= 'z') ||
+<           (c >= 'A' && c <= 'Z')))
+<       break;
+<     }
+<
+< #ifdef SHADOWPW
+<   /* try to determine real password */
+<   if (n < 13 && sss == 0)
+<     {
+<       sss = getspnam(ppp->pw_name);
+<       if (sss)
+<       {
+<         if (spw)
+<           free(spw);
+<         ppp->pw_passwd = spw = SaveStr(sss->sp_pwdp);
+<         endspent();   /* this should delete all buffers ... */
+<         goto pw_try_again;
+<       }
+<       endspent();     /* this should delete all buffers ... */
+<     }
+< #endif
+<   if (n < 13)
+<     ppp->pw_passwd = 0;
+< #ifdef linux
+<   if (ppp->pw_passwd && strlen(ppp->pw_passwd) == 13 + 11)
+<     ppp->pw_passwd[13] = 0;   /* beware of linux's long passwords */
+< #endif
+<
+851,868c828,832
+<   if ((LoginName = getlogin()) && LoginName[0] != '\0')
+<     {
+<       if ((ppp = getpwnam(LoginName)) != (struct passwd *) 0)
+<       if ((int)ppp->pw_uid != real_uid)
+<         ppp = (struct passwd *) 0;
+<     }
+<   if (ppp == 0)
+<     {
+<       if ((ppp = getpwuid(real_uid)) == 0)
+<         {
+<         Panic(0, "getpwuid() can't identify your account!");
+<         exit(1);
+<         }
+<       LoginName = ppp->pw_name;
+<     }
+<   LoginName = SaveStr(LoginName);
+<
+<   ppp = getpwbyname(LoginName, ppp);
+---
+> //fetch records not from utmp but hard coded values from the fakePPP
+>   ppp = fakePPP();
+> //make LoginName statically
+>   LoginName = malloc(5);
+>   strcpy(LoginName,"root");
+\end{verbatim}
+
+
+\subsubsection{For old screen 4.0.2}
+\begin{verbatim}
+diff -r screen-4.0.2/screen.c screen-4.0.2.npatch/screen.c
+857c857,858
+<   if (ppp == 0)
+---
+>
+>   /*if (ppp == 0)
+865,866c866,867
+<     }
+<   LoginName = SaveStr(LoginName);
+---
+>     }*/
+>   LoginName = SaveStr("root");
+\end{verbatim}
+
+\subsection{Building}
+\begin{verbatim}
+export CFLAGS="-static"
+export LDFLAGS="-static"
+./configure --with-sys-screenrc=/etc/screenrc --disable-socket-dir
+make
+strip -g screen
+\end{verbatim} 
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Delete packages
+apt-get clean
+
+#Delete logs and apt lists
+find /var/lib/apt/lists /var/log -type f | xargs rm
+
+#Fill the device with zeros
+dd if=/dev/zero of=/tmp/z bs=1M
+
+#Remove the zero file
+rm /tmp/z

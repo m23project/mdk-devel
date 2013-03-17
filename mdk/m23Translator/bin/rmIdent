@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if test $# -lt 2
+then
+	echo "Compares your translated files with the downloaded files and deletes identical files"
+	echo "from the directory of the downloaded files."
+	echo "usage $0 <directory with your files> <directory with the downloaded files>"
+	exit
+fi
+
+downloadDir=$1
+origDir=$2
+
+export LANG=C
+
+diff -s -r $origDir $downloadDir | grep "are identical" | cut -d' ' -f2 | while read identFile
+do
+	echo "Remove identical file $identFile"
+	rm "$identFile"
+done
+

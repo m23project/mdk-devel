@@ -1,0 +1,8 @@
+\section{Connexion directe au poste client}Une connexion directe au poste client peut \^etre utilis\'e pour intervenir dans le proc\`es de l'installation manuellement ou pour pouvoir lire l'affichage d'une location lointaine comme aussi en vue de tester ou d\'ebouguer. La connexion sera ex\'ecut\'ee par SSH et comme ça, peut \^etre \'etablie avec chaque poste client SSH.\\
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/fr/client_directConnection.png} \\
+\subsection{Mot de passe}
+Si le poste client est encore au d\'ebut de l'installation, le mot de passe de la racine est: $\gg$NETROOTPWD$\ll$.\\
+Plus tard, c'est le mot de passe que vous avez entr\'e pendant l'\'etablissement du poste client.\\
+Si votre navigateur web soutient le protocole SSH directement, vous pouvez \'etablir la connexion en cliquant sur ce lien: ssh://root@CLIENTIP\\
+Sinon, ouvrez un console et entrez la commande: \textbf{ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP}
+Afin de lire l'affichage actuel du poste client ou d'intervenir dans l'installation en cours utilisez cette commande: \textbf{screen -x m23install}.\\

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>overview</TITLE>
+<META NAME="description" CONTENT="overview">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node12.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2148"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2144"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2138"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2146"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2149"
+  HREF="node12.html">the tables</A>
+<B> Up:</B> <A NAME="tex2html2145"
+  HREF="node10.html">database</A>
+<B> Previous:</B> <A NAME="tex2html2139"
+  HREF="node10.html">database</A>
+ &nbsp; <B>  <A NAME="tex2html2147"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00510000000000000000">
+overview</A>
+</H1>
+m23 stores all information about the clients, their status, pending jobs and hardware infos in a database. This chapter will show you how the m23 database is organized. The m23 database is divided in several tables:
+
+<UL>
+<LI>clientjobs: stores waiting and done jobs for each client. If you install a package to a client the information about the install job is stored in this table with the status waiting. When the package is installed the install job will be marked as "done".
+</LI>
+<LI>clientlogs: Here are stored error and success of the installation procedure. You can see the output of whole installation procedure.
+</LI>
+<LI>clientpackages: here are stored all packages installed on the clients with status, version and action.
+</LI>
+<LI>clientpreferences: to make adding a new client more easy you can save preferences for new clients. These preferences are stored here.
+</LI>
+<LI>clients: information about all clients, ip, ram size, cpu, etc.
+</LI>
+<LI>ftpusers: will later be used for access to the ftp server on the m23 server.
+</LI>
+<LI>groups: clients can be organized in groups to manage them more easy.
+</LI>
+<LI>packages: will be used for storing available packages that can be installed on the clients.
+</LI>
+<LI>plugins: information about installed plugins.
+</LI>
+<LI>recommendpackages: here you can store package selections. With a package selection you can install a bundle of software with one click on a client.
+</LI>
+<LI>remotevar: table to store the remove vars.
+</LI>
+</UL> 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2148"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2144"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2138"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2146"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2149"
+  HREF="node12.html">the tables</A>
+<B> Up:</B> <A NAME="tex2html2145"
+  HREF="node10.html">database</A>
+<B> Previous:</B> <A NAME="tex2html2139"
+  HREF="node10.html">database</A>
+ &nbsp; <B>  <A NAME="tex2html2147"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

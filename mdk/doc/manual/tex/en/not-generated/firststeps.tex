@@ -1,0 +1,20 @@
+\chapter{First steps with your m23 server}
+\section{Connect to your m23 server}
+After the successful installation of your server and a reboot, you can connect to the m23 administration interface on the server with a webbrowser from any computer connected to your LAN. Enter the following URL in the address field of your browser:\\\\
+\underline{http://ServerIP}\\\\
+
+Exchange ServerIP with the IP you gave your server (e.g.: 192.168.1.23). If you log in for the first time there won't be an administrator account. Enter the values shown in the browser window as the username and password. After you have logged in, you should create a new administrator account and delete the "god" administrator.
+
+\section{Adding a client}
+This section shows the abstract procedure of adding a client. For the exact procedure you should have a look at the specific chapter.
+
+\begin{itemize}
+\item Connect the client to your network to make the client able to connect to the server.
+\item If your client doesn't have a network card with PXE or Etherboot you need to create a boot disk or CD.
+\item Start the client and take down the MAC address (e.g. 00:45:23:3A:96:F3).
+\item Enter the needed values and the MAC address to add the client (as described in the chapter "Manage your clients").
+\item Reset the client if it doesn't boot automatically. Remember to insert the boot disk or boot CD (if needed).
+\item The client should boot now and send hardware and partition information to the m23 server.
+\item In the web interface you can examine these values. Continue with the chapter "Partition and format the clients" and "Installation of the operating system" afterwards.
+\item To install additional software have a look at the "Install/deinstall packages" chapter.
+\end{itemize}

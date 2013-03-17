@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Utiliser m23 conjointement avec un serveur DHCP externe</TITLE>
+<META NAME="description" CONTENT="Utiliser m23 conjointement avec un serveur DHCP externe">
+<META NAME="keywords" CONTENT="manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manual.css">
+
+<LINK REL="next" HREF="node106.html">
+<LINK REL="previous" HREF="node99.html">
+<LINK REL="up" HREF="node98.html">
+<LINK REL="next" HREF="node104.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1753"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1749"
+  HREF="node98.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1743"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html1754"
+  HREF="node104.html">Si l'autre serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1750"
+  HREF="node98.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1744"
+  HREF="node102.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1752"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001020000000000000000">
+Utiliser m23 conjointement avec un serveur DHCP externe</A>
+</H1>Supposons qu'un un serveur DHCP diffuse sur votre r&#233;seau local les param&#232;tres du r&#233;seau (IP, masque de r&#233;seau etc.) pour tous les ordinateurs et qu'il existe un serveur m23 h&#233;bergeant &#233;galement un serveur DHCP, &#224; partir duquel les postes client doivent &#234;tre install&#233;s.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
+<BR>
+Probl&#232;me: L'installation des postes client m23 ne fonctionne pas, parce que le serveur DHCP diffuse les param&#232;tres du r&#233;seau plus vite que le serveur DHCP de m23.
+<BR>
+La raison: Le serveur m23 doit assigner l'adresse IP et les autres param&#232;tres du r&#233;seau au poste client lors de l'installation du syst&#232;me d'exploitation. Si un autre serveur DHCP fixe ces param&#232;tres &#224; la place du serveur DHCP m23, le poste client ne trouvera pas le serveur m23, en cons&#233;quence de quoi, l'image d'amor&#231;age du r&#233;seau ne sera pas accessible et le poste client ne pourra pas &#234;tre install&#233;. En principe, on ne peut modifier ce comportement, parce que les standards r&#233;seaux et les protocoles de d&#233;marrage r&#233;seau (netboot) suivent une proc&#233;dure standardis&#233; de d&#233;marrage par le r&#233;seau.
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1755"
+  HREF="node104.html">Si l'autre serveur DHCP peut &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1756"
+  HREF="node105.html">Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1753"
+  HREF="node104.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1749"
+  HREF="node98.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1743"
+  HREF="node102.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html1754"
+  HREF="node104.html">Si l'autre serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1750"
+  HREF="node98.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1744"
+  HREF="node102.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1752"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+dodger
+2012-12-10
+</ADDRESS>
+</BODY>
+</HTML>

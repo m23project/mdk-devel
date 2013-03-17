@@ -1,0 +1,78 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+#Adds cron entries for m23CronStarter
+addCronEntry()
+{
+	cmd=$1
+	params=$2
+
+	if [ `grep -c $cmd /etc/crontab` -eq 0 ]
+	then
+		echo "$params www-data /m23/bin/m23CronStarter $cmd" >> /etc/crontab
+	fi
+}
+
+
+
+
+
+
+addm23SharedDBUser()
+{
+	#Get DB user and password
+	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+	#Create a new password
+	pw=`pwgen -c -s 32`
+
+	#Create a new DB user
+	echo "CREATE USER 'm23shared'@'localhost' IDENTIFIED BY '$pw';" | mysql -u $dbadmin -p$dbadmpass
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE ON \`m23shared_%\` . * TO 'm23shared'@'localhost';" | mysql -u $dbadmin -p$dbadmpass
+
+	#Add the DB user's password to the config file
+	sed -i "s#m23sharedDBPWD',[\"']*.*[\"'])#m23sharedDBPWD','$pw')#g" /m23/inc/m23shared/m23sharedConf.php
+}
+
+
+
+
+
+addm23SharedSalt()
+{
+	#Create and add a new random salt
+	pw=`pwgen -c -s 64`
+	oldpw=`grep m23SharedSalt /m23/inc/m23shared/m23sharedConf.php | cut -d"'" -f4`
+	sed -i "s#m23SharedSalt',[\"']*.*[\"'])#m23SharedSalt','$pw')#g" /m23/inc/m23shared/m23sharedConf.php
+}
+
+
+
+
+
+configHostName()
+{
+	db_get m23shared/hostname
+	if [ "$RET" ]
+	then
+		sed -i "s#m23SharedHostname',[\"']*.*[\"'])#m23SharedHostname','$pw')#g" /m23/inc/m23shared/m23sharedConf.php
+	fi
+}
+
+
+
+
+
+#Only configure if it was not done before (checked by the entry in the crontab)
+if [ `grep -c m23SHARED_sendAllBillMails /etc/crontab` -eq 0 ]
+then
+	#Adds the automatic sending of bill emails at the beginning of each month
+	addCronEntry m23SHARED_sendAllBillMails "1 0 1 * *"
+
+	addm23SharedDBUser
+	addm23SharedSalt
+	configHostName
+fi

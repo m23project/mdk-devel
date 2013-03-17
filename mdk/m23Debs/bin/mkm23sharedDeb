@@ -1,0 +1,56 @@
+#!/bin/sh
+
+. /mdk/m23Debs/bin/m23Deb.inc
+. /mdk/bin/serverFunctions.inc
+. /mdk/bin/menuFunctions.inc
+
+menuVarInit
+
+#Store old directory
+	curDir=`pwd`
+
+#Create the /m23/inc/ that will contain the m23shared SQL dump
+	cd /m23/inc/m23shared/
+
+#Export the DB
+	. /mdk/bin/serverFunctions.inc
+	exportDBInitTable lenny testing
+
+#Write the beginning of the PHP file to contain the SQL dump
+echo -n "<?php
+\$m23sharedSQLInit=\"" > m23sharedSQL-init.php
+
+#Filter out comments and convert " -> \"
+	bzcat m23.sql.bz2 | grep -v '\-\-' | grep -v '*!' | sed 's/"/\\"/g' | grep -v LOCK >> m23sharedSQL-init.php
+
+#Add extra entries
+	cat /m23/inc/m23shared/extraSQL/*.sql | grep -v '\-\-' | grep -v '*!' | sed 's/"/\\"/g' | grep -v LOCK >> m23sharedSQL-init.php
+
+#Write the end of the PHP file to contain the SQL dump
+echo -n "\";
+?>" >> m23sharedSQL-init.php
+
+#Remove the not needed old dumps
+	rm m23captured.sql.bz2 m23.sql.bz2 2> /dev/null
+
+#Change file permissions to Apache user and group
+	aU=`getApacheUser`
+	aG=`getApacheGroup`
+	chown $aU.$aG /m23/inc/m23sharedSQL-init.php
+	chown $aU.$aG /m23/data+scripts/m23shared/bootMedia -R
+
+#Clean all values from the m23sharedConf.php file, but make a backup before
+	cp /m23/inc/m23shared/m23sharedConf.php /tmp
+	sed -i "s#,[\"']*.*[\"'])#,'')#g" /m23/inc/m23shared/m23sharedConf.php
+
+#build package
+	simpleBuild m23shared 1
+
+#Move the m23shared package out of the normal pool
+	mv /mdk/server/iso/pool/m23shared_* /matrix23/sync/m23shared-pool
+
+#Copy back the backupped config data
+	cat /tmp/m23sharedConf.php > /m23/inc/m23shared/m23sharedConf.php
+
+#Jump back to the directory we were at the beginning
+	cd $curDir

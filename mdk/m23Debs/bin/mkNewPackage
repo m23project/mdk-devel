@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo -n "Name of the new package: "
+read pkgname
+
+ls /mdk/m23Debs
+echo -n "Derived from: "
+read derivedpkg
+
+cd /mdk/m23Debs
+mkdir $pkgname
+cp -r $derivedpkg/* $pkgname
+
+echo "Edit the control file"
+read
+nano $pkgname/DEBIAN/control
+
+echo "Copying in/exclude files"
+cd /mdk/m23Debs/indices
+cp  include$derivedpkg""deb include$pkgname""deb -v
+cp  exclude$derivedpkg""deb exclude$pkgname""deb -v
+
+/mdk/m23update/bin/md5Check u $pkgname""deb
+
+nano include$pkgname""deb
+nano exclude$pkgname""deb

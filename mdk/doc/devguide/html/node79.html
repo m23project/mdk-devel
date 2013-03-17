@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node80.html">
+<LINK REL="previous" HREF="node78.html">
+<LINK REL="up" HREF="node78.html">
+<LINK REL="next" HREF="node80.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3092"
+  HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3088"
+  HREF="node78.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3082"
+  HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3090"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3093"
+  HREF="node80.html">creating a new bootimage</A>
+<B> Up:</B> <A NAME="tex2html3089"
+  HREF="node78.html">How to make network</A>
+<B> Previous:</B> <A NAME="tex2html3083"
+  HREF="node78.html">How to make network</A>
+ &nbsp; <B>  <A NAME="tex2html3091"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00661000000000000000">
+Introduction</A>
+</H2>
+What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
+<BR>
+A client runs for first start up thru the following sequence:
+<BR>
+<UL>
+<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
+</LI>
+<LI>fetch the bootimage from the server with TFTP protocoll
+</LI>
+<LI>load and extract the image to the client memory
+</LI>
+<LI>start the contained kernel
+</LI>
+<LI>kernel loades the included initrd
+</LI>
+<LI>start up script fetches IP, netmask, etc. from the server again
+</LI>
+<LI>the script fetches the first job for the client and saves the job script file
+</LI>
+<LI>the script is executed and the next job will be fetched from the server
+</LI>
+</UL> 
+This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

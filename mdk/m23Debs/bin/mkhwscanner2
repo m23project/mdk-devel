@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#build debconf for woody
+rm /mdk/m23Debs/debs/m23-debconf-woody*.deb /mdk/m23Debs/debsamd64/m23-debconf-woody*.deb 2> /dev/null
+/mdk/m23Debs/bin/mkDeb m23-debconf-woody 1
+
+#build m23 initscripts
+rm /mdk/m23Debs/debs/m23-initscripts*.deb /mdk/m23Debs/debsamd64/m23-initscripts*.deb 2> /dev/null
+/mdk/m23Debs/bin/mkDeb m23-initscripts 1 all
+
+#build m23hwscanner
+rm /mdk/m23Debs/debs/m23hwscanner*.deb /mdk/m23Debs/debsamd64/m23hwscanner*.deb 2> /dev/null
+/mdk/m23Debs/bin/mkDeb m23-hwscanner 1 all

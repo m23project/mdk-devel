@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Send SQL statements</TITLE>
+<META NAME="description" CONTENT="Send SQL statements">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2610"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2606"
+  HREF="node38.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2602"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2608"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2611"
+  HREF="node42.html">Example</A>
+<B> Up:</B> <A NAME="tex2html2607"
+  HREF="node38.html">Filling main.cpp</A>
+<B> Previous:</B> <A NAME="tex2html2603"
+  HREF="node40.html">Disconnecting from the server</A>
+ &nbsp; <B>  <A NAME="tex2html2609"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00625300000000000000">
+Send SQL statements</A>
+</H3>
+<PRE>
+MYSQL_RES *query(char *sql)
+{
+ MYSQL_RES *res;
+
+ if (mysql_query(&amp;connection, sql) != 0)
+    {
+     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
+     mysql_error(&amp;connection),sql);
+     exit(2);
+    };
+
+ res = mysql_store_result(&amp;connection);
+
+ return(res);
+};
+</PRE>
+
+<OL>
+<LI>We declare a variable (<SPAN  CLASS="textit">res</SPAN>)that will held the result of our query
+</LI>
+<LI>mysql_query requires a established connection to a mysql server and a valid sql statement. If the statement gets executed corretly, it returns 0, otherwise you can use the mysql_error function to get the error message.
+</LI>
+<LI>And at last mysql_store_result stores the result of our query or <SPAN  CLASS="textbf">NULL</SPAN> if there was an error.
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

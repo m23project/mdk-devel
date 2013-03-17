@@ -1,0 +1,34 @@
+\section{Dateiquelle wählen/Spalten zuordnen}
+\includegraphics[scale=0.33]{/mdk/doc/manual/screenshots/de/mi_step2.png} \\
+Dieser Dialog ist in zwei Schritte aufgeteilt:\\
+\begin{itemize}
+\item Datei auswählen und hochladen\\
+\item Den Feldern in der Datei die Client-Eigenschaften zuweisen\\
+\end{itemize}
+\subsection{Datei auswählen und hochladen}
+Wählen Sie eine Datei über den Dialog aus und klicken Sie danach auf \textit{"Hochladen"}.\\
+Die Datei muß speziell aufgebaut sein, damit m23 die Werte erkennen kann. Pro Zeile werden die Eigenschaftswerte für je einen Client spezifiziert. Die einzelnen Eigenschaften werden durch ein Trennzeichen (hier ";") getrennt:\\
+\begin{verbatim}
+Eigenschaft1;Eigenschaft2;Eigenschaft3;...
+\end{verbatim}
+An Stelle eines Semikolons kann jede Kombination von bis zu 4 Zeichen verwendet werden. Die Reihenfolge der Eigenschaften muß in allen Zeilen gleich sein.\\
+\subsection{Hinweis}
+Neben der grundlegenden Bedingung, daß die in der Datei abgelegten Werte zu den Eigenschaften passen müssen, gelten für folgende Eigenschaften die zusätzlichen Bedingungen:\\
+\begin{itemize}
+\item \textbf{Anmeldungsdaten lokal auf dem Client speichern.}: Wert "yes" aktiviert diese Option, jeder andere Wert deaktiviert sie.\\
+\item \textbf{LDAP}: Es sind 3 verschiedene Werte zulässig:\\
+\begin{itemize}
+\item "none": LDAP nicht benutzen\\
+\item "read": Anmeldungsdaten vom gewählten LDAP-Server lesen.\\
+\item "write": Anmeldungsdaten in den LDAP-Server speichern.\\
+\end{itemize}
+\end{itemize}
+\subsection{Den Feldern in der Datei die Client-Eigenschaften zuweisen}
+Nachdem Sie eine Datei hochgeladen haben, können Sie den einzelnen Feldern in der Datei die Eigenschaftsnamen der Clients zuweisen.\\
+\subsection{Gehen Sie hierzu wie folgt vor}
+\begin{enumerate}
+\item Geben Sie das Trennzeichen in das vorgesehene Feld ein und passen Sie ggf. die Spaltenanzahl an.\\
+\item Klicken Sie auf \textit{"Aktualisieren"}.\\
+\item Weisen Sie nun den Feldern aus der Datenbankdatei die Eigenschaftsnamen aus den Listen zu.\\
+\item Schließen Sie Ihre Auswahl mit einem Klick auf \textit{"Speichern"} ab.\\
+\end{enumerate}

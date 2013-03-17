@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+mkdir -p /mdk/bootimage/mnt /mdk/bootimage/root2/var/lib/dhcp /mdk/bootimage/root2/etc/sysconfig /mdk/bootimage/root2/dev/shm /mdk/bootimage/root2/proc /mdk/bootimage/root2/sys
+
+chown root.root "/mdk/bootimage/mnt"
+chmod 755 "/mdk/bootimage/mnt"
+chown root.root "/mdk/bootimage/root2/var/lib/dhcp"
+chmod 755 "/mdk/bootimage/root2/var/lib/dhcp"
+chown root.root "/mdk/bootimage/root2/etc/sysconfig"
+chmod 777 "/mdk/bootimage/root2/etc/sysconfig"
+chown root.root "/mdk/bootimage/root2/dev/shm"
+chmod 1777 "/mdk/bootimage/root2/dev/shm"
+chown root.root "/mdk/bootimage/root2/proc"
+chmod 755 "/mdk/bootimage/root2/proc"
+chown root.root "/mdk/bootimage/root2/sys"
+chmod 755 "/mdk/bootimage/root2/sys"
+
+db_stop

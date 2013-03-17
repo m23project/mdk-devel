@@ -1,0 +1,41 @@
+\section{How to translate m23?}
+m23 uses a system to make translation to other languages easy. All language specific text is stored in files. One big file (m23base.php) contains the text shown in the m23admin menus, messages, on buttons, ... . The help texts are stored in single files containing a topic each. To make your translation available, you have to give the new language a name and store it in a lang file.
+\subsection{make directories}
+You should think about a good abreviation for the language. All m23 languages have a short 2 letter name that is used for directory name (e.g. de=german, en=english, fr=french).\\\\
+Make the directories:
+\begin{verbatim}
+/m23/inc/i18n/<your language short name>
+/m23/inc/help/<your language short name>
+\end{verbatim}
+if you use a console to create the directories it may look like this:
+\begin{verbatim}
+mkdir /m23/inc/i18n/de
+mkdir /m23/inc/help/de
+\end{verbatim}
+\subsection{generate the language file}
+To give your language a name and make it available to m23 create a \textit{language.info} file.\\
+The language.info has to contain the following lines:
+\begin{verbatim}
+language: <the full name of your language>
+shortlanguage: <the short 2 letter name of the language>
+\end{verbatim}
+m23 uses the word for the language that is used in the origin country. e.g. Deutsch and not German, Francais and not French.\\\\
+Your language.info may look like this:\\
+\begin{verbatim}
+language:Deutsch
+shortlanguage:de
+\end{verbatim}
+\subsection{translating the messages}
+Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.\\
+Now translate the text between the ' " 's.
+e.g.
+\begin{verbatim}
+$I18N_help="Help";
+\end{verbatim}
+becomes
+\begin{verbatim}
+$I18N_help="Hilfe";
+\end{verbatim}
+Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like \$I18N$\_$help to \$I18N$\_$hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
+\subsection{translating the help texts}
+Copy all *.hlp from the /m23/inc/help/<lang> directory to your new help directory. e.g. : copy /m23/inc/help/en/*.hlp to /m23/inc/help/de/. Translate the text in each file. If you want, you can use HTML characters. e.g. "<<" are used in french texts, these characters are interpreted by HTML as begin of tag. You have to replace these characters with the HTML equivalent: "<<" becomes "\&lt;\&lt;".\\

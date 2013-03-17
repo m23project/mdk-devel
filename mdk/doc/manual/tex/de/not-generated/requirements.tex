@@ -1,0 +1,39 @@
+\chapter{Voraussetzungen für m23}
+Zur Integration des m23-Software-Verteilungssystems in Ihr Netzwerk benötigen Sie folgendes:
+\begin{itemize}
+\item m23-Server
+\item m23-Client(s)
+\item Internetzugang
+\item PC mit Webbrowser
+\item m23-Server-Installations-CD
+\end{itemize}
+
+\section{Der m23-Server}
+Der m23-Server übernimmt die komplette Verteilung der Software und erfüllt verschiedene Aufgaben:
+\begin{itemize}
+\item Generierung der Administrationsoberfläche
+\item Bereitstellung von Installations-Skripten zur Laufzeit
+\item Softwarepakete-Cache
+\item Datenbank
+\item Boot-Server
+\item DHCP-Server
+\end{itemize}
+Der m23-Server sollte je nach Anzahl der Clients mit ausreichend Arbeitsspeicher und einem angemessenen Prozessor ausgestattet werden. Für wenige Clients oder zum Ausprobieren reicht ein PC älterer Bauart (z.B. PI mit 166MHz und 64MB RAM). Für größere Netzwerke sollten Sie einen neueren PC mit mindestens 256MB RAM einsetzen. In beiden Fällen benötigt Ihr Server eine Netzwerkkarte und eine Festplatte ab 5GB. Bei der Wahl der Festplatte sollten Sie darauf Wert legen, den zur Verfügung stehenden Speicherplatz nicht zu knapp zu bemessen. Bei Einsatz mit vielen Clients sollten Sie auf ausreichenden Datendurchsatz der Festplatte achten. Da der m23-Server die Festplatte zum Cachen der Softwarepakete benutzt, kann es bei der Verteilung von vielen verschiedenen Softwarepaketen und zu klein bemessener Festplatte zu Fehlern kommen.
+\begin{itemize}
+\item CPU: ab 166Mhz (empfohlen 1GHz)
+\item RAM: ab 64MB (empfohlen ab 256MB)
+\item Festplatte: ab 5GB
+\item Netzwerkkarte: empfohlen 100MBit/1GBit
+\end{itemize}
+
+\section{m23-Clients}
+Für die Clients gilt im Prinzip das gleiche. Um die Softwareverteilung zu vereinfachen, sollten Sie darauf achten, daß die Clients Wake-On-Lan-fähig sind, da m23 die Clients dann eigenständig für Installationsaufträge starten und nach Abschluß wieder in den Ruhezustand versetzen kann. Auch ist der Einsatz von Netzwerkkarten, die ein Bootrom enthalten, empfehlenswert, da die Clients so über das Netzwerk gebootet werden können, ohne daß sie per Bootdiskette/CD gestartet werden müssen. Dies ist allerdings nur für das Aufspielen des Betriebbsystems erforderlich. m23 unterstützt PXE und Etherboot als Bootstandards.
+
+\section{Internetzugang}
+Für m23 benötigen Sie einen Internetzugang, da die ganzen Softwarepakete nicht auf der CD enthalten sind, sondern aus dem Internet heruntergeladen und ständig aktualisiert werden.
+
+\section{PC mit Webbrowser}
+Für die Administration benötigen Sie einen Webbrowser, mit dem Sie auf den Server zugreifen können.
+
+\section{Die m23-Server-Installations-CD}
+Um einen m23-Server aufzusetzen, benötigen Sie die m23-Server-Installations-CD die es zum kostenlosen Download auf \underline{http://m23.sf.net} gibt. Brennen Sie die ISO-Datei einfach mit einem Brennprogramm und booten Sie danach den Server davon.

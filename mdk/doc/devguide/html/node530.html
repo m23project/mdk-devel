@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>./inc/html.php</TITLE>
+<META NAME="description" CONTENT="./inc/html.php">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node572.html">
+<LINK REL="previous" HREF="node525.html">
+<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node531.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html9777"
+  HREF="node531.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html9773"
+  HREF="node133.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html9767"
+  HREF="node529.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html9775"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html9778"
+  HREF="node531.html">HTML_liveLogArea</A>
+<B> Up:</B> <A NAME="tex2html9774"
+  HREF="node133.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html9768"
+  HREF="node529.html">HELP_showHelpTex</A>
+ &nbsp; <B>  <A NAME="tex2html9776"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION008160000000000000000">
+./inc/html.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions for generating often used HTML code
+<BR>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html9779"
+  HREF="node531.html">HTML_liveLogArea</A>
+<LI><A NAME="tex2html9780"
+  HREF="node532.html">HTML_checkboxChangerButtons</A>
+<LI><A NAME="tex2html9781"
+  HREF="node533.html">HTML_jsCheckboxChanger</A>
+<LI><A NAME="tex2html9782"
+  HREF="node534.html">HTML_logArea</A>
+<LI><A NAME="tex2html9783"
+  HREF="node535.html">HTML_getQuestionnaireURL</A>
+<LI><A NAME="tex2html9784"
+  HREF="node536.html">HTML_questionnaire</A>
+<LI><A NAME="tex2html9785"
+  HREF="node537.html">HTML_esel</A>
+<LI><A NAME="tex2html9786"
+  HREF="node538.html">HTML_JSMenuCloseAllEntries</A>
+<LI><A NAME="tex2html9787"
+  HREF="node539.html">HTML_JSMenuOpener</A>
+<LI><A NAME="tex2html9788"
+  HREF="node540.html">HTML_incStatusBarPercentByName</A>
+<LI><A NAME="tex2html9789"
+  HREF="node541.html">HTML_setStatusBarPercentPointByName</A>
+<LI><A NAME="tex2html9790"
+  HREF="node542.html">HTML_setStatusBarStatusByName</A>
+<LI><A NAME="tex2html9791"
+  HREF="node543.html">HTML_setStatusBarStatusByID</A>
+<LI><A NAME="tex2html9792"
+  HREF="node544.html">HTML_setStatusBarStatus</A>
+<LI><A NAME="tex2html9793"
+  HREF="node545.html">HTML_getStatusBarID</A>
+<LI><A NAME="tex2html9794"
+  HREF="node546.html">HTML_newStatusBar</A>
+<LI><A NAME="tex2html9795"
+  HREF="node547.html">HTML_showStatusBar</A>
+<LI><A NAME="tex2html9796"
+  HREF="node548.html">HTML_showStatusBarHTML</A>
+<LI><A NAME="tex2html9797"
+  HREF="node549.html">HTML_multiCheckBox</A>
+<LI><A NAME="tex2html9798"
+  HREF="node550.html">HTML_setPage</A>
+<LI><A NAME="tex2html9799"
+  HREF="node551.html">HTML_storableInput</A>
+<LI><A NAME="tex2html9800"
+  HREF="node552.html">HTML_storableSelection</A>
+<LI><A NAME="tex2html9801"
+  HREF="node553.html">HTML_storableCheckBox</A>
+<LI><A NAME="tex2html9802"
+  HREF="node554.html">HTML_getElementValue</A>
+<LI><A NAME="tex2html9803"
+  HREF="node555.html">HTML_listSelection</A>
+<LI><A NAME="tex2html9804"
+  HREF="node556.html">HTML_showTableHeader</A>
+<LI><A NAME="tex2html9805"
+  HREF="node557.html">HTML_showTableEnd</A>
+<LI><A NAME="tex2html9806"
+  HREF="node558.html">HTML_showFormHeader</A>
+<LI><A NAME="tex2html9807"
+  HREF="node559.html">HTML_showFormEnd</A>
+<LI><A NAME="tex2html9808"
+  HREF="node560.html">HTML_submit</A>
+<LI><A NAME="tex2html9809"
+  HREF="node561.html">HTML_input</A>
+<LI><A NAME="tex2html9810"
+  HREF="node562.html">array_makeFirst</A>
+<LI><A NAME="tex2html9811"
+  HREF="node563.html">HTML_getValidSelected</A>
+<LI><A NAME="tex2html9812"
+  HREF="node564.html">HTML_selection</A>
+<LI><A NAME="tex2html9813"
+  HREF="node565.html">HTML_checkBox</A>
+<LI><A NAME="tex2html9814"
+  HREF="node566.html">HTML_submitDefine</A>
+<LI><A NAME="tex2html9815"
+  HREF="node567.html">HTML_submitCheck</A>
+<LI><A NAME="tex2html9816"
+  HREF="node568.html">HTML_showTableRow</A>
+<LI><A NAME="tex2html9817"
+  HREF="node569.html">HTML_showTableHeading</A>
+<LI><A NAME="tex2html9818"
+  HREF="node570.html">HTML_textArea</A>
+<LI><A NAME="tex2html9819"
+  HREF="node571.html">HTML_showPagePrintButton</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

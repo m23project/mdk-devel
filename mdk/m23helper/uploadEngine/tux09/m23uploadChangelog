@@ -1,0 +1,49 @@
+#!/bin/sh
+
+#Write the first 5 entries (split by +++++) of the changelog to the short changelog
+awk 'BEGIN {
+cnt=0
+}
+
+{
+
+if (match($0,"++++") > 0)
+		cnt++
+
+if (cnt == 5)
+	exit;
+
+print($0);
+
+}' /m23/doc/changelog > /m23/doc/changelogNew
+
+#Copy the complete changelog
+cp /m23/doc/changelog /m23/doc/changelogComplete
+
+#Copy long and short changelog to SFs
+scp -C /m23/doc/changelogComplete /m23/doc/changelogNew hhabermann,m23@web.sourceforge.net:/home/groups/m/m2/m23/htdocs/docs/
+
+
+#Post the development messages of the last day to Twitter and Facebook
+awk 'BEGIN {
+cnt=0
+}
+
+{
+
+if (match($0,"++++") > 0)
+                cnt++
+
+if (cnt == 1)
+        exit;
+
+print($0);
+
+}' /m23/doc/changelog | grep ':' | while read msg
+do
+	/mdk/m23helper/twitter/twitterFaceBook-Message.sh "$msg" "changelog" "#m23" "http://m23.sourceforge.net/docs/changelogComplete"
+done
+
+#Make a backup
+#/matrix23/backups/m23-backup/m23back
+/m23/bin/SF-hg-backup

@@ -1,0 +1,245 @@
+xorgconfig-knoppix (1:0.9-12) unstable; urgency=low
+
+  * Keep USB mouse entry, even if no module is present.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Tue, 21 Aug 2007 06:24:14 +0200
+
+xorgconfig-knoppix (1:0.9-11) unstable; urgency=low
+
+  * Alps/Synaptics is psaux, avoid conflict with global /dev/input/mice.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Wed, 28 Feb 2007 22:04:12 +0100
+
+xorgconfig-knoppix (1:0.9-10) unstable; urgency=low
+
+  * Add Alps/Synaptic detection
+
+ -- Klaus Knopper <knoppix@knopper.net>  Tue, 27 Feb 2007 22:35:27 +0100
+
+xorgconfig-knoppix (1:0.9-9) unstable; urgency=low
+
+  * Added option TripleBuffer for speed
+
+ -- Klaus Knopper <knoppix@knopper.net>  Mon, 26 Feb 2007 14:12:17 +0100
+
+xorgconfig-knoppix (1:0.9-8) unstable; urgency=low
+
+  * remove radeon and nv from cards eeding sw_cursor (only trident left)
+
+ -- Klaus Knopper <knoppix@knopper.net>  Thu, 21 Dec 2006 14:41:08 +0100
+
+xorgconfig-knoppix (1:0.9-7) unstable; urgency=low
+
+  * More Options for GLX/Font problems
+
+ -- Klaus Knopper <knoppix@knopper.net>  Mon, 11 Dec 2006 04:22:47 +0100
+
+xorgconfig-knoppix (1:0.9-6) unstable; urgency=low
+
+  * Don't use "sw_cursor" for ATI cards.
+
+ -- Martin Öhler <oehler@knopper.net>  Sun, 10 Dec 2006 23:32:15 +0100
+
+xorgconfig-knoppix (1:0.9-5) unstable; urgency=low
+
+  * Fix a sed error for Composite.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Sun, 10 Dec 2006 00:36:42 +0100
+
+xorgconfig-knoppix (1:0.9-4) unstable; urgency=low
+
+  * Don't overwrite existing defaults in /etc/sysconfig/xserver from boot
+    commandline.
+
+  * Don't enable Composite extension (instable with some cards, especially
+    nv), unless specified by -composite option.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Tue, 28 Nov 2006 20:21:18 +0100
+
+xorgconfig-knoppix (1:0.9-3) unstable; urgency=low
+
+  * Added AIGLX support for compiz and beryl 3D-Windowmanagers
+
+ -- Klaus Knopper <knoppix@knopper.net>  Mon,  6 Nov 2006 22:50:11 +0100
+
+xorgconfig-knoppix (1:0.9-2) unstable; urgency=low
+
+  * -nomodelines option for letting figure out Xorg how to find the perfect
+    timings.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Wed, 23 Aug 2006 05:39:50 +0200
+
+xorgconfig-knoppix (1:0.9-1) unstable; urgency=low
+
+  * Modification for Xorg 7.0 (kbd driver, font paths)
+
+ -- Klaus Knopper <knoppix@knopper.net>  Mon,  8 May 2006 18:24:55 +0200
+
+xorgconfig-knoppix (1:0.8-2) unstable; urgency=low
+
+  * Add (old) XFree3 compatibility
+
+ -- Klaus Knopper <knoppix@knopper.net>  Sat, 18 Feb 2006 19:14:06 +0100
+
+xorgconfig-knoppix (1:0.8-1) unstable; urgency=low
+
+  * Initial release, based on mkxf86config-0.8.
+
+ -- Klaus Knopper <knoppix@knopper.net>  Sun, 18 Dec 2005 12:24:32 +0200
+
+xf86config-knoppix (0.8-6) unstable; urgency=low
+
+  * Added missing whitespace in sed replacement for XDEPTH.
+
+ -- Knoppix User <knoppix@Knoppix>  Fri, 23 Sep 2005 12:24:32 +0200
+
+xf86config-knoppix (0.8-5) unstable; urgency=low
+
+  * Use /dev/input/mice for psaux in Kernel 2.6
+
+ -- root <root@Knoppix>  Fri, 20 Feb 2004 13:59:33 +0100
+
+xf86config-knoppix (0.8-4) unstable; urgency=low
+
+  * Remove DefaultCOlorDepth in case we use the fbdev module
+
+ -- root <root@Knoppix>  Sun, 15 Feb 2004 22:22:44 +0100
+
+xf86config-knoppix (0.8-3) unstable; urgency=low
+
+  * Added USB mouse recognition vie hid in Kernel 2.6
+
+ -- root <root@Knoppix>  Thu, 15 Jan 2004 11:55:32 +0100
+
+xf86config-knoppix (0.8-2) unstable; urgency=low
+
+  * Using VESA timings as default modelines
+  
+ -- root <root@Knoppix>  Sun, 27 Jul 2003 17:53:28 +0200
+
+xf86config-knoppix (0.8-1) unstable; urgency=low
+
+  * Modified to max out the monitor
+  
+ -- root <root@Knoppix>  Sun, 27 Jul 2003 02:32:15 +0200
+    
+xf86config-knoppix (0.7-17) unstable; urgency=low
+
+  * Added more font paths for latex-ttf-fonts
+
+ -- root <root@Knoppix>  Fri, 25 Jul 2003 18:15:36 +0200
+
+xf86config-knoppix (0.7-16) unstable; urgency=low
+
+  * Changes pc104 -> pc105
+
+ -- root <root@Knoppix>  Fri, 25 Jul 2003 16:28:44 +0200
+
+xf86config-knoppix (0.7-15) unstable; urgency=low
+
+  * Added ttf-bitstream-vera fontdir
+
+ -- root <root@Knoppix>  Wed, 21 May 2003 01:05:08 +0200
+
+xf86config-knoppix (0.7-14) unstable; urgency=low
+
+  * Added "xhrefresh" option for horizontal sync
+
+ -- root <root@Knoppix>  Fri, 16 May 2003 20:22:59 +0200
+
+xf86config-knoppix (0.7-13) unstable; urgency=low
+
+  * Added "nowheelmouse" option
+
+ -- root <root@Knoppix>  Mon, 28 Apr 2003 02:26:02 +0200
+
+xf86config-knoppix (0.7-12) unstable; urgency=low
+
+  * Moved default "PS/2" to "auto" protocol for XFree 4.3
+    (as suggested by Kai Lahmann)
+
+ -- root <root@Knoppix>  Tue, 15 Apr 2003 01:57:52 +0200
+
+xf86config-knoppix (0.7-11) unstable; urgency=low
+
+  * Accept both usbmouse and mousedev for USB mice
+
+ -- root <root@Knoppix>  Wed,  9 Apr 2003 16:58:28 +0200
+
+xf86config-knoppix (0.7-10) unstable; urgency=low
+
+  * Take care of "noapm" bootoption
+
+ -- root <root@Knoppix>  Tue, 25 Feb 2003 04:32:37 +0100
+
+xf86config-knoppix (0.7-9) unstable; urgency=low
+
+  * Use ddcxinfo-knoppix to retrieve information via DDC
+
+ -- root <root@Knoppix>  Sun, 16 Feb 2003 05:59:54 +0100
+
+xf86config-knoppix (0.7-8) unstable; urgency=low
+
+  * Optimizations
+  * Use ddcprobe to find preferred setting for some monitors
+
+ -- root <root@Knoppix>  Wed, 12 Feb 2003 19:01:05 +0100
+
+xf86config-knoppix (0.7-7) unstable; urgency=low
+
+  * Added "DPMS" option for DDC-capable monitors
+
+ -- root <root@Knoppix>  Sat, 17 Aug 2002 21:35:26 +0200
+
+xf86config-knoppix (0.7-6) unstable; urgency=low
+
+  * Corrected an sed newline bug
+
+ -- root <root@Knoppix>  Mon, 29 Jul 2002 00:32:40 +0200
+
+xf86config-knoppix (0.7-5) unstable; urgency=low
+
+  * Added "sw_cursor" option for trident cards as well
+
+ -- root <root@Knoppix>  Fri,  5 Jul 2002 22:33:42 +0200
+
+xf86config-knoppix (0.7-4) unstable; urgency=low
+
+  * Added bootcommand line "wheel" option for IMPS/2 wheelmouse
+
+ -- root <root@Knoppix>  Thu,  4 Jul 2002 22:11:28 +0200
+
+xf86config-knoppix (0.7-3) unstable; urgency=low
+
+  * Fixed SWCursor -> sw_cursor sed replacement
+
+ -- root <root@Knoppix>  Thu,  4 Jul 2002 22:02:01 +0200
+
+xf86config-knoppix (0.7-2) unstable; urgency=low
+
+  * Removed pex5 from loadable modules in XFree4 (not needed, unresolved
+    symbols)
+
+ -- root <root@Knoppix>  Sat,  4 May 2002 17:10:12 +0200
+
+xf86config-knoppix (0.7-1) unstable; urgency=low
+
+  * Support for many simultaneously working Serial/USB//psaux mice
+
+ -- Klaus Knopper <knopper@knopper.net>  Fri, 11 Jan 2002 20:57:25 +0100
+
+xf86config-knoppix (0.6-1) unstable; urgency=low
+
+  * Integrated mkxf86config Shellscript
+
+ -- Klaus Knopper <knopper@knopper.net>  Fri, 09 Nov 2001 20:57:25 +0100
+
+xf86config-knoppix (0.5-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Klaus Knopper <knopper@knopper.net>  Mon, 14 May 2001 20:57:25 +0100
+
+Local variables:
+mode: debian-changelog
+End:

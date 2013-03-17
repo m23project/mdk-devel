@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+if [ -d /opt/trinity ]
+then
+	kdeDir=".trinity"
+else
+	kdeDir=".kde"
+fi
+
+for user in `ls /home/`
+do
+	rc="/home/$user/$kdeDir/share/config/ksplashrc"
+	dn=`dirname "$rc"`
+
+	for mdir in "/home/$user/$kdeDir" "/home/$user/$kdeDir/share" "/home/$user/$kdeDir/share/config/"
+	do
+		mkdir -p "$mdir"
+		chown $user "$mdir"
+		chgrp $user "$mdir" 2> /dev/null
+	done
+
+	#check if the configuration file exists
+	if [ -e "$rc" ]
+	then
+		#it exists => change the theme
+		sed 's/Theme=.*/Theme=m23/g' "$rc" > /tmp/ksm23.tmp
+		cat /tmp/ksm23.tmp > "$rc"
+		rm /tmp/ksm23.tmp
+	else
+		#it does not exists => so write a new file
+		echo "[KSplash]" > "$rc"
+		echo "Theme=m23" >> "$rc"
+		chown $user "$rc"
+		chgrp $user "$rc"
+	fi
+done
+
+db_stop

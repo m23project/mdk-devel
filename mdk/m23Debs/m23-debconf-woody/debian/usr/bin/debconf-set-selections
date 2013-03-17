@@ -1,0 +1,88 @@
+#!/usr/bin/perl
+# This file was preprocessed, do not edit!
+sub usage {
+	print STDERR <<EOF;
+Usage: debconf-set-selections [-vc] [file]
+  -v, --verbose     verbose output
+  -c, --checkonly   only check the input file format
+EOF
+	exit(1);
+}
+use warnings;
+use strict;
+use Debconf::Db;
+use Debconf::Template;
+use Getopt::Long;
+use vars qw(%opts $filename $debug $error $checkonly);
+sub info {
+	my $msg = shift;
+	print STDERR "info: $msg\n" if $debug;
+}
+sub error {
+	my $msg = shift;
+	print STDERR "error: $msg\n";
+	$error++
+}
+sub load_answer {
+	my ($owner, $label, $type, $content) = @_;
+	
+	info "Loading answer for '$label'";
+	my $template=Debconf::Template->get($label);
+	if (! $template) {
+		$template=Debconf::Template->new($label, $owner, $type);
+		$template->description("Dummy template");
+		$template->extended_description("This is a fake template used to pre-seed the debconf database. If you are seeing this, something is probably wrong.");
+	}
+	else {
+		$template->default($content);
+	}
+	$template->type($type);
+	
+	my $question=Debconf::Question->get($label);
+	if (! $question) {
+		error("Cannot find a question for $label");
+		return;
+	}
+	$question->addowner($owner, $type);
+	$question->value($content);
+	$question->flag("seen", "true");
+}
+my @knowntypes = qw(select boolean string multiselect note password text);
+sub ok_format {
+	my ($owner, $label, $type, $content) = @_;
+	if (! defined $owner || ! defined $label || ! defined $content ||
+	    ! grep { $_ eq $type } @knowntypes) {
+		return;
+	}
+	else {
+		return 1;
+	}
+}
+GetOptions(
+	"verbose|v" => \$debug,
+	"checkonly|c" => \$checkonly,
+) || usage();
+Debconf::Db->load;
+$error = 0;
+while (<>) {
+	chomp;
+	s/\#.+$//;
+	next if /^\s*$/;
+	my ($owner, $label, $type, $content) = split(/\s/, $_, 4);
+	if (! defined $content) {
+		$content='';
+	}
+	if (ok_format($owner, $label, $type, $content)) {
+		info "Trying to set '$label' [$type] to '$content'";
+		load_answer($owner, $label, $type, $content);
+	}
+	else {
+		error "parse error on line $.: '$_'";
+	}
+}
+if (! $checkonly) {
+	Debconf::Db->save;
+}
+if ($error) {
+	exit 1;
+}

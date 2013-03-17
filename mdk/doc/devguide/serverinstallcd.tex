@@ -1,0 +1,20 @@
+\section{How to create a bootable server installation CD?}
+\subsection{Introduction}
+If you want to change the server and generate a new installation CD you simply have to execute the makeCD.sh script from the /mdk/bootCD directory.
+\subsection{what does the makeCD script?}
+\begin{itemize}
+\item generates a new initrd files used for booting from the CD
+\item compresses the server operating system
+\item compresses the m23 files
+\item generates the ISO image to burn on a CD
+\end{itemize}
+\subsubsection{initrd}
+While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.\\
+In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
+\subsubsection{compress operating system}
+The whole current operating system is compressed mith bzip2 to a file called m23image.tb2. Some directories aren't saved, because they aren't needed or will mess up the image with useless files. E.g. /proc, /tmp, ... should not be saved. The image is stored in the /mdk/bootCD/iso directory. If there is allready a m23image.tb2 the operating isn't compressed. To regenerate the m23image.tb2 you have to delete the file.
+\subsubsection{compresses the m23 files}
+The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.\\
+For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
+\subsubsection{generating the ISO image}
+After these steps the ISO image will be created automatical in /mdk/bootCD directory. Now you can write the iso file to a CD. This should generate a bootable CD. Good luck ;)

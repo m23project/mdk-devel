@@ -1,0 +1,156 @@
+#!/bin/bash
+
+menuTranslatorSel=`menuTranslatorSel 2>/dev/null` || menuTranslatorSel=/tmp/menuTranslatorSel$$
+dialog --backtitle "MDK Translation manager" --clear --title "Select what you want to do" \
+        --menu "Select the documentation you want to generate" 11 50 4 \
+        "download"  "Download translations from SF" \
+        "diff"  "Shows diffs and merges files" \
+        "report"  "Shows files to upload" \
+        "upload" "Upload changed files" 2> $menuTranslatorSel
+retval=$?
+case $retval in
+    1)
+       exit;;
+    255)
+       exit;;
+esac
+
+#directory to download the translations from SF
+tempDir="/mdk/doc/translator/temp"
+#directory that contains the index files for md5Check
+wd="/mdk/doc/translator/"
+choice=`cat $menuTranslatorSel`
+
+
+
+
+#download all articles from SF
+if test $choice == "download"
+then
+	echo "Purging download directory $tempDir"
+	rm -r $tempDir 2> /dev/null
+	mkdir -p $tempDir
+
+	cd $tempDir
+	#download translations from SF
+	/mdk/m23Translator/bin/transTool download // -c=sf
+
+	#make missing directories in the original directory
+	for newdir in `find -type d | grep -v "^.$" | sed 's/\.\///g'`
+	do
+		mkdir -p /m23/inc/$newdir
+		if test $? -eq 0
+		then
+			echo "New directory added /m23/inc/$newdir"
+		fi
+	done
+
+	#create empty missing files in the original directory
+	for newfile in `find -type f | grep -v "^.$" | sed 's/\.\///g'`
+	do
+		newfile="/m23/inc/$newfile"
+		
+		if test -e $newfile
+		then
+			true
+		else
+			echo "New empty file added $newfile"
+			touch $newfile
+		fi
+	done
+
+	rm /mdk/doc/translator/missingTranslator 2> /dev/null
+
+	#copy missing original files to the download directory
+	for origFile in `find /m23/inc/help /m23/inc/i18n -type f | grep -v ".info$"`
+	do
+		newFile=`echo $origFile | sed 's/\/m23\/inc\///g'`
+		
+		if test -e $newFile
+		then
+			true
+		else
+			echo "Copy original ($origFile) file to the download directory ($newFile)"
+			cp $origFile $newFile
+			echo $origFile >> /mdk/doc/translator/missingTranslator
+		fi
+	done
+
+	echo "Press Enter to continue"
+	read
+	/mdk/doc/translator/bin/menuTranslator
+fi
+
+
+
+
+
+#Use "meld" to synchronise downloaded and local articles and get changed files
+if test $choice == "diff"
+then
+	#remove backups from the original directory
+	rm `find /m23/inc/help /m23/inc/i18n -type f | grep "~$"` 2> /dev/null
+
+	cd $tempDir
+	echo "Press Enter to merge \"help\""
+	read
+	meld /m23/inc/help help
+	echo "Press Enter to merge \"i18n\""
+	read
+	meld /m23/inc/i18n i18n
+
+	#check for changes
+	cd /mdk/doc/translator/
+	/mdk/m23update/bin/md5Check c Translator
+	
+	#store the index containing all files to upload
+	cat missingTranslator indexTranslator.new indexTranslator.changed | sort -u | sed 's/\/m23\/inc\///g' | grep -v "~$" > indexTranslator.upload
+
+	/mdk/doc/translator/bin/menuTranslator
+fi
+
+
+
+
+
+#List all files that have been changed and that should uploaded to SF
+if test $choice == "report"
+then
+	less /mdk/doc/translator/indexTranslator.upload
+
+	/mdk/doc/translator/bin/menuTranslator
+fi
+
+
+
+
+
+#Uploads all changed files ordered by languages and directories
+if test $choice == "upload"
+then
+	cd /m23/inc
+	
+	for lang in `cat $wc/indexTranslator.upload | cut -d'/' -f2 | sort -u`
+	do
+		for upDir in `cat $wc/indexTranslator.upload | grep "/$lang/" | cut -d'/' -f1 | sort -u`
+		do
+			#check if we have english or german => original article
+			echo $lang | egrep "en|de"
+			
+			if test $? -eq 0
+			then
+				#egrep return code 0 => lang is "en" or "de"
+				/mdk/m23Translator/bin/transTool orig -c=sf -d=$upDir -l=$lang `cat $wc/indexTranslator.upload | grep "^$upDir/$lang/"`
+			else
+				/mdk/m23Translator/bin/transTool trans -c=sf -d=$upDir -l=$lang `cat $wc/indexTranslator.upload | grep "^$upDir/$lang/"`
+			fi
+		done
+	done
+	
+	cd $wd
+	/mdk/m23update/bin/md5Check m Translator
+	
+	read
+
+	/mdk/doc/translator/bin/menuTranslator
+fi

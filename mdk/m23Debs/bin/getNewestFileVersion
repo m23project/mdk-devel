@@ -1,0 +1,41 @@
+#!/bin/sh
+
+php -r '
+
+$biggest=0;
+$fname="";
+
+//get the file names from stdin
+while ($line=fgets(STDIN))
+{
+	//e.g. $line=ddcxinfo-knoppix_0.5.1-1.tar.gz
+	$in=split("_",$line);
+	//$in[1]=0.5.1-1.tar.gz
+	$in=str_replace(".tar.gz","",$in[1]);
+	$in=str_replace("_i386.deb","",$in);
+	$in=str_replace("_all.deb","",$in);
+	
+	//$in=0.5.1-1
+	
+	$tmp=split("-",$in);
+
+	//$tmp[0]=0.5.1
+	$val=split("\.",$tmp[0]);
+
+	//$tmp[1]=1
+	if (count($tmp) > 1)
+		$val[3]=$tmp[1];
+
+	$out="";
+	for ($i=0; $i < 4; $i++)
+		$out.=str_pad (isset($val[$i]) ? $val[$i] : 0, 5 , "0", STR_PAD_LEFT);
+	
+	if ($out > $biggest)
+	{
+		$biggest=$out;
+		$fname=$line;
+	};
+}
+
+echo($fname);
+'

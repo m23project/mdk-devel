@@ -1,0 +1,38 @@
+cd /mdk/doc/manual/sql/
+
+#make a backup of the current db
+mysqldump --opt m23 > currentDB.sql 2> err
+
+if test `find /mdk/doc/manual/sql/err -printf "%s"` -gt 0
+then
+	echo "could not SAVE old database"
+	cat /mdk/doc/manual/sql/err
+	exit 1
+fi
+
+echo "DROP DATABASE m23;" | mysql 2> err
+
+if test `find /mdk/doc/manual/sql/err -printf "%s"` -gt 0
+then
+        echo "could not DROP old database"
+        cat /mdk/doc/manual/sql/err
+        exit 1
+fi
+
+echo "CREATE DATABASE m23;" | mysql 2> err
+
+if test `find /mdk/doc/manual/sql/err -printf "%s"` -gt 0
+then
+        echo "could not CREATE new database"
+        cat /mdk/doc/manual/sql/err
+        exit 1
+fi
+
+mysql m23 < exampleDB.sql 2> err
+
+if test `find /mdk/doc/manual/sql/err -printf "%s"` -gt 0
+then
+        echo "could not RESTORE example database"
+        cat /mdk/doc/manual/sql/err
+        exit 1
+fi

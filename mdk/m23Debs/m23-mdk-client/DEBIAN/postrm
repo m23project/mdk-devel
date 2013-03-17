@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+rmdir /mdk/bootimage/mnt /mdk/bootimage/root2/var/lib/dhcp /mdk/bootimage/root2/etc/sysconfig /mdk/bootimage/root2/dev/shm /mdk/bootimage/root2/proc /mdk/bootimage/root2/sys
+
+db_stop

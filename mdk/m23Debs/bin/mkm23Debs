@@ -1,0 +1,33 @@
+#!/bin/sh
+cd /mdk/m23Debs/bin
+. ./m23Deb.inc
+
+incPatchLevelInVersionPhp
+
+./mkm23Deb
+simpleBuild m23-ldap
+simpleBuild m23-roms
+simpleBuild m23-tftp
+simpleBuild m23-phpmyadmin
+simpleBuild m23-vbox
+
+#MDK packages
+cd /mdk/m23helper/khtml2png2
+sh makeClean
+
+cd /mdk/m23Debs/bin
+./mkm23-mdkDeb
+simpleBuild m23-mdk-base
+simpleBuild m23-mdk-doc
+simpleBuild m23-mdk-screenshots
+simpleBuild m23-mdk-client
+simpleBuild m23-mdk-server
+simpleBuild m23-mdk-helper
+simpleBuild m23-mdk-translator
+simpleBuild m23-mdk-plugin
+simpleBuild m23-mdk-update
+simpleBuild m23-mdk-debs
+
+updatePackages
+
+cp /mdk/server/iso/pool/m23-vbox_* /mdk/m23Debs/debs/

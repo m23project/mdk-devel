@@ -1,0 +1,94 @@
+.TH kudzu 8 "Red Hat, Inc."
+.UC 4
+.SH NAME
+kudzu \- detects and configures new and/or changed hardware on a system
+
+.SH SYNOPSIS
+.B kudzu
+.SH DESCRIPTION
+.B kudzu
+detects and configures new and/or changed hardware on a system.
+When started, kudzu detects the current hardware, and checks it
+against a database stored in
+.I /etc/sysconfig/hwconf,
+if one exists. It then determines if any hardware has been
+added or removed from the system. If so, it gives the users
+the opportunity to configure any added hardware, and unconfigure
+any removed hardware. It then updates the database in
+.I /etc/sysconfig/hwconf.
+
+If no previous database exists,
+.B kudzu
+attempts to determine what devices have already been configured,
+by looking at
+.I /etc/modprobe.conf,
+.I /etc/sysconfig/network-scripts/, and 
+.I /etc/X11/xorg.conf.
+
+.SH OPTIONS
+.TP
+\fI--usage\fP
+Show short usage message.
+.TP
+\fI--help, -?\fP
+Print help information.
+.TP 
+\fI-q, --quiet\fP
+Run 'quietly'; do only configuration that doesn't require user input.
+.TP
+\fI-s, --safe\fP
+Do only 'safe' probes that won't disturb hardware. Currently, this
+disables the serial probe, the DDC monitor probe, and the PS/2 probe.
+.TP
+\fI-t, --timeout [seconds]\fP
+This sets the timeout for the initial dialog. If no key is pressed
+before the timeout elapses,
+.B kudzu
+exits, and
+.I /etc/sysconfig/hwconf
+is not updated.
+.TP
+\fI-k, --kernel [version]\fP
+When determining whether a module exists, use the specified kernel
+version. (If this is not set, it defaults to the current kernel
+version.) Do not specify suffixes such as 'smp' or 'summit'; these
+are automatically searched.
+.TP
+\fI-b, --bus [bus]\fP
+Only probe on the specified bus.
+.TP
+\fI-c, --class [class]\fP
+Only probe for the specified class.
+.TP
+\fI-f, --file [file]\fP
+Read hardware probe info from file
+.I file
+and do not do an actual probe.
+.TP
+\fI-p, --probe\fP
+Print probe information to the screen, and do not actually configure
+or unconfigure any devices.
+.SH FILES
+.TP
+.I /etc/sysconfig/hwconf
+Listing of current installed hardware.
+.TP
+.I /etc/sysconfig/kudzu
+Configuration for the boot-time hardware probe. Set 'SAFE' to something
+other than 'no' to force only safe probes.
+.TP
+.I /etc/modprobe.conf
+Module configuration file.
+.TP
+.I /etc/sysconfig/network-scripts/ifcfg-*
+Network interface configuration files.
+.TP
+.SH BUGS
+The serial probe will disturb any currently in-use devices, and returns
+odd results if used on machines acting as serial consoles. On some older
+graphics cards, the DDC probe can do strange things.
+
+Running kudzu to configure network adapters post-boot after the network
+has started may have unintended results.
+.SH AUTHOR
+Red Hat, Inc.

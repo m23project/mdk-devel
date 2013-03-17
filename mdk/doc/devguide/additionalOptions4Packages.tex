@@ -1,0 +1,87 @@
+\section{Additional installation parameters for normal packages}
+There are some cases where you want to make it possible to enter some additional parameters for normal Debian packages. Maybe you want to set the DocumentRoot directory of your Apache webserver. Wouldn't it be much easier to enter this value in a dialog box in the m23 webinterface and automate the Apache installation job? m23 has a possibillity to make it easy for the administrator with a little work of the programmer.
+
+\subsection{The *OptionPage.php}
+If you want to enable this feature for a special package (e.g. apache) you have to design an OptionPage. This page shows and writes/reads possible options of this package. The file is called <packagename>OptionPage.php. In our example it's \textbf{apacheOptionPage.php}. The file is placed in the \\ \textit{/m23/data+scripts/distr/<distributionname>/packages directory}. It is important to put the *OptionPage.php in the correct directory, otherwise the it can't be found.
+
+\subsection{Filling the *OptionPage.php}
+To make it easier for you there are two functions that help you to generate your option page. To use these function you have to include \textit{/m23/inc/packages.php}
+\begin{itemize}
+
+\item \textit{PKG\_OptionPageHeader(\$title)}: For starting the page. It generates all necessary HTML code (colors, styles, tables, form) and expects a title for your option page. This title is shown in the window label of your webbrowser and in the window itself. It returnes an associative array with all parameters of the selected package. These values are used to initalise the OptionPage if it is opened for the first time.
+
+\item \textit{PKG\_OptionPageTail(\$layout)}: Renderes the layout of the page, adds a save button and closes the HTML page.
+
+\item \textit{PKG\_OptionPageGetValue(\$variable,\$params)}: gets a value from the \$\_GET array or falls back to the params values. This is used if there havn't been entered values in the OptionPage.
+\end{itemize}
+Your OptionPage needs to have the following elements:
+\begin{verbatim}
+include ('/m23/inc/packages.php');
+
+$params = PKG_OptionPageHeader("My OptionPage title");
+
+$layout[0]...
+
+PKG_OptionPageTail($layout);
+\end{verbatim}
+
+\subsection{Layoutoptions}
+The layout is stored in an array. Every element gets an numeric entry with several options. These entries have to be counted beginning by 0. The elements are marked by the \textbf{type} attribute.
+There are some different types of elements:
+\begin{itemize}
+
+
+
+\item \textit{text} Is a simple text: In the exaple you can see the text is selected by the \textit{type} of \textbf{text}. All types are case sensitive. If you want a text as first element, give it the index 0.
+\begin{verbatim}
+$layout[0]['type']="text";
+$layout[0]['text']="HalloText";
+\end{verbatim}
+
+
+\item \textit{line}: A line is even simpler, because it has no attributes. It only draws a horizontal line. Lines are graphical objects to make your OptionPage look better ;)
+\begin{verbatim}
+$layout[1]['type']="line";
+\end{verbatim}
+
+
+\item \textit{inputline}: An inputline is a editable text field with the height of one. The inputline has a lot of attributes:
+\begin{itemize}
+\item text: a text that is shown before the element. It is a good idea to put a name or a descriptive text here.
+\item value: is the text, that stands in the inputline. You should follow the example and use the PKG\_OptionPageGetValue function to get the value. Otherwise the value can't be gotten after saving and will disappear.
+\item name: The name of the element, that's the same name the entered value will be stored under the params column in the packagejobs table. \textbf{This name has to be the same as in the PKG\_OptionPageGetValue function under value. Otherwise the values can't be stored!!!}
+\item size: The width of the inputline in characters.
+\item maxlength: The maximum of characters that can be entered.
+\end{itemize}
+\begin{verbatim}
+$layout[2]['type']="inputline";
+$layout[2]['text']="documentRoot";
+$layout[2]['value']=PKG_OptionPageGetValue('documentRoot',$params);
+$layout[2]['name']="documentRoot";
+$layout[2]['size']=10;
+$layout[2]['maxlength']=100;
+\end{verbatim}
+
+
+\item \textit{selection}: A selection gives the user a list with options to choose. As before the text attribute describes the element, name is the variable name to store it in the database, value the value to store. New is the option* attribute. The selectable options are stored under the attributes option0, option1, ... . \textbf{It is important to start by 0 and to left no number out.} Otherwise the renderer will stop by the first hole in the count.
+\begin{verbatim}
+$layout[3]['type']="selection";
+$layout[3]['text']="Desktop";
+$layout[3]['name']="desktop";
+$layout[3]['value']=PKG_OptionPageGetValue('desktop',$params);
+$layout[3]['option0']="gnome";
+$layout[3]['option1']="kde3";
+$layout[3]['option2']="kde2";
+$layout[3]['option3']="kde4";
+\end{verbatim}
+
+
+\item \textit{textarea}: A text area with multiple colums and rows. The attributes type, name and value as usual. Cols (colums) and rows are the size parameters of the text area in characters.
+\begin{verbatim}
+$layout[4]['type']="textarea";
+$layout[4]['cols']=20;
+$layout[4]['rows']=20;
+$layout[4]['name']="textedit";
+$layout[4]['value']=PKG_OptionPageGetValue('textedit',$params);
+\end{verbatim}
+\end{itemize}

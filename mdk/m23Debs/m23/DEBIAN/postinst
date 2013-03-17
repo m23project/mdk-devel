@@ -1,0 +1,773 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+
+
+
+
+#name updateDB
+#description Updates the MySQL DB from m23.sql.bz2.
+updateDB()
+{
+	dbname="m23"
+	dbserver="localhost"
+	#get username and password of the debian MySQL system 
+	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+	#create database m23
+	. /usr/share/wwwconfig-common/mysql-createdb.sh
+
+	if [ -d /tmp/m23-install ]
+	then
+		#add the entries of the main database
+		bunzip2 /tmp/m23-install/m23.sql.bz2
+		echo "Entpacken: /tmp/m23-install/m23.sql.bz2"  >> /m23.log
+		sqlfile="/tmp/m23-install/m23.sql"
+		. /usr/share/wwwconfig-common/mysql-exec.sh
+		rm $sqlfile
+
+		#create database m23captured
+		dbname="m23captured"
+		. /usr/share/wwwconfig-common/mysql-createdb.sh
+		bunzip2  /tmp/m23-install/m23captured.sql.bz2	
+		sqlfile="/tmp/m23-install/m23captured.sql"
+		. /usr/share/wwwconfig-common/mysql-exec.sh
+		rm $sqlfile
+		rm -r /tmp/m23-install
+	fi
+
+	#Make sure the i18n table is always empty
+	mysql -u$dbadmin -p$dbadmpass m23 -e "delete from i18n"
+	mysql -u$dbadmin -p$dbadmpass m23captured -e "delete from i18n"
+}
+
+
+
+
+
+#name updateSQLIfOlder
+#description Updates SQL information or executes SQL statements, if the current version of this packages is older than a given version.
+#parameter oldversionint: The version of this packages, that was previously installed.
+#parameter olderThan: The first version number that already contains the SQL adjustment and so doesn't need to be adjusted.
+#parameter sql: SQL statement to execute.
+updateSQLIfOlder()
+{
+	oldversionint=$1
+	olderThan=$2
+	sql="$3"
+
+	if [ -n "$oldversionint" ] && [ $oldversionint -lt $olderThan ]
+	then
+		dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+		dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+		echo "$sql" | mysql -u $dbadmin -p$dbadmpass m23
+	fi
+}
+
+
+
+
+
+#Restarts the DHCP server
+restartDHCPServer()
+{
+for daemon in dhcp dhcp3-server isc-dhcp-server
+do
+	if [ -e "/etc/init.d/$daemon" ]
+	then
+		/etc/init.d/$daemon restart
+	fi
+done
+}
+
+
+
+
+if [ `grep -c Debian /etc/issue` -eq 0 ]
+then
+	echo "The m23 packages are ment for installation on Debian ONLY!"
+	exit 666
+fi
+
+ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
+
+DNS=`cat /etc/resolv.conf | head -n 1 | cut -d' ' -f2`
+BROADINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^broadcast | cut -d ' ' -f2 | head -1`
+IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1`
+GATEINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^gateway | cut -d ' ' -f2 | head -1`
+dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+#check if we are reconfiguring
+if [ "$1" = "reconfigure" ] || [ "${DEBCONF_RECONFIGURE}" = "1" ]
+then
+	reconf=true
+	echo "reconf=true" >> /m23.log
+else
+	reconf=false
+	echo "reconf=false" >> /m23.log
+fi
+
+#Check if the version is set (in case of first time installation it is not)
+if [ -z $2 ]
+then
+	oldversion=999999
+else
+	oldversion=$2
+fi
+echo "oldversion: $oldversion" >> /m23.log
+oldversionint=`echo $2 | sed 's/[.-]//g'`
+echo "oldversionint: $oldversionint" >> /m23.log
+
+
+if [ -f /tmp/m23-install/mkMissingDirectories.sh ]
+then
+	sh /tmp/m23-install/mkMissingDirectories.sh
+fi
+
+
+#make sure there is a .htpasswd to secure the admin interface
+if [ ! -f /m23/etc/.htpasswd ]
+then
+	cp -a /m23/etc/.htpasswd.orig /m23/etc/.htpasswd
+fi
+
+#Make sure that the password file for phpMyAdmin and phpLDAPAdmin exists
+if [ ! -f /m23/etc/.phpMyLDAPAdminHtpasswd ]
+then
+	cp -a /m23/etc/.htpasswd /m23/etc/.phpMyLDAPAdminHtpasswd
+fi
+
+rm /m23/etc/.htpasswd.orig
+
+db_get m23/configMySQL
+if [ "$RET" = "true" ]
+then
+
+	dbname="m23"
+	dbserver="localhost"
+	#get username and password of the debian MySQL system 
+	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+	#create database m23
+	. /usr/share/wwwconfig-common/mysql-createdb.sh
+
+	updateDB
+
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin -p$dbadmpass m23
+
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin -p$dbadmpass m23
+
+	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
+	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql -u $dbadmin -p$dbadmpass m23
+
+	#Make the groupname unique
+	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql -u $dbadmin -p$dbadmpass m23
+
+	#Make sure that a default group exists
+	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql -u $dbadmin -p$dbadmpass m23
+fi
+
+
+db_get m23/configDHCP
+if [ "$RET" = "true" ]
+then
+	#Check if the file /etc/init.d/dhcp3-server does exist and DOESN'T contain the m23/dhcp value
+	[ -f /etc/init.d/dhcp3-server ] && [ `grep m23/dhcp /etc/init.d/dhcp3-server -c` -eq 0 ]
+	lennyConfigured=$?
+
+	#this part could be executed more times
+	if  $lennyConfigured || [ ! -f /m23/dhcp/dhcpd.conf ] || [ `grep domain-name-servers /m23/dhcp/dhcpd.conf -c` -eq 0 ] || $reconf
+	then
+	
+		#Create /m23/dhcp if it's missing, set permissions and owner
+		if [ ! -d /m23/dhcp ]
+		then
+			mkdir -p /m23/dhcp
+			chown root.www-data /m23/dhcp
+			chmod 777 /m23/dhcp
+		fi
+	
+		#/m23/dhcp/dhcpd.conf
+		rm /m23/dhcp/dhcpd.conf 2> /dev/null
+
+echo "option domain-name-servers $DNS; \
+
+option broadcast-address $BROADINT;\
+
+option root-path \"/\";\
+
+default-lease-time            21600;\
+
+max-lease-time                21600;\
+
+option log-servers            $IPINT;\
+
+next-server                    $IPINT;\
+
+option routers                $GATEINT;
+
+use-host-decl-names on;\
+
+ddns-update-style none;\
+
+"> /m23/dhcp/dhcpd.conf
+
+	fi
+
+	#this part may be executed only once
+	if [ -f /etc/init.d/dhcp3-server ] && [ `grep m23/dhcp /etc/init.d/dhcp3-server -c` -eq 0 ]
+	then
+		sed 's/--exec \/usr\/sbin\/dhcpd3 -- -q $INTERFACES/--exec \/usr\/sbin\/dhcpd3 -- -q $INTERFACES -lf \/m23\/dhcp\/dhcpd.leases -cf \/m23\/dhcp\/dhcpd.conf/' /etc/init.d/dhcp3-server > /tmp/dhcp3-server
+		mv /tmp/dhcp3-server /etc/init.d/
+		chown root.root /etc/init.d/dhcp3-server
+		chmod 755 /etc/init.d/dhcp3-server
+	fi
+
+	#Squeeze
+	if [ -f /etc/default/isc-dhcp-server ]
+	then
+		netDevices=`grep ':' /proc/net/dev | cut -d':' -f1 | tr -d '[:blank:]' | awk -v ORS=' ' '{print}'`
+		mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.beforem23
+		ln -s /m23/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
+		sed -i "s/INTERFACES=.*/INTERFACES=\"$netDevices\"/g" /etc/default/isc-dhcp-server
+	fi
+fi
+
+
+
+db_get m23/configureSSH
+if [ "$RET" = "true" ] || [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ]
+then
+	if test -e /root/.ssh/id_dsa.pub
+	then
+		nop=x
+	else
+		ssh-keygen -t dsa -N '' -P '' -f /root/.ssh/id_dsa
+		ssh-agent sh -c 'ssh-add < /dev/null'
+	fi
+
+	#copy the public key to the m23 directory
+	cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+	chown www-data.www-data /m23/data+scripts/packages/baseSys/authorized_keys
+fi
+
+
+
+db_get m23/configureSquid
+if [ "$RET" = "true" ]
+then
+
+rm /etc/squid/squid.conf 2> /dev/null
+
+hname=`cat /etc/hostname`
+
+cat >> /etc/squid/squid.conf << "EOFSQUID"
+acl all src all
+acl manager proto cache_object
+acl localhost src 127.0.0.1/32
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32
+acl purge method PURGE
+acl CONNECT method CONNECT
+acl SSL_ports port 443          # https
+acl SSL_ports port 563          # snews
+acl SSL_ports port 873          # rsync
+acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
+acl localnet src 172.16.0.0/12  # RFC1918 possible internal network
+acl localnet src 192.168.0.0/16 # RFC1918 possible internal network
+
+http_access allow manager localhost
+http_access deny manager
+http_access allow purge localhost
+http_access allow all
+http_access deny CONNECT !SSL_ports
+
+http_access allow localhost
+
+http_access deny all
+
+icp_access allow localnet
+icp_access deny all
+
+http_port 2323
+
+hierarchy_stoplist cgi-bin ?
+
+cache_dir ufs /var/spool/squid 10000 16 256
+
+maximum_object_size 1024000 KB
+
+access_log /var/log/squid/access.log squid
+
+acl shoutcast rep_header X-HTTP09-First-Line ^ICY.[0-9]
+upgrade_http0.9 deny shoutcast
+
+acl apache rep_header Server ^Apache
+broken_vary_encoding allow apache
+
+extension_methods REPORT MERGE MKACTIVITY CHECKOUT
+
+hosts_file /etc/hosts
+
+coredump_dir /var/spool/squid
+
+http_access allow all !localhost
+acl NOCACHE url_regex -i 192.168.1.6
+no_cache deny NOCACHE
+visible_hostname m23iso
+refresh_pattern Release$         0   41%    360
+refresh_pattern Packages.bz2$   0   41%    360
+refresh_pattern Packages.gz$    0   41%    360
+refresh_pattern Packages$        0   41%    360
+
+refresh_pattern Sources.gz$     0   41%    360
+refresh_pattern Sources$         0   41%    360
+refresh_pattern Sources.bz2$    0   41%    360
+
+refresh_pattern .orig.tar.gz$ 525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .diff.gz$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .deb$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .tar.7z$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .dsc$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+
+http_access deny purge !localhost
+EOFSQUID
+
+	sed -i "s#acl NOCACHE url_regex -i .*#acl NOCACHE url_regex -i $IPINT#g" /etc/squid/squid.conf
+	sed -i "s#visible_hostname .*#visible_hostname $hname#g" /etc/squid/squid.conf
+
+	chown root.root /etc/squid/squid.conf
+	chmod 644 /etc/squid/squid.conf
+
+	#restarting squid
+	/etc/init.d/squid stop
+	squid -z
+	/etc/init.d/squid start
+fi
+
+
+db_get m23/configureSSL
+if [ "$RET" = "true" ]
+then
+	if [ -c /dev/random ]
+	then
+		mv /dev/random /dev/random-blocks
+		ln -s /dev/urandom /dev/random
+	fi
+
+	if test -f /etc/apache/m23/server.crt
+	then
+		#there is a m23 server certificate
+		if $reconf
+		then
+			#generate only a new if reconfigure is selected
+			/m23/bin/enable-ssl noAptGet
+		fi
+	else
+		#no m23 certificate found => create a new
+		/m23/bin/enable-ssl noAptGet
+	fi
+
+	if [ -h /dev/random ] && [ -c /dev/random-blocks ]
+	then
+		rm /dev/random
+		mv /dev/random-blocks /dev/random
+	fi
+
+fi
+
+
+db_get m23/configureApache
+if [ "$RET" = "true" ]
+then
+	if [ -f /etc/default/apache2 ] && [ `grep "NO_START=1" /etc/default/apache2 -c` -eq 0 ]
+	then
+		#Configuration for Apache 2.x
+
+		rm /etc/apache2/sites-enabled/m23.conf 2> /dev/null
+
+		for IP in 127.0.0.1 localhost $IPINT
+		do
+echo "<VirtualHost *:80>
+	ServerName $IP
+	DocumentRoot /m23/data+scripts
+	<Directory /m23/data+scripts>
+	    Options Indexes Includes FollowSymLinks MultiViews
+		AllowOverride AuthConfig
+	    Order allow,deny
+	    Allow from all
+	</Directory>
+</VirtualHost>
+" >> /etc/apache2/sites-enabled/m23.conf
+		done
+
+		echo "<IfModule mod_ssl.c>" >> /etc/apache2/sites-enabled/m23.conf
+
+		for IP in 127.0.0.1 localhost $IPINT
+		do
+echo "	<VirtualHost *:443>
+		ServerName $IP
+		DocumentRoot \"/m23/data+scripts/\"
+		SSLEngine on
+		SSLCertificateFile /etc/apache/m23/server.crt
+		SSLCertificateKeyFile /etc/apache/m23/server.key
+		SSLCertificateChainFile /etc/apache/m23/server.crt
+		SSLVerifyClient none
+
+		<Files ~ \"\.(cgi|shtml)$\">
+			SSLOptions +StdEnvVars
+		</Files>
+		<Directory \"/usr/lib/cgi-bin\">
+			SSLOptions +StdEnvVars
+		</Directory>
+
+		SetEnvIf User-Agent \".*MSIE.*\" nokeepalive ssl-unclean-shutdown
+	</VirtualHost>
+" >> /etc/apache2/sites-enabled/m23.conf
+		done
+
+		echo "</IfModule>" >> /etc/apache2/sites-enabled/m23.conf
+		chmod 644 /etc/apache2/sites-enabled/m23.conf
+
+		#Delete symbolic link of old default vhost
+		rm /etc/apache2/sites-enabled/000-default 2> /dev/null
+		
+		apacheV=2
+	else
+		sed 's/DocumentRoot \/var\/www/DocumentRoot \/m23\/data+scripts/' /etc/apache/httpd.conf | sed 's/<Directory \/var\/www\/>/<Directory \/m23\/data+scripts>/' | sed 's/  DirectoryIndex/  DirectoryIndex index.php/' | sed  's/#AddType application\/x-httpd-php .php/AddType application\/x-httpd-php .php/' | sed 's/# LoadModule php4_module \/usr\/lib\/apache\/1.3\/libphp4.so/LoadModule php4_module \/usr\/lib\/apache\/1.3\/libphp4.so/' | sed 's/AllowOverride None/AllowOverride AuthConfig/g' > /tmp/httpd.conf
+		mv /tmp/httpd.conf /etc/apache/
+		chown root.root /etc/apache/httpd.conf
+		chmod 644 /etc/apache/httpd.conf
+
+		apacheV=""
+	fi
+	
+	#Get the absolute path to the PHP ini file(s)
+	for phpFile in `find /etc/php?/apache* | grep php.ini`
+	do
+		#PHP settings
+		sed 's/register_globals = Off/register_globals = On/g' $phpFile > /tmp/php2.ini
+		sed 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' /tmp/php2.ini > /tmp/php.ini
+	
+		mv /tmp/php.ini $phpFile
+		chown root.root $phpFile
+		chmod 644 $phpFile
+	
+		#activate MySQL support in php.ini
+		if test `grep -c "^extension=mysql.so" $phpFile` -eq 0
+		then
+			echo "extension=mysql.so" >> $phpFile
+		fi
+	done
+
+	#Sets the phpver and phpini variables to the version of php that are installed.
+	. /usr/share/wwwconfig-common/php.get
+	server="apache$apacheV"
+
+	#Verifies that the php module is loaded in the apache config file.
+	. /usr/share/wwwconfig-common/apache-php.sh
+	server="apache$apacheV-ssl"
+	. /usr/share/wwwconfig-common/apache-php.sh
+
+	/etc/init.d/apache$apacheV restart
+	
+	#Create a script that "knows" how to control the Apache 1.x/2.x process.
+	echo "/etc/init.d/apache$apacheV \$1" > /tmp/apachectl
+	chmod +x /tmp/apachectl
+fi
+
+db_get m23/configureSudo
+if [ "$RET" = "true" ]
+then
+	if test `grep -c "^www-data          ALL=NOPASSWD:ALL" /etc/sudoers` -eq 0
+	then
+		echo "www-data          ALL=NOPASSWD:ALL" >> /etc/sudoers
+	fi
+fi
+
+
+
+db_get m23/configureBackupPC
+if [ "$RET" = "true" ]
+then
+	bpchome=`grep backuppc /etc/passwd | cut -d':' -f6`
+	
+	#check if the BackupPC SSH key is missing
+	if [ ! -f $bpchome/.ssh/id_rsa ]
+	then
+		#create a new SSH keypair for the backuppc user
+		sudo -H -u backuppc sh -l -c "ssh-keygen -t dsa -N '' -P '' -f ~/.ssh/id_rsa; ssh-agent sh -c 'ssh-add < /dev/null'"
+	fi
+
+	#add the BackupPC key to the authorized_keys
+	if [ `grep -c backuppc /m23/data+scripts/packages/baseSys/authorized_keys` -lt 1 ]
+	then
+		#add the key to the keys known by the clients
+		keyPath="$bpchome/.ssh/id_rsa.pub"
+		cat $keyPath >> /m23/data+scripts/packages/baseSys/authorized_keys
+	fi
+
+	#disable needed mutual exchange of SSH keys and strong verification of keys
+	sed -i 's#sshPath -q -x -n -l root#sshPath -o VerifyHostKeyDNS=no -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o CheckHostIP=no -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -x -l root#g' /etc/backuppc/config.pl
+
+	#Check for Apache 1.x
+	if [ -f /etc/apache/httpd.conf ]
+	then
+		#Make sure the BackupPC Apache include file is included in httpd.conf.
+		if [ `grep -c "Include /etc/backuppc/apache.conf" /etc/apache/httpd.conf` -lt 1 ]
+		then
+			echo "Include /etc/backuppc/apache.conf" >> /etc/apache/httpd.conf
+		fi
+	fi
+
+	#Make BackupPC use the same password file than m23
+	sed -i 's#/etc/backuppc/htpasswd#/m23/etc/.htpasswd#g' /etc/backuppc/apache.conf
+
+	#Make sure all m23 admins are known to BackupPC.
+	for admin in `cat /m23/etc/.htpasswd | cut -d':' -f1`
+	do
+		echo "Adding $admin to the list of BackupPC admins"
+		php -r "include(\"/m23/inc/backup.php\");
+		include(\"/m23/inc/server.php\");
+		include(\"/m23/inc/edit.php\");
+		BACKUP_addAdmin(\"$admin\");"
+	done
+
+	#Make BackupPC usable by the apache user (and not only by user backuppc)
+	chown backuppc.www-data /usr/share/backuppc/cgi-bin/index.cgi
+	chmod u+s /usr/share/backuppc/cgi-bin/index.cgi
+
+	#Restart the Apache 1.x/2.x
+	/tmp/apachectl restart
+fi
+
+
+
+
+
+#Create a new cron secret file if it doesn't exist
+if [ ! -e /m23/inc/cronSecret.php ]
+then
+	echo "<?
+        define('CONF_CRON_SECRET','`pwgen -c -s 64`');
+?>" > /m23/inc/cronSecret.php
+	chmod 644 /m23/inc/cronSecret.php
+fi
+
+
+
+
+
+#Create the GPG key
+if [ ! -e /home/grdmgpg/.gnupg/secring.gpg ]
+then
+	#Change random to non-blocking urandom
+	if [ -c /dev/random ]
+	then
+		mv /dev/random /dev/random-blocks
+		ln -s /dev/urandom /dev/random
+	fi
+
+	#Generate a random password for the GPG user
+	pw=`pwgen -s -c 16`
+	
+	#Create the user
+	useradd -m -p $pw grdmgpg
+
+	#Delete old GPG line
+	sed -i '/NOPASSWD:GPG/d' /etc/sudoers
+
+	#Delete localhost alias
+	sed -i '/Host_Alias[ \t]*LOCALHOST/d' /etc/sudoers
+	sed -i '/Host alias specification/d' /etc/sudoers
+
+	#add access to sudo: the Apache user should be able to call gpg under the grdmgpg user
+	echo "# Host alias specification
+Host_Alias	LOCALHOST=127.0.0.1/255.255.255.0, `hostname`
+
+# User privilege specification
+www-data          ALL= (grdmgpg) NOPASSWD:/usr/bin/gpg
+" >> /etc/sudoers
+
+	#Write a file with settings for the GPG key generation
+	echo "
+%echo Generating a standard key
+Key-Type: DSA
+Key-Length: 1024
+Subkey-Type: ELG-E
+Subkey-Length: 4096
+Name-Real: backupsignkey
+Name-Comment: No comment
+Name-Email: backupsignkey@m23server
+Expire-Date: 0
+%commit
+%echo done
+" > /tmp/gpgSettings
+
+	#let the GPG user create a new key
+	su -c "gpg --batch --gen-key -a /tmp/gpgSettings" grdmgpg
+	rm /tmp/gpgSettings
+
+	#Change random back
+	if [ -h /dev/random ] && [ -c /dev/random-blocks ]
+	then
+		rm /dev/random
+		mv /dev/random-blocks /dev/random
+	fi
+fi
+
+
+#For Debian Squeeze (where mkisofs doesn't exist)
+if [ -f /usr/bin/genisoimage ] && [ ! -f /usr/bin/mkisofs ]
+then
+	ln -s /usr/bin/genisoimage /usr/bin/mkisofs
+fi
+
+#For Debian Squeeze (where cdrecord doesn't exist)
+if [ -f /usr/bin/wodim ] && [ ! -f /usr/bin/cdrecord ]
+then
+	ln -s /usr/bin/wodim /usr/bin/cdrecord
+fi
+
+
+
+
+
+##################
+# DB adjustments #
+##################
+
+#Add architecture option with i386 if it's missing
+if [ -n "$oldversionint" ] && [ $oldversionint -lt 057100154 ]
+then
+php -r "
+	include(\"/m23/inc/db.php\");
+	include(\"/m23/inc/client.php\");
+	include(\"/m23/inc/capture.php\");
+
+	dbConnect();
+
+	\$results = CLIENT_query(\"\",\"\",\"\",\"\");
+
+	while(\$data = mysql_fetch_array(\$results))
+	{
+		\$opt=CLIENT_getAllOptions(\$data[client]);
+
+		if (!isset(\$opt[arch]))
+		{
+			\$opt[arch]=\"i386\";
+			CLIENT_setAllOptions(\$data[client],\$opt);
+		}
+	}
+"
+fi
+
+#Add the server to the list of clients if it's missing
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost'" | mysql -u $dbadmin -p$dbadmpass m23 | tail -1`
+if [ $localhostCount -eq 0 ]
+then
+	#Add the server to the list of clients as "localhost"
+	ts=`date +%s`
+
+	#Get CPU type and speed
+	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
+	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
+
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql -u $dbadmin -p$dbadmpass m23
+fi
+
+#Increased the size of the fields "cpu" and "MHz" in the table "clients".
+updateSQLIfOlder $oldversionint 057100145 "ALTER TABLE clients CHANGE cpu cpu LONGTEXT NOT NULL"
+updateSQLIfOlder $oldversionint 057100145 "ALTER TABLE clients CHANGE MHz MHz LONGTEXT NOT NULL"
+
+#Add table rows for virtualisation
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clientjobs CHANGE normalPackage normalPackage LONGTEXT"
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clients ADD vmRunOnHost INT( 9 ) NULL DEFAULT '-1'"
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clients ADD vmSoftware INT NULL DEFAULT '0'"
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clients ADD vmRole TINYINT( 1 ) NOT NULL DEFAULT '0'"
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clients ADD vmVisualPassword VARCHAR( 40 ) NOT NULL"
+updateSQLIfOlder $oldversionint 071100200 "ALTER TABLE clients ADD vmVisualURL VARCHAR( 255 ) NOT NULL"
+
+#Add table a rows for storing debconf values
+updateSQLIfOlder $oldversionint 101100351 "ALTER TABLE clientjobs CHANGE normalPackage normalPackage LONGTEXT"
+updateSQLIfOlder $oldversionint 101100351 "CREATE TABLE m23.debconf ( id INT NOT NULL AUTO_INCREMENT , client VARCHAR( 40 ) NOT NULL , package VARCHAR( 255 ) NOT NULL , type varchar(255) NOT NULL, var VARCHAR( 255 ) NOT NULL , val LONGTEXT NOT NULL , PRIMARY KEY ( id ), UNIQUE KEY client (client,package,var) ) ENGINE = MYISAM"
+
+#Add a table for storing status bar values
+updateSQLIfOlder $oldversionint 113100356 "CREATE TABLE m23.statusbar ( id int(20) NOT NULL AUTO_INCREMENT , refreshtime int(11) NOT NULL default '5', type VARCHAR( 255 ) NOT NULL , cmd LONGTEXT NOT NULL, ts bigint(20) NOT NULL default '0', percent int(11) NOT NULL default '0', client varchar(255) NOT NULL , statustext longtext NOT NULL , name VARCHAR( 255 ) NOT NULL , PRIMARY KEY ( id ),  UNIQUE KEY client (client,name) ) ENGINE = MYISAM"
+
+#Increased the size of the field "normalPackage" in the table "clientjobs".
+updateSQLIfOlder $oldversionint 113100402 "ALTER TABLE clientjobs CHANGE normalPackage normalPackage LONGTEXT NOT NULL"
+
+#Increased the size of the clientname to longtext.
+updateSQLIfOlder $oldversionint 113100411 "ALTER TABLE clients CHANGE client client LONGTEXT NOT NULL"
+
+#Increase the size of language
+updateSQLIfOlder $oldversionint 113100485 "ALTER TABLE clients CHANGE language language VARCHAR( 5 ) NOT NULL"
+
+#Add a table for storing locked IP ranges
+updateSQLIfOlder $oldversionint 123100598 "CREATE TABLE m23.lockedIPRanges (id BIGINT NOT NULL AUTO_INCREMENT , firstIPInt bigint(20) NOT NULL , lastIPInt bigint(20) NOT NULL , PRIMARY KEY ( id )) ENGINE = MYISAM ;"
+
+#Convert the old dhcpd.conf format to the new
+dhcpdBackup=$(date +'/m23/dhcp/dhcpd.conf.%Y-%m-%d_%H-%M.bak')
+cp /m23/dhcp/dhcpd.conf $dhcpdBackup
+sed -i -e 's/^ subnet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]* netmask [0-9]*\.[0-9]*\.[0-9]*\.0 { //g' -e 's/; } option/; option/g' -e 's/}}$/}/g' -e 's/^ host/host/g' /m23/dhcp/dhcpd.conf
+
+######################
+# DB adjustments END #
+######################
+
+
+updateDB
+
+
+#Adjust the ramdisk sizes of all PXE settings
+kernelRamDisk=`grep kernelRamDisk /m23/inc/kernelRamDisk.inc | sed 's/[^0-9]//g'`
+sed -i "s/ramdisk_size=[0-9]*/ramdisk_size=$kernelRamDisk/g" /m23/tftp/pxelinux.cfg/*
+restartDHCPServer
+
+
+mkdir -p /m23/tmp /m23/log
+
+/m23/bin/fix-permissions
+chown www-data /m23/data+scripts/clientImages
+chmod 755 /m23/data+scripts/clientImages
+
+touch /m23/dhcp/dhcpd.leases
+
+mkdir -p /m23/root-only
+chmod 700 /m23/root-only
+
+rm -r /tmp/m23-install
+
+#Make sure that there is no user test
+userdel -r -f test
+
+#Import the key for the signed m23 packages
+wget -T1 -t1 -q http://m23.sourceforge.net/m23-Sign-Key.asc -O - | apt-key add -
+
+#Create the extraDebs directory with empty indices if it doesn't exist.
+if [ ! -f /m23/data+scripts/extraDebs/Packages.gz ]
+then
+	mkdir -p /m23/data+scripts/extraDebs/
+
+	cd /m23/data+scripts/extraDebs/
+	touch Packages
+	gzip -c Packages > Packages.gz
+	bzip2 -k Packages
+
+	chmod 777 -R /m23/data+scripts/extraDebs
+fi
+
+grep "`cat ~/.ssh/id_dsa.pub 2> /dev/null`" ~/.ssh/authorized_keys -c 2> /dev/null
+if [ $? -ne 0 ]
+then
+	cat ~/.ssh/id_dsa.pub 2> /dev/null >> ~/.ssh/authorized_keys
+fi
+
+db_stop

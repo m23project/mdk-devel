@@ -1,0 +1,7 @@
+
+
+releaseFile=`ls -t /tmp/m23Translator*.tar.bz2 | head -1`
+
+releaseNr=`echo $releaseFile | cut -d'-' -f2 | sed 's/.tar.bz2//'`
+
+/mdk/m23update/sf-upload/sf-upload -pr m23translator -p m23translator -r $releaseNr -f $releaseFile -type .bz2

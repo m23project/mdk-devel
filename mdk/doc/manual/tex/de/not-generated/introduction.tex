@@ -1,0 +1,84 @@
+\chapter{Einleitung}
+\section{Was ist m23?}
+m23 ist eine freie Softwareverteilung unter der GPL, die Clients mit Debian, Ubuntu und Kubuntu installieren und administrieren kann. Gesteuert wird m23 mit einem Browser. Die Installation eines neuen Clients geschieht in nur drei Schritten, die Integration von bestehenden Clients ist zudem möglich. Gruppenverwaltung und Masseninstallation vereinfachen die Administration von vielen Rechnern. Das integrierte Client- \& Serverbackup schützt vor Datenverlusten. Mittels Virtualisierung können auf m23-Client und m23-Server weitere virtuelle m23-Clients angelegt und über m23 verwaltet werden. Skripte und Softwarepakete zur Installation auf den Clients können direkt aus der Oberfläche erstellt werden.
+
+
+
+\section{Die Bestandteile des m23-Servers}
+\subsection{Debian GNU/Linux}
+\begin{center}
+\includegraphics{/mdk/doc/manual/screenshots/debianlogo.png}
+\end{center}
+m23 basiert vollständig auf Debian GNU/Linux \underline{www.debian.org}, einer freien Linux-Distribution. Sowohl der Server als auch die m23-Clients sind Debian GNU/Linux-Systeme. Wir haben bei der Entwicklung von m23 auf Transparenz aller Vorgänge und besonders auf lizenzfreie Clients und Server geachtet! Debian bietet derzeit ca. 25.000 Softwarepakete, die aus dem Internet heruntergeladen und auf beliebig vielen Clients installiert werden können.
+
+
+
+
+\subsection{Auf die Schultern von Giganten stellen}
+m23 besteht aus einer Vielzahl von OpenSource-Komponenten, ohne die es einige Jahrzehnte gedauert hätte, m23 in dieser Form zu entwickeln. Allein durch die Arbeit unzähliger Freiwilliger ist m23 möglich geworden. Vor allem sind es folgende Programme, die in m23 zum Einsatz kommen:
+\begin{itemize}
+\item Apache: wird von m23 als Datei-Server und für die Generierung der m23-Administrations-Oberfläche und Skripte benutzt.
+\item PHP: ist die am häufigsten in m23 verwendete Programmiersprache: Die Oberfläche sowie die komplette Skriptgenerierung sind in PHP geschrieben.
+\item MySQL: dient der Speicherung der meisten Daten, die von m23 verwaltet werden.
+\item Etherboot: kann als alternative Methode zum Starten der Clients über das Netzwerk verwendet werden.
+\item DHCP, ATFTP: machen das Booten der Clients erst möglich.
+\item BusyBox: wird für das Mini-System der Installations-CD sowie das Netzwerk-Bootimage verwendet, um eine Menge Platz zu sparen.
+\item und viele mehr...
+\end{itemize}
+
+
+\section{Lizenz}
+m23 ist ein OpenSource-Produkt, das unter der GPL (GNU General Public License) steht! Die genauen Lizenzbedingungen der GPL sind im Anhang des Buches enthalten. Das beutet im Groben für Sie:
+\begin{itemize}
+\item Die Nutzung ist kostenlos.
+\item Der komplette Quellcode ist verfügbar.
+\item Sie dürfen den Quellcode verändern.
+\item Sie dürfen m23 kopieren und weitergeben, so oft Sie wollen.
+\item \textbf{Änderungen von Ihnen an m23 müssen ebenfalls unter der GPL veröffentlicht werden!}
+\end{itemize}
+
+\section{Download}
+Da Sie dieses Handbuch gefunden haben, wissen Sie wahrscheinlich schon, wo man m23 herunterladen kann ;). Aber falls nicht:\\
+Das ISO zum Brennen der m23-Server-Installations-CD sowie Dokumentationen und Debian-Pakete (zu einem späteren Zeitpunkt) gibt es unter \underline{http://m23.sf.net}.
+
+
+
+\section{Support}
+\subsection{m23-Community-Support}
+Sie erhalten einen kostenlosen m23-Community-Support auf freiwilliger Basis. Das bedeutet aufgrund der vielen Anfragen, daß nicht jedes Anliegen zur Zufriedenheit aller gelöst werden kann. Der Community-Support deckt zudem lediglich m23-Installationshilfen in Standard-Konfigurationen sowie das Korrigieren von m23-Programmfehlern ab.\\\\
+
+Der m23-Community-Support verlangt vom m23-Nutzer zudem gute Kenntnisse von Debian, die Bereitschaft genaue Fehlerdiagnosen zu liefern und gemeinsam mit dem m23-Entwickler das Problem zu lösen.\\\\
+
+Sollten Sie mehr benötigen, so wenden Sie sich bitte an den kommerziellen Support.\\\\
+
+Auf der m23-Community-Seite finden Sie:
+\begin{itemize}
+\item Anwenderforen (für den Community-Support)
+\item Dokumentationen
+\item ISO-Images zum Erstellen der Installations-CDs
+\item Community-Newsletter
+\item u.v.m.
+\end{itemize}
+
+
+
+
+\subsection{Kommerzieller Support}
+Der kommerzielle Support  bietet Ihnen Dienstleistungen rund um m23 und darüber hinausgehende Serviceleistungen an:
+\begin{itemize}
+\item m23-Schulungen für Entwickler und Anwender in kleinen Gruppen
+\item Entwicklung von individuellen m23-Erweiterungen und m23-Anpassungen
+\item Beratung: Unter anderem bei der Konzeptionierung von Clients, Servern und Netzwerken für den Einsatz von m23 sowie allgemeine OpenSource-Beratung
+\item Erstellung virtueller Maschinen und virtueller Appliances
+\item Design und Entwicklung von Webseiten auf Basis des Content-Management-Systems devalcms
+\item Services rund um die Webseiten-Capture-Software khtml2png
+\item Erstellung und Konzeptionierung von Online-Wahlsystemen basierend auf dem GRDM-System
+\item Schulungen zu Linux, OpenSource, Skriptprogrammierung mit der BASH, awk, sed, grep und Co. sowie Schulungen für HTML, PHP und MySQL
+\end{itemize}
+Weitere Informationen finden Sie unter \underline{www.goos-habermann.de}.
+
+	
+
+
+\section{Hinweis zum Handbuch}
+Mit der neuen m23-Version geht auch das Benutzerhandbuch in eine neue Runde. Um es für Entwickler leichter zu machen, wird nun ein großer Teil des Handbuches aus den Hilfetexten des m23-Webinterfaces generiert. Dies hat zum einen den Vorteil, daß die Dokumentation nicht zweimal erstellt bzw. kopiert werden muß (Web + Handbuch) und zum anderen ist so ein Handbuch in allen Sprachen möglich, die vom Webinterface unterstützt werden.

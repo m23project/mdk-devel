@@ -1,0 +1,53 @@
+#!/bin/sh
+
+. /mdk/m23Debs/bin/m23Deb.inc
+. /mdk/bin/serverFunctions.inc
+
+addm23CommandsToCodepress
+
+dodgerFilesGetFileList
+dodgerFilesChangeUser root
+
+#check if building is needed and create index
+	prepareBuilding m23
+	if test $? -eq 1
+	then
+		exit 1
+	fi
+
+cd /mdk/m23Debs/m23
+#add temporary files needed for installation
+	rm -r tmp 2> /dev/null
+	mkdir -p tmp/m23-install
+	cd tmp/m23-install
+	#export new database dumps
+	exportDBInitTable #tables to export are marked in /mdk/bin/exportDBsourceslist.php
+	rm m23MySQL-Init.sh
+
+#copy all m23 files
+	cd /mdk/m23Debs/m23
+	rm -r m23 2> /dev/null
+	tar cv --same-owner -T /tmp/m23deb.list | tar x
+	rm m23/etc/.htpasswd
+	#clean backup files
+	rm `find | grep ~$` 2> /dev/null
+
+#adjust temporary installation files
+	grep -v ".svn" mkMissingDirectories.sh > tmp/m23-install/mkMissingDirectories.sh
+	rm mkMissingDirectories.sh
+	chmod +x tmp/m23-install/mkMissingDirectories.sh
+
+#Clean all values from the mailConf.php file
+	sed "s#,[\"']*.*[\"'])#,'')#g" /m23/inc/mailConf.php > m23/inc/mailConf.php
+	sed -i "s#CONF_GPG_USER',''#CONF_GPG_USER','grdmgpg'#g" m23/inc/mailConf.php
+	sed -i "s#CONF_GPG_HOME',''#CONF_GPG_HOME','/home/grdmgpg/.gnupg'#g" m23/inc/mailConf.php
+
+#Generates a list of all base system packages for all (Debian/Ubuntu) releases
+	mkAllBaseSysFileLists
+
+#build package
+	finishBuilding m23
+
+dodgerFilesChangeUser dodger
+
+#apt-get update; apt-get -y remove m23; apt-get -y install m23

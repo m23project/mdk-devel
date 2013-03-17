@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find /mdk/ 2> /dev/null | grep -v iso$ | grep -v \.ko$ | grep -v compiled | xargs grep "$1" 2> /dev/null

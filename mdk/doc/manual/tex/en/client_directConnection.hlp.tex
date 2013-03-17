@@ -1,0 +1,8 @@
+\section{Client direct connection}A client direct connection can be used to engage in the client installation process, to read the screen contents or for testing and debugging purpose. The connection is done via SSH. That makes it possible to connect with any SSH client.\\
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/en/client_directConnection.png} \\
+\subsection{Password}
+If the client is in an early installation state, the root password for this client is: "NETROOTPWD"\\
+Later, it will be the password you entered for root in the client add dialog.\\
+If your browser supports the SSH protocol directly, then you can click on the link to connect to the client: ssh://root@CLIENTIP\\
+Otherwise open a console and enter the command: \textbf{ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP}
+To read the current client screen or to engage in the running installation use the command: \textbf{screen -x m23install}

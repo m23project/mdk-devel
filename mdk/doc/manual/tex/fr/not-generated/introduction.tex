@@ -1,0 +1,65 @@
+\chapter{Préface}
+Qui est-ce qui a vraiment envie d'installer et d'administrer des ordinateurs sans cesse? Probablement personne ;). Le but de l'utilisation d'un ordinateur, c'est de faciliter la vie - mais surtout les systèmes d'exploitation modernes montrent une faim insatiable de notre attention.\\
+Ici manque un pilote, là la licence d'une version d'essai est expirée et le réseau ne fonctionne non plus de nouveau.Peut-être que la dernière annexe de courrier électronique ait dévoré la pile TCP-IP?...\\
+Cela vous semble familier? À cause de la frustration d' in certain système d'exploitation, pour pouvoir connaître le Linux encore mieux et en suivant le plan de développeer du logiciel dont on a vraiment besoin, on a créé le système de distribution de logiciel m23.\\
+m23 n'aurait pas été possible sans la grande commune de développeurs, qui y crée de nouveaux programmes et les améliore toujours. Ici un grand merci à tous ceux qui investissent leur énergie et leur loisirs dans le développement d'un système d'exploitation libre avec tous les composants et applications nécessaires.\\
+Linux offre de la technologie libre d'une haute qualité qui peut être utilisée de tout le monde sans paie de redevances. Chacun peut faire passer, copier et changer Linux - de cette fa\c{c}on personne ne sera exclu parce qu'il n'a pas les moyens de payer les chères licences. Linux offre l'occasion unique de se libérer des pratiques professionnelles parfois assez douteuses de quelques grandes sociétés. Linux apporte de l'égalité de chances pour tous!\\
+Pour cette raison, m23 est aussi mis sous une licence libre (plus sur ce sujet au prochain chapitre). Une autre raison pour le développement de m23, c'était de rendre Linux intéressant pour des gens qui ont peu de connaissance de l'installation et de l'administration des ordinateurs Linux. En plus, la distribution de Linux doit être avancée avec m23 pour rendre possible l'accès à la technique moderne à un plus grand nombre de personnes. Les hommes qui vivent dans les pays en voie de développement et pays émergents ne doivent pas devenir dépendants des grandes sociétés, qui auront à peine l'intérêt d'y soutenir le développement libre de la technologie. Seuls les solutions à code libre offrent cette liberté et donnent la possibilité d'un développement autonome à chacun.\\\\
+\begin{flushright}
+Hauke Goos-Habermann\\
+Responsable de projet d'm23
+\end{flushright}
+
+\chapter{Introduction}
+\section{Qu'est-ce que c'est, m23?}
+m23 est un système d'administration de logiciel libre pour Linux, avec lequel vous pouvez installer et administrer des centaines d'ordinateurs dans votre réseau (LAN) avec peu de connaissances. m23 peut patitionner et formater des clients et y installer le système d'exploitation. Les composants du client seront identifiés par une détection du matériel et les pilotes seront installés. Plus tard, des paquets de logiciel supplémentaires peuvent être installés - par example des paquets de bureau, des navigateurs web ou même des jeux. Des mises au jour pour la sécurité peuvent aussi être installées sur tous les clients d'une fa\c{c}on simple. Vous pouvez executér tous vos tâches d'installation, d'administration  et de mise au jour aisément de tous lieux par un navigateur web.
+
+
+
+
+\section{Les composants du serveur m23}
+\subsection{Debian GNU/Linux}
+\begin{center}
+\includegraphics{/mdk/doc/manual/screenshots/debianlogo.png}
+\end{center}
+m23 est basé complètement sur Debian GNU/Linux \underline{www.debian.org}, une distribution Linux libre. Le serveur comme les clients m23 sont des systèmes Debian GNU/Linux. Pendant le développement de m23, nous avons fait attention à la transparence de tous processus et surtout à liberté de licences des clients et serveurs! Actuellement, Debian offre environ 25.000 paquets de logiciel, qui peuvent être téléchargés de l'internet et installés sur n'importe quel nombre de clients.
+
+
+
+
+\subsection{Se mettre sur les épaules des géants}
+m23 se compose d'un grand nombre de composants à code source libre, sans lesquels le développement de m23 dans la forme existante aurait duré des décennies. Seul le travail des volontaires innombrables a rendu possible m23.
+Surtout, il s'agit des programmes suivants qui sont employés dans m23:
+\begin{itemize}
+\item Apache: est utilisé comme serveur fichier et pour la création de l'affichage pour l'administration de m23 et des scipts.
+\item PHP: est le langage informatique utilisé le plus souvent dans m23: L'interface comme la génération du script complète sont écrits dans PHP.
+\item MySQL: sert à l'enregistrement de la plupart des données qui sont administrées par m23.
+\item Etherboot: peut être utilisé comme méthode alternative d'amor\c{c}age des clients par le réseau.
+\item DHCP, ATFTP: rendent possible l'amor\c{c}age des clients .
+\item BusyBox: est utilisé pour le système minimal du CD de l'installation et pour l'image d'amor\c{c}age du réseau pour pouvoir gagner beaucoup d'espace.
+\item et beaucoup d'autres...
+\end{itemize}
+
+
+\section{Licence}
+m23 est un produit à code source libre, qui est mis sous GPL (GNU General Public License)! Les conditions exactes de la GPL sont citées dans l'appendice de ce manuel. En gros, cela veut dire que:
+\begin{itemize}
+\item l'emploi est gratuit.
+\item le code source complet est accessible.
+\item vous pouvez changer le code source.
+\item vous pouvez copier et faire passer m23 comme vous le voulez.
+\item \textbf{Vos changements doivent aussi être publiés sous GPL!}
+\end{itemize}
+
+\section{Téléchargement}
+Comme vous avez trouvé ce manuel, c'est bien probable que vous saviez déjà d'où on peut télécharger m23 ;). Sinon:\\
+L'ISO pour graver le CD de l'installation de m23 plus des documentations et des paquets de Debian (plus tard) peuvent être trouvés ici: \underline{http://m23.sf.net}.
+
+
+\section{Soutien}
+Vous pouvez recevoir du soutien par le forum sur la page de projet de m23 (\underline{http://m23.sf.net}) ou par courrier électronique à HHabermann@pc-kiel.de (en anglais ou allemand).
+
+
+
+\section{Concernant le manuel}
+Avec la nouvelle version de m23, on a aussi renouvellé le manual. Pour le faciliter pour les dévelloppeurs, maintenant,une grande partie du manuel est générée des textes d'aide de l'interface de toile. Ceci a l'avantage que la documentation ne doit pas être élaborée (ou copiée) deux fois (Web et manuel) et que la création d'un manuel est rendu possible dans toutes langues que soutient l'interface web. 

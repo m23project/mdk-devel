@@ -1,0 +1,39 @@
+\chapter{Requirements for m23}
+If you want to integrate the software distribution system m23 into your network you need the following components:
+\begin{itemize}
+\item m23 server
+\item m23 client(s)
+\item Internet access
+\item PC with webbrowser
+\item m23 server installation CD
+\end{itemize}
+
+\section{The m23 server}
+The m23 server performs the complete software distribution and fulfils different tasks:
+\begin{itemize}
+\item Generation of the web interface
+\item Compilation of installation scripts "on-the-fly"
+\item Software package cache
+\item Database
+\item Boot server
+\item DHCP server
+\end{itemize}
+You should dimension your m23 server with enough RAM and an adequate processor. If you want to use the server only for a few clients or for testing purpose you can try it with an older computer (e.g. P1 with 166MHz and 64MB RAM). For bigger networks the server should not have less than 256MB RAM. In all cases the server needs a network card and a harddisk with 5 or more GB of free space. If you want to install a big variety of software packages on your clients you need a harddisk with a lot of space to make caching of these packages possible.
+\begin{itemize}
+\item CPU: from 166Mhz up (recommended  1GHz)
+\item RAM: from 64MB up (recommended  from 256MB)
+\item Harddisk: from 5GB up
+\item Network card: recommended 100MBit/1GBit
+\end{itemize}
+
+\section{The m23 clients}
+For clients the recommendations are roughly the same. To facilitate software distribution for you, you should use wake-on-lan-able clients which can be started for installation and shutdowned afterwards by m23. It is a good idea to use network cards containing a bootrom to allow the clients to be installed without using a boot disk or a CD. They will be necessary for the installation of the operating system only. m23 supports PXE and Etherboot boot standards.
+
+\section{Internet access}
+m23 needs access to the internet to fetch the software packages that can be installed on the clients.
+
+\section{PC with webbrowser}
+For your administration you need a PC with a web browser to access the m23 server.
+
+\section{The server installation CD}
+To install the m23 server you need the m23 server installation CD which can be downloaded for free from  \underline{http://m23.sf.net}. Burn the ISO file on a CD and boot the server from it.

@@ -1,0 +1,47 @@
+#!/bin/bash
+# File: /usr/lib/nagios/plugins/check_baseSysAvailability
+
+
+
+
+#Checks an URL on SourceForge for a file that should be available or not
+checkUrl()
+{
+	#The URL of the file
+	url="$1"
+	#Operator for comparing the findings with zero
+	op="$2"
+
+	#Download and check, if it worked
+	wget -q $url -O /tmp/baseSys.tar.7z
+	ret=$?
+	if [ $ret -ne 0 ]
+	then
+		echo "ERR: Downloading \"$url\" failed!"
+		exit 2
+	fi
+
+	#Count the occurences of the word sourceforge.net
+	cnt=$(grep -c sourceforge.net /tmp/baseSys.tar.7z)
+
+	#Check, how the amount should be compared with 0
+	if [ $cnt $op 0 ]
+	then
+		echo "ERR: Checking contents of \"$url\" failed!"
+		exit 2
+	fi
+
+	rm /tmp/baseSys.tar.7z
+	echo "OK: Checking \"$url\" ok!"
+}
+
+
+
+
+
+checkUrl "http://sourceforge.net/projects/m23/files/baseSys/squeeze-amd64.tar.7z/download" "-ne"
+checkUrl "http://sourceforge.net/projects/m23/files/baseSys/xxx.tar.7z/download" "-eq"
+
+
+
+exit 0

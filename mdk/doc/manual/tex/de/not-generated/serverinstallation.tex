@@ -1,0 +1,125 @@
+\chapter{Serverinstallation}
+\section{Vorbereitungen}
+Bevor Sie sich an das Installieren Ihres m23-Servers machen, sollten Sie ein paar Vorüberlegungen anstellen:
+\begin{itemize}
+\item Erfüllen mein Server und die Clients die Anforderungen (voriges Kapitel)?
+\item Wie ist mein Netzwerk aufgebaut?
+\item Welche IP soll der Server haben?
+\item Wie lauten die Netzwerkeinstellungen für Netzwerkmaske, Gateway, DNS-Server und Netzwerk-IP?
+\item Ist das CD-Rom-Laufwerk meines Server bootfähig?
+\end{itemize}
+
+\section{Starten der Installation}
+Schließen Sie den Server an Ihr Netzwerk an und legen die m23-Server-Installations-CD in das Laufwerk. Halten Sie die erforderlichen Netzwerkeinstellungen bereit. Die Installation ist größtenteils selbsterklärend und sollte jemandem, der sich mit den grundlegenden Begriffen der Netzwerkadministration auskennt, keine Schwierigkeiten bereiten. Im Folgenden sehen Sie Screenshots der Installation, die der Server durchlaufen wird. Machen Sie sich keine Sorgen, wenn in der Installationsprozedur noch andere Bildschirme auftauchen, da ich es nicht für sinnvoll hielt, alle Status-Meldungen als Screenshot zu zeigen ;).\\\\
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst1.png}\\
+Dies ist der Bootbildschirm der m23-Server-Installations-CD. Nach Drücken der Enter-Taste bootet das Linux-Betriebssystem von der CD und startet das Installationsprogramm.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst2.png}\\
+Sie können wählen, ob Sie das Installationsprogramm in deutscher oder englischer Sprache ausführen wollen. Wir gehen hier davon aus, daß Sie sich für deutsch entscheiden.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst3.png}\\
+Eine kleine Begrüßung.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst4.png}\\
+Eingabe des Root-Paßwortes. Root ist der Systemadministrator mit uneingeschränktem Zugriff auf den m23-Server. Sie sollten ein Paßwort wählen, das nicht leicht erraten werden kann und mindestens 10 Zeichen enthält. Ebenfalls sollten Sie Sonderzeichen, Ziffern, sowie Groß- und Kleinschreibung verwenden.\\
+Da das Paßwort nicht angezeigt wird, wird es im darauffolgenden Dialog noch einmal durch erneute Eingabe überprüft.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst5.png}\\
+Der Hostname ist der Name für den Server. Was für eine Erklärung ;)
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst6.png}
+\\
+Die IP-Adresse, unter der auf den Server zugegriffen werden soll. Diese Adresse sollte so gewählt werden, daß die Clients von dem Server ohne Router erreicht werden können.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst7.png}\\
+Die Netzwerk-Adresse ist die IP-Adresse, unter der das Netzwerk erreichbar ist.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst8.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst9.png}
+\\
+Die Netzwerkmaske gibt an, welcher Teil der IP zu den einzelnen Rechnern gehört und welcher das Netzwerk maskiert.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst10.png}
+\\
+Die Gateway-IP gibt die IP an, über die Anfragen an IPs geleitet werden, die nicht innerhalb des Netzwerkes des Servers liegen. Dies wird vor allem für den Zugriff auf das Internet benötigt.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst11.png}
+\\
+Für die Auflösung von URL-Namen in IP-Adressen wird ein DNS-Server benötigt, der die Umwandlung vornimmt. Aus ftp.debian.org wird z.B. 128.101.80.131. Falls Sie keinen DNS-Server kennen, können Sie die IP 134.245.10.36 benutzen. Dies ist der DNS-Server der Universität Kiel.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst12.png}
+\\
+An dieser Stelle haben Sie noch einmal die Möglichkeit, zu überprüfen, ob Ihre Angaben alle korrekt sind. Falls Sie die Installation fortsetzen möchten, dann wählen Sie "Yes", ansonsten können Sie nach der Auswahl von "No" die korrigierten Angaben eingeben.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst13.png}
+\\
+Hier können Sie auswählen, ob Sie die komplette Festplatte des Servers für m23 verwenden wollen. Dann werden 2 Partitionen eingerichtet, eine für das Debian-Linux-Betriebssystem und eine als Swapbereich. Sollten mehrere Festplatten vorhanden sein, so wird die erste benutzt. Sie können allerdings auch zuvor angelegte Partitionen verwenden, falls Sie eine spezielle Partitionierung wünschen.\\\\
+\underline{Hinweise zur Partitionierung}
+Bitte beachten Sie, daß während der Installation entweder der Server komplett gelöscht wird, oder Sie vorher mit einem Programm wie Parted, fdisk, cfdisk etc. zwei Partitionen der ersten Festplatte (hda bzw. sda) wie folgt erstellen müssen:
+\begin{itemize}
+\item eine Partition für m23 mit einer Größe von mindestens 4 GB
+\item eine Partition zum Swappen für Linux (Empfohlen ist hier die doppelte Größe des Arbeitsspeichers)
+\end{itemize}
+Schreiben Sie sich bitte die Adressen der Partitionen auf, d.h. die erste Partition der ersten Festplatte heißt z.B. hda1, die zweite Partition hda2. Wenn Sie eine Erweiterte- bzw. Extended-Partition benutzen, dann heißt die erste Partition innerhalb der Erweiterten-Partition hda5 und die zweite hda6 usw. Sie werden während der Installation nach diesen Adressen gefragt, sofern Sie die Experten-Einstellung zum Partitionieren gewählt haben.
+Wir empfehlen für die meisten Benutzer allerdings, die Daten vorher zu sichern und m23 den kompletten Server partitionieren und formatieren zu lassen.
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst14.png}
+\\
+Die letzte Warnung, bevor es losgeht ;)
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst15.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst16.png}
+\\
+
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst17.png}
+\\
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst18.png}
+\\
+Hier können Sie entscheiden, ob Sie den Bootmanager LILO (LInux LOader) installieren wollen. Dieser wird im MBR (MasterBootRecord) der ersten Festplatte installiert. Sollten Sie sich dagegen entscheiden, so müssen Sie selbst einen Bootmanager installieren. Ansonsten ist der m23-Server nicht bootfähig.
+
+
+\includegraphics[scale=0.45]{/mdk/doc/manual/screenshots/serverinstall/de/inst19.png}
+\\
+Die Installation ist abgeschlossen ;)
+\section{Abschluß der Installation}
+\underline{Hinweise}: Sie brauchen im normalen Betrieb für Ihren m23-Server keinen Monitor, es sei denn Sie möchten ihn zusätzlich auch zum Arbeiten benutzen. Da der m23-Server auf ein Debian GNU/Linux-System aufgesetzt ist, können Sie sich ganz normal mit root und Ihrem bei der Installation eingegebenen Passwort einloggen und sich zusätzliche Software wie unter Debian üblich installieren. Hierzu verweisen wir auf \underline{www.debian.org}.\\
+Nun können Sie Ihren ersten Client aufsetzen!

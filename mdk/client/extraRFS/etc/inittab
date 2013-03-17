@@ -1,0 +1,17 @@
+::sysinit:/linuxrc
+
+::askfirst:-/bin/sh
+tty2::askfirst:-/bin/sh
+tty3::askfirst:-/bin/sh
+tty4::askfirst:-/bin/sh
+
+# /sbin/getty invocations for selected ttys
+tty4::respawn:/sbin/getty 38400 tty5
+tty5::respawn:/sbin/getty 38400 tty6
+
+::restart:/sbin/init
+
+# Stuff to do before rebooting
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+::shutdown:/sbin/swapoff -a

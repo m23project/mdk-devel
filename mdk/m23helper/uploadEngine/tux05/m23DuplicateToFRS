@@ -1,0 +1,16 @@
+#!/bin/sh
+
+ShellSFssh()
+{
+	ret=255
+	
+	while [ $ret -eq 255 ]
+	do
+		ssh -o PasswordAuthentication=no hhabermann,m23@shell.sf.net $@
+		ret=$?
+	done
+}
+
+ShellSFssh create
+ShellSFssh "cp -v /home/project-web/m23/htdocs/m23inst/* /home/frs/project/m/m2/m23/m23inst/;"
+# cp /home/project-web/m23/htdocs/m23debs/* /home/frs/project/m/m2/m23/m23debs/ -v"

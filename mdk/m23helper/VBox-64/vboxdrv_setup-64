@@ -1,0 +1,12 @@
+#!/bin/sh
+#Compile the 64 bit modules
+chroot . /etc/init.d/vboxdrv setup
+
+#Copy the modules from the chroot to main system
+cp /amd64/lib/modules/`uname -r`/misc/vbox* /lib/modules/`uname -r`/misc/
+
+#Make the modules known
+depmod -a
+
+#Load the new modules
+/etc/init.d/vboxdrv restart

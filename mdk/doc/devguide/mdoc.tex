@@ -1,0 +1,52 @@
+\section{mdoc}
+\subsection{what is mdoc?}
+mdoc creates documentation in latex format out of comments in your source files. Special marked lines in the source code are extracted and converted to a documentation file. For an example of the generated documentation see the "m23 API reference" included in this document. mdoc can scan PHP and C/C++ files and other files that allow "/**" and "**/" for begin and end of comments or don't care about these kind of strings. If you want to use mdoc for files that don't allow these strings, put the comment sequence used for the file type before the mdoc lines. e.g. for BASH scripts you will put a '\#' in front of each mdoc line:
+\begin{verbatim}
+#/**
+#**name helloworld.sh
+#**description shows a hello world
+#**parameter none
+#**/
+echo hello world
+\end{verbatim} 
+\subsection{how to make your source code mdoc compatible?}
+To tell mdoc that it should search for comments mark the begin of the search area with "/**" and the end with "**/". You have tree comment tapes:\\
+\begin{itemize}
+\item **n : for the name, you should leave the name of the function with all parameters here
+\item **d : this is the description of the function. here you can write longer comments about the usage, restrictions, ...
+\item **p : deals with a single parameter used for the function. you should describe all parameters used to call the function with a "**p" line each.
+\end{itemize}
+\subsection{mdoc info block}
+In the mdoc info block you can leave all information you want, e.g. you can write down your name, the function of the file etc. . This block is parsed by mdoc first and will appear in the documentation at the beginning of the chapter. A mdoc info block begins with "/*\$mdocInfo" and ends with "\$*/". All between these lines will be treated as a comment and is copied 1 to 1 to the documentation file. If you make a line break this line break will appear in the documentation too.\\
+\textbf{Attenction: For the 'I' in mdocInfo you have to use an upcase letter. Otherwise the mdoc info block will be ignored.}\\
+Here an example for a mdoc info block:
+\begin{verbatim}
+/*$mdocInfo
+ Author: Daniel Kasten (DKasten@gss-netconcepts.de)
+ Description: a lot of routines for client handling.
+$*/
+\end{verbatim}
+\subsection{example for a mdoc comment}
+\begin{verbatim}
+/**
+**n CLIENT_listPackages($client, $key)
+**d lists all packages on the client
+**p client: name of the client
+**p key: keyword for searching for packages
+**/
+\end{verbatim} 
+\subsection{using mdoc}
+\begin{verbatim}
+usage:  mdoc <start directory> <tex output file>
+\end{verbatim}
+\begin{itemize}
+\item start directory: directory to start search for files that should be scanned for comments.
+\item tex output file: filename the latex output file should be saved to
+\end{itemize}
+\subsection{example}
+\begin{verbatim}
+mdoc /m23/data+scripts /tmp/m23api.tex
+\end{verbatim}
+will scan the /m23/data+scripts directory and store the documentation in /tmp/m23api.tex.
+
+

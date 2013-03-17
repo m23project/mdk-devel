@@ -1,0 +1,19 @@
+diff -Naur parted-1.8.7/libparted/unit.c parted-1.8.7-patched/libparted/unit.c
+--- parted-1.8.7/libparted/unit.c	2007-04-18 23:12:10.000000000 +0200
++++ parted-1.8.7-patched/libparted/unit.c	2007-05-11 22:47:40.000000000 +0200
+@@ -67,7 +67,7 @@
+ #endif /* ENABLE_NLS */
+ 
+ 
+-static PedUnit default_unit = PED_UNIT_COMPACT;
++static PedUnit default_unit = PED_UNIT_MEGABYTE;
+ static const char* unit_names[] = {
+ 	"s",
+ 	"B",
+diff -Naur parted-1.8.7/makeCompileAndDeb.sh parted-1.8.7-patched/makeCompileAndDeb.sh
+--- parted-1.8.7/makeCompileAndDeb.sh	1970-01-01 01:00:00.000000000 +0100
++++ parted-1.8.7-patched/makeCompileAndDeb.sh	2007-05-11 22:50:23.000000000 +0200
+@@ -0,0 +1,2 @@
++./configure --without-readline --prefix=/usr --disable-debug
++make
++checkinstall -D --requires="bash" --nodoc

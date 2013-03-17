@@ -1,0 +1,11 @@
+\section{Erweiterte Partitionierung: Installationsziel wählen}
+\includegraphics[scale=0.4]{/mdk/doc/manual/screenshots/de/fdisk-extended3.png} \\
+Wählen Sie die Partitionen aus, die Sie für die Installation nutzen möchten. Wählen Sie hierzu zwei Partitionen aus. Die erste, um das Betriebssystem zu installieren und die zweite als Auslagerungsplatz (Swap).\\
+\subsection{Schrittweises Vorgehen:}
+\begin{enumerate}
+\item Wählen Sie die Partitionen aus, die Sie zur Installation und als Swap nutzen möchten.\\
+\item Falls Sie zusätzliche Mountpunkte benötigen, können Sie diese unter \textit{"Mountpunkte definieren"} erstellen. Geben Sie dazu die Partition, den Mountpunkt und zum Mounten benötigte Parameter an und klicken Sie anschließend auf \textit{"Hinzufügen"}. Diese Informationen entsprechen denen, die auf einem Linux-System in der Datei \textbf{/etc/fstab} stehen. In der Tabelle unter den Eingabefeldern können Sie die bereits definierten Mountpunkte sehen.\\
+\item Klicken Sie auf \textit{"Client formatieren"}, um die Angaben zu übernehmen\\
+\end{enumerate}
+\subsection{Hinweis zur Installation auf einem RAID}
+Wie bereits in den vorherigen Hilfetexten angekündigt, müssen Sie einen extra Mountpunkt definieren, wenn Sie das Betriebssystem auf einem RAID installieren. Verwenden Sie hierzu eine Partition, die nicht auf einem RAID liegt und wählen Sie diese unter \textit{"Partition"} aus. Unter \textit{"Mountpunkt"} geben Sie bitte \textbf{"/boot"} und unter \textit{"Parameter"} \textbf{"auto defaults,noauto 0 0"} an.\\

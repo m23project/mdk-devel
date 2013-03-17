@@ -1,0 +1,194 @@
+#!/bin/sh
+/bin/HWMiniInit.sh
+/etc/init.d/m23hwdetect
+
+touch /var/run/utmp
+
+#Show the MAC adress(es)
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "MAC addresses"
+ifconfig | grep eth
+echo "Press Ctrl+C if the output is too fast"
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+#Configure via DHCP
+/bin/dhclient
+
+#Stop dhclient to make sure that the IP configuration will not be changed during installation
+for dhClientPID in `ps | grep dhclient | tr -s [:blank:] | cut -d' ' -f2`
+do
+	kill -9 $dhClientPID
+done
+
+killall -9 dhclient
+
+#Configure random as non blocking random
+mv /dev/random /dev/random-blocks
+ln -s /dev/urandom /dev/random
+
+
+
+
+
+
+
+
+
+
+I18N_windowheader="m23 client - Manual network setup"
+
+
+
+showDialog()
+{
+	echo "dialog --backtitle `echo \"'$1'\"` --title `echo \"'$2'\"` --clear --$3 `echo \"'$6'\"` $4 $5 "$8" 2> /tmp/dialog.value; exit \$?" > /tmp/dialog.cmd
+
+	sh /tmp/dialog.cmd
+
+	ret=$?
+
+	#analyse the return code only if $7 isn't set
+	if test "$7" = "disable"
+	then
+		case $ret in
+			1 | 255)
+				dialog --backtitle "$I18N_windowheader" --title "$I18N_windowheader" --clear --msgbox "$I18N_cancelinstallation" 12 41
+				exit;;
+		esac
+	fi
+
+	return $ret
+}
+
+
+
+showNetworkDialog()
+{
+	showDialog "$I18N_windowheader" "No IP obtained" msgbox 7 61 "No IP address could be obtained from the m23 DHCP server.
+
+Please hit Enter and provide the needed information."
+
+
+	# enter IP
+	showDialog "$I18N_windowheader" "IP address" inputbox 10 51 "Enter the IP of this m23 client."
+	ip=`cat /tmp/dialog.value`
+
+	# enter subnetmask
+	showDialog "$I18N_windowheader" "Network mask" inputbox 10 51 "Enter the networkmask of this m23 client." notDisabled `ipcalc -m $ip | cut -d'=' -f2`
+	submask=`cat /tmp/dialog.value`
+	ifconfig eth0 $ip netmask $submask
+
+	# enter gateway
+	showDialog "$I18N_windowheader" "Gateway IP" inputbox 10 51 "Enter the gateway IP to connect to the internet."
+	gateway=`cat /tmp/dialog.value`
+	route add -net default gw $gateway
+
+	# enter nameserver
+	showDialog "$I18N_windowheader" "Nameserver IP" inputbox 10 51 "Enter the IP of a DNS server." notDisabled "85.88.19.10"
+	nameserver=`cat /tmp/dialog.value`	
+	echo "nameserver $nameserver" > /etc/resolv.conf
+
+	# enter gateway
+	showDialog "$I18N_windowheader" "IP of the m23 server" inputbox 10 51 "Enter the IP of the m23 server."
+	server=`cat /tmp/dialog.value`
+}
+
+
+
+
+
+#Fetch the public SSH key of the m23 server and start dropbear
+startDropbear()
+{
+	mkdir -p /root/.ssh
+	chmod 700 /root/.ssh
+
+	wget -O - http://$server/packages/baseSys/authorized_keys >> /root/.ssh/authorized_keys
+
+	chmod 700 /root/.ssh/authorized_keys
+	chown root /root/.ssh/authorized_keys
+	chgrp root /root/.ssh/authorized_keys
+	
+	mkdir -p /etc/dropbear
+
+	dropbearkey -type rsa -f /etc/dropbear/dropbear_rsa_host_key
+	dropbearkey -type dss -f /etc/dropbear/dropbear_dss_host_key
+
+	cp -r /root/.ssh /
+	chmod 700 /.ssh /tmp /
+	chown root /.ssh /
+	dropbear
+}
+
+
+
+
+
+if [ $m23server ]
+then
+	server=$m23server
+
+	#Check if the hostname is a valid m23shared client ID
+	if [ `hostname | grep -c "^m23S"` -gt 0 ]
+	then
+		m23Client="?m23clientID=`hostname`"
+		echo `hostname` > /m23clientID
+	else
+		#Check if the ID of the m23 client was choosen by the m23clientID kernel parameter.
+		if [ $m23clientID ]
+		then
+			id=$m23clientID
+		else
+			repeat=true
+
+			#Repeat reading the client name until a valid name is entered
+			while $repeat
+			do
+				dialog --backtitle "m23@web" --title "Clientname" --clear --inputbox "Please enter the complete m23 client ID of this client:
+Bitte geben Sie die komplette m23-Client-Nummer dieses Rechners ein:" 10 75 m23S 2> /tmp/m23sClName
+	
+				ret=$?
+	
+				#Check if the return code of dialog is ok, the clien name begins with the keyword and has a dot.
+				if [ $ret -eq 0 ] && [ `grep -c ^m23S /tmp/m23sClName` -eq 1 ] && [ `grep -c '\.' /tmp/m23sClName` -eq 1 ]
+				then
+					repeat=false
+				fi
+			done
+
+			id=`cat /tmp/m23sClName`
+		fi
+
+		m23Client="?m23clientID=$id"
+		echo $id > /m23clientID
+	fi
+else
+	#Get the server via DHCP log
+	for i in `grep dhcp-server-identifier /var/lib/dhcp/dhclient.leases | cut -d' ' -f5 | cut -d';' -f1`
+	do
+		server=$i
+	done
+fi
+
+
+
+
+if [ -z $server ]
+then
+	showNetworkDialog
+fi
+
+
+startDropbear
+
+#Download and execute debug commands
+wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+chmod +x debug.sh
+./debug.sh
+
+#Download the first job
+wget --no-check-certificate https://$server/work.php$m23Client -O work.php
+chmod +x work.php
+
+export SCREENRC="/etc/screenrc"
+screen -mS m23install ./work.php

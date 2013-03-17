@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+# Add a setting of the .kde4 home directory if KDE 4 is installed
+cat >> /etc/skel/.profile << "profileEOF"
+
+if [ -d /etc/kde4 ]
+then
+	KDEHOME="~/.kde4"
+	export KDEHOME
+fi
+profileEOF
+
+date >> /m23-skel.log
+echo /etc/issue >> /m23-skel.log
+cat /etc/issue >> /m23-skel.log
+grep 'Linux Mint' /etc/issue >> /m23-skel.log
+grep 'Linux Mint' /etc/issue | grep Maya -c >> /m23-skel.log
+
+# Linux Mint 13 Maya
+if [ $(grep 'packages.linuxmint.com' /etc/apt/sources.list | grep -c maya) -eq 1 ]
+then
+	curDir=$(pwd)
+	echo "curDir:$curDir" >> /m23-skel.log
+	
+	cd /usr/m23/distribution-extras/LinuxMint13Maya/
+	cp -v -r -a . / >> /m23-skel.log
+	#glib-compile-schemas /usr/share/glib-2.0/schemas
+	cd "$curDir"
+fi
+
+db_stop

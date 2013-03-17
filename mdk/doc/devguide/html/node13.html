@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>clientjobs</TITLE>
+<META NAME="description" CONTENT="clientjobs">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2180"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2176"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2170"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2178"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2181"
+  HREF="node14.html">clientlogs</A>
+<B> Up:</B> <A NAME="tex2html2177"
+  HREF="node12.html">the tables</A>
+<B> Previous:</B> <A NAME="tex2html2171"
+  HREF="node12.html">the tables</A>
+ &nbsp; <B>  <A NAME="tex2html2179"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00521000000000000000">
+clientjobs</A>
+</H2>
+If you install or deinstall software on the client, this (de)install job will be saved in the clientjobs table. The new job is added with the status "waiting" and after succesful finish it will get the status "done". Every job can have serveral parameters, e.g. if you want to format a partition, the format job should know which partition to format. This infomation is stored as the parameter. And of course each job should know the name of the client it is for. To get the jobs in the correct execution order, there are two values: id and priority. Priority has to do with the type of the job, a special job like the "hardware scan" gets the priority 0 and should be executed before all other jobs. With the priority the order of execution is set, lower priorities are executed earlier. The second value "id" is the order of job creation. Jobs of the same priority will get executed in the order of creation. Remember: priority is mightier than the id value. If the priority is lower the job will be executed earlier while the id might be higher.
+
+<UL>
+<LI>id: the id of the job
+</LI>
+<LI>client: name of the client, the job is for.
+</LI>
+<LI>package: name of the package
+</LI>
+<LI>priority: the priority of the package
+</LI>
+<LI>status: status of the job: waiting, done
+</LI>
+<LI>params: the parameters for the job
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2180"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2176"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2170"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2178"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2181"
+  HREF="node14.html">clientlogs</A>
+<B> Up:</B> <A NAME="tex2html2177"
+  HREF="node12.html">the tables</A>
+<B> Previous:</B> <A NAME="tex2html2171"
+  HREF="node12.html">the tables</A>
+ &nbsp; <B>  <A NAME="tex2html2179"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-05-21
+</ADDRESS>
+</BODY>
+</HTML>

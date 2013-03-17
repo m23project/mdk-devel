@@ -1,0 +1,324 @@
+Package: m23
+Version: 0.5.9-100167
+Architecture: i386
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 6176
+Pre-Depends: debconf
+Depends: bash, php4-mysql, php4, mysql-client, mysql-common, mysql-server, apache, apache-common, squid, squidclient, tftpd-hpa, etherwake, sudo, wget, dhcp3-server, bzip2, libapache-mod-ssl, iputils-ping, dpkg-dev, libncurses5-dev, mknbi, debootstrap, putty-tools, reprepro, syslinux, php4-cli, screen, pwgen, dialog, ssh, m23-roms, m23-tftp, m23-mdk, dvd+rw-tools, mkisofs, cdrdao, cdrecord, wwwconfig-common, m23-ldap, m23-phpmyadmin, backuppc, p7zip
+Filename: ./pool/m23_0.5.9-100167_i386.deb
+Size: 1786918
+MD5sum: 4a8d65abb6e7be62c77a99ac58f62af1
+Section: base
+Priority: optional
+Description: m23 software distribution and management system
+ m23 is a software distribution and management system. With m23 you can install
+ and administrate hundreds of clients! m23 can partition and format the clients
+ and install a Debian operating system and thousands of software packages over
+ an existing network. The entire management is done with the web administration
+ interface wich can be reached from every computer that has access to the m23
+ server.
+
+Package: m23-ldap
+Version: 0.5.7-100146
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 3304
+Pre-Depends: debconf, slapd, php4-ldap, ldap-utils, php4-cli
+Depends: bash
+Filename: ./pool/m23-ldap_0.5.7-100146_all.deb
+Size: 695696
+MD5sum: a9af66e031deb148f789638f41175db5
+Section: base
+Priority: optional
+Description: LDAP support for m23
+ This packages adds LDAP support for m23 to manage accounts for your m23
+ clients.
+
+Package: m23-mdk
+Version: 0.5.9-100167
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 16
+Pre-Depends: debconf
+Depends: bash, dialog, m23-mdk-server, m23-mdk-client, m23-mdk-debs, m23-mdk-doc, m23-mdk-helper, m23-mdk-plugin, m23-mdk-screenshots, m23-mdk-update, m23-mdk-base, m23-mdk-client-server, build-essential
+Suggests: p7zip
+Filename: ./pool/m23-mdk_0.5.9-100167_all.deb
+Size: 850
+MD5sum: c96ebcffd9a76e9b0e7884355d881ce3
+Section: base
+Priority: optional
+Description: m23 development kit
+ Metapackage that installs all parts of the MDK.
+
+Package: m23-mdk-base
+Version: 0.5.9-100165
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 156
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-base_0.5.9-100165_all.deb
+Size: 20466
+MD5sum: 0b79ab5df39e5c1a7c3bfa2157aa0a53
+Section: base
+Priority: optional
+Description: m23 development kit base package
+ This package contains the basic parts of the MDK.
+
+Package: m23-mdk-client
+Version: 0.5.9-100167
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 33520
+Pre-Depends: debconf
+Depends: bash, dialog
+Conflicts: m23-mdk-bootimage
+Replaces: m23-mdk-bootimage
+Provides: m23-mdk-bootimage
+Filename: ./pool/m23-mdk-client_0.5.9-100167_all.deb
+Size: 31989914
+MD5sum: 789b11ee1282d28dd84a708effe2ebb4
+Section: base
+Priority: optional
+Description: m23 development kit - client bootimage
+ All you need to create and maintain network bootimages in
+ PXE and Etherboot format and ISO CDs for booting the
+ installation system on the clients.
+
+Package: m23-mdk-client-server
+Version: 0.5.9-100166
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 4060
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-client-server_0.5.9-100166_all.deb
+Size: 2868178
+MD5sum: d62a554e8a83e59e602102e799c6fc92
+Section: base
+Priority: optional
+Description: m23 development kit - common client and server parts
+ This package contains all parts that are common between client
+ bootimages and client boot CD and the server installation CD.
+ For example: Linux kernel, root filesystem, compiled tools.
+
+Package: m23-mdk-debs
+Version: 0.5.9-100167
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 6676
+Pre-Depends: debconf
+Depends: bash, dialog
+Suggests: m23-mdk-screenshots
+Filename: ./pool/m23-mdk-debs_0.5.9-100167_all.deb
+Size: 4756632
+MD5sum: 58f847a03d5683d6bc658ef459ae5d48
+Section: base
+Priority: optional
+Description: m23 development kit - package building
+ Tools for creating the m23 Debian packages. This includes
+ packages for installing the m23 server software and
+ additional tools that are needed on m23 clients.
+
+Package: m23-mdk-doc
+Version: 0.5.9-100162
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 51560
+Pre-Depends: debconf
+Depends: bash, dialog
+Suggests: m23-mdk-screenshots
+Filename: ./pool/m23-mdk-doc_0.5.9-100162_all.deb
+Size: 41394234
+MD5sum: cbd0e297131ca107b2214bb0302c6ddf
+Section: base
+Priority: optional
+Description: m23 development kit documentation
+ Tools for creating the m23 documentation in HTML and PDF
+ format and prebuilt HTML documentation.
+
+Package: m23-mdk-helper
+Version: 0.5.9-100167
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 15368
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-helper_0.5.9-100167_all.deb
+Size: 5200702
+MD5sum: 3bb390763c8b1fc264e4fbe6fb4efa83
+Section: base
+Priority: optional
+Description: m23 development kit - helper
+ This package contains self developped applications needed for
+ different purposes around m23.
+
+Package: m23-mdk-plugin
+Version: 0.5.5-100102
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 44
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-plugin_0.5.5-100102_all.deb
+Size: 1518
+MD5sum: 43026a7e79a9b1690e5821a68f9434b9
+Section: base
+Priority: optional
+Description: m23 development kit documentation
+ Example plugin for m23.
+
+Package: m23-mdk-screenshots
+Version: 0.5.9-100162
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 24236
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-screenshots_0.5.9-100162_all.deb
+Size: 22559868
+MD5sum: 966aa2518221d34cc76c51dd55da0201
+Section: base
+Priority: optional
+Description: m23 development kit screenshots for the manual
+ Pregenerated screenshots for building the manual. This
+ package is only needed if you don't or can't make your
+ own screenshots and want to build the m23 manual.
+
+Package: m23-mdk-server
+Version: 0.5.9-100167
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 1444
+Pre-Depends: debconf
+Depends: bash, dialog, m23
+Conflicts: m23-mdk-bootcd
+Replaces: m23-mdk-bootcd
+Provides: m23-mdk-bootcd
+Filename: ./pool/m23-mdk-server_0.5.9-100167_all.deb
+Size: 326596
+MD5sum: 72ce67270dbca0d5c3ff823d39ccf293
+Section: base
+Priority: optional
+Description: m23 development kit - Server installation CD
+ All tools needed for creating the bootable m23 server
+ installation CD.
+
+Package: m23-mdk-update
+Version: 0.5.5-100119
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 12508
+Pre-Depends: debconf
+Depends: bash, dialog
+Filename: ./pool/m23-mdk-update_0.5.5-100119_all.deb
+Size: 1431948
+MD5sum: 1a7e1b836e0549cad01603e6127c9c9d
+Section: base
+Priority: optional
+Description: m23 development kit - update
+ Tools for building updates for m23.
+
+Package: m23-phpmyadmin
+Version: 0.5.9-100162
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 10340
+Pre-Depends: debconf
+Depends: bash
+Filename: ./pool/m23-phpmyadmin_0.5.9-100162_all.deb
+Size: 2865950
+MD5sum: 9d48d9145dc42f62c753f3b9caa9067a
+Section: base
+Priority: optional
+Description: phpMyAdmin installation for m23
+ This package installs a version of phpMyAdmin. If you would like to have a
+ look into the database of m23 this is the tool of you choice.
+
+Package: m23-roms
+Version: 0.5.7-100144
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 6660
+Pre-Depends: debconf
+Depends: bash, m23
+Filename: ./pool/m23-roms_0.5.7-100144_all.deb
+Size: 2275780
+MD5sum: d2cc304c66b6bb5f0d93c43a8ab48389
+Section: base
+Priority: optional
+Description: Etherboot boot roms for m23
+ This packages contains boot ROMs for the Etherboot network boot standard.
+
+Package: m23-tftp
+Version: 0.5.8-100161
+Architecture: all
+Maintainer: Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+Installed-Size: 58848
+Pre-Depends: debconf
+Depends: bash, m23, tftpd-hpa
+Filename: ./pool/m23-tftp_0.5.8-100161_all.deb
+Size: 59630266
+MD5sum: 2557e319d0af9160ccb34c2cd07e620e
+Section: base
+Priority: optional
+Description: TFTP boot images for m23
+ This images are needed to boot the clients over network.
+
+Package: p7zip
+Version: 4.57~dfsg.1-1
+Architecture: i386
+Maintainer: Mohammed Adnène Trojette <adn+deb@diwi.org>
+Installed-Size: 896
+Depends: libc6 (>= 2.3.6-6), libgcc1 (>= 1:4.1.1-12), libstdc++6 (>= 4.1.1-12)
+Suggests: p7zip-full
+Filename: ./pool/p7zip_4.57~dfsg.1-1_i386.deb
+Size: 311878
+MD5sum: 0a36047484ca5ef421a8555785eb1a22
+Section: utils
+Priority: optional
+Description: 7zr file archiver with high compression ratio
+ p7zip is the Unix port of 7-Zip, a file archiver that archives with
+ very high compression ratios.
+ .
+ p7zip provides:
+  - /usr/bin/7zr
+    a standalone minimal version of the 7-zip tool that only handles
+    7z archives. 7z compression is 30-50% better than ZIP compression.
+  - /usr/bin/p7zip
+    a gzip like wrapper around 7zr.
+ .
+ p7zip-full provides 7z and 7za which support more compression formats.
+
+Package: p7zip-full
+Source: p7zip
+Version: 4.57~dfsg.1-1
+Architecture: i386
+Maintainer: Mohammed Adnène Trojette <adn+deb@diwi.org>
+Installed-Size: 2944
+Depends: libc6 (>= 2.3.6-6), libgcc1 (>= 1:4.1.1-12), libstdc++6 (>= 4.1.1-12)
+Suggests: p7zip-rar
+Conflicts: p7zip (<< 4.39-1)
+Replaces: p7zip (<< 4.39-1)
+Filename: ./pool/p7zip-full_4.57~dfsg.1-1_i386.deb
+Size: 1189386
+MD5sum: a0f405fd5f92208796a8dfcaf0245a93
+Section: utils
+Priority: optional
+Description: 7z and 7za file archivers with high compression ratio
+ p7zip is the Unix port of 7-Zip, a file archiver that archives with
+ very high compression ratios.
+ .
+ p7zip-full provides:
+  - /usr/bin/7za
+     a standalone version of the 7-zip tool that handles 7z archives
+     (implementation of the LZMA compression algorithm) and some other
+     formats.
+  - /usr/bin/7z
+     not only does it handle 7z but also ZIP, Zip64, CAB, RAR, ARJ,
+     GZIP, BZIP2, TAR, CPIO, RPM, ISO and DEB archives. 7z compression
+     is 30-50% better than ZIP compression.
+ .
+ p7zip provides 7zr, a light version of 7za, and p7zip a gzip like
+ wrapper around 7zr.
+

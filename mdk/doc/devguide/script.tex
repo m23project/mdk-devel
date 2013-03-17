@@ -1,0 +1,26 @@
+\section{script}
+\subsection{Getting necessary file}
+Get the newest version of \textbf{util-linux} from:
+\begin{verbatim}
+http://www.kernel.org/pub/linux/utils/util-linux/
+\end{verbatim}
+
+\subsection{Building}
+Extract it in the UWoody system.
+
+\begin{verbatim}
+export LDFLAGS="-static"
+export CFLAGS="-static"
+
+./configure
+\end{verbatim}
+
+Edit the file config.h and remove the line \textbf{\#define HAVE\_openpty}.
+
+\begin{verbatim}
+cd misc-utils
+
+make
+\end{verbatim}
+
+Now you should have a static linked script tool.

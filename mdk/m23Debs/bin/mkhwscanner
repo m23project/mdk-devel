@@ -1,0 +1,111 @@
+#!/bin/sh
+
+#downloads needed amd64 libraries, sets the cross compiler flag or installs the cross compiler
+preparem23hwscanner64Build()
+{
+	mkdir /tmp/x64
+	cd /tmp/x64
+	
+	. /mdk/bin/archFunctions.inc
+	checkForx86_64Toolchain
+	
+	export overwriteArch=amd64
+
+	echo "deb http://ftp.de.debian.org/debian/ etch main non-free contrib
+deb http://dodger-tools.sourceforge.net/debs ./
+	" > ./sources.list
+	
+	localArchAptUpdate
+
+	localArchAptDownload parted uuid-dev
+
+	unset overwriteArch
+
+	mkdir extracted
+	for deb in archivs/*uuid-dev*.deb archivs/libparted*dev*.deb
+	do
+		dpkg-deb -X $deb extracted
+	done
+	
+	#remove all links: they are linked to the locally installed 32 libraries 
+	find extracted -type l | xargs rm
+}
+
+
+
+
+
+#build the 64bit m23hwscanner statically and dynamically
+buildm23hwscanner64()
+{
+	packageName=$1
+	static=$2
+
+	LD_LIBRARY_PATH=/tmp/x64/extracted/usr/lib/
+	strace x86_64-unknown-linux-gnu-gcc /mdk/m23helper/m23hwscanner/src/m23hwscanner.c $static -lparted -ldl -luuid -g0 -L /tmp/x64/extracted/usr/lib/ -I /tmp/x64/extracted/usr/include/ -o /mdk/m23Debs/$packageName/debian/bin/m23hwscanner 2> /tmp/str
+	strip -s /mdk/m23Debs/$packageName/debian/bin/m23hwscanner
+	/mdk/m23Debs/bin/mkDeb $packageName 1 amd64
+}
+
+
+
+
+
+#build the 32bit m23hwscanner statically and dynamically
+buildm23hwscanner32()
+{
+	packageName=$1
+	static=$2
+
+	gcc /mdk/m23helper/m23hwscanner/src/m23hwscanner.c $static -lparted -ldl -luuid -lglib -g0 -o /mdk/m23Debs/$packageName/debian/bin/m23hwscanner
+	strip -s /mdk/m23Debs/$packageName/debian/bin/m23hwscanner
+	/mdk/m23Debs/bin/mkDeb $packageName 0 i386
+}
+
+
+#build the 32bit m23hwscanner statically and dynamically with all as architecture
+buildm23hwscannerAll()
+{
+	packageName=$1
+	static=$2
+
+	ext4partedAdd="-ldevmapper -lselinux -lsepol"
+
+	gcc /mdk/m23helper/m23hwscanner/src/m23hwscanner.c $static -lparted -ldl -luuid -lglib $ext4partedAdd -g0 -o /mdk/m23Debs/$packageName/debian/bin/m23hwscanner
+	strip -s /mdk/m23Debs/$packageName/debian/bin/m23hwscanner
+	/mdk/m23Debs/bin/mkDeb $packageName 1 all
+}
+
+
+rm /mdk/m23Debs/debs/m23-debconf-woody*.deb /mdk/m23Debs/debsamd64/m23-debconf-woody*.deb 2> /dev/null
+/mdk/m23Debs/bin/mkDeb m23-debconf-woody 1
+
+#build m23 initscripts
+rm /mdk/m23Debs/debs/m23-initscripts*.deb /mdk/m23Debs/debsamd64/m23-initscripts*.deb 2> /dev/null
+/mdk/m23Debs/bin/mkDeb m23-initscripts 1 all
+
+#build m23hwscanner
+#preparem23hwscanner64Build
+
+rm /mdk/m23Debs/debs/m23hwscanner*.deb /mdk/m23Debs/debsamd64/m23hwscanner*.deb 2> /dev/null
+
+	#build 32 bit version
+		buildm23hwscannerAll m23-hwscanner -static
+#		buildm23hwscanner32 m23-hwscanner -static
+
+	#build 64 bit version
+#		buildm23hwscanner64 m23-hwscanner -static
+
+#build m23hwscanner-ubuntu
+	#build 32 bit version
+		buildm23hwscannerAll m23-hwscanner-ubuntu -static -ubuntu
+		#buildm23hwscanner32 m23-hwscanner-ubuntu "" -ubuntu
+
+	#build 64 bit version
+		#buildm23hwscanner64 m23-hwscanner-ubuntu "" -ubuntu
+
+#rm -r /tmp/x64
+
+#extra extra Debian package with m23 theme for ksplash (only activate if the files have changed)
+#/mdk/m23Debs/bin/mkDeb m23-ksplash 1 all
+#/mdk/m23Debs/bin/mkDeb m23-skel 1 all

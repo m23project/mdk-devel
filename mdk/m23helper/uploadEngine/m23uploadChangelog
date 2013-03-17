@@ -1,0 +1,21 @@
+#!/bin/sh
+
+awk 'BEGIN {
+cnt=0
+}
+
+{
+
+if (match($0,"++++") > 0)
+		cnt++
+
+if (cnt == 5)
+	exit;
+
+print($0);
+
+}' /m23/doc/changelog > /m23/doc/changelogNew
+
+cp /m23/doc/changelog /m23/doc/changelogComplete
+
+scp -C /m23/doc/changelogComplete /m23/doc/changelogNew hhabermann@shell.sf.net:/home/groups/m/m2/m23/htdocs/docs/

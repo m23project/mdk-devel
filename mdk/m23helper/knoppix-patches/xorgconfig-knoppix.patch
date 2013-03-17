@@ -1,0 +1,12 @@
+--- mkxorgconfig.sh	2007-11-07 11:49:51.000000000 +0100
++++ /matrix23/arbeit/mkxorgconfig.sh	2007-11-07 11:49:54.000000000 +0100
+@@ -381,7 +381,8 @@
+ fi
+ 
+ # PS/2 bug: Some keyboards are incorrectly used as mice in XFree/Xorg. :-(
+-PSMOUSE="$(ls -l1 /dev/mouse* 2>/dev/null | awk '/psaux/{print $NF ; exit 0}')"
++[ -f /etc/sysconfig/mouse ] && . /etc/sysconfig/mouse
++PSMOUSE="$(ls -l1 /dev/mouse* 2>/dev/null | awk '/psaux/{print $NF ; exit 0}' && echo $XMOUSETYPE | awk '/PS\/2/{print $NF ; exit 0}')"
+ if [ -n "$PSMOUSE" ]; then
+ PSMOUSE=""
+ else

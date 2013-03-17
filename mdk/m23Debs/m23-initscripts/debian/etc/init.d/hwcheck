@@ -1,0 +1,300 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          hwcheck
+# Required-Start:    $local_fs udev
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:
+# X-Interactive:     true
+# Short-Description: Checks for new hardware.
+### END INIT INFO
+
+# /KNOPPIX/etc/init.d/knoppix-autoconfig
+# Basic system configuration and hardware setup
+# (C) Klaus Knopper <knopper@knopper.net> 2004
+# with changes from Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+
+if [ $# -gt 0 ] && [ $1 = "stop" ]
+then
+	exit 0
+fi
+
+PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin"
+export PATH
+
+umask 022
+
+
+enableDMA()
+{
+	for dev in `ls /proc/ide/ 2> /dev/null| grep hd` 
+	do
+		if hdparm -i /dev/$dev | grep mdma1 > /dev/null;
+		then
+			echo activating DMA for $dev
+			hdparm -d1 /dev/$dev > /dev/null
+			hdparm -c1 /dev/$dev > /dev/null
+		fi
+	done
+}
+
+# Ignore these signals: INT, TERM, SEGV
+trap "" 2 3 11
+
+# ANSI COLORS
+CRE="
+[K"
+NORMAL="[0;39m"
+# RED: Failure or error message
+RED="[1;31m"
+# GREEN: Success message
+GREEN="[1;32m"
+# YELLOW: Descriptions
+YELLOW="[1;33m"
+# BLUE: System messages
+BLUE="[1;34m"
+# MAGENTA: Found devices or drivers
+MAGENTA="[1;35m"
+# CYAN: Questions
+CYAN="[1;36m"
+# BOLD WHITE: Hint
+WHITE="[1;37m"
+
+KERNEL="$(uname -r)"
+
+### Utility Function(s)
+
+# Simple shell grep
+stringinfile(){
+case "$(cat $2)" in *$1*) return 0;; esac
+return 1
+}
+
+
+# Reinit USB devices that could not be started from linuxrc
+# Adopted from /etc/hotplug/usb.rc with some changes.
+# Calling /etc/hotplug/usb.rc directly can result in crashes due
+# to quite cautiousless module probing there. -KK
+usbreinit(){
+LISTER=/usr/sbin/usbmodules
+test -x $LISTER || LISTER="$(type -p usbmodules 2>/dev/null)"
+[ -z "$LISTER" -o ! -f /proc/bus/usb/devices ] && return 1
+# make sure the usb agent will run
+ACTION="add" ; PRODUCT="0/0/0" ; DEVFS="/proc/bus/usb" ; DEVICE= ; DEVPATH=
+export ACTION PRODUCT DEVFS DEVICE DEVPATH
+echo -n "sync:["
+if [ -d /sys/bus/usb/devices ]
+	then
+		# Kernel 2.6
+		for device in /sys/bus/usb/devices/*
+		do
+			DEVPATH="${device#/sys/}"
+			echo -n "${DEVPATH##*/}" " "; /etc/hotplug/usb.agent >/dev/null 2>&1
+		done
+	else
+		# Kernel 2.4
+ 		for DEVICE in /proc/bus/usb/*/*
+		do
+			echo -n ${DEVICE##*/} " "; /etc/hotplug/usb.agent >/dev/null 2>&1
+		done
+fi
+echo -n "] "
+return 0
+}
+### EOF utility functions
+
+# We need /proc here, so mount it in case we skipped the bootfloppy
+[ -f /proc/version ] || mount -t proc /proc /proc 2>/dev/null
+stringinfile "/dev/pts" /proc/mounts || mount -t devpts /dev/pts /dev/pts 2>/dev/null
+# Kernel 2.6
+[ -d /sys/devices ] || mount -t sysfs /sys /sys 2>/dev/null
+
+# / must be read-write in any case, starting from here
+mount -o remount,rw / 2>/dev/null
+
+update_progress()
+{
+	# be sure we are non-blocking
+	(echo "$1" > /etc/sysconfig/progress) &
+}
+
+
+# Delete obsolete links and files before starting autoconfig
+rm -f /dev/cdrom* /dev/cdwriter* /dev/mouse* /dev/modem* /dev/scanner* \
+      /etc/sysconfig/knoppix \
+      2>/dev/null
+
+
+# No kernel messages while probing modules
+echo "0" > /proc/sys/kernel/printk
+
+# Check for IDE-SCSI capable CD-Rom(s) first
+# WARNING: In Kernel 2.4.27, CD-Roms cease to work if both, ide-scsi and ide-cd, are loaded. :-(
+modprobe ide-cd >/dev/null 2>&1
+modprobe ide-scsi >/dev/null 2>&1
+
+# Bring up loopback interface now
+ifconfig lo 127.0.0.1 up
+
+# Print CPU info
+echo -n "${GREEN}"
+awk -F: '/^processor/{printf " Processor"$2" is "};/^model name/{printf $2};/^vendor_id/{printf vendor};/^cpu MHz/{printf " %dMHz",int($2)};/^cache size/{printf ","$2" Cache"};/^$/{print ""}' /proc/cpuinfo 2>/dev/null
+echo -n "${NORMAL}"
+
+# KNOPPIX autoconfig
+
+update_progress 20
+
+# HOTPLUG stuff
+# We should always set this, anyways (/sbin/hotplug-knoppix)
+echo "/usr/sbin/usbmgr" > /proc/sys/kernel/hotplug
+
+if [ -d /proc/acpi ]
+then
+	echo -n " ${GREEN}ACPI Bios found, activating modules:"
+	found=""
+	for a in /lib/modules/$KERNEL/kernel/drivers/acpi/*
+	do
+		basename="${a##*/}"
+		basename="${basename%%.*}"
+		case "$basename" in *_acpi)
+			egrep -qi "${basename%%_acpi}" /proc/acpi/dsdt 2>/dev/null || continue ;;
+		esac
+		modprobe $basename >/dev/null 2>&1 && echo -n " ${YELLOW}$basename${GREEN}" && found="yes"
+	done
+	
+	test -z "$found" && echo -n "${BLUE}(none)"
+	echo "${NORMAL}"
+else
+# APM
+	modprobe apm power_off=1 >/dev/null 2>&1 && test -x /etc/init.d/apmd && /etc/init.d/apmd start && echo " ${GREEN}APM Bios found, power management functions enabled.${NORMAL}"
+fi
+
+
+# First: PCMCIA Check/Setup
+# This needs to be done before other modules are being loaded by hwsetup
+
+modprobe pcmcia_core >/dev/null 2>&1
+# Try Cardbus or normal PCMCIA socket drivers
+modprobe yenta_socket >/dev/null 2>&1 || modprobe i82365 >/dev/null 2>&1 || modprobe tcic >/dev/null 2>&1
+if [ "$?" = "0" ]; then
+echo " ${GREEN}PCMCIA found, starting cardmgr.${NORMAL}"
+modprobe ds >/dev/null 2>&1
+cardmgr >/dev/null 2>&1 && sleep 4
+fi
+
+
+# USB enable
+# USB/Mouse Check/Setup
+# This needs to be done before other modules are being loaded by hwsetup
+modprobe usbcore >/dev/null 2>&1
+# We now try to load both USB modules, in case someone has 2 different
+# controllers
+FOUNDUSB=""
+USBREINIT="yes"
+USBMODULES="usb-uhci usb-ohci"
+case "$KERNEL" in 2.6.*) USBMODULES="uhci_hcd ohci_hcd";; esac
+for u in $USBMODULES; do 
+	if stringinfile "$u" /proc/modules; then
+		FOUNDUSB="yes"
+	elif modprobe "$u" >/dev/null 2>&1; then
+		FOUNDUSB="yes"
+		USBREINIT=""
+	fi
+done
+
+if [ -n "$FOUNDUSB" ]; then
+	echo -n " ${GREEN}USB found, managed by ${MAGENTA}hotplug${GREEN}"
+# We have to do this here, because /proc/bus/usb does not seem to exist before
+# the lowlevel controller module(s) are loaded.
+	mount -o devmode=0666 -t usbdevfs /proc/bus/usb /proc/bus/usb >/dev/null 2>&1
+
+	if [ -n "$USBREINIT" ]; then
+		echo -n ": ${YELLOW}(Re-)scanning USB devices... "; usbreinit
+		echo -n "Done."
+	else
+		echo -n "."
+	fi
+
+	echo "${NORMAL}"
+else
+	# For an unknown reason, unloading the usbcore module seems to hang sometimes.
+	# umount /proc/bus/usb >/dev/null 2>&1
+	# rmmod usbcore 2>/dev/null
+	true
+fi
+
+
+# Firewire enable
+
+# We now try to load the firewire module
+modprobe ieee1394 >/dev/null 2>&1
+FOUNDFIREWIRE=""
+FIREWIREREINIT="yes"
+if stringinfile ohci1394 /proc/modules; then
+	FOUNDFIREWIRE="yes"
+	FIREWIREREINIT="yes"
+elif modprobe ohci1394 >/dev/null 2>&1; then
+	FOUNDFIREWIRE="yes"
+	FIREWIREREINIT=""
+fi
+
+
+update_progress 40
+# Second: Search & configure supported hardware
+# Check for options relevant to hwsetup
+  echo "${BLUE}Loading hardware profile from ${MAGENTA}/etc/modules${BLUE}.${NORMAL}"
+  /etc/init.d/modutils start >/dev/null 2>/dev/null
+
+#has to be loaded before hwsetup, to make PS/2 mouse detection possible
+modprobe mousedev
+
+hwsetup -p
+
+# Read in what hwsetup has found
+[ -f /etc/sysconfig/knoppix ] && . /etc/sysconfig/knoppix
+
+# Mouse
+if [ -n "$MOUSE_DEVICE" ]
+then
+echo " ${GREEN}Mouse is ${YELLOW}${MOUSE_FULLNAME}${GREEN} at ${MAGENTA}${MOUSE_DEVICE}${NORMAL}"
+fi
+
+# Soundcard
+if [ -n "$SOUND_FULLNAME" -o -n "$SOUND_DRIVER" -o -n "$USE_ALSA" ]
+then
+	# Setting micro input to zero to avoid subsonic disaster
+	# if using alsa, this leads to error-messages
+	[ -z "$USE_ALSA" ] && ( exec aumix -m 0 >/dev/null 2>&1 & )
+	SOUNDCARD="$SOUND_DRIVER"
+	[ -n "$USE_ALSA" ] && SOUNDCARD="ALSA(${ALSA_CARD})"
+	echo -n " ${GREEN}Soundcard:"
+	[ -n "$SOUND_FULLNAME" ] && echo -n " ${YELLOW}$SOUND_FULLNAME${GREEN}"
+	[ -n "$SOUNDCARD" ] && echo -n " driver=${MAGENTA}$SOUNDCARD"
+	echo "${NORMAL}"
+fi
+
+# Probe for AGP. Hope this can fail safely
+stringinfile "AGP" "/proc/pci" 2>/dev/null && { modprobe agpgart || modprobe agpgart agp_try_unsupported=1; } >/dev/null 2>&1 && echo " ${YELLOW}AGP bridge${GREEN} detected."
+
+# Read in changes
+[ -f /etc/sysconfig/knoppix ] && . /etc/sysconfig/knoppix
+
+if [ -n "$USE_ALSA" -a -x /etc/init.d/alsa-autoconfig ]
+then
+  [ -n "$SOUND_DRIVER" ] && rmmod -r "$SOUND_DRIVER" >/dev/null 2>&1
+  # Export ALSA_CARD cariable to init script
+  case "$ALSA_CARD" in auto*) ALSA_CARD="";; esac
+  ALSA_CARD="$ALSA_CARD" /etc/init.d/alsa-autoconfig
+  # Something went wrong ?
+  [ ! -r /etc/modules.conf ] && ln -sf /KNOPPIX/etc/modules.conf /etc/modules.conf
+fi
+
+echo "6" > /proc/sys/kernel/printk
+
+# Re-enable signals
+trap 2 3 11
+
+enableDMA
+
+exit 0

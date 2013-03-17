@@ -1,0 +1,36 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          printconf
+# Required-Start:    $local_fs udev
+# Required-Stop:     $local_fs udev
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Scans for attacted printers
+### END INIT INFO
+
+if [ $1 = "stop" ] || [ `whereis printconf | wc -w` -lt 2 ]
+then
+	exit 0
+fi
+
+mkdir -p /etc/sysconfig2
+
+echo -n "Printer detection..."
+
+#write found printers to file
+printconf -n -v | grep "u'id':" | cut -d"'" -f4 > /etc/sysconfig2/printer 2> /dev/null
+
+echo " done"
+
+echo "Found:"
+cat /etc/sysconfig2/printer
+
+#check how many attached printers are new or removed
+pdiff=`diff /etc/sysconfig/printer /etc/sysconfig2/printer | wc -l`
+
+if test $pdiff -gt 0 || ! test -f /etc/sysconfig/printer
+then
+	printconf -v | grep "u'id':" | cut -d"'" -f4 > /etc/sysconfig/printer 2> /dev/null
+fi
+
+exit 0
