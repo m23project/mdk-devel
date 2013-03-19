@@ -1,15 +1,17 @@
 #!/bin/bash
 
-waitfory()
+
+#name waitforhttp
+#description Waits for at least 15 HTTP connections.
+#returns Returns when 15 or more HTTP connections are open.
+waitforhttp()
 {
 	while true
 	do
-		key=$(cat | head -1)
-		if [ $key = 'y' ]
+		if [ $(ps -A | grep httpd -c) -gt 14 ]
 		then
-			exit ;
+			return ;
 		else
-			echo "#$key#"
 			sleep 1
 		fi
 	done
@@ -697,7 +699,8 @@ LAMPprepare()
 	echo "Start the LAMP test from another system with:"
 	echo "siege https://$serverIP/xampp/LAMPLoadTest.php -l/tmp/siege.log"
 	echo "Then continue this script with pressing y+Enter"
-	waitfory
+
+	waitforhttp
 }
 
 

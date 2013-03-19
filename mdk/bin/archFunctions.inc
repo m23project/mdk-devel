@@ -114,6 +114,10 @@ checkForx86_64Toolchain()
 				wget -T 10 -c http://downloads.sourceforge.net/m23/binutils-x86-64-linux-gnu_2.17-3_i386.deb -O /tmp/binutils-amd.deb
 				dpkg -i /tmp/binutils-amd.deb
 
+				#Create needed links
+				mkdir -p /usr/x86_64-unknown-linux-gnu/lib/gcc/x86_64-unknown-linux-gnu/4.1.1/
+				ln -s /usr/x86_64-unknown-linux-gnu/x86_64-unknown-linux-gnu/sys-root/usr/lib64/crt* /usr/x86_64-unknown-linux-gnu/lib/gcc/x86_64-unknown-linux-gnu/4.1.1/
+
 				export PATH=$PATH:/usr/x86_64-unknown-linux-gnu/bin/
 			else
 				exit
