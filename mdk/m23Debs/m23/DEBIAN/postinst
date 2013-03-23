@@ -718,6 +718,10 @@ dhcpdBackup=$(date +'/m23/dhcp/dhcpd.conf.%Y-%m-%d_%H-%M.bak')
 cp /m23/dhcp/dhcpd.conf $dhcpdBackup
 sed -i -e 's/^ subnet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]* netmask [0-9]*\.[0-9]*\.[0-9]*\.0 { //g' -e 's/; } option/; option/g' -e 's/}}$/}/g' -e 's/^ host/host/g' /m23/dhcp/dhcpd.conf
 
+#Add new table for storing the PHP objects
+updateSQLIfOlder $oldversionint 131100629 "CREATE TABLE m23.PHPObjectStorage ( id BIGINT NOT NULL AUTO_INCREMENT , ident VARCHAR( 255 ) NOT NULL , class VARCHAR( 255 ) NOT NULL , object LONGTEXT NOT NULL , PRIMARY KEY ( id ), UNIQUE KEY client (ident,class) ) ENGINE = MYISAM ;"
+
+
 ######################
 # DB adjustments END #
 ######################
