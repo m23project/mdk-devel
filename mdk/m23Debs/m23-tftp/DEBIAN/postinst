@@ -14,6 +14,12 @@ then
 		chown root.root /etc/inetd.conf
 		chmod 644 /etc/inetd.conf
 	fi
+
+	#Add IPv4 mode on Raspberry Pi
+	if [ `uname -m` = armv6l ]
+	then
+		add4=' -4'
+	fi
 	
 	echo '#Defaults for tftpd-hpa
 RUN_DAEMON="yes"
@@ -36,7 +42,7 @@ OPTIONS="-l -s /m23/tftp"
 	#For Debian Squeeze
 	if [ -f /etc/default/tftpd-hpa ]
 	then
-		echo 'TFTP_OPTIONS="--verbose --verbose --secure"
+		echo 'TFTP_OPTIONS="--verbose --verbose --secure'$add4'"
 TFTP_USERNAME="tftp"
 TFTP_DIRECTORY="/m23/tftp"
 TFTP_ADDRESS="0.0.0.0:69"' > /etc/default/tftpd-hpa

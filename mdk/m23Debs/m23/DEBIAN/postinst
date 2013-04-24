@@ -721,6 +721,8 @@ sed -i -e 's/^ subnet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]* netmask [0-9]*\.[0-9]*\.[0-
 #Add new table for storing the PHP objects
 updateSQLIfOlder $oldversionint 131100629 "CREATE TABLE m23.PHPObjectStorage ( id BIGINT NOT NULL AUTO_INCREMENT , ident VARCHAR( 255 ) NOT NULL , class VARCHAR( 255 ) NOT NULL , object LONGTEXT NOT NULL, last_modified int(10) NOT NULL, PRIMARY KEY ( id ), UNIQUE KEY client (ident,class) ) ENGINE = MYISAM ;"
 
+#Add a new table for storing the admin credentials
+updateSQLIfOlder $oldversionint 131100637 "CREATE TABLE m23Admins ( ID int(10) unsigned NOT NULL AUTO_INCREMENT, name varchar(40) NOT NULL, pwhash varchar(255) NOT NULL, options longtext NOT NULL, salt varchar(16) NOT NULL, PRIMARY KEY (ID) ) ENGINE=MyISAM COMMENT='List of all m23 admins with password hashes and options';"
 
 ######################
 # DB adjustments END #
