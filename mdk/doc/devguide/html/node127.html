@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Getting necessary file</TITLE>
-<META NAME="description" CONTENT="Getting necessary file">
+<TITLE>For old screen 4.0.2</TITLE>
+<META NAME="description" CONTENT="For old screen 4.0.2">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node128.html">
 <LINK REL="previous" HREF="node126.html">
-<LINK REL="up" HREF="node126.html">
+<LINK REL="up" HREF="node125.html">
 <LINK REL="next" HREF="node128.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3708"
+<A NAME="tex2html3799"
   HREF="node128.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3704"
-  HREF="node126.html">
+<A NAME="tex2html3795"
+  HREF="node125.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3698"
+<A NAME="tex2html3791"
   HREF="node126.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3706"
+<A NAME="tex2html3797"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3709"
+<B> Next:</B> <A NAME="tex2html3800"
   HREF="node128.html">Building</A>
-<B> Up:</B> <A NAME="tex2html3705"
-  HREF="node126.html">script</A>
-<B> Previous:</B> <A NAME="tex2html3699"
-  HREF="node126.html">script</A>
- &nbsp; <B>  <A NAME="tex2html3707"
+<B> Up:</B> <A NAME="tex2html3796"
+  HREF="node125.html">Patching</A>
+<B> Previous:</B> <A NAME="tex2html3792"
+  HREF="node126.html">screen 4.0.3</A>
+ &nbsp; <B>  <A NAME="tex2html3798"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00771000000000000000">
-Getting necessary file</A>
-</H2>
-Get the newest version of <SPAN  CLASS="textbf">util-linux</SPAN> from:
+<H3><A NAME="SECTION00762200000000000000">
+For old screen 4.0.2</A>
+</H3>
 <PRE>
-http://www.kernel.org/pub/linux/utils/util-linux/
+diff -r screen-4.0.2/screen.c screen-4.0.2.npatch/screen.c
+857c857,858
+&lt;   if (ppp == 0)
+---
+&gt;
+&gt;   /*if (ppp == 0)
+865,866c866,867
+&lt;     }
+&lt;   LoginName = SaveStr(LoginName);
+---
+&gt;     }*/
+&gt;   LoginName = SaveStr("root");
 </PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

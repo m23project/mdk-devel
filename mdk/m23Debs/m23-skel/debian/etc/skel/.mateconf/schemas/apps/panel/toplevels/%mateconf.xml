@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="y_centered" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Center panel on y-axis">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If true, the y and y_bottom keys are ignored and the panel is placed at
+          the center of the y-axis of the screen. If the panel is
+          resized it will remain at that position - i.e. the panel
+          will grow on both sides. If false, the y and y_bottom keys specify
+          the location of the panel.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="y_bottom" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Y co-ordinate of panel, starting from the bottom of the screen">
+			<default type="int" value="-1"/>
+			<longdesc>
+          The location of the panel along the y-axis, starting from the bottom of 
+	  the screen. If set to -1, the value is ignored and the value of the y
+	  key is used. If the value is greater than 0, then the value of the y
+	  key is ignored.
+	  This key is only relevant in un-expanded mode. In expanded mode this
+          key is ignored and the panel is placed at the screen edge
+          specified by the orientation key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="y" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Y co-ordinate of panel">
+			<default type="int" value="0"/>
+			<longdesc>
+          The location of the panel along the y-axis. This key is
+          only relevant in un-expanded mode. In expanded mode this
+          key is ignored and the panel is placed at the screen edge
+          specified by the orientation key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="x_right" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="X co-ordinate of panel, starting from the right of the screen">
+			<default type="int" value="-1"/>
+			<longdesc>
+          The location of the panel along the x-axis, starting from the right of 
+	  the screen. If set to -1, the value is ignored and the value of the x
+	  key is used. If the value is greater than 0, then the value of the x
+	  key is ignored.
+	  This key is only relevant in un-expanded mode. In expanded mode this
+          key is ignored and the panel is placed at the screen edge
+          specified by the orientation key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="x_centered" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Center panel on x-axis">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If true, the x and x_right keys are ignored and the panel is placed at
+          the center of the x-axis of the screen. If the panel is
+          resized it will remain at that position - i.e. the panel
+          will grow on both sides. If false, the x and x_right keys specify
+          the location of the panel.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="x" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="X co-ordinate of panel">
+			<default type="int" value="0"/>
+			<longdesc>
+          The location of the panel along the x-axis. This key is
+          only relevant in un-expanded mode. In expanded mode this
+          key is ignored and the panel is placed at the screen edge
+          specified by the orientation key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="unhide_delay" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Panel autounhide delay">
+			<default type="int" value="100"/>
+			<longdesc>
+          Specifies the number of milliseconds delay after the pointer
+          enters the panel area before the panel is automatically
+          re-shown. This key is only relevant if the auto_hide key is
+          true.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="size" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Panel size">
+			<default type="int" value="24"/>
+			<longdesc>
+          The height (width for a vertical panel) of the panel. The
+          panel will determine at runtime a minimum size based on
+          the font size and other indicators. The maximum size is
+          fixed at one quarter of the screen height (or width).
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="screen" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="X screen where the panel is displayed">
+			<default type="int" value="0"/>
+			<longdesc>
+          With a multi-screen setup, you may have panels on each
+          individual screen. This key identifies the current screen
+          the panel is displayed on.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="orientation" mtime="1367786905" type="schema" stype="string" owner="panel">
+		<local_schema locale="C" short_desc="Panel orientation">
+			<default type="string">
+				<stringvalue>top</stringvalue>
+			</default>
+			<longdesc>
+          The orientation of the panel. Possible values are &quot;top&quot;,
+	  &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;. In expanded mode the key
+          specifies which screen edge the panel is on. In un-expanded
+          mode the difference between &quot;top&quot; and &quot;bottom&quot; is less
+          important - both indicate that this is a horizontal panel -
+          but still give a useful hint as to how some panel objects
+          should behave. For example, on a &quot;top&quot; panel a menu button
+          will pop up its menu below the panel, whereas on a &quot;bottom&quot;
+          panel the menu will be popped up above the panel.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="name" mtime="1367786905" type="schema" stype="string" owner="panel">
+		<local_schema locale="C" short_desc="Name to identify panel">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+          This is a human readable name which you can use to identify
+          a panel. Its main purpose is to serve as the panel&apos;s window
+          title which is useful when navigating between panels.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="monitor" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Xinerama monitor where the panel is displayed">
+			<default type="int" value="0"/>
+			<longdesc>
+          In a Xinerama setup, you may have panels on each individual
+          monitor. This key identifies the current monitor the panel
+          is displayed on.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="hide_delay" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Panel autohide delay">
+			<default type="int" value="300"/>
+			<longdesc>
+          Specifies the number of milliseconds delay after the pointer
+          leaves the panel area before the panel is automatically hidden.
+          This key is only relevant if the auto_hide key is true.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="expand" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Expand to occupy entire screen width">
+			<default type="bool" value="true"/>
+			<longdesc>
+          If true, the panel will occupy the entire screen width
+          (height if this is a vertical panel). In this mode the panel
+          can only be placed at a screen edge. If false, the panel
+          will only be large enough to accommodate the applets,
+          launchers and buttons on the panel.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_buttons" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Enable hide buttons">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If true, buttons will be placed on each side of the panel
+          which may be used to move the panel to edge of the screen,
+          leaving only a button showing.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_arrows" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Enable arrows on hide buttons">
+			<default type="bool" value="true"/>
+			<longdesc>
+          If true, arrows will be placed on the hide buttons. This
+          key is only relevant if the enable_buttons key is true.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_animations" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Enable animations">
+			<default type="bool" value="true"/>
+			<longdesc>
+          If true, hiding and un-hiding of this panel will be animated
+          rather than happening instantly.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="auto_hide_size" mtime="1367786905" type="schema" stype="int" owner="panel">
+		<local_schema locale="C" short_desc="Visible pixels when hidden">
+			<default type="int" value="1"/>
+			<longdesc>
+          Specifies the number of pixels visible when the panel is
+          automatically hidden into a corner. This key is only
+          relevant if the auto_hide key is true.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="auto_hide" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Automatically hide panel into corner">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If true, the panel is automatically hidden into a corner
+          of the screen when the pointer leaves the panel area. Moving the
+          pointer to that corner again will cause the panel to re-appear.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="animation_speed" mtime="1367786905" type="schema" stype="string" owner="panel">
+		<local_schema locale="C" short_desc="Animation speed">
+			<default type="string">
+				<stringvalue>fast</stringvalue>
+			</default>
+			<longdesc>
+          The speed in which panel animations should occur. Possible
+          values are &quot;slow&quot;, &quot;medium&quot; and &quot;fast&quot;. This key is only
+          relevant if the enable_animations key is true.
+        </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

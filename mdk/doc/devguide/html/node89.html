@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>xxx.begin</TITLE>
-<META NAME="description" CONTENT="xxx.begin">
+<TITLE>Making the bootimage</TITLE>
+<META NAME="description" CONTENT="Making the bootimage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node90.html">
 <LINK REL="previous" HREF="node88.html">
-<LINK REL="up" HREF="node88.html">
+<LINK REL="up" HREF="node87.html">
 <LINK REL="next" HREF="node90.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3215"
+<A NAME="tex2html3299"
   HREF="node90.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3211"
-  HREF="node88.html">
+<A NAME="tex2html3295"
+  HREF="node87.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3205"
+<A NAME="tex2html3291"
   HREF="node88.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3213"
+<A NAME="tex2html3297"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3216"
-  HREF="node90.html">xxx.end</A>
-<B> Up:</B> <A NAME="tex2html3212"
-  HREF="node88.html">The files</A>
-<B> Previous:</B> <A NAME="tex2html3206"
-  HREF="node88.html">The files</A>
- &nbsp; <B>  <A NAME="tex2html3214"
+<B> Next:</B> <A NAME="tex2html3300"
+  HREF="node90.html">How to create the</A>
+<B> Up:</B> <A NAME="tex2html3296"
+  HREF="node87.html">How to generate an</A>
+<B> Previous:</B> <A NAME="tex2html3292"
+  HREF="node88.html">exchange epic100.c with the</A>
+ &nbsp; <B>  <A NAME="tex2html3298"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00681100000000000000">
-xxx.begin</A>
-</H3>
-This is only an example, don't assume it will work.
-<PRE>
-wget http://m23.sf.net/newdata.tb2
-tar xfvj newdata.tb2
+<H2><A NAME="SECTION00682000000000000000">
+Making the bootimage</A>
+</H2>
+You should find the epic100.rom file in the <SPAN  CLASS="textbf">src/bin32</SPAN>. With the help of the <SPAN  CLASS="textit">mknbi-rom</SPAN> program you can convert this from file to an Etherboot bootimage. To convert and save the bootimage as new "harddisk boot image" for m23 execute the following command:
+<BR><PRE>
+mknbi-rom epic100.rom &gt; /m23/tftp/hdboot
 </PRE>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

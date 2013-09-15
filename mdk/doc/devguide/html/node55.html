@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Protocols for downloading files</TITLE>
-<META NAME="description" CONTENT="Protocols for downloading files">
+<TITLE>deinstall.sh</TITLE>
+<META NAME="description" CONTENT="deinstall.sh">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,48 +20,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node54.html">
-<LINK REL="up" HREF="node53.html">
+<LINK REL="up" HREF="node54.html">
 <LINK REL="next" HREF="node56.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2785"
+<A NAME="tex2html2876"
   HREF="node56.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2781"
-  HREF="node53.html">
+<A NAME="tex2html2872"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2777"
+<A NAME="tex2html2868"
   HREF="node54.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2783"
+<A NAME="tex2html2874"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2786"
-  HREF="node56.html">Hints</A>
-<B> Up:</B> <A NAME="tex2html2782"
-  HREF="node53.html">Update information files</A>
-<B> Previous:</B> <A NAME="tex2html2778"
-  HREF="node54.html">How does an information</A>
- &nbsp; <B>  <A NAME="tex2html2784"
+<B> Next:</B> <A NAME="tex2html2877"
+  HREF="node56.html">Update information files</A>
+<B> Up:</B> <A NAME="tex2html2873"
+  HREF="node54.html">Deinstallation</A>
+<B> Previous:</B> <A NAME="tex2html2869"
+  HREF="node54.html">Deinstallation</A>
+ &nbsp; <B>  <A NAME="tex2html2875"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00635200000000000000">
-Protocols for downloading files</A>
+<H3><A NAME="SECTION00644100000000000000">
+deinstall.sh</A>
 </H3>
-You can use http, ftp and local files for downloading your plugin information.
+This is the place to add your deinstallation script. It is similar to the install.sh, you can remove packages and do other things, but be again careful not to crash the server.
+<BR>
+<BR>
+Your deinstall.sh may look like:
+<BR><TT>
+#!/bin/bash 
+<BR>
+apt-get update
+<BR>
+apt-get remove desiredPackage</TT>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

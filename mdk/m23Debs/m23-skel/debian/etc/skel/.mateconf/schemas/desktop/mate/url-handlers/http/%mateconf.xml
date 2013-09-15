@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="needs_terminal" mtime="1367786905" type="schema" stype="bool" owner="mate">
+		<local_schema locale="C" short_desc="Run the command in a terminal">
+			<default type="bool" value="false"/>
+			<longdesc>True if the command used to handle this type of URL should be run in a terminal.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enabled" mtime="1367786905" type="schema" stype="bool" owner="mate">
+		<local_schema locale="C" short_desc="Whether the specified command should handle &quot;http&quot; URLs">
+			<default type="bool" value="true"/>
+			<longdesc>True if the command specified in the &quot;command&quot; key should handle &quot;http&quot; URLs.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="command" mtime="1367786905" type="schema" stype="string" owner="mate">
+		<local_schema locale="C" short_desc="The handler for &quot;http&quot; URLs">
+			<default type="string">
+				<stringvalue>epiphany %s</stringvalue>
+			</default>
+			<longdesc>The command used to handle &quot;http&quot; URLs, if enabled.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

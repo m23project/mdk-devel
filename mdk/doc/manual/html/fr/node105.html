@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</TITLE>
-<META NAME="description" CONTENT="Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:">
+<TITLE>Utiliser m23 conjointement avec un serveur DHCP externe</TITLE>
+<META NAME="description" CONTENT="Utiliser m23 conjointement avec un serveur DHCP externe">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,92 +19,97 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node104.html">
-<LINK REL="up" HREF="node103.html">
+<LINK REL="next" HREF="node111.html">
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node106.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1777"
+<A NAME="tex2html1792"
   HREF="node106.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1773"
-  HREF="node103.html">
+<A NAME="tex2html1788"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1769"
+<A NAME="tex2html1782"
   HREF="node104.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1775"
+<A NAME="tex2html1790"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1778"
-  HREF="node106.html">Partitionnement et formatage du</A>
-<B> monter:</B> <A NAME="tex2html1774"
-  HREF="node103.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1770"
-  HREF="node104.html">Si l'autre serveur DHCP</A>
- &nbsp; <B>  <A NAME="tex2html1776"
+<B> suivant:</B> <A NAME="tex2html1793"
+  HREF="node106.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1789"
+  HREF="node100.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1783"
+  HREF="node104.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1791"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001022000000000000000">
-Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
-</H2>
-Dans ce cas, vous devez ajuster la configuration de l'autre serveur DHCP manuellement et &#233;ventuellement installer un serveur TFTP. Suivez le manuel de vos serveurs DHCP et TFTP quant &#224; la configuration &#224; y apporter. 
+<H1><A NAME="SECTION001020000000000000000">
+Utiliser m23 conjointement avec un serveur DHCP externe</A>
+</H1>Supposons qu'un serveur DHCP diffuse, sur votre r&#233;seau local, les param&#232;tres du r&#233;seau (IP, masque de r&#233;seau, etc ...) pour tous les ordinateurs et qu'il existe un serveur m23 h&#233;bergeant &#233;galement un serveur DHCP, &#224; partir duquel les postes client doivent &#234;tre install&#233;s.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
 <BR>
-<OL>
-<LI>Dans l'interface web de m23, choisissez <SPAN  CLASS="textit">"gPXE/DHCP"</SPAN> quand vous cr&#233;ez un nouveau poste client sous <SPAN  CLASS="textit">"Type de boot"</SPAN>. Utilisez le m&#234;me nom de poste client sous <SPAN  CLASS="textit">"Nom du poste client"</SPAN>, que celui utilis&#233; par votre serveur DHCP pour le poste client en question.
-<BR></LI>
-<LI>Ajustez votre serveur DHCP de sorte qu'il assigne le nom du poste client indiqu&#233; dans l'interface web m23 au poste client m23.
-<BR></LI>
-<LI>Le nom du noyau, transmis par votre serveur DHCP au poste client, doit &#234;tre <SPAN  CLASS="textbf">m23pxeinstall-i386</SPAN> (pour les ordinateur 32 bit) ou <SPAN  CLASS="textbf">m23pxeinstall-amd64</SPAN> (pour les ordinateurs 64 bit).
-<BR></LI>
-<LI>De plus, vous devez configurer votre serveur DHCP de fa&#231;on &#224; ce qu'il diffuse les param&#232;tres suivants comme param&#232;tres du noyau au poste client:
+Probl&#232;me: L'installation des postes client m23 ne fonctionnera pas, parce que le serveur DHCP externe diffuse les param&#232;tres du r&#233;seau plus vite que le serveur DHCP m23.
 <BR>
-m23server="<SPAN  CLASS="textbf"><SPAN CLASS="MATH"></SPAN>Nom de domaine du serveur m23 ou son adresse IP<SPAN CLASS="MATH"></SPAN></SPAN>" devfs=nomount vga=normal load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=<SPAN  CLASS="textbf">45000</SPAN> initrd=initrd.gz root=/dev/ram0 rw
+La raison: Le serveur m23 doit assigner l'adresse IP et les autres param&#232;tres du r&#233;seau au poste client lors de l'installation du syst&#232;me d'exploitation. Si un autre serveur DHCP fixe ces param&#232;tres &#224; la place du serveur DHCP m23, le poste client ne trouvera pas le serveur m23, en cons&#233;quence de quoi, l'image d'amor&#231;age du r&#233;seau ne sera pas accessible et le poste client ne pourra pas &#234;tre install&#233;. Il n'est en principe pas possible de modifier ce comportement, parce que les standards r&#233;seaux et les protocoles d'amor&#231;age par le r&#233;seau (netboot) suivent une proc&#233;dure standardis&#233;.
 <BR>
-Remplacez le <SPAN  CLASS="textbf"><SPAN CLASS="MATH"></SPAN>Nom de domaine du serveur m23 ou son adresse IP<SPAN CLASS="MATH"></SPAN></SPAN> par le nom de domaine du serveur m23 r&#233;solvable par le poste client m23 ou son adresse IP. Il sera &#233;ventuellement n&#233;cessaire de remplacer le num&#233;ro <SPAN  CLASS="textbf">45000</SPAN> par la valeur indiqu&#233;e dans le fichier /m23/inc/kernelRamDisk.inc.
-<BR></LI>
-<LI>Ajustez le serveur DHCP de sorte que le poste client t&#233;l&#233;charge l'image d'amor&#231;age PXE (/m23/tftp/m23pxeinstall-i386 ou /m23/tftp/m23pxeinstall-amd64) et le fichier PXE-Initrd (/m23/tftp/initrd-i386.gz ou /m23/tftp/initrd-amd64.gz) du serveur m23 et les utilise pour l'amor&#231;age.
-<BR></LI>
-<LI>Si malgr&#233; cela, l'ajustage de votre serveur DHCP ne fonctionne pas, vous devez installer un serveur TFTP sur l'ordinateur  h&#233;bergeant votre serveur DHCP. La configuration de base du serveur TFTP peut s'inspirer des fichiers de configuration du r&#233;pertoire /m23/tftp/.
-<BR></LI>
-</OL>
-	<SPAN  CLASS="textbf">Vous avez besoin de compl&#233;ments concernant l'installation et la configuration de votre syst&#232;me m23 ou des autres composants open source?</SPAN>
-	Visitez Support f&#252;r m23, Linux und OpenSource von goos-habermann.de.
-<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1794"
+  HREF="node106.html">Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1795"
+  HREF="node107.html">Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1796"
+  HREF="node108.html">Serveur DHCP ISC</A>
+<LI><A NAME="tex2html1797"
+  HREF="node109.html">Autre serveur DHCP</A>
+<LI><A NAME="tex2html1798"
+  HREF="node110.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
+
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1777"
+<A NAME="tex2html1792"
   HREF="node106.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1773"
-  HREF="node103.html">
+<A NAME="tex2html1788"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1769"
+<A NAME="tex2html1782"
   HREF="node104.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1775"
+<A NAME="tex2html1790"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1778"
-  HREF="node106.html">Partitionnement et formatage du</A>
-<B> monter:</B> <A NAME="tex2html1774"
-  HREF="node103.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1770"
-  HREF="node104.html">Si l'autre serveur DHCP</A>
- &nbsp; <B>  <A NAME="tex2html1776"
+<B> suivant:</B> <A NAME="tex2html1793"
+  HREF="node106.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1789"
+  HREF="node100.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1783"
+  HREF="node104.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1791"
   HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-12-10
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

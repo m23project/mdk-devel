@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_showTableRow</TITLE>
-<META NAME="description" CONTENT="HTML_showTableRow">
+<TITLE>HTML_setStatusBarStatusByName</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatusByName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node569.html">
 <LINK REL="previous" HREF="node567.html">
-<LINK REL="up" HREF="node530.html">
+<LINK REL="up" HREF="node541.html">
 <LINK REL="next" HREF="node569.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10274"
+<A NAME="tex2html10432"
   HREF="node569.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10270"
-  HREF="node530.html">
+<A NAME="tex2html10428"
+  HREF="node541.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10264"
+<A NAME="tex2html10422"
   HREF="node567.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10272"
+<A NAME="tex2html10430"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10275"
-  HREF="node569.html">HTML_showTableHeading</A>
-<B> Up:</B> <A NAME="tex2html10271"
-  HREF="node530.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10265"
-  HREF="node567.html">HTML_submitCheck</A>
- &nbsp; <B>  <A NAME="tex2html10273"
+<B> Next:</B> <A NAME="tex2html10433"
+  HREF="node569.html">HTML_setStatusBarStatusByID</A>
+<B> Up:</B> <A NAME="tex2html10429"
+  HREF="node541.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10423"
+  HREF="node567.html">HTML_setStatusBarPercentPointByName</A>
+ &nbsp; <B>  <A NAME="tex2html10431"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081638000000000000000">
-HTML_showTableRow</A>
+<H2><A NAME="SECTION0081627000000000000000">
+HTML_setStatusBarStatusByName</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a table row with a variable amount of entries. The parameters are shown side by side as rows in a table. If more than one HTML_showTableRow commands are executed in one table it is needed to always use the same amount of paramaters in each call.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by clientname AND status bar name.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Arbitrary amount of cells to show in a table.
+<LI>statusBarName: The name of the status bar.
+</LI>
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+</LI>
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+</LI>
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: false on parameter error.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ HTML_showTableRow</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

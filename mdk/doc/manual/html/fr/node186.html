@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Choisir la source de donn&#233;es/assigner les colonnes</TITLE>
-<META NAME="description" CONTENT="Choisir la source de donn&#233;es/assigner les colonnes">
+<TITLE>Crit&#232;res d'ajustement</TITLE>
+<META NAME="description" CONTENT="Crit&#232;res d'ajustement">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,75 +19,84 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node191.html">
+<LINK REL="next" HREF="node187.html">
 <LINK REL="previous" HREF="node185.html">
-<LINK REL="up" HREF="node177.html">
+<LINK REL="up" HREF="node184.html">
 <LINK REL="next" HREF="node187.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2814"
+<A NAME="tex2html2835"
   HREF="node187.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2810"
-  HREF="node177.html">
+<A NAME="tex2html2831"
+  HREF="node184.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2804"
+<A NAME="tex2html2825"
   HREF="node185.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2812"
+<A NAME="tex2html2833"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2815"
-  HREF="node187.html">Choisir le fichier de</A>
-<B> monter:</B> <A NAME="tex2html2811"
-  HREF="node177.html">Outils de masse</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2805"
-  HREF="node185.html">Choisir la source de</A>
- &nbsp; <B>  <A NAME="tex2html2813"
+<B> suivant:</B> <A NAME="tex2html2836"
+  HREF="node187.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html2832"
+  HREF="node184.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2826"
+  HREF="node185.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html2834"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001550000000000000000">
-Choisir la source de donn&#233;es/assigner les colonnes</A>
-</H1>
-<IMG
-  WIDTH="1125" HEIGHT="439" ALIGN="BOTTOM" BORDER="0"
- SRC="./mi_step2.png"
- ALT="Image mi_step2"> 
-<BR>
-Ce dialogue est divis&#233; en deux parties:
+<H2><A NAME="SECTION001522000000000000000">
+Crit&#232;res d'ajustement</A>
+</H2>
+Nous supposons que les param&#232;tres du disque dur d&#233;finis ne peuvent s'appliquer &#224; tous vos postes clients. M23 fournit diff&#233;rentes m&#233;thodes pour l'adaptation individuelle des partitions pour vos diff&#233;rents clients.
 <BR>
 <UL>
-<LI>Choisir le fichier de donn&#233;es et le t&#233;l&#233;charger
+<LI>Le <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Crit&#232;re de s&#233;lection du disque dur<SPAN CLASS="MATH"></SPAN></SPAN> d&#233;termine l'algorithme de s&#233;lection du disque dur dans le cas ou il y en aurait plusieurs.
+<BR>
+<UL>
+<LI>La fonction <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Comme indiqu&#233;<SPAN CLASS="MATH"></SPAN></SPAN> force l'utilisation du disque dur s&#233;lectionn&#233; ci-dessus, bien qu'il puisse y avoir des disques durs dont la taille correspondrait mieux &#224; la taille requise. Si ce disque dur n'existait pas (par exemple s'il n'y a pas de /dev/hda pour un syst&#232;me SCSI), un autre disque dur sera s&#233;lectionn&#233;. Si cette fonction n'est pas activ&#233;e, le disque dur le mieux adapt&#233; sera s&#233;lectionn&#233; selon les crit&#232;res suivants:
 <BR></LI>
-<LI>Assigner les propri&#233;t&#233;s aux colonnes du fichier texte
-<BR></LI>
+<LI>Les bornes de tol&#233;rance pour <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Du m&#234;me type<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN> indiquent la taille maximum (le disque dur du client est plus grand que celui du poste client ma&#238;tre) et la taille minimum (le disque dur du client est plus petit que celui du client ma&#238;tre). Des disques durs dont la taille est comprise entre ces deux valeurs sont conformes. Lorsque des disques durs d'un m&#234;me type doivent (par exemple du type IDE) &#234;tre utilis&#233;s, s&#233;lectionnez des bornes de tol&#233;rences plus restreintes (mettre les bornes de tol&#233;rances sup&#233;rieures et inf&#233;rieures sur 0) pour le disque dur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>		
+</LI>
 </UL>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2816"
-  HREF="node187.html">Choisir le fichier de donn&#233;es et le t&#233;l&#233;charger</A>
-<LI><A NAME="tex2html2817"
-  HREF="node188.html">Notez</A>
-<LI><A NAME="tex2html2818"
-  HREF="node189.html">Assigner les colonnes du fichier de donn&#233;es aux propri&#233;t&#233;s du poste client</A>
-<LI><A NAME="tex2html2819"
-  HREF="node190.html">Proc&#233;dez comme suit:</A>
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2835"
+  HREF="node187.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2831"
+  HREF="node184.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2825"
+  HREF="node185.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2833"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html2836"
+  HREF="node187.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html2832"
+  HREF="node184.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2826"
+  HREF="node185.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html2834"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-12-10
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

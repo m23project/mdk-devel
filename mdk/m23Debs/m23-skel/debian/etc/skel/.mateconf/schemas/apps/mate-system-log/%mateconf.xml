@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="width" mtime="1367786905" type="schema" stype="int" owner="logview">
+		<local_schema locale="C" short_desc="Width of the main window in pixels">
+			<default type="int" value="600"/>
+			<longdesc>Specifies the width of the log viewer main window
+	in pixels.
+       </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="logfiles" mtime="1367786905" type="schema" stype="list" owner="logview" list_type="string">
+		<local_schema locale="C" short_desc="Log files to open up on startup">
+			<longdesc>Specifies a list of log files to open up at startup.
+	A default list is created by reading /etc/syslog.conf.
+       </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="logfile" mtime="1367786905" type="schema" stype="string" owner="logview">
+		<local_schema locale="C" short_desc="Log file to open up on startup">
+			<default type="string">
+				<stringvalue>/var/log/messages</stringvalue>
+			</default>
+			<longdesc>Specifies the log file displayed at startup.
+	      The default is either /var/adm/messages or 
+	      /var/log/messages, depending on your 
+	      operating system.
+       </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="height" mtime="1367786905" type="schema" stype="int" owner="logview">
+		<local_schema locale="C" short_desc="Height of the main window in pixels">
+			<default type="int" value="400"/>
+			<longdesc>Specifies the height of the log viewer main window
+	in pixels.
+       </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="fontsize" mtime="1367786905" type="schema" stype="int" owner="logview">
+		<local_schema locale="C" short_desc="Size of the font used to display the log">
+			<default type="int" value="10"/>
+			<longdesc>Specifies the size of the fixed-width font used
+		to display the log in the main tree view.
+		The default is taken from the default terminal
+		font size.
+       </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

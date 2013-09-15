@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_saveArchitectures</TITLE>
-<META NAME="description" CONTENT="SRCLST_saveArchitectures">
+<TITLE>SERVER_insertLineNumber</TITLE>
+<META NAME="description" CONTENT="SERVER_insertLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node945.html">
 <LINK REL="previous" HREF="node943.html">
-<LINK REL="up" HREF="node940.html">
+<LINK REL="up" HREF="node936.html">
 <LINK REL="next" HREF="node945.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15134"
+<A NAME="tex2html15282"
   HREF="node945.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15130"
-  HREF="node940.html">
+<A NAME="tex2html15278"
+  HREF="node936.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15124"
+<A NAME="tex2html15272"
   HREF="node943.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15132"
+<A NAME="tex2html15280"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15135"
-  HREF="node945.html">SRCLST_saveList</A>
-<B> Up:</B> <A NAME="tex2html15131"
-  HREF="node940.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html15125"
-  HREF="node943.html">SRCLST_genList</A>
- &nbsp; <B>  <A NAME="tex2html15133"
+<B> Next:</B> <A NAME="tex2html15283"
+  HREF="node945.html">SERVER_addAdmin</A>
+<B> Up:</B> <A NAME="tex2html15279"
+  HREF="node936.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15273"
+  HREF="node943.html">SERVER_killBackgroundJob</A>
+ &nbsp; <B>  <A NAME="tex2html15281"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008324000000000000000">
-SRCLST_saveArchitectures</A>
+<H2><A NAME="SECTION008318000000000000000">
+SERVER_insertLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Saves the architectures for package source list.
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a text AT or AFTER a line number or creates a new file with the given name, if it doesn't exists.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>sourceName: the name of the package source list
+<LI>file: the name of the file
 </LI>
-<LI>archs: Associative array with the supported CPU architectures.
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>mode: The access mode the newly created file should have.
+</LI>
+<LI>insertMode: "0" insert AT, "1" insert AFTER line number
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -70,7 +78,7 @@ SRCLST_saveArchitectures</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

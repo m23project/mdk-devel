@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="cc_exit_shell_on_static_action" mtime="1367786905" type="schema" stype="bool" owner="control-center">
+		<local_schema locale="C" short_desc="Close the control-center when a task is activated">
+			<default type="bool" value="false"/>
+			<longdesc>if true, the control-center will close when a &quot;Common Task&quot; is activated.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cc_exit_shell_on_action_upgrade_uninstall" mtime="1367786905" type="schema" stype="bool" owner="control-center">
+		<local_schema locale="C" short_desc="Exit shell on upgrade or uninstall action performed">
+			<default type="bool" value="false"/>
+			<longdesc>Indicates whether to close the shell when an upgrade or uninstall action is performed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cc_exit_shell_on_action_start" mtime="1367786905" type="schema" stype="bool" owner="control-center">
+		<local_schema locale="C" short_desc="Exit shell on start action performed">
+			<default type="bool" value="false"/>
+			<longdesc>Indicates whether to close the shell when a start action is performed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cc_exit_shell_on_action_help" mtime="1367786905" type="schema" stype="bool" owner="control-center">
+		<local_schema locale="C" short_desc="Exit shell on help action performed">
+			<default type="bool" value="false"/>
+			<longdesc>Indicates whether to close the shell when a help action is performed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cc_exit_shell_on_action_add_remove" mtime="1367786905" type="schema" stype="bool" owner="control-center">
+		<local_schema locale="C" short_desc="Exit shell on add or remove action performed">
+			<default type="bool" value="false"/>
+			<longdesc>Indicates whether to close the shell when an add or remove action is performed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cc_actions_list" mtime="1367786905" type="schema" stype="list" owner="control-center" list_type="string">
+		<local_schema locale="C" short_desc="Task names and associated .desktop files">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>Change Theme;gtk-theme-selector.desktop</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>Set Preferred Applications;default-applications.desktop</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>Add Printer;mate-cups-manager.desktop</stringvalue>
+				</li>
+			</default>
+			<longdesc>The task name to be displayed in the control-center followed by a &quot;;&quot; separator then the filename of an associated .desktop file to launch for that task.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

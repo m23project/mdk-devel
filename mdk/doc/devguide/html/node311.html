@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_activateBoot</TITLE>
-<META NAME="description" CONTENT="DHCP_activateBoot">
+<TITLE>delValuesFromArray</TITLE>
+<META NAME="description" CONTENT="delValuesFromArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node312.html">
 <LINK REL="previous" HREF="node310.html">
-<LINK REL="up" HREF="node305.html">
+<LINK REL="up" HREF="node281.html">
 <LINK REL="next" HREF="node312.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6955"
+<A NAME="tex2html7084"
   HREF="node312.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6951"
-  HREF="node305.html">
+<A NAME="tex2html7080"
+  HREF="node281.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6945"
+<A NAME="tex2html7074"
   HREF="node310.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6953"
+<A NAME="tex2html7082"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6956"
-  HREF="node312.html">DHCP_calcPXEIP</A>
-<B> Up:</B> <A NAME="tex2html6952"
-  HREF="node305.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html6946"
-  HREF="node310.html">DHCP_setBootimage</A>
- &nbsp; <B>  <A NAME="tex2html6954"
+<B> Next:</B> <A NAME="tex2html7085"
+  HREF="node312.html">DB_getLikeableColumns</A>
+<B> Up:</B> <A NAME="tex2html7081"
+  HREF="node281.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html7075"
+  HREF="node310.html">delFromArray</A>
+ &nbsp; <B>  <A NAME="tex2html7083"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00896000000000000000">
-DHCP_activateBoot</A>
+<H2><A NAME="SECTION008830000000000000000">
+delValuesFromArray</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> switches the network boot on or off
+<SPAN  CLASS="textbf">Description:</SPAN> deletes all entries in the array $arr with values stored in the array $delVals.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>arr: array with the entries to filter
 </LI>
-<LI>on: true activates the network boot, false deactivates
+<LI>delVals: array with all values to delete from $arr
 </LI>
-<LI>bootType: The boot type CAN be given here (e.g. pxe or etherboot)
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>array without the entries in $delVals.
 </LI>
 </UL>
 
@@ -72,7 +76,7 @@ DHCP_activateBoot</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

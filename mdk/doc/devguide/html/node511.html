@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_randomMAC</TITLE>
-<META NAME="description" CONTENT="HELPER_randomMAC">
+<TITLE>HELPER_createSelfSignedCAAndServerCertificate</TITLE>
+<META NAME="description" CONTENT="HELPER_createSelfSignedCAAndServerCertificate">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node512.html">
 <LINK REL="previous" HREF="node510.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node501.html">
 <LINK REL="next" HREF="node512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9549"
+<A NAME="tex2html9689"
   HREF="node512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9545"
-  HREF="node493.html">
+<A NAME="tex2html9685"
+  HREF="node501.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9539"
+<A NAME="tex2html9679"
   HREF="node510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9547"
+<A NAME="tex2html9687"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9550"
-  HREF="node512.html">HELPER_generateSalt</A>
-<B> Up:</B> <A NAME="tex2html9546"
-  HREF="node493.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9540"
-  HREF="node510.html">HELPER_array2AssociativeArray</A>
- &nbsp; <B>  <A NAME="tex2html9548"
+<B> Next:</B> <A NAME="tex2html9690"
+  HREF="node512.html">HELPER_arrayReOrderKeynumbers</A>
+<B> Up:</B> <A NAME="tex2html9686"
+  HREF="node501.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9680"
+  HREF="node510.html">HELPER_randomUsername</A>
+ &nbsp; <B>  <A NAME="tex2html9688"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081418000000000000000">
-HELPER_randomMAC</A>
+<H2><A NAME="SECTION0081410000000000000000">
+HELPER_createSelfSignedCAAndServerCertificate</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a random MAC address.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a selfsigned CA and a server certificate.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Random MAC address in the format XX:XX:XX:XX:XX:XX (e.g. 70:c4:d4:49:6e:27).
+<LI>CADn: Information about the CA.
+</LI>
+<LI>serverDn: Information about the server.
+</LI>
+<LI>password: Password for the private server key.
+</LI>
+<LI>expirationDate: Expiration of the certificates in days.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associative array with the certificate of the CA, the certificate and private key of the server.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ HELPER_randomMAC</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

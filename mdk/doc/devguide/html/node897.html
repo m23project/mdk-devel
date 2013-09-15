@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/server.php</TITLE>
-<META NAME="description" CONTENT="./inc/server.php">
+<TITLE>POOL_getProperty</TITLE>
+<META NAME="description" CONTENT="POOL_getProperty">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,143 +19,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node940.html">
-<LINK REL="previous" HREF="node894.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node898.html">
+<LINK REL="previous" HREF="node896.html">
+<LINK REL="up" HREF="node891.html">
 <LINK REL="next" HREF="node898.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14503"
+<A NAME="tex2html14657"
   HREF="node898.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14499"
-  HREF="node133.html">
+<A NAME="tex2html14653"
+  HREF="node891.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14493"
+<A NAME="tex2html14647"
   HREF="node896.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14501"
+<A NAME="tex2html14655"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14504"
-  HREF="node898.html">SERVER_killPID</A>
-<B> Up:</B> <A NAME="tex2html14500"
-  HREF="node133.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html14494"
-  HREF="node896.html">SCREDIT_newScriptTemplate</A>
- &nbsp; <B>  <A NAME="tex2html14502"
+<B> Next:</B> <A NAME="tex2html14658"
+  HREF="node898.html">POOL_delete</A>
+<B> Up:</B> <A NAME="tex2html14654"
+  HREF="node891.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html14648"
+  HREF="node896.html">POOL_setProperty</A>
+ &nbsp; <B>  <A NAME="tex2html14656"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008310000000000000000">
-./inc/server.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions for getting information from the server
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION008276000000000000000">
+POOL_getProperty</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> returns the contents of a property file
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html14505"
-  HREF="node898.html">SERVER_killPID</A>
-<LI><A NAME="tex2html14506"
-  HREF="node899.html">SERVER_killBackgroundJob</A>
-<LI><A NAME="tex2html14507"
-  HREF="node900.html">SERVER_insertLineNumber</A>
-<LI><A NAME="tex2html14508"
-  HREF="node901.html">SERVER_addAdmin</A>
-<LI><A NAME="tex2html14509"
-  HREF="node902.html">SERVER_delAdmin</A>
-<LI><A NAME="tex2html14510"
-  HREF="node903.html">SERVER_fileExists</A>
-<LI><A NAME="tex2html14511"
-  HREF="node904.html">SERVER_getPublicSSHKeyOfm23Server</A>
-<LI><A NAME="tex2html14512"
-  HREF="node905.html">SERVER_changeHtpasswd</A>
-<LI><A NAME="tex2html14513"
-  HREF="node906.html">SERVER_delFromHtpasswd</A>
-<LI><A NAME="tex2html14514"
-  HREF="node907.html">SERVER_addToHtpasswd</A>
-<LI><A NAME="tex2html14515"
-  HREF="node908.html">SERVER_dhcpServerInNetWarn</A>
-<LI><A NAME="tex2html14516"
-  HREF="node909.html">SERVER_sendScriptToSF</A>
-<LI><A NAME="tex2html14517"
-  HREF="node910.html">SERVER_dynamicIPWarn</A>
-<LI><A NAME="tex2html14518"
-  HREF="node911.html">SERVER_tmpNotWritable</A>
-<LI><A NAME="tex2html14519"
-  HREF="node912.html">SERVER_rootFreeSpace</A>
-<LI><A NAME="tex2html14520"
-  HREF="node913.html">SERVER_isProgramRunning</A>
-<LI><A NAME="tex2html14521"
-  HREF="node914.html">SERVER_checkPackageInstalled</A>
-<LI><A NAME="tex2html14522"
-  HREF="node915.html">SERVER_daemonStartStop</A>
-<LI><A NAME="tex2html14523"
-  HREF="node916.html">SERVER_installTool</A>
-<LI><A NAME="tex2html14524"
-  HREF="node917.html">SERVER_programmStatus</A>
-<LI><A NAME="tex2html14525"
-  HREF="node918.html">SERVER_apacheInfo</A>
-<LI><A NAME="tex2html14526"
-  HREF="node919.html">SERVER_mysqlInfo</A>
-<LI><A NAME="tex2html14527"
-  HREF="node920.html">SERVER_dhcpInfo</A>
-<LI><A NAME="tex2html14528"
-  HREF="node921.html">SERVER_LDAPInfo</A>
-<LI><A NAME="tex2html14529"
-  HREF="node922.html">SERVER_programmStatusTableHeader</A>
-<LI><A NAME="tex2html14530"
-  HREF="node923.html">SERVER_runInBackground</A>
-<LI><A NAME="tex2html14531"
-  HREF="node924.html">SERVER_runningInBackground</A>
-<LI><A NAME="tex2html14532"
-  HREF="node925.html">SERVER_runningInScreen</A>
-<LI><A NAME="tex2html14533"
-  HREF="node926.html">SERVER_addLineToFile</A>
-<LI><A NAME="tex2html14534"
-  HREF="node927.html">SERVER_deleteFile</A>
-<LI><A NAME="tex2html14535"
-  HREF="node928.html">SERVER_getFileContents</A>
-<LI><A NAME="tex2html14536"
-  HREF="node929.html">SERVER_putFileContents</A>
-<LI><A NAME="tex2html14537"
-  HREF="node930.html">SERVER_delLineFromFile</A>
-<LI><A NAME="tex2html14538"
-  HREF="node931.html">SERVER_addEtcHosts</A>
-<LI><A NAME="tex2html14539"
-  HREF="node932.html">SERVER_delEtcHosts</A>
-<LI><A NAME="tex2html14540"
-  HREF="node933.html">SERVER_getInstallationMedium</A>
-<LI><A NAME="tex2html14541"
-  HREF="node934.html">SERVER_getOS</A>
-<LI><A NAME="tex2html14542"
-  HREF="node935.html">SERVER_checkDownload</A>
-<LI><A NAME="tex2html14543"
-  HREF="node936.html">SERVER_checkDiskFree</A>
-<LI><A NAME="tex2html14544"
-  HREF="node937.html">SERVER_checkRunInVM</A>
-<LI><A NAME="tex2html14545"
-  HREF="node938.html">SERVER_checkKernel</A>
-<LI><A NAME="tex2html14546"
-  HREF="node939.html">SERVER_multiMkDir</A>
+<UL>
+<LI>poolName: name of the pool
+</LI>
+<LI>property: name of the pool property
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

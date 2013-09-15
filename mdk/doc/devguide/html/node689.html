@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/massTools.php</TITLE>
-<META NAME="description" CONTENT="./inc/massTools.php">
+<TITLE>m23SHARED_changePasswordDialog</TITLE>
+<META NAME="description" CONTENT="m23SHARED_changePasswordDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,111 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node716.html">
-<LINK REL="previous" HREF="node617.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node690.html">
+<LINK REL="previous" HREF="node688.html">
+<LINK REL="up" HREF="node646.html">
 <LINK REL="next" HREF="node690.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11829"
+<A NAME="tex2html11989"
   HREF="node690.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11825"
-  HREF="node133.html">
+<A NAME="tex2html11985"
+  HREF="node646.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11819"
+<A NAME="tex2html11979"
   HREF="node688.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11827"
+<A NAME="tex2html11987"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11830"
-  HREF="node690.html">MASS_EGKradioBoxes</A>
-<B> Up:</B> <A NAME="tex2html11826"
-  HREF="node133.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html11820"
-  HREF="node688.html">m23SHARED_getInformationForBootingYourClientLink</A>
- &nbsp; <B>  <A NAME="tex2html11828"
+<B> Next:</B> <A NAME="tex2html11990"
+  HREF="node690.html">m23SHARED_getBillDates</A>
+<B> Up:</B> <A NAME="tex2html11986"
+  HREF="node646.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html11980"
+  HREF="node688.html">m23SHARED_changePasswordDialog</A>
+ &nbsp; <B>  <A NAME="tex2html11988"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008210000000000000000">
-./inc/massTools.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: routines for mass installations
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0082043000000000000000">
+m23SHARED_changePasswordDialog</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> Tries to change the eMail for the current m23shared user and shows an error or sucess message.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html11831"
-  HREF="node690.html">MASS_EGKradioBoxes</A>
-<LI><A NAME="tex2html11832"
-  HREF="node691.html">MASS_FHradioBoxes</A>
-<LI><A NAME="tex2html11833"
-  HREF="node692.html">MASS_showFileHandDialog</A>
-<LI><A NAME="tex2html11834"
-  HREF="node693.html">MASS_propertyKeys</A>
-<LI><A NAME="tex2html11835"
-  HREF="node694.html">MASS_showFileFormatDialog</A>
-<LI><A NAME="tex2html11836"
-  HREF="node695.html">MASS_keyToI18N</A>
-<LI><A NAME="tex2html11837"
-  HREF="node696.html">MASS_I18NTokey</A>
-<LI><A NAME="tex2html11838"
-  HREF="node697.html">MASS_showTableDefinition</A>
-<LI><A NAME="tex2html11839"
-  HREF="node698.html">MASS_checkAndSaveFields</A>
-<LI><A NAME="tex2html11840"
-  HREF="node699.html">MASS_openDBFile</A>
-<LI><A NAME="tex2html11841"
-  HREF="node700.html">MASS_readDBFile</A>
-<LI><A NAME="tex2html11842"
-  HREF="node701.html">MASS_readDBFileRaw</A>
-<LI><A NAME="tex2html11843"
-  HREF="node702.html">MASS_closeDBFile</A>
-<LI><A NAME="tex2html11844"
-  HREF="node703.html">MASS_getXProperties</A>
-<LI><A NAME="tex2html11845"
-  HREF="node704.html">MASS_showGeneratorOptions</A>
-<LI><A NAME="tex2html11846"
-  HREF="node705.html">MASS_passGenerator</A>
-<LI><A NAME="tex2html11847"
-  HREF="node706.html">MASS_loginGenerator</A>
-<LI><A NAME="tex2html11848"
-  HREF="node707.html">MASS_ipGenerator</A>
-<LI><A NAME="tex2html11849"
-  HREF="node708.html">MASS_minMaxIP</A>
-<LI><A NAME="tex2html11850"
-  HREF="node709.html">MASS_generateNetmask</A>
-<LI><A NAME="tex2html11851"
-  HREF="node710.html">MASS_generateClientNames</A>
-<LI><A NAME="tex2html11852"
-  HREF="node711.html">MASS_saveGeneratorOptions</A>
-<LI><A NAME="tex2html11853"
-  HREF="node712.html">MASS_showOverview</A>
-<LI><A NAME="tex2html11854"
-  HREF="node713.html">MASS_getAllFromFile</A>
-<LI><A NAME="tex2html11855"
-  HREF="node714.html">MASS_getLongestLength</A>
-<LI><A NAME="tex2html11856"
-  HREF="node715.html">MASS_startInstall</A>
+<UL>
+<LI>email: New eMail address.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

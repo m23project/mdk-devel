@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>compresses the m23 files</TITLE>
+<META NAME="description" CONTENT="compresses the m23 files">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,68 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node80.html">
 <LINK REL="previous" HREF="node78.html">
-<LINK REL="up" HREF="node78.html">
+<LINK REL="up" HREF="node76.html">
 <LINK REL="next" HREF="node80.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3092"
+<A NAME="tex2html3180"
   HREF="node80.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3088"
-  HREF="node78.html">
+<A NAME="tex2html3176"
+  HREF="node76.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3082"
+<A NAME="tex2html3170"
   HREF="node78.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3090"
+<A NAME="tex2html3178"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3093"
-  HREF="node80.html">creating a new bootimage</A>
-<B> Up:</B> <A NAME="tex2html3089"
-  HREF="node78.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html3083"
-  HREF="node78.html">How to make network</A>
- &nbsp; <B>  <A NAME="tex2html3091"
+<B> Next:</B> <A NAME="tex2html3181"
+  HREF="node80.html">generating the ISO image</A>
+<B> Up:</B> <A NAME="tex2html3177"
+  HREF="node76.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html3171"
+  HREF="node78.html">compress operating system</A>
+ &nbsp; <B>  <A NAME="tex2html3179"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00661000000000000000">
-Introduction</A>
-</H2>
-What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
+<H3><A NAME="SECTION00662300000000000000">
+compresses the m23 files</A>
+</H3>
+The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
 <BR>
-A client runs for first start up thru the following sequence:
-<BR>
-<UL>
-<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
-</LI>
-<LI>fetch the bootimage from the server with TFTP protocoll
-</LI>
-<LI>load and extract the image to the client memory
-</LI>
-<LI>start the contained kernel
-</LI>
-<LI>kernel loades the included initrd
-</LI>
-<LI>start up script fetches IP, netmask, etc. from the server again
-</LI>
-<LI>the script fetches the first job for the client and saves the job script file
-</LI>
-<LI>the script is executed and the next job will be fetched from the server
-</LI>
-</UL> 
-This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

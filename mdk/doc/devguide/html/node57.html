@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Better naming for your files</TITLE>
-<META NAME="description" CONTENT="Better naming for your files">
+<TITLE>How does an information file look like?</TITLE>
+<META NAME="description" CONTENT="How does an information file look like?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,6 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node58.html">
 <LINK REL="previous" HREF="node56.html">
 <LINK REL="up" HREF="node56.html">
 <LINK REL="next" HREF="node58.html">
@@ -27,52 +28,47 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2806"
+<A NAME="tex2html2902"
   HREF="node58.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2802"
+<A NAME="tex2html2898"
   HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2798"
+<A NAME="tex2html2892"
   HREF="node56.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2804"
+<A NAME="tex2html2900"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2807"
-  HREF="node58.html">How to generate a</A>
-<B> Up:</B> <A NAME="tex2html2803"
-  HREF="node56.html">Hints</A>
-<B> Previous:</B> <A NAME="tex2html2799"
-  HREF="node56.html">Hints</A>
- &nbsp; <B>  <A NAME="tex2html2805"
+<B> Next:</B> <A NAME="tex2html2903"
+  HREF="node58.html">Protocols for downloading files</A>
+<B> Up:</B> <A NAME="tex2html2899"
+  HREF="node56.html">Update information files</A>
+<B> Previous:</B> <A NAME="tex2html2893"
+  HREF="node56.html">Update information files</A>
+ &nbsp; <B>  <A NAME="tex2html2901"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00636100000000000000">
-Better naming for your files</A>
+<H3><A NAME="SECTION00645100000000000000">
+How does an information file look like?</A>
 </H3>
-You normally will develop your application in the /m23 directory. To make finding your files easier you should name your files like <SPAN  CLASS="textit">BACKUP_startpage.php</SPAN>. Your files should always begin with your selected prefix.
-Now you can find your files with:
 <PRE>
-find /m23/ -name BACKUP*
+pluginURL: http://m23.sf.net/testplug.tb2
+pluginVersion: 2
+pluginSize: 1023
+pluginName: Testplugin
+pluginDescription: This is only a test plugin
 </PRE> 
-To make a package with the found files, simply use the following script:
-<PRE>
-for file in `find . -name BACKUP_*`
-do
- files=$files" "$file
-done
-tar cvj -f myPackage.tb2 $files
-</PRE>
-Where you replace <SPAN  CLASS="textit">BACKUP_</SPAN> with your package prefix and <SPAN  CLASS="textit">myPackage</SPAN> with your package name.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

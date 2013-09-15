@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>make directories</TITLE>
-<META NAME="description" CONTENT="make directories">
+<TITLE>Test and development</TITLE>
+<META NAME="description" CONTENT="Test and development">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,51 +28,69 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2405"
+<A NAME="tex2html2494"
   HREF="node26.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2401"
+<A NAME="tex2html2490"
   HREF="node24.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2395"
+<A NAME="tex2html2484"
   HREF="node24.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2403"
+<A NAME="tex2html2492"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2406"
-  HREF="node26.html">generate the language file</A>
-<B> Up:</B> <A NAME="tex2html2402"
-  HREF="node24.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html2396"
-  HREF="node24.html">How to translate m23?</A>
- &nbsp; <B>  <A NAME="tex2html2404"
+<B> Next:</B> <A NAME="tex2html2495"
+  HREF="node26.html">Building the packages</A>
+<B> Up:</B> <A NAME="tex2html2491"
+  HREF="node24.html">Using new Debian/Ubuntu releases</A>
+<B> Previous:</B> <A NAME="tex2html2485"
+  HREF="node24.html">Using new Debian/Ubuntu releases</A>
+ &nbsp; <B>  <A NAME="tex2html2493"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00611000000000000000">
-make directories</A>
+Test and development</A>
 </H2>
-You should think about a good abreviation for the language. All m23 languages have a short 2 letter name that is used for directory name (e.g. de=german, en=english, fr=french).
-<BR>
-<BR>
-Make the directories:
-<PRE>
-/m23/inc/i18n/&lt;your language short name&gt;
-/m23/inc/help/&lt;your language short name&gt;
-</PRE>
-if you use a console to create the directories it may look like this:
-<PRE>
-mkdir /m23/inc/i18n/de
-mkdir /m23/inc/help/de
-</PRE>
+
+<UL>
+<LI>Build a compressed root file system for the new release via /mdk/m23helper/compressedDebootstrap and put it (for testing) into the directory /m23/data+scripts/packages/baseSys on the m23 server.
+
+<P>
+</LI>
+<LI>Create an empty file (touch) with the release name of the new distribution release under /m23/data+scripts/distr/debian/debootstrap/scripts/.
+
+<P>
+</LI>
+<LI>Check, if all desired desktop environments are present in the file /m23/inc/distr/&lt;distribution&gt;/info.txt and add missing desktops.
+
+<P>
+</LI>
+<LI>Write a new package source list (based on a previous release) in the m23 webinterface and choose the release with the name of the previously touched file name. Hook all desktops that should be deployed with this release.
+
+<P>
+</LI>
+<LI>Make a base client install, see errors and fix them ;-)
+
+<P>
+</LI>
+<LI>Develop missing desktop installation scripts under /m23/inc/distr/&lt;distribution&gt;/packages/m23&lt;desktop&gt;Install.php.
+
+<P>
+</LI>
+<LI>Then make an installation/test/fix run with all desktop envirtonments that should be supported by the release.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

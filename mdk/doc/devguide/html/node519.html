@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getApacheUser</TITLE>
-<META NAME="description" CONTENT="HELPER_getApacheUser">
+<TITLE>HELPER_getRemoteFileContents</TITLE>
+<META NAME="description" CONTENT="HELPER_getRemoteFileContents">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node520.html">
 <LINK REL="previous" HREF="node518.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node501.html">
 <LINK REL="next" HREF="node520.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9645"
+<A NAME="tex2html9785"
   HREF="node520.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9641"
-  HREF="node493.html">
+<A NAME="tex2html9781"
+  HREF="node501.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9635"
+<A NAME="tex2html9775"
   HREF="node518.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9643"
+<A NAME="tex2html9783"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9646"
-  HREF="node520.html">HELPER_getApacheGroup</A>
-<B> Up:</B> <A NAME="tex2html9642"
-  HREF="node493.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9636"
-  HREF="node518.html">HELPER_getFdiskMountPoints</A>
- &nbsp; <B>  <A NAME="tex2html9644"
+<B> Next:</B> <A NAME="tex2html9786"
+  HREF="node520.html">HELPER_passGenerator</A>
+<B> Up:</B> <A NAME="tex2html9782"
+  HREF="node501.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9776"
+  HREF="node518.html">HELPER_debugBacktraceToFile</A>
+ &nbsp; <B>  <A NAME="tex2html9784"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081426000000000000000">
-HELPER_getApacheUser</A>
+<H2><A NAME="SECTION0081418000000000000000">
+HELPER_getRemoteFileContents</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the name of the Apache user
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads a file if it is not older than a given time and returns its contents.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>url: The URL where to download the file from.
+</LI>
+<LI>storeFile: The file name to store the download in.
+</LI>
+<LI>refreshTime: The time in minutes the file is downloaded again.
+</LI>
+<LI>forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The contents of the files from chache or from download or false if no file could be found.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

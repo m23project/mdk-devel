@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_previewInstall</TITLE>
-<META NAME="description" CONTENT="PKG_previewInstall">
+<TITLE>DHCP_getNetmaskOfDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getNetmaskOfDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node321.html">
 <LINK REL="previous" HREF="node319.html">
-<LINK REL="up" HREF="node316.html">
+<LINK REL="up" HREF="node313.html">
 <LINK REL="next" HREF="node321.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7067"
+<A NAME="tex2html7209"
   HREF="node321.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7063"
-  HREF="node316.html">
+<A NAME="tex2html7205"
+  HREF="node313.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7057"
+<A NAME="tex2html7199"
   HREF="node319.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7065"
+<A NAME="tex2html7207"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7068"
-  HREF="node321.html">PKG_getKernels</A>
-<B> Up:</B> <A NAME="tex2html7064"
-  HREF="node316.html">./inc/distr/halfSister/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html7058"
-  HREF="node319.html">PKG_listPackages</A>
- &nbsp; <B>  <A NAME="tex2html7066"
+<B> Next:</B> <A NAME="tex2html7210"
+  HREF="node321.html">DHCP_delDynamicRange</A>
+<B> Up:</B> <A NAME="tex2html7206"
+  HREF="node313.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7200"
+  HREF="node319.html">DHCP_getDynamicRanges</A>
+ &nbsp; <B>  <A NAME="tex2html7208"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008104000000000000000">
-PKG_previewInstall</A>
+<H2><A NAME="SECTION00897000000000000000">
+DHCP_getNetmaskOfDynamicRanges</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows what happens if packages get (de)installed
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the netmask of a dynamic range identified by the first IP of the range.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
 </LI>
-<LI>distr: the distribution name
-</LI>
-<LI>packagesource: name of the package source
-</LI>
-<LI>packages: the packages to be installed
-</LI>
-<LI>aptCommand: sets the apt-get command: install, remove
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Netmask or false in case of an error.
 </LI>
 </UL>
 
@@ -76,7 +74,7 @@ PKG_previewInstall</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -8,6 +8,9 @@ cleanOSForCompressing deleteSquidCache
 grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
 cat /tmp/sources.list > /etc/apt/sources.list
 
+grep -v "m23testing" /etc/apt/sources.list > /tmp/sources.list
+cat /tmp/sources.list > /etc/apt/sources.list
+
 dd if=/dev/zero of=/tmp/z.dd bs=1M
 
 rm /tmp/z.dd

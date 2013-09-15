@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_programmStatus</TITLE>
-<META NAME="description" CONTENT="SERVER_programmStatus">
+<TITLE>PREF_getClientPreferences</TITLE>
+<META NAME="description" CONTENT="PREF_getClientPreferences">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node918.html">
 <LINK REL="previous" HREF="node916.html">
-<LINK REL="up" HREF="node897.html">
+<LINK REL="up" HREF="node911.html">
 <LINK REL="next" HREF="node918.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14785"
+<A NAME="tex2html14907"
   HREF="node918.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14781"
-  HREF="node897.html">
+<A NAME="tex2html14903"
+  HREF="node911.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14775"
+<A NAME="tex2html14897"
   HREF="node916.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14783"
+<A NAME="tex2html14905"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14786"
-  HREF="node918.html">SERVER_apacheInfo</A>
-<B> Up:</B> <A NAME="tex2html14782"
-  HREF="node897.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html14776"
-  HREF="node916.html">SERVER_installTool</A>
- &nbsp; <B>  <A NAME="tex2html14784"
+<B> Next:</B> <A NAME="tex2html14908"
+  HREF="node918.html">PREF_getValue</A>
+<B> Up:</B> <A NAME="tex2html14904"
+  HREF="node911.html">./inc/preferences.php</A>
+<B> Previous:</B> <A NAME="tex2html14898"
+  HREF="node916.html">PREF_loadAllPreferenceValues</A>
+ &nbsp; <B>  <A NAME="tex2html14906"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083120000000000000000">
-SERVER_programmStatus</A>
+<H2><A NAME="SECTION008286000000000000000">
+PREF_getClientPreferences</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
+<SPAN  CLASS="textbf">Description:</SPAN> list all preferences
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
+<LI>default: The name of the preference to list first
 </LI>
-<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
+<LI>directOutput: If enabled the preference names will be given out as a HTML option list. If disabled an array with the preference names as key and value will be returned.
 </LI>
-<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with the preference names or nothing on enabled directOutput.
 </LI>
 </UL>
 
@@ -72,7 +76,7 @@ SERVER_programmStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/edit.php</TITLE>
-<META NAME="description" CONTENT="./inc/edit.php">
+<TITLE>DHCP_addClient</TITLE>
+<META NAME="description" CONTENT="DHCP_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,101 +19,76 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node345.html">
-<LINK REL="previous" HREF="node316.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node324.html">
+<LINK REL="previous" HREF="node322.html">
+<LINK REL="up" HREF="node313.html">
 <LINK REL="next" HREF="node324.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7101"
+<A NAME="tex2html7245"
   HREF="node324.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7097"
-  HREF="node133.html">
+<A NAME="tex2html7241"
+  HREF="node313.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7091"
+<A NAME="tex2html7235"
   HREF="node322.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7099"
+<A NAME="tex2html7243"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7102"
-  HREF="node324.html">EDIT_setOption</A>
-<B> Up:</B> <A NAME="tex2html7098"
-  HREF="node133.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html7092"
-  HREF="node322.html">PKG_translateClientPackageStatus</A>
- &nbsp; <B>  <A NAME="tex2html7100"
+<B> Next:</B> <A NAME="tex2html7246"
+  HREF="node324.html">DHCP_addLineToDHCPDConf</A>
+<B> Up:</B> <A NAME="tex2html7242"
+  HREF="node313.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7236"
+  HREF="node322.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html7244"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008110000000000000000">
-./inc/edit.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: routines for editing files with sed
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION008910000000000000000">
+DHCP_addClient</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html7103"
-  HREF="node324.html">EDIT_setOption</A>
-<LI><A NAME="tex2html7104"
-  HREF="node325.html">EDIT_genClientm23Random</A>
-<LI><A NAME="tex2html7105"
-  HREF="node326.html">EDIT_commentoutInsert</A>
-<LI><A NAME="tex2html7106"
-  HREF="node327.html">EDIT_countMatches</A>
-<LI><A NAME="tex2html7107"
-  HREF="node328.html">EDIT_calc</A>
-<LI><A NAME="tex2html7108"
-  HREF="node329.html">EDIT_uncomment</A>
-<LI><A NAME="tex2html7109"
-  HREF="node330.html">EDIT_commentout</A>
-<LI><A NAME="tex2html7110"
-  HREF="node331.html">EDIT_insertAfterLineNumber</A>
-<LI><A NAME="tex2html7111"
-  HREF="node332.html">EDIT_insertAtLineNumber</A>
-<LI><A NAME="tex2html7112"
-  HREF="node333.html">EDIT_insertLineNumber</A>
-<LI><A NAME="tex2html7113"
-  HREF="node334.html">EDIT_searchLineNumber</A>
-<LI><A NAME="tex2html7114"
-  HREF="node335.html">EDIT_searchLastLineNumber</A>
-<LI><A NAME="tex2html7115"
-  HREF="node336.html">EDIT_searchNextLineNumber</A>
-<LI><A NAME="tex2html7116"
-  HREF="node337.html">EDIT_replace</A>
-<LI><A NAME="tex2html7117"
-  HREF="node338.html">EDIT_prepareStr</A>
-<LI><A NAME="tex2html7118"
-  HREF="node339.html">EDIT_savePerms</A>
-<LI><A NAME="tex2html7119"
-  HREF="node340.html">EDIT_restorePerms</A>
-<LI><A NAME="tex2html7120"
-  HREF="node341.html">EDIT_deleteLines</A>
-<LI><A NAME="tex2html7121"
-  HREF="node342.html">EDIT_deleteLinesAmount</A>
-<LI><A NAME="tex2html7122"
-  HREF="node343.html">EDIT_addIfNotExists</A>
-<LI><A NAME="tex2html7123"
-  HREF="node344.html">EDIT_deleteMatching</A>
+<UL>
+<LI>clientName: name of the client
+</LI>
+<LI>ip: ip address of the client
+</LI>
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
+</LI>
+<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

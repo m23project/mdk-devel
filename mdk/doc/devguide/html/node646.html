@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_getCustomerLanguage</TITLE>
-<META NAME="description" CONTENT="m23SHARED_getCustomerLanguage">
+<TITLE>./inc/m23shared/m23shared.php</TITLE>
+<META NAME="description" CONTENT="./inc/m23shared/m23shared.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,201 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node647.html">
-<LINK REL="previous" HREF="node645.html">
-<LINK REL="up" HREF="node617.html">
+<LINK REL="next" HREF="node718.html">
+<LINK REL="previous" HREF="node622.html">
+<LINK REL="up" HREF="node136.html">
 <LINK REL="next" HREF="node647.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11315"
+<A NAME="tex2html11402"
   HREF="node647.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11311"
-  HREF="node617.html">
+<A NAME="tex2html11398"
+  HREF="node136.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11305"
+<A NAME="tex2html11392"
   HREF="node645.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11313"
+<A NAME="tex2html11400"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11316"
-  HREF="node647.html">m23SHARED_sendActivationMail</A>
-<B> Up:</B> <A NAME="tex2html11312"
-  HREF="node617.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html11306"
-  HREF="node645.html">m23SHARED_setCustomerLanguage</A>
- &nbsp; <B>  <A NAME="tex2html11314"
+<B> Next:</B> <A NAME="tex2html11403"
+  HREF="node647.html">m23SHARED_deleteBills</A>
+<B> Up:</B> <A NAME="tex2html11399"
+  HREF="node136.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11393"
+  HREF="node645.html">LDAP_matchLDAPserver</A>
+ &nbsp; <B>  <A NAME="tex2html11401"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082029000000000000000">
-m23SHARED_getCustomerLanguage</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the language setting for this customer.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: Language for this customer.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008200000000000000000">
+./inc/m23shared/m23shared.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@goos-habermann.de)
+<BR>
+Description: database functions, open, close the database, get ip of the calling client
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11404"
+  HREF="node647.html">m23SHARED_deleteBills</A>
+<LI><A NAME="tex2html11405"
+  HREF="node648.html">m23SHARED_deleteUserdataFromDB</A>
+<LI><A NAME="tex2html11406"
+  HREF="node649.html">m23SHARED_isMarkedForDeletion</A>
+<LI><A NAME="tex2html11407"
+  HREF="node650.html">m23SHARED_markForDeletion</A>
+<LI><A NAME="tex2html11408"
+  HREF="node651.html">m23SHARED_DBname</A>
+<LI><A NAME="tex2html11409"
+  HREF="node652.html">m23SHARED_getDBnameByInterface</A>
+<LI><A NAME="tex2html11410"
+  HREF="node653.html">m23SHARED_getDBnameByClient</A>
+<LI><A NAME="tex2html11411"
+  HREF="node654.html">m23SHARED_init</A>
+<LI><A NAME="tex2html11412"
+  HREF="node655.html">m23SHARED_new</A>
+<LI><A NAME="tex2html11413"
+  HREF="node656.html">m23SHARED_setLicense</A>
+<LI><A NAME="tex2html11414"
+  HREF="node657.html">m23SHARED_evaluationDaysLeft</A>
+<LI><A NAME="tex2html11415"
+  HREF="node658.html">m23SHARED_evaluationEndDate</A>
+<LI><A NAME="tex2html11416"
+  HREF="node659.html">m23SHARED_paidClients</A>
+<LI><A NAME="tex2html11417"
+  HREF="node660.html">m23SHARED_getCompleteClientName</A>
+<LI><A NAME="tex2html11418"
+  HREF="node661.html">m23SHARED_getServerIP</A>
+<LI><A NAME="tex2html11419"
+  HREF="node662.html">m23SHARED_getPayTypeArray</A>
+<LI><A NAME="tex2html11420"
+  HREF="node663.html">m23SHARED_getSalutationsArray</A>
+<LI><A NAME="tex2html11421"
+  HREF="node664.html">m23SHARED_getSalutationHeadline</A>
+<LI><A NAME="tex2html11422"
+  HREF="node665.html">m23SHARED_getPayTypeHumanReadable</A>
+<LI><A NAME="tex2html11423"
+  HREF="node666.html">m23SHARED_getMonthlyFee</A>
+<LI><A NAME="tex2html11424"
+  HREF="node667.html">m23SHARED_getCustomerEmail</A>
+<LI><A NAME="tex2html11425"
+  HREF="node668.html">m23SHARED_setCustomerEmail</A>
+<LI><A NAME="tex2html11426"
+  HREF="node669.html">m23SHARED_generateActivationKey</A>
+<LI><A NAME="tex2html11427"
+  HREF="node670.html">m23SHARED_getActivationKey</A>
+<LI><A NAME="tex2html11428"
+  HREF="node671.html">m23SHARED_generateCustomerNumber</A>
+<LI><A NAME="tex2html11429"
+  HREF="node672.html">m23SHARED_getCustomerNr</A>
+<LI><A NAME="tex2html11430"
+  HREF="node673.html">m23SHARED_activate</A>
+<LI><A NAME="tex2html11431"
+  HREF="node674.html">m23SHARED_setCustomerLanguage</A>
+<LI><A NAME="tex2html11432"
+  HREF="node675.html">m23SHARED_getCustomerLanguage</A>
+<LI><A NAME="tex2html11433"
+  HREF="node676.html">m23SHARED_sendActivationMail</A>
+<LI><A NAME="tex2html11434"
+  HREF="node677.html">m23SHARED_sendActivationMail</A>
+<LI><A NAME="tex2html11435"
+  HREF="node678.html">m23SHARED_setRealName</A>
+<LI><A NAME="tex2html11436"
+  HREF="node679.html">m23SHARED_getRealName</A>
+<LI><A NAME="tex2html11437"
+  HREF="node680.html">m23SHARED_changeClientAmount</A>
+<LI><A NAME="tex2html11438"
+  HREF="node681.html">m23SHARED_showBill</A>
+<LI><A NAME="tex2html11439"
+  HREF="node682.html">m23SHARED_billDateSelection</A>
+<LI><A NAME="tex2html11440"
+  HREF="node683.html">m23SHARED_priceFormater</A>
+<LI><A NAME="tex2html11441"
+  HREF="node684.html">m23SHARED_calculateBill</A>
+<LI><A NAME="tex2html11442"
+  HREF="node685.html">m23SHARED_getLicenseType</A>
+<LI><A NAME="tex2html11443"
+  HREF="node686.html">m23SHARED_sendAdminMail</A>
+<LI><A NAME="tex2html11444"
+  HREF="node687.html">m23SHARED_getCurrentUser</A>
+<LI><A NAME="tex2html11445"
+  HREF="node688.html">m23SHARED_changePasswordDialog</A>
+<LI><A NAME="tex2html11446"
+  HREF="node689.html">m23SHARED_changePasswordDialog</A>
+<LI><A NAME="tex2html11447"
+  HREF="node690.html">m23SHARED_getBillDates</A>
+<LI><A NAME="tex2html11448"
+  HREF="node691.html">m23SHARED_downloadBillPDFLink</A>
+<LI><A NAME="tex2html11449"
+  HREF="node692.html">m23SHARED_getCustomerAddress</A>
+<LI><A NAME="tex2html11450"
+  HREF="node693.html">m23SHARED_getCustomerBankHTML</A>
+<LI><A NAME="tex2html11451"
+  HREF="node694.html">m23SHARED_pdfBill</A>
+<LI><A NAME="tex2html11452"
+  HREF="node695.html">m23SHARED_setBankAccount</A>
+<LI><A NAME="tex2html11453"
+  HREF="node696.html">m23SHARED_setAddress</A>
+<LI><A NAME="tex2html11454"
+  HREF="node697.html">m23SHARED_unusedPaidClientsAvailable</A>
+<LI><A NAME="tex2html11455"
+  HREF="node698.html">m23SHARED_showLicenseDialog</A>
+<LI><A NAME="tex2html11456"
+  HREF="node699.html">m23SHARED_getAllm23sharedUsers</A>
+<LI><A NAME="tex2html11457"
+  HREF="node700.html">m23SHARED_switchUser</A>
+<LI><A NAME="tex2html11458"
+  HREF="node701.html">m23SHARED_prepareBillMailSending</A>
+<LI><A NAME="tex2html11459"
+  HREF="node702.html">m23SHARED_markBillMailAsSent</A>
+<LI><A NAME="tex2html11460"
+  HREF="node703.html">m23SHARED_sendAllBillMails</A>
+<LI><A NAME="tex2html11461"
+  HREF="node704.html">m23SHARED_addExtraBill</A>
+<LI><A NAME="tex2html11462"
+  HREF="node705.html">m23SHARED_showDonationDialog</A>
+<LI><A NAME="tex2html11463"
+  HREF="node706.html">m23SHARED_showBootMediaDownloadDialog</A>
+<LI><A NAME="tex2html11464"
+  HREF="node707.html">m23SHARED_allUserDBQuery</A>
+<LI><A NAME="tex2html11465"
+  HREF="node708.html">m23SHARED_getUserByResident</A>
+<LI><A NAME="tex2html11466"
+  HREF="node709.html">m23SHARED_getUserByCustomerNr</A>
+<LI><A NAME="tex2html11467"
+  HREF="node710.html">m23SHARED_getUserByInfo</A>
+<LI><A NAME="tex2html11468"
+  HREF="node711.html">m23SHARED_showAdminDialog</A>
+<LI><A NAME="tex2html11469"
+  HREF="node712.html">m23SHARED_blockAccount</A>
+<LI><A NAME="tex2html11470"
+  HREF="node713.html">m23SHARED_isAccountBlocked</A>
+<LI><A NAME="tex2html11471"
+  HREF="node714.html">m23SHARED_showAddExtraBillDialog</A>
+<LI><A NAME="tex2html11472"
+  HREF="node715.html">m23SHARED_showBillDialog</A>
+<LI><A NAME="tex2html11473"
+  HREF="node716.html">m23SHARED_showPriceListTable</A>
+<LI><A NAME="tex2html11474"
+  HREF="node717.html">m23SHARED_getInformationForBootingYourClientLink</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_isClientInGroup</TITLE>
-<META NAME="description" CONTENT="GRP_isClientInGroup">
+<TITLE>FDISK_raidJob</TITLE>
+<META NAME="description" CONTENT="FDISK_raidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node470.html">
 <LINK REL="previous" HREF="node468.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node470.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9016"
+<A NAME="tex2html9127"
   HREF="node470.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9012"
-  HREF="node464.html">
+<A NAME="tex2html9123"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9006"
+<A NAME="tex2html9117"
   HREF="node468.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9014"
+<A NAME="tex2html9125"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9017"
-  HREF="node470.html">GRP_addClientToGroup</A>
-<B> Up:</B> <A NAME="tex2html9013"
-  HREF="node464.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html9007"
-  HREF="node468.html">GRP_del</A>
- &nbsp; <B>  <A NAME="tex2html9015"
+<B> Next:</B> <A NAME="tex2html9128"
+  HREF="node470.html">FDISK_virtualDeleteDrive</A>
+<B> Up:</B> <A NAME="tex2html9124"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9118"
+  HREF="node468.html">FDISK_addRaidBeforeFormat</A>
+ &nbsp; <B>  <A NAME="tex2html9126"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008135000000000000000">
-GRP_isClientInGroup</A>
+<H2><A NAME="SECTION00812107000000000000000">
+FDISK_raidJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes true, if a client is in the selected group, otherwise false
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a job to create a RAID on given drives/partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client 
+<LI>raidDev: RAID device (e.g. /dev/md0)
 </LI>
-<LI>groupName: name of the group
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ GRP_isClientInGroup</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

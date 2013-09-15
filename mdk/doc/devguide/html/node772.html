@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_addWait4AccJob</TITLE>
-<META NAME="description" CONTENT="PKG_addWait4AccJob">
+<TITLE>PKG_getDebootstrapCacheServerURL</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheServerURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node773.html">
 <LINK REL="previous" HREF="node771.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node773.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12948"
+<A NAME="tex2html13116"
   HREF="node773.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12944"
-  HREF="node734.html">
+<A NAME="tex2html13112"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12938"
+<A NAME="tex2html13106"
   HREF="node771.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12946"
+<A NAME="tex2html13114"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12949"
-  HREF="node773.html">PKG_addStatusJob</A>
-<B> Up:</B> <A NAME="tex2html12945"
-  HREF="node734.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html12939"
-  HREF="node771.html">PKG_discardNormalJob</A>
- &nbsp; <B>  <A NAME="tex2html12947"
+<B> Next:</B> <A NAME="tex2html13117"
+  HREF="node773.html">PKG_getDebootstrapCacheServerFile</A>
+<B> Up:</B> <A NAME="tex2html13113"
+  HREF="node766.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13107"
+  HREF="node771.html">PKG_getDebootstrapCacheSfURL</A>
+ &nbsp; <B>  <A NAME="tex2html13115"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082438000000000000000">
-PKG_addWait4AccJob</A>
+<H2><A NAME="SECTION008246000000000000000">
+PKG_getDebootstrapCacheServerURL</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a wait 4 accept job to the clientjobs table
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the URL to the debootstrap cache file on the m23 server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: name of the client
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 </LI>
-<LI>packageName: name of the package
+<LI>arch: the computer architecture of the client
 </LI>
-<LI>priority: priority of the package
-</LI>
-<LI>params: parameter for installing the package
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The URL to the debootstrap cache file on the m23 server.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ PKG_addWait4AccJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -55,7 +55,7 @@ isover=`cat $ISOBuildDir/ISO.info`
 
 bootCDOption=`bootCDOption 2>/dev/null` || bootCDOption=/tmp/bootCDOption$$
 dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 Server ISO builder" \
-	--menu "Main menu" 14 75 7 \
+	--menu "Build architecture: `getBuildArch`" 14 75 7 \
 	"kernel" "download and make kernel" \
 	"osimage" "Make server OS image ($imagever)"\
 	"transfer" "=> Transfer the osimage to 192.168.1.77"\
@@ -95,7 +95,7 @@ case $choice in
 
 #transfers the m23 base system image to the master server
 	"transfer")
-		scp $ISOBuildDir/m23image.tar.7z 192.168.1.77:$ISOBuildDir
+		scp -o UserKnownHostsFile=/dev/null -o VerifyHostKeyDNS=no -o CheckHostIP=no -o StrictHostKeyChecking=no $ISOBuildDir/m23image.tar.7z root@192.168.1.77:$ISOBuildDir
 		exit;;
 
 #download and make kernel
@@ -107,7 +107,10 @@ case $choice in
 
 #build m23image.7z
 	"osimage")
-		createOSImage
+		if [ ! $(hostname) = 'tux09' ]
+		then
+			createOSImage
+		fi
 		/mdk/bin/menuServerISO
 		exit;;
 

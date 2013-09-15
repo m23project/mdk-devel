@@ -6,8 +6,8 @@ Version: 0.8-6
 Maintainer: Klaus Knopper <knopper@knopper.net>
 Standards-Version: 3.5.2
 Checksums-Sha1: 
- bdf49b5e49f5b8b105da9f38cfda89b105f2b283 9486 xf86config-knoppix_0.8-6.tar.gz
+ aca680aeca6c5bddbedf7f48446fecb9a35f9239 9843 xf86config-knoppix_0.8-6.tar.gz
 Checksums-Sha256: 
- 0e6521cb499b62a7c2ed9754d1530f2c1a0a16acc6d8445731f61cb80eba6ec3 9486 xf86config-knoppix_0.8-6.tar.gz
+ a0d3131614b53ff964701901550fbb616d7d1971d892286cd479071e08d2fa61 9843 xf86config-knoppix_0.8-6.tar.gz
 Files: 
- 478c861bd64f0de516e70c08a23d03d9 9486 xf86config-knoppix_0.8-6.tar.gz
+ 894dd3ca88af3a57e926ec1abf1b0ac8 9843 xf86config-knoppix_0.8-6.tar.gz

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Example</TITLE>
-<META NAME="description" CONTENT="Example">
+<TITLE>Connecting to the server</TITLE>
+<META NAME="description" CONTENT="Connecting to the server">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,92 +20,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="next" HREF="node43.html">
-<LINK REL="previous" HREF="node38.html">
-<LINK REL="up" HREF="node29.html">
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node41.html">
 <LINK REL="next" HREF="node43.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2622"
+<A NAME="tex2html2715"
   HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2618"
-  HREF="node29.html">
+<A NAME="tex2html2711"
+  HREF="node41.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2612"
+<A NAME="tex2html2705"
   HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2620"
+<A NAME="tex2html2713"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2623"
-  HREF="node43.html">The complete program</A>
-<B> Up:</B> <A NAME="tex2html2619"
-  HREF="node29.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html2613"
-  HREF="node41.html">Send SQL statements</A>
- &nbsp; <B>  <A NAME="tex2html2621"
+<B> Next:</B> <A NAME="tex2html2716"
+  HREF="node43.html">Disconnecting from the server</A>
+<B> Up:</B> <A NAME="tex2html2712"
+  HREF="node41.html">Filling main.cpp</A>
+<B> Previous:</B> <A NAME="tex2html2706"
+  HREF="node41.html">Filling main.cpp</A>
+ &nbsp; <B>  <A NAME="tex2html2714"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00626000000000000000">
-Example</A>
-</H2>
+<H3><A NAME="SECTION00635100000000000000">
+Connecting to the server</A>
+</H3>
 <PRE>
-int main(int argc, char *argv[])
+#include &lt;mysql/mysql.h&gt;
+
+MYSQL connection;
+
+void connect(char *server, char *dbuser, char *passw)
 {
-  MYSQL_RES *res;
-  unsigned int fields;
-  my_ulonglong rows;
-  MYSQL_ROW row;
-
-  connect("127.0.0.1", "root", "");
-
-  res=query("SELECT * FROM `clients`");
-
-  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
-
-  rows=mysql_num_rows(res); //&lt;&lt;2
-
-
-  for (int i=0; i &lt; rows; i++)
-    {
-        unsigned long *lengths;
-
-        row=mysql_fetch_row(res); //&lt;&lt;3
-
-        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
-
-        for (int fnr=0; fnr &lt; fields; fnr++)
-            printf("[%i: %s] ", (int) lengths[fnr],
-                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
-    }
-
-  mysql_free_result(res); //&lt;&lt;6
-
-  disconnect();
-
-  return EXIT_SUCCESS;
-}
+  if (!mysql_connect(&amp;connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&amp;connection));
+      exit(2);
+  }
+  mysql_select_db(&amp;connection,"m23");
+};
 </PRE>
 
 <OL>
-<LI>Get the number of fields of the table.
+<LI>First of all we have to include the necessary header file: <SPAN  CLASS="textit">#include &lt;mysql/mysql.h&gt;</SPAN>
 </LI>
-<LI>Get the amount of result rows.
+<LI>The mysql_connect function requires a <SPAN  CLASS="textbf">MYSQL</SPAN> variable (here called
+<SPAN  CLASS="textit">connection</SPAN>) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql_connect will return 0, otherwise we get an error, print an error message and quit.
+
+<P>
 </LI>
-<LI>Fetch a row (one by one) and store the result in <SPAN  CLASS="textit">row</SPAN>.
+<LI>mysql_error will generate a human readable error message.
+
+<P>
 </LI>
-<LI>Store the lengths (in characters) of the result fields.
-</LI>
-<LI>Print the fields of one row.
-</LI>
-<LI>Free the memory by deleting the result data.
+<LI>At least we should choose our database, this is done with mysql_select_db. Now the connection should be established.
+
+<P>
 </LI>
 </OL>
 
@@ -113,7 +95,7 @@ int main(int argc, char *argv[])
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

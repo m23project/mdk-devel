@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_ipGenerator</TITLE>
-<META NAME="description" CONTENT="MASS_ipGenerator">
+<TITLE>m23SHARED_allUserDBQuery</TITLE>
+<META NAME="description" CONTENT="m23SHARED_allUserDBQuery">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node708.html">
 <LINK REL="previous" HREF="node706.html">
-<LINK REL="up" HREF="node689.html">
+<LINK REL="up" HREF="node646.html">
 <LINK REL="next" HREF="node708.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12071"
+<A NAME="tex2html12205"
   HREF="node708.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12067"
-  HREF="node689.html">
+<A NAME="tex2html12201"
+  HREF="node646.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12061"
+<A NAME="tex2html12195"
   HREF="node706.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12069"
+<A NAME="tex2html12203"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12072"
-  HREF="node708.html">MASS_minMaxIP</A>
-<B> Up:</B> <A NAME="tex2html12068"
-  HREF="node689.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html12062"
-  HREF="node706.html">MASS_loginGenerator</A>
- &nbsp; <B>  <A NAME="tex2html12070"
+<B> Next:</B> <A NAME="tex2html12206"
+  HREF="node708.html">m23SHARED_getUserByResident</A>
+<B> Up:</B> <A NAME="tex2html12202"
+  HREF="node646.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html12196"
+  HREF="node706.html">m23SHARED_showBootMediaDownloadDialog</A>
+ &nbsp; <B>  <A NAME="tex2html12204"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082118000000000000000">
-MASS_ipGenerator</A>
+<H2><A NAME="SECTION0082061000000000000000">
+m23SHARED_allUserDBQuery</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates the selected amount of IPs in the selected ranges. Only IPs are generated that aren't in use by m23 or (if activated) pingable.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes an SQL query on all m23shared databases and returns an associated array with all results.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>amount: the amount of IPs to generate
+<LI>sqlIN: The input query string that MUST include m23SHAREDDB as placeholder for the current m23shared DB name.
 </LI>
-<LI>rangeStr: string with IP range information
-</LI>
-<LI>ping: set to true, if each IP should be pinged before it becomes valid
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associated array with the query result of all m23shared DBs.
 </LI>
 </UL>
 
@@ -72,7 +74,7 @@ MASS_ipGenerator</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

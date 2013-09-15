@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PREF_getClientPreferences</TITLE>
-<META NAME="description" CONTENT="PREF_getClientPreferences">
+<TITLE>PLG_showDownloadStatus</TITLE>
+<META NAME="description" CONTENT="PLG_showDownloadStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node879.html">
 <LINK REL="previous" HREF="node877.html">
-<LINK REL="up" HREF="node872.html">
+<LINK REL="up" HREF="node867.html">
 <LINK REL="next" HREF="node879.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14271"
+<A NAME="tex2html14412"
   HREF="node879.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14267"
-  HREF="node872.html">
+<A NAME="tex2html14408"
+  HREF="node867.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14261"
+<A NAME="tex2html14402"
   HREF="node877.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14269"
+<A NAME="tex2html14410"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14272"
-  HREF="node879.html">PREF_getValue</A>
-<B> Up:</B> <A NAME="tex2html14268"
-  HREF="node872.html">./inc/preferences.php</A>
-<B> Previous:</B> <A NAME="tex2html14262"
-  HREF="node877.html">PREF_loadAllPreferenceValues</A>
- &nbsp; <B>  <A NAME="tex2html14270"
+<B> Next:</B> <A NAME="tex2html14413"
+  HREF="node879.html">PLG_checkOverwriting</A>
+<B> Up:</B> <A NAME="tex2html14409"
+  HREF="node867.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html14403"
+  HREF="node877.html">PLG_showDownloadStatus</A>
+ &nbsp; <B>  <A NAME="tex2html14411"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008286000000000000000">
-PREF_getClientPreferences</A>
+<H2><A NAME="SECTION0082611000000000000000">
+PLG_showDownloadStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> list all preferences
+<SPAN  CLASS="textbf">Description:</SPAN> downloads or copies the plugin to the temp dir
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>default: The name of the preference to list first
+<LI>url: the place where to get the plugin file from. following transport protocols are allowed: http, ftp and local files. e.g. "http://myserver.de/test.m23plg" is avalid url.
 </LI>
-<LI>directOutput: If enabled the preference names will be given out as a HTML option list. If disabled an array with the preference names as key and value will be returned.
+<LI>tempDir: where to store the plugin file temporary
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Array with the preference names or nothing on enabled directOutput.
+<LI>fileName: file name with whole path to the plugin file
 </LI>
 </UL>
 
@@ -76,7 +72,7 @@ PREF_getClientPreferences</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

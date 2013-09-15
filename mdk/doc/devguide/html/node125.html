@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Building</TITLE>
-<META NAME="description" CONTENT="Building">
+<TITLE>Patching</TITLE>
+<META NAME="description" CONTENT="Patching">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node122.html">
-<LINK REL="up" HREF="node120.html">
+<LINK REL="next" HREF="node128.html">
+<LINK REL="previous" HREF="node124.html">
+<LINK REL="up" HREF="node123.html">
 <LINK REL="next" HREF="node126.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3682"
+<A NAME="tex2html3775"
   HREF="node126.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3678"
-  HREF="node120.html">
+<A NAME="tex2html3771"
+  HREF="node123.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3674"
+<A NAME="tex2html3765"
   HREF="node124.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3680"
+<A NAME="tex2html3773"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3683"
-  HREF="node126.html">script</A>
-<B> Up:</B> <A NAME="tex2html3679"
-  HREF="node120.html">Screen</A>
-<B> Previous:</B> <A NAME="tex2html3675"
-  HREF="node124.html">For old screen 4.0.2</A>
- &nbsp; <B>  <A NAME="tex2html3681"
+<B> Next:</B> <A NAME="tex2html3776"
+  HREF="node126.html">screen 4.0.3</A>
+<B> Up:</B> <A NAME="tex2html3772"
+  HREF="node123.html">Screen</A>
+<B> Previous:</B> <A NAME="tex2html3766"
+  HREF="node124.html">Purpose</A>
+ &nbsp; <B>  <A NAME="tex2html3774"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00763000000000000000">
-Building</A>
+<H2><A NAME="SECTION00762000000000000000">
+Patching</A>
 </H2>
-<PRE>
-export CFLAGS="-static"
-export LDFLAGS="-static"
-./configure --with-sys-screenrc=/etc/screenrc --disable-socket-dir
-make
-strip -g screen
-</PRE> 
+The patch solves the problem with getpwuid, that the current user can't be figured out. If applied this patch is applied, root is the current user, otherwise screen can't be executed.
+<BR>
+<BR>
+This should be used for the booimage only, because it can be a security risk.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3777"
+  HREF="node126.html">screen 4.0.3</A>
+<LI><A NAME="tex2html3778"
+  HREF="node127.html">For old screen 4.0.2</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

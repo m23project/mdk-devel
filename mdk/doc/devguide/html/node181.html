@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>checkNetmask</TITLE>
-<META NAME="description" CONTENT="checkNetmask">
+<TITLE>CHECK_str</TITLE>
+<META NAME="description" CONTENT="CHECK_str">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node182.html">
 <LINK REL="previous" HREF="node180.html">
-<LINK REL="up" HREF="node168.html">
+<LINK REL="up" HREF="node171.html">
 <LINK REL="next" HREF="node182.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5276"
+<A NAME="tex2html5409"
   HREF="node182.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5272"
-  HREF="node168.html">
+<A NAME="tex2html5405"
+  HREF="node171.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5266"
+<A NAME="tex2html5399"
   HREF="node180.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5274"
+<A NAME="tex2html5407"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5277"
-  HREF="node182.html">checkEmail</A>
-<B> Up:</B> <A NAME="tex2html5273"
-  HREF="node168.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html5267"
-  HREF="node180.html">checkMAC</A>
- &nbsp; <B>  <A NAME="tex2html5275"
+<B> Next:</B> <A NAME="tex2html5410"
+  HREF="node182.html">countLinesInFile</A>
+<B> Up:</B> <A NAME="tex2html5406"
+  HREF="node171.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html5400"
+  HREF="node180.html">CHECK_letFWDie</A>
+ &nbsp; <B>  <A NAME="tex2html5408"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008513000000000000000">
-checkNetmask</A>
+<H2><A NAME="SECTION008510000000000000000">
+CHECK_str</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a netmask is valid, returns 1 if it is a valid netmask otherwise 0
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input string only contains valid characters and is not longer than the maximum length and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>string: netmask value to check
+<LI>val: String value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The input string or stops the program on an error.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ checkNetmask</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

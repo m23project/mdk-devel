@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_executeOnClientJobs</TITLE>
-<META NAME="description" CONTENT="PKG_executeOnClientJobs">
+<TITLE>PKG_changePrioritySelectedPackages</TITLE>
+<META NAME="description" CONTENT="PKG_changePrioritySelectedPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node795.html">
 <LINK REL="previous" HREF="node793.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node795.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13212"
+<A NAME="tex2html13380"
   HREF="node795.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13208"
-  HREF="node734.html">
+<A NAME="tex2html13376"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13202"
+<A NAME="tex2html13370"
   HREF="node793.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13210"
+<A NAME="tex2html13378"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13213"
-  HREF="node795.html">PKG_removeFromJobList</A>
-<B> Up:</B> <A NAME="tex2html13209"
-  HREF="node734.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13203"
-  HREF="node793.html">PKG_updateSourcesListAtAllClients</A>
- &nbsp; <B>  <A NAME="tex2html13211"
+<B> Next:</B> <A NAME="tex2html13381"
+  HREF="node795.html">PKG_rmSelectedPackages</A>
+<B> Up:</B> <A NAME="tex2html13377"
+  HREF="node766.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13371"
+  HREF="node793.html">PKG_addNormalPackages</A>
+ &nbsp; <B>  <A NAME="tex2html13379"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082460000000000000000">
-PKG_executeOnClientJobs</A>
+<H2><A NAME="SECTION0082428000000000000000">
+PKG_changePrioritySelectedPackages</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Executes a sql statement on all package IDs.
+<SPAN  CLASS="textbf">Description:</SPAN> Changes the priority of selected wait4acc packages.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>sql: initial SQL statement e.g. "DELETE FROM `clientjobs` WHERE "
+<LI>amount: amount of selected packages
 </LI>
-<LI>packageIDList: the list of IDs of jobs to be deleted
+<LI>client: name of client to install packages on
+</LI>
+<LI>newPriority: The new priority to set.
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ PKG_executeOnClientJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

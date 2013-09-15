@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_changeClient</TITLE>
-<META NAME="description" CONTENT="CLIENT_changeClient">
+<TITLE>CLIENT_query</TITLE>
+<META NAME="description" CONTENT="CLIENT_query">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node272.html">
 <LINK REL="previous" HREF="node270.html">
-<LINK REL="up" HREF="node190.html">
+<LINK REL="up" HREF="node194.html">
 <LINK REL="next" HREF="node272.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6439"
+<A NAME="tex2html6575"
   HREF="node272.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6435"
-  HREF="node190.html">
+<A NAME="tex2html6571"
+  HREF="node194.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6429"
+<A NAME="tex2html6565"
   HREF="node270.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6437"
+<A NAME="tex2html6573"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6440"
-  HREF="node272.html">CLIENT_setAllParams</A>
-<B> Up:</B> <A NAME="tex2html6436"
-  HREF="node190.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6430"
-  HREF="node270.html">CLIENT_getNamesWithPackages</A>
- &nbsp; <B>  <A NAME="tex2html6438"
+<B> Next:</B> <A NAME="tex2html6576"
+  HREF="node272.html">CLIENT_addChangeElement</A>
+<B> Up:</B> <A NAME="tex2html6572"
+  HREF="node194.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html6566"
+  HREF="node270.html">CLIENT_getId</A>
+ &nbsp; <B>  <A NAME="tex2html6574"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008781000000000000000">
-CLIENT_changeClient</A>
+<H2><A NAME="SECTION008777000000000000000">
+CLIENT_query</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> changes values of the clients
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the result of a query for getting all clients matching selected states and groupNames. Empty values are interpreted as 'all' for this kind of value.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>o1: operator 1 (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects of the first state should be equal, smaler or bigger that the state in s1
+</LI>
+<LI>s1: first state to compare with the state of the client
+</LI>
+<LI>o2: operator 2
+</LI>
+<LI>s2: second state to compare
+</LI>
+<LI>groupName: if you want to filter for special group, set it to the group name
+</LI>
+<LI>o3: operator 3
+</LI>
+<LI>s3: third state to compare
+</LI>
+<LI>search: Search string to search all clients for and only list matching clients or all if $search is empty.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

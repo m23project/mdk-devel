@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>get the output of your script</TITLE>
-<META NAME="description" CONTENT="get the output of your script">
+<TITLE>Turn on m23 script debugging</TITLE>
+<META NAME="description" CONTENT="Turn on m23 script debugging">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,65 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node99.html">
 <LINK REL="previous" HREF="node97.html">
-<LINK REL="up" HREF="node93.html">
+<LINK REL="up" HREF="node96.html">
 <LINK REL="next" HREF="node99.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3324"
+<A NAME="tex2html3417"
   HREF="node99.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3320"
-  HREF="node93.html">
+<A NAME="tex2html3413"
+  HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3316"
+<A NAME="tex2html3407"
   HREF="node97.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3322"
+<A NAME="tex2html3415"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3325"
-  HREF="node99.html">Additional installation parameters for</A>
-<B> Up:</B> <A NAME="tex2html3321"
-  HREF="node93.html">debugging m23 scripts</A>
-<B> Previous:</B> <A NAME="tex2html3317"
-  HREF="node97.html">Set script status</A>
- &nbsp; <B>  <A NAME="tex2html3323"
+<B> Next:</B> <A NAME="tex2html3418"
+  HREF="node99.html">Turn off m23 script</A>
+<B> Up:</B> <A NAME="tex2html3414"
+  HREF="node96.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3408"
+  HREF="node97.html">Activate PHP debugging</A>
+ &nbsp; <B>  <A NAME="tex2html3416"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00695000000000000000">
-get the output of your script</A>
+<H2><A NAME="SECTION006102000000000000000">
+Turn on m23 script debugging</A>
 </H2>
-You should turn off your client and overtake its ip. Now you can get the generated script by:
-<PRE>
-wget http://serverIP/work.php
-</PRE>
+If you want to see the messages behind the blue status screens of the normal m23 client installation, you can turn on the debugging mode. You can do it by setting the debugging status for your client IP.
+
+<UL>
+<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+</LI>
+<LI>select the database "m23"
+</LI>
+<LI>select the table "remotevar"
+</LI>
+<LI>click on "Browse"
+</LI>
+<LI>click on "Insert new row"
+</LI>
+<LI>enter the ip of your client in the "ip" field, "debug" in the "var" field and "1" in the "value" field.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

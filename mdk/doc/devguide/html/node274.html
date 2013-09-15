@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/db.php</TITLE>
-<META NAME="description" CONTENT="./inc/db.php">
+<TITLE>CLIENT_showAddDialog</TITLE>
+<META NAME="description" CONTENT="CLIENT_showAddDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,119 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node305.html">
-<LINK REL="previous" HREF="node190.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node275.html">
+<LINK REL="previous" HREF="node273.html">
+<LINK REL="up" HREF="node194.html">
 <LINK REL="next" HREF="node275.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6473"
+<A NAME="tex2html6611"
   HREF="node275.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6469"
-  HREF="node133.html">
+<A NAME="tex2html6607"
+  HREF="node194.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6463"
+<A NAME="tex2html6601"
   HREF="node273.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6471"
+<A NAME="tex2html6609"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6474"
-  HREF="node275.html">ip2longSafe</A>
-<B> Up:</B> <A NAME="tex2html6470"
-  HREF="node133.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html6464"
-  HREF="node273.html">CLIENT_plinkFetchJob</A>
- &nbsp; <B>  <A NAME="tex2html6472"
+<B> Next:</B> <A NAME="tex2html6612"
+  HREF="node275.html">CLIENT_deleteClient</A>
+<B> Up:</B> <A NAME="tex2html6608"
+  HREF="node194.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html6602"
+  HREF="node273.html">CLIENT_showDelDialog</A>
+ &nbsp; <B>  <A NAME="tex2html6610"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00880000000000000000">
-./inc/db.php</A>
-</H1>
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: database functions, open, close the database, get ip of the calling client
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION008780000000000000000">
+CLIENT_showAddDialog</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> shows the dialog for adding, defining or changing a client
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html6475"
-  HREF="node275.html">ip2longSafe</A>
-<LI><A NAME="tex2html6476"
-  HREF="node276.html">getArchList</A>
-<LI><A NAME="tex2html6477"
-  HREF="node277.html">isMySQL3used</A>
-<LI><A NAME="tex2html6478"
-  HREF="node278.html">encryptShadow</A>
-<LI><A NAME="tex2html6479"
-  HREF="node279.html">getClientLanguage</A>
-<LI><A NAME="tex2html6480"
-  HREF="node280.html">getInstDev</A>
-<LI><A NAME="tex2html6481"
-  HREF="node281.html">dbConnect</A>
-<LI><A NAME="tex2html6482"
-  HREF="node282.html">dbClose</A>
-<LI><A NAME="tex2html6483"
-  HREF="node283.html">getServerIP</A>
-<LI><A NAME="tex2html6484"
-  HREF="node284.html">getServerNetmask</A>
-<LI><A NAME="tex2html6485"
-  HREF="node285.html">getDNSServers</A>
-<LI><A NAME="tex2html6486"
-  HREF="node286.html">getServerGateway</A>
-<LI><A NAME="tex2html6487"
-  HREF="node287.html">sendClientStatus</A>
-<LI><A NAME="tex2html6488"
-  HREF="node288.html">sendClientStageStatus</A>
-<LI><A NAME="tex2html6489"
-  HREF="node289.html">returnClientStageStatus</A>
-<LI><A NAME="tex2html6490"
-  HREF="node290.html">sendClientLogStatus</A>
-<LI><A NAME="tex2html6491"
-  HREF="node291.html">deleteClientLogs</A>
-<LI><A NAME="tex2html6492"
-  HREF="node292.html">executeNextWork</A>
-<LI><A NAME="tex2html6493"
-  HREF="node293.html">DB_query</A>
-<LI><A NAME="tex2html6494"
-  HREF="node294.html">DB_queryNoDie</A>
-<LI><A NAME="tex2html6495"
-  HREF="node295.html">DB_genPassword</A>
-<LI><A NAME="tex2html6496"
-  HREF="node296.html">getClientIP</A>
-<LI><A NAME="tex2html6497"
-  HREF="node297.html">implodeAssoc</A>
-<LI><A NAME="tex2html6498"
-  HREF="node298.html">explodeAssoc</A>
-<LI><A NAME="tex2html6499"
-  HREF="node299.html">sedSearchReplace</A>
-<LI><A NAME="tex2html6500"
-  HREF="node300.html">isProgrammInstalled</A>
-<LI><A NAME="tex2html6501"
-  HREF="node301.html">pingIP</A>
-<LI><A NAME="tex2html6502"
-  HREF="node302.html">delFromArray</A>
-<LI><A NAME="tex2html6503"
-  HREF="node303.html">delValuesFromArray</A>
-<LI><A NAME="tex2html6504"
-  HREF="node304.html">DB_getLikeableColumns</A>
+<UL>
+<LI>addType: defines the behaviour and appearance of the dialog
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDiskType</TITLE>
-<META NAME="description" CONTENT="FDISK_getDiskType">
+<TITLE>FDISK_autoPart</TITLE>
+<META NAME="description" CONTENT="FDISK_autoPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node448.html">
 <LINK REL="previous" HREF="node446.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node448.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8726"
+<A NAME="tex2html8863"
   HREF="node448.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8722"
-  HREF="node345.html">
+<A NAME="tex2html8859"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8716"
+<A NAME="tex2html8853"
   HREF="node446.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8724"
+<A NAME="tex2html8861"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8727"
-  HREF="node448.html">FDISK_getDriveAndNr</A>
-<B> Up:</B> <A NAME="tex2html8723"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8717"
-  HREF="node446.html">FDISK_listPartJobs</A>
- &nbsp; <B>  <A NAME="tex2html8725"
+<B> Next:</B> <A NAME="tex2html8864"
+  HREF="node448.html">FDISK_printColorDefinitions</A>
+<B> Up:</B> <A NAME="tex2html8860"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8854"
+  HREF="node446.html">FDISK_getFreeSpaces</A>
+ &nbsp; <B>  <A NAME="tex2html8862"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812102000000000000000">
-FDISK_getDiskType</A>
+<H2><A NAME="SECTION0081285000000000000000">
+FDISK_autoPart</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (DISK_TYPE_IDE, DISK_TYPE_SCSI)
+<SPAN  CLASS="textbf">Description:</SPAN> generation of param string and command list for automatic partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: the path to the device (e.g. /dev/hde)
+<LI>clientName: name of the client
+</LI>
+<LI>command: parted commands are written to $command
+</LI>
+<LI>dev: selected device (e.g. /dev/hda)
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>instPart: the variable the installation device name is written to
+</LI>
+<LI>swapPart: the variable the swap device name is written to
+</LI>
+<LI>minSwap: Minimal size of the swap partition in MB.
+</LI>
+<LI>maxSwap: Maximal size of the swap partition in MB.
 </LI>
 </UL>
 
@@ -68,7 +82,7 @@ FDISK_getDiskType</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

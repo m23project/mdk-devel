@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_exists</TITLE>
-<META NAME="description" CONTENT="GRP_exists">
+<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
+<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node466.html">
 <LINK REL="previous" HREF="node464.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node466.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8968"
+<A NAME="tex2html9079"
   HREF="node466.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8964"
-  HREF="node464.html">
+<A NAME="tex2html9075"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8958"
+<A NAME="tex2html9069"
   HREF="node464.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8966"
+<A NAME="tex2html9077"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8969"
-  HREF="node466.html">GRP_add</A>
-<B> Up:</B> <A NAME="tex2html8965"
-  HREF="node464.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html8959"
-  HREF="node464.html">./inc/groups.php</A>
- &nbsp; <B>  <A NAME="tex2html8967"
+<B> Next:</B> <A NAME="tex2html9080"
+  HREF="node466.html">FDISK_buildRaidDialog</A>
+<B> Up:</B> <A NAME="tex2html9076"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9070"
+  HREF="node464.html">FDISK_listRaidTable</A>
+ &nbsp; <B>  <A NAME="tex2html9078"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008131000000000000000">
-GRP_exists</A>
+<H2><A NAME="SECTION00812103000000000000000">
+FDISK_addDrivePartitionToRaid</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks, if a group exists
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>groupName: name of the group to check
+<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
+</LI>
+<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
+</LI>
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+</LI>
+<LI>param: parameter string containing status information about the harddisks
+</LI>
+<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL>
 
@@ -68,7 +82,7 @@ GRP_exists</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

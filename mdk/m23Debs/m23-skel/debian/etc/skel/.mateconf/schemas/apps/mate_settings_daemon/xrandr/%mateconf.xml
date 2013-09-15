@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="turn_on_laptop_monitor_at_startup" mtime="1367786905" type="schema" stype="bool" owner="mate">
+		<local_schema locale="C" short_desc="Turn on laptop monitor after system boot">
+			<default type="bool" value="true"/>
+			<longdesc>Turn on laptop monitor after system boot if user plugs in
+		external monitor on system boot.
+		</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="turn_on_external_monitors_at_startup" mtime="1367786905" type="schema" stype="bool" owner="mate">
+		<local_schema locale="C" short_desc="Turn on external monitor after system boot">
+			<default type="bool" value="false"/>
+			<longdesc>Turn on external monitor after system boot if user plugs in
+		external monitor on system boot.
+		</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_notification_icon" mtime="1367786905" type="schema" stype="bool" owner="mate">
+		<local_schema locale="C" short_desc="Show Displays in Notification Area">
+			<default type="bool" value="false"/>
+			<longdesc>Whether a notification icon with display-related things should be
+		    shown in the panel.
+		</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_configuration_file" mtime="1367786905" type="schema" stype="string" owner="mate">
+		<local_schema locale="C" short_desc="File for default configuration for RandR">
+			<default type="string">
+				<stringvalue>/etc/mate-settings-daemon/xrandr/monitors.xml</stringvalue>
+			</default>
+			<longdesc>The XRandR plugin will look for a default
+                configuration in the file specified by this key.  This
+                is similar to the ~/.config/monitors.xml that normally
+                gets stored in users&apos; home directories.  If a user
+                does not have such a file, or has one that does not
+                match the user&apos;s setup of monitors, then the file
+                specified by this key will be used instead.
+	        </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_generateCustomerNumber</TITLE>
-<META NAME="description" CONTENT="m23SHARED_generateCustomerNumber">
+<TITLE>LDAP_getFreeIDs</TITLE>
+<META NAME="description" CONTENT="LDAP_getFreeIDs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node643.html">
 <LINK REL="previous" HREF="node641.html">
-<LINK REL="up" HREF="node617.html">
+<LINK REL="up" HREF="node622.html">
 <LINK REL="next" HREF="node643.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11267"
+<A NAME="tex2html11356"
   HREF="node643.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11263"
-  HREF="node617.html">
+<A NAME="tex2html11352"
+  HREF="node622.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11257"
+<A NAME="tex2html11346"
   HREF="node641.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11265"
+<A NAME="tex2html11354"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11268"
-  HREF="node643.html">m23SHARED_getCustomerNr</A>
-<B> Up:</B> <A NAME="tex2html11264"
-  HREF="node617.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html11258"
-  HREF="node641.html">m23SHARED_getActivationKey</A>
- &nbsp; <B>  <A NAME="tex2html11266"
+<B> Next:</B> <A NAME="tex2html11357"
+  HREF="node643.html">LDAP_getFreeUserIDs</A>
+<B> Up:</B> <A NAME="tex2html11353"
+  HREF="node622.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html11347"
+  HREF="node641.html">LDAP_getNextGroupID</A>
+ &nbsp; <B>  <A NAME="tex2html11355"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082025000000000000000">
-m23SHARED_generateCustomerNumber</A>
+<H2><A NAME="SECTION0081920000000000000000">
+LDAP_getFreeIDs</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the customer number by current time and random value and stores it into the DB.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with free IDs of the selected type.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>: Customer number.
+<LI>type: "user" for user IDs
+</LI>
+<LI>start: start ID to check if it's free
+</LI>
+<LI>amount: the amount of IDs to return
 </LI>
 </UL>
 
@@ -68,7 +72,7 @@ m23SHARED_generateCustomerNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Make boot CD</TITLE>
-<META NAME="description" CONTENT="Make boot CD">
+<TITLE>Generator options</TITLE>
+<META NAME="description" CONTENT="Generator options">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,114 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node196.html">
-<LINK REL="up" HREF="node195.html">
+<LINK REL="next" HREF="node198.html">
+<LINK REL="previous" HREF="node192.html">
+<LINK REL="up" HREF="node183.html">
 <LINK REL="next" HREF="node198.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2949"
+<A NAME="tex2html2969"
   HREF="node198.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2945"
-  HREF="node195.html">
+<A NAME="tex2html2965"
+  HREF="node183.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2941"
+<A NAME="tex2html2959"
   HREF="node196.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2947"
+<A NAME="tex2html2967"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2950"
-  HREF="node198.html">Hint</A>
-<B> Up:</B> <A NAME="tex2html2946"
-  HREF="node195.html">Tools</A>
-<B> Previous:</B> <A NAME="tex2html2942"
-  HREF="node196.html">Make bootdisk for m23</A>
- &nbsp; <B>  <A NAME="tex2html2948"
+<B> Next:</B> <A NAME="tex2html2970"
+  HREF="node198.html">Enter missing values/overview</A>
+<B> Up:</B> <A NAME="tex2html2966"
+  HREF="node183.html">Mass installation</A>
+<B> Previous:</B> <A NAME="tex2html2960"
+  HREF="node196.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2968"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001520000000000000000">
-Make boot CD</A>
-</H1>This page gives you the possibility to burn the m23 client boot CD with a burner which is integrated in your m23 server.
-<BR><IMG
-  WIDTH="1006" HEIGHT="789" ALIGN="BOTTOM" BORDER="0"
- SRC="./makeBootCD.png"
- ALT="Image makeBootCD"> 
+<H1><A NAME="SECTION001460000000000000000">
+Generator options</A>
+</H1>
+<IMG
+  WIDTH="1007" HEIGHT="434" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mi_step3.png"
+ ALT="Image mi_step3"> 
 <BR>
-<OL>
-<LI>Select the desired burner (if there should be installed more than one burner in your server) and click on <SPAN  CLASS="textit">"Select"</SPAN>.
-<BR></LI>
-<LI>If you want to use a CD-RW, you have to blank it before usage. This can be done in the <SPAN  CLASS="textit">"Blank CD-RW"</SPAN> box. You can choose if you want to blank a little part of the RW only (this should be ok for most purposes) or the whole RW. Select <SPAN  CLASS="textit">"fast"</SPAN> for blanking the little part or <SPAN  CLASS="textit">"all"</SPAN> for the whole RW.
-<BR></LI>
-<LI>The last box <SPAN  CLASS="textit">"Make boot CD"</SPAN> is used to burn the client boot CD. Simply click (after choosing the burn speed)on the <SPAN  CLASS="textit">"Burn"</SPAN> button.
-<BR></LI>
-</OL>
-The box <SPAN  CLASS="textit">"Burner status"</SPAN> shows information about the last blanking or burning action and the current state of the burner.
+Here you can enter the values for the generators:
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2951"
-  HREF="node198.html">Hint</A>
+<UL>
+<LI><SPAN  CLASS="textbf">Client name</SPAN>: Enter the client base name and a start number. The necessary number of client names is generated after the scheme <SPAN CLASS="MATH"></SPAN>client base name<SPAN CLASS="MATH"></SPAN><SPAN CLASS="MATH"></SPAN>consecutive number<SPAN CLASS="MATH"></SPAN>. Client names already used by m23 are skipped. E.g. client base name=m23client, start number=12 generates the client names m23client12, m23client13, ...
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Login</SPAN>: This is the name that is used by the user to login into the client. There are two possibilities to create login names. The incremental variant works as the method at <SPAN  CLASS="textit">"Client name"</SPAN>. It is possible too to generate logins from the first character of the forename and the whole familyname (<SPAN  CLASS="textit">"Generate from fore- and familyname"</SPAN>).
+<BR></LI>
+<LI><SPAN  CLASS="textbf">First name</SPAN>: The generation of the forenames (which are the login names, too) is analogical.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">IP Address</SPAN>: Specify the ranges for IP addresses that should be searched for free IPs. You can activate an extra option to ping IP addresses and an IP is only used if there is no answer to the ping request. The generated IPs can be constricted by the choice of the ranges.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Netmask</SPAN>: The netmasks are generated by the defined network classes:
+<BR><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">From</TD>
+<TD ALIGN="CENTER">To</TD>
+<TD ALIGN="CENTER">Netmask</TD>
+</TR>
+<TR><TD ALIGN="CENTER">0.0.0.0</TD>
+<TD ALIGN="CENTER">127.255.255.255</TD>
+<TD ALIGN="CENTER">255.0.0.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">128.000.000.000</TD>
+<TD ALIGN="CENTER">191.255.255.255</TD>
+<TD ALIGN="CENTER">255.255.0.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">192.000.000.000</TD>
+<TD ALIGN="CENTER">255.255.255.255</TD>
+<TD ALIGN="CENTER">255.255.255.0</TD>
+</TR>
+</TABLE>
+</LI>
+<LI><SPAN  CLASS="textbf">First login</SPAN>: These passwords can be generated at random (<SPAN  CLASS="textit">"Random passwords"</SPAN>) or random and easily memorisable for humans (<SPAN  CLASS="textit">"PwGen passwords"</SPAN>). The length of the generated passwords can be changed. It is recommended to keep the length of 8 characters.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">User ID</SPAN>: Enter the start number for the user IDs. Free IDs after this number will be used.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Group ID</SPAN>: Enter the start number for the group IDs. Free IDs after this number will be used.
+<BR></LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2969"
+  HREF="node198.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2965"
+  HREF="node183.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2959"
+  HREF="node196.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2967"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2970"
+  HREF="node198.html">Enter missing values/overview</A>
+<B> Up:</B> <A NAME="tex2html2966"
+  HREF="node183.html">Mass installation</A>
+<B> Previous:</B> <A NAME="tex2html2960"
+  HREF="node196.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2968"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

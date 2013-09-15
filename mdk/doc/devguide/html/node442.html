@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_defineDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_defineDrive">
+<TITLE>FDISK_addJob</TITLE>
+<META NAME="description" CONTENT="FDISK_addJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node443.html">
 <LINK REL="previous" HREF="node441.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node443.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8666"
+<A NAME="tex2html8803"
   HREF="node443.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8662"
-  HREF="node345.html">
+<A NAME="tex2html8799"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8656"
+<A NAME="tex2html8793"
   HREF="node441.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8664"
+<A NAME="tex2html8801"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8667"
-  HREF="node443.html">FDISK_dev2LDevLPart</A>
-<B> Up:</B> <A NAME="tex2html8663"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8657"
-  HREF="node441.html">FDISK_showDiskDefine</A>
- &nbsp; <B>  <A NAME="tex2html8665"
+<B> Next:</B> <A NAME="tex2html8804"
+  HREF="node443.html">FDISK_bootflagJob</A>
+<B> Up:</B> <A NAME="tex2html8800"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8794"
+  HREF="node441.html">FDISK_rmJob</A>
+ &nbsp; <B>  <A NAME="tex2html8802"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081297000000000000000">
-FDISK_defineDrive</A>
+<H2><A NAME="SECTION0081280000000000000000">
+FDISK_addJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition add job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: client name
+<LI>path: selected device (e.g. /dev/hda)
 </LI>
-<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
+<LI>start: start point fo the partition
 </LI>
-<LI>size: size of the drive in MB
+<LI>end: end point fo the partition
 </LI>
-<LI>upperI: upper tolerance border for disks with identical type
+<LI>type: type of the partition (primary, logical)
 </LI>
-<LI>lowerI: lower tolerance border for disks with identical type
+<LI>partJobs: associative array with partition jobs
 </LI>
-<LI>upperO: upper tolerance border for disks with other type
+<LI>fullPath: full path for the partition
 </LI>
-<LI>lowerO: lower tolerance border for disks with other type
-</LI>
-<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
-</LI>
-<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
+<LI>devNr: number of the device (e.g. 1 with /dev/hda1)
 </LI>
 </UL>
 
@@ -84,7 +80,7 @@ FDISK_defineDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

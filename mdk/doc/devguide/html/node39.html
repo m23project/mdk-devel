@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Connecting to the server</TITLE>
-<META NAME="description" CONTENT="Connecting to the server">
+<TITLE>Creating a project</TITLE>
+<META NAME="description" CONTENT="Creating a project">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,74 +28,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2588"
+<A NAME="tex2html2678"
   HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2584"
+<A NAME="tex2html2674"
   HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2578"
+<A NAME="tex2html2668"
   HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2586"
+<A NAME="tex2html2676"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2589"
-  HREF="node40.html">Disconnecting from the server</A>
-<B> Up:</B> <A NAME="tex2html2585"
-  HREF="node38.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2579"
-  HREF="node38.html">Filling main.cpp</A>
- &nbsp; <B>  <A NAME="tex2html2587"
+<B> Next:</B> <A NAME="tex2html2679"
+  HREF="node40.html">Adjusting project properties</A>
+<B> Up:</B> <A NAME="tex2html2675"
+  HREF="node38.html">Preparing KDevelop</A>
+<B> Previous:</B> <A NAME="tex2html2669"
+  HREF="node38.html">Preparing KDevelop</A>
+ &nbsp; <B>  <A NAME="tex2html2677"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00625100000000000000">
-Connecting to the server</A>
+<H3><A NAME="SECTION00634100000000000000">
+Creating a project</A>
 </H3>
-<PRE>
-#include &lt;mysql/mysql.h&gt;
+In the KDevelop GUI select "Project" -&gt; "New" select from the list "C++" under "Terminal". You have to select "C++", "C" will not work!
 
-MYSQL connection;
-
-void connect(char *server, char *dbuser, char *passw)
-{
-  if (!mysql_connect(&amp;connection,server,dbuser,passw))
-  {
-      fprintf(stderr, "Failed to connect to database:\
-              Error: %s\n",mysql_error(&amp;connection));
-      exit(2);
-  }
-  mysql_select_db(&amp;connection,"m23");
-};
-</PRE>
-
-<OL>
-<LI>First of all we have to include the necessary header file: <SPAN  CLASS="textit">#include &lt;mysql/mysql.h&gt;</SPAN>
+<UL>
+<LI>select "Next"
 </LI>
-<LI>The mysql_connect function requires a <SPAN  CLASS="textbf">MYSQL</SPAN> variable (here called
-<SPAN  CLASS="textit">connection</SPAN>) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql_connect will return 0, otherwise we get an error, print an error message and quit.
-
-<P>
+<LI>select what you want in the next dialog pages
 </LI>
-<LI>mysql_error will generate a human readable error message.
-
-<P>
-</LI>
-<LI>At least we should choose our database, this is done with mysql_select_db. Now the connection should be established.
-
-<P>
-</LI>
-</OL>
+</UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

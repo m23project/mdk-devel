@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>in case of an error</TITLE>
-<META NAME="description" CONTENT="in case of an error">
+<TITLE>step in to your new system</TITLE>
+<META NAME="description" CONTENT="step in to your new system">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node67.html">
-<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node63.html">
+<LINK REL="up" HREF="node61.html">
 <LINK REL="next" HREF="node69.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2951"
+<A NAME="tex2html3043"
   HREF="node69.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2947"
-  HREF="node67.html">
+<A NAME="tex2html3039"
+  HREF="node61.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2943"
+<A NAME="tex2html3033"
   HREF="node67.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2949"
+<A NAME="tex2html3041"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2952"
-  HREF="node69.html">system update and installation</A>
-<B> Up:</B> <A NAME="tex2html2948"
-  HREF="node67.html">installing a kernel</A>
-<B> Previous:</B> <A NAME="tex2html2944"
-  HREF="node67.html">installing a kernel</A>
- &nbsp; <B>  <A NAME="tex2html2950"
+<B> Next:</B> <A NAME="tex2html3044"
+  HREF="node69.html">source update and cleanup</A>
+<B> Up:</B> <A NAME="tex2html3040"
+  HREF="node61.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html3034"
+  HREF="node67.html">/etc/network</A>
+ &nbsp; <B>  <A NAME="tex2html3042"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00645100000000000000">
-in case of an error</A>
-</H3>
-If you get an error with the <SPAN  CLASS="textit">mkinitrd</SPAN> command try it manualy. Adjust <SPAN  CLASS="textit">/boot/initrd.img-2.4.20-1-386-sec</SPAN> to the filename you entered in the <SPAN  CLASS="textit">lilo.conf</SPAN>. You have to adjust the <SPAN  CLASS="textit">/lib/modules/...</SPAN> and the root device after <SPAN  CLASS="textit">-r</SPAN> also.
+<H2><A NAME="SECTION00653000000000000000">
+step in to your new system</A>
+</H2>
+You can enter your new system (without reboot) with:
 <PRE>
-mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
+chroot .
 </PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

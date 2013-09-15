@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitionPercent</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitionPercent">
+<TITLE>FDISK_genManualFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node415.html">
 <LINK REL="previous" HREF="node413.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node415.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8330"
+<A NAME="tex2html8467"
   HREF="node415.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8326"
-  HREF="node345.html">
+<A NAME="tex2html8463"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8320"
+<A NAME="tex2html8457"
   HREF="node413.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8328"
+<A NAME="tex2html8465"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8331"
-  HREF="node415.html">FDISK_getAfterPartition</A>
-<B> Up:</B> <A NAME="tex2html8327"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8321"
-  HREF="node413.html">FDISK_colorFS</A>
- &nbsp; <B>  <A NAME="tex2html8329"
+<B> Next:</B> <A NAME="tex2html8468"
+  HREF="node415.html">FDISK_getBelongingRaidDev</A>
+<B> Up:</B> <A NAME="tex2html8464"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8458"
+  HREF="node413.html">FDISK_adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html8466"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081269000000000000000">
-FDISK_getPartitionPercent</A>
+<H2><A NAME="SECTION0081252000000000000000">
+FDISK_genManualFstab</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> calculates the percent of a selected partition
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
 </LI>
 </UL>
 
@@ -72,7 +70,7 @@ FDISK_getPartitionPercent</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

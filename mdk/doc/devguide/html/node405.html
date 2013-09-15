@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_genManualFstab</TITLE>
-<META NAME="description" CONTENT="FDISK_genManualFstab">
+<TITLE>FDISK_canPartTypeBeCreated</TITLE>
+<META NAME="description" CONTENT="FDISK_canPartTypeBeCreated">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node406.html">
 <LINK REL="previous" HREF="node404.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node406.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8222"
+<A NAME="tex2html8359"
   HREF="node406.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8218"
-  HREF="node345.html">
+<A NAME="tex2html8355"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8212"
+<A NAME="tex2html8349"
   HREF="node404.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8220"
+<A NAME="tex2html8357"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8223"
-  HREF="node406.html">FDISK_getBelongingRaidDev</A>
-<B> Up:</B> <A NAME="tex2html8219"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8213"
-  HREF="node404.html">FDISK_adjustFstabParam</A>
- &nbsp; <B>  <A NAME="tex2html8221"
+<B> Next:</B> <A NAME="tex2html8360"
+  HREF="node406.html">FDISK_checkFreeSpace</A>
+<B> Up:</B> <A NAME="tex2html8356"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8350"
+  HREF="node404.html">FDISK_partCreationSelect</A>
+ &nbsp; <B>  <A NAME="tex2html8358"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081260000000000000000">
-FDISK_genManualFstab</A>
+<H2><A NAME="SECTION0081243000000000000000">
+FDISK_canPartTypeBeCreated</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
+<SPAN  CLASS="textbf">Description:</SPAN> checks if a partition from a certain type can be created
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ FDISK_genManualFstab</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DB_queryNoDie</TITLE>
-<META NAME="description" CONTENT="DB_queryNoDie">
+<TITLE>sendClientStatus</TITLE>
+<META NAME="description" CONTENT="sendClientStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node295.html">
 <LINK REL="previous" HREF="node293.html">
-<LINK REL="up" HREF="node274.html">
+<LINK REL="up" HREF="node281.html">
 <LINK REL="next" HREF="node295.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6743"
+<A NAME="tex2html6880"
   HREF="node295.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6739"
-  HREF="node274.html">
+<A NAME="tex2html6876"
+  HREF="node281.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6733"
+<A NAME="tex2html6870"
   HREF="node293.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6741"
+<A NAME="tex2html6878"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6744"
-  HREF="node295.html">DB_genPassword</A>
-<B> Up:</B> <A NAME="tex2html6740"
-  HREF="node274.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html6734"
-  HREF="node293.html">DB_query</A>
- &nbsp; <B>  <A NAME="tex2html6742"
+<B> Next:</B> <A NAME="tex2html6881"
+  HREF="node295.html">sendClientStageStatus</A>
+<B> Up:</B> <A NAME="tex2html6877"
+  HREF="node281.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html6871"
+  HREF="node293.html">getServerGateway</A>
+ &nbsp; <B>  <A NAME="tex2html6879"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008820000000000000000">
-DB_queryNoDie</A>
+<H2><A NAME="SECTION008813000000000000000">
+sendClientStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Executes a SQL query and returns the resource id to access the result.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send a status to the server
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Ressource id of the query result and DOESN'T die on an error.
+<LI>id: package ID
+</LI>
+<LI>status: done, waiting; finished jobs should be set to done, waiting should not be used from this place
 </LI>
 </UL>
 
@@ -68,7 +70,7 @@ DB_queryNoDie</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

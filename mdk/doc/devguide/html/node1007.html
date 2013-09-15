@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_createDiskImage</TITLE>
-<META NAME="description" CONTENT="VM_createDiskImage">
+<TITLE>SRCLST_getArchitectures</TITLE>
+<META NAME="description" CONTENT="SRCLST_getArchitectures">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1008.html">
 <LINK REL="previous" HREF="node1006.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node984.html">
 <LINK REL="next" HREF="node1008.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15933"
+<A NAME="tex2html16063"
   HREF="node1008.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15929"
-  HREF="node973.html">
+<A NAME="tex2html16059"
+  HREF="node984.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15923"
+<A NAME="tex2html16053"
   HREF="node1006.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15931"
+<A NAME="tex2html16061"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15934"
-  HREF="node1008.html">VM_delVMCMD</A>
-<B> Up:</B> <A NAME="tex2html15930"
-  HREF="node973.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html15924"
-  HREF="node1006.html">VM_statusIcons</A>
- &nbsp; <B>  <A NAME="tex2html15932"
+<B> Next:</B> <A NAME="tex2html16064"
+  HREF="node1008.html">SRCLST_showEditor</A>
+<B> Up:</B> <A NAME="tex2html16060"
+  HREF="node984.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html16054"
+  HREF="node1006.html">SRCLST_isArchAvailable</A>
+ &nbsp; <B>  <A NAME="tex2html16062"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083434000000000000000">
-VM_createDiskImage</A>
+<H2><A NAME="SECTION0083223000000000000000">
+SRCLST_getArchitectures</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new empty virtual harddisk image file.
+<SPAN  CLASS="textbf">Description:</SPAN> Returnes a list of all CPU architectures supported by the sources list.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_KVM for KVM or VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmname: Name of the VM.
-</LI>
-<LI>diskname: Name of the image file without extension.
-</LI>
-<LI>size: Size of the image file in MB.
+<LI>sourceName: the name of the package source list
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to create a virtual disk image.
+<LI>Associative array with the supported CPU architectures as variable AND key.
 </LI>
 </UL>
 
@@ -80,7 +74,7 @@ VM_createDiskImage</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

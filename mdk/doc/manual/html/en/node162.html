@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Step by step</TITLE>
-<META NAME="description" CONTENT="Step by step">
+<TITLE>Information</TITLE>
+<META NAME="description" CONTENT="Information">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,57 +28,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2514"
+<A NAME="tex2html2530"
   HREF="node163.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2510"
+<A NAME="tex2html2526"
   HREF="node161.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2504"
+<A NAME="tex2html2520"
   HREF="node161.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2512"
+<A NAME="tex2html2528"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2515"
-  HREF="node163.html">Deletion of selection</A>
-<B> Up:</B> <A NAME="tex2html2511"
-  HREF="node161.html">Edit package selections</A>
-<B> Previous:</B> <A NAME="tex2html2505"
-  HREF="node161.html">Edit package selections</A>
- &nbsp; <B>  <A NAME="tex2html2513"
+<B> Next:</B> <A NAME="tex2html2531"
+  HREF="node163.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2527"
+  HREF="node161.html">Edit package sources</A>
+<B> Previous:</B> <A NAME="tex2html2521"
+  HREF="node161.html">Edit package sources</A>
+ &nbsp; <B>  <A NAME="tex2html2529"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001251000000000000000">
-Step by step</A>
+<H2><A NAME="SECTION001241000000000000000">
+Information</A>
 </H2>
-
-<OL>
-<LI>Click on <SPAN  CLASS="textit">"Package selection"</SPAN>, <SPAN  CLASS="textit">"Normal packages"</SPAN> or <SPAN  CLASS="textit">"Special packages (for skilled users only)"</SPAN>.
+<IMG
+  WIDTH="1142" HEIGHT="934" ALIGN="BOTTOM" BORDER="0"
+ SRC="./client_sourceslist.png"
+ ALT="Image client_sourceslist"> 
+<BR>
+Software packages can be installed from different sources (HTTP,FTP,CDRom etc.). Different sources are needed, if not all of the software packages can be installed from the same medium. To make it easy for you to administrate these package sources, you can enter them as expected by your selected distribution.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Loading a package source</SPAN>: Select a package source from the list (top/right) and click on <SPAN  CLASS="textit">"Load"</SPAN>. The package source will be loaded in the editor.
 <BR></LI>
-<LI>Enter the search criteria or leave the search field empty to list all packages.
+<LI><SPAN  CLASS="textbf">Deletion a package source</SPAN>: To delete the package source loaded in the editor, click on the <SPAN  CLASS="textit">"Delete"</SPAN> button and accept your decision in the next dialog.
 <BR></LI>
-<LI>Click on <SPAN  CLASS="textit">"Search"</SPAN>.
+<LI><SPAN  CLASS="textbf">Saving a package source</SPAN>: The system will always save the package source loaded in the editor. It doesn't matter which package source is selected in the list. After you have selected a distribution, it is possible that you need to specify your choice. Choose a user interface from the list displayed under the editor and select the architecture(s) supported by the package sources list under <SPAN  CLASS="textit">"Architecture"</SPAN>. Think about a good name for your package source and enter it below <SPAN  CLASS="textit">"Package source name"</SPAN>. If you have loaded a package source before, the package source name is written into the field <SPAN  CLASS="textit">"Package source name"</SPAN> automatically. If you want, you can enter a comment into the <SPAN  CLASS="textit">"Description"</SPAN> text field. Afterwards, click on the <SPAN  CLASS="textit">"Save"</SPAN> button.
 <BR></LI>
-<LI>Choose the desired packages from the <SPAN  CLASS="textit">"Found packages"</SPAN> list.
+<LI><SPAN  CLASS="textbf">Test the package source</SPAN>: After entering a package source list, you should test if all sources are working properly. Simply click on the <SPAN  CLASS="textit">"Test"</SPAN> button. The package description files will be downloaded and a test report will be shown thereafter. It can take minutes until the report is shown, depending on your internet connection speed and the speed of the used software package servers.
 <BR></LI>
-<LI>Click on <SPAN  CLASS="textit">"Preselect"</SPAN>.
+<LI><SPAN  CLASS="textbf">Select Mirror</SPAN>: If you would like to use a different mirror (the standard server is ftp.debian.org) for the installation of the base system, enter it as follows in a new line of your package source: 
+<BR><PRE>
+#mirror: [URL to the packages]
+</PRE>
+. <SPAN  CLASS="textit">URL to the packages</SPAN> describes the protocol, the hostname or the IP and the directory that contains the packages. A valid URL may look like this: 
+<BR><PRE>
+#mirror: http://192.168.7.14/debianCDs
+</PRE>
+.
 <BR></LI>
-<LI>Now you can <SPAN  CLASS="textbf">delete</SPAN> serveral packages from the selection by checking the packages and click on <SPAN  CLASS="textit">"Discard selected"</SPAN>.
-<BR></LI>
-<LI>Packages can be <SPAN  CLASS="textbf">added</SPAN> by searching in the search dialog and preselecting the desired packages.
-<BR></LI>
-<LI>Save this selection under the same or a different selection name.
-<BR></LI>
-</OL>
-<BR><HR>
+</UL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2530"
+  HREF="node163.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2526"
+  HREF="node161.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2520"
+  HREF="node161.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2528"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2531"
+  HREF="node163.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2527"
+  HREF="node161.html">Edit package sources</A>
+<B> Previous:</B> <A NAME="tex2html2521"
+  HREF="node161.html">Edit package sources</A>
+ &nbsp; <B>  <A NAME="tex2html2529"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

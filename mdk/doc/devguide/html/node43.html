@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>The complete program</TITLE>
-<META NAME="description" CONTENT="The complete program">
+<TITLE>Disconnecting from the server</TITLE>
+<META NAME="description" CONTENT="Disconnecting from the server">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,133 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node44.html">
 <LINK REL="previous" HREF="node42.html">
-<LINK REL="up" HREF="node29.html">
+<LINK REL="up" HREF="node41.html">
 <LINK REL="next" HREF="node44.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2632"
+<A NAME="tex2html2727"
   HREF="node44.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2628"
-  HREF="node29.html">
+<A NAME="tex2html2723"
+  HREF="node41.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2624"
+<A NAME="tex2html2717"
   HREF="node42.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2630"
+<A NAME="tex2html2725"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2633"
-  HREF="node44.html">How to develop plugins</A>
-<B> Up:</B> <A NAME="tex2html2629"
-  HREF="node29.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html2625"
-  HREF="node42.html">Example</A>
- &nbsp; <B>  <A NAME="tex2html2631"
+<B> Next:</B> <A NAME="tex2html2728"
+  HREF="node44.html">Send SQL statements</A>
+<B> Up:</B> <A NAME="tex2html2724"
+  HREF="node41.html">Filling main.cpp</A>
+<B> Previous:</B> <A NAME="tex2html2718"
+  HREF="node42.html">Connecting to the server</A>
+ &nbsp; <B>  <A NAME="tex2html2726"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00627000000000000000">
-The complete program</A>
-</H2>
+<H3><A NAME="SECTION00635200000000000000">
+Disconnecting from the server</A>
+</H3>
 <PRE>
-#include &lt;mysql/mysql.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-MYSQL connection;
-
-void connect(char *server, char *dbuser, char *passw)
-{
-  if (!mysql_connect(&amp;connection,server,dbuser,passw))
-  {
-      fprintf(stderr, "Failed to connect to database:\
-              Error: %s\n",mysql_error(&amp;connection));
-      exit(2);
-  }
-  mysql_select_db(&amp;connection,"m23");
-};
-
-
-
-
-
 void disconnect()
 {
  mysql_close(&amp;connection);
 };
-
-
-
-
-     
-MYSQL_RES *query(char *sql)
-{
- MYSQL_RES *res;
-
- if (mysql_query(&amp;connection, sql) != 0)
-    {
-     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
-     mysql_error(&amp;connection),sql);
-     exit(2);
-    };
-
- res = mysql_store_result(&amp;connection);
-
- return(res);
-};
-
-
-
-
-
-int main(int argc, char *argv[])
-{
-  MYSQL_RES *res;
-  unsigned int fields;
-  my_ulonglong rows;
-  MYSQL_ROW row;
-
-  connect("127.0.0.1", "root", "");
-
-  res=query("SELECT * FROM `clients`");
-
-  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
-
-  rows=mysql_num_rows(res); //&lt;&lt;2
-
-
-  for (int i=0; i &lt; rows; i++)
-    {
-        unsigned long *lengths;
-
-        row=mysql_fetch_row(res); //&lt;&lt;3
-
-        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
-
-        for (int fnr=0; fnr &lt; fields; fnr++)
-            printf("[%i: %s] ", (int) lengths[fnr],
-                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
-    }
-
-  mysql_free_result(res); //&lt;&lt;6
-
-  disconnect();
-
-  return EXIT_SUCCESS;
-}
 </PRE>
+This function disconnects from the server. The global variable <SPAN  CLASS="textit">connection</SPAN> is used to identify the right connection to the server.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

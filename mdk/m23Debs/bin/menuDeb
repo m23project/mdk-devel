@@ -79,7 +79,7 @@ then
 	ssh tux05 m23UpdateInstFromm23Testing
 
 	#upload all files and rename not needed to *~
-	rsync -razPy --delete-after --bwlimit=45 . /mdk/m23update/updates/0.5.0/*.info tux05:/m23inst
+	rsync -razPy --delete-after `rsyncUploadSpeedLimit` . /mdk/m23update/updates/0.5.0/*.info tux05:/m23inst
 
 	ssh tux05 m23instUpload-start
 fi
@@ -100,11 +100,10 @@ then
 	md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
 
 	#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
-	ShellSFssh "cp -u /home/project-web/m23/htdocs/m23inst/*.deb /home/project-web/m23/htdocs/m23testing/"
+	ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
 
 	#upload all files
-	rsync -razPy --delete-after --bwlimit=55 . hhabermann,m23@web.sf.net:/home/project-web/m23/htdocs/m23testing
-	ShellSFssh "cp /home/project-web/m23/htdocs/m23testing/* /home/frs/project/m/m2/m23/m23testing/"
+	rsync -razPy --delete-after `rsyncUploadSpeedLimit` . hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23testing/
 fi
 
 
@@ -112,51 +111,51 @@ fi
 
 
 #upload m23 server software installation packages
-if test $choice == "uplinst"
-then
-	deleteOldDoubles
-	#checks for changes and new files in the package directory and writes the filenames to /tmp/m23instUpload.list
-	#newPackages
-
-	#Makes the Release file and signs it (and make sure we are in the same directory afterwards than before)
-	cur=`pwd`
-	cd $serverPackagesPool
-	mkRelease
-	cd $cur
-
-	#number of the last uploaded patch
-	unr=`cat /mdk/m23update/updates/uploadnr`
-
-	rm /tmp/m23instUpload.list 2> /dev/null
-
-	#get all patch numbers
-	for nr in `find /mdk/m23update/updates/0.5.0/ -printf "%f\n" | grep info$ | cut -d'.' -f1 | sort`
-	do
-		#check if the patch number is greater than the biggest uploaded patch number
-		if test $nr -gt $unr
-		then
-			echo "/mdk/m23update/updates/0.5.0/$nr.info" >> /tmp/m23instUpload.list
-		fi
-	done
-
-	fileList=`awk -v ORS='' '{print($0" ")}' /tmp/m23instUpload.list`
-	if test "$fileList"
-	then
-		#clean out old files
-		ssh tux03 rm /mnt/hda6/m23inst/* 2> /dev/null
-		#copy new files
-		scp $fileList $serverPackagesPool/* tux03:/mnt/hda6/m23inst
-		#start upload process
-		ssh tux03 m23instUpload-start
-		#write the last updated upload number
-		echo $nr > /mdk/m23update/updates/uploadnr
-	else
-		echo ">>>nothing to upload"
-		read muh
-	fi
-
-	/mdk/m23Debs/bin/menuDeb
-fi
+# if test $choice == "uplinst"
+# then
+# 	deleteOldDoubles
+# 	#checks for changes and new files in the package directory and writes the filenames to /tmp/m23instUpload.list
+# 	#newPackages
+# 
+# 	#Makes the Release file and signs it (and make sure we are in the same directory afterwards than before)
+# 	cur=`pwd`
+# 	cd $serverPackagesPool
+# 	mkRelease
+# 	cd $cur
+# 
+# 	#number of the last uploaded patch
+# 	unr=`cat /mdk/m23update/updates/uploadnr`
+# 
+# 	rm /tmp/m23instUpload.list 2> /dev/null
+# 
+# 	#get all patch numbers
+# 	for nr in `find /mdk/m23update/updates/0.5.0/ -printf "%f\n" | grep info$ | cut -d'.' -f1 | sort`
+# 	do
+# 		#check if the patch number is greater than the biggest uploaded patch number
+# 		if test $nr -gt $unr
+# 		then
+# 			echo "/mdk/m23update/updates/0.5.0/$nr.info" >> /tmp/m23instUpload.list
+# 		fi
+# 	done
+# 
+# 	fileList=`awk -v ORS='' '{print($0" ")}' /tmp/m23instUpload.list`
+# 	if test "$fileList"
+# 	then
+# 		#clean out old files
+# 		ssh tux03 rm /mnt/hda6/m23inst/* 2> /dev/null
+# 		#copy new files
+# 		scp $fileList $serverPackagesPool/* tux03:/mnt/hda6/m23inst
+# 		#start upload process
+# 		ssh tux03 m23instUpload-start
+# 		#write the last updated upload number
+# 		echo $nr > /mdk/m23update/updates/uploadnr
+# 	else
+# 		echo ">>>nothing to upload"
+# 		read muh
+# 	fi
+# 
+# 	/mdk/m23Debs/bin/menuDeb
+# fi
 
 
 

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_prepareStr</TITLE>
-<META NAME="description" CONTENT="EDIT_prepareStr">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node339.html">
 <LINK REL="previous" HREF="node337.html">
-<LINK REL="up" HREF="node323.html">
+<LINK REL="up" HREF="node333.html">
 <LINK REL="next" HREF="node339.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7302"
+<A NAME="tex2html7429"
   HREF="node339.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7298"
-  HREF="node323.html">
+<A NAME="tex2html7425"
+  HREF="node333.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7292"
+<A NAME="tex2html7419"
   HREF="node337.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7300"
+<A NAME="tex2html7427"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7303"
-  HREF="node339.html">EDIT_savePerms</A>
-<B> Up:</B> <A NAME="tex2html7299"
-  HREF="node323.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html7293"
-  HREF="node337.html">EDIT_replace</A>
- &nbsp; <B>  <A NAME="tex2html7301"
+<B> Next:</B> <A NAME="tex2html7430"
+  HREF="node339.html">PKG_translateClientPackageStatus</A>
+<B> Up:</B> <A NAME="tex2html7426"
+  HREF="node333.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html7420"
+  HREF="node337.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html7428"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081115000000000000000">
-EDIT_prepareStr</A>
+<H2><A NAME="SECTION008105000000000000000">
+PKG_getKernels</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> changes the string to make it compatible with sed
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>str: string that should be changed. the string is read and written from/to this variable
+<LI>distr: the distribution name
 </LI>
-<LI>forSearch: set to true, if the string should be used as a search string
+<LI>packagesource: name of the package source
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Asssociative array with the available kernels for an architecture and distribution as keys and values.
 </LI>
 </UL>
 
@@ -70,7 +78,7 @@ EDIT_prepareStr</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

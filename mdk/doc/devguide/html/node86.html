@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Making the bootimage</TITLE>
-<META NAME="description" CONTENT="Making the bootimage">
+<TITLE>Build a new kernel</TITLE>
+<META NAME="description" CONTENT="Build a new kernel">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,49 +20,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node85.html">
-<LINK REL="up" HREF="node84.html">
+<LINK REL="up" HREF="node85.html">
 <LINK REL="next" HREF="node87.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3172"
+<A NAME="tex2html3263"
   HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3168"
-  HREF="node84.html">
+<A NAME="tex2html3259"
+  HREF="node85.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3164"
+<A NAME="tex2html3255"
   HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3170"
+<A NAME="tex2html3261"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3173"
-  HREF="node87.html">How to create the</A>
-<B> Up:</B> <A NAME="tex2html3169"
-  HREF="node84.html">How to generate an</A>
-<B> Previous:</B> <A NAME="tex2html3165"
-  HREF="node85.html">exchange epic100.c with the</A>
- &nbsp; <B>  <A NAME="tex2html3171"
+<B> Next:</B> <A NAME="tex2html3264"
+  HREF="node87.html">How to generate an</A>
+<B> Up:</B> <A NAME="tex2html3260"
+  HREF="node85.html">What can you do</A>
+<B> Previous:</B> <A NAME="tex2html3256"
+  HREF="node85.html">What can you do</A>
+ &nbsp; <B>  <A NAME="tex2html3262"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00672000000000000000">
-Making the bootimage</A>
-</H2>
-You should find the epic100.rom file in the <SPAN  CLASS="textbf">src/bin32</SPAN>. With the help of the <SPAN  CLASS="textit">mknbi-rom</SPAN> program you can convert this from file to an Etherboot bootimage. To convert and save the bootimage as new "harddisk boot image" for m23 execute the following command:
-<BR><PRE>
-mknbi-rom epic100.rom &gt; /m23/tftp/hdboot
-</PRE>
+<H3><A NAME="SECTION00673100000000000000">
+Build a new kernel</A>
+</H3>
+Copy your new kernel to bzImage in the SDK directory and don't forget to copy the modules to root2/lib/modules. In the m23client-Install*.conf file you get the configuration for the kernel we used.
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

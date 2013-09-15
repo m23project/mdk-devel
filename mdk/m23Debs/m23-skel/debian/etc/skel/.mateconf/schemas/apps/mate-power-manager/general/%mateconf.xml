@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="use_time_for_policy" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Whether to use time-based notifications">
+			<default type="bool" value="true"/>
+			<longdesc>If time based notifications should be used. If set to false, then the percentage change is used instead, which may fix a broken ACPI BIOS.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="use_profile_time" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="If the learnt profile should be used to calculate the time remaining">
+			<default type="bool" value="true"/>
+			<longdesc>If the learnt profile should be used to calculate the time remaining. Only turn this off for debugging.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="network_sleep" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Whether NetworkManager should be connected and disconnected on sleep">
+			<default type="bool" value="false"/>
+			<longdesc>Whether NetworkManager should disconnect before suspending or hibernating and connect on resume.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="installed_schema" mtime="1367786905" type="schema" stype="int" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="The default configuration version">
+			<default type="int" value="3"/>
+			<longdesc>The version of the installed version of the schema. Do not edit this value, it is used so that configure changes between versions can be detected.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="check_type_cpu" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Check CPU load before sleeping">
+			<default type="bool" value="false"/>
+			<longdesc>If the CPU load should be checked before doing the idle action.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

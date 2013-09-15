@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>The *OptionPage.php</TITLE>
-<META NAME="description" CONTENT="The *OptionPage.php">
+<TITLE>Set script status</TITLE>
+<META NAME="description" CONTENT="Set script status">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node101.html">
 <LINK REL="previous" HREF="node99.html">
-<LINK REL="up" HREF="node99.html">
+<LINK REL="up" HREF="node96.html">
 <LINK REL="next" HREF="node101.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3349"
+<A NAME="tex2html3441"
   HREF="node101.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3345"
-  HREF="node99.html">
+<A NAME="tex2html3437"
+  HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3339"
+<A NAME="tex2html3431"
   HREF="node99.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3347"
+<A NAME="tex2html3439"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3350"
-  HREF="node101.html">Filling the *OptionPage.php</A>
-<B> Up:</B> <A NAME="tex2html3346"
-  HREF="node99.html">Additional installation parameters for</A>
-<B> Previous:</B> <A NAME="tex2html3340"
-  HREF="node99.html">Additional installation parameters for</A>
- &nbsp; <B>  <A NAME="tex2html3348"
+<B> Next:</B> <A NAME="tex2html3442"
+  HREF="node101.html">get the output of</A>
+<B> Up:</B> <A NAME="tex2html3438"
+  HREF="node96.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3432"
+  HREF="node99.html">Turn off m23 script</A>
+ &nbsp; <B>  <A NAME="tex2html3440"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006101000000000000000">
-The *OptionPage.php</A>
+<H2><A NAME="SECTION006104000000000000000">
+Set script status</A>
 </H2>
-If you want to enable this feature for a special package (e.g. apache) you have to design an OptionPage. This page shows and writes/reads possible options of this package. The file is called &lt;packagename&gt;OptionPage.php. In our example it's <SPAN  CLASS="textbf">apacheOptionPage.php</SPAN>. The file is placed in the 
-<BR><SPAN  CLASS="textit">/m23/data+scripts/distr/&lt;distributionname&gt;/packages directory</SPAN>. It is important to put the *OptionPage.php in the correct directory, otherwise the it can't be found.
+After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
+
+<UL>
+<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+</LI>
+<LI>select the database "m23"
+</LI>
+<LI>select the table "clientjobs"
+</LI>
+<LI>click on "Browse"
+</LI>
+<LI>search for your job script
+</LI>
+<LI>click on "Edit"
+</LI>
+<LI>enter "waiting" at the "status" field
+</LI>
+<LI>click on "Go" to save your changes
+</LI>
+</UL>
+This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

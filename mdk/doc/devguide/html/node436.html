@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_formatJob</TITLE>
-<META NAME="description" CONTENT="FDISK_formatJob">
+<TITLE>FDISK_virtualAddPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_virtualAddPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node437.html">
 <LINK REL="previous" HREF="node435.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node437.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8594"
+<A NAME="tex2html8731"
   HREF="node437.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8590"
-  HREF="node345.html">
+<A NAME="tex2html8727"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8584"
+<A NAME="tex2html8721"
   HREF="node435.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8592"
+<A NAME="tex2html8729"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8595"
-  HREF="node437.html">FDISK_countPartitions</A>
-<B> Up:</B> <A NAME="tex2html8591"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8585"
-  HREF="node435.html">FDISK_bootflagJob</A>
- &nbsp; <B>  <A NAME="tex2html8593"
+<B> Next:</B> <A NAME="tex2html8732"
+  HREF="node437.html">FDISK_listPartTable</A>
+<B> Up:</B> <A NAME="tex2html8728"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8722"
+  HREF="node435.html">FDISK_virtualDeletePartition</A>
+ &nbsp; <B>  <A NAME="tex2html8730"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081291000000000000000">
-FDISK_formatJob</A>
+<H2><A NAME="SECTION0081274000000000000000">
+FDISK_virtualAddPartition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param param
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: device to format (e.g. /dev/hda1)
+<LI>vDev: virtuell internal used device number.
 </LI>
-<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>partJobs: associative array with partition jobs
+<LI>start: start MB of the new partition
+</LI>
+<LI>end: end MB of the new partition
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>devNr: returnes the device number
 </LI>
 </UL>
 
@@ -72,7 +78,7 @@ FDISK_formatJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

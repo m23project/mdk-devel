@@ -19,13 +19,8 @@
 \subsection{ASSI\_addUbuntuRoot}
 \textbf{Description:} Enables the root account in Ubuntu if a Ubuntu installation is found.\\
 
-\subsection{ASSI\_showClientAddDialog}
-\textbf{Description:} sets the last modified time of a client\\
-\textbf{Parameter:}
-\begin{itemize}
-\item id: id of the client
-\item client: name of the client
-\end{itemize}
+\subsection{ASSI\_prepareClient}
+\textbf{Description:} Prepares a client for assimilisation.\\
 
 \newpage\section{./inc/backup.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
@@ -202,6 +197,17 @@
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (hauke@goos-habermann.de)\\
  Description: different checks for validation of email, ip, netmasks, etc.\\
 
+\subsection{CHECK\_safeFilename}
+\textbf{Description:} Make sure, the file/directory name is safe and doesn't contain evil characters.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item fileName: File/directory name to make safe.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The safe made file/directory name.
+\end{itemize}
+
 \subsection{CHECK\_text2db}
 \textbf{Description:} Makes a text safe for using it in the database.\\
 \textbf{Parameter:}
@@ -237,6 +243,8 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item val: Input value to check.
+\item allowEmpty: Set to true if you want to allow empty strings.
+\item returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -249,6 +257,7 @@
 \begin{itemize}
 \item val: Input value to check.
 \item allowEmpty: Set to true if you want to allow empty strings.
+\item returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -262,10 +271,11 @@
 \item val: Input value to check.
 \item maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
 \item allowEmpty: Set to true if you want to allow empty strings.
+\item returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item The input value if it contains only characters or stops the program on an error.
+\item The input value if it contains only characters or stops (or false, if \$returnNoDie is true) the program on an error.
 \end{itemize}
 
 \subsection{CHECK\_strAlphaNum}
@@ -275,10 +285,11 @@
 \item val: Input value to check.
 \item maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
 \item allowEmpty: Set to true if you want to allow empty strings.
+\item returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item The input value if it contains only characters and digits or stops the program on an error.
+\item The input value if it contains only characters and digits or stops (or false, if \$returnNoDie is true) the program on an error.
 \end{itemize}
 
 \subsection{CHECK\_letFWDie}
@@ -295,6 +306,7 @@
 \item val: String value to check.
 \item maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
 \item allowEmpty: Set to true if you want to allow empty strings.
+\item returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -309,10 +321,14 @@
 \end{itemize}
 
 \subsection{checkIP}
-\textbf{Description:} checks if an ip is valid, returns 1 if it is a valid ip otherwise 0\\
+\textbf{Description:} checks if an ip is valid\\
 \textbf{Parameter:}
 \begin{itemize}
 \item string: ip value to check
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true if IP is valid, else false
 \end{itemize}
 
 \subsection{checkMAC}
@@ -327,10 +343,14 @@
 \end{itemize}
 
 \subsection{checkNetmask}
-\textbf{Description:} checks if a netmask is valid, returns 1 if it is a valid netmask otherwise 0\\
+\textbf{Description:} checks if a netmask is valid\\
 \textbf{Parameter:}
 \begin{itemize}
 \item string: netmask value to check
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true if netmask is valid, else false
 \end{itemize}
 
 \subsection{checkEmail}
@@ -377,6 +397,7 @@
 \item urlParams: Additional parameters for the URL (e.g. "\&action=deinstall").
 \item icon: File name of the icon placed under /m23/data+scripts/gfx.
 \item title: Title for the icon shown under it.
+\item tooltip: The tooltip text that is shown when the mouse is over the icon.
 \end{itemize}
 
 \subsection{CLIENT\_DETAILS\_addIcon2}
@@ -386,11 +407,30 @@
 \item url: The URL to link to.
 \item icon: File name of the icon placed under /m23/data+scripts/gfx.
 \item title: Title for the icon shown under it.
+\item tooltip: The tooltip text that is shown when the mouse is over the icon.
 \end{itemize}
 
 \newpage\section{./inc/client.php}
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: a lot of routines for client handling. routines for: install and deinstall packages on clients, get information about a special client, list all clients,...\\
+
+\subsection{CLIENT\_removeServerCache}
+\textbf{Description:} Removes the client cache on the m23 server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\end{itemize}
+
+\subsection{CLIENT\_touchLiveLogFile}
+\textbf{Description:} Touches the live log file of a given client and returns the full name of the log file (with directory).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The full name of the log file (with directory).
+\end{itemize}
 
 \subsection{CLIENT\_getNextFreeIp}
 \textbf{Description:} Get the next free IP address that can be used as m23 client.\\
@@ -411,7 +451,7 @@
 \end{itemize}
 
 \subsection{CLIENT\_touchLogFile}
-\textbf{Description:} Touches a log file in the client's directorya and returns the full name of the log file (with directory).\\
+\textbf{Description:} Touches a log file in the client's directory and returns the full name of the log file (with directory).\\
 \textbf{Parameter:}
 \begin{itemize}
 \item client: Name of the client.
@@ -807,11 +847,19 @@
 \item clientName: name of the client
 \end{itemize}
 
+\subsection{CLIENT\_backToRed}
+\textbf{Description:} Sets a client back to red state, as it was just after adding it.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+
 \subsection{CLIENT\_desasterRecovery}
 \textbf{Description:} recover a client: all client jobs are done again, status is set to 0\\
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client
+\item combineJobs: If set to true, the normal installation and removal jobs are combined to a m23normal and a m23normalRemove job otherwise the jobs are switched back to waiting status.
 \end{itemize}
 
 \subsection{CLIENT\_wol}
@@ -1083,11 +1131,11 @@
 \textbf{Description:} Special version of ip2long that is safe on 32 bit machines.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item in: Input v4 IP (e.g. 192.168.1.23)
+\item in: Input v4 IP (e.g. 192.168.1.23) or number.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item Unsigned long representation of the input IP.
+\item Unsigned long representation of the input IP or the input numer.
 \end{itemize}
 
 \subsection{getArchList}
@@ -1171,6 +1219,13 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client to delete all logs
+\end{itemize}
+
+\subsection{workPhpName}
+\textbf{Description:} Generates an unique name for storing the work.php file.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Unique name for storing the work.php file.
 \end{itemize}
 
 \subsection{executeNextWork}
@@ -1274,6 +1329,76 @@
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions to add and remove a client to/from the dhcp server list.\\
 
+\subsection{DHCP\_exportDHCPSettingsForExternalDHCPServer}
+\textbf{Description:} Exports the DHCP settings of m23 clients that are booting over the network and adds settings for external DHCP servers.\\
+
+\subsection{DHCP\_lineNumberAffterLastClient}
+\textbf{Description:} Gets the line number with the last client definition in the dhcpd.conf.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Line number with the last client definition in the dhcpd.conf.
+\end{itemize}
+
+\subsection{DHCP\_addSubnetDefinition}
+\textbf{Description:} Adds the subnet definition to the dhcpd.conf to let the DHCP server give out network information to clients to other subnets.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item subnet: The subnet.
+\item netmask: netmask for the ip
+\end{itemize}
+
+\subsection{DHCP\_delSubnetDefinition}
+\textbf{Description:} Removes a subnet definition from the dhcpd.conf.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item subnet: The subnet.
+\item netmask: netmask for the ip
+\end{itemize}
+
+\subsection{DHCP\_addDynamicRange}
+\textbf{Description:} Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item firstIP: The first IP marking the begin of the dynamic IP range.
+\item lastIP: The last IP marking the end of the dynamic IP range.
+\item netmask: Netmask for the IPs.
+\item gateway: The gateway IP.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the DHCP server could be restarted with the new settings.
+\end{itemize}
+
+\subsection{DHCP\_getDynamicRanges}
+\textbf{Description:} Gets all dynamic IP ranges from the dhcpd.conf.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with the found IP ranges (e.g. Array ( [0] =$>$ Array ( [netmask] =$>$ 255.255.255.0 [firstIP] =$>$ 192.168.1.10 [lastIP] =$>$ 192.168.1.200 [gateway] =$>$ 192.168.1.1 ) [1] =$>$ ...)) or empty array.
+\end{itemize}
+
+\subsection{DHCP\_getNetmaskOfDynamicRanges}
+\textbf{Description:} Gets the netmask of a dynamic range identified by the first IP of the range.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item firstIP: The first IP marking the begin of the dynamic IP range.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Netmask or false in case of an error.
+\end{itemize}
+
+\subsection{DHCP\_delDynamicRange}
+\textbf{Description:} Removes a dynamic IP range from the dhcpd.conf and restarts the DHCP server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item firstIP: The first IP marking the begin of the dynamic IP range.
+\item lastIP: The last IP marking the end of the dynamic IP range.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the DHCP server could be restarted with the new settings.
+\end{itemize}
+
 \subsection{DHCP\_bootTypeToNewFormat}
 \textbf{Description:} Converts a boolean boot type to the new string format.\\
 \textbf{Parameter:}
@@ -1294,7 +1419,20 @@
 \item netmask: netmask for the ip
 \item mac: mac addresse of the network card
 \item bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
-\item bootType: Parameter can a string: pxe, etherboot, gpxe
+\item bootType: Parameter can a string: pxe, etherboot, gpxe, none
+\item gateway: The gateway for the client.
+\item updateDB: If set to true, the boot type is set for the client in the DB.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the DHCP server could be restarted with the new settings.
+\end{itemize}
+
+\subsection{DHCP\_addLineToDHCPDConf}
+\textbf{Description:} Adds a line to the dhcpd.conf file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item line: Line to add.
 \end{itemize}
 
 \subsection{DHCP\_restartDHCPserver}
@@ -1613,6 +1751,46 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for partition and format of the client. print partition information and do the format itself.\\
 
+\subsection{FDISK\_showFdiskCombinedGUIFunctions}
+\textbf{Description:} Shows the menu bar with integrated logic for FDISK\_showCombinedFdiskGUIDialog.\\
+
+\subsection{FDISK\_showCombinedFdiskGUIDialog}
+\textbf{Description:} Shows the new partition and formating screen.\\
+
+\subsection{FDISK\_mdToEndOfArray}
+\textbf{Description:} Orders all MD devices from the input array to the end of the output array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =$>$ /dev/md0 [/dev/sda1] =$>$ /dev/sda1 [/dev/sdb2] =$>$ /dev/sdb2 )).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =$>$ /dev/sda1 [/dev/sdb2] =$>$ /dev/sdb2 [/dev/md0] =$>$ /dev/md0 )).
+\end{itemize}
+
+\subsection{FDISK\_getFstabArray}
+\textbf{Description:} Gets the fstab of a client as array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with the fstab (each line of the fstab as item).
+\end{itemize}
+
+\subsection{FDISK\_findFstabMountPointByDev}
+\textbf{Description:} Searches a client's fstab for a device and figures out the according mount point.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item fstabA: The fstab as array.
+\item dev: The device.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Mount point for the device.
+\end{itemize}
+
 \subsection{FDISK\_swapFilesystems}
 \textbf{Description:} Returns an array with the filesystems usable for swapping.\\
 
@@ -1702,9 +1880,6 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item The current value.
 \end{itemize}
 
-\subsection{FDISK\_showFdiskGUIDialogEnd}
-\textbf{Description:} Shows the block at the end of the partitioning and formating dialog with partition and file system information about the currently selected drive and buttons for resetting and refreshing the dialog.\\
-
 \subsection{FDISK\_fdiskSessionClient}
 \textbf{Description:} Returns the client name to partition and format.\\
 \textbf{Returns:}
@@ -1756,12 +1931,6 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item The current free spaces.
 \end{itemize}
-
-\subsection{FDISK\_showFdiskGUIDriveInfoDialog}
-\textbf{Description:} Shows a block with partitioning and file system information for the currently choosen installation drive. It contains dialog for changing the installation drive.\\
-
-\subsection{FDISK\_showFdiskGUIlistPartJobs}
-\textbf{Description:} Shows a list of all waiting partitioning and fromating jobs.\\
 
 \subsection{FDISK\_fdiskSessionReset}
 \textbf{Description:} Sets back all session variables (client name optionally) for partitioning and formating a client.\\
@@ -1824,52 +1993,6 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item The current fstab.
 \end{itemize}
-
-\subsection{FDISK\_showFdiskGUISelectPartitionMethod}
-\textbf{Description:} Shows a dialog for choosing the partitioning method and storing the method.\\
-
-\subsection{FDISK\_showFdiskGUIDialog}
-\textbf{Description:} Shows the whole partition and formating dialog.\\
-
-\subsection{FDISK\_showFdiskGUITitle}
-\textbf{Description:} Returns and/or shows the current title of the partitioning and formating.\\
-\textbf{Parameter:}
-\begin{itemize}
-\item show: Shows the title if set to true and returns it if set to false.
-\end{itemize}
-\textbf{Returns:}
-\begin{itemize}
-\item The current title of the partitioning and formating.
-\end{itemize}
-
-\subsection{FDISK\_showFdiskGUIAutoMethod}
-\textbf{Description:} Shows the dialog for automatic partitioning and formating.\\
-
-\subsection{FDISK\_showFdiskGUIExistingMethod}
-\textbf{Description:} Shows the dialog for formating of existing partitions.\\
-
-\subsection{FDISK\_fdiskSessionExtendedPartStep}
-\textbf{Description:} Stores the extended partitioning step and sets the help page and title in the session.\\
-\textbf{Parameter:}
-\begin{itemize}
-\item newStep: The new step to set or false for not changing.
-\end{itemize}
-\textbf{Returns:}
-\begin{itemize}
-\item The current extended partitioning step.
-\end{itemize}
-
-\subsection{FDISK\_showFdiskGUIExtendedStepDeletePartitions}
-\textbf{Description:} Shows the sub-dialog for deleting partitions in the extended partitioning and formating dialog.\\
-
-\subsection{FDISK\_showFdiskGUIExtendedStepAddNewPartition}
-\textbf{Description:} Shows a dialog for adding partitions.\\
-
-\subsection{FDISK\_showFdiskGUIExtendedStepFormatPartitions}
-\textbf{Description:} Shows a dialog for formating partitions.\\
-
-\subsection{FDISK\_showFdiskGUIExtendedMethod}
-\textbf{Description:} Shows the dialog for extended partitioning and formating.\\
 
 \subsection{FDISK\_getPartitionByType}
 \textbf{Description:} Gets the FIRST partition matching a partition type.\\
@@ -2224,15 +2347,6 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item factor: the factor to multiplay percent amount of free space
 \end{itemize}
 
-\subsection{FDISK\_getAfterLastPartition}
-\textbf{Description:} gets the amount of free space after the last partition in ???\\
-\textbf{Parameter:}
-\begin{itemize}
-\item param: parameter string containing status informations about the harddisks
-\item vDev: Virtual (internally used) device number.
-\item factor: the factor to multiplay percent amount of free space
-\end{itemize}
-
 \subsection{FDISK\_getPartitions}
 \textbf{Description:} get the partition info for the client from db\\
 \textbf{Parameter:}
@@ -2460,6 +2574,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item param: parameter string containing status informations about the harddisks
 \item instPart: the variable the installation device name is written to
 \item swapPart: the variable the swap device name is written to
+\item minSwap: Minimal size of the swap partition in MB.
+\item maxSwap: Maximal size of the swap partition in MB.
 \end{itemize}
 
 \subsection{FDISK\_printColorDefinitions}
@@ -2627,6 +2743,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item raidType: RAID level (this can be 0,1,4,5,6,10)
 \item partitionDrive: Partition or drive to add (e.g. /dev/hdc)
 \item param: parameter string containing status information about the harddisks
+\item raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -2834,11 +2951,16 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{GRP\_showClientGroups}
-\textbf{Description:} shows a list containing all groups a client is in\\
+\textbf{Description:} Shows a list containing all groups a client is in\\
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client
 \item link: if there should be links to the group page
+\item output: If set to true, the list will be shown, if set to false returned instead.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Nothing or the list containing all groups a client is in.
 \end{itemize}
 
 \subsection{GRP\_listAllClientsInGroup}
@@ -2894,6 +3016,38 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/helper.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Helper functions that did not fit into another include file.\\
+
+\subsection{HELPER\_xargsRecursive}
+\textbf{Description:} Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item cmd: BASH command
+\item argsA: Array of commands for the BASH command.
+\item tabAmount: Amount of identing to start with.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Recursive calls of the BASH command with error checking.
+\end{itemize}
+
+\subsection{HELPER\_getNewLogLines}
+\textbf{Description:} Gets the last (new) lines of a (growing) log file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item log: Name of the log file.
+\item sessionPrefix: Prefix for storing the last read line number in the session.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item UTF8-encoded new lines of the log file.
+\end{itemize}
+
+\subsection{HELPER\_rmRecursive}
+\textbf{Description:} Removes a directory with sub-directories and contained files.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : dir: Full path to the directory.
+\end{itemize}
 
 \subsection{HELPER\_showBAfH}
 \textbf{Description:} Shows the German BAfH excuse of the day.\\
@@ -3140,10 +3294,14 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{HELPER\_getFdiskMountPoints}
-\textbf{Description:} returnes an array with all mount points listed in /etc/fstab\\
+\textbf{Description:} Returnes an array with all mount points listed in /etc/fstab\\
 \textbf{Parameter:}
 \begin{itemize}
 \item excludeExtra: set to true, if you want to exclude /proc and /sys from the array
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Found mount points as array keys and values.
 \end{itemize}
 
 \subsection{HELPER\_getApacheUser}
@@ -3171,8 +3329,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item fileName: name of the file to read
 \end{itemize}
 
-\subsection{HELPER\_getFileContents}
-\textbf{Description:} returnes the contents of a file (the file is read to a maximum of 5 MB)\\
+\subsection{HELPER\_showFileContents}
+\textbf{Description:} Shows the contents of a file (the file is read to a maximum of 5 MB)\\
 \textbf{Parameter:}
 \begin{itemize}
 \item fileName: name of the file to read
@@ -3224,6 +3382,126 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/html.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for generating often used HTML code\\
+
+\subsection{HTML\_imgSwitch}
+\textbf{Description:} Defines an image button with two states and a text next to it.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item \$htmlName: Name of the html image input element.
+\item \$off\_img: Name and path of image to be displayed if its state is "off"
+\item \$on\_img: Name and path of image to be displayed it its state is "on"
+\item \$off\_text: Text to be displayed if state is "off"
+\item \$on\_text: Text to be displayed if state is "on"
+\item \$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
+\item \$default: State of the image input element on first load of page ("on" or "off")
+\item \$outState: Current state of element (true for "on" or false for "off").
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the button was clicked otherwise false.
+\end{itemize}
+
+\subsection{HTML\_uploadFile}
+\textbf{Description:} Shows a dialog for uploading image files.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlName: Name of the HTML element
+\item label: The visual naming of the HTML element.
+\item maxFileSize: The maximum allowed filesize in bytes.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The full path to the uploaded file or false in case of an error.
+\end{itemize}
+
+\subsection{HTML\_urlButton}
+\textbf{Description:} Defines a link that appears like a button.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlNames: Name of the constant.
+\item label: Label of the button.
+\item url: The URL where the link button should point to.
+\end{itemize}
+
+\subsection{HTML\_sourceViewer}
+\textbf{Description:} Creates a source code viewer area with syntax highlighting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlNames: Name of the source viewer.
+\item code: The source code to show.
+\item highlighting: The GeSHi language of the source code (e.g. bash).
+\end{itemize}
+
+\subsection{HTML\_getOutputBuffer}
+\textbf{Description:} Gets the complete (previously rendered) HTML output buffer.\\
+\textbf{Returns:}
+\begin{itemize}
+\item The complete contents of the (previously rendered) HTML output buffer.
+\end{itemize}
+
+\subsection{HTML\_setOutputBuffer}
+\textbf{Description:} Sets (replaces) the complete (previously rendered) HTML output buffer, that will be sent to the webbrowser.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item HTMLOutputBuffer: New HTML codes that should replace the complete current output buffer.
+\end{itemize}
+
+\subsection{HTML\_AJAXAutoSubmit}
+\textbf{Description:} Defines AJAX code that clicks a submit button when the given URL returns 'submit'. The defined constant should be used as LAST part of the \$extra parameter in the HTML\_submit function.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlNames: Name of the HTML submit element (button).
+\item url: The HTTP URL to poll.
+\item timeout: Time in milliseconds to poll the URL for new status.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Constant name to insert into \$extra.
+\end{itemize}
+
+\subsection{HTML\_liveSpan}
+\textbf{Description:} Creates a span that updates itself via AJAX by polling from a given URL.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlNames: Name of the span.
+\item url: The HTTP URL to poll.
+\item staticValue: Value that should be shown, when AJAX is not available (e.g. when JavaScript is disabled)
+\item timeout: Time in milliseconds to poll the URL for new status.
+\end{itemize}
+
+\subsection{HTML\_manipulateOutputBuffer}
+\textbf{Description:} Manipulates the output buffer with already generated HTML code and replaces all occurrences the search term with the replace term.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item search: The search term.
+\item replace: The replace text.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the search term was found.
+\end{itemize}
+
+\subsection{HTML\_showTitle}
+\textbf{Description:} Shows a title.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item title: Text of the title.
+\end{itemize}
+
+\subsection{HTML\_showSmallTitle}
+\textbf{Description:} Shows a title of the second tier.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item title: Text of the small title.
+\end{itemize}
+
+\subsection{HTML\_hiddenVar}
+\textbf{Description:} Create a hidden HTML variable to store values in an HTML form.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item var: Name of the hidden variable.
+\item val: Its value.
+\end{itemize}
 
 \subsection{HTML\_liveLogArea}
 \textbf{Description:} Creates a log area that updates itself via AJAX by polling from a given URL.\\
@@ -3294,6 +3572,41 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item The HTML code for displaying the menu entry.
+\end{itemize}
+
+\subsection{HTML\_jQueryMenu}
+\textbf{Description:} Creates an entry for the jQuery accordion menu\\
+\textbf{Parameter:}
+\begin{itemize}
+\item title: Title for the menu entry.
+\item html: HTML code of the menu entry. Here can stand all that is expressable with HTML. This part is shown and hidden.
+\item titleCSS: CSS class for marking the title.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The jQuery code for the menu entry.
+\end{itemize}
+
+\subsection{HTML\_jQueryMenuHeader}
+\textbf{Description:} Generate code for beginning a the jQuery accordion menu.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item menuName: Name of the menu.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The jQuery code for beginning the menu.
+\end{itemize}
+
+\subsection{HTML\_jQueryMenuEnd}
+\textbf{Description:} Generates code for ending a the jQuery accordion menu.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item menuName: Name of the menu.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The jQuery code for ending the menu.
 \end{itemize}
 
 \subsection{HTML\_incStatusBarPercentByName}
@@ -3401,6 +3714,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{HTML\_multiCheckBox}
+\textbf{Description:} Defines a list of checkboxes, that represent a value each. The values of checked checkboxes are stored in an array and returned.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlName: Name of the HTML element.
+\item valuesLabels: Array with the values and labels for the checkboxes.
+\item defaultChecked: Array with values that are checked by default.
+\item forceReload: Set to true if the check box should be set to the state of \$defaultCheck in any case.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Array with the values of all checked checkboxes.
+\end{itemize}
+
+\subsection{HTML\_multiCheckBoxShow}
 \textbf{Description:} Shows a list of checkboxes, that represent a value each. The values of checked checkboxes are stored in an array and returned.\\
 \textbf{Parameter:}
 \begin{itemize}
@@ -3535,6 +3862,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item True if it was clicked otherwise false.
 \end{itemize}
 
+\subsection{HTML\_submitImg}
+\textbf{Description:} Defines a graphical submit button.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlName: Name of the HTML element.
+\item img: Name of the image to show.
+\item alt: Alternative text to show when no images can be shown.
+\item extra: Extra options for the HTML input tag.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item True if it was clicked otherwise false.
+\end{itemize}
+
 \subsection{HTML\_input}
 \textbf{Description:} HTML text or password edit line.\\
 \textbf{Parameter:}
@@ -3600,6 +3941,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item True if the check box is checked.
+\end{itemize}
+
+\subsection{HTML\_checkBoxCheckAll}
+\textbf{Description:} Generates an array with all checked checkboxes. It assumes that value of a checked checkbox is 1.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item filter: Filter to get only the POST elements which begin with the filter string.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with all checked checkboxes.
 \end{itemize}
 
 \subsection{HTML\_submitDefine}
@@ -4601,6 +4953,10 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item fileName: name of the DB file
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with the values of the DB line or false, if the line was empty.
+\end{itemize}
 
 \subsection{MASS\_readDBFileRaw}
 \textbf{Description:} reads a line from the DB file and returnes the fields splitted to a normal array.\\
@@ -4758,6 +5114,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: function to show an info box\\
 
+\subsection{MSG\_showMessageBoxPlaceholder}
+\textbf{Description:} Shows a placeholder for message boxes at the position of execution.\\
+
+\subsection{MSG\_placeOrReturnMessageBox}
+\textbf{Description:} Replaces a (maybe) existing message box placeholder with the given text.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item text: Message to embed in the placeholder.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Empty string, if the text could be inserted into the existing placeholder or the message, if no placeholder was found.
+\end{itemize}
+
 \subsection{MSG\_getm23UpdateFeed}
 \textbf{Description:} Shows the m23 server update feed.\\
 \textbf{Parameter:}
@@ -4779,7 +5149,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item url: The URL pointing to the RSS XML file.
-\item tabelType: Name of the CSS table type
+\item tableType: Name of the CSS table type
 \item width: Width of the box
 \item storeFile: The file name to store the download in.
 \item refreshTime: The time in minutes the file is downloaded again.
@@ -4812,11 +5182,21 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item width: width of the box
 \end{itemize}
 
+\subsection{MSG\_show}
+\textbf{Description:} Shows the message block for the messages.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item message: the text for the info message
+\item language: two character language description (e.g. de, en, fr,...)
+\item width: width of the box
+\item urgency: type of message (e.g. errortable, warningtable, infotable)
+\end{itemize}
+
 \subsection{MSG\_showMessageBoxHeader}
 \textbf{Description:} shows the header of the message block for the online help\\
 \textbf{Parameter:}
 \begin{itemize}
-\item tabelType: name of the CSS table type
+\item tableType: name of the CSS table type
 \item type: the heading of the box
 \item width: width of the box
 \item dontShowButReturn: Set to true if the HTML output should be returned rather than show.
@@ -4834,7 +5214,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item message: the text for the info message
-\item tabelType: name of the CSS table type
+\item tableType: name of the CSS table type
 \item type: the heading of the box
 \item width: width of the box
 \item dontShowButReturn: Set to true if the HTML output should be returned rather than show.
@@ -4884,6 +5264,76 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/packages.php}
 Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
 Description: basic package operations (search, add,...)\\
+
+\subsection{PKG\_combinem23normal}
+\textbf{Description:} Combines the package names of multiple entries for m23normal and m23normalRemove jobs ind a package selection.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item packageSelectionName: Name of the package selection to optimise.
+\end{itemize}
+
+\subsection{PKG\_importSelectedPackagesFromFile}
+\textbf{Description:} Imports space-seperated packages from a file and adds them to the wait4acc/selected packages of a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client or empty.
+\item file: Name of the file with full path containing space-seperated packages.
+\end{itemize}
+
+\subsection{PKG\_exportSelectedPackages}
+\textbf{Description:} Exports the wait4acc/selected packages of a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client or empty.
+\end{itemize}
+
+\subsection{PKG\_getDebootstrapCacheFilename}
+\textbf{Description:} Returns the file name of the debootstrap cache file (without path).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The file name of the debootstrap cache file (without path).
+\end{itemize}
+
+\subsection{PKG\_getDebootstrapCacheSfURL}
+\textbf{Description:} Returns the URL to the debootstrap cache file on the SourceForge server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The URL to the debootstrap cache file on the SourceForge server.
+\end{itemize}
+
+\subsection{PKG\_getDebootstrapCacheServerURL}
+\textbf{Description:} Returns the URL to the debootstrap cache file on the m23 server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The URL to the debootstrap cache file on the m23 server.
+\end{itemize}
+
+\subsection{PKG\_getDebootstrapCacheServerFile}
+\textbf{Description:} Returns the full path to the debootstrap cache file on the m23 server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The full path to the debootstrap cache file on the m23 server.
+\end{itemize}
 
 \subsection{PKG\_isReconfiguredWithExtraDistr}
 \textbf{Description:} Checks, if the distribution is used for configuring a system that was installed via image.\\
@@ -5131,10 +5581,11 @@ Description: basic package operations (search, add,...)\\
 \item client: name of client to install packages on
 \item selectionName: name for the package selection
 \item showMsg: set to true, if a message should be shown
+\item status: Status of the clientjobs that should be added.
 \end{itemize}
 
-\subsection{PKG\_addNormaltoPackageselection}
-\textbf{Description:} add normal packages to selection\\
+\subsection{PKG\_addPackageToPackageselection}
+\textbf{Description:} Add packages to selection\\
 \textbf{Parameter:}
 \begin{itemize}
 \item client: name of client to install packages on
@@ -6115,6 +6566,50 @@ Description: basic package operations (search, add,...)\\
 \newpage\section{./inc/server.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for getting information from the server\\
+
+\subsection{SERVER\_setSSLCertCheckDisabled}
+\textbf{Description:} Sets, if the SSL certificate check is disabled globally for all clients.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : disableSSLCertCheck: true, if the check is disabled otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_isSSLCertCheckDisabled}
+\textbf{Description:} Determines, if the SSL certificate check is disabled globally for all clients.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if the check is disabled otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_setServerSetting}
+\textbf{Description:} Sets the value of a server setting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : var: Name of the setting.
+\item : val: Value of the setting.
+\end{itemize}
+
+\subsection{SERVER\_getServerSetting}
+\textbf{Description:} Gets the value of a server setting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : var: Name of the setting.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Value the setting.
+\end{itemize}
+
+\subsection{SERVER\_existsServerSetting}
+\textbf{Description:} Checks, if a named server setting exists in the DB.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : var: Name of the setting.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : True if the setting exists.
+\end{itemize}
 
 \subsection{SERVER\_killPID}
 \textbf{Description:} Kills a process running under a given PID or sends a signal.\\

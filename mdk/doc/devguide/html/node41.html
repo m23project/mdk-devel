@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Send SQL statements</TITLE>
-<META NAME="description" CONTENT="Send SQL statements">
+<TITLE>Filling main.cpp</TITLE>
+<META NAME="description" CONTENT="Filling main.cpp">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,74 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node40.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node45.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node32.html">
 <LINK REL="next" HREF="node42.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2610"
+<A NAME="tex2html2700"
   HREF="node42.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2606"
-  HREF="node38.html">
+<A NAME="tex2html2696"
+  HREF="node32.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2602"
+<A NAME="tex2html2690"
   HREF="node40.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2608"
+<A NAME="tex2html2698"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2611"
-  HREF="node42.html">Example</A>
-<B> Up:</B> <A NAME="tex2html2607"
-  HREF="node38.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2603"
-  HREF="node40.html">Disconnecting from the server</A>
- &nbsp; <B>  <A NAME="tex2html2609"
+<B> Next:</B> <A NAME="tex2html2701"
+  HREF="node42.html">Connecting to the server</A>
+<B> Up:</B> <A NAME="tex2html2697"
+  HREF="node32.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2691"
+  HREF="node40.html">Adjusting project properties</A>
+ &nbsp; <B>  <A NAME="tex2html2699"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00625300000000000000">
-Send SQL statements</A>
-</H3>
-<PRE>
-MYSQL_RES *query(char *sql)
-{
- MYSQL_RES *res;
-
- if (mysql_query(&amp;connection, sql) != 0)
-    {
-     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
-     mysql_error(&amp;connection),sql);
-     exit(2);
-    };
-
- res = mysql_store_result(&amp;connection);
-
- return(res);
-};
-</PRE>
-
-<OL>
-<LI>We declare a variable (<SPAN  CLASS="textit">res</SPAN>)that will held the result of our query
-</LI>
-<LI>mysql_query requires a established connection to a mysql server and a valid sql statement. If the statement gets executed corretly, it returns 0, otherwise you can use the mysql_error function to get the error message.
-</LI>
-<LI>And at last mysql_store_result stores the result of our query or <SPAN  CLASS="textbf">NULL</SPAN> if there was an error.
-</LI>
-</OL>
+<H2><A NAME="SECTION00635000000000000000">
+Filling main.cpp</A>
+</H2>
+After all preparations we step forward to the source code. You need to include <SPAN  CLASS="textbf">include &lt;mysql/mysql.h&gt;</SPAN> and create a global variable called mysql from the type MYSQL.
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2702"
+  HREF="node42.html">Connecting to the server</A>
+<LI><A NAME="tex2html2703"
+  HREF="node43.html">Disconnecting from the server</A>
+<LI><A NAME="tex2html2704"
+  HREF="node44.html">Send SQL statements</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

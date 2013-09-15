@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="user_switch_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Allow user switching">
+			<default type="bool" value="true"/>
+			<longdesc>
+          Set this to TRUE to offer an option in the unlock dialog to
+          switch to a different user account.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="themes" mtime="1367786905" type="schema" stype="list" owner="mate-screensaver" list_type="string">
+		<local_schema locale="C" short_desc="Screensaver themes">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+	  This key specifies the list of themes to be used by the
+          screensaver. It&apos;s ignored when &quot;mode&quot; key is 
+          &quot;blank-only&quot;, should provide the theme name when &quot;mode&quot; is
+          &quot;single&quot;, and should provide a list of themes when &quot;mode&quot; is
+          &quot;random&quot;.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="status_message_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Allow the session status message to be displayed">
+			<default type="bool" value="true"/>
+			<longdesc>
+        Allow the session status message to be displayed when the screen is locked.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="power_management_delay" mtime="1367786905" type="schema" stype="int" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Time before power-management baseline">
+			<default type="int" value="30"/>
+			<longdesc>
+          The number of seconds of inactivity before signalling
+          to power-management.  This key is set and maintained
+          by the session power-management agent.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mode" mtime="1367786905" type="schema" stype="string" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Screensaver theme selection mode">
+			<default type="string">
+				<stringvalue>blank-only</stringvalue>
+			</default>
+			<longdesc>
+	  The selection mode used by screensaver.  May be &quot;blank-only&quot;
+          to enable the screensaver without using any theme on activation,
+          &quot;single&quot; to enable screensaver using only one theme on activation
+          (specified in &quot;themes&quot; key), and &quot;random&quot; to enable the
+          screensaver using a random theme on activation.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="logout_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Allow logout">
+			<default type="bool" value="false"/>
+			<longdesc>
+          Set this to TRUE to offer an option in unlock dialog to
+          logging out after a delay.  The Delay is specified in the
+          &quot;logout_delay&quot; key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="logout_delay" mtime="1367786905" type="schema" stype="int" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Time before logout option">
+			<default type="int" value="120"/>
+			<longdesc>
+          The number of minutes after the screensaver activation
+          before a logout option will appear in unlock dialog. This
+          key has effect only if the &quot;logout_enable&quot; key is set to TRUE.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="logout_command" mtime="1367786905" type="schema" stype="string" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Logout command">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+          The command to invoke when the logout button is clicked.  This
+          command should simply log the user out without any interaction.
+          This key has effect only if the &quot;logout_enable&quot; key is set to TRUE.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="lock_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Lock on activation">
+			<default type="bool" value="false"/>
+			<longdesc>
+          Set this to TRUE to lock the screen when the screensaver
+          goes active.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="lock_dialog_theme" mtime="1367786905" type="schema" stype="string" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Theme for lock dialog">
+			<default type="string">
+				<stringvalue>default</stringvalue>
+			</default>
+			<longdesc>
+          Theme to use for the lock dialog.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="lock_delay" mtime="1367786905" type="schema" stype="int" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Time before locking">
+			<default type="int" value="0"/>
+			<longdesc>
+          The number of minutes after screensaver activation
+          before locking the screen.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_delay" mtime="1367786905" type="schema" stype="int" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Time before session is considered idle">
+			<default type="int" value="10"/>
+			<longdesc>
+          The number of minutes of inactivity before the
+          session is considered idle.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_activation_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Activate when idle">
+			<default type="bool" value="true"/>
+			<longdesc>
+          Set this to TRUE to activate the screensaver
+          when the session is idle.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="embedded_keyboard_enabled" mtime="1367786905" type="schema" stype="bool" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Allow embedding a keyboard into the window">
+			<default type="bool" value="false"/>
+			<longdesc>
+          Set this to TRUE to allow embedding a keyboard into the
+          window when trying to unlock.  The &quot;keyboard_command&quot; key
+          must be set with the appropriate command.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="embedded_keyboard_command" mtime="1367786905" type="schema" stype="string" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Embedded keyboard command">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+          The command that will be run, if the &quot;embedded_keyboard_enabled&quot; key
+          is set to TRUE, to embed a keyboard widget into the window.
+          This command should implement an XEMBED plug interface and
+          output a window XID on the standard output.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="cycle_delay" mtime="1367786905" type="schema" stype="int" owner="mate-screensaver">
+		<local_schema locale="C" short_desc="Time before theme change">
+			<default type="int" value="10"/>
+			<longdesc>
+          The number of minutes to run before changing the
+          screensaver theme.
+        </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

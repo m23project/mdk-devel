@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getFreeSpaces</TITLE>
-<META NAME="description" CONTENT="FDISK_getFreeSpaces">
+<TITLE>FDISK_listInstPartSelector</TITLE>
+<META NAME="description" CONTENT="FDISK_listInstPartSelector">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node439.html">
 <LINK REL="previous" HREF="node437.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node439.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8618"
+<A NAME="tex2html8755"
   HREF="node439.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8614"
-  HREF="node345.html">
+<A NAME="tex2html8751"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8608"
+<A NAME="tex2html8745"
   HREF="node437.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8616"
+<A NAME="tex2html8753"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8619"
-  HREF="node439.html">FDISK_autoPart</A>
-<B> Up:</B> <A NAME="tex2html8615"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8609"
-  HREF="node437.html">FDISK_countPartitions</A>
- &nbsp; <B>  <A NAME="tex2html8617"
+<B> Next:</B> <A NAME="tex2html8756"
+  HREF="node439.html">FDISK_formatExisting</A>
+<B> Up:</B> <A NAME="tex2html8752"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8746"
+  HREF="node437.html">FDISK_listPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html8754"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081293000000000000000">
-FDISK_getFreeSpaces</A>
+<H2><A NAME="SECTION0081276000000000000000">
+FDISK_listInstPartSelector</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> get free spaces as array
+<SPAN  CLASS="textbf">Description:</SPAN> lists all partitions to select for swap and install partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>dev: selected device (e.g. hda)
+<LI>default: partition that should be shown as selected
+</LI>
+<LI>type: array with filesystems that are possible for installation or swap
+</LI>
+<LI>selName: name of the selection
 </LI>
 </UL>
 
@@ -70,7 +74,7 @@ FDISK_getFreeSpaces</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="toplevel_id_list" mtime="1367786905" type="schema" stype="list" owner="panel" list_type="string">
+		<local_schema locale="C" short_desc="Panel ID list">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+          A list of panel IDs. Each ID identifies an individual
+          toplevel panel. The settings for each of these panels are
+          stored in /apps/panel/toplevels/$(id).
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_program_list" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Expand program list in &quot;Run Application&quot; dialog">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If true, the &quot;Known Applications&quot; listing in the &quot;Run
+          Application&quot; dialog is expanded when the dialog is opened.
+          This key is only relevant if the enable_program_list key
+          is true.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="profiles_migrated" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Old profiles configuration migrated">
+			<default type="bool" value="false"/>
+			<longdesc>
+          A boolean flag to indicate whether the user&apos;s previous
+          configuration in /apps/panel/profiles/default has been
+          copied to the new location in /apps/panel.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="object_id_list" mtime="1367786905" type="schema" stype="list" owner="panel" list_type="string">
+		<local_schema locale="C" short_desc="Panel object ID list">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+          A list of panel object IDs. Each ID identifies an individual
+          panel object (e.g. a launcher, action button or menu
+          button/bar). The settings for each of these objects are
+          stored in
+          /apps/panel/objects/$(id).
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_program_list" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Enable program list in &quot;Run Application&quot; dialog">
+			<default type="bool" value="true"/>
+			<longdesc>
+          If true, the &quot;Known Applications&quot; listing in the &quot;Run
+          Application&quot; dialog is made available. Whether or not
+          the listing is expanded when the dialog is shown is
+          controlled by the show_program_list key.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_autocompletion" mtime="1367786905" type="schema" stype="bool" owner="panel">
+		<local_schema locale="C" short_desc="Enable autocompletion in &quot;Run Application&quot; dialog">
+			<default type="bool" value="true"/>
+			<longdesc>
+          If true, autocompletion in the &quot;Run Application&quot; dialog is
+          made available.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="applet_id_list" mtime="1367786905" type="schema" stype="list" owner="panel" list_type="string">
+		<local_schema locale="C" short_desc="Panel applet ID list">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+          A list of panel applet IDs. Each ID identifies an
+          individual panel applet. The settings for each of
+          these applets are stored in
+          /apps/panel/applets/$(id).
+        </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

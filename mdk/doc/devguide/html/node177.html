@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CHECK_str</TITLE>
-<META NAME="description" CONTENT="CHECK_str">
+<TITLE>CHECK_float</TITLE>
+<META NAME="description" CONTENT="CHECK_float">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node178.html">
 <LINK REL="previous" HREF="node176.html">
-<LINK REL="up" HREF="node168.html">
+<LINK REL="up" HREF="node171.html">
 <LINK REL="next" HREF="node178.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5228"
+<A NAME="tex2html5361"
   HREF="node178.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5224"
-  HREF="node168.html">
+<A NAME="tex2html5357"
+  HREF="node171.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5218"
+<A NAME="tex2html5351"
   HREF="node176.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5226"
+<A NAME="tex2html5359"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5229"
-  HREF="node178.html">countLinesInFile</A>
-<B> Up:</B> <A NAME="tex2html5225"
-  HREF="node168.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html5219"
-  HREF="node176.html">CHECK_letFWDie</A>
- &nbsp; <B>  <A NAME="tex2html5227"
+<B> Next:</B> <A NAME="tex2html5362"
+  HREF="node178.html">CHECK_strAlpha</A>
+<B> Up:</B> <A NAME="tex2html5358"
+  HREF="node171.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html5352"
+  HREF="node176.html">CHECK_int</A>
+ &nbsp; <B>  <A NAME="tex2html5360"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00859000000000000000">
-CHECK_str</A>
+<H2><A NAME="SECTION00856000000000000000">
+CHECK_float</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input string only contains valid characters and is not longer than the maximum length and shuts down the application if not.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a float number and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>val: String value to check.
-</LI>
-<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+<LI>val: Input value to check.
 </LI>
 <LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The input string or stops the program on an error.
+<LI>The input value if it's a float number or false on an error.
 </LI>
 </UL>
 
@@ -78,7 +78,7 @@ CHECK_str</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

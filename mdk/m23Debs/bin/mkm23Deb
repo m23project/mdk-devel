@@ -8,6 +8,8 @@ addm23CommandsToCodepress
 dodgerFilesGetFileList
 dodgerFilesChangeUser root
 
+chmod 700 -R /m23/root-only/ /m23/var/m23shared/
+
 #check if building is needed and create index
 	prepareBuilding m23
 	if test $? -eq 1
@@ -47,6 +49,8 @@ cd /mdk/m23Debs/m23
 
 #build package
 	finishBuilding m23
+
+chmod 755 -R /m23/root-only/ /m23/var/m23shared/
 
 dodgerFilesChangeUser dodger
 

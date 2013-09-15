@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="show_text" mtime="1367786905" type="schema" stype="int" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Show the time/percent label">
+			<default type="int" value="0"/>
+			<longdesc>0 for no label, 1 for percentage and 2 for time remaining.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_status" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Upright (small) battery">
+			<default type="bool" value="true"/>
+			<longdesc>Show the upright, smaller battery on the panel.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_battery" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Show the horizontal battery">
+			<default type="bool" value="false"/>
+			<longdesc>Show the traditional, horizontal battery on the panel.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="red_value_is_time" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Warn on low time rather than low percentage">
+			<longdesc>Use the value defined in red_value as a time remaining to show the warning dialog rather than a percentage.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="red_value" mtime="1367786905" type="schema" stype="int" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Red value level">
+			<default type="int" value="15"/>
+			<longdesc>The battery level below which the battery is displayed as red. Also the value at which the low battery warning is displayed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="low_battery_notification" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Low Battery Notification">
+			<default type="bool" value="true"/>
+			<longdesc>Notify user when the battery is low.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="full_battery_notification" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Full Battery Notification">
+			<default type="bool" value="false"/>
+			<longdesc>Notify user when the battery is full.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="drain_from_top" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Drain from top">
+			<default type="bool" value="false"/>
+			<longdesc>Show the battery meter draining from the top of the battery. Only implemented for traditional battery view.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="beep" mtime="1367786905" type="schema" stype="bool" owner="battstat-applet">
+		<local_schema locale="C" short_desc="Beep for warnings">
+			<default type="bool" value="false"/>
+			<longdesc>Beep when displaying a warning.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

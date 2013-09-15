@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_generateClientNames</TITLE>
-<META NAME="description" CONTENT="MASS_generateClientNames">
+<TITLE>m23SHARED_getUserByInfo</TITLE>
+<META NAME="description" CONTENT="m23SHARED_getUserByInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node711.html">
 <LINK REL="previous" HREF="node709.html">
-<LINK REL="up" HREF="node689.html">
+<LINK REL="up" HREF="node646.html">
 <LINK REL="next" HREF="node711.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12107"
+<A NAME="tex2html12241"
   HREF="node711.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12103"
-  HREF="node689.html">
+<A NAME="tex2html12237"
+  HREF="node646.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12097"
+<A NAME="tex2html12231"
   HREF="node709.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12105"
+<A NAME="tex2html12239"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12108"
-  HREF="node711.html">MASS_saveGeneratorOptions</A>
-<B> Up:</B> <A NAME="tex2html12104"
-  HREF="node689.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html12098"
-  HREF="node709.html">MASS_generateNetmask</A>
- &nbsp; <B>  <A NAME="tex2html12106"
+<B> Next:</B> <A NAME="tex2html12242"
+  HREF="node711.html">m23SHARED_showAdminDialog</A>
+<B> Up:</B> <A NAME="tex2html12238"
+  HREF="node646.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html12232"
+  HREF="node709.html">m23SHARED_getUserByCustomerNr</A>
+ &nbsp; <B>  <A NAME="tex2html12240"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082121000000000000000">
-MASS_generateClientNames</A>
+<H2><A NAME="SECTION0082064000000000000000">
+m23SHARED_getUserByInfo</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates client names through appending of numbers.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the user name of m23shared customer by searching all m23shared DBs for var and value in the remotevar table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>base: the client base name
+<LI>remotevarVar: Variable name to search in the remotevar table.
 </LI>
-<LI>start: the start number
+<LI>remotevarValue: Value to search in the remotevar table.
 </LI>
-<LI>amount: the amount of client names to generate
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>m23shared user name for the searched customer or empty string if none was found.
 </LI>
 </UL>
 
@@ -72,7 +76,7 @@ MASS_generateClientNames</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

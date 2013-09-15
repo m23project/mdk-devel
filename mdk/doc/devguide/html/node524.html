@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getFileContents</TITLE>
-<META NAME="description" CONTENT="HELPER_getFileContents">
+<TITLE>HELPER_grubMd5Crypt</TITLE>
+<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node525.html">
 <LINK REL="previous" HREF="node523.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node501.html">
 <LINK REL="next" HREF="node525.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9703"
+<A NAME="tex2html9845"
   HREF="node525.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9699"
-  HREF="node493.html">
+<A NAME="tex2html9841"
+  HREF="node501.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9695"
+<A NAME="tex2html9835"
   HREF="node523.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9701"
+<A NAME="tex2html9843"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9704"
-  HREF="node525.html">./inc/help.php</A>
-<B> Up:</B> <A NAME="tex2html9700"
-  HREF="node493.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9696"
-  HREF="node523.html">HELPER_getFileContents</A>
- &nbsp; <B>  <A NAME="tex2html9702"
+<B> Next:</B> <A NAME="tex2html9846"
+  HREF="node525.html">HELPER_listFilesInDir</A>
+<B> Up:</B> <A NAME="tex2html9842"
+  HREF="node501.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9836"
+  HREF="node523.html">HELPER_generateSalt</A>
+ &nbsp; <B>  <A NAME="tex2html9844"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081431000000000000000">
-HELPER_getFileContents</A>
+<H2><A NAME="SECTION0081423000000000000000">
+HELPER_grubMd5Crypt</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes the maximum file upload size allowed by php.ini.
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>password: Password to encrypt.
+</LI>
+<LI>length: Length of the salt.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

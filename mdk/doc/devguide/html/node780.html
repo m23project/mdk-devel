@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_addShutdownPackage</TITLE>
-<META NAME="description" CONTENT="PKG_addShutdownPackage">
+<TITLE>PKG_OptionPageRender2</TITLE>
+<META NAME="description" CONTENT="PKG_OptionPageRender2">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node781.html">
 <LINK REL="previous" HREF="node779.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node781.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13044"
+<A NAME="tex2html13212"
   HREF="node781.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13040"
-  HREF="node734.html">
+<A NAME="tex2html13208"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13034"
+<A NAME="tex2html13202"
   HREF="node779.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13042"
+<A NAME="tex2html13210"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13045"
-  HREF="node781.html">PKG_addShutdownOrRebootPackage</A>
-<B> Up:</B> <A NAME="tex2html13041"
-  HREF="node734.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13035"
-  HREF="node779.html">PKG_setClientPackageInstalledOK</A>
- &nbsp; <B>  <A NAME="tex2html13043"
+<B> Next:</B> <A NAME="tex2html13213"
+  HREF="node781.html">PKG_countSpecialPackages</A>
+<B> Up:</B> <A NAME="tex2html13209"
+  HREF="node766.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13203"
+  HREF="node779.html">PKG_decodeDebconfDescription</A>
+ &nbsp; <B>  <A NAME="tex2html13211"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082446000000000000000">
-PKG_addShutdownPackage</A>
+<H2><A NAME="SECTION0082414000000000000000">
+PKG_OptionPageRender2</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a shutdown package, but only if the client is NOT running. returns true, if a schutdown package is added
+<SPAN  CLASS="textbf">Description:</SPAN> Renderes the layout of an OptionPage for debconf and stored the debconf settings into the DB.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: name of the client
+<LI>layout: The elements (variable name, type (string, boolean, (multi)select), default value, description) of the debconf templates.
+</LI>
+<LI>client: The name of the client, the debconf settings should be stored for.
+</LI>
+<LI>package: Name of the package, the debconf settings should be stored for.
 </LI>
 </UL>
 
@@ -68,7 +72,7 @@ PKG_addShutdownPackage</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

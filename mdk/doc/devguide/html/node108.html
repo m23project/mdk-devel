@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>example for a mdoc comment</TITLE>
-<META NAME="description" CONTENT="example for a mdoc comment">
+<TITLE>what is mdoc?</TITLE>
+<META NAME="description" CONTENT="what is mdoc?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,53 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node109.html">
 <LINK REL="previous" HREF="node107.html">
-<LINK REL="up" HREF="node104.html">
+<LINK REL="up" HREF="node107.html">
 <LINK REL="next" HREF="node109.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3478"
+<A NAME="tex2html3569"
   HREF="node109.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3474"
-  HREF="node104.html">
+<A NAME="tex2html3565"
+  HREF="node107.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3468"
+<A NAME="tex2html3559"
   HREF="node107.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3476"
+<A NAME="tex2html3567"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3479"
-  HREF="node109.html">using mdoc</A>
-<B> Up:</B> <A NAME="tex2html3475"
-  HREF="node104.html">mdoc</A>
-<B> Previous:</B> <A NAME="tex2html3469"
-  HREF="node107.html">mdoc info block</A>
- &nbsp; <B>  <A NAME="tex2html3477"
+<B> Next:</B> <A NAME="tex2html3570"
+  HREF="node109.html">how to make your</A>
+<B> Up:</B> <A NAME="tex2html3566"
+  HREF="node107.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html3560"
+  HREF="node107.html">mdoc</A>
+ &nbsp; <B>  <A NAME="tex2html3568"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00714000000000000000">
-example for a mdoc comment</A>
+<H2><A NAME="SECTION00711000000000000000">
+what is mdoc?</A>
 </H2>
+mdoc creates documentation in latex format out of comments in your source files. Special marked lines in the source code are extracted and converted to a documentation file. For an example of the generated documentation see the "m23 API reference" included in this document. mdoc can scan PHP and C/C++ files and other files that allow "/**" and "**/" for begin and end of comments or don't care about these kind of strings. If you want to use mdoc for files that don't allow these strings, put the comment sequence used for the file type before the mdoc lines. e.g. for BASH scripts you will put a '#' in front of each mdoc line:
 <PRE>
-/**
-**n CLIENT_listPackages($client, $key)
-**d lists all packages on the client
-**p client: name of the client
-**p key: keyword for searching for packages
-**/
+#/**
+#**name helloworld.sh
+#**description shows a hello world
+#**parameter none
+#**/
+echo hello world
 </PRE>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

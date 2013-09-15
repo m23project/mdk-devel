@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarStatusByName</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarStatusByName">
+<TITLE>HTML_imgSwitch</TITLE>
+<META NAME="description" CONTENT="HTML_imgSwitch">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node543.html">
 <LINK REL="previous" HREF="node541.html">
-<LINK REL="up" HREF="node530.html">
+<LINK REL="up" HREF="node541.html">
 <LINK REL="next" HREF="node543.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9962"
+<A NAME="tex2html10120"
   HREF="node543.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9958"
-  HREF="node530.html">
+<A NAME="tex2html10116"
+  HREF="node541.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9952"
+<A NAME="tex2html10110"
   HREF="node541.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9960"
+<A NAME="tex2html10118"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9963"
-  HREF="node543.html">HTML_setStatusBarStatusByID</A>
-<B> Up:</B> <A NAME="tex2html9959"
-  HREF="node530.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html9953"
-  HREF="node541.html">HTML_setStatusBarPercentPointByName</A>
- &nbsp; <B>  <A NAME="tex2html9961"
+<B> Next:</B> <A NAME="tex2html10121"
+  HREF="node543.html">HTML_uploadFile</A>
+<B> Up:</B> <A NAME="tex2html10117"
+  HREF="node541.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10111"
+  HREF="node541.html">./inc/html.php</A>
+ &nbsp; <B>  <A NAME="tex2html10119"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081612000000000000000">
-HTML_setStatusBarStatusByName</A>
+<H2><A NAME="SECTION008161000000000000000">
+HTML_imgSwitch</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by clientname AND status bar name.
+<SPAN  CLASS="textbf">Description:</SPAN> Defines an image button with two states and a text next to it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>statusBarName: The name of the status bar.
+<LI>$htmlName: Name of the html image input element.
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>$off_img: Name and path of image to be displayed if its state is "off"
 </LI>
-<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+<LI>$on_img: Name and path of image to be displayed it its state is "on"
 </LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
+<LI>$off_text: Text to be displayed if state is "off"
+</LI>
+<LI>$on_text: Text to be displayed if state is "on"
+</LI>
+<LI>$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
+</LI>
+<LI>$default: State of the image input element on first load of page ("on" or "off")
+</LI>
+<LI>$outState: Current state of element (true for "on" or false for "off").
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>: false on parameter error.
+<LI>true, if the button was clicked otherwise false.
 </LI>
 </UL>
 
@@ -80,7 +88,7 @@ HTML_setStatusBarStatusByName</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

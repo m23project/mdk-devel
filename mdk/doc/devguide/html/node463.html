@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deleteDriveFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
+<TITLE>FDISK_getDrivePartitionSize</TITLE>
+<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node464.html">
 <LINK REL="previous" HREF="node462.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node464.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8916"
+<A NAME="tex2html9055"
   HREF="node464.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8912"
-  HREF="node345.html">
+<A NAME="tex2html9051"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8908"
+<A NAME="tex2html9045"
   HREF="node462.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8914"
+<A NAME="tex2html9053"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8917"
-  HREF="node464.html">./inc/groups.php</A>
-<B> Up:</B> <A NAME="tex2html8913"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8909"
-  HREF="node462.html">FDISK_virtualDeleteDrive</A>
- &nbsp; <B>  <A NAME="tex2html8915"
+<B> Next:</B> <A NAME="tex2html9056"
+  HREF="node464.html">FDISK_listRaidTable</A>
+<B> Up:</B> <A NAME="tex2html9052"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9046"
+  HREF="node462.html">FDISK_virtualAddDrive</A>
+ &nbsp; <B>  <A NAME="tex2html9054"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812118000000000000000">
-FDISK_deleteDriveFromParam</A>
+<H2><A NAME="SECTION00812101000000000000000">
+FDISK_getDrivePartitionSize</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number of the drive to delete.
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
+</LI>
+<LI>param: parameter string containing status information about the harddisks
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Changed param without the drive.
+<LI>Size of the drive or partition in MB.
 </LI>
 </UL>
 
@@ -75,7 +78,7 @@ FDISK_deleteDriveFromParam</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

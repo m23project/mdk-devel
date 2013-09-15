@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Creating a project</TITLE>
-<META NAME="description" CONTENT="Creating a project">
+<TITLE>Enable network access</TITLE>
+<META NAME="description" CONTENT="Enable network access">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,48 +28,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2551"
+<A NAME="tex2html2642"
   HREF="node37.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2547"
+<A NAME="tex2html2638"
   HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2541"
+<A NAME="tex2html2632"
   HREF="node35.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2549"
+<A NAME="tex2html2640"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2552"
-  HREF="node37.html">Adjusting project properties</A>
-<B> Up:</B> <A NAME="tex2html2548"
-  HREF="node35.html">Preparing KDevelop</A>
-<B> Previous:</B> <A NAME="tex2html2542"
-  HREF="node35.html">Preparing KDevelop</A>
- &nbsp; <B>  <A NAME="tex2html2550"
+<B> Next:</B> <A NAME="tex2html2643"
+  HREF="node37.html">Adding a database user</A>
+<B> Up:</B> <A NAME="tex2html2639"
+  HREF="node35.html">Preparing the server</A>
+<B> Previous:</B> <A NAME="tex2html2633"
+  HREF="node35.html">Preparing the server</A>
+ &nbsp; <B>  <A NAME="tex2html2641"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00624100000000000000">
-Creating a project</A>
+<H3><A NAME="SECTION00633100000000000000">
+Enable network access</A>
 </H3>
-In the KDevelop GUI select "Project" -&gt; "New" select from the list "C++" under "Terminal". You have to select "C++", "C" will not work!
-
-<UL>
-<LI>select "Next"
-</LI>
-<LI>select what you want in the next dialog pages
-</LI>
-</UL>
+To get access to the server over the network you need to do a little adjustment:
+Open <SPAN  CLASS="textit">/etc/mysql/my.cnf</SPAN> and comment out the line <TT>skip-networking</TT> so that it looks like <TT>#skip-networking</TT>.
+Don't forget to save ;) Now you have to restart the mysql server.
+<BR>
+<BR>
+I do it this way:
+<BR><TT>
+killall -9 safe_mysqld
+<BR>
+killall -9 mysqld
+<BR>/etc/init.d/mysql start
+<BR></TT>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

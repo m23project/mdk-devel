@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_nextLogicalDevNr</TITLE>
-<META NAME="description" CONTENT="FDISK_nextLogicalDevNr">
+<TITLE>FDISK_getPartitionByType</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartitionByType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,42 +21,42 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node392.html">
 <LINK REL="previous" HREF="node390.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node392.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8054"
+<A NAME="tex2html8191"
   HREF="node392.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8050"
-  HREF="node345.html">
+<A NAME="tex2html8187"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8044"
+<A NAME="tex2html8181"
   HREF="node390.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8052"
+<A NAME="tex2html8189"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8055"
-  HREF="node392.html">FDISK_nextPrimaryDevNr</A>
-<B> Up:</B> <A NAME="tex2html8051"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8045"
-  HREF="node390.html">FDISK_devNrExists</A>
- &nbsp; <B>  <A NAME="tex2html8053"
+<B> Next:</B> <A NAME="tex2html8192"
+  HREF="node392.html">FDISK_getDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html8188"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8182"
+  HREF="node390.html">FDISK_fdiskSessionFstab</A>
+ &nbsp; <B>  <A NAME="tex2html8190"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081246000000000000000">
-FDISK_nextLogicalDevNr</A>
+<H2><A NAME="SECTION0081229000000000000000">
+FDISK_getPartitionByType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the next free logical device number
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the FIRST partition matching a partition type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
@@ -64,13 +64,21 @@ FDISK_nextLogicalDevNr</A>
 </LI>
 <LI>vDev: Virtual (internally used) device number.
 </LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
+</LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

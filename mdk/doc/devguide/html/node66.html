@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>source update and cleanup</TITLE>
-<META NAME="description" CONTENT="source update and cleanup">
+<TITLE>sources.list</TITLE>
+<META NAME="description" CONTENT="sources.list">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node67.html">
 <LINK REL="previous" HREF="node65.html">
-<LINK REL="up" HREF="node58.html">
+<LINK REL="up" HREF="node63.html">
 <LINK REL="next" HREF="node67.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2928"
+<A NAME="tex2html3021"
   HREF="node67.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2924"
-  HREF="node58.html">
+<A NAME="tex2html3017"
+  HREF="node63.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2918"
+<A NAME="tex2html3011"
   HREF="node65.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2926"
+<A NAME="tex2html3019"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2929"
-  HREF="node67.html">installing a kernel</A>
-<B> Up:</B> <A NAME="tex2html2925"
-  HREF="node58.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html2919"
-  HREF="node65.html">step in to your</A>
- &nbsp; <B>  <A NAME="tex2html2927"
+<B> Next:</B> <A NAME="tex2html3022"
+  HREF="node67.html">/etc/network</A>
+<B> Up:</B> <A NAME="tex2html3018"
+  HREF="node63.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html3012"
+  HREF="node65.html">lilo.conf</A>
+ &nbsp; <B>  <A NAME="tex2html3020"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00644000000000000000">
-source update and cleanup</A>
-</H2>
-I think we don't need mailx :) .
+<H3><A NAME="SECTION00652300000000000000">
+sources.list</A>
+</H3>
+Your sources.list should look like this:
 <PRE>
-apt-get update
-apt-get remove mailx
+ deb http://security.debian.org/ woody/updates main contrib non-free
+ deb http://ftp.de.debian.org/debian/ stable main non-free contrib
+ deb http://ftp.szczepanek.de/ftp/trusteddebian/ stable main contrib
 </PRE>
+You can add more sources if preferred.
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

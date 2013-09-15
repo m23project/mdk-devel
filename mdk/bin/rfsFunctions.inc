@@ -89,6 +89,7 @@ createRFScopyLib()
 
 	#get the filename of the library without the path
 	fnamelib=`echo $lib | awk '{anz=split($0,arr,"/"); print(arr[anz]);}'`
+	fnamelib=`basename "$fnamelib"`
 
 	#where to find the library in the extracted debs (with full path)
 	#HINT: "sort | tail -1" ensures that the tls version of the libs is used
@@ -119,6 +120,8 @@ createRFScopyLib()
 		#it's a link
 		#get the link destination (the real library file)
 		realFile=`echo $linkAndFile | cut -d'?' -f1`
+
+		realFile=$(basename $realFile)
 
 		#copy the real library to the bootimage lib dir
 		cp -u `find $extractedDebsDir -name $realFile -xtype f | grep lib | sort | tail -1` lib
@@ -168,7 +171,7 @@ createRFSBins()
 	ln -s bin sbin
 	
 	cd lib
-	ln -s . tls
+		ln -s . tls
 	cd ..
 
 	#create links to usr
@@ -178,14 +181,18 @@ createRFSBins()
 		ln -s ../bin
 		ln -s ../sbin
 	cd ..
+	
+	
 
 	#halt: Now in BusyBox
-	for bin in ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find grub grub-install grub-md5-crypt hdparm install-mbr losetup lspci mdadm mkdosfs mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar wget MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config ms-sys badblocks sfdisk tset hwinfo rsync mount.ntfs-3g mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsmount ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion
+	for bin in ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find grub grub-install grub-md5-crypt hdparm install-mbr losetup lspci mdadm mkdosfs mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar wget MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
 	do
-		foundBins=`find $extractedDebsDir -name $bin -xtype f | grep bin -c`
+		foundBins=$[ $(find $extractedDebsDir -name $bin -xtype f | grep bin -c) + $(find $extractedDebsDir -name $bin -type l | grep bin -c) ]
 
 		if test $foundBins -eq 0
 		then
+			echo "find $extractedDebsDir -name $bin -xtype f | grep bin -c"
+			echo $foundBins
 			echo "ERROR: $bin was not found!"
 			echo "Press enter to continue"
 			read lala
@@ -201,7 +208,17 @@ createRFSBins()
 		#if not try to find a link
 		if [ -z $binSource ]
 		then
-			binSource=`find $extractedDebsDir -name $bin -xtype f | grep bin | head -1`
+			link=$(find $extractedDebsDir -name $bin -type l | grep bin | head -1)
+
+			basenameLink=$( basename "$link" )
+
+			#Make a link to the the binary
+			binSource=$( readlink "$link" )
+			ln -s "$binSource" "bin/$basenameLink"
+			echo "+lnk $basenameLink"
+
+			#Get the complete path to the binary in the temp directory
+			binSource="$extractedDebsDir/$binSource"
 		fi
 		
 		echo "+bin $binSource"
@@ -261,6 +278,11 @@ createRFSBins()
 	createRFScopyLib libdbus-1.so.3
 	createRFScopyLib libhal.so.1
 	createRFScopyLib libudev.so.0
+	createRFScopyLib libtinfo.so.5
+	createRFScopyLib libtasn1.so.3
+	createRFScopyLib libncurses.so.5
+	createRFScopyLib libp11-kit.so.0
+	createRFScopyLib libnsl.so.1		#for dropbear
 	echo "done"
 }
 
@@ -573,19 +595,24 @@ echo " done"
 mkdir -p $rootTempDir
 cd $rootTempDir
 
-echo "deb http://ftp.de.debian.org/debian/ squeeze main non-free contrib
-deb http://security.debian.org/ squeeze/updates main contrib non-free
-deb http://archive.debian.org/debian-archive/debian/ lenny main non-free contrib
-deb http://archive.debian.org/debian-archive/debian/ etch main contrib non-free
-deb http://dodger-tools.sourceforge.net/debs ./
-deb http://m23.sourceforge.net/m23NetBootImageExtraDebs/ ./
-" > ./sources.list
+# echo "deb http://ftp.de.debian.org/debian/ squeeze main non-free contrib
+# deb http://security.debian.org/ squeeze/updates main contrib non-free
+# deb http://archive.debian.org/debian-archive/debian/ lenny main non-free contrib
+# deb http://archive.debian.org/debian-archive/debian/ etch main contrib non-free
+# deb http://dodger-tools.sourceforge.net/debs ./
+# deb http://m23.sourceforge.net/m23NetBootImageExtraDebs/ ./
+# " > ./sources.list
+
+echo "deb http://ftp.de.debian.org/debian/ wheezy main non-free contrib
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 
 localArchAptUpdate
 
-localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup dhcp3-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs libntfs-3g31 bash mktemp gptsync initscripts gawk module-init-tools dmsetup ms-sys libudev0 openssh-client firmware-linux-nonfree
+localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup dhcp3-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk module-init-tools dmsetup libudev0 openssh-client firmware-linux-nonfree kmod
 
 #hwdata-knoppix ddcxinfo-knoppix hwsetup m23hwscanner  #directly extracted from the MDK deb directory
+# Not in Wheezy: ms-sys libntfs-3g31 
 
 for deb in `ls archivs/*$arch*.deb archivs/*_all.deb`
 do
@@ -595,7 +622,11 @@ done
 
 
 mkdir completeExtracted
-	dpkg-deb -X /mdk/m23Debs/debs/hwsetup*$arch*.deb completeExtracted
+# 	dpkg-deb -X /mdk/m23Debs/debs/hwsetup*$arch*.deb completeExtracted
+	#The newer releases are containing only BASH code
+	dpkg-deb -X /mdk/m23Debs/debs/hwsetup*_i386.deb completeExtracted
+# 	read lala
+
 	dpkg-deb -X /mdk/m23Debs/debs/hwdata-knoppix*.deb completeExtracted
 	dpkg-deb -X /mdk/m23Debs/debs/ddcxinfo-knoppix*.deb completeExtracted
 	dpkg-deb -X /mdk/m23Debs/debs/m23hwscanner_*$arch*.deb completeExtracted

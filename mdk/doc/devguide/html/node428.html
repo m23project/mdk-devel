@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualAddPartition</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualAddPartition">
+<TITLE>FDISK_getDriveInfoString</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveInfoString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node429.html">
 <LINK REL="previous" HREF="node427.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node429.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8498"
+<A NAME="tex2html8635"
   HREF="node429.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8494"
-  HREF="node345.html">
+<A NAME="tex2html8631"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8488"
+<A NAME="tex2html8625"
   HREF="node427.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8496"
+<A NAME="tex2html8633"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8499"
-  HREF="node429.html">FDISK_listPartTable</A>
-<B> Up:</B> <A NAME="tex2html8495"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8489"
-  HREF="node427.html">FDISK_virtualDeletePartition</A>
- &nbsp; <B>  <A NAME="tex2html8497"
+<B> Next:</B> <A NAME="tex2html8636"
+  HREF="node429.html">FDISK_getDriveInfoIcon</A>
+<B> Up:</B> <A NAME="tex2html8632"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8626"
+  HREF="node427.html">FDISK_getPartInfoString</A>
+ &nbsp; <B>  <A NAME="tex2html8634"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081283000000000000000">
-FDISK_virtualAddPartition</A>
+<H2><A NAME="SECTION0081266000000000000000">
+FDISK_getDriveInfoString</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param param
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an info string, that shows information about the device name of the drive and bolonging to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: virtuell internal used device number.
+<LI>vDev: Virtual (internally used) device number.
 </LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>start: start MB of the new partition
+<LI>fstabA: Associative array with fstab information.
 </LI>
-<LI>end: end MB of the new partition
-</LI>
-<LI>type: type of the partition (primary, extended, logical)
-</LI>
-<LI>devNr: returnes the device number
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Info string.
 </LI>
 </UL>
 
@@ -78,7 +78,7 @@ FDISK_virtualAddPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

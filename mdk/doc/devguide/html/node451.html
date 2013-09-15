@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_AFPlinearScale</TITLE>
-<META NAME="description" CONTENT="FDISK_AFPlinearScale">
+<TITLE>FDISK_dev2LDevLPart</TITLE>
+<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node452.html">
 <LINK REL="previous" HREF="node450.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node452.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8774"
+<A NAME="tex2html8911"
   HREF="node452.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8770"
-  HREF="node345.html">
+<A NAME="tex2html8907"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8764"
+<A NAME="tex2html8901"
   HREF="node450.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8772"
+<A NAME="tex2html8909"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8775"
-  HREF="node452.html">FDISK_AFPgetPartSizes</A>
-<B> Up:</B> <A NAME="tex2html8771"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8765"
-  HREF="node450.html">FDISK_AFPselectDrive</A>
- &nbsp; <B>  <A NAME="tex2html8773"
+<B> Next:</B> <A NAME="tex2html8912"
+  HREF="node452.html">FDISK_rereadPartTable</A>
+<B> Up:</B> <A NAME="tex2html8908"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8902"
+  HREF="node450.html">FDISK_defineDrive</A>
+ &nbsp; <B>  <A NAME="tex2html8910"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812106000000000000000">
-FDISK_AFPlinearScale</A>
+<H2><A NAME="SECTION0081289000000000000000">
+FDISK_dev2LDevLPart</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> scales all partitions sizes to match the full disk size.
+<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>driveToUse: device to use (e.g. /dev/hda)
+<LI>param: the associative array containing all values describing the drives of the client
 </LI>
-<LI>driveToUseSize: Size of the real drive to use.
+<LI>dev: the device (e.g. /dev/hda2)
 </LI>
-<LI>options: options array of the client
+<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
 </LI>
-<LI>command: array that stores the modificated format parameters
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
 </LI>
-<LI>formatarr: array that contains the original format parameters
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true if the search worked otherwise false.
 </LI>
 </UL>
 
@@ -76,7 +80,7 @@ FDISK_AFPlinearScale</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

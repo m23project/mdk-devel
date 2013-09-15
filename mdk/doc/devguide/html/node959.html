@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getDesktopList</TITLE>
-<META NAME="description" CONTENT="SRCLST_getDesktopList">
+<TITLE>SERVER_daemonStartStop</TITLE>
+<META NAME="description" CONTENT="SERVER_daemonStartStop">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node960.html">
 <LINK REL="previous" HREF="node958.html">
-<LINK REL="up" HREF="node940.html">
+<LINK REL="up" HREF="node936.html">
 <LINK REL="next" HREF="node960.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15314"
+<A NAME="tex2html15462"
   HREF="node960.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15310"
-  HREF="node940.html">
+<A NAME="tex2html15458"
+  HREF="node936.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15304"
+<A NAME="tex2html15452"
   HREF="node958.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15312"
+<A NAME="tex2html15460"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15315"
-  HREF="node960.html">SRCLST_showDesktopsSel</A>
-<B> Up:</B> <A NAME="tex2html15311"
-  HREF="node940.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html15305"
-  HREF="node958.html">SRCLST_getMirror</A>
- &nbsp; <B>  <A NAME="tex2html15313"
+<B> Next:</B> <A NAME="tex2html15463"
+  HREF="node960.html">SERVER_installTool</A>
+<B> Up:</B> <A NAME="tex2html15459"
+  HREF="node936.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15453"
+  HREF="node958.html">SERVER_checkPackageInstalled</A>
+ &nbsp; <B>  <A NAME="tex2html15461"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083219000000000000000">
-SRCLST_getDesktopList</A>
+<H2><A NAME="SECTION0083123000000000000000">
+SERVER_daemonStartStop</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes an array with all supported desktops
+<SPAN  CLASS="textbf">Description:</SPAN> starts, stops and restarts daemons
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>sourceName: the name of the package source list
+<LI>daemonScript: the file name of the script, that handles the real starting, stopping and restarting and understands the $action
+</LI>
+<LI>action: start, stop or restart
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: true on successfully execution otherwise false.
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ SRCLST_getDesktopList</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

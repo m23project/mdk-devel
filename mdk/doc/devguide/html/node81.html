@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How it works?</TITLE>
-<META NAME="description" CONTENT="How it works?">
+<TITLE>How to make network bootimages?</TITLE>
+<META NAME="description" CONTENT="How to make network bootimages?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,97 +19,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node80.html">
-<LINK REL="up" HREF="node80.html">
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node74.html">
+<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node82.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3115"
+<A NAME="tex2html3202"
   HREF="node82.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3111"
-  HREF="node80.html">
+<A NAME="tex2html3198"
+  HREF="node23.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3107"
+<A NAME="tex2html3192"
   HREF="node80.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3113"
+<A NAME="tex2html3200"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3116"
-  HREF="node82.html">What can you do</A>
-<B> Up:</B> <A NAME="tex2html3112"
-  HREF="node80.html">creating a new bootimage</A>
-<B> Previous:</B> <A NAME="tex2html3108"
-  HREF="node80.html">creating a new bootimage</A>
- &nbsp; <B>  <A NAME="tex2html3114"
+<B> Next:</B> <A NAME="tex2html3203"
+  HREF="node82.html">Introduction</A>
+<B> Up:</B> <A NAME="tex2html3199"
+  HREF="node23.html">HowTos</A>
+<B> Previous:</B> <A NAME="tex2html3193"
+  HREF="node80.html">generating the ISO image</A>
+ &nbsp; <B>  <A NAME="tex2html3201"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00662100000000000000">
-How it works?</A>
-</H3>
-it creates a blank file of 17MB size
-<PRE>
-&gt; dd if=/dev/zero of=initrd bs=1k count=23000
-</PRE>
-sets up a loop device
-<PRE>
-&gt; losetup /dev/loop1 initrd
-</PRE>
-the 23MB file will be formated with EXT2
-<PRE>
-&gt; mke2fs -m 0 -N 10000 /dev/loop1
-</PRE>
-mount the file
-<PRE>
-&gt; mount /dev/loop1 mnt
-</PRE>
-copy needed files from root2 and hardware informations to the mounted image
-<PRE>
-&gt; cp -rdpR root2/* mnt/
-&gt; cp -rdpR /usr/share/hwdata/*  root2/usr/share/hwdata/
-</PRE>
-umnount the image
-<PRE>
-&gt; umount mnt
-</PRE>
-set "down" the loop device
-<PRE>
-&gt; losetup -d /dev/loop1
-</PRE>
-set correct file permissions
-<PRE>
-&gt; chmod 0555 bzImage
-&gt; chown root:root bzImage
-</PRE>
-set boot device in kernel
-<PRE>
-&gt; rdev bzImage /dev/ram0
-</PRE>
-generate bootimage for Etherboot
-<PRE>
-&gt; mknbi-linux bzImage --first32pm --output=/m23/tftp/m23install --ip=dhcp
-	--rootdir=/dev/ram0 initrd
-</PRE>
-generate files for PXE
-<PRE>
-&gt; cp bzImage /m23/tftp/m23pxeinstall
-&gt; gzip initrd
-&gt; mv initrd.gz /m23/tftp/initrd.gz
-</PRE>
+<H1><A NAME="SECTION00670000000000000000">
+How to make network bootimages?</A>
+</H1>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3204"
+  HREF="node82.html">Introduction</A>
+<LI><A NAME="tex2html3205"
+  HREF="node83.html">creating a new bootimage</A>
+<UL>
+<LI><A NAME="tex2html3206"
+  HREF="node84.html">How it works?</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html3207"
+  HREF="node85.html">What can you do with this SDK?</A>
+<UL>
+<LI><A NAME="tex2html3208"
+  HREF="node86.html">Build a new kernel</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

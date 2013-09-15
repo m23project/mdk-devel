@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addClient</TITLE>
-<META NAME="description" CONTENT="DHCP_addClient">
+<TITLE>sedSearchReplace</TITLE>
+<META NAME="description" CONTENT="sedSearchReplace">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node308.html">
 <LINK REL="previous" HREF="node306.html">
-<LINK REL="up" HREF="node305.html">
+<LINK REL="up" HREF="node281.html">
 <LINK REL="next" HREF="node308.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6907"
+<A NAME="tex2html7036"
   HREF="node308.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6903"
-  HREF="node305.html">
+<A NAME="tex2html7032"
+  HREF="node281.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6897"
+<A NAME="tex2html7026"
   HREF="node306.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6905"
+<A NAME="tex2html7034"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6908"
-  HREF="node308.html">DHCP_restartDHCPserver</A>
-<B> Up:</B> <A NAME="tex2html6904"
-  HREF="node305.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html6898"
-  HREF="node306.html">DHCP_bootTypeToNewFormat</A>
- &nbsp; <B>  <A NAME="tex2html6906"
+<B> Next:</B> <A NAME="tex2html7037"
+  HREF="node308.html">isProgrammInstalled</A>
+<B> Up:</B> <A NAME="tex2html7033"
+  HREF="node281.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html7027"
+  HREF="node306.html">explodeAssoc</A>
+ &nbsp; <B>  <A NAME="tex2html7035"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00892000000000000000">
-DHCP_addClient</A>
+<H2><A NAME="SECTION008826000000000000000">
+sedSearchReplace</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
+<SPAN  CLASS="textbf">Description:</SPAN> generates BASH code to search and replace a string in a file using sed keeping the ownership an permissions
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>pathFile: file with whole path, in that should be searched and replaced
 </LI>
-<LI>ip: ip address of the client
+<LI>search: search pattern
 </LI>
-<LI>netmask: netmask for the ip
-</LI>
-<LI>mac: mac addresse of the network card
-</LI>
-<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
-</LI>
-<LI>bootType: Parameter can a string: pxe, etherboot, gpxe
+<LI>replace: replace string
 </LI>
 </UL>
 
@@ -78,7 +72,7 @@ DHCP_addClient</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

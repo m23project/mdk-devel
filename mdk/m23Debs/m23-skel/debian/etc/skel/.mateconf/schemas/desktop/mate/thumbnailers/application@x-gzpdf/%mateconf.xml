@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="enable" mtime="1367786905" type="schema" stype="bool" owner="atril">
+		<local_schema locale="C" short_desc="Enable thumbnailing of PDF Documents">
+			<default type="bool" value="true"/>
+			<longdesc>Boolean options available: true enables thumbnailing and false disables the creation of new thumbnails</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="command" mtime="1367786905" type="schema" stype="string" owner="atril">
+		<local_schema locale="C" short_desc="Thumbnail command for PDF Documents">
+			<default type="string">
+				<stringvalue>atril-thumbnailer -s %s %u %o</stringvalue>
+			</default>
+			<longdesc>Valid command plus arguments for the PDF Document thumbnailer.  See Caja thumbnailer documentation for more information.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

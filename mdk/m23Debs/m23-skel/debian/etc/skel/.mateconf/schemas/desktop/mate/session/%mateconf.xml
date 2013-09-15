@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="required_components_list" mtime="1367786905" type="schema" stype="list" owner="mate" list_type="string">
+		<local_schema locale="C" short_desc="Required session components">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>windowmanager</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>panel</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>filemanager</stringvalue>
+				</li>
+			</default>
+			<longdesc>List of components that are required as part of the session. (Each element names a key under &quot;/desktop/mate/session/required_components&quot;). The Startup Applications preferences tool will not normally allow users to remove a required component from the session, and the session manager will automatically add the required components back to the session at login time if they do get removed.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_delay" mtime="1367786905" type="schema" stype="int" owner="mate">
+		<local_schema locale="C" short_desc="Time before session is considered idle">
+			<default type="int" value="5"/>
+			<longdesc>
+            The number of minutes of inactivity before the session is
+            considered idle.
+          </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_session" mtime="1367786905" type="schema" stype="list" owner="mate" list_type="string">
+		<local_schema locale="C" short_desc="Default session">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>mate-settings-daemon</stringvalue>
+				</li>
+			</default>
+			<longdesc>List of applications that are part of the default session.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

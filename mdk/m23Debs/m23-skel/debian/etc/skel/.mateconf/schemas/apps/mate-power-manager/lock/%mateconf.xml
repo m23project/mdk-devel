@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="use_screensaver_settings" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Use mate-screensaver lock setting">
+			<default type="bool" value="true"/>
+			<longdesc>Whether to use the screen lock setting of mate-screensaver to decide if the screen is locked after a hibernate, suspend or blank screen.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="suspend" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Lock screen on suspend">
+			<default type="bool" value="true"/>
+			<longdesc>Whether the screen is locked when the computer wakes up from a suspend. Only used if lock_use_screensaver_settings is false.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mate_keyring_suspend" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Lock MATE keyring on sleep">
+			<default type="bool" value="false"/>
+			<longdesc>Whether the MATE keyring is locked before the computer enters suspend. This means the keyring will have to be unlocked on resume.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mate_keyring_hibernate" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Lock MATE keyring on sleep">
+			<default type="bool" value="true"/>
+			<longdesc>Whether the MATE keyring is locked before the computer enters hibernate. This means the keyring will have to be unlocked on resume.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="hibernate" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Lock screen on hibernate">
+			<default type="bool" value="true"/>
+			<longdesc>Whether the screen is locked when the computer wakes up from a hibernate. Only used if lock_use_screensaver_settings is false.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="blank_screen" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Lock screen when blanked">
+			<default type="bool" value="true"/>
+			<longdesc>Whether the screen is locked when the screen is turned off. Only used if lock_use_screensaver_settings is false.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

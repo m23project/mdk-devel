@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Boot-CD brennen</TITLE>
-<META NAME="description" CONTENT="Boot-CD brennen">
+<TITLE>Generator-Optionen</TITLE>
+<META NAME="description" CONTENT="Generator-Optionen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,114 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node197.html">
-<LINK REL="up" HREF="node196.html">
+<LINK REL="next" HREF="node199.html">
+<LINK REL="previous" HREF="node193.html">
+<LINK REL="up" HREF="node184.html">
 <LINK REL="next" HREF="node199.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2964"
+<A NAME="tex2html2984"
   HREF="node199.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2960"
-  HREF="node196.html">
+<A NAME="tex2html2980"
+  HREF="node184.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2956"
+<A NAME="tex2html2974"
   HREF="node197.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2962"
+<A NAME="tex2html2982"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2965"
-  HREF="node199.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2961"
-  HREF="node196.html">Tools</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2957"
-  HREF="node197.html">m23-Bootdiskette erstellen</A>
- &nbsp; <B>  <A NAME="tex2html2963"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2985"
+  HREF="node199.html">Restliche Werte eingeben/Übersicht</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2981"
+  HREF="node184.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2975"
+  HREF="node197.html">Gehen Sie hierzu wie</A>
+ &nbsp; <B>  <A NAME="tex2html2983"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001520000000000000000">
-Boot-CD brennen</A>
-</H1>Hier k&#246;nnen Sie eine Client-Boot-CD mit einem in dem Server eingebauten Brenner erstellen.
-<BR><IMG
-  WIDTH="1041" HEIGHT="789" ALIGN="BOTTOM" BORDER="0"
- SRC="./makeBootCD.png"
- ALT="Image makeBootCD"> 
+<H1><A NAME="SECTION001460000000000000000">
+Generator-Optionen</A>
+</H1>
+<IMG
+  WIDTH="1043" HEIGHT="434" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mi_step3.png"
+ ALT="Image mi_step3"> 
 <BR>
-<OL>
-<LI>W&#228;hlen Sie dazu zuerst den gew&#252;nschten Brenner aus, falls mehrere zur Verf&#252;gung stehen sollten und klicken Sie danach auf <SPAN  CLASS="textit">&#34;W&#228;hlen&#34;</SPAN>.
-<BR></LI>
-<LI>M&#246;chten Sie eine CD-RW benutzen, m&#252;ssen Sie diese vor Gebrauch l&#246;schen. Dies ist unter dem Punkt <SPAN  CLASS="textit">&#34;CD-RW l&#246;schen&#34;</SPAN> m&#246;glich. Sie haben die Wahl, ob nur ein kleiner Teil der RW (dies ist in den meisten F&#228;llen ausreichend) oder die komplette RW gel&#246;scht werden soll. W&#228;hlen Sie f&#252;r die schnelle L&#246;schung <SPAN  CLASS="textit">fast&#34;</SPAN> und f&#252;r die vollst&#228;ndige <SPAN  CLASS="textit">&#228;ll&#34;</SPAN>.
-<BR></LI>
-<LI>Schlie&#223;lich haben Sie die M&#246;glichkeit, die das Client-Boot-ISO zu brennen. Klicken Sie dazu nach Auswahl der Brenngeschwindigkeit einfach im Kasten <SPAN  CLASS="textit">&#34;Boot-CD brennen&#34;</SPAN> auf <SPAN  CLASS="textit">&#34;Brennen&#34;</SPAN>.
-<BR></LI>
-</OL>
-In dem Kasten <SPAN  CLASS="textit">&#34;Brenner-Status&#34;</SPAN> erhalten Sie Informationen &#252;ber den vorigen L&#246;sch- bzw. Brennvorgang und den aktuellen Status des Brenners.
+Hier k&#246;nnen Sie die Parameter f&#252;r die Generatoren der folgenden Eigenschaften festlegen:
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2966"
-  HREF="node199.html">Hinweis</A>
+<UL>
+<LI><SPAN  CLASS="textbf">Clientname</SPAN>: Sie k&#246;nnen hier den Client-Basis-Namen und eine Startnummer vorgeben. Die Clientnamen werden dann in der ben&#246;tigten Anzahl nach dem Schema <SPAN CLASS="MATH"></SPAN>Client-Basis-Name<SPAN CLASS="MATH"></SPAN><SPAN CLASS="MATH"></SPAN>fortlaufende Nummer<SPAN CLASS="MATH"></SPAN> erstellt. Bereits vergebene Client-Namen werden bei der Generierung &#252;bersprungen. Bsp.: Client-Basis-Name=m23client, Startnummer=12 generiert die Clientnamen m23client12, m23client13, ...
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Anmeldungsname</SPAN>: Dies ist der Name, mit dem sich der Benutzer am Client anmelden kann. Es stehen zwei Methoden zur Generierung zur Verf&#252;gung. Die inkrementelle Variante verh&#228;lt sich identisch zur Erstellung bei <SPAN  CLASS="textit">&#34;Clientname&#34;</SPAN>. Zus&#228;tzlich ist das Bilden aus dem ersten Buchstaben des Vornamens und dem vollst&#228;ndigen Nachnamen m&#246;glich (<SPAN  CLASS="textit">&#196;us Vor- und Nachnamen erstellen&#34;</SPAN>).
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Vorname</SPAN>: Die Generierung der Vornamen (die zugleich die Loginnamen sind) geschieht analog zu den Clientnamen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">IP-Adresse</SPAN>: Legen sie hier die IP-Adressen-Bereiche fest, in denen nach freien IP-Adressen gesucht werden soll. Standardm&#228;&#223;ig werden nur IP-Adressen generiert, die nicht bereits von m23-Clients benutzt werden. Sie k&#246;nnen aber auch angeben, da&#223; jede IP-Adresse vor der Verwendung &#228;ngepingt&#34; werden soll. Sollte sich unter einer oder mehreren IP-Adressen ein Rechner melden, so werden diese IPs nicht verwendet.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Netzwerkmaske</SPAN>: Die Netzwerkmasken werden automatisch nach Schema der Netzwerk-Klassen berechnet. Dieses ist per Definition folgenderma&#223;en:
+<BR><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Von</TD>
+<TD ALIGN="CENTER">Bis</TD>
+<TD ALIGN="CENTER">Netzwerkmaske</TD>
+</TR>
+<TR><TD ALIGN="CENTER">0.0.0.0</TD>
+<TD ALIGN="CENTER">127.255.255.255</TD>
+<TD ALIGN="CENTER">255.0.0.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">128.000.000.000</TD>
+<TD ALIGN="CENTER">191.255.255.255</TD>
+<TD ALIGN="CENTER">255.255.0.0</TD>
+</TR>
+<TR><TD ALIGN="CENTER">192.000.000.000</TD>
+<TD ALIGN="CENTER">255.255.255.255</TD>
+<TD ALIGN="CENTER">255.255.255.0</TD>
+</TR>
+</TABLE>
+</LI>
+<LI><SPAN  CLASS="textbf">Erstes Login</SPAN>: F&#252;r dieses Login k&#246;nnen die Pa&#223;w&#246;rter komplett zuf&#228;llig (<SPAN  CLASS="textit">SZufalls-Pa&#223;w&#246;rter&#34;</SPAN>) oder nach einem zuf&#228;lligen aber f&#252;r Menschen leichter merkbaren Schema (<SPAN  CLASS="textit">&#34;PwGen-Pa&#223;w&#246;rter&#34;</SPAN>) angelegt werden. Au&#223;erdem kann die L&#228;nge der generierten Pa&#223;w&#246;rter zwischen 6 und 8 Zeichen L&#228;nge variiert werden. Es wird empfohlen, die voreingestellte L&#228;nge von 8 beizubehalten.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Benutzer-ID</SPAN>: Legen Sie hier die Startnummer fest, ab der freie Benutzer-IDs gesucht und verwendet werden sollen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Gruppen-ID</SPAN>: Legen Sie hier die Startnummer fest, ab der freie Gruppen-IDs gesucht und verwendet werden sollen.
+<BR></LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2984"
+  HREF="node199.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2980"
+  HREF="node184.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2974"
+  HREF="node197.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2982"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2985"
+  HREF="node199.html">Restliche Werte eingeben/Übersicht</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2981"
+  HREF="node184.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2975"
+  HREF="node197.html">Gehen Sie hierzu wie</A>
+ &nbsp; <B>  <A NAME="tex2html2983"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

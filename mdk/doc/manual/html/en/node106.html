@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>The other DHCP server CANNOT be deactivated</TITLE>
-<META NAME="description" CONTENT="The other DHCP server CANNOT be deactivated">
+<TITLE>Using m23 with an external DHCP server</TITLE>
+<META NAME="description" CONTENT="Using m23 with an external DHCP server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,91 +19,73 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node105.html">
-<LINK REL="up" HREF="node104.html">
+<LINK REL="next" HREF="node112.html">
+<LINK REL="previous" HREF="node102.html">
+<LINK REL="up" HREF="node101.html">
 <LINK REL="next" HREF="node107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1792"
+<A NAME="tex2html1807"
   HREF="node107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1788"
-  HREF="node104.html">
+<A NAME="tex2html1803"
+  HREF="node101.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1784"
+<A NAME="tex2html1797"
   HREF="node105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1790"
+<A NAME="tex2html1805"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1793"
-  HREF="node107.html">Client partitioning and formating</A>
-<B> Up:</B> <A NAME="tex2html1789"
-  HREF="node104.html">Using m23 with an</A>
-<B> Previous:</B> <A NAME="tex2html1785"
-  HREF="node105.html">The other DHCP server</A>
- &nbsp; <B>  <A NAME="tex2html1791"
+<B> Next:</B> <A NAME="tex2html1808"
+  HREF="node107.html">The other DHCP server</A>
+<B> Up:</B> <A NAME="tex2html1804"
+  HREF="node101.html">Control clients</A>
+<B> Previous:</B> <A NAME="tex2html1798"
+  HREF="node105.html">Hint for computer architectures</A>
+ &nbsp; <B>  <A NAME="tex2html1806"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00922000000000000000">
-The other DHCP server CANNOT be deactivated</A>
-</H2>
-In this case you need to adjust the configuration of the other DHCP server manually and set up a TFTP server if necessary. Have a look into the documentation of your DHCP and TFTP servers for correct configuration.
+<H1><A NAME="SECTION00920000000000000000">
+Using m23 with an external DHCP server</A>
+</H1>Scenario: There is an existing DHCP server in your network, that distributes network settings (IP, netmask, ...) to all your computers and an m23 server, that should install the clients.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
 <BR>
-<OL>
-<LI>Choose <SPAN  CLASS="textit">"gPXE/DHCP"</SPAN> at <SPAN  CLASS="textit">"Boottype"</SPAN> when adding a new client in the m23 webinterface. Assign the computer name the DHCP server will give to the client at <SPAN  CLASS="textit">"Client name"</SPAN>.
-<BR></LI>
-<LI>Configure the DHCP server to send the same client name, that was entered in the m23 webinterface, to the m23 client.
-<BR></LI>
-<LI>The kernel name the DHCP server transfers to the client needs to be <SPAN  CLASS="textbf">m23pxeinstall-i386</SPAN> (for 32 bit computers) or <SPAN  CLASS="textbf">m23pxeinstall-amd64</SPAN> (for 64 bit computers).
-<BR></LI>
-<LI>The DHCP server must hand out the following kernel parameters to the m23 client:
+Problem: The installation of the m23 clients doesn't work, because the other DHCP server assigns the network settings faster that the m23 server.
 <BR>
-m23server="<SPAN  CLASS="textbf"><SPAN CLASS="MATH"></SPAN>m23 server hostname or IP<SPAN CLASS="MATH"></SPAN></SPAN>" devfs=nomount vga=normal load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=<SPAN  CLASS="textbf">45000</SPAN> initrd=initrd.gz root=/dev/ram0 rw
+Reason: The m23 server needs to assign the IP and other network settings to let the client boot and install via the network. If these settings are distributed by another DHCP server, the client cannot find the m23 server, cannot download the network bootimage and cannot be installed. This cannot be changed generally, because there are standards in the network and boot protocols, that define a standardised network booting procedure.
 <BR>
-Replace <SPAN  CLASS="textbf"><SPAN CLASS="MATH"></SPAN>m23 server hostname or IP<SPAN CLASS="MATH"></SPAN></SPAN> with the computer name (resolvable by the m23 client) (FQDN) or the IP of the m23 server. In addition, you may need to adjust <SPAN  CLASS="textbf">45000</SPAN> with the current value from the file /m23/inc/kernelRamDisk.inc.
-<BR></LI>
-<LI>Set up the DHCP server to let the m23 client download and start the PXE kernel (/m23/tftp/m23pxeinstall-i386 or /m23/tftp/m23pxeinstall-amd64) and the PXE initrd (/m23/tftp/initrd-i386.gz or /m23/tftp/initrd-amd64.gz) from the m23 server.
-<BR></LI>
-<LI>You may need to set up a TFTP server on the same machine as your DHCP server, if you cannot configure the DHCP to let the m23 clients download the boot files from the m23 server. You can take the files from the directory /m23/tftp/ as basis for your configuration.
-<BR></LI>
-</OL>
-	<SPAN  CLASS="textbf">Please visit the (German) Support f&#252;r m23, Linux und OpenSource von goos-habermann.de, if you need commercial support for set up and configuration of m23 or other OpenSource components.</SPAN>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1792"
-  HREF="node107.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1788"
-  HREF="node104.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1784"
-  HREF="node105.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1790"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1793"
-  HREF="node107.html">Client partitioning and formating</A>
-<B> Up:</B> <A NAME="tex2html1789"
-  HREF="node104.html">Using m23 with an</A>
-<B> Previous:</B> <A NAME="tex2html1785"
-  HREF="node105.html">The other DHCP server</A>
- &nbsp; <B>  <A NAME="tex2html1791"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1809"
+  HREF="node107.html">The other DHCP server can be deactivated</A>
+<LI><A NAME="tex2html1810"
+  HREF="node108.html">The other DHCP server CANNOT be deactivated</A>
+<LI><A NAME="tex2html1811"
+  HREF="node109.html">ISC DHCP server</A>
+<LI><A NAME="tex2html1812"
+  HREF="node110.html">Other DHCP server</A>
+<LI><A NAME="tex2html1813"
+  HREF="node111.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

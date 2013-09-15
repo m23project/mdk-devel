@@ -694,7 +694,7 @@ LAMPprepare()
 	($(addSudo) /opt/lampp/lampp startmysql 2>&1; echo $? > /tmp/ret) | log
 	failSuccessLog "MySQL started" $(cat /tmp/ret)
 
-	serverIP=$(export LC_ALL=C; ifconfig | grep eth -A2 | grep "inet addr" | cut -d':' -f2 | cut -d' ' -f1 | head -1)
+	serverIP=$(export LC_ALL=C; /sbin/ifconfig | grep eth -A2 | grep "inet addr" | cut -d':' -f2 | cut -d' ' -f1 | head -1)
 	
 	echo "Start the LAMP test from another system with:"
 	echo "siege https://$serverIP/xampp/LAMPLoadTest.php -l/tmp/siege.log"

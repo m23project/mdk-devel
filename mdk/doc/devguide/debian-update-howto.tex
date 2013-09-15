@@ -1,0 +1,30 @@
+\section{Using new Debian/Ubuntu releases with m23}
+To fully support a new Debian/Ubuntu release a few steps are needed. The following guide shows a generic approach to not miss an important step. The total time and difficulty of a new release depends on the changes the distribution made between the last release supported by m23 and new release and if there are new desktops etc. that should be supported.
+
+\subsection{Test and development}
+\begin{itemize}
+\item Build a compressed root file system for the new release via /mdk/m23helper/compressedDebootstrap and put it (for testing) into the directory /m23/data+scripts/packages/baseSys on the m23 server.
+
+\item Create an empty file (touch) with the release name of the new distribution release under /m23/data+scripts/distr/debian/debootstrap/scripts/.
+
+\item Check, if all desired desktop environments are present in the file /m23/inc/distr/<distribution>/info.txt and add missing desktops.
+
+\item Write a new package source list (based on a previous release) in the m23 webinterface and choose the release with the name of the previously touched file name. Hook all desktops that should be deployed with this release.
+
+\item Make a base client install, see errors and fix them ;-)
+
+\item Develop missing desktop installation scripts under /m23/inc/distr/<distribution>/packages/m23<desktop>Install.php.
+
+\item Then make an installation/test/fix run with all desktop envirtonments that should be supported by the release.
+\end{itemize}
+
+
+
+\subsection{Building the packages}
+\begin{itemize}
+\item Generate the package template files with /mdk/m23helper/getDebianTemplates and run /mdk/m23helper/template2confpage.sh in the directory containing the template files. Afterwards move the *OptionPage.php files from the subdirectory "out" to /m23/data+scripts/m23admin/packages/<distribution>/<release>/.
+
+\item Add the sources list name in /mdk/bin/exportDBsourceslist.php.
+
+\item Build new packages via the MDK.
+\end{itemize}

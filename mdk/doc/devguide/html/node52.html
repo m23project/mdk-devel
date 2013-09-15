@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>deinstall.sh</TITLE>
-<META NAME="description" CONTENT="deinstall.sh">
+<TITLE>Installation</TITLE>
+<META NAME="description" CONTENT="Installation">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node51.html">
-<LINK REL="up" HREF="node51.html">
+<LINK REL="next" HREF="node54.html">
+<LINK REL="previous" HREF="node50.html">
+<LINK REL="up" HREF="node47.html">
 <LINK REL="next" HREF="node53.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2749"
+<A NAME="tex2html2842"
   HREF="node53.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2745"
-  HREF="node51.html">
+<A NAME="tex2html2838"
+  HREF="node47.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2741"
+<A NAME="tex2html2832"
   HREF="node51.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2747"
+<A NAME="tex2html2840"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2750"
-  HREF="node53.html">Update information files</A>
-<B> Up:</B> <A NAME="tex2html2746"
-  HREF="node51.html">Deinstallation</A>
-<B> Previous:</B> <A NAME="tex2html2742"
-  HREF="node51.html">Deinstallation</A>
- &nbsp; <B>  <A NAME="tex2html2748"
+<B> Next:</B> <A NAME="tex2html2843"
+  HREF="node53.html">install.sh</A>
+<B> Up:</B> <A NAME="tex2html2839"
+  HREF="node47.html">How to develop plugins</A>
+<B> Previous:</B> <A NAME="tex2html2833"
+  HREF="node51.html">XXX.m23plg file</A>
+ &nbsp; <B>  <A NAME="tex2html2841"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00634100000000000000">
-deinstall.sh</A>
-</H3>
-This is the place to add your deinstallation script. It is similar to the install.sh, you can remove packages and do other things, but be again careful not to crash the server.
+<H2><A NAME="SECTION00643000000000000000">
+Installation</A>
+</H2>
+If you install a plugin with the m23-interface the plugin package will be downloaded to /m23 and extracted. Before the real installation it will be checked that no files get overwritten. The user can select, if he wants to overwrite files or skip installation. Your plugin should have at least one XXX.m23plg file, where XXX stands for your plugin filename. You should organize your plugin package in a way, that this file will be extracted to one of these directories:
+
+<UL>
+<LI>/m23/data+scripts/m23admin/clients
+</LI>
+<LI>/m23/data+scripts/m23admin/groups
+</LI>
+<LI>/m23/data+scripts/m23admin/packages
+</LI>
+<LI>/m23/data+scripts/m23admin/server
+</LI>
+<LI>/m23/data+scripts/m23admin/tools
+</LI>
+</UL>
+In other words:
+<BR>
+your plugin package should have a directory structure like:
+<BR>
+<P>
+<TT>data+scripts/m23admin/clients/myPlugin.m23plg</TT>.
 <BR>
 <BR>
-Your deinstall.sh may look like:
-<BR><TT>
-#!/bin/bash 
+Copy all files of your plugin application with correct pathes to the <SPAN  CLASS="textbf">project directory</SPAN>. For an easier way to make a m23 package have a look at the hint section.
 <BR>
-apt-get update
 <BR>
-apt-get remove desiredPackage</TT>
+Your project directory may look like this:
+<BR><TT>/projectDir/data+scripts/m23admin/clients/myPlugin.m23plg
+<BR>/projectDir/bin/myExecutable
+<BR>/projectDir/data+scripts/myPluginDir/some data files
+<BR>/projectDir/data+scripts/myPluginDir/some more scripts.php</TT>
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2844"
+  HREF="node53.html">install.sh</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

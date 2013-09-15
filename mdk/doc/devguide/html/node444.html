@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_rereadPartTable</TITLE>
-<META NAME="description" CONTENT="FDISK_rereadPartTable">
+<TITLE>FDISK_formatJob</TITLE>
+<META NAME="description" CONTENT="FDISK_formatJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node445.html">
 <LINK REL="previous" HREF="node443.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node445.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8690"
+<A NAME="tex2html8827"
   HREF="node445.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8686"
-  HREF="node345.html">
+<A NAME="tex2html8823"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8680"
+<A NAME="tex2html8817"
   HREF="node443.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8688"
+<A NAME="tex2html8825"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8691"
-  HREF="node445.html">FDISK_genPartedCommands</A>
-<B> Up:</B> <A NAME="tex2html8687"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8681"
-  HREF="node443.html">FDISK_dev2LDevLPart</A>
- &nbsp; <B>  <A NAME="tex2html8689"
+<B> Next:</B> <A NAME="tex2html8828"
+  HREF="node445.html">FDISK_countPartitions</A>
+<B> Up:</B> <A NAME="tex2html8824"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8818"
+  HREF="node443.html">FDISK_bootflagJob</A>
+ &nbsp; <B>  <A NAME="tex2html8826"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081299000000000000000">
-FDISK_rereadPartTable</A>
+<H2><A NAME="SECTION0081282000000000000000">
+FDISK_formatJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: The device that was changed/created (e.g. /dev/sda5).
+<LI>path: device to format (e.g. /dev/hda1)
+</LI>
+<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
@@ -68,7 +72,7 @@ FDISK_rereadPartTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

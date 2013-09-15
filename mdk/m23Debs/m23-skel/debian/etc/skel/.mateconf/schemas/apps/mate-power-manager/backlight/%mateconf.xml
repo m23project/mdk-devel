@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="idle_dim_time" mtime="1367786905" type="schema" stype="int" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="The default amount of time to dim the screen after idle">
+			<default type="int" value="10"/>
+			<longdesc>The default amount of time to dim the screen after idle.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_dim_battery" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Dim the screen after a period of inactivity when on battery power">
+			<default type="bool" value="true"/>
+			<longdesc>If the screen should be dimmed to save power when the computer is idle when on battery power.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_dim_ac" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Dim the screen after a period of inactivity when on AC power">
+			<default type="bool" value="false"/>
+			<longdesc>If the screen should be dimmed to save power when the computer is idle when on AC power.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="idle_brightness" mtime="1367786905" type="schema" stype="int" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="The brightness of the screen when idle">
+			<default type="int" value="30"/>
+			<longdesc>This is the laptop panel screen brightness used when the session is idle. Only valid when use_time_for_policy is true.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Allow backlight brightness adjustment">
+			<default type="bool" value="true"/>
+			<longdesc>If the screen brightness should be changed when switching between AC and battery power.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="dpms_method_battery" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="Method used to blank screen on battery">
+			<default type="string">
+				<stringvalue>off</stringvalue>
+			</default>
+			<longdesc>The DPMS method used to blank the screen when on battery power. Possible values are &quot;standby&quot;, &quot;suspend&quot; and &quot;off&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="dpms_method_ac" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="Method used to blank screen on AC">
+			<default type="string">
+				<stringvalue>off</stringvalue>
+			</default>
+			<longdesc>The DPMS method used to blank the screen when on AC power. Possible values are &quot;standby&quot;, &quot;suspend&quot; and &quot;off&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="brightness_dim_battery" mtime="1367786905" type="schema" stype="int">
+		<local_schema locale="C" short_desc="LCD dimming amount when on battery">
+			<default type="int" value="50"/>
+			<longdesc>The amount to dim the brightness of the display when on battery power. Possible values are between 0 and 100.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="brightness_ac" mtime="1367786905" type="schema" stype="int">
+		<local_schema locale="C" short_desc="LCD brightness when on AC">
+			<default type="int" value="100"/>
+			<longdesc>The brightness of the display when on AC power. Possible values are between 0 and 100.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="battery_reduce" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="Reduce the backlight brightness when on battery power">
+			<default type="bool" value="true"/>
+			<longdesc>If the screen should be reduced in brightness when the computer is on battery power.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

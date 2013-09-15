@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDrivePartitionSize</TITLE>
-<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
+<TITLE>FDISK_getDiskType</TITLE>
+<META NAME="description" CONTENT="FDISK_getDiskType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node456.html">
 <LINK REL="previous" HREF="node454.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node362.html">
 <LINK REL="next" HREF="node456.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8822"
+<A NAME="tex2html8959"
   HREF="node456.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8818"
-  HREF="node345.html">
+<A NAME="tex2html8955"
+  HREF="node362.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8812"
+<A NAME="tex2html8949"
   HREF="node454.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8820"
+<A NAME="tex2html8957"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8823"
-  HREF="node456.html">FDISK_listRaidTable</A>
-<B> Up:</B> <A NAME="tex2html8819"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8813"
-  HREF="node454.html">FDISK_virtualAddDrive</A>
- &nbsp; <B>  <A NAME="tex2html8821"
+<B> Next:</B> <A NAME="tex2html8960"
+  HREF="node456.html">FDISK_getDriveAndNr</A>
+<B> Up:</B> <A NAME="tex2html8956"
+  HREF="node362.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8950"
+  HREF="node454.html">FDISK_listPartJobs</A>
+ &nbsp; <B>  <A NAME="tex2html8958"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812110000000000000000">
-FDISK_getDrivePartitionSize</A>
+<H2><A NAME="SECTION0081293000000000000000">
+FDISK_getDiskType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (DISK_TYPE_IDE, DISK_TYPE_SCSI)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
-</LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Size of the drive or partition in MB.
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL>
 
@@ -78,7 +68,7 @@ FDISK_getDrivePartitionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

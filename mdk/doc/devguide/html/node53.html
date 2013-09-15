@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Update information files</TITLE>
-<META NAME="description" CONTENT="Update information files">
+<TITLE>install.sh</TITLE>
+<META NAME="description" CONTENT="install.sh">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,59 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node56.html">
-<LINK REL="previous" HREF="node51.html">
-<LINK REL="up" HREF="node44.html">
+<LINK REL="previous" HREF="node52.html">
+<LINK REL="up" HREF="node52.html">
 <LINK REL="next" HREF="node54.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2761"
+<A NAME="tex2html2853"
   HREF="node54.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2757"
-  HREF="node44.html">
+<A NAME="tex2html2849"
+  HREF="node52.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2751"
+<A NAME="tex2html2845"
   HREF="node52.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2759"
+<A NAME="tex2html2851"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2762"
-  HREF="node54.html">How does an information</A>
-<B> Up:</B> <A NAME="tex2html2758"
-  HREF="node44.html">How to develop plugins</A>
-<B> Previous:</B> <A NAME="tex2html2752"
-  HREF="node52.html">deinstall.sh</A>
- &nbsp; <B>  <A NAME="tex2html2760"
+<B> Next:</B> <A NAME="tex2html2854"
+  HREF="node54.html">Deinstallation</A>
+<B> Up:</B> <A NAME="tex2html2850"
+  HREF="node52.html">Installation</A>
+<B> Previous:</B> <A NAME="tex2html2846"
+  HREF="node52.html">Installation</A>
+ &nbsp; <B>  <A NAME="tex2html2852"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00635000000000000000">
-Update information files</A>
-</H2>
-With the update information files you can specify name, version, size, description and the url where the update can be found. These informations are needed, if you want to update an existing plugin with the m23 admin. Name, version and description are free form. Size should be the extracted size of the plugin and url is the address, where the plugin data can be downloaded.
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H3><A NAME="SECTION00643100000000000000">
+install.sh</A>
+</H3>
+If you want to do some additional installation e.g. install an extra <SPAN  CLASS="textit">deb package</SPAN> on the server machine, this is the right place. In this file you can do whatever you want, but you shouldn't do something that will eventually crash the server.
+<BR>
+During installation your plugin package will be extracted and afterwards install.sh will be executed. When execution is done, install.sh will be deleted.
+<BR>
+<BR>
+Your install.sh may look like:
+<BR><TT>
+#!/bin/bash 
+<BR>
+apt-get update
+<BR>
+apt-get install desiredPackage</TT>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2763"
-  HREF="node54.html">How does an information file look like?</A>
-<LI><A NAME="tex2html2764"
-  HREF="node55.html">Protocols for downloading files</A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

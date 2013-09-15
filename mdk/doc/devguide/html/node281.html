@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>dbConnect</TITLE>
-<META NAME="description" CONTENT="dbConnect">
+<TITLE>./inc/db.php</TITLE>
+<META NAME="description" CONTENT="./inc/db.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,121 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node282.html">
-<LINK REL="previous" HREF="node280.html">
-<LINK REL="up" HREF="node274.html">
+<LINK REL="next" HREF="node313.html">
+<LINK REL="previous" HREF="node194.html">
+<LINK REL="up" HREF="node136.html">
 <LINK REL="next" HREF="node282.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6587"
+<A NAME="tex2html6693"
   HREF="node282.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6583"
-  HREF="node274.html">
+<A NAME="tex2html6689"
+  HREF="node136.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6577"
+<A NAME="tex2html6683"
   HREF="node280.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6585"
+<A NAME="tex2html6691"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6588"
-  HREF="node282.html">dbClose</A>
-<B> Up:</B> <A NAME="tex2html6584"
-  HREF="node274.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html6578"
-  HREF="node280.html">getInstDev</A>
- &nbsp; <B>  <A NAME="tex2html6586"
+<B> Next:</B> <A NAME="tex2html6694"
+  HREF="node282.html">ip2longSafe</A>
+<B> Up:</B> <A NAME="tex2html6690"
+  HREF="node136.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html6684"
+  HREF="node280.html">CLIENT_plinkFetchJob</A>
+ &nbsp; <B>  <A NAME="tex2html6692"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00887000000000000000">
-dbConnect</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> connects to the m23 database
+<H1><A NAME="SECTION00880000000000000000">
+./inc/db.php</A>
+</H1>
+ Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: database functions, open, close the database, get ip of the calling client
 <BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html6695"
+  HREF="node282.html">ip2longSafe</A>
+<LI><A NAME="tex2html6696"
+  HREF="node283.html">getArchList</A>
+<LI><A NAME="tex2html6697"
+  HREF="node284.html">isMySQL3used</A>
+<LI><A NAME="tex2html6698"
+  HREF="node285.html">encryptShadow</A>
+<LI><A NAME="tex2html6699"
+  HREF="node286.html">getClientLanguage</A>
+<LI><A NAME="tex2html6700"
+  HREF="node287.html">getInstDev</A>
+<LI><A NAME="tex2html6701"
+  HREF="node288.html">dbConnect</A>
+<LI><A NAME="tex2html6702"
+  HREF="node289.html">dbClose</A>
+<LI><A NAME="tex2html6703"
+  HREF="node290.html">getServerIP</A>
+<LI><A NAME="tex2html6704"
+  HREF="node291.html">getServerNetmask</A>
+<LI><A NAME="tex2html6705"
+  HREF="node292.html">getDNSServers</A>
+<LI><A NAME="tex2html6706"
+  HREF="node293.html">getServerGateway</A>
+<LI><A NAME="tex2html6707"
+  HREF="node294.html">sendClientStatus</A>
+<LI><A NAME="tex2html6708"
+  HREF="node295.html">sendClientStageStatus</A>
+<LI><A NAME="tex2html6709"
+  HREF="node296.html">returnClientStageStatus</A>
+<LI><A NAME="tex2html6710"
+  HREF="node297.html">sendClientLogStatus</A>
+<LI><A NAME="tex2html6711"
+  HREF="node298.html">deleteClientLogs</A>
+<LI><A NAME="tex2html6712"
+  HREF="node299.html">workPhpName</A>
+<LI><A NAME="tex2html6713"
+  HREF="node300.html">executeNextWork</A>
+<LI><A NAME="tex2html6714"
+  HREF="node301.html">DB_query</A>
+<LI><A NAME="tex2html6715"
+  HREF="node302.html">DB_queryNoDie</A>
+<LI><A NAME="tex2html6716"
+  HREF="node303.html">DB_genPassword</A>
+<LI><A NAME="tex2html6717"
+  HREF="node304.html">getClientIP</A>
+<LI><A NAME="tex2html6718"
+  HREF="node305.html">implodeAssoc</A>
+<LI><A NAME="tex2html6719"
+  HREF="node306.html">explodeAssoc</A>
+<LI><A NAME="tex2html6720"
+  HREF="node307.html">sedSearchReplace</A>
+<LI><A NAME="tex2html6721"
+  HREF="node308.html">isProgrammInstalled</A>
+<LI><A NAME="tex2html6722"
+  HREF="node309.html">pingIP</A>
+<LI><A NAME="tex2html6723"
+  HREF="node310.html">delFromArray</A>
+<LI><A NAME="tex2html6724"
+  HREF="node311.html">delValuesFromArray</A>
+<LI><A NAME="tex2html6725"
+  HREF="node312.html">DB_getLikeableColumns</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

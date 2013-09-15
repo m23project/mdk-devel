@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>I18N_convertToHumanReadableName</TITLE>
-<META NAME="description" CONTENT="I18N_convertToHumanReadableName">
+<TITLE>HTML_listSelection</TITLE>
+<META NAME="description" CONTENT="HTML_listSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node583.html">
 <LINK REL="previous" HREF="node581.html">
-<LINK REL="up" HREF="node581.html">
+<LINK REL="up" HREF="node541.html">
 <LINK REL="next" HREF="node583.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10457"
+<A NAME="tex2html10600"
   HREF="node583.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10453"
-  HREF="node581.html">
+<A NAME="tex2html10596"
+  HREF="node541.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10447"
+<A NAME="tex2html10590"
   HREF="node581.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10455"
+<A NAME="tex2html10598"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10458"
-  HREF="node583.html">I18N_m23instLanguage</A>
-<B> Up:</B> <A NAME="tex2html10454"
-  HREF="node581.html">./inc/i18n.php</A>
-<B> Previous:</B> <A NAME="tex2html10448"
-  HREF="node581.html">./inc/i18n.php</A>
- &nbsp; <B>  <A NAME="tex2html10456"
+<B> Next:</B> <A NAME="tex2html10601"
+  HREF="node583.html">HTML_showTableHeader</A>
+<B> Up:</B> <A NAME="tex2html10597"
+  HREF="node541.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10591"
+  HREF="node581.html">HTML_getElementValue</A>
+ &nbsp; <B>  <A NAME="tex2html10599"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008181000000000000000">
-I18N_convertToHumanReadableName</A>
+<H2><A NAME="SECTION0081641000000000000000">
+HTML_listSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Converts a short language into a human readable name.
+<SPAN  CLASS="textbf">Description:</SPAN> shows a selection with options stored in an array
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>lang: Two letter TLD (or longer code for countries that have more than a language (e.g. be-nl, be-fr))
+<LI>selName: name of the selection
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Language in human readable notation.
+<LI>list: array with the entries. The array can be a simple numeric array or an associative array with discrete entries for the shown name and the value. e.g. : $l[name0]="public"; $l[val0]="internal"; $l[name1]="public1"; $l[val1]="internal1"; public and public1 will be shown the user in the webbrowser, while internal and internal1 are the values that are transfered to the server.
+</LI>
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+</LI>
+<LI>firstName: if you want to use the associative array variant and a first value, you need to set the name that should be shown to the user. This name is stored in firstName
 </LI>
 </UL>
 
@@ -74,7 +74,7 @@ I18N_convertToHumanReadableName</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

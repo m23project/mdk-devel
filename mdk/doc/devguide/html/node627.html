@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_setLicense</TITLE>
-<META NAME="description" CONTENT="m23SHARED_setLicense">
+<TITLE>LDAP_addPosix</TITLE>
+<META NAME="description" CONTENT="LDAP_addPosix">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node628.html">
 <LINK REL="previous" HREF="node626.html">
-<LINK REL="up" HREF="node617.html">
+<LINK REL="up" HREF="node622.html">
 <LINK REL="next" HREF="node628.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11087"
+<A NAME="tex2html11176"
   HREF="node628.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11083"
-  HREF="node617.html">
+<A NAME="tex2html11172"
+  HREF="node622.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11077"
+<A NAME="tex2html11166"
   HREF="node626.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11085"
+<A NAME="tex2html11174"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11088"
-  HREF="node628.html">m23SHARED_evaluationDaysLeft</A>
-<B> Up:</B> <A NAME="tex2html11084"
-  HREF="node617.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html11078"
-  HREF="node626.html">m23SHARED_new</A>
- &nbsp; <B>  <A NAME="tex2html11086"
+<B> Next:</B> <A NAME="tex2html11177"
+  HREF="node628.html">LDAP_fqdn2dn</A>
+<B> Up:</B> <A NAME="tex2html11173"
+  HREF="node622.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html11167"
+  HREF="node626.html">LDAP_loadServer</A>
+ &nbsp; <B>  <A NAME="tex2html11175"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082010000000000000000">
-m23SHARED_setLicense</A>
+<H2><A NAME="SECTION008195000000000000000">
+LDAP_addPosix</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the maximum allowed amount of clients and the evaluation time in days.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>payType: Payment type (M23SHARED_PAYTYPE_EVAL, M23SHARED_PAYTYPE_PROFESSIONAL)
+<LI>ldapServer: name of the LDAP server stored in the configuration file
 </LI>
-<LI>clientAmount: Amount of clients that can be manages with the license.
+<LI>account: the login name
 </LI>
-<LI>evaluationDays: Days for evaluation time.
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
 </LI>
 </UL>
 
@@ -72,7 +80,7 @@ m23SHARED_setLicense</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

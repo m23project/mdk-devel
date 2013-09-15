@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>What is this document about?</TITLE>
-<META NAME="description" CONTENT="What is this document about?">
+<TITLE>The complete program</TITLE>
+<META NAME="description" CONTENT="The complete program">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,48 +20,132 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node45.html">
-<LINK REL="up" HREF="node45.html">
+<LINK REL="up" HREF="node32.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2680"
+<A NAME="tex2html2759"
   HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2676"
-  HREF="node45.html">
+<A NAME="tex2html2755"
+  HREF="node32.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2672"
+<A NAME="tex2html2751"
   HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2678"
+<A NAME="tex2html2757"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2681"
-  HREF="node47.html">How to create a</A>
-<B> Up:</B> <A NAME="tex2html2677"
-  HREF="node45.html">Introduction</A>
-<B> Previous:</B> <A NAME="tex2html2673"
-  HREF="node45.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html2679"
+<B> Next:</B> <A NAME="tex2html2760"
+  HREF="node47.html">How to develop plugins</A>
+<B> Up:</B> <A NAME="tex2html2756"
+  HREF="node32.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2752"
+  HREF="node45.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html2758"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00631100000000000000">
-What is this document about?</A>
-</H3>
-You will learn what m23 plugins are and how to build them.
+<H2><A NAME="SECTION00637000000000000000">
+The complete program</A>
+</H2>
+<PRE>
+#include &lt;mysql/mysql.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<P>
+MYSQL connection;
+
+void connect(char *server, char *dbuser, char *passw)
+{
+  if (!mysql_connect(&amp;connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&amp;connection));
+      exit(2);
+  }
+  mysql_select_db(&amp;connection,"m23");
+};
+
+
+
+
+
+void disconnect()
+{
+ mysql_close(&amp;connection);
+};
+
+
+
+
+     
+MYSQL_RES *query(char *sql)
+{
+ MYSQL_RES *res;
+
+ if (mysql_query(&amp;connection, sql) != 0)
+    {
+     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
+     mysql_error(&amp;connection),sql);
+     exit(2);
+    };
+
+ res = mysql_store_result(&amp;connection);
+
+ return(res);
+};
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
+
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
+
+  rows=mysql_num_rows(res); //&lt;&lt;2
+
+
+  for (int i=0; i &lt; rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //&lt;&lt;3
+
+        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
+
+        for (int fnr=0; fnr &lt; fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
+    }
+
+  mysql_free_result(res); //&lt;&lt;6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

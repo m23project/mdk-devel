@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to make network bootimages?</TITLE>
-<META NAME="description" CONTENT="How to make network bootimages?">
+<TITLE>compress operating system</TITLE>
+<META NAME="description" CONTENT="compress operating system">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,68 +19,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node84.html">
-<LINK REL="previous" HREF="node71.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node79.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node76.html">
 <LINK REL="next" HREF="node79.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3075"
+<A NAME="tex2html3168"
   HREF="node79.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3071"
-  HREF="node23.html">
+<A NAME="tex2html3164"
+  HREF="node76.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3065"
+<A NAME="tex2html3158"
   HREF="node77.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3073"
+<A NAME="tex2html3166"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3076"
-  HREF="node79.html">Introduction</A>
-<B> Up:</B> <A NAME="tex2html3072"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html3066"
-  HREF="node77.html">generating the ISO image</A>
- &nbsp; <B>  <A NAME="tex2html3074"
+<B> Next:</B> <A NAME="tex2html3169"
+  HREF="node79.html">compresses the m23 files</A>
+<B> Up:</B> <A NAME="tex2html3165"
+  HREF="node76.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html3159"
+  HREF="node77.html">initrd</A>
+ &nbsp; <B>  <A NAME="tex2html3167"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00660000000000000000">
-How to make network bootimages?</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3077"
-  HREF="node79.html">Introduction</A>
-<LI><A NAME="tex2html3078"
-  HREF="node80.html">creating a new bootimage</A>
-<UL>
-<LI><A NAME="tex2html3079"
-  HREF="node81.html">How it works?</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3080"
-  HREF="node82.html">What can you do with this SDK?</A>
-<UL>
-<LI><A NAME="tex2html3081"
-  HREF="node83.html">Build a new kernel</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<H3><A NAME="SECTION00662200000000000000">
+compress operating system</A>
+</H3>
+The whole current operating system is compressed mith bzip2 to a file called m23image.tb2. Some directories aren't saved, because they aren't needed or will mess up the image with useless files. E.g. /proc, /tmp, ... should not be saved. The image is stored in the /mdk/bootCD/iso directory. If there is allready a m23image.tb2 the operating isn't compressed. To regenerate the m23image.tb2 you have to delete the file.
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

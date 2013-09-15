@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_changeHtpasswd</TITLE>
-<META NAME="description" CONTENT="SERVER_changeHtpasswd">
+<TITLE>POOL_download</TITLE>
+<META NAME="description" CONTENT="POOL_download">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node906.html">
 <LINK REL="previous" HREF="node904.html">
-<LINK REL="up" HREF="node897.html">
+<LINK REL="up" HREF="node891.html">
 <LINK REL="next" HREF="node906.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14641"
+<A NAME="tex2html14753"
   HREF="node906.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14637"
-  HREF="node897.html">
+<A NAME="tex2html14749"
+  HREF="node891.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14631"
+<A NAME="tex2html14743"
   HREF="node904.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14639"
+<A NAME="tex2html14751"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14642"
-  HREF="node906.html">SERVER_delFromHtpasswd</A>
-<B> Up:</B> <A NAME="tex2html14638"
-  HREF="node897.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html14632"
-  HREF="node904.html">SERVER_getPublicSSHKeyOfm23Server</A>
- &nbsp; <B>  <A NAME="tex2html14640"
+<B> Next:</B> <A NAME="tex2html14754"
+  HREF="node906.html">POOL_showDownloadStatus</A>
+<B> Up:</B> <A NAME="tex2html14750"
+  HREF="node891.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html14744"
+  HREF="node904.html">POOL_getDir</A>
+ &nbsp; <B>  <A NAME="tex2html14752"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008318000000000000000">
-SERVER_changeHtpasswd</A>
+<H2><A NAME="SECTION0082714000000000000000">
+POOL_download</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Changes the password of a user in a htpasswd file.
+<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+<LI>poolName: name of the pool
 </LI>
-<LI>: username: Name of the user to change
+<LI>distr: name of the distribution
 </LI>
-<LI>: password: The according new password
+<LI>sourceslist: list of the package sources
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: True if the password was changed sucessfully.
+<LI>release: release branch of the choosen distribution to download the packages from
+</LI>
+<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+</LI>
+<LI>arch: download the packages for a specific CPU architecture
 </LI>
 </UL>
 
@@ -78,7 +78,7 @@ SERVER_changeHtpasswd</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -59,10 +59,12 @@ checkKernelBranch()
 		asdfhaskdjfh=x
 	else
 dialog --clear --title "Kernel version" \
-        --menu "Please select the kernel version" 10 40 3 \
+        --menu "Please select the kernel version" 11 40 4 \
 "2.4" "Linux kernel v2.4" \
 "2.6" "Linux kernel v2.6" \
-"3.2" "Linux kernel v3.2" 2> /tmp/kernelMenuBranch
+"3.2" "Linux kernel v3.2" \
+"3.4" "Linux kernel v3.4" \
+"3.9" "Linux kernel v3.9" 2> /tmp/kernelMenuBranch
 retval=$?
 case $retval in
 	1)

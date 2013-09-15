@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_getStatus</TITLE>
-<META NAME="description" CONTENT="VM_getStatus">
+<TITLE>SRCLST_getStorageFS</TITLE>
+<META NAME="description" CONTENT="SRCLST_getStorageFS">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node999.html">
 <LINK REL="previous" HREF="node997.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node984.html">
 <LINK REL="next" HREF="node999.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15825"
+<A NAME="tex2html15955"
   HREF="node999.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15821"
-  HREF="node973.html">
+<A NAME="tex2html15951"
+  HREF="node984.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15815"
+<A NAME="tex2html15945"
   HREF="node997.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15823"
+<A NAME="tex2html15953"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15826"
-  HREF="node999.html">VM_GUIstepCreateGuest</A>
-<B> Up:</B> <A NAME="tex2html15822"
-  HREF="node973.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html15816"
-  HREF="node997.html">VM_getSWandHost</A>
- &nbsp; <B>  <A NAME="tex2html15824"
+<B> Next:</B> <A NAME="tex2html15956"
+  HREF="node999.html">SRCLST_supportedFS</A>
+<B> Up:</B> <A NAME="tex2html15952"
+  HREF="node984.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html15946"
+  HREF="node997.html">SRCLST_packageInformationOlderThan</A>
+ &nbsp; <B>  <A NAME="tex2html15954"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083425000000000000000">
-VM_getStatus</A>
+<H2><A NAME="SECTION0083214000000000000000">
+SRCLST_getStorageFS</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the current status of a VM guest.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns a file systems that can be used to install the OS and to store data. A wished file system is given and an alternative FS is returned, if this FS is not supported.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: Name of the virtualised client.
+<LI>fs: File system to probe.
+</LI>
+<LI>sourceName: The name of the package source list
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Array with the current state of the VM or false is the client is no VM guest.
+<LI>: File systems that can be used to install the OS and to store data
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ VM_getStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

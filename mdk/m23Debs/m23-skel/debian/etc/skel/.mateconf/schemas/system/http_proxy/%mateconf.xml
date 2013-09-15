@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="use_http_proxy" mtime="1367786905" type="schema" stype="bool" owner="mate-vfs">
+		<local_schema locale="C" short_desc="Use HTTP proxy">
+			<default type="bool" value="false"/>
+			<longdesc>Enables the proxy settings when accessing HTTP over the
+        Internet.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="use_authentication" mtime="1367786905" type="schema" stype="bool" owner="mate-vfs">
+		<local_schema locale="C" short_desc="Authenticate proxy server connections">
+			<default type="bool" value="false"/>
+			<longdesc>If true, then connections to the proxy server require
+        authentication. The username/password combo is defined by
+        &quot;/system/http_proxy/authentication_user&quot; and
+        &quot;/system/http_proxy/authentication_password&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="port" mtime="1367786905" type="schema" stype="int" owner="mate-vfs">
+		<local_schema locale="C" short_desc="HTTP proxy port">
+			<default type="int" value="8080"/>
+			<longdesc>The port on the machine defined by &quot;/system/http_proxy/host&quot;
+        that you proxy through.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="ignore_hosts" mtime="1367786905" type="schema" stype="list" owner="mate-vfs" list_type="string">
+		<local_schema locale="C" short_desc="Non-proxy hosts">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>localhost</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>127.0.0.0/8</stringvalue>
+				</li>
+			</default>
+			<longdesc>This key contains a list of hosts which are connected to
+	directly, rather than via the proxy (if it is active). The values can
+	be hostnames, domains (using an initial wildcard like *.foo.com), IP
+	host addresses (both IPv4 and IPv6) and network addresses with a
+	netmask (something like 192.168.0.0/24).</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="host" mtime="1367786905" type="schema" stype="string" owner="mate-vfs">
+		<local_schema locale="C" short_desc="HTTP proxy host name">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>The machine name to proxy HTTP through.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="authentication_user" mtime="1367786905" type="schema" stype="string" owner="mate-vfs">
+		<local_schema locale="C" short_desc="HTTP proxy username">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>User name to pass as authentication when doing HTTP proxying.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="authentication_password" mtime="1367786905" type="schema" stype="string" owner="mate-vfs">
+		<local_schema locale="C" short_desc="HTTP proxy password">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>Password to pass as authentication when doing HTTP proxying.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

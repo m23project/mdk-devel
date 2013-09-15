@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>translating the messages</TITLE>
+<META NAME="description" CONTENT="translating the messages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node31.html">
 <LINK REL="previous" HREF="node29.html">
-<LINK REL="up" HREF="node29.html">
+<LINK REL="up" HREF="node27.html">
 <LINK REL="next" HREF="node31.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2477"
+<A NAME="tex2html2556"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2473"
-  HREF="node29.html">
+<A NAME="tex2html2552"
+  HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2467"
+<A NAME="tex2html2546"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2475"
+<A NAME="tex2html2554"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2478"
-  HREF="node31.html">What do you need?</A>
-<B> Up:</B> <A NAME="tex2html2474"
-  HREF="node29.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html2468"
-  HREF="node29.html">how to access mysql</A>
- &nbsp; <B>  <A NAME="tex2html2476"
+<B> Next:</B> <A NAME="tex2html2557"
+  HREF="node31.html">translating the help texts</A>
+<B> Up:</B> <A NAME="tex2html2553"
+  HREF="node27.html">How to translate m23?</A>
+<B> Previous:</B> <A NAME="tex2html2547"
+  HREF="node29.html">generate the language file</A>
+ &nbsp; <B>  <A NAME="tex2html2555"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00621000000000000000">
-Introduction</A>
+<H2><A NAME="SECTION00623000000000000000">
+translating the messages</A>
 </H2>
-In this little howto you wil learn how to set up KDevelop to write a simple application that is able to connect to a mysql server and execute sql-statements on it. I will only discuss how to write to and not to read from a database. If you want to read something, look at the mysql C-API that can be found at: <SPAN  CLASS="textbf">http://www.mysql.com/doc/en/C.html</SPAN>
-
-<P>
+Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
+<BR>
+Now translate the text between the ' " 's.
+e.g.
+<PRE>
+$I18N_help="Help";
+</PRE>
+becomes
+<PRE>
+$I18N_help="Hilfe";
+</PRE>
+Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_listPackages</TITLE>
-<META NAME="description" CONTENT="PKG_listPackages">
+<TITLE>DHCP_getDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node320.html">
 <LINK REL="previous" HREF="node318.html">
-<LINK REL="up" HREF="node316.html">
+<LINK REL="up" HREF="node313.html">
 <LINK REL="next" HREF="node320.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7055"
+<A NAME="tex2html7197"
   HREF="node320.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7051"
-  HREF="node316.html">
+<A NAME="tex2html7193"
+  HREF="node313.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7045"
+<A NAME="tex2html7187"
   HREF="node318.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7053"
+<A NAME="tex2html7195"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7056"
-  HREF="node320.html">PKG_previewInstall</A>
-<B> Up:</B> <A NAME="tex2html7052"
-  HREF="node316.html">./inc/distr/halfSister/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html7046"
-  HREF="node318.html">pkgUpdateCacheOnServer</A>
- &nbsp; <B>  <A NAME="tex2html7054"
+<B> Next:</B> <A NAME="tex2html7198"
+  HREF="node320.html">DHCP_getNetmaskOfDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html7194"
+  HREF="node313.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7188"
+  HREF="node318.html">DHCP_addDynamicRange</A>
+ &nbsp; <B>  <A NAME="tex2html7196"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008103000000000000000">
-PKG_listPackages</A>
+<H2><A NAME="SECTION00896000000000000000">
+DHCP_getDynamicRanges</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> list packages matching the key
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all dynamic IP ranges from the dhcpd.conf.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>key: search key
-</LI>
-<LI>distr: the distribution name
-</LI>
-<LI>packagesource: name of the package source
-</LI>
-<LI>client: Name of the client the packages are searched for. (Not used here and only for halfSister)
+<LI>Associative array with the found IP ranges (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [netmask] =<SPAN CLASS="MATH"></SPAN> 255.255.255.0 [firstIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.10 [lastIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.200 [gateway] =<SPAN CLASS="MATH"></SPAN> 192.168.1.1 ) [1] =<SPAN CLASS="MATH"></SPAN> ...)) or empty array.
 </LI>
 </UL>
 
@@ -74,7 +68,7 @@ PKG_listPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

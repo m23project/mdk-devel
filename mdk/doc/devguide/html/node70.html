@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>booting your new system</TITLE>
-<META NAME="description" CONTENT="booting your new system">
+<TITLE>installing a kernel</TITLE>
+<META NAME="description" CONTENT="installing a kernel">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node72.html">
 <LINK REL="previous" HREF="node69.html">
-<LINK REL="up" HREF="node58.html">
+<LINK REL="up" HREF="node61.html">
 <LINK REL="next" HREF="node71.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2973"
+<A NAME="tex2html3067"
   HREF="node71.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2969"
-  HREF="node58.html">
+<A NAME="tex2html3063"
+  HREF="node61.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2965"
+<A NAME="tex2html3057"
   HREF="node69.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2971"
+<A NAME="tex2html3065"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2974"
-  HREF="node71.html">How to create a</A>
-<B> Up:</B> <A NAME="tex2html2970"
-  HREF="node58.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html2966"
-  HREF="node69.html">system update and installation</A>
- &nbsp; <B>  <A NAME="tex2html2972"
+<B> Next:</B> <A NAME="tex2html3068"
+  HREF="node71.html">in case of an</A>
+<B> Up:</B> <A NAME="tex2html3064"
+  HREF="node61.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html3058"
+  HREF="node69.html">source update and cleanup</A>
+ &nbsp; <B>  <A NAME="tex2html3066"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00647000000000000000">
-booting your new system</A>
+<H2><A NAME="SECTION00655000000000000000">
+installing a kernel</A>
 </H2>
-To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
-Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
+You can list all available kernels with the following command:
 <PRE>
-image=/boot/vmlinuz-2.4.20-1-386-sec
-        root=/dev/hda3
-        label=m23Server3
-        initrd=/initrd.img
+apt-cache search kernel | grep kernel-image
 </PRE>
-vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
+Pick one out adjust the <SPAN  CLASS="textit">image</SPAN> value in your new <SPAN  CLASS="textit">lilo.conf</SPAN>. To install your new kernel type the following:
+<PRE>
+apt-get install myChosenKernel-Image
+</PRE>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3069"
+  HREF="node71.html">in case of an error</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

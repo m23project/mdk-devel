@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23 helpers</TITLE>
-<META NAME="description" CONTENT="m23 helpers">
+<TITLE>The *OptionPage.php</TITLE>
+<META NAME="description" CONTENT="The *OptionPage.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,133 +19,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node133.html">
-<LINK REL="previous" HREF="node23.html">
-<LINK REL="up" HREF="devguide.html">
+<LINK REL="next" HREF="node104.html">
+<LINK REL="previous" HREF="node102.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node104.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3383"
+<A NAME="tex2html3476"
   HREF="node104.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3379"
-  HREF="devguide.html">
+<A NAME="tex2html3472"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3373"
+<A NAME="tex2html3466"
   HREF="node102.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3381"
+<A NAME="tex2html3474"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3384"
-  HREF="node104.html">mdoc</A>
-<B> Up:</B> <A NAME="tex2html3380"
-  HREF="devguide.html">m23 Development Guide for</A>
-<B> Previous:</B> <A NAME="tex2html3374"
-  HREF="node102.html">Layoutoptions</A>
- &nbsp; <B>  <A NAME="tex2html3382"
+<B> Next:</B> <A NAME="tex2html3477"
+  HREF="node104.html">Filling the *OptionPage.php</A>
+<B> Up:</B> <A NAME="tex2html3473"
+  HREF="node102.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html3467"
+  HREF="node102.html">Additional installation parameters for</A>
+ &nbsp; <B>  <A NAME="tex2html3475"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00700000000000000000">
-m23 helpers</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION006111000000000000000">
+The *OptionPage.php</A>
+</H2>
+If you want to enable this feature for a special package (e.g. apache) you have to design an OptionPage. This page shows and writes/reads possible options of this package. The file is called &lt;packagename&gt;OptionPage.php. In our example it's <SPAN  CLASS="textbf">apacheOptionPage.php</SPAN>. The file is placed in the 
+<BR><SPAN  CLASS="textit">/m23/data+scripts/distr/&lt;distributionname&gt;/packages directory</SPAN>. It is important to put the *OptionPage.php in the correct directory, otherwise the it can't be found.
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3385"
-  HREF="node104.html">mdoc</A>
-<UL>
-<LI><A NAME="tex2html3386"
-  HREF="node105.html">what is mdoc?</A>
-<LI><A NAME="tex2html3387"
-  HREF="node106.html">how to make your source code mdoc compatible?</A>
-<LI><A NAME="tex2html3388"
-  HREF="node107.html">mdoc info block</A>
-<LI><A NAME="tex2html3389"
-  HREF="node108.html">example for a mdoc comment</A>
-<LI><A NAME="tex2html3390"
-  HREF="node109.html">using mdoc</A>
-<LI><A NAME="tex2html3391"
-  HREF="node110.html">example</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3392"
-  HREF="node111.html">log2db</A>
-<UL>
-<LI><A NAME="tex2html3393"
-  HREF="node112.html">Introduction</A>
-<LI><A NAME="tex2html3394"
-  HREF="node113.html">usage</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3395"
-  HREF="node114.html">genFStab/fstabnew</A>
-<UL>
-<LI><A NAME="tex2html3396"
-  HREF="node115.html">Introduction</A>
-<LI><A NAME="tex2html3397"
-  HREF="node116.html">usage</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3398"
-  HREF="node117.html">partinfodb</A>
-<UL>
-<LI><A NAME="tex2html3399"
-  HREF="node118.html">Introduction</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3400"
-  HREF="node119.html">Usage</A>
-<LI><A NAME="tex2html3401"
-  HREF="node120.html">Screen</A>
-<UL>
-<LI><A NAME="tex2html3402"
-  HREF="node121.html">Purpose</A>
-<LI><A NAME="tex2html3403"
-  HREF="node122.html">Patching</A>
-<UL>
-<LI><A NAME="tex2html3404"
-  HREF="node123.html">screen 4.0.3</A>
-<LI><A NAME="tex2html3405"
-  HREF="node124.html">For old screen 4.0.2</A>
-</UL>
-<LI><A NAME="tex2html3406"
-  HREF="node125.html">Building</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3407"
-  HREF="node126.html">script</A>
-<UL>
-<LI><A NAME="tex2html3408"
-  HREF="node127.html">Getting necessary file</A>
-<LI><A NAME="tex2html3409"
-  HREF="node128.html">Building</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3410"
-  HREF="node129.html">parted</A>
-<UL>
-<LI><A NAME="tex2html3411"
-  HREF="node130.html">Patching parted</A>
-<LI><A NAME="tex2html3412"
-  HREF="node131.html">Compiling</A>
-<LI><A NAME="tex2html3413"
-  HREF="node132.html">Building the Debian package</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

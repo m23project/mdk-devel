@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listDrivesAndPartitions2</TITLE>
-<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions2">
+<TITLE>EDIT_searchLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_searchLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node352.html">
 <LINK REL="previous" HREF="node350.html">
-<LINK REL="up" HREF="node345.html">
+<LINK REL="up" HREF="node340.html">
 <LINK REL="next" HREF="node352.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7574"
+<A NAME="tex2html7604"
   HREF="node352.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7570"
-  HREF="node345.html">
+<A NAME="tex2html7600"
+  HREF="node340.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7564"
+<A NAME="tex2html7594"
   HREF="node350.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7572"
+<A NAME="tex2html7602"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7575"
-  HREF="node352.html">FDISK_printAllBars2</A>
-<B> Up:</B> <A NAME="tex2html7571"
-  HREF="node345.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html7565"
-  HREF="node350.html">FDISK_getUnusedMDs</A>
- &nbsp; <B>  <A NAME="tex2html7573"
+<B> Next:</B> <A NAME="tex2html7605"
+  HREF="node352.html">EDIT_searchLastLineNumber</A>
+<B> Up:</B> <A NAME="tex2html7601"
+  HREF="node340.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html7595"
+  HREF="node350.html">EDIT_insertLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html7603"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008126000000000000000">
-FDISK_listDrivesAndPartitions2</A>
+<H2><A NAME="SECTION0081111000000000000000">
+EDIT_searchLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates and defines a selection that contains all drives and partitions of a given client.
+<SPAN  CLASS="textbf">Description:</SPAN> searches for the first line that contains "searchLine" and stores the line number in the BASH variable "m23searchLine"
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>file: the name of the file
 </LI>
-<LI>default: the drive to show first
+<LI>searchLine: line to search
 </LI>
-<LI>selName: the name the selection is called in PHP and HTML
-</LI>
-<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
-</LI>
-<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>String with the HTML selection.
+<LI>startFrom: the line number to start searching from
 </LI>
 </UL>
 
@@ -82,7 +72,7 @@ FDISK_listDrivesAndPartitions2</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

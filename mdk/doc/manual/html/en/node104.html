@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Using m23 with an external DHCP server</TITLE>
-<META NAME="description" CONTENT="Using m23 with an external DHCP server">
+<TITLE>Additional information:</TITLE>
+<META NAME="description" CONTENT="Additional information:">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,67 +19,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node107.html">
-<LINK REL="previous" HREF="node100.html">
-<LINK REL="up" HREF="node99.html">
+<LINK REL="next" HREF="node105.html">
+<LINK REL="previous" HREF="node103.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node105.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1768"
+<A NAME="tex2html1785"
   HREF="node105.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1764"
-  HREF="node99.html">
+<A NAME="tex2html1781"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1758"
+<A NAME="tex2html1775"
   HREF="node103.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1766"
+<A NAME="tex2html1783"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1769"
-  HREF="node105.html">The other DHCP server</A>
-<B> Up:</B> <A NAME="tex2html1765"
-  HREF="node99.html">Control clients</A>
-<B> Previous:</B> <A NAME="tex2html1759"
-  HREF="node103.html">Hint for computer architectures</A>
- &nbsp; <B>  <A NAME="tex2html1767"
+<B> Next:</B> <A NAME="tex2html1786"
+  HREF="node105.html">Hint for computer architectures</A>
+<B> Up:</B> <A NAME="tex2html1782"
+  HREF="node102.html">Add a new client</A>
+<B> Previous:</B> <A NAME="tex2html1776"
+  HREF="node103.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html1784"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00920000000000000000">
-Using m23 with an external DHCP server</A>
-</H1>Scenario: There is an existing DHCP server in your network, that distributes network settings (IP, netmask, ...) to all your computers and an m23 server, that should install the clients.
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./externalDHCP.png"
- ALT="Image externalDHCP"> 
+<H2><A NAME="SECTION00912000000000000000">
+Additional information:</A>
+</H2>
+After adding a new client, the client will boot over the network and runs through a hardware detection sequence. Hardware data (hard disk size, partitions etc.) will be sent to the server. When the data transfer is finished the client will change its status to <SPAN  CLASS="textit">"yellow"</SPAN>. You can setup your client now. To setup your client click on <SPAN  CLASS="textit">"Clients"</SPAN> <!-- MATH
+ $\rightarrow$
+ -->
+<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">"Setup"</SPAN> in the menu.
 <BR>
-Problem: The installation of the m23 clients doesn't work, because the other DHCP server assigns the network settings faster that the m23 server.
-<BR>
-Reason: The m23 server needs to assign the IP and other network settings to let the client boot and install via the network. If these settings are distributed by another DHCP server, the client cannot find the m23 server, cannot download the network bootimage and cannot be installed. This cannot be changed generally, because there are standards in the network and boot protocols, that define a standardised network booting procedure.
-<BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1770"
-  HREF="node105.html">The other DHCP server can be deactivated</A>
-<LI><A NAME="tex2html1771"
-  HREF="node106.html">The other DHCP server CANNOT be deactivated</A>
-</UL>
-<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

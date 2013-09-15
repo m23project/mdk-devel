@@ -50,4 +50,12 @@ TFTP_ADDRESS="0.0.0.0:69"' > /etc/default/tftpd-hpa
 	fi
 fi
 
+
+#Check, if the directory with backuped bootimages exists
+if [ -d /m23/tftp/bak2.6 ]
+then
+	#Restore the backup files
+	cp -a /m23/tftp/bak2.6/* /m23/tftp/
+fi
+
 db_stop

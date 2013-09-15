@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="show_additional_options" mtime="1367786905" type="schema" stype="bool" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Show Additional Options">
+			<default type="bool" value="false"/>
+			<longdesc>
+          This key determines if the &quot;Select more options&quot; section 
+	  is expanded when the search tool is started.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="quick_search_second_scan_excluded_paths" mtime="1367786905" type="schema" stype="list" owner="mate-search-tool" list_type="string">
+		<local_schema locale="C" short_desc="Quick Search Second Scan Excluded Paths">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>/</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+	  This key defines the paths the search tool will exclude from a 
+	  second scan when performing a quick search.  The second scan
+	  uses the find command to search for files.  The purpose of the 
+	  second scan is to find files that have not been indexed.  
+	  The wildcards &apos;*&apos; and &apos;?&apos; are supported.  The default value is /.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="quick_search_excluded_paths" mtime="1367786905" type="schema" stype="list" owner="mate-search-tool" list_type="string">
+		<local_schema locale="C" short_desc="Quick Search Excluded Paths">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>/mnt/*</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>/media/*</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>/dev/*</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>/tmp/*</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>/proc/*</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>/var/*</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+	  This key defines the paths the search tool will exclude from a 
+	  quick search.  The wildcards &apos;*&apos; and &apos;?&apos; are supported.  The default 
+	  values are /mnt/*, /media/*, /dev/*, /tmp/*, /proc/*, and /var/*.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="look_in_folder" mtime="1367786905" type="schema" stype="string" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Look in Folder">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+	  This key defines the default value of the &quot;Look in Folder&quot;
+	  widget.
+	</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="disable_quick_search_second_scan" mtime="1367786905" type="schema" stype="bool" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Disable Quick Search Second Scan">
+			<default type="bool" value="false"/>
+			<longdesc>
+          This key determines if the search tool disables the use of the 
+          find command after performing a quick search.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="disable_quick_search" mtime="1367786905" type="schema" stype="bool" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Disable Quick Search">
+			<default type="bool" value="false"/>
+			<longdesc>
+          This key determines if the search tool disables the use of
+          the locate command when performing simple file name searches.
+        </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_window_width" mtime="1367786905" type="schema" stype="int" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Default Window Width">
+			<default type="int" value="-1"/>
+			<longdesc>
+	  This key defines the window width, and it&apos;s used to remember the
+	  size of the search tool between sessions.  Setting it to -1 will
+	  make the search tool use the default width.
+	</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_window_maximized" mtime="1367786905" type="schema" stype="bool" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Default Window Maximized">
+			<default type="bool" value="false"/>
+			<longdesc>
+	  This key determines if the search tool window starts in a maximized
+	  state.
+	</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_window_height" mtime="1367786905" type="schema" stype="int" owner="mate-search-tool">
+		<local_schema locale="C" short_desc="Default Window Height">
+			<default type="int" value="-1"/>
+			<longdesc>
+	  This key defines the window height, and it&apos;s used to remember the
+	  size of the search tool between sessions.  Setting it to -1 will
+	  make the search tool use the default height.
+	</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="columns_order" mtime="1367786905" type="schema" stype="list" owner="mate-search-tool" list_type="int">
+		<local_schema locale="C" short_desc="Search Result Columns Order">
+			<default type="list" ltype="int">
+				<li type="int" value="0"/>
+			</default>
+			<longdesc>
+	  This key defines the order of the columns in the search
+	  results.  This key should not be modified by the user.
+        </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

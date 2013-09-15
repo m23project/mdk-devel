@@ -21,6 +21,60 @@ err=0
 
 
 #####
+# name downloadBazaarRepo
+# description Downloads a Bazaar repository to the current directory.
+#####
+downloadBazaarRepo()
+{
+	echo -n "Please enter the name of the new repository: "
+	read reponame
+
+	#Build the directory structure for Bazaar
+	bzr init
+
+	#Upload the commit
+	bzr pull --remember "bzr+ssh://bbazzarr@tux05/home/bbazzarr/$reponame/"
+}
+
+
+
+
+
+#####
+# name createNewBazaarRepo
+# description Adds the files and directories of the current directory to a new Bazaar repository
+#####
+createNewBazaarRepo()
+{
+	echo -n "Please enter the name of the new repository: "
+	read reponame
+
+	#Build the directory structure for Bazaar
+	sudo -u dodger bzr init
+
+	#Add the ignore rules
+	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep -v '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | sed 's#\\##g' | awk '{print("*"$0"*")}' > .bzrignore
+	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | awk '{print("RE:"$0)}' >> .bzrignore
+	grep '*$' .bzrignore | sed 's#[^/]+*$#/*#g' > /tmp/.bzrignoreadd
+	cat /tmp/.bzrignoreadd >> .bzrignore
+
+	#Add all files
+	sudo -u dodger bzr add
+
+	#Make an initial commit
+	sudo -u dodger bzr commit --message "Initial development commit for $reponame"
+
+	#Upload the commit
+	sudo -u dodger bzr push --remember "bzr+ssh://bbazzarr@tux05/home/bbazzarr/$reponame/"
+
+	chmod 755 -R /m23/db/ /m23/root-only/ /m23/var/m23shared/
+}
+
+
+
+
+
+#####
 # name diffExcludeMeld
 # description Checks for differences between a development and a release directory and calls meld with the changed files.
 # parameter: Full path to the development directory.
@@ -185,8 +239,19 @@ getNextPatchlevel()
 	isDevelReturn
 
 	nrRelease=$(grep m23_patchLevel $m23ReleaseDir/inc/version.php | cut -d'"' -f2)
+	
+	if [ -z $nrRelease ]
+	then
+		nrRelease=0
+	fi
+	
 	nrDevel=$(grep m23_patchLevel $m23DevelDir/inc/version.php | cut -d'"' -f2)
 
+	if [ -z $nrDevel ]
+	then
+		nrDevel=0
+	fi
+	
 	if [ $nrRelease -gt $nrDevel ]
 	then
 		nr=$nrRelease
@@ -264,6 +329,82 @@ diffExcludeMeldOld()
 	meld -a "$tmpDir/devel" "$tmpDir/release"
 
 	rm -r $tmpDir
+}
+
+
+
+
+
+#####
+# name getm23Dir
+# description Shows the full path to the active m23 directory or exits with an error.
+#####
+getm23Dir()
+{
+	isDevelReturn
+	if [ $? -eq 0 ]
+	then
+		echo $m23DevelDir
+	else
+		echo $m23ReleaseDir
+	fi
+}
+
+
+
+
+
+#####
+# name getmdkDir
+# description Shows the full path to the active mdk directory or exits with an error.
+#####
+getmdkDir()
+{
+	isDevelReturn
+	if [ $? -eq 0 ]
+	then
+		echo $mdkDevelDir
+	else
+		echo $mdkReleaseDir
+	fi
+}
+
+
+
+
+
+#####
+# name mergeChangelog
+# description Merges the changelogs from release and development tree (if both are existing) or just copies the existing changelog.
+# parameter: Destination file to write the (combined) changelog to.
+#####
+mergeChangelog()
+{
+	#Get the names of the log files with full path
+	develLog="$(getm23DevelDir)/doc/changelog"
+	releaseLog="$(getm23ReleaseDir)/doc/changelog"
+	dest="$1"
+
+	#If both are existing => merge them
+	if [ -f "$develLog" ] && [ -f "$releaseLog" ]
+	then
+		/mdk/doc/changelog-merger.php "$(getm23DevelDir)/doc/changelog" "$(getm23ReleaseDir)/doc/changelog" "$dest"
+		return 0
+	fi
+
+	#Only the development log exists => copy it
+	if [ -f "$develLog" ]
+	then
+		cp -a "$develLog" "$dest"
+		return 0
+	fi
+
+	#Only the release log exists => copy it
+	if [ -f "$releaseLog" ]
+	then
+		cp -a "$releaseLog" "$dest"
+		return 0
+	fi
 }
 
 
@@ -550,6 +691,11 @@ copym23()
 	cd $m23ReadLink
 	tar cv "." --exclude=./var/cache/clients/* --exclude=./var/cache/m23apt/* --exclude=./tmp/* | tar xp --same-owner --directory=$m23DevelDir
 	sed -i 's/rock/rock-devel/' $m23DevelDir/inc/version.php
+	
+	cd $m23DevelDir
+	createNewBazaarRepo
+
+	cd $m23ReadLink
 }
 
 
@@ -644,6 +790,8 @@ moveDevel2Release()
 	#Generate postfix for the outdated directories
 	outdated=$(date +"outdated_by_%F_%H-%M")
 
+	/mdk/doc/changelog-merger.php $m23DevelDir/doc/changelog $m23ReleaseDir/doc/changelog /tmp/changelog
+
 	#Rename the release directories of m23/MDK to outdated directories
 	mv $m23ReleaseDir "$m23ReleaseDir$outdated"
 	mv $mdkReleaseDir "$mdkReleaseDir$outdated"
@@ -654,6 +802,9 @@ moveDevel2Release()
 
 	#Remove the -devel tag from the codename
 	sed -i 's/rock-devel/rock/' $m23ReleaseDir/inc/version.php
+
+	cp $m23ReleaseDir/doc/changelog $m23ReleaseDir/doc/changelog.bak
+	cat /tmp/changelog > $m23ReleaseDir/doc/changelog
 
 	#Make the release version active
 	switchRelease

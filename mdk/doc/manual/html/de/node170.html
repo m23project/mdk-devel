@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Paketquellen- Architekt (Paketquelle erstellen, editieren, löschen)</TITLE>
-<META NAME="description" CONTENT="Paketquellen- Architekt (Paketquelle erstellen, editieren, löschen)">
+<TITLE>Paket-Architekt</TITLE>
+<META NAME="description" CONTENT="Paket-Architekt">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,100 +20,98 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node172.html">
-<LINK REL="previous" HREF="node169.html">
-<LINK REL="up" HREF="node169.html">
+<LINK REL="previous" HREF="node165.html">
+<LINK REL="up" HREF="node148.html">
 <LINK REL="next" HREF="node171.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2616"
+<A NAME="tex2html2629"
   HREF="node171.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2612"
-  HREF="node169.html">
+<A NAME="tex2html2625"
+  HREF="node148.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2606"
+<A NAME="tex2html2619"
   HREF="node169.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2614"
+<A NAME="tex2html2627"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2617"
-  HREF="node171.html">Hinweise</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2613"
-  HREF="node169.html">Paketquellenarchitekt</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2607"
-  HREF="node169.html">Paketquellenarchitekt</A>
- &nbsp; <B>  <A NAME="tex2html2615"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2630"
+  HREF="node171.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2626"
+  HREF="node148.html">Pakete</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2620"
+  HREF="node169.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html2628"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001310000000000000000">
-Paketquellen- Architekt (Paketquelle erstellen, editieren, l&#246;schen)</A>
+<H1><A NAME="SECTION001260000000000000000">
+Paket-Architekt</A>
 </H1>
 <IMG
-  WIDTH="1118" HEIGHT="970" ALIGN="BOTTOM" BORDER="0"
- SRC="./poolBuilderCreateEditDelete.png"
- ALT="Image poolBuilderCreateEditDelete"> 
+  WIDTH="1154" HEIGHT="1111" ALIGN="BOTTOM" BORDER="0"
+ SRC="./packageBuilder.png"
+ ALT="Image packageBuilder"> 
 <BR>
-Der Paketquellen-Architekt erlaubt Ihnen, Softwarepakete von verschiedenen Medien (CD, DVD, Internet) auf den m23-Server zu kopieren und diese in eine Paketquelle umzuwandeln. Diese Paketquelle kann dann dazu benutzt werden, um Clients zu installieren. So ist es m&#246;glich, ohne Internetverbindung Clients zu installieren. Auch kann es w&#252;nschenswert sein, eigene Pakete in einer Paketquelle abzulegen.
+Der in m23 integrierte Paket-Architekt ist ein komfortables Werkzeug, um direkt aus der m23-Oberfl&#228;che heraus Debian-Pakete zu erstellen, die dann wie gewohnt auf den Clients installiert werden k&#246;nnen. Diese Pakete k&#246;nnen einzelne Dateien oder ganze Verzeichnisb&#228;ume enthalten.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Neue Paketquelle erstellen:</SPAN> Sie erstellen eine neue Paketquelle, indem Sie einen Namen bei <SPAN  CLASS="textit">&#34;Paketquellenname&#34;</SPAN> angeben, den Paketquellentyp ausw&#228;hlen und anschlie&#223;end auf <SPAN  CLASS="textit">&#34;Hinzuf&#252;gen&#34;</SPAN> klicken.
+Die Pakete werden aus Archivdateien im tar-Format mit bzip2- oder gzip-Kompression erzeugt. Darin enthaltene Benutzer- und Zugriffsrechte von Dateien und Verzeichnissen werden dabei ohne Neukompression beibehalten. Die erzeugten Debian-Pakete sind unabh&#228;ngig von einer Distribution und einer Distributionsversion und k&#246;nnen somit auf Debian-, Ubuntu- oder Kubuntu-Clients verwendet werden.
+<BR>
+Die Erstellung des Paketes l&#228;uft folgenderma&#223;en ab:
+<BR>
+<OL>
+<LI>Ablegen der tar-Datei in das Verzeichnis /m23/data+scripts/extraDebs/. Dies kann z.B. durch Hochladen mittels scp geschehen oder durch den integrierten Datei-Upload <SPAN  CLASS="textit">&#34;Tar-Datei zum Umwandeln hochladen&#34;</SPAN>.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Paketquelle l&#246;schen oder laden</SPAN>: W&#228;hlen Sie aus der Liste unter <SPAN  CLASS="textit">&#34;Vorhandene Paketquelle&#34;</SPAN> die Paketquelle aus, die Sie l&#246;schen oder laden m&#246;chten und klicken Sie danach auf die gew&#252;nschte Aktion.
+<LI>Nach dem Ablegen der Datei klicken Sie auf <SPAN  CLASS="textit">&#196;ktualisieren&#34;</SPAN>, damit diese in der Liste <SPAN  CLASS="textit">&#34;Dateiliste&#34;</SPAN> erscheinen.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Verwendete Paketquelle</SPAN>: In diesem Abschnitt werden vorhandene Informationen zu der gew&#228;hlten Paketquelle angezeigt.
+<LI>W&#228;hlen Sie die Datei aus, die sie umwandeln m&#246;chten und klicken neben dem Dateinamen auf <SPAN  CLASS="textit">&#207;n Debian-Paket umwandeln&#34;</SPAN>. Die Aktualisierung der Paketindexdateien erfolgt automatisch, so da&#223; die Paketquelle sofort verwendet werden kann.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Beschreibung oder Typ &#228;ndern</SPAN>: Sie k&#246;nnen zus&#228;tzlich eine Beschreibung f&#252;r die Paketquelle vergeben oder den Paketquellentyp &#228;ndern. Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">SSpeichern&#34;</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Paketquellenliste</SPAN>: Hier wird die Paketquellenliste gezeigt, die der Paketquelle entspricht. Wollen Sie einen Client aus dieser Paketquelle installieren, dann kopieren Sie die angegebenen Zeilen und f&#252;gen Sie diese zu der Paketquellenliste des Clients hinzu.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">N&#228;chster Schritt</SPAN>: Klicken Sie anschlie&#223;end auf den Button, um mit dem Kopieren der Pakete oder der Auswahl der Paketquellen und Pakete fortzufahren.
-<BR></LI>
-</UL>
+</OL>
 <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2618"
-  HREF="node171.html">Hinweise</A>
+<LI><A NAME="tex2html2631"
+  HREF="node171.html">Hinweis</A>
 </UL>
 <!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2616"
+<A NAME="tex2html2629"
   HREF="node171.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2612"
-  HREF="node169.html">
+<A NAME="tex2html2625"
+  HREF="node148.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2606"
+<A NAME="tex2html2619"
   HREF="node169.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2614"
+<A NAME="tex2html2627"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2617"
-  HREF="node171.html">Hinweise</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2613"
-  HREF="node169.html">Paketquellenarchitekt</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2607"
-  HREF="node169.html">Paketquellenarchitekt</A>
- &nbsp; <B>  <A NAME="tex2html2615"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2630"
+  HREF="node171.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2626"
+  HREF="node148.html">Pakete</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2620"
+  HREF="node169.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html2628"
   HREF="node1.html">Inhalt</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2012-11-22
+root
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

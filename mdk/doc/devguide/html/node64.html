@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>/etc/network</TITLE>
-<META NAME="description" CONTENT="/etc/network">
+<TITLE>fstab</TITLE>
+<META NAME="description" CONTENT="fstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node65.html">
 <LINK REL="previous" HREF="node63.html">
-<LINK REL="up" HREF="node60.html">
+<LINK REL="up" HREF="node63.html">
 <LINK REL="next" HREF="node65.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2904"
+<A NAME="tex2html2997"
   HREF="node65.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2900"
-  HREF="node60.html">
+<A NAME="tex2html2993"
+  HREF="node63.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2896"
+<A NAME="tex2html2987"
   HREF="node63.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2902"
+<A NAME="tex2html2995"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2905"
-  HREF="node65.html">step in to your</A>
-<B> Up:</B> <A NAME="tex2html2901"
-  HREF="node60.html">editing files</A>
-<B> Previous:</B> <A NAME="tex2html2897"
-  HREF="node63.html">sources.list</A>
- &nbsp; <B>  <A NAME="tex2html2903"
+<B> Next:</B> <A NAME="tex2html2998"
+  HREF="node65.html">lilo.conf</A>
+<B> Up:</B> <A NAME="tex2html2994"
+  HREF="node63.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html2988"
+  HREF="node63.html">editing files</A>
+ &nbsp; <B>  <A NAME="tex2html2996"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00642400000000000000">
-/etc/network</A>
+<H3><A NAME="SECTION00652100000000000000">
+fstab</A>
 </H3>
-Simply copy your old /etc/network directory to the new /etc.
+Copy your existing /etc/fstab to the new /etc/ directory. Adjust the line for your boot device, e.g. your new boot device is hda3 so you have to change <SPAN  CLASS="textit">/dev/hda2       /               ext3   defaults           0       0</SPAN> to <SPAN  CLASS="textit">/dev/hda1       /               ext3   defaults           0       0</SPAN> .
+Your new fstab may look like this:
+<PRE>
+# /etc/fstab file system info, created by the m23 project
+#  &lt;file system&gt; &lt;mount point&gt;  &lt;type&gt; &lt;options&gt;     &lt;dump&gt;  &lt;pass&gt;
+proc             /proc          proc   defaults      0       0
+/dev/hda1        none           swap    sw           0       0
+/dev/hda3       /               ext3   defaults           0       0
+/dev/cdrom      /mnt/cdrom      auto    ro,noauto,user,exec     0 0
+/dev/fd0        /mnt/floppy     auto    user,noauto             0 0
+</PRE> 
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

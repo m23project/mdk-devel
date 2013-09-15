@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_getFreeIDs</TITLE>
-<META NAME="description" CONTENT="LDAP_getFreeIDs">
+<TITLE>I18N_addLanguage</TITLE>
+<META NAME="description" CONTENT="I18N_addLanguage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node614.html">
 <LINK REL="previous" HREF="node612.html">
-<LINK REL="up" HREF="node593.html">
+<LINK REL="up" HREF="node610.html">
 <LINK REL="next" HREF="node614.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10850"
+<A NAME="tex2html10987"
   HREF="node614.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10846"
-  HREF="node593.html">
+<A NAME="tex2html10983"
+  HREF="node610.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10840"
+<A NAME="tex2html10977"
   HREF="node612.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10848"
+<A NAME="tex2html10985"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10851"
-  HREF="node614.html">LDAP_getFreeUserIDs</A>
-<B> Up:</B> <A NAME="tex2html10847"
-  HREF="node593.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html10841"
-  HREF="node612.html">LDAP_getNextGroupID</A>
- &nbsp; <B>  <A NAME="tex2html10849"
+<B> Next:</B> <A NAME="tex2html10988"
+  HREF="node614.html">I18N_listClientLanguages</A>
+<B> Up:</B> <A NAME="tex2html10984"
+  HREF="node610.html">./inc/i18n.php</A>
+<B> Previous:</B> <A NAME="tex2html10978"
+  HREF="node612.html">I18N_m23instLanguage</A>
+ &nbsp; <B>  <A NAME="tex2html10986"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081920000000000000000">
-LDAP_getFreeIDs</A>
+<H2><A NAME="SECTION008183000000000000000">
+I18N_addLanguage</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with free IDs of the selected type.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new language to the i18n table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: "user" for user IDs
+<LI>webinterface: Set to true, if it is a webinterface language. Set to false, for marking a client language.
 </LI>
-<LI>start: start ID to check if it's free
+<LI>shortLanguage: Two letter TLD (or longer code for countries that have more than a language (e.g. be-nl, be-fr))
 </LI>
-<LI>amount: the amount of IDs to return
+<LI>longLanguage: Long human readable country/language name.
+</LI>
+<LI>country: Two letter TLD.
+</LI>
+<LI>lang: Locale setting (e.g. for locale and KDM)
+</LI>
+<LI>keymap: Available keymaps for the console etc.
+</LI>
+<LI>xkeyboard: X11 keybord setting.
+</LI>
+<LI>kdekeyboard: Language setting for the KDE keyboard.
+</LI>
+<LI>locale: List of locales (seperated by newlines) for the locale tool.
+</LI>
+<LI>kdekeyboards: List of additional KDE keyboards (seperated by commata).
+</LI>
+<LI>timezone: The timezone matching the language.
+</LI>
+<LI>packagelang: Language suffix that is added to the packages (e.g. language-pack-gnome-XX)
 </LI>
 </UL>
 
@@ -72,7 +90,7 @@ LDAP_getFreeIDs</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

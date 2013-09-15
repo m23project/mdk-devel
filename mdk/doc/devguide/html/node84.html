@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to generate an Etherboot bootimage for booting from harddisk?</TITLE>
-<META NAME="description" CONTENT="How to generate an Etherboot bootimage for booting from harddisk?">
+<TITLE>How it works?</TITLE>
+<META NAME="description" CONTENT="How it works?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,59 +19,97 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node87.html">
-<LINK REL="previous" HREF="node78.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="previous" HREF="node83.html">
+<LINK REL="up" HREF="node83.html">
 <LINK REL="next" HREF="node85.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3148"
+<A NAME="tex2html3242"
   HREF="node85.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3144"
-  HREF="node23.html">
+<A NAME="tex2html3238"
+  HREF="node83.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3138"
+<A NAME="tex2html3234"
   HREF="node83.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3146"
+<A NAME="tex2html3240"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3149"
-  HREF="node85.html">exchange epic100.c with the</A>
-<B> Up:</B> <A NAME="tex2html3145"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html3139"
-  HREF="node83.html">Build a new kernel</A>
- &nbsp; <B>  <A NAME="tex2html3147"
+<B> Next:</B> <A NAME="tex2html3243"
+  HREF="node85.html">What can you do</A>
+<B> Up:</B> <A NAME="tex2html3239"
+  HREF="node83.html">creating a new bootimage</A>
+<B> Previous:</B> <A NAME="tex2html3235"
+  HREF="node83.html">creating a new bootimage</A>
+ &nbsp; <B>  <A NAME="tex2html3241"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00670000000000000000">
-How to generate an Etherboot bootimage for booting from harddisk?</A>
-</H1>
-If the clients is set up, we want to boot it from harddisk. To do so, we send a little bootimage that tells the client to boot from harddisk directly. This seems the easiest way right now.
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H3><A NAME="SECTION00672100000000000000">
+How it works?</A>
+</H3>
+it creates a blank file of 17MB size
+<PRE>
+&gt; dd if=/dev/zero of=initrd bs=1k count=23000
+</PRE>
+sets up a loop device
+<PRE>
+&gt; losetup /dev/loop1 initrd
+</PRE>
+the 23MB file will be formated with EXT2
+<PRE>
+&gt; mke2fs -m 0 -N 10000 /dev/loop1
+</PRE>
+mount the file
+<PRE>
+&gt; mount /dev/loop1 mnt
+</PRE>
+copy needed files from root2 and hardware informations to the mounted image
+<PRE>
+&gt; cp -rdpR root2/* mnt/
+&gt; cp -rdpR /usr/share/hwdata/*  root2/usr/share/hwdata/
+</PRE>
+umnount the image
+<PRE>
+&gt; umount mnt
+</PRE>
+set "down" the loop device
+<PRE>
+&gt; losetup -d /dev/loop1
+</PRE>
+set correct file permissions
+<PRE>
+&gt; chmod 0555 bzImage
+&gt; chown root:root bzImage
+</PRE>
+set boot device in kernel
+<PRE>
+&gt; rdev bzImage /dev/ram0
+</PRE>
+generate bootimage for Etherboot
+<PRE>
+&gt; mknbi-linux bzImage --first32pm --output=/m23/tftp/m23install --ip=dhcp
+	--rootdir=/dev/ram0 initrd
+</PRE>
+generate files for PXE
+<PRE>
+&gt; cp bzImage /m23/tftp/m23pxeinstall
+&gt; gzip initrd
+&gt; mv initrd.gz /m23/tftp/initrd.gz
+</PRE>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3150"
-  HREF="node85.html">exchange epic100.c with the special boot code</A>
-<LI><A NAME="tex2html3151"
-  HREF="node86.html">Making the bootimage</A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

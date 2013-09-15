@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Set script status</TITLE>
-<META NAME="description" CONTENT="Set script status">
+<TITLE>Activate PHP debugging</TITLE>
+<META NAME="description" CONTENT="Activate PHP debugging">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,68 +21,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node98.html">
 <LINK REL="previous" HREF="node96.html">
-<LINK REL="up" HREF="node93.html">
+<LINK REL="up" HREF="node96.html">
 <LINK REL="next" HREF="node98.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3314"
+<A NAME="tex2html3405"
   HREF="node98.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3310"
-  HREF="node93.html">
+<A NAME="tex2html3401"
+  HREF="node96.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3304"
+<A NAME="tex2html3395"
   HREF="node96.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3312"
+<A NAME="tex2html3403"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3315"
-  HREF="node98.html">get the output of</A>
-<B> Up:</B> <A NAME="tex2html3311"
-  HREF="node93.html">debugging m23 scripts</A>
-<B> Previous:</B> <A NAME="tex2html3305"
-  HREF="node96.html">Turn off m23 script</A>
- &nbsp; <B>  <A NAME="tex2html3313"
+<B> Next:</B> <A NAME="tex2html3406"
+  HREF="node98.html">Turn on m23 script</A>
+<B> Up:</B> <A NAME="tex2html3402"
+  HREF="node96.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3396"
+  HREF="node96.html">debugging m23 scripts</A>
+ &nbsp; <B>  <A NAME="tex2html3404"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00694000000000000000">
-Set script status</A>
+<H2><A NAME="SECTION006101000000000000000">
+Activate PHP debugging</A>
 </H2>
-After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
-
-<UL>
-<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
-</LI>
-<LI>select the database "m23"
-</LI>
-<LI>select the table "clientjobs"
-</LI>
-<LI>click on "Browse"
-</LI>
-<LI>search for your job script
-</LI>
-<LI>click on "Edit"
-</LI>
-<LI>enter "waiting" at the "status" field
-</LI>
-<LI>click on "Go" to save your changes
-</LI>
-</UL>
-This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
+You can activate the PHP warning messages if you call:
+<PRE>
+/m23/bin/phpDebug
+</PRE>
+to deactivate the debugging mode simply call:
+<PRE>
+/m23/bin/phpNormal
+</PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

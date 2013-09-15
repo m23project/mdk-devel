@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Enable network access</TITLE>
-<META NAME="description" CONTENT="Enable network access">
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,52 +28,41 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2515"
+<A NAME="tex2html2604"
   HREF="node34.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2511"
+<A NAME="tex2html2600"
   HREF="node32.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2505"
+<A NAME="tex2html2594"
   HREF="node32.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2513"
+<A NAME="tex2html2602"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2516"
-  HREF="node34.html">Adding a database user</A>
-<B> Up:</B> <A NAME="tex2html2512"
-  HREF="node32.html">Preparing the server</A>
-<B> Previous:</B> <A NAME="tex2html2506"
-  HREF="node32.html">Preparing the server</A>
- &nbsp; <B>  <A NAME="tex2html2514"
+<B> Next:</B> <A NAME="tex2html2605"
+  HREF="node34.html">What do you need?</A>
+<B> Up:</B> <A NAME="tex2html2601"
+  HREF="node32.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2595"
+  HREF="node32.html">how to access mysql</A>
+ &nbsp; <B>  <A NAME="tex2html2603"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00623100000000000000">
-Enable network access</A>
-</H3>
-To get access to the server over the network you need to do a little adjustment:
-Open <SPAN  CLASS="textit">/etc/mysql/my.cnf</SPAN> and comment out the line <TT>skip-networking</TT> so that it looks like <TT>#skip-networking</TT>.
-Don't forget to save ;) Now you have to restart the mysql server.
-<BR>
-<BR>
-I do it this way:
-<BR><TT>
-killall -9 safe_mysqld
-<BR>
-killall -9 mysqld
-<BR>/etc/init.d/mysql start
-<BR></TT>
+<H2><A NAME="SECTION00631000000000000000">
+Introduction</A>
+</H2>
+In this little howto you wil learn how to set up KDevelop to write a simple application that is able to connect to a mysql server and execute sql-statements on it. I will only discuss how to write to and not to read from a database. If you want to read something, look at the mysql C-API that can be found at: <SPAN  CLASS="textbf">http://www.mysql.com/doc/en/C.html</SPAN>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

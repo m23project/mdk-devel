@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>generate the language file</TITLE>
-<META NAME="description" CONTENT="generate the language file">
+<TITLE>Building the packages</TITLE>
+<META NAME="description" CONTENT="Building the packages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node27.html">
 <LINK REL="previous" HREF="node25.html">
 <LINK REL="up" HREF="node24.html">
 <LINK REL="next" HREF="node27.html">
@@ -28,53 +27,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2417"
+<A NAME="tex2html2504"
   HREF="node27.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2413"
+<A NAME="tex2html2500"
   HREF="node24.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2407"
+<A NAME="tex2html2496"
   HREF="node25.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2415"
+<A NAME="tex2html2502"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2418"
-  HREF="node27.html">translating the messages</A>
-<B> Up:</B> <A NAME="tex2html2414"
-  HREF="node24.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html2408"
-  HREF="node25.html">make directories</A>
- &nbsp; <B>  <A NAME="tex2html2416"
+<B> Next:</B> <A NAME="tex2html2505"
+  HREF="node27.html">How to translate m23?</A>
+<B> Up:</B> <A NAME="tex2html2501"
+  HREF="node24.html">Using new Debian/Ubuntu releases</A>
+<B> Previous:</B> <A NAME="tex2html2497"
+  HREF="node25.html">Test and development</A>
+ &nbsp; <B>  <A NAME="tex2html2503"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00612000000000000000">
-generate the language file</A>
+Building the packages</A>
 </H2>
-To give your language a name and make it available to m23 create a <SPAN  CLASS="textit">language.info</SPAN> file.
-<BR>
-The language.info has to contain the following lines:
-<PRE>
-language: &lt;the full name of your language&gt;
-shortlanguage: &lt;the short 2 letter name of the language&gt;
-</PRE>
-m23 uses the word for the language that is used in the origin country. e.g. Deutsch and not German, Francais and not French.
-<BR>
-<BR>
-Your language.info may look like this:
-<BR><PRE>
-language:Deutsch
-shortlanguage:de
-</PRE>
+
+<UL>
+<LI>Generate the package template files with /mdk/m23helper/getDebianTemplates and run /mdk/m23helper/template2confpage.sh in the directory containing the template files. Afterwards move the *OptionPage.php files from the subdirectory "out" to /m23/data+scripts/m23admin/packages/&lt;distribution&gt;/&lt;release&gt;/.
+
+<P>
+</LI>
+<LI>Add the sources list name in /mdk/bin/exportDBsourceslist.php.
+
+<P>
+</LI>
+<LI>Build new packages via the MDK.
+</LI>
+</UL>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

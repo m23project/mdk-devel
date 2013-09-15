@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_OptionPageGetValue</TITLE>
-<META NAME="description" CONTENT="PKG_OptionPageGetValue">
+<TITLE>PKG_addPackageSelection</TITLE>
+<META NAME="description" CONTENT="PKG_addPackageSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node789.html">
 <LINK REL="previous" HREF="node787.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node789.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13140"
+<A NAME="tex2html13308"
   HREF="node789.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13136"
-  HREF="node734.html">
+<A NAME="tex2html13304"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13130"
+<A NAME="tex2html13298"
   HREF="node787.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13138"
+<A NAME="tex2html13306"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13141"
-  HREF="node789.html">PKG_listParams</A>
-<B> Up:</B> <A NAME="tex2html13137"
-  HREF="node734.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13131"
-  HREF="node787.html">PKG_OptionPageSaveAlsParameters</A>
- &nbsp; <B>  <A NAME="tex2html13139"
+<B> Next:</B> <A NAME="tex2html13309"
+  HREF="node789.html">PKG_addNormalPackagesToWait4Aac</A>
+<B> Up:</B> <A NAME="tex2html13305"
+  HREF="node766.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13299"
+  HREF="node787.html">PKG_addRecommendPackages</A>
+ &nbsp; <B>  <A NAME="tex2html13307"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082454000000000000000">
-PKG_OptionPageGetValue</A>
+<H2><A NAME="SECTION0082422000000000000000">
+PKG_addPackageSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets tha value from a variable. The function tries to get the value from the $_GET array, if it doesn't work it falls back to the params array
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a package selections to the list of packages to install.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>variable: the name of the variable you want to get the value from
+<LI>client: name of client to install packages on
 </LI>
-<LI>params: the parameters as assiciative array
+<LI>packageSelectionName: Name of the package selection to install.
+</LI>
+<LI>normalPackageType2: m23normal, m23normalRemove or orig: select if the packages should be (de)installed or use the saved action
+</LI>
+<LI>distr: Name of the distribution.
 </LI>
 </UL>
 
@@ -70,7 +74,7 @@ PKG_OptionPageGetValue</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

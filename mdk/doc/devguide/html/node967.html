@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_matchList</TITLE>
-<META NAME="description" CONTENT="SRCLST_matchList">
+<TITLE>SERVER_runInBackground</TITLE>
+<META NAME="description" CONTENT="SERVER_runInBackground">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node968.html">
 <LINK REL="previous" HREF="node966.html">
-<LINK REL="up" HREF="node940.html">
+<LINK REL="up" HREF="node936.html">
 <LINK REL="next" HREF="node968.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15408"
+<A NAME="tex2html15558"
   HREF="node968.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15404"
-  HREF="node940.html">
+<A NAME="tex2html15554"
+  HREF="node936.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15400"
+<A NAME="tex2html15548"
   HREF="node966.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15406"
+<A NAME="tex2html15556"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15409"
-  HREF="node968.html">./inc/update.php</A>
-<B> Up:</B> <A NAME="tex2html15405"
-  HREF="node940.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html15401"
-  HREF="node966.html">SRCLST_cleanList</A>
- &nbsp; <B>  <A NAME="tex2html15407"
+<B> Next:</B> <A NAME="tex2html15559"
+  HREF="node968.html">SERVER_runningInBackground</A>
+<B> Up:</B> <A NAME="tex2html15555"
+  HREF="node936.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15549"
+  HREF="node966.html">SERVER_programmStatusTableHeader</A>
+ &nbsp; <B>  <A NAME="tex2html15557"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083227000000000000000">
-SRCLST_matchList</A>
+<H2><A NAME="SECTION0083131000000000000000">
+SERVER_runInBackground</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the name of the sources list that matches the searched sources list contents for the distribution or false
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background under a given user
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>distr: the distribution to search the name of the sources list under
+<LI>jobName: name of the job screen should show
 </LI>
-<LI>search: the contents of the sources list to search
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
 </LI>
 </UL>
 
@@ -69,7 +74,7 @@ SRCLST_matchList</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

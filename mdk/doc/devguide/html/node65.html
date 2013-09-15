@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>step in to your new system</TITLE>
-<META NAME="description" CONTENT="step in to your new system">
+<TITLE>lilo.conf</TITLE>
+<META NAME="description" CONTENT="lilo.conf">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,52 +20,67 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="next" HREF="node66.html">
-<LINK REL="previous" HREF="node60.html">
-<LINK REL="up" HREF="node58.html">
+<LINK REL="previous" HREF="node64.html">
+<LINK REL="up" HREF="node63.html">
 <LINK REL="next" HREF="node66.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2916"
+<A NAME="tex2html3009"
   HREF="node66.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2912"
-  HREF="node58.html">
+<A NAME="tex2html3005"
+  HREF="node63.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2906"
+<A NAME="tex2html2999"
   HREF="node64.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2914"
+<A NAME="tex2html3007"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2917"
-  HREF="node66.html">source update and cleanup</A>
-<B> Up:</B> <A NAME="tex2html2913"
-  HREF="node58.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html2907"
-  HREF="node64.html">/etc/network</A>
- &nbsp; <B>  <A NAME="tex2html2915"
+<B> Next:</B> <A NAME="tex2html3010"
+  HREF="node66.html">sources.list</A>
+<B> Up:</B> <A NAME="tex2html3006"
+  HREF="node63.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html3000"
+  HREF="node64.html">fstab</A>
+ &nbsp; <B>  <A NAME="tex2html3008"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00643000000000000000">
-step in to your new system</A>
-</H2>
-You can enter your new system (without reboot) with:
+<H3><A NAME="SECTION00652200000000000000">
+lilo.conf</A>
+</H3>
+You can use your current lilo.conf and edit some values like <SPAN  CLASS="textit">root</SPAN>. You may choose a different kernel than in your current system so you have to adjust the <SPAN  CLASS="textit">image</SPAN> parameter too. But first it is essetial to have a lilo.conf with the correct <SPAN  CLASS="textit">root</SPAN> value, <SPAN  CLASS="textit">image</SPAN> doesn't matter at the moment.
 <PRE>
-chroot .
+boot=/dev/hda
+map=/boot/map
+install=/boot/boot-menu.b
+compact
+prompt
+vga=normal
+delay=10
+timeout=20
+
+default=m23Server3
+
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        append="hdb=scsi-ide"
+        initrd=/initrd.img
 </PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

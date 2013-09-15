@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Disconnecting from the server</TITLE>
-<META NAME="description" CONTENT="Disconnecting from the server">
+<TITLE>Adjusting project properties</TITLE>
+<META NAME="description" CONTENT="Adjusting project properties">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node41.html">
 <LINK REL="previous" HREF="node39.html">
 <LINK REL="up" HREF="node38.html">
 <LINK REL="next" HREF="node41.html">
@@ -28,47 +27,42 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2600"
+<A NAME="tex2html2688"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2596"
+<A NAME="tex2html2684"
   HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2590"
+<A NAME="tex2html2680"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2598"
+<A NAME="tex2html2686"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2601"
-  HREF="node41.html">Send SQL statements</A>
-<B> Up:</B> <A NAME="tex2html2597"
-  HREF="node38.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2591"
-  HREF="node39.html">Connecting to the server</A>
- &nbsp; <B>  <A NAME="tex2html2599"
+<B> Next:</B> <A NAME="tex2html2689"
+  HREF="node41.html">Filling main.cpp</A>
+<B> Up:</B> <A NAME="tex2html2685"
+  HREF="node38.html">Preparing KDevelop</A>
+<B> Previous:</B> <A NAME="tex2html2681"
+  HREF="node39.html">Creating a project</A>
+ &nbsp; <B>  <A NAME="tex2html2687"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00625200000000000000">
-Disconnecting from the server</A>
+<H3><A NAME="SECTION00634200000000000000">
+Adjusting project properties</A>
 </H3>
-<PRE>
-void disconnect()
-{
- mysql_close(&amp;connection);
-};
-</PRE>
-This function disconnects from the server. The global variable <SPAN  CLASS="textit">connection</SPAN> is used to identify the right connection to the server.
+Select "Project" -&gt; "Options" -&gt; "Compiler options" -&gt; "Linker (tab)".
+Now add <SPAN  CLASS="textbf">-lmysqlclient -lcrypt -lnsl</SPAN> to the input line. Close the window with a click on the "OK" button. These settings are required to build applications with mysql support.
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

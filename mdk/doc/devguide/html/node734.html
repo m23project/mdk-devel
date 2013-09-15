@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/packages.php</TITLE>
-<META NAME="description" CONTENT="./inc/packages.php">
+<TITLE>MASS_passGenerator</TITLE>
+<META NAME="description" CONTENT="MASS_passGenerator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,233 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node822.html">
-<LINK REL="previous" HREF="node720.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="next" HREF="node735.html">
+<LINK REL="previous" HREF="node733.html">
+<LINK REL="up" HREF="node718.html">
 <LINK REL="next" HREF="node735.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12405"
+<A NAME="tex2html12553"
   HREF="node735.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12401"
-  HREF="node133.html">
+<A NAME="tex2html12549"
+  HREF="node718.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12395"
+<A NAME="tex2html12543"
   HREF="node733.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12403"
+<A NAME="tex2html12551"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12406"
-  HREF="node735.html">PKG_isReconfiguredWithExtraDistr</A>
-<B> Up:</B> <A NAME="tex2html12402"
-  HREF="node133.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html12396"
-  HREF="node733.html">MSG_DeActivateBlogDialog</A>
- &nbsp; <B>  <A NAME="tex2html12404"
+<B> Next:</B> <A NAME="tex2html12554"
+  HREF="node735.html">MASS_loginGenerator</A>
+<B> Up:</B> <A NAME="tex2html12550"
+  HREF="node718.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html12544"
+  HREF="node733.html">MASS_showGeneratorOptions</A>
+ &nbsp; <B>  <A NAME="tex2html12552"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008240000000000000000">
-./inc/packages.php</A>
-</H1>
-Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: basic package operations (search, add,...)
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0082116000000000000000">
+MASS_passGenerator</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> generates the selected amount of passwords with a random algorithm or the pwgen tool.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html12407"
-  HREF="node735.html">PKG_isReconfiguredWithExtraDistr</A>
-<LI><A NAME="tex2html12408"
-  HREF="node736.html">PKG_translateClientjobsStatus</A>
-<LI><A NAME="tex2html12409"
-  HREF="node737.html">PKG_isSpecialPackageAvailableForClient</A>
-<LI><A NAME="tex2html12410"
-  HREF="node738.html">PKG_OptionPageHeader2</A>
-<LI><A NAME="tex2html12411"
-  HREF="node739.html">PKG_OptionPageTail2</A>
-<LI><A NAME="tex2html12412"
-  HREF="node740.html">PKG_decodeDebconfDescription</A>
-<LI><A NAME="tex2html12413"
-  HREF="node741.html">PKG_OptionPageRender2</A>
-<LI><A NAME="tex2html12414"
-  HREF="node742.html">PKG_countSpecialPackages</A>
-<LI><A NAME="tex2html12415"
-  HREF="node743.html">PKG_countWaitingJobs</A>
-<LI><A NAME="tex2html12416"
-  HREF="node744.html">PKG_closeSearch</A>
-<LI><A NAME="tex2html12417"
-  HREF="node745.html">PKG_getNextPackage</A>
-<LI><A NAME="tex2html12418"
-  HREF="node746.html">PKG_listRecommendPackages</A>
-<LI><A NAME="tex2html12419"
-  HREF="node747.html">PKG_listRecommendSubPackages</A>
-<LI><A NAME="tex2html12420"
-  HREF="node748.html">PKG_addRecommendPackages</A>
-<LI><A NAME="tex2html12421"
-  HREF="node749.html">PKG_addPackageSelection</A>
-<LI><A NAME="tex2html12422"
-  HREF="node750.html">PKG_addNormalPackagesToWait4Aac</A>
-<LI><A NAME="tex2html12423"
-  HREF="node751.html">PKG_addSpecialPackagesToWait4Aac</A>
-<LI><A NAME="tex2html12424"
-  HREF="node752.html">PKG_countJobsWithStatus</A>
-<LI><A NAME="tex2html12425"
-  HREF="node753.html">PKG_getClientjobsStatus</A>
-<LI><A NAME="tex2html12426"
-  HREF="node754.html">PKG_addNormalPackages</A>
-<LI><A NAME="tex2html12427"
-  HREF="node755.html">PKG_changePrioritySelectedPackages</A>
-<LI><A NAME="tex2html12428"
-  HREF="node756.html">PKG_rmSelectedPackages</A>
-<LI><A NAME="tex2html12429"
-  HREF="node757.html">PKG_listSelectedpackages</A>
-<LI><A NAME="tex2html12430"
-  HREF="node758.html">PKG_countSelectedpackages</A>
-<LI><A NAME="tex2html12431"
-  HREF="node759.html">PKG_countJobs</A>
-<LI><A NAME="tex2html12432"
-  HREF="node760.html">PKG_hasOptions</A>
-<LI><A NAME="tex2html12433"
-  HREF="node761.html">PKG_savePackageselection</A>
-<LI><A NAME="tex2html12434"
-  HREF="node762.html">PKG_addNormaltoPackageselection</A>
-<LI><A NAME="tex2html12435"
-  HREF="node763.html">PKG_listSpecialpackages</A>
-<LI><A NAME="tex2html12436"
-  HREF="node764.html">PKG_addSpecialPackages</A>
-<LI><A NAME="tex2html12437"
-  HREF="node765.html">PKG_getSpecialPackagePriority</A>
-<LI><A NAME="tex2html12438"
-  HREF="node766.html">PKG_getSpecialPackageDescription</A>
-<LI><A NAME="tex2html12439"
-  HREF="node767.html">PKG_getSpecialPackageInfo</A>
-<LI><A NAME="tex2html12440"
-  HREF="node768.html">PKG_getPackageID</A>
-<LI><A NAME="tex2html12441"
-  HREF="node769.html">PKG_rmNormalJob</A>
-<LI><A NAME="tex2html12442"
-  HREF="node770.html">PKG_addJob</A>
-<LI><A NAME="tex2html12443"
-  HREF="node771.html">PKG_discardNormalJob</A>
-<LI><A NAME="tex2html12444"
-  HREF="node772.html">PKG_addWait4AccJob</A>
-<LI><A NAME="tex2html12445"
-  HREF="node773.html">PKG_addStatusJob</A>
-<LI><A NAME="tex2html12446"
-  HREF="node774.html">PKG_acceptJobs</A>
-<LI><A NAME="tex2html12447"
-  HREF="node775.html">PKG_discardJobs</A>
-<LI><A NAME="tex2html12448"
-  HREF="node776.html">PKG_discardJob</A>
-<LI><A NAME="tex2html12449"
-  HREF="node777.html">PKG_changeClientPackageAction</A>
-<LI><A NAME="tex2html12450"
-  HREF="node778.html">PKG_setClientPackageWait4Rm</A>
-<LI><A NAME="tex2html12451"
-  HREF="node779.html">PKG_setClientPackageInstalledOK</A>
-<LI><A NAME="tex2html12452"
-  HREF="node780.html">PKG_addShutdownPackage</A>
-<LI><A NAME="tex2html12453"
-  HREF="node781.html">PKG_addShutdownOrRebootPackage</A>
-<LI><A NAME="tex2html12454"
-  HREF="node782.html">PKG_getAllParams</A>
-<LI><A NAME="tex2html12455"
-  HREF="node783.html">PKG_setAllParams</A>
-<LI><A NAME="tex2html12456"
-  HREF="node784.html">PKG_OptionPageHeader</A>
-<LI><A NAME="tex2html12457"
-  HREF="node785.html">PKG_OptionPageRender</A>
-<LI><A NAME="tex2html12458"
-  HREF="node786.html">PKG_OptionPageTail</A>
-<LI><A NAME="tex2html12459"
-  HREF="node787.html">PKG_OptionPageSaveAlsParameters</A>
-<LI><A NAME="tex2html12460"
-  HREF="node788.html">PKG_OptionPageGetValue</A>
-<LI><A NAME="tex2html12461"
-  HREF="node789.html">PKG_listParams</A>
-<LI><A NAME="tex2html12462"
-  HREF="node790.html">PKG_getRecommendPackageAllInstalledSize</A>
-<LI><A NAME="tex2html12463"
-  HREF="node791.html">PKG_previewInstallationDeinstallation</A>
-<LI><A NAME="tex2html12464"
-  HREF="node792.html">PKG_showPreviewInstallationDeinstallation</A>
-<LI><A NAME="tex2html12465"
-  HREF="node793.html">PKG_updateSourcesListAtAllClients</A>
-<LI><A NAME="tex2html12466"
-  HREF="node794.html">PKG_executeOnClientJobs</A>
-<LI><A NAME="tex2html12467"
-  HREF="node795.html">PKG_removeFromJobList</A>
-<LI><A NAME="tex2html12468"
-  HREF="node796.html">PKG_changeClientJobsStatus</A>
-<LI><A NAME="tex2html12469"
-  HREF="node797.html">PKG_previewUpdateSystem</A>
-<LI><A NAME="tex2html12470"
-  HREF="node798.html">PKG_showPreviewUpdateSystem</A>
-<LI><A NAME="tex2html12471"
-  HREF="node799.html">PKG_rmAllSpecialPackagesByName</A>
-<LI><A NAME="tex2html12472"
-  HREF="node800.html">PKG_countPackages</A>
-<LI><A NAME="tex2html12473"
-  HREF="node801.html">PKG_copyWait4accPackagesToClient</A>
-<LI><A NAME="tex2html12474"
-  HREF="node802.html">PKG_copyPackagesToClient</A>
-<LI><A NAME="tex2html12475"
-  HREF="node803.html">PKG_remNormalPackages</A>
-<LI><A NAME="tex2html12476"
-  HREF="node804.html">PKG_addRemovePackagesToWait4Aac</A>
-<LI><A NAME="tex2html12477"
-  HREF="node805.html">PKG_discardRemoveJob</A>
-<LI><A NAME="tex2html12478"
-  HREF="node806.html">PKG_deletePackageselection</A>
-<LI><A NAME="tex2html12479"
-  HREF="node807.html">PKG_getAllPackageSelections</A>
-<LI><A NAME="tex2html12480"
-  HREF="node808.html">PKG_multiPackageSelectionsSelection</A>
-<LI><A NAME="tex2html12481"
-  HREF="node809.html">PKG_showAllPackageSelections</A>
-<LI><A NAME="tex2html12482"
-  HREF="node810.html">PKG_getPackageParams</A>
-<LI><A NAME="tex2html12483"
-  HREF="node811.html">PKG_getClientbyPackageID</A>
-<LI><A NAME="tex2html12484"
-  HREF="node812.html">PKG_getInfoFromPackageID</A>
-<LI><A NAME="tex2html12485"
-  HREF="node813.html">PKG_getClientIDbyPackageID</A>
-<LI><A NAME="tex2html12486"
-  HREF="node814.html">PKG_getPackageParamsVar</A>
-<LI><A NAME="tex2html12487"
-  HREF="node815.html">PKG_getPackageIDsByName</A>
-<LI><A NAME="tex2html12488"
-  HREF="node816.html">PKG_getClientPackages</A>
-<LI><A NAME="tex2html12489"
-  HREF="node817.html">PKG_getPackagesListMarker</A>
-<LI><A NAME="tex2html12490"
-  HREF="node818.html">PKG_savePackagesList</A>
-<LI><A NAME="tex2html12491"
-  HREF="node819.html">PKG_loadPackagesList</A>
-<LI><A NAME="tex2html12492"
-  HREF="node820.html">PKG_deletePackagesList</A>
-<LI><A NAME="tex2html12493"
-  HREF="node821.html">PKG_addNormalJob</A>
+<UL>
+<LI>length: length of the passwords to generate
+</LI>
+<LI>method: random or pwgen generated passwords that can be memorized by humans easily
+</LI>
+<LI>amount: the amount of passwords to generate
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with the generated passwords as keys.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>

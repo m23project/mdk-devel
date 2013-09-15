@@ -113,6 +113,9 @@ do
 	echo "$host" > /etc/hostname
 done
 
+	grep -v '192\.168\.1' /etc/hosts > /tmp/hosts
+	cat /tmp/hosts > /etc/hosts
+
 	#/etc/hosts
 	echo "$ip	$host" >> /etc/hosts
 
@@ -136,6 +139,8 @@ ifconfig lo up
 #configure the MySQL server configuration file my.cnf
 configureMySQLmycnf()
 {
+	chmod 777 /tmp
+
 	echo "$I18N_ConfiguringMySQL: /etc/mysql/my.cnf"
 
 	#rerun mysql-server configure if the needed database structures are not present
@@ -155,6 +160,11 @@ configureMySQLmycnf()
 		mv /tmp/my.cnf /etc/mysql/my.cnf
 		chown root.root /etc/mysql/my.cnf
 		chmod 644 /etc/mysql/my.cnf
+	fi
+	
+	if [ $(grep -c 'Debian GNU/Linux 7' /etc/issue) -gt 0 ]
+	then
+		sed -i 's/skip-innodb/#skip-innodb/g' /etc/mysql/my.cnf
 	fi
 
 	#starting the server
@@ -453,7 +463,7 @@ showRootPwDialog()
 showNetworkDialog()
 {
 	# enter hostname
-	showDialog "$I18N_windowheader" "$I18N_hostnameheader" inputbox 10 51 "$I18N_hostnametext"
+	showDialog "$I18N_windowheader" "$I18N_hostnameheader" inputbox 11 51 "$I18N_hostnametext"
 	host=`cat /tmp/dialog.value`
 
 	# enter IP
@@ -544,7 +554,8 @@ normalPartition()
 	#create the installation partition
 	showDialog "$I18N_windowheader" "$I18N_formatinghdtext" infobox 12 70 "$I18N_creatingbootpartition"
 	parted -s /dev/$installdrive mkpart primary 2 $rootsize > /dev/null
-	mkfs.ext3 /dev/$installdrive"1" > /dev/null
+	modprobe ext4
+	mkfs.ext4 /dev/$installdrive"1" > /dev/null
 
 	#create the swap partition
 	showDialog "$I18N_windowheader" "$I18N_formatinghdtext" infobox 12 70 "$I18N_creatingswappartition"
@@ -700,6 +711,7 @@ extractFromCD()
 	cd $installPath
 	rm mkAllMissingDirectories.sh 2> /dev/null
 	extractFile /mnt/cdrom/m23image.tar.7z "$I18N_extractingservertext"
+
 	cd /mnt/cdrom
 	extractBaseFiles
 }
@@ -747,6 +759,7 @@ chrootSystem()
 	
 	#cat /lib/modules/*/modules.dep > "/lib/modules/$(uname -r)/modules.dep"
 
+	chmod 777 /tmp
 
 	mount /proc
 	mount /sys
@@ -793,6 +806,11 @@ setRootPwd()
 #Creates the initrds for all installed kernel
 createInitrd()
 {
+	for kernelName in `ls /lib/modules/ | grep -v m23`
+	do
+		touch "/boot/initrd.img-$kernelName"
+	done
+
 	for kimgpkg in `dpkg --get-selections | grep linux-image | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g'`
 	do
 		dpkg-reconfigure $kimgpkg
@@ -824,9 +842,13 @@ installGrub()
 
 		createInitrd
 
-		grub-mkdevicemap
 		grub-install --recheck --force $bootDevice
-		update-grub
+
+		update-grub -y 2> /dev/null
+		if [ $? -ne 0 ]
+		then
+			/usr/sbin/update-grub
+		fi
 	fi
 
 	showDialog "$I18N_windowheader" "$I18N_windowheader" msgbox 14 45 "$I18N_installationfinishedtext"

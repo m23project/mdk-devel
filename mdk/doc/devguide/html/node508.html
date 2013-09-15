@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getRemoteFileContents</TITLE>
-<META NAME="description" CONTENT="HELPER_getRemoteFileContents">
+<TITLE>HELPER_netmaskCalculator</TITLE>
+<META NAME="description" CONTENT="HELPER_netmaskCalculator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node509.html">
 <LINK REL="previous" HREF="node507.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node501.html">
 <LINK REL="next" HREF="node509.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9513"
+<A NAME="tex2html9653"
   HREF="node509.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9509"
-  HREF="node493.html">
+<A NAME="tex2html9649"
+  HREF="node501.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9503"
+<A NAME="tex2html9643"
   HREF="node507.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9511"
+<A NAME="tex2html9651"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9514"
-  HREF="node509.html">HELPER_passGenerator</A>
-<B> Up:</B> <A NAME="tex2html9510"
-  HREF="node493.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9504"
-  HREF="node507.html">HELPER_debugBacktraceToFile</A>
- &nbsp; <B>  <A NAME="tex2html9512"
+<B> Next:</B> <A NAME="tex2html9654"
+  HREF="node509.html">HELPER_importAllIntoPOST</A>
+<B> Up:</B> <A NAME="tex2html9650"
+  HREF="node501.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9644"
+  HREF="node507.html">HELPER_md5x5</A>
+ &nbsp; <B>  <A NAME="tex2html9652"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081415000000000000000">
-HELPER_getRemoteFileContents</A>
+<H2><A NAME="SECTION008147000000000000000">
+HELPER_netmaskCalculator</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Downloads a file if it is not older than a given time and returns its contents.
+<SPAN  CLASS="textbf">Description:</SPAN> Converts a short netmask (e.g. 24 for 255.255.255.0) into the decimal notation.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>url: The URL where to download the file from.
-</LI>
-<LI>storeFile: The file name to store the download in.
-</LI>
-<LI>refreshTime: The time in minutes the file is downloaded again.
-</LI>
-<LI>forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
+<LI>: nm: The netmask to convert. If a netmask in decimal notation is given, no conversation is done.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The contents of the files from chache or from download or false if no file could be found.
+<LI>Netmask in decimal notation.
 </LI>
 </UL>
 
@@ -80,7 +74,7 @@ HELPER_getRemoteFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2012-05-21
+2013-08-18
 </ADDRESS>
 </BODY>
 </HTML>
