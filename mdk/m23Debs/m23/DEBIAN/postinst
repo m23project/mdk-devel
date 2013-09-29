@@ -102,6 +102,51 @@ GATEINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g'
 dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
 dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
 
+
+
+
+
+#name getIfconfigSetting
+#description Gets network information from ifconfig.
+#parameter If there is a non empty value, it will be given back
+#parameter ifconfig query string, to find the line holding the information.
+getIfconfigSetting()
+{
+	if [ -z "$1" ]
+	then
+		LC_ALL="C"
+		ifconfig eth0 | sed 's/  /\n/g' | grep "^$2" | cut -d':' -f2
+	else
+		echo -n $1
+	fi
+}
+
+
+
+
+
+#name getIpGateway
+#description Gets gateway from ip.
+#parameter If there is a non empty value, it will be given back
+getIpGateway()
+{
+	if [ -z "$1" ]
+	then
+		LC_ALL="C"
+		ip route show default | awk '/default/ {print $3}'
+	else
+		echo -n $1
+	fi
+}
+
+
+IPINT=$(getIfconfigSetting "$IPINT" 'inet addr')
+BROADINT=$(getIfconfigSetting "$BROADINT" 'Bcast')
+GATEINT=$(getIpGateway "$GATEINT")
+
+
+
+
 #check if we are reconfiguring
 if [ "$1" = "reconfigure" ] || [ "${DEBCONF_RECONFIGURE}" = "1" ]
 then
