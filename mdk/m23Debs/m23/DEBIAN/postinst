@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Source debconf library.
 . /usr/share/debconf/confmodule
@@ -140,6 +140,30 @@ getIpGateway()
 }
 
 
+
+
+
+#name getCSExternIP
+#description Get the external IP of this server, if run in CloudStack.
+#shows External IP or empty if not run under CloudStack.
+#returns 0 when an external CloudStack IP could be get, 1 otherwise
+getCSExternIP()
+{
+	wget -qq "http://$GATEINT/latest/public-ipv4" -O /tmp/csExternIp
+	if [ $? -eq 0 ]
+	then
+		cat /tmp/csExternIp
+		rm /tmp/csExternIp
+		return 0
+	else
+		return 1
+	fi
+}
+
+
+
+
+
 IPINT=$(getIfconfigSetting "$IPINT" 'inet addr')
 BROADINT=$(getIfconfigSetting "$BROADINT" 'Bcast')
 GATEINT=$(getIpGateway "$GATEINT")
@@ -229,7 +253,7 @@ then
 	#this part could be executed more times
 	if [ $lennyConfigured -eq 0 ] || [ ! -f /m23/dhcp/dhcpd.conf ] || [ `grep domain-name-servers /m23/dhcp/dhcpd.conf -c` -eq 0 ] || $reconf
 	then
-	
+
 		#Create /m23/dhcp if it's missing, set permissions and owner
 		if [ ! -d /m23/dhcp ]
 		then
@@ -237,7 +261,7 @@ then
 			chown root.www-data /m23/dhcp
 			chmod 777 /m23/dhcp
 		fi
-	
+
 		#/m23/dhcp/dhcpd.conf
 		rm /m23/dhcp/dhcpd.conf 2> /dev/null
 
@@ -343,7 +367,7 @@ http_port 2323
 
 hierarchy_stoplist cgi-bin ?
 
-cache_dir ufs /var/spool/squid 10000 16 256
+cache_dir ufs /var/spool/squid X_CACHESIZE_X 16 256
 
 maximum_object_size 1024000 KB
 
@@ -384,6 +408,11 @@ refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload re
 http_access deny purge !localhost
 EOFSQUID
 
+	#Get the free 1K blocks of /var in MB and divide by 2
+	free=$[ $(df -P /var | awk 'NR==2 {print $4}') / 2048 ]
+
+	#Adjust the config file
+	sed -i "s#X_CACHESIZE_X#$free#g" /etc/squid/squid.conf
 	sed -i "s#acl NOCACHE url_regex -i .*#acl NOCACHE url_regex -i $IPINT#g" /etc/squid/squid.conf
 	sed -i "s#visible_hostname .*#visible_hostname $hname#g" /etc/squid/squid.conf
 
@@ -412,11 +441,11 @@ then
 		if $reconf
 		then
 			#generate only a new if reconfigure is selected
-			/m23/bin/enable-ssl noAptGet
+			/m23/bin/enable-ssl noAptGet `getCSExternIP`
 		fi
 	else
 		#no m23 certificate found => create a new
-		/m23/bin/enable-ssl noAptGet
+		/m23/bin/enable-ssl noAptGet `getCSExternIP`
 	fi
 
 	if [ -h /dev/random ] && [ -c /dev/random-blocks ]
