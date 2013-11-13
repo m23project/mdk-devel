@@ -12,7 +12,8 @@ echo "Press Ctrl+C if the output is too fast"
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 #Configure via DHCP
-/bin/dhclient
+dhclient-script
+dhclient
 
 #Stop dhclient to make sure that the IP configuration will not be changed during installation
 for dhClientPID in `ps | grep dhclient | tr -s [:blank:] | cut -d' ' -f2`
@@ -130,9 +131,9 @@ startDropbear()
 #Checks, if there is another m23 server (another than the DHCP server)
 checkAlternativeM23Server()
 {
-	wget -qq "http://$1/latest/availability-zone" -O /dev/null
-
 	touch /m23clientIDAdd
+
+	wget -qq "http://$1/latest/availability-zone" -O /dev/null
 
 	if [ $? -eq 0 ]
 	then

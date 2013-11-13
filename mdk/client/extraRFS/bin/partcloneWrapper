@@ -12,6 +12,10 @@ partNr=$(echo $dev | sed 's/[^0-9]//g')
 #Check, if there is a partition number or of the whole disk should be saved
 if [ -z $partNr ]
 then
+	#Get the size of the whole device in MB
+	size=$(echo No | parted -m -s "$dev" unit MB print | grep "$dev" | cut -d':' -f2 | sed 's/MB//')
+	#Store it in the dd format
+	echo "$size+0 records out" > /tmp/m23ImagerSize2
 	partclone.dd -F -L /tmp/partclone.log -c -d -s $dev -o -
 	exit 0
 fi
@@ -27,6 +31,12 @@ then
 	fs=$(echo "$info" | cut -d'#' -f5 | awk '/primary|extended|logical/ {print(""); exit 0}
 {print}')
 fi
+
+
+#Get the size of the partition in MB
+size=$(echo "$info" | cut -d'#' -f4)
+#Store it in the dd format
+echo "$size+0 records out" > /tmp/m23ImagerSize2
 
 #Choose the cloning tool by the file system
 if [ $(echo $fs | grep -i -c ext) -gt 0 ]
