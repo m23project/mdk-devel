@@ -41,7 +41,6 @@ echo "$size+0 records out" > /tmp/m23ImagerSize2
 #Choose the cloning tool by the file system
 if [ $(echo $fs | grep -i -c ext) -gt 0 ]
 then
-	echo $dev
 	partclone.extfs -F -L /tmp/partclone.log -c -d -s $dev -o -
 	exit 0
 fi
