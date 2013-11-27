@@ -1,0 +1,175 @@
+#!/bin/bash
+#Notes
+
+#!!!ATTENTION!!! Unmount source device before resizing the goal device!!! (for use with xfs)
+
+#This script enlarges the file system on a given partition to match the size of the partition.
+#Input: device name/path like /dev/sda2 or /dev/sdb
+
+#dependencies: e2fsprogs reiserfsprogs xfsprogs jfsutils (parted dosfstools btrfs-tools ntfsprogs ntfs-3g ntfs-config testdisk: only if you get ntfs,vfat and btrfs to work)
+
+#ext2/ext3/ext4: gemounted oder ungemounted moeglich, command: resize2fs -p /dev/gerätename
+#reiserfs: nur ungemounted, command: resize_reiserfs /dev/gerätename
+#xfs: nur gemounted, command: xfs_growfs /mountpoint
+#jfs: nur gemounted, command: mount /mountpoint -o remount,resize
+#ntfs: nur ungemounted, command: ntfsresize /dev/gerätename Achtung! Am sichersten: keine NTFS-Kompression, vorher defragmentieren.
+#btrfs: nur gemounted, command: btrfs filesystem resize max /mntdir
+#fat32: nur ungemounted mittels parted
+
+
+#STEP 1 - Deconstruct input argument
+#The partition device e.g. /dev/sda1
+dev=$1
+echo "Device name is $dev"
+#The device e.g. /dev/sda
+pathLocal=$(echo $dev | sed 's/[0-9]//g')
+echo "Device path is $pathLocal"
+
+#The partition number e.g. 1
+partNr=$(echo $dev | sed 's/[^0-9]//g')
+echo "Device number is $partNr"
+
+
+
+#STEP 2 - Find out which filesystem is used and find out its start and end point on the disk
+#Get the info string for the given partition on the device
+info=$(echo No | parted "$pathLocal" -s unit MB print | tr -s '[:blank:]' | sed 's/ /#/g' | sed 's/^#*//g' | grep ^[0-9] | sed 's/,[0-9]*MB//g' | sed 's/MB//g' | grep "^$partNr#")
+echo "Partition info is $info"
+#Get the file system
+fs=$(echo "$info" | cut -d'#' -f6)
+echo "Filesystem is $fs"
+#Get the start of the file system
+partstart=$(echo "$info" | cut -d'#' -f2)
+echo "Partition starts at $partstart"
+#Get the end of the file system
+partending=$(echo "$info" | cut -d'#' -f3)
+echo "Partition ends at $partending"
+
+if [ -z $fs ]
+then
+	fs=$(echo "$info" | cut -d'#' -f5 | awk '/primary|extended|logical/ {print(""); exit 0}
+{print}')
+	echo "Filesystem is not in field 6. It is $fs"
+fi
+
+
+
+#STEP 3 - Find out if device is mounted, 0 = not mounted, 1 (or more...) = mounted
+devMounted=$(mount | grep -c "^$dev")
+mount
+echo "Device Mounted: $devMounted"
+
+
+#STEP 4 - depending on filesystem and mount status, mount or unmount device, make sure that device is mounted in specified directory
+#make sure ext2, ext3, ext4, reiserfs, ntfs and fat filesystems are unmounted, and everything else (xfs, jfs, (btrfs - does not work)) is mounted
+# and check the filesystem for errors
+if [ $(echo $fs | grep -i -c "ext\|reiser\|ntfs\|fat") -gt 0 ]
+then
+	echo "Filesystem is one out of ext, reiser, ntfs or vfat"
+	if [ $devMounted -gt 0 ]
+	then
+		umount $dev
+		echo "Device was unmounted"
+	fi
+else 
+	echo "Filesystem is not ext, reiser, ntfs or vfat"
+	if [ $devMounted -gt 0 ]
+	then
+		umount $dev
+		echo "Device was unmounted"
+		echo "Going to check filesystem on $dev"
+		fsck -t $fs -a $dev
+		mkdir /media/tempdir
+		echo "Created tempdir"
+		mount -t $fs $dev /media/tempdir
+		echo "Device was mounted into tempdir"
+	else
+		echo "Going to check filesystem on $dev"
+		fsck -t $fs -a $dev
+		mkdir /media/tempdir
+		echo "Created tempdir"
+		mount -t $fs $dev /media/tempdir
+		echo "Device was mounted into tempdir"
+	fi
+fi
+
+	
+	
+#STEP 5 - depending on type of filesystem, resize filesystem to maximum size of partition
+
+#all ext-filesystems
+if [ $(echo $fs | grep -i -c ext) -gt 0 ]
+then
+	echo "Going to check ext filesystem on $dev"
+	e2fsck -f $dev
+	echo "Going to resize ext partition now"
+	resize2fs -p $dev
+	exit 0
+fi
+
+#reiserfs
+if [ $(echo $fs | grep -i -c reiser) -gt 0 ]
+then
+	echo "Going to check reiserfs filesystem on $dev"
+	fsck -t $fs -a $dev
+	echo "Going to resize reiser partition now"
+	resize_reiserfs $dev
+	exit 0
+fi
+
+# #btrfs #DOES NOT WORK, does not recognize mountpoint as argument
+# if [ $(echo $fs | grep -i -c btrfs) -gt 0 ]
+# then
+# 	echo "Going to resize btrfs partition now"
+# 	btrfs filesystem resize max /media/tempdir
+# 	umount /media/tempdir
+# 	echo "unmounted tempdir"
+# 	rmdir /media/tempdir
+# 	echo "removed tempdir"
+# 	exit 0
+# fi
+
+# #fat32, never mount this after using parted before having rebooted!# DOES NOT WORK, parted does not want to resize the filesystem.
+# if [ $(echo $fs | grep -i -c fat) -gt 0 ]
+# then
+# 	echo "Going to check vfat filesystem on $dev"
+# 	fsck -t $fs -a $dev
+# 	echo "Going to resize vfat partition now"
+# 	parted $pathLocal resize $partNr $partstart $partending
+# 	exit 0
+# fi
+
+#ntfs
+# if [ $(echo $fs | grep -i -c ntfs) -gt 0 ] #not recommended
+# then
+# 	echo "Going to check ntfs filesystem on $dev"
+# # 	fsck -t $fs -a $dev: does not work
+# 	ntfsfix $dev #replacement for the above
+# 	umount $dev
+# 	echo "Going to resize ntfs partition now"
+# 	echo "y" | ntfsresize -f $dev #must force, because thinks that fs needs to be checked
+# 	exit 0
+# fi
+
+#xfs
+if [ $(echo $fs | grep -i -c xfs) -gt 0 ]
+then
+	echo "Going to resize xfs partition now"
+	xfs_growfs /media/tempdir
+	umount /media/tempdir
+	rmdir /media/tempdir
+	exit 0
+fi
+
+#jfs
+if [ $(echo $fs | grep -i -c jfs) -gt 0 ]
+then
+	echo "Going to resize jfs partition now"
+	mount $dev -o remount,resize
+	umount $dev
+	rmdir /media/tempdir
+	exit 0
+fi
+
+echo "Could not determine file system type"
+exit 0
