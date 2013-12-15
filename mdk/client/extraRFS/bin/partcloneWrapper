@@ -16,7 +16,7 @@ then
 	size=$(echo No | parted -m -s "$dev" unit MB print | grep "$dev" | cut -d':' -f2 | sed 's/MB//')
 	#Store it in the dd format
 	echo "$size+0 records out" > /tmp/m23ImagerSize2
-	partclone.dd -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.dd -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
@@ -41,33 +41,33 @@ echo "$size+0 records out" > /tmp/m23ImagerSize2
 #Choose the cloning tool by the file system
 if [ $(echo $fs | grep -i -c ext) -gt 0 ]
 then
-	partclone.extfs -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.extfs -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
 if [ $(echo $fs | grep -i -c reiser) -gt 0 ]
 then
-	partclone.reiser4 -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.reiser4 -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
 if [ $(echo $fs | grep -i -c btrfs) -gt 0 ]
 then
-	partclone.btrfs -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.btrfs -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
 if [ $(echo $fs | grep -i -c fat) -gt 0 ]
 then
-	partclone.fat -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.fat -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
 if [ $(echo $fs | grep -i -c ntfs) -gt 0 ]
 then
-	partclone.ntfs -F -L /tmp/partclone.log -c -d -s $dev -o -
+	partclone.ntfs -F -L /dev/null -c -d -s $dev -o -
 	exit 0
 fi
 
-partclone.dd -F -L /tmp/partclone.log -c -d -s $dev -o -
+partclone.dd -F -L /dev/null -c -d -s $dev -o -
 exit 0

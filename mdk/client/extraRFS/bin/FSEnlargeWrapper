@@ -101,7 +101,7 @@ fi
 if [ $(echo $fs | grep -i -c ext) -gt 0 ]
 then
 	echo "Going to check ext filesystem on $dev"
-	e2fsck -f $dev
+	e2fsck -y -f $dev
 	echo "Going to resize ext partition now"
 	resize2fs -p $dev
 	exit 0
