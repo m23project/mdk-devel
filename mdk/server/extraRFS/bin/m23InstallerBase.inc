@@ -808,6 +808,7 @@ createInitrd()
 {
 	for kernelName in `ls /lib/modules/ | grep -v m23`
 	do
+		rm "/boot/initrd.img-$kernelName" 2> /dev/null
 		touch "/boot/initrd.img-$kernelName"
 	done
 
@@ -1034,9 +1035,20 @@ updateSystem()
 	showDialog "$I18N_windowheader" "$I18N_updateheader" yesno 5 61 "$I18N_updatetext" notDisabled
 	if [ $? -eq 0 ]
 	then
+		#Deactivate init
+		mv /sbin/init /sbin/init.deactivated
+		#Make sure, ischroot will return 2 to stop sysvinit from shuting down the installation
+		mv /usr/bin/ischroot /usr/bin/ischroot.deactivated
+
 		apt-get -y --force-yes update
 		export DEBIAN_FRONTEND=noninteractive
 		apt-get -y --force-yes upgrade
+
+		createInitrd
+
+		#Reactivate init
+		mv /sbin/init.deactivated /sbin/init
+		mv /usr/bin/ischroot.deactivated /usr/bin/ischroot
 	fi
 }
 

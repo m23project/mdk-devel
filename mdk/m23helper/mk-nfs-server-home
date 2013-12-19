@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#http://ubuntuforums.org/showthread.php?t=249889
+
+export DEBIAN_FRONTEND=noninteractive
+
+#Disable loopback for portmap
+echo "portmap portmap/loopback boolean false" | debconf-set-selections
+
+portmapInstalledBefore=$(dpkg --get-selections | grep portmap -c)
+
+#Install the needed packages
+apt-get -y -m --force-yes  install nfs-kernel-server nfs-common portmap ipcalc
+
+#Reconfigure portmap, if it was isntalled before
+if [ $portmapInstalledBefore -gt 0 ]
+then
+	dpkg-reconfigure portmap
+	/etc/init.d/portmap restart
+fi
+
+#Create the directory for storing the home directories
+mkdir -m 777 /nfs-homes
+
+curIP=$(LC_ALL=C; ifconfig | grep "inet addr" | cut -d':' -f2 | cut -d' ' -f1 | head -1)
+netw=$(ipcalc -n $curIP | grep Network: | tr -s '[:blank:]' | cut -d' ' -f2)
+
+#Add the directory so it gets exported by NFS
+echo "/nfs-homes $netw(rw,no_root_squash,sync,no_subtree_check)" >> /etc/exports
+
+/etc/init.d/nfs-kernel-server restart
+
+exportfs -a
