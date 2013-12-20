@@ -756,7 +756,7 @@ chrootSystem()
 	# Workaround for missing modules.dep to disable the repeated showing of the "FATAL" error.
 	[ -d "/lib/modules/$(uname -r)" ] || mkdir -p "/lib/modules/$(uname -r)"
 	[ -f "/lib/modules/$(uname -r)/modules.dep" ] || echo 'neverusefakemodule.ko:' > "/lib/modules/$(uname -r)/modules.dep"
-	
+
 	#cat /lib/modules/*/modules.dep > "/lib/modules/$(uname -r)/modules.dep"
 
 	chmod 777 /tmp
@@ -1110,6 +1110,14 @@ m23-tftp m23-tftp/configureTFTP boolean true
 
 	#force the deb to create a new SSH key pair
 	rm /root/.ssh/id_dsa* 2> /dev/null
+	rm /root/.ssh/authorized_keys 2> /dev/null
+	rm /m23/data+scripts/packages/baseSys/authorized_keys 2> /dev/null
+	rm /root/.ssh/authorized_keys 2> /dev/null
+	bpchome=`grep backuppc /etc/passwd | cut -d':' -f6`
+	if [ $( grep -c "$badSSHKey" $bpchome/.ssh/id_rsa.pub ) -gt 0 ]
+	then
+		rm $bpchome/.ssh/id_*
+	fi
 	export DEBIAN_FRONTEND=noninteractive
 
 	installDebs
