@@ -24,7 +24,28 @@
 \item Debian packages
 \item Server installation ISO
 \item Install a VM with the ISO. Call /mdk/bin/prepareOSForCompression. Shutdown the VM. Export it and compress the exported files.
-\item Write a SD card with Raspbian, install the packages, run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh and /mdk/bin/prepareOSForCompression.
+\item
+	\begin{itemize}
+		\item Write a SD card with Raspbian.
+		\item Configure /etc/network/interfaces to static IP for eth0.
+		\item Boot the Raspberry Pi.
+		\item Log into it via SSH (user: pi, password: raspberry)
+		\item Run "sudo rapi-config".
+		\item Call in the menu "Expand Filesystem", set "Memory split" to 16 MB, call "Update".
+		\item Reboot.
+		\item Enable root access (set password to test): "sudo passwd"
+		\item Log out and log into it via SSH (user: root, password: test)
+		\item Remove the user pi: userdel -r -f pi
+		\item Add "192.168.1.77 m23debs" to /etc/hosts
+		\item Create "/etc/apt/sources.list.d/m23debs.list" with the contents "deb http://m23debs ./"
+		\item Update the package index: apt-get update
+		\item Install the m23 server: apt-get install m23
+		\item Choose yes on all options and use "test" for all passwords.
+		\item After the failure edit /etc/default/tftpd-hpa: Adjust TFTP_OPTIONS="-4 --secure"
+		\item Continue the installation with: apt-get install -f
+		\item Run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh
+		\item /mdk/bin/prepareOSForCompression.
+	\end{itemize}
 \end{itemize}
 
 
