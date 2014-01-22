@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Manage LDAP servers</TITLE>
-<META NAME="description" CONTENT="Manage LDAP servers">
+<TITLE>Hint</TITLE>
+<META NAME="description" CONTENT="Hint">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,88 +19,71 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node36.html">
-<LINK REL="previous" HREF="node31.html">
-<LINK REL="up" HREF="node26.html">
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node33.html">
 <LINK REL="next" HREF="node36.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html873"
+<A NAME="tex2html895"
   HREF="node36.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html869"
-  HREF="node26.html">
+<A NAME="tex2html891"
+  HREF="node33.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html863"
+<A NAME="tex2html887"
   HREF="node34.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html871"
+<A NAME="tex2html893"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html874"
-  HREF="node36.html">Manage GPG keys</A>
-<B> Up:</B> <A NAME="tex2html870"
-  HREF="node26.html">Server</A>
-<B> Previous:</B> <A NAME="tex2html864"
-  HREF="node34.html">Description of daemons</A>
- &nbsp; <B>  <A NAME="tex2html872"
+<B> Next:</B> <A NAME="tex2html896"
+  HREF="node36.html">Daemons and programs</A>
+<B> Up:</B> <A NAME="tex2html892"
+  HREF="node33.html">Update server software</A>
+<B> Previous:</B> <A NAME="tex2html888"
+  HREF="node34.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html894"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00640000000000000000">
-Manage LDAP servers</A>
-</H1>
-<IMG
-  WIDTH="1007" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
- SRC="./ldapSettings.png"
- ALT="Image ldapSettings"> 
+<H2><A NAME="SECTION00632000000000000000">
+Hint</A>
+</H2>
+The m23 server installation CD contains a script that lets you update the currently installed m23 version to the version on the CD. To update your system, proceed as follows:
 <BR>
-You can manage different LDAP servers in this dialog that can be used for user authentification on the clients. An OpenLDAP server can be installed and configured in addition.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Add a new LDAP server</SPAN>: Please enter the needed information in the edit lines. The name of the server is "free form" and is entered under <SPAN  CLASS="textit">"LDAP server name"</SPAN>. It is not required to be the same as the hostname of the LDAP server.<SPAN  CLASS="textit">"LDAP server host"</SPAN> has to be the IP or hostname of the LDAP server and must be resolvable from all clients. The preselected port can be cachanged under <SPAN  CLASS="textit">"LDAP server port"</SPAN>. If you enter a valid administrator password under <SPAN  CLASS="textit">"Password"</SPAN> and <SPAN  CLASS="textit">"Password (repeated)"</SPAN> the LDAP server can be used for storing new usr accounts. If you leave empty both passwords the server is assumed as read only. Click on <SPAN  CLASS="textit">"Add"</SPAN> after entering all required data.
+<OL>
+<LI>Open a shell
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Change an existing LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">"Load"</SPAN>. Now you can see all server data in the edit lines. Modify any values you want and click on <SPAN  CLASS="textit">"Save changes"</SPAN> afterwards.
+<LI>Insert the m23 server installation CD
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Delete a LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">"Delete"</SPAN>.
+<LI>Mount the CD (e.g.: 
+<BR><PRE>
+mount /mnt/cdrom1
+</PRE>
+)
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Edit entries of the LDAP servers</SPAN>: m23 uses the frontend phpLDAPadmin for editing entries. phpLDAPadmin can be started with a click on the phpLDAPadmin logo.
+<LI>Change to the mount directory of the CD (e.g.: 
+<BR><PRE>
+cd /mnt/cdrom1
+</PRE>
+)
 <BR></LI>
-</UL>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html873"
-  HREF="node36.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html869"
-  HREF="node26.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html863"
-  HREF="node34.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html871"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html874"
-  HREF="node36.html">Manage GPG keys</A>
-<B> Up:</B> <A NAME="tex2html870"
-  HREF="node26.html">Server</A>
-<B> Previous:</B> <A NAME="tex2html864"
-  HREF="node34.html">Description of daemons</A>
- &nbsp; <B>  <A NAME="tex2html872"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<LI>Update your system and type: 
+<BR><PRE>
+bash updatem23.sh
+</PRE>
+</LI>
+</OL>
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

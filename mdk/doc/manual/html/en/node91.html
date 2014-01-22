@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Password</TITLE>
-<META NAME="description" CONTENT="Password">
+<TITLE>Work on multiple clients</TITLE>
+<META NAME="description" CONTENT="Work on multiple clients">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,54 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node92.html">
 <LINK REL="previous" HREF="node90.html">
-<LINK REL="up" HREF="node90.html">
+<LINK REL="up" HREF="node87.html">
 <LINK REL="next" HREF="node92.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1597"
+<A NAME="tex2html1623"
   HREF="node92.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1593"
-  HREF="node90.html">
+<A NAME="tex2html1619"
+  HREF="node87.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1589"
+<A NAME="tex2html1613"
   HREF="node90.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1595"
+<A NAME="tex2html1621"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1598"
-  HREF="node92.html">Change client</A>
-<B> Up:</B> <A NAME="tex2html1594"
-  HREF="node90.html">Client direct connection</A>
-<B> Previous:</B> <A NAME="tex2html1590"
-  HREF="node90.html">Client direct connection</A>
- &nbsp; <B>  <A NAME="tex2html1596"
+<B> Next:</B> <A NAME="tex2html1624"
+  HREF="node92.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html1620"
+  HREF="node87.html">Change client status</A>
+<B> Previous:</B> <A NAME="tex2html1614"
+  HREF="node90.html">Jobs</A>
+ &nbsp; <B>  <A NAME="tex2html1622"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008121000000000000000">
-Password</A>
+<H2><A NAME="SECTION008104000000000000000">
+Work on multiple clients</A>
 </H2>
-If the client is in an early installation state, the root password for this client is: "NETROOTPWD"
+Select the clients by checking the boxes in the client lines.
 <BR>
-Later, it will be the password you entered for root in the client add dialog.
+Now you can work on all selected clients::
 <BR>
-If your browser supports the SSH protocol directly, then you can click on the link to connect to the client: ssh://root@CLIENTIP
-<BR>
-Otherwise open a console and enter the command: <SPAN  CLASS="textbf">ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP</SPAN>
-To read the current client screen or to engage in the running installation use the command: <SPAN  CLASS="textbf">screen -x m23install</SPAN>
-		<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">remove from group</SPAN>: Select the group, all clients should be deleted from. Nothing is done, if a client is not in the selected group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">add to group</SPAN>: Select the group, all clients should be added to. Nothing is done, if a client already is in the selected group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">move to group</SPAN>: Moves the clients to another group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Recover</SPAN>: Completely reinstalls the clients.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Delete</SPAN>: Deletes the selected clients.
+<BR></LI>
+</UL>
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Select theme</TITLE>
-<META NAME="description" CONTENT="Select theme">
+<TITLE>Howto restore your m23 server</TITLE>
+<META NAME="description" CONTENT="Howto restore your m23 server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node51.html">
+<LINK REL="next" HREF="node56.html">
+<LINK REL="previous" HREF="node53.html">
 <LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node56.html">
 </HEAD>
@@ -27,44 +28,116 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1118"
+<A NAME="tex2html1142"
   HREF="node56.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1114"
+<A NAME="tex2html1138"
   HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1110"
+<A NAME="tex2html1132"
   HREF="node54.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1116"
+<A NAME="tex2html1140"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1119"
-  HREF="node56.html">m23 remote administration service</A>
-<B> Up:</B> <A NAME="tex2html1115"
+<B> Next:</B> <A NAME="tex2html1143"
+  HREF="node56.html">IP management</A>
+<B> Up:</B> <A NAME="tex2html1139"
   HREF="node26.html">Server</A>
-<B> Previous:</B> <A NAME="tex2html1111"
-  HREF="node54.html">Adress tables</A>
- &nbsp; <B>  <A NAME="tex2html1117"
+<B> Previous:</B> <A NAME="tex2html1133"
+  HREF="node54.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html1141"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006110000000000000000">
-Select theme</A>
-</H1>Here you can customise the appearance of m23. From the themes shown on this page, select the one you like best and click on <SPAN  CLASS="textit">"OK"</SPAN>. This setting applies only to your own user account.
+<H1><A NAME="SECTION006100000000000000000">
+Howto restore your m23 server</A>
+</H1>You can restore your m23 server with the previously created backups to any saved state in case of a failure.
 <BR><IMG
-  WIDTH="390" HEIGHT="690" ALIGN="BOTTOM" BORDER="0"
- SRC="./themeChoice.png"
- ALT="Image themeChoice"> 
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./serverRestore.png"
+ ALT="Image serverRestore"> 
 <BR>
-<P>
-<BR><HR>
+To restore it, use the following step-by-step restoration guide:
+<BR>
+<OL>
+<LI>Install the m23 server with the m23 server installation CD on an error free hard disk. You can download the ISO for burning the CD from m23.sf.net.
+<BR></LI>
+<LI>Save the last backup file on the computer that contains the GPG key for encryption and decryption.
+<BR></LI>
+<LI>Decrypt the backup file. If the computer is a Linux system the backup file may be decrypted with:
+<BR><PRE>
+gpg -d  m23backup.tar
+</PRE>
+	Otherwise, use the GPG application of your operating system.
+<BR></LI>
+<LI>Now copy the decrypted backup file <SPAN  CLASS="textit">"m23backup.tar"</SPAN> to the newly installed m23 server into the directory <SPAN  CLASS="textit">"/tmp"</SPAN>. With Linux you can do the copying as follows:
+<BR><PRE>
+scp m23backup.tar root@[IP]:/tmp
+</PRE>
+	Replace <SPAN  CLASS="textit">"[IP]"</SPAN> with the IP of your m23 server. You can use the tool WinSCP (www.winscp.net), if you use Windows.
+<BR></LI>
+<LI>Log in to the m23 server as user <SPAN  CLASS="textbf">root</SPAN>.
+<BR></LI>
+<LI>Go to the directory <SPAN  CLASS="textit">"/tmp"</SPAN> with:
+<BR><PRE>
+cd /tmp
+</PRE>
+</LI>
+<LI>Create a new directory for extracting the backup file and go to this directory:
+<BR><PRE>
+mkdir restore; cd restore
+</PRE>
+</LI>
+<LI>Extract the backup file with:
+<BR><PRE>
+tar xfv /tmp/m23backup.tar
+</PRE>
+</LI>
+<LI>Now start the recovery with:
+<BR><PRE>
+/m23/bin/m23Restore
+</PRE>
+</LI>
+<LI>You should reboot the server after the restoring is finished. This can be done with the command:
+<BR><PRE>
+reboot
+</PRE>
+</LI>
+<LI>The m23 server should work as expected afterwards.
+<BR></LI>
+</OL>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1142"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1138"
+  HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1132"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1140"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1143"
+  HREF="node56.html">IP management</A>
+<B> Up:</B> <A NAME="tex2html1139"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html1133"
+  HREF="node54.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html1141"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

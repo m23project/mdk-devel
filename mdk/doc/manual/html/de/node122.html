@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zu Abbilddateien</TITLE>
-<META NAME="description" CONTENT="Hinweis zu Abbilddateien">
+<TITLE>Schrittweises Vorgehen zum Anlegen eines RAIDs</TITLE>
+<META NAME="description" CONTENT="Schrittweises Vorgehen zum Anlegen eines RAIDs">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,55 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node123.html">
 <LINK REL="previous" HREF="node121.html">
-<LINK REL="up" HREF="node120.html">
+<LINK REL="up" HREF="node117.html">
 <LINK REL="next" HREF="node123.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2012"
+<A NAME="tex2html2040"
   HREF="node123.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2008"
-  HREF="node120.html">
+<A NAME="tex2html2036"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2002"
+<A NAME="tex2html2030"
   HREF="node121.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2010"
+<A NAME="tex2html2038"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2013"
-  HREF="node123.html">Hinweis:</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2009"
-  HREF="node120.html">Wählen der Client-Distribution</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2003"
-  HREF="node121.html">Information:</A>
- &nbsp; <B>  <A NAME="tex2html2011"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2041"
+  HREF="node123.html">Hinweis zu RAIDs und</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2037"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2031"
+  HREF="node121.html">Hinweis zu Dateisystemen</A>
+ &nbsp; <B>  <A NAME="tex2html2039"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00942000000000000000">
-Hinweis zu Abbilddateien</A>
+<H2><A NAME="SECTION00935000000000000000">
+Schrittweises Vorgehen zum Anlegen eines RAIDs</A>
 </H2>
-W&#228;hlen Sie die Paketquellenliste <SPAN  CLASS="textit">&#239;maging&#34;</SPAN>, um Abbilddateien zu installieren.
-<BR>
-Wenn Ihnen in der Auswahlliste keine Benutzeroberfl&#228;chen angeboten werden, dann best&#228;tigen Sie dennoch durch einen Klick auf <SPAN  CLASS="textit">&#34;W&#228;hlen&#34;</SPAN>, um zum n&#228;chsten Teil des Dialoges zu gelangen.
-<BR>
-W&#228;hlen Sie nun aus, auf welche Partition der MBR (Master Boot Record) installiert werden soll und ordnen Sie den Partitionen des Zielrechners die gew&#252;nschte Abbilddatei (oder keine) zu.
-<BR>
-Zus&#228;tzlich haben Sie die Wahl, ob Sie den MBR (Master Boot Record) aus einer zuvor erstellten Datei oder den generischen MBR von m23 installieren m&#246;chten, der bootf&#228;hige Partitionen startet. W&#228;hlen Sie hierzu unter <SPAN  CLASS="textit">&#34;MBR aus einem Abbild oder generischen MBR installieren&#34;</SPAN> den Dateinamen oder <SPAN  CLASS="textit">&#34;Generischer MBR&#34;</SPAN>.
-<BR>
-Wenn Sie unter <SPAN  CLASS="textit">&#196;bbilddatei konfigurieren wie&#34;</SPAN> die zur Abbilddatei passende Distribution ausw&#228;hlen, wird versucht, den Rechner so zu konfigurieren, dass er mit m23 verwaltet werden kann.
-<BR>
+
+<OL>
+<LI><SPAN  CLASS="textbf">Anlegen des RAID-Laufwerks:</SPAN> W&#228;hlen Sie aus der Liste <SPAN  CLASS="textit">&#34;RAID-Laufwerksname&#34;</SPAN> einen Namen aus und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;RAID-Laufwerk anlegen&#34;</SPAN>. Dieses Laufwerk ist ein virtuelles Multi-Device.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Hinzuf&#252;gen von Partitionen und Laufwerken:</SPAN> In dem Kasten <SPAN  CLASS="textit">&#34;Laufwerke und Partitionen zum RAID hinzuf&#252;gen&#34;</SPAN> finden Sie alle ben&#246;tigten Funktionen zum Zuweisen von Partitionen und Laufwerken zu einem RAID. W&#228;hlen Sie dazu den RAID-Typ und das RAID-Laufwerk aus den entsprechenden Listen aus. Sie k&#246;nnen anschlie&#223;end die weiter unten aufgelistete Partition bzw. das Laufwerk aus der Liste <SPAN  CLASS="textit">&#34;Reale(s) Laufwerk bzw. Partition&#34;</SPAN> dem RAID mit einem Klick auf <SPAN  CLASS="textit">&#34;Hinzuf&#252;gen&#34;</SPAN> zuweisen. In der Tabelle <SPAN  CLASS="textit">SZugewiesene(s) Laufwerk(e)/Partition(en)&#34;</SPAN> sehen Sie die bereits zugewiesenen Laufwerke und Partitionen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">RAID-Erstellung abschlie&#223;en:</SPAN> Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;N&#228;chster Schritt (Partitionen formatieren)&#34;</SPAN>.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

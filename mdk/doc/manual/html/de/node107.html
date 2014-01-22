@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Der andere DHCP-Server kann deaktiviert werden</TITLE>
-<META NAME="description" CONTENT="Der andere DHCP-Server kann deaktiviert werden">
+<TITLE>Client hinzufügen</TITLE>
+<META NAME="description" CONTENT="Client hinzufügen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node108.html">
+<LINK REL="next" HREF="node111.html">
 <LINK REL="previous" HREF="node106.html">
 <LINK REL="up" HREF="node106.html">
 <LINK REL="next" HREF="node108.html">
@@ -28,48 +28,102 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1826"
+<A NAME="tex2html1849"
   HREF="node108.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1822"
+<A NAME="tex2html1845"
   HREF="node106.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1816"
+<A NAME="tex2html1839"
   HREF="node106.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1824"
+<A NAME="tex2html1847"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1827"
-  HREF="node108.html">Der andere DHCP-Server kann</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1823"
-  HREF="node106.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1817"
-  HREF="node106.html">m23 mit einem externen</A>
- &nbsp; <B>  <A NAME="tex2html1825"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1850"
+  HREF="node108.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1846"
+  HREF="node106.html">Clients einrichten</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1840"
+  HREF="node106.html">Clients einrichten</A>
+ &nbsp; <B>  <A NAME="tex2html1848"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00921000000000000000">
-Der andere DHCP-Server kann deaktiviert werden</A>
-</H2>
-L&#246;sungen:
+<H1><A NAME="SECTION00910000000000000000">
+Client hinzuf&#252;gen</A>
+</H1>(mit * gekennzeichnete Felder m&#252;ssen auf jeden Fall korrekt ausgef&#252;llt werden)
+<BR><IMG
+  WIDTH="824" HEIGHT="1406" ALIGN="BOTTOM" BORDER="0"
+ SRC="./client_add.png"
+ ALT="Image client_add"> 
 <BR>
 <UL>
-<LI>F&#252;r die Dauer der Installation k&#246;nnen Sie den anderen DHCP-Server f&#252;r die MAC der Clients deaktivieren.
+<LI><SPAN  CLASS="textbf">Voreinstellung:</SPAN> Sie k&#246;nnen bereits gespeicherte Konfigurationen ausw&#228;hlen und anschlie&#223;end laden oder l&#246;schen. M&#246;chten Sie die aktuelle Konfiguration speichern, geben Sie einen aussagekr&#228;ftigen Namen ein und klicken auf <SPAN  CLASS="textit">SSpeichern&#34;</SPAN>.
 <BR></LI>
-<LI>Oder: Wahrscheinlich reicht es schon, wenn Sie Ihren DHCP-Server so konfigurieren, da&#223; er seine Netzwerkeinstellungen erst 2 Sekunden versp&#228;tet verteilt, damit der m23-Server immer schneller antwortet.
+<LI><SPAN  CLASS="textbf">Sprache:</SPAN>Hier k&#246;nnen Sie die Sprache f&#252;r Ihren m23-Client ausw&#228;hlen. Diese Sprache wird f&#252;r die Tastatur-, Desktop- und Konsolen-Einstellung verwendet.
 <BR></LI>
-<LI>Oder: Deaktivieren Sie den anderen DHCP-Server f&#252;r die Dauer der Betriebssysteminstallation mit m23.
+<LI><SPAN  CLASS="textbf">Anmeldungsname:</SPAN> Der Name mit dem sich der Benutzer beim Client anmeldet.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Clientname:</SPAN> Ist der einmalige Name Ihres Clients, dieser sollte nicht mehrfach verwendet werden.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Abteilung:</SPAN> Diese Angabe ist freiwillig, hier k&#246;nnen Sie eintragen, wo sich der Rechner befindet (z.B. Raumnummer etc.).
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Vorname:</SPAN> Vorname des Benutzers, entspricht dem Loginnamen
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Nachname:</SPAN> Nachname des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">eMail:</SPAN> eMail-Adresse des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Boottyp:</SPAN> Bootstandard f&#252;r das Booten der Clients &#252;ber das Netzwerk (Hinweis: Falls Sie m23 mit einem vorhanden DHCP-Server verwenden m&#246;chten, lesen Sie bitte folgende Seite: externalDHCP)
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Bootloader:</SPAN> W&#228;hlen Sie hier, welchen Bootloader/Bootmanager/Urlader Sie zum Starten des Linux-Kernels und evtl. anderen, bereits installierten Betriebssystemen verwenden m&#246;chten. Sie haben die Wahl zwischen LILO (LInux LOader) und GRUB (GRand Unified Bootloader).
 <BR></LI>
 </UL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1851"
+  HREF="node108.html">Hinweis</A>
+<LI><A NAME="tex2html1852"
+  HREF="node109.html">Hinweis:</A>
+<LI><A NAME="tex2html1853"
+  HREF="node110.html">Hinweis zur Rechnerarchitektur</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1849"
+  HREF="node108.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1845"
+  HREF="node106.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1839"
+  HREF="node106.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1847"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1850"
+  HREF="node108.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1846"
+  HREF="node106.html">Clients einrichten</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1840"
+  HREF="node106.html">Clients einrichten</A>
+ &nbsp; <B>  <A NAME="tex2html1848"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

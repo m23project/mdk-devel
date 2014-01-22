@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zu GPG-Schlüsseln</TITLE>
-<META NAME="description" CONTENT="Hinweis zu GPG-Schlüsseln">
+<TITLE>LDAP-Server verwalten</TITLE>
+<META NAME="description" CONTENT="LDAP-Server verwalten">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,95 +20,87 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node41.html">
-<LINK REL="previous" HREF="node39.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node41.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html943"
+<A NAME="tex2html963"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html939"
-  HREF="node38.html">
+<A NAME="tex2html959"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html933"
+<A NAME="tex2html953"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html941"
+<A NAME="tex2html961"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html944"
-  HREF="node41.html">scp</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html940"
-  HREF="node38.html">Server-Backup</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html934"
-  HREF="node39.html">Serversicherung verschlüsseln und hochladen</A>
- &nbsp; <B>  <A NAME="tex2html942"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html964"
+  HREF="node41.html">GPG-Schlüssel verwalten</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html960"
+  HREF="node26.html">Server</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html954"
+  HREF="node39.html">Dämonenerklärung</A>
+ &nbsp; <B>  <A NAME="tex2html962"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00672000000000000000">
-Hinweis zu GPG-Schl&#252;sseln</A>
-</H2>
-Sollte sich der Schl&#252;ssel, den Sie zum Sichern der Daten verwenden m&#246;chten, nicht in der Liste befinden, so klicken Sie auf <SPAN  CLASS="textit">&#34;GPG-Schl&#252;ssel verwalten&#34;</SPAN> neben der Schl&#252;sselauswahl.
+<H1><A NAME="SECTION00650000000000000000">
+LDAP-Server verwalten</A>
+</H1>
+<IMG
+  WIDTH="1042" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ldapSettings.png"
+ ALT="Image ldapSettings"> 
 <BR>
-<OL>
-<LI>
-<BR>
-Unter <SPAN  CLASS="textit">&#34;Dateispeicherdienst&#34;</SPAN> w&#228;hlen Sie zuerst aus, wie Sie die Daten sichern m&#246;chten. Zur Auswahl stehen:
+Dieser Dialog gibt Ihnen die M&#246;glichkeit mehrere LDAP-Server zu verwalten, damit diese von den Clients zur Benutzerauthentifizierung genutzt werden k&#246;nnen. Zus&#228;tzlich kann OpenLDAP auf dem m23-Server installiert und eingerichtet werden.
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">-</SPAN>: Diese Option sichert den m23-Server nur auf der Festplatte des m23-Servers. Sie sollten diese M&#246;glichkeit nur verwenden, wenn Sie <SPAN  CLASS="textbf">wirklich</SPAN> keinen anderen Server zum Sichern der Backupdaten verwenden m&#246;chten. Im Falle eines Datenverlustes z.B. durch Ausfall der Festplatte des m23-Servers kann keine Wiederherstellung des Servers vorgenommen werden. Sie k&#246;nnen auch die Backups, die auf dem m23-Server im Verzeichnis 
-<BR><PRE>
-/m23/root-only/serverBackups/
-</PRE>
- abgelegt werden, manuell auf ein externes Medium kopieren.
+<LI><SPAN  CLASS="textbf">Neuen LDAP-Server hinzuf&#252;gen</SPAN>: Geben Sie dazu in den Eingabefeldern die ben&#246;tigten Daten an. Der Name des Servers kann dabei unter <SPAN  CLASS="textit">&#34;LDAP-Servername&#34;</SPAN> frei gew&#228;hlt werden, da er nicht mit dem Hostnamen des Servers identisch sein mu&#223;. <SPAN  CLASS="textit">&#34;LDAP-Serverhost&#34;</SPAN> ist hingegen die IP-Adresse oder der voll qualifizierte Hostname des LDAP-Servers. Bedenken Sie dabei, da&#223; bei Verwendung des Hostnamens eine Aufl&#246;sung durch den Client m&#246;glich sein mu&#223;. Zus&#228;tzlich kann die voreingestellte Portadresse unter <SPAN  CLASS="textit">&#34;LDAP-Serverport&#34;</SPAN> ge&#228;ndert werden. Wird unter <SPAN  CLASS="textit">&#34;Pa&#223;wort&#34;</SPAN> und <SPAN  CLASS="textit">&#34;Pa&#223;wort wiederholen&#34;</SPAN> ein f&#252;r den LDAP-Server g&#252;ltiges Administrator-Pa&#223;wort eingegeben, so kann m23 Anmeldungsdaten f&#252;r die Clients auf dem LDAP-Server speichern. Sind die Pa&#223;wortfelder hingegen leer, so k&#246;nnen die Anmeldungsdaten ausschlie&#223;lich von diesem Server gelesen werden. Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;Hinzuf&#252;gen&#34;</SPAN>.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">scp</SPAN>: Mittels Secure Copy k&#246;nnen Sie die Backup-Daten auf jeden beliebigen Rechner sichern, auf dem ein SSH-Server l&#228;uft. Diese Variante bietet sich an, wenn Sie einen SSH-Server besitzen, der f&#252;r die Speicherung von Backups geeignet ist. Falls dessen Daten ebenfalls in einem Backupzyklus gesichert werden, ist dies eine sehr sichere M&#246;glichkeit zum Schutz Ihres m23-Servers.
+<LI><SPAN  CLASS="textbf">Vorhandenen LDAP-Server modifizieren</SPAN>: W&#228;hlen Sie zuerst einen LDAP-Server aus der Liste aus und klicken Sie auf <SPAN  CLASS="textit">&#34;Laden&#34;</SPAN>. Nun werden die Server-Daten in den Eingabefeldern angezeigt. Modifizieren Sie die gew&#252;nschten Werte und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;&#196;nderungen speichern&#34;</SPAN>.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">share-online.biz</SPAN>: W&#228;hlen Sie diese Einstellung, so l&#228;dt der m23-Server die verschl&#252;sselten Backupdaten auf einen sogenannten One-Click-Hoster. Sollten Sie keinen Server zur Sicherung des m23-Servers besitzen, so mag diese Variante eine Option f&#252;r Sie sein. Durch die Verschl&#252;sselung sind die Backup-Daten vor dem Einsehen durch andere gesch&#252;tzt. Das Hochladen kann unter Umst&#228;nden einige Zeit in Anspruch nehmen.
+<LI><SPAN  CLASS="textbf">LDAP-Server l&#246;schen</SPAN>: W&#228;hlen Sie zuerst einen LDAP-Server aus der Liste aus und klicken Sie dann auf <SPAN  CLASS="textit">&#34;L&#246;schen&#34;</SPAN>.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Eintr&#228;ge des LDAP-Servers bearbeiten</SPAN>: F&#252;r das Bearbeiten der Eintr&#228;ge im LDAP greift m23 auf die Oberfl&#228;che phpLDAPadmin zur&#252;ck. Diese kann mit einem Klick auf das dazugeh&#246;rige Symbol gestartet werden.
 <BR></LI>
 </UL>
-</LI>
-<LI>Klicken Sie auf <SPAN  CLASS="textit">&#34;&#196;ndern&#34;</SPAN> nachdem Sie Ihre Wahl getroffen haben.
-<BR></LI>
-<LI>Je nach Dateispeicherdienst m&#252;ssen Sie andere Angaben machen, damit der gew&#228;hlte Dienst genutzt werden kann.
-<BR>
-</LI>
-</OL>
+
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html943"
+<A NAME="tex2html963"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html939"
-  HREF="node38.html">
+<A NAME="tex2html959"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html933"
+<A NAME="tex2html953"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html941"
+<A NAME="tex2html961"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html944"
-  HREF="node41.html">scp</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html940"
-  HREF="node38.html">Server-Backup</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html934"
-  HREF="node39.html">Serversicherung verschlüsseln und hochladen</A>
- &nbsp; <B>  <A NAME="tex2html942"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html964"
+  HREF="node41.html">GPG-Schlüssel verwalten</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html960"
+  HREF="node26.html">Server</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html954"
+  HREF="node39.html">Dämonenerklärung</A>
+ &nbsp; <B>  <A NAME="tex2html962"
   HREF="node1.html">Inhalt</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

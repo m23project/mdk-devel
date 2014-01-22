@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Choix du thème</TITLE>
-<META NAME="description" CONTENT="Choix du thème">
+<TITLE>R&#233;stitution de votre serveur m23</TITLE>
+<META NAME="description" CONTENT="R&#233;stitution de votre serveur m23">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node50.html">
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node52.html">
 <LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node55.html">
 </HEAD>
@@ -27,44 +28,114 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1103"
+<A NAME="tex2html1131"
   HREF="node55.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1099"
+<A NAME="tex2html1127"
   HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1095"
+<A NAME="tex2html1121"
   HREF="node53.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1101"
+<A NAME="tex2html1129"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1104"
-  HREF="node55.html">Service de téléadministration de</A>
-<B> monter:</B> <A NAME="tex2html1100"
+<B> suivant:</B> <A NAME="tex2html1132"
+  HREF="node55.html">Gestion des adresses IP</A>
+<B> monter:</B> <A NAME="tex2html1128"
   HREF="node25.html">Serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1096"
-  HREF="node53.html">Tableaux d'adresses</A>
- &nbsp; <B>  <A NAME="tex2html1102"
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1122"
+  HREF="node53.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html1130"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION007110000000000000000">
-Choix du th&#232;me</A>
-</H1>Ici, vous pouvez adapter l'apparence de m23. Choisissez le th&#232;me qui vous pla&#238;t le plus entre les th&#232;mes propos&#233;s. Puis, cliquez sur <SPAN  CLASS="textit">"OK"</SPAN>. Ce param&#232;tre s'applique seulement &#224; votre compte d'utilisateur.
+<H1><A NAME="SECTION007100000000000000000">
+R&#233;stitution de votre serveur m23</A>
+</H1>Si une panne survenait sur votre serveur m23, vous pouvez restaurer votre serveur dans un des &#233;tats sauvegard&#233;s au pr&#233;alable en utilisant une des sauvegardes disponibles. Proc&#233;dez comme suit:
 <BR><IMG
-  WIDTH="389" HEIGHT="691" ALIGN="BOTTOM" BORDER="0"
- SRC="./themeChoice.png"
- ALT="Image themeChoice"> 
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./serverRestore.png"
+ ALT="Image serverRestore"> 
 <BR>
-<P>
-<BR><HR>
+<OL>
+<LI>Installez votre serveur m23 sur un disque dur sain avec le CD d'installation du serveur m23. Vous pouvez t&#233;l&#233;charger l'image ISO sur m23.sf.net pour la graver sur un CD.
+<BR></LI>
+<LI>Enregistrez la derni&#232;re archive de sauvegarde sur l'ordinateur ou se trouve la cl&#233; GPG pour le chiffrement et d&#233;chiffrement.
+<BR></LI>
+<LI>S'il s'agit d'un syst&#232;me bas&#233; sur Linux, vous pouvez d&#233;chiffrer le fichier de sauvegarde en utilisant la ligne de commande ci-dessous:
+<BR><PRE>
+gpg -d  m23backup.tar
+</PRE>
+	Sinon, utilisez l'interface graphique GPG de votre syst&#232;me d'exploitation.
+<BR></LI>
+<LI>Copiez le fichier de sauvegarde d&#233;chiffr&#233; <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>m23backup.tar<SPAN CLASS="MATH"></SPAN></SPAN> sur le serveur m23  nouvellement install&#233; dans le r&#233;pertoire <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>/tmp<SPAN CLASS="MATH"></SPAN></SPAN>. Depuis Linux, vous pouvez le copier par SCP:
+<BR><PRE>
+scp m23backup.tar root@[IP]:/tmp
+</PRE>
+	Remplacez <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>[IP]<SPAN CLASS="MATH"></SPAN></SPAN> par l'adresse IP de votre serveur m23. Sous Windows, vous pouvez utiliser le programme WinSCP (www.winscp.net).
+<BR></LI>
+<LI>Entrez le syst&#232;me du serveur m23 comme <SPAN  CLASS="textbf">root</SPAN>.
+<BR></LI>
+<LI>Placez-vous dans le r&#233;pertoire <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>/tmp<SPAN CLASS="MATH"></SPAN></SPAN> par la commande:
+<BR><PRE>
+cd /tmp
+</PRE>
+</LI>
+<LI>Cr&#233;ez un nouveau r&#233;pertoire pour les donn&#233;es d&#233;chiffr&#233;es et placez-vous dans celui-ci:
+<BR><PRE>
+mkdir restore; cd restore
+</PRE>
+</LI>
+<LI>D&#233;compressez le fichier par la commande:
+<BR><PRE>
+tar xfv /tmp/m23backup.tar
+</PRE>
+</LI>
+<LI>D&#233;marrez le processus de restauration par la commande:
+<BR><PRE>
+/m23/bin/m23Restore
+</PRE>
+</LI>
+<LI>Apr&#232;s la fin de la restauration vous devrez red&#233;marrer votre serveur m23 , p.ex. avec: 
+<BR><PRE>
+reboot
+</PRE>
+</LI>
+<LI>Maintenant, votre serveur m23 restaur&#233; dans l'&#233;tat de la sauvegarde utilis&#233;e devrait &#234;tre fonctionnel.
+<BR></LI>
+</OL>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1131"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1127"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1121"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1129"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html1132"
+  HREF="node55.html">Gestion des adresses IP</A>
+<B> monter:</B> <A NAME="tex2html1128"
+  HREF="node25.html">Serveur</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1122"
+  HREF="node53.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html1130"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -67,21 +67,27 @@ rm $debOption
 #upload m23 server software installation packages directly (without tux03)
 if test $choice == "directuplinst"
 then
-	cd $serverPackagesPool
+	isDevelReturn
+	if [ $? -eq 1 ]
+	then
+		cd $serverPackagesPool
 
-	#Makes the Release file and signs it
-	mkRelease
+		#Makes the Release file and signs it
+		mkRelease
 
-	#build md5 sums
-	md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
+		#build md5 sums
+		md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
 
-	#Merge the m23testing repository into the release directory
-	ssh tux05 m23UpdateInstFromm23Testing
+		#Merge the m23testing repository into the release directory
+		ssh tux05 m23UpdateInstFromm23Testing
 
-	#upload all files and rename not needed to *~
-	rsync -razPy --delete-after `rsyncUploadSpeedLimit` . /mdk/m23update/updates/0.5.0/*.info tux05:/m23inst
+		#upload all files and rename not needed to *~
+		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . /mdk/m23update/updates/0.5.0/*.info tux05:/m23inst
 
-	ssh tux05 m23instUpload-start
+		ssh tux05 m23instUpload-start
+	else
+		dialog --title ERROR --msgbox 'ERROR: You cannot upload a release to the development package repository' 6 50
+	fi
 fi
 
 
@@ -91,19 +97,25 @@ fi
 #upload m23 server software installation packages as testing
 if test $choice == "uploadtesting"
 then
-	cd $serverPackagesPool
+	isDevelReturn
+	if [ $? -eq 0 ]
+	then
+		cd $serverPackagesPool
 
-	#Makes the Release file and signs it
-	mkRelease
+		#Makes the Release file and signs it
+		mkRelease
 
-	#build md5 sums
-	md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
+		#build md5 sums
+		md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
 
-	#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
-	ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
+		#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
+		ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
 
-	#upload all files
-	rsync -razPy --delete-after `rsyncUploadSpeedLimit` . hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23testing/
+		#upload all files
+		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23testing/
+	else
+		dialog --title ERROR --msgbox 'ERROR: You cannot upload a development to the release package repository' 6 50
+	fi
 fi
 
 

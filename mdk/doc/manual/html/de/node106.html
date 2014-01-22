@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23 mit einem externen DHCP-Server benutzen</TITLE>
-<META NAME="description" CONTENT="m23 mit einem externen DHCP-Server benutzen">
+<TITLE>Clients einrichten</TITLE>
+<META NAME="description" CONTENT="Clients einrichten">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,73 +19,133 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node112.html">
-<LINK REL="previous" HREF="node102.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node139.html">
+<LINK REL="previous" HREF="node67.html">
+<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1809"
+<A NAME="tex2html1805"
   HREF="node107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1805"
-  HREF="node101.html">
+<A NAME="tex2html1801"
+  HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1799"
+<A NAME="tex2html1795"
   HREF="node105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1807"
+<A NAME="tex2html1803"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1810"
-  HREF="node107.html">Der andere DHCP-Server kann</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1806"
-  HREF="node101.html">Clients einrichten</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1800"
-  HREF="node105.html">Hinweis zur Rechnerarchitektur</A>
- &nbsp; <B>  <A NAME="tex2html1808"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1806"
+  HREF="node107.html">Client hinzufügen</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1802"
+  HREF="manual.html">m23-Benutzerhandbuch m23 rock 14.1</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1796"
+  HREF="node105.html">Paketquelle und Paketzusammenstellung von</A>
+ &nbsp; <B>  <A NAME="tex2html1804"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00920000000000000000">
-m23 mit einem externen DHCP-Server benutzen</A>
-</H1>Szenario: Im lokalen Netzwerk gibt es einen DHCP-Server, der Netzwerkeinstellungen (IP, Netzwerkmaske etc.) an alle Rechner verteilt. Zus&#228;tzlich ist ein m23-Server vorhanden, mit dem Clients aufgesetzt werden sollen.
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./externalDHCP.png"
- ALT="Image externalDHCP"> 
-<BR>
-Problem: Die Installation der Clients funktioniert nicht, da der lokale DHCP die Netzwerkeinstellungen schneller als der m23-DHCP zuweist.
-<BR>
-Begr&#252;ndung: Der m23-Server mu&#223; dem Client bei der Installation des Betriebssystems die IP und weitere Netzwerkeinstellungen zuweisen. Werden diese Einstellungen von einem anderen DHCP-Server vorgenommen, so findet der Client den m23-Server nicht, das Netzwerkbootimage wird nicht gefunden und der Client kann nicht installiert werden. Grunds&#228;tzlich kann man an dem Vorgehen nichts &#228;ndern, wenn es um Netzwerkinstallationen geht, da dies von den Netzwerkprotokollen und -standards so vorgesehen ist.
-<BR>
-<BR><HR>
+<H1><A NAME="SECTION00900000000000000000">
+Clients einrichten</A>
+</H1> <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1811"
-  HREF="node107.html">Der andere DHCP-Server kann deaktiviert werden</A>
-<LI><A NAME="tex2html1812"
-  HREF="node108.html">Der andere DHCP-Server kann NICHT deaktiviert werden</A>
-<LI><A NAME="tex2html1813"
-  HREF="node109.html">ISC DHCP Server</A>
-<LI><A NAME="tex2html1814"
-  HREF="node110.html">Anderer DHCP-Server</A>
-<LI><A NAME="tex2html1815"
-  HREF="node111.html">Proxy DHCP</A>
+<LI><A NAME="tex2html1807"
+  HREF="node107.html">Client hinzufügen</A>
+<UL>
+<LI><A NAME="tex2html1808"
+  HREF="node108.html">Hinweis</A>
+<LI><A NAME="tex2html1809"
+  HREF="node109.html">Hinweis:</A>
+<LI><A NAME="tex2html1810"
+  HREF="node110.html">Hinweis zur Rechnerarchitektur</A>
 </UL>
+<BR>
+<LI><A NAME="tex2html1811"
+  HREF="node111.html">m23 mit einem externen DHCP-Server benutzen</A>
+<UL>
+<LI><A NAME="tex2html1812"
+  HREF="node112.html">Der andere DHCP-Server kann deaktiviert werden</A>
+<LI><A NAME="tex2html1813"
+  HREF="node113.html">Der andere DHCP-Server kann NICHT deaktiviert werden</A>
+<LI><A NAME="tex2html1814"
+  HREF="node114.html">ISC DHCP Server</A>
+<LI><A NAME="tex2html1815"
+  HREF="node115.html">Anderer DHCP-Server</A>
+<LI><A NAME="tex2html1816"
+  HREF="node116.html">Proxy DHCP</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1817"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<UL>
+<LI><A NAME="tex2html1818"
+  HREF="node118.html">Hinweis zum Rückgängigmachen von Aktionen</A>
+<LI><A NAME="tex2html1819"
+  HREF="node119.html">Hinweis zur Verwendung von JavaScript</A>
+<LI><A NAME="tex2html1820"
+  HREF="node120.html">Menüpunkte im Überblick</A>
+<LI><A NAME="tex2html1821"
+  HREF="node121.html">Hinweis zu Dateisystemen</A>
+<LI><A NAME="tex2html1822"
+  HREF="node122.html">Schrittweises Vorgehen zum Anlegen eines RAIDs</A>
+<LI><A NAME="tex2html1823"
+  HREF="node123.html">Hinweis zu RAIDs und Partitionen</A>
+<LI><A NAME="tex2html1824"
+  HREF="node124.html">Hinweis zur Installation von Betriebssystemen auf RAIDs</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1825"
+  HREF="node125.html">Wählen der Client-Distribution</A>
+<UL>
+<LI><A NAME="tex2html1826"
+  HREF="node126.html">Information:</A>
+<LI><A NAME="tex2html1827"
+  HREF="node127.html">Hinweis zu Abbilddateien</A>
+<LI><A NAME="tex2html1828"
+  HREF="node128.html">Hinweis:</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1829"
+  HREF="node129.html">Client löschen</A>
+<UL>
+<LI><A NAME="tex2html1830"
+  HREF="node130.html">Statuserklärung</A>
+<LI><A NAME="tex2html1831"
+  HREF="node131.html">Aufträge</A>
+<LI><A NAME="tex2html1832"
+  HREF="node132.html">Mehrere Clients bearbeiten</A>
+<LI><A NAME="tex2html1833"
+  HREF="node133.html">Hinweis</A>
+<LI><A NAME="tex2html1834"
+  HREF="node134.html">Tricks</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1835"
+  HREF="node135.html">Client integrieren</A>
+<UL>
+<LI><A NAME="tex2html1836"
+  HREF="node136.html">Hinweis</A>
+<LI><A NAME="tex2html1837"
+  HREF="node137.html">Manuelle Integration</A>
+<LI><A NAME="tex2html1838"
+  HREF="node138.html">Hinweis für die Integration von Ubuntu-Systemen</A>
+</UL></UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

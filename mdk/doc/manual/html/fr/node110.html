@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Proxy DHCP</TITLE>
-<META NAME="description" CONTENT="Proxy DHCP">
+<TITLE>Utiliser m23 conjointement avec un serveur DHCP externe</TITLE>
+<META NAME="description" CONTENT="Utiliser m23 conjointement avec un serveur DHCP externe">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node109.html">
+<LINK REL="next" HREF="node116.html">
+<LINK REL="previous" HREF="node106.html">
 <LINK REL="up" HREF="node105.html">
 <LINK REL="next" HREF="node111.html">
 </HEAD>
@@ -27,41 +28,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1855"
+<A NAME="tex2html1879"
   HREF="node111.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1851"
+<A NAME="tex2html1875"
   HREF="node105.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1847"
+<A NAME="tex2html1869"
   HREF="node109.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1853"
+<A NAME="tex2html1877"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1856"
-  HREF="node111.html">Partitionnement et formatage du</A>
-<B> monter:</B> <A NAME="tex2html1852"
-  HREF="node105.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1848"
-  HREF="node109.html">Autre serveur DHCP</A>
- &nbsp; <B>  <A NAME="tex2html1854"
+<B> suivant:</B> <A NAME="tex2html1880"
+  HREF="node111.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1876"
+  HREF="node105.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1870"
+  HREF="node109.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1878"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001025000000000000000">
-Proxy DHCP</A>
-</H2>
-Il vous sera probablement utile d'utiliser un Proxy DHCP.
-<BR>	<SPAN  CLASS="textbf">Si vous avez besoin de compl&#233;ments concernant l'installation et la configuration de votre syst&#232;me m23 ou des autres composants open source,</SPAN> visitez l'URL (en Allemand) Support f&#252;r m23, Linux und OpenSource von goos-habermann.de.
+<H1><A NAME="SECTION001020000000000000000">
+Utiliser m23 conjointement avec un serveur DHCP externe</A>
+</H1>Supposons qu'un serveur DHCP diffuse, sur votre r&#233;seau local, les param&#232;tres du r&#233;seau (IP, masque de r&#233;seau, etc ...) pour tous les ordinateurs et qu'il existe un serveur m23 h&#233;bergeant &#233;galement un serveur DHCP, &#224; partir duquel les postes client doivent &#234;tre install&#233;s.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
+<BR>
+Probl&#232;me: L'installation des postes client m23 ne fonctionnera pas, parce que le serveur DHCP externe diffuse les param&#232;tres du r&#233;seau plus vite que le serveur DHCP m23.
+<BR>
+La raison: Le serveur m23 doit assigner l'adresse IP et les autres param&#232;tres du r&#233;seau au poste client lors de l'installation du syst&#232;me d'exploitation. Si un autre serveur DHCP fixe ces param&#232;tres &#224; la place du serveur DHCP m23, le poste client ne trouvera pas le serveur m23, en cons&#233;quence de quoi, l'image d'amor&#231;age du r&#233;seau ne sera pas accessible et le poste client ne pourra pas &#234;tre install&#233;. Il n'est en principe pas possible de modifier ce comportement, parce que les standards r&#233;seaux et les protocoles d'amor&#231;age par le r&#233;seau (netboot) suivent une proc&#233;dure standardis&#233;.
 <BR>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1881"
+  HREF="node111.html">Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1882"
+  HREF="node112.html">Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1883"
+  HREF="node113.html">Serveur DHCP ISC</A>
+<LI><A NAME="tex2html1884"
+  HREF="node114.html">Autre serveur DHCP</A>
+<LI><A NAME="tex2html1885"
+  HREF="node115.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1879"
+  HREF="node111.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1875"
+  HREF="node105.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1869"
+  HREF="node109.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1877"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html1880"
+  HREF="node111.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1876"
+  HREF="node105.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1870"
+  HREF="node109.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1878"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

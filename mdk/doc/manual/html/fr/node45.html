@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Processus étape par étape pour ajouter de nouvelles tâches</TITLE>
-<META NAME="description" CONTENT="Processus étape par étape pour ajouter de nouvelles tâches">
+<TITLE>scp</TITLE>
+<META NAME="description" CONTENT="scp">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,111 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node46.html">
 <LINK REL="previous" HREF="node44.html">
-<LINK REL="up" HREF="node37.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node46.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html999"
+<A NAME="tex2html1026"
   HREF="node46.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html995"
-  HREF="node37.html">
+<A NAME="tex2html1022"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html989"
+<A NAME="tex2html1016"
   HREF="node44.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html997"
+<A NAME="tex2html1024"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1000"
-  HREF="node46.html">Effacer une tâche</A>
-<B> monter:</B> <A NAME="tex2html996"
-  HREF="node37.html">Sauvegarde du serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html990"
-  HREF="node44.html">Param&#232;tres cron</A>
- &nbsp; <B>  <A NAME="tex2html998"
+<B> suivant:</B> <A NAME="tex2html1027"
+  HREF="node46.html">Remarque</A>
+<B> monter:</B> <A NAME="tex2html1023"
+  HREF="node42.html">Sauvegarde du serveur</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1017"
+  HREF="node44.html">Remarque concernant les cl&#233;s</A>
+ &nbsp; <B>  <A NAME="tex2html1025"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00778000000000000000">
-Processus &#233;tape par &#233;tape pour ajouter de nouvelles t&#226;ches</A>
+<H2><A NAME="SECTION00783000000000000000">
+scp</A>
 </H2>
-
-<OL>
-<LI>S&#233;lectionnez d'abord l'unit&#233; de temps qu'il vous faut pour la t&#226;che sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Unit&#233; de base pour cron<SPAN CLASS="MATH"></SPAN></SPAN>
-</LI>
-<LI>Ensuite, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Changer<SPAN CLASS="MATH"></SPAN></SPAN>, pour l'ajustement de l'&#233;l&#233;ment dans le dialogue suivant.
-<BR></LI>
-<LI>D&#233;pendamment de l'unit&#233; n&#233;cessaire, entrez vos donn&#233;es:
+			Pour "Secure Copy" les indications suivantes sont n&#233;cessaires:
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Heure:</SPAN> La t&#226;che sera d&#233;marr&#233;e chaque heure ou toutes les N heures &#224; la minute indiqu&#233;e.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Minute du d&#233;marrage:</SPAN> La minute de d&#233;marrage de la t&#226;che.
+<LI><SPAN  CLASS="textbf">Utilisateur:</SPAN> C'est le nom d'utilisateur avec lequel le serveur m23 doit se connecter sur le serveur SCP pour y sauvegarder le fichiers de sauvegarde.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">R&#233;p&#233;ter toutes les N heures:</SPAN> L'intervalle entre les ex&#233;cutions en heures (p.ex. 2 pour toutes les deux heures).
+<LI><SPAN  CLASS="textbf">Serveur SCP:</SPAN> Ici, entrez le nom ou l'adresse IP par le(la)quel(le) le serveur m23 se connectera au serveur SCP.
 <BR></LI>
-</UL>
-</LI>
-<LI><SPAN  CLASS="textbf">Jour:</SPAN> La t&#226;che sera d&#233;marr&#233;e chaque jour &#224; l'heure indiqu&#233;e.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Minute du d&#233;marrage:</SPAN> La minute de d&#233;marrage de la t&#226;che.
+<LI><SPAN  CLASS="textbf">R&#233;pertoire de sauvegarde du serveur:</SPAN> C'est le r&#233;pertoire sur le serveur SCP o&#249; les archives de sauvegarde seront copi&#233;s. Entrez le chemin absolu.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Heure du d&#233;marrage:</SPAN> L'heure de d&#233;marrage de la t&#226;che.
+<LI><SPAN  CLASS="textbf">Cl&#233; GPG:</SPAN> Ici, choisissez la cl&#233; GPG avec laquelle vous souhaitez chiffrer les sauvegardes avant de les transf&#233;rer.
 <BR></LI>
 </UL>
-</LI>
-<LI><SPAN  CLASS="textbf">Semaine:</SPAN> La t&#226;che sera d&#233;marr&#233;e une fois par semaine &#224; l'heure indiqu&#233;e.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Minute du d&#233;marrage:</SPAN> La minute de d&#233;marrage de la t&#226;che.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Heure du d&#233;marrage:</SPAN> L'heure de d&#233;marrage de la t&#226;che.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Jour de la semaine:</SPAN> Le jour de la semaine de d&#233;marrage de la t&#226;che.
-<BR></LI>
-</UL>
-</LI>
-</UL>
-</LI>
-<LI>Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN> pour ajouter la t&#226;che.
-<BR></LI>
-</OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html999"
-  HREF="node46.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html995"
-  HREF="node37.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html989"
-  HREF="node44.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html997"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html1000"
-  HREF="node46.html">Effacer une tâche</A>
-<B> monter:</B> <A NAME="tex2html996"
-  HREF="node37.html">Sauvegarde du serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html990"
-  HREF="node44.html">Param&#232;tres cron</A>
- &nbsp; <B>  <A NAME="tex2html998"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

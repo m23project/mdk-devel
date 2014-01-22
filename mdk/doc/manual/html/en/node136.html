@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hints about the VM host</TITLE>
-<META NAME="description" CONTENT="Hints about the VM host">
+<TITLE>Manual assimilation</TITLE>
+<META NAME="description" CONTENT="Manual assimilation">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,45 +28,42 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2188"
+<A NAME="tex2html2202"
   HREF="node137.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2184"
+<A NAME="tex2html2198"
   HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2178"
+<A NAME="tex2html2192"
   HREF="node135.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2186"
+<A NAME="tex2html2200"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2189"
-  HREF="node137.html">Memory, harddisk and CPU</A>
-<B> Up:</B> <A NAME="tex2html2185"
-  HREF="node134.html">Create VM</A>
-<B> Previous:</B> <A NAME="tex2html2179"
-  HREF="node135.html">Step by step</A>
- &nbsp; <B>  <A NAME="tex2html2187"
+<B> Next:</B> <A NAME="tex2html2203"
+  HREF="node137.html">Hint for the assimilation</A>
+<B> Up:</B> <A NAME="tex2html2199"
+  HREF="node134.html">Client assimilation</A>
+<B> Previous:</B> <A NAME="tex2html2193"
+  HREF="node135.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html2201"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001012000000000000000">
-Hints about the VM host</A>
+<H2><A NAME="SECTION00962000000000000000">
+Manual assimilation</A>
 </H2>
-The m23 client needs to have installed the m23 virtualisation package <SPAN  CLASS="textit">"m23VirtualBox"</SPAN> to be capable of creating and running virtual m23 clients. The package can be found under <SPAN  CLASS="textit">"Special packages (for skilled users only)"</SPAN> in the package installation dialogue (<SPAN  CLASS="textit">Packages</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">Install</SPAN>) in the m23 administration interface and can be installed on any m23 client.
-<BR>
-Remember that the VM host needs enough free disk space and free memory and adequate CPU power, because all virtual machines share the resources of the host's physical hardware.
-<BR>
+You can start the assimilation by hand if there is no SSH daemon running on the client. Execute the following commands as root in a console on the client (replace "serverIP" with the IP of your m23 server):
+<BR><PRE>
+cd /tmp; wget http://$\langle$serverIP$\rangle$/work.php -O work.php; sh work.php
+</PRE>
 <BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

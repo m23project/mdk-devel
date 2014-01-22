@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Deletion of jobs</TITLE>
-<META NAME="description" CONTENT="Deletion of jobs">
+<TITLE>Hint</TITLE>
+<META NAME="description" CONTENT="Hint">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node48.html">
 <LINK REL="previous" HREF="node46.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="up" HREF="node43.html">
 <LINK REL="next" HREF="node48.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1024"
+<A NAME="tex2html1049"
   HREF="node48.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1020"
-  HREF="node38.html">
+<A NAME="tex2html1045"
+  HREF="node43.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1016"
+<A NAME="tex2html1039"
   HREF="node46.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1022"
+<A NAME="tex2html1047"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1025"
-  HREF="node48.html">Backup list</A>
-<B> Up:</B> <A NAME="tex2html1021"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1017"
-  HREF="node46.html">Step by step: Adding</A>
- &nbsp; <B>  <A NAME="tex2html1023"
+<B> Next:</B> <A NAME="tex2html1050"
+  HREF="node48.html">share-online.biz</A>
+<B> Up:</B> <A NAME="tex2html1046"
+  HREF="node43.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1040"
+  HREF="node46.html">scp</A>
+ &nbsp; <B>  <A NAME="tex2html1048"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00679000000000000000">
-Deletion of jobs</A>
+<H2><A NAME="SECTION00684000000000000000">
+Hint</A>
 </H2>
-Choose the entry from the list under <SPAN  CLASS="textit">"cron entries"</SPAN> and click on <SPAN  CLASS="textit">"Delete"</SPAN>.
-<BR>	<BR><HR>
+			You need to make sure that the SCP server can be reached by the root account of the m23 server. Add the contents of the file 
+<BR><PRE>
+/root/.ssh/id\_dsa.pub
+</PRE>
+ on the m23 server to the file 
+<BR><PRE>
+~/.ssh/authorized\_keys
+</PRE>
+ on the SCP server owned by the user given above to ensure this. You can use the tool 
+<BR><PRE>
+ssh-copy-id
+</PRE>
+ for the key exchange too: 
+<BR><PRE>
+ssh-copy-id -i /root/.ssh/id\_dsa.pub benutzer@SCP-Server
+</PRE>
+.
+<BR>			<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

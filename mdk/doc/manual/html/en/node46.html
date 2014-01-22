@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Step by step: Adding a new job</TITLE>
-<META NAME="description" CONTENT="Step by step: Adding a new job">
+<TITLE>scp</TITLE>
+<META NAME="description" CONTENT="scp">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,111 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node47.html">
 <LINK REL="previous" HREF="node45.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="up" HREF="node43.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1014"
+<A NAME="tex2html1037"
   HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1010"
-  HREF="node38.html">
+<A NAME="tex2html1033"
+  HREF="node43.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1004"
+<A NAME="tex2html1027"
   HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1012"
+<A NAME="tex2html1035"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1015"
-  HREF="node47.html">Deletion of jobs</A>
-<B> Up:</B> <A NAME="tex2html1011"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1005"
-  HREF="node45.html">cron settings</A>
- &nbsp; <B>  <A NAME="tex2html1013"
+<B> Next:</B> <A NAME="tex2html1038"
+  HREF="node47.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html1034"
+  HREF="node43.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1028"
+  HREF="node45.html">Hint for the GPG</A>
+ &nbsp; <B>  <A NAME="tex2html1036"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00678000000000000000">
-Step by step: Adding a new job</A>
+<H2><A NAME="SECTION00683000000000000000">
+scp</A>
 </H2>
-
-<OL>
-<LI>Choose the time base you want to schedule the job for at <SPAN  CLASS="textit">"cron time base"</SPAN> first.
-<BR></LI>
-<LI>Now click on <SPAN  CLASS="textit">"Change"</SPAN> to adjust the next dialog elements.
-<BR></LI>
-<LI>You need to insert different values dependent on your previous choice:
+			To use "Secure Copy" you are required to enter the following values:
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Hourly</SPAN>: The job will be executed every hour or every N'th hour at the given minute.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<LI><SPAN  CLASS="textbf">User</SPAN>: This is the user name the m23 server needs to connect to the SCP server and to copy the files to it.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Repeat ever N hours</SPAN>: The interval between the runs in hours. (E.g. 2: execute every two hours).
+<LI><SPAN  CLASS="textbf">SCP server</SPAN>: Enter the IP or the name of the SCP server accessible by the m23 server.
 <BR></LI>
-</UL>
-</LI>
-<LI><SPAN  CLASS="textbf">Dayly</SPAN>: The job will be executed every day at the given time.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<LI><SPAN  CLASS="textbf">SCP store directory</SPAN>: The directory on the SCP server where to place the backup files. You should use full path names here.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
+<LI><SPAN  CLASS="textbf">GPG key</SPAN>: Choose the GPG key for encrypting the backups before copying.
 <BR></LI>
 </UL>
-</LI>
-<LI><SPAN  CLASS="textbf">Weekly</SPAN>: The job will be started on a given day of week at a given time.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Day of week</SPAN>: The day of week the job will be started.
-<BR></LI>
-</UL>
-</LI>
-</UL>
-</LI>
-<LI>Click on <SPAN  CLASS="textit">"Add"</SPAN> to add the job finally.
-<BR></LI>
-</OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1014"
-  HREF="node47.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1010"
-  HREF="node38.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1004"
-  HREF="node45.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1012"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1015"
-  HREF="node47.html">Deletion of jobs</A>
-<B> Up:</B> <A NAME="tex2html1011"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1005"
-  HREF="node45.html">cron settings</A>
- &nbsp; <B>  <A NAME="tex2html1013"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

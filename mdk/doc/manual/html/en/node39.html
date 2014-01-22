@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Encrypt and upload backup</TITLE>
-<META NAME="description" CONTENT="Encrypt and upload backup">
+<TITLE>Description of daemons</TITLE>
+<META NAME="description" CONTENT="Description of daemons">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node40.html">
 <LINK REL="previous" HREF="node38.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="up" HREF="node36.html">
 <LINK REL="next" HREF="node40.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html930"
+<A NAME="tex2html944"
   HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html926"
-  HREF="node38.html">
+<A NAME="tex2html940"
+  HREF="node36.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html920"
+<A NAME="tex2html936"
   HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html928"
+<A NAME="tex2html942"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html931"
-  HREF="node40.html">Hint for the GPG</A>
-<B> Up:</B> <A NAME="tex2html927"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html921"
-  HREF="node38.html">Server backup</A>
- &nbsp; <B>  <A NAME="tex2html929"
+<B> Next:</B> <A NAME="tex2html945"
+  HREF="node40.html">Manage LDAP servers</A>
+<B> Up:</B> <A NAME="tex2html941"
+  HREF="node36.html">Daemons and programs</A>
+<B> Previous:</B> <A NAME="tex2html937"
+  HREF="node38.html">Color codes</A>
+ &nbsp; <B>  <A NAME="tex2html943"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00671000000000000000">
-Encrypt and upload backup</A>
+<H2><A NAME="SECTION00643000000000000000">
+Description of daemons</A>
 </H2>
-Here you need to enter the required access information for the chosen external storage and the GPG key for encrypting the backup data.
-<BR>
+
+<UL>
+<LI><SPAN  CLASS="textbf">apache</SPAN>: Apache is a web server and the most important part of m23. The m23 administration interface and the client jobs are generated via Apache and PHP.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">mysql</SPAN>: MySQL is a database server which stores the client information.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">dhcpd3</SPAN>: The DHCP server assigns IP addresses to the clients and can only be started if there is a minimum of one managed clients. A "yellow" state is not always an indicator for an error.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">slapd</SPAN>: This is the daemon of the LDAP server OpenLDAP. With LDAP you can store login on a central server and use these login from all clients that can access this server.
+<BR></LI>
+</UL>
 <BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

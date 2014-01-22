@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Anpassungskriterien</TITLE>
-<META NAME="description" CONTENT="Anpassungskriterien">
+<TITLE>Paketquellen- Architekt (Pakete von CD einlesen)</TITLE>
+<META NAME="description" CONTENT="Paketquellen- Architekt (Pakete von CD einlesen)">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,82 +20,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node189.html">
-<LINK REL="previous" HREF="node187.html">
-<LINK REL="up" HREF="node186.html">
+<LINK REL="previous" HREF="node186.html">
+<LINK REL="up" HREF="node185.html">
 <LINK REL="next" HREF="node189.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2865"
+<A NAME="tex2html2885"
   HREF="node189.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2861"
-  HREF="node186.html">
+<A NAME="tex2html2881"
+  HREF="node185.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2855"
+<A NAME="tex2html2875"
   HREF="node187.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2863"
+<A NAME="tex2html2883"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2866"
-  HREF="node189.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2862"
-  HREF="node186.html">Festplattentyp und Größe definieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2856"
-  HREF="node187.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html2864"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2886"
+  HREF="node189.html">Paketquellen- Architekt (Paket-Index erstellen)</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2882"
+  HREF="node185.html">Paketquellenarchitekt</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2876"
+  HREF="node187.html">Hinweise</A>
+ &nbsp; <B>  <A NAME="tex2html2884"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001422000000000000000">
-Anpassungskriterien</A>
-</H2>
-Da davon auszugehen ist, da&#223; die hier definierten Festplatten-Parameter nicht f&#252;r alle Ihre Clients zutreffen, gibt es verschiedene Methoden, wie m23 die Partitionen individuell f&#252;r die einzelnen Clients anpassen kann.
+<H1><A NAME="SECTION001320000000000000000">
+Paketquellen- Architekt (Pakete von CD einlesen)</A>
+</H1>
+<IMG
+  WIDTH="1186" HEIGHT="1264" ALIGN="BOTTOM" BORDER="0"
+ SRC="./poolBuilderReadCD.png"
+ ALT="Image poolBuilderReadCD"> 
 <BR>
 <UL>
-<LI>Das <SPAN  CLASS="textit">&#34;Festplattenauswahl-Kriterium&#34;</SPAN> legt fest, nach welchem Schema die Festplatte im Zielrechner ausgew&#228;hlt werden soll, falls mehrere Festplatten vorhanden sind.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textit">&#34;Wie angegeben&#34;</SPAN> benutzt die oben angegebene Festplatte auch, wenn im Client Festplatten vorhanden sind, die in ihrer Gr&#246;&#223;e &#228;hnlicher sind. Existiert diese Festplatte nicht (z.B. kein Laufwerk /dev/hda in einem reinen SCSI-System), so wird eine andere Festplatte ausgew&#228;hlt. Wird diese Funktion nicht aktiviert, so wird automatisch die beste Festplatte nach den folgenden Kriterien ausgew&#228;hlt.
+<LI><SPAN  CLASS="textbf">Medium w&#228;hlen</SPAN>: W&#228;hlen Sie den Mountpunkt aus, von dem Sie die Pakete kopieren wollen und klicken anschlie&#223;end auf <SPAN  CLASS="textit">&#34;Laufwerk einlesen&#34;</SPAN>.
 <BR></LI>
-<LI>Die Toleranzangaben bei <SPAN  CLASS="textit">&#34;Gleicher Typ&#34;</SPAN> und <SPAN  CLASS="textit">&#196;nderer Typ&#34;</SPAN> geben an, wie gro&#223; die Toleranz nach oben (Client-Festplatte ist gr&#246;&#223;er als die definierte) und unten (Client-Festplatte ist kleiner) von der definierten Gr&#246;&#223;e sein soll. Festplatten, die innerhalb der Toleranz liegen, werden als &#220;bereinstimmung mit der Definition gewertet. Wenn Festplatten gleichen Typs (z.B. vom Typ IDE) bevorzugt werden sollen, so w&#228;hlen Sie bei <SPAN  CLASS="textit">Anderer Typ</SPAN> einen kleineren oder keinen (obere und untere Toleranzgrenze auf 0 setzen) Toleranzbereich.
+<LI><SPAN  CLASS="textbf">Status</SPAN>: Mit einem Klick auf <SPAN  CLASS="textit">&#34;Laufwerkstatus testen&#34;</SPAN> k&#246;nnen Sie den akuellen Status des Laufwerkes und die Gr&#246;&#223;e der Paketquelle feststellen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Zus&#228;tzliche Medien einlesen</SPAN>: Nach Abschlu&#223; des Kopierens k&#246;nnen Sie ein neues Medium einlegen und ebenfalls in die Paketquelle kopieren.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Index erstellen</SPAN>: Fahren Sie mit einem Klick auf <SPAN  CLASS="textit">&#34;N&#228;chster Schritt (Paket-Index erstellen)&#34;</SPAN> fort, wenn Sie alle Medien kopiert haben.
 <BR></LI>
 </UL>
-</LI>
-</UL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2865"
-  HREF="node189.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2861"
-  HREF="node186.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2855"
-  HREF="node187.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2863"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2866"
-  HREF="node189.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2862"
-  HREF="node186.html">Festplattentyp und Größe definieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2856"
-  HREF="node187.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html2864"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

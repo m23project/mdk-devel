@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Administrer le serveur LDAP</TITLE>
-<META NAME="description" CONTENT="Administrer le serveur LDAP">
+<TITLE>Notez</TITLE>
+<META NAME="description" CONTENT="Notez">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,88 +19,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node35.html">
-<LINK REL="previous" HREF="node30.html">
-<LINK REL="up" HREF="node25.html">
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="node32.html">
 <LINK REL="next" HREF="node35.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html858"
+<A NAME="tex2html884"
   HREF="node35.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html854"
-  HREF="node25.html">
+<A NAME="tex2html880"
+  HREF="node32.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html848"
+<A NAME="tex2html876"
   HREF="node33.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html856"
+<A NAME="tex2html882"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html859"
-  HREF="node35.html">Gérer les clés GPG</A>
-<B> monter:</B> <A NAME="tex2html855"
-  HREF="node25.html">Serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html849"
-  HREF="node33.html">Description des d&#233;mons</A>
- &nbsp; <B>  <A NAME="tex2html857"
+<B> suivant:</B> <A NAME="tex2html885"
+  HREF="node35.html">Démons et programmes</A>
+<B> monter:</B> <A NAME="tex2html881"
+  HREF="node32.html">Mettre &#224; jour les</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html877"
+  HREF="node33.html">Proc&#233;dez comme suit:</A>
+ &nbsp; <B>  <A NAME="tex2html883"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00740000000000000000">
-Administrer le serveur LDAP</A>
-</H1>
-<IMG
-  WIDTH="1125" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
- SRC="./ldapSettings.png"
- ALT="Image ldapSettings"> 
+<H2><A NAME="SECTION00732000000000000000">
+Notez</A>
+</H2>
+Le CD d'installation du serveur m23 contient un script qui met &#224; jour la version de m23 install&#233;e sur votre serveur. Proc&#233;dez comme d&#233;crit ci-apr&#232;s pour mettre &#224; jour m23:
 <BR>
-Ce dialogue vous donne la possibilit&#233; d'administrer plusieurs serveurs LDAP, afin que ceux-ci puissent &#234;tre utilis&#233;s pour l'authentification des utilisateurs par les postes clients. De plus, OpenLDAP peut &#234;tre install&#233; et configur&#233; sur le serveur m23.
+<OL>
+<LI>Ouvrez une console
+<BR></LI>
+<LI>Ins&#233;rez le CD d'installation du serveur de m23 
+<BR></LI>
+<LI>Montez le CD (par ex.: 
+<BR><PRE>
+mount /mnt/cdrom1
+</PRE>
+)
+<BR></LI>
+<LI>Allez sur le point de montage du CD (par ex.: 
+<BR><PRE>
+cd /mnt/cdrom1
+</PRE>
+)
+<BR></LI>
+<LI>Ex&#233;cutez la mise &#224; jour en entrant: 
+<BR><PRE>
+bash ./updatem23.sh
+</PRE>
+</LI>
+</OL>-&gt;
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Ajouter un nouveau serveur LDAP:</SPAN> Entrez les donn&#233;es n&#233;cessaires dans les champs de saisie. Le nom du serveur peut &#234;tre choisi librement sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Nom du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN> il n'est pas n&#233;cessaire qu'il soit identique avec le nom d'h&#244;te du serveur.<SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ordinateur h&#244;te du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN> par contre, l'adresse IP ou le nom d'h&#244;te complet (avec FQDN) du serveur LDAP est requis. Si vous utilisez un nom d'h&#244;te, celui-ci doit &#234;tre resolvable par le poste client. De plus, vous pouvez changer l'adresse de connexion indiqu&#233;e sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Port de connexion du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN>. Si vous entrez un mot de passe d'administrateur valide pour le serveur LDAP dans <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Mot de passe<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Veuillez r&#233;p&#233;ter le mot de passe<SPAN CLASS="MATH"></SPAN></SPAN>, m23 peut enregistrer les donn&#233;es d'authentification pour les postes clients sur le serveur LDAP. Si vous laissez libre les champs pour le mot de passe, les donn&#233;es d'authentification ne pourront qu'&#234;tre lues de ce serveur. Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Modifier un serveur LDAP existant:</SPAN> S&#233;lectionnez en premier lieu un serveur LDAP dans la liste et cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Charger<SPAN CLASS="MATH"></SPAN></SPAN>, les donn&#233;es du serveur seront affich&#233;es dans les champs de saisie. Modifiez les valeurs souhait&#233;es, puis, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Enregistrer les changements<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Effacer un serveur LDAP:</SPAN> S&#233;lectionnez tout d'abord un serveur LDAP dans la liste, puis, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Editer les donn&#233;es enregistr&#233;es sur le serveur LDAP:</SPAN> Pour la configuration des donn&#233;es enregistr&#233;es sur le serveur LDAP, m23 utilise l'interface graphique de phpLDAPadmin. Celle-ci peut &#234;tre lanc&#233;e en cliquant sur son ic&#244;ne.
-<BR></LI>
-</UL>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html858"
-  HREF="node35.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html854"
-  HREF="node25.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html848"
-  HREF="node33.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html856"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html859"
-  HREF="node35.html">Gérer les clés GPG</A>
-<B> monter:</B> <A NAME="tex2html855"
-  HREF="node25.html">Serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html849"
-  HREF="node33.html">Description des d&#233;mons</A>
- &nbsp; <B>  <A NAME="tex2html857"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

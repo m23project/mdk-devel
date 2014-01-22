@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint for the GPG keys</TITLE>
-<META NAME="description" CONTENT="Hint for the GPG keys">
+<TITLE>Manage LDAP servers</TITLE>
+<META NAME="description" CONTENT="Manage LDAP servers">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,95 +20,87 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node41.html">
-<LINK REL="previous" HREF="node39.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node41.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html942"
+<A NAME="tex2html956"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html938"
-  HREF="node38.html">
+<A NAME="tex2html952"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html932"
+<A NAME="tex2html946"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html940"
+<A NAME="tex2html954"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html943"
-  HREF="node41.html">scp</A>
-<B> Up:</B> <A NAME="tex2html939"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html933"
-  HREF="node39.html">Encrypt and upload backup</A>
- &nbsp; <B>  <A NAME="tex2html941"
+<B> Next:</B> <A NAME="tex2html957"
+  HREF="node41.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html953"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html947"
+  HREF="node39.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html955"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00672000000000000000">
-Hint for the GPG keys</A>
-</H2>
-Click on <SPAN  CLASS="textit">"Manage GPG keys"</SPAN>, if the desired GPG key for encrypting the data cannot be found in the list.
+<H1><A NAME="SECTION00650000000000000000">
+Manage LDAP servers</A>
+</H1>
+<IMG
+  WIDTH="1007" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ldapSettings.png"
+ ALT="Image ldapSettings"> 
 <BR>
-<OL>
-<LI>
-<BR>
-Choose the type of storing service at <SPAN  CLASS="textit">"File storage service"</SPAN>. The following services are supported by m23:
+You can manage different LDAP servers in this dialog that can be used for user authentification on the clients. An OpenLDAP server can be installed and configured in addition.
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">-</SPAN>: This option stores the backups on the hard disk of the m23 server only. You should use this alternative, if you <SPAN  CLASS="textbf">really</SPAN> do not want to use an external storage server. It is NOT possible to restore the m23 server in case of data loss e.g. caused by a head crash in the harddisk of the m23 server. The backups are stored on the m23 server in the directory 
-<BR><PRE>
-/m23/root-only/serverBackups/
-</PRE>
- and can be copied manually to an external storage.
+<LI><SPAN  CLASS="textbf">Add a new LDAP server</SPAN>: Please enter the needed information in the edit lines. The name of the server is "free form" and is entered under <SPAN  CLASS="textit">"LDAP server name"</SPAN>. It is not required to be the same as the hostname of the LDAP server.<SPAN  CLASS="textit">"LDAP server host"</SPAN> has to be the IP or hostname of the LDAP server and must be resolvable from all clients. The preselected port can be cachanged under <SPAN  CLASS="textit">"LDAP server port"</SPAN>. If you enter a valid administrator password under <SPAN  CLASS="textit">"Password"</SPAN> and <SPAN  CLASS="textit">"Password (repeated)"</SPAN> the LDAP server can be used for storing new usr accounts. If you leave empty both passwords the server is assumed as read only. Click on <SPAN  CLASS="textit">"Add"</SPAN> after entering all required data.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">scp</SPAN>: Secure Copy allows to copy data to any computer that is reachable by the network and that is running the SSH daemon. This option is the method of choice, if you own an SSH server that is capable of storing the backup files. To add this server to your standard backup cycle is saving your m23 server in an optimal way.
+<LI><SPAN  CLASS="textbf">Change an existing LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">"Load"</SPAN>. Now you can see all server data in the edit lines. Modify any values you want and click on <SPAN  CLASS="textit">"Save changes"</SPAN> afterwards.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">share-online.biz</SPAN>: The m23 server will upload the encrypted backup data to a so-called file hosting service, if you choose this option. This may be an option for you, if don't own a server for storing the m23 server backups. Your backup data is safe due to the GPG encryption before the upload. The upload of your backup data may take some time.
+<LI><SPAN  CLASS="textbf">Delete a LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">"Delete"</SPAN>.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Edit entries of the LDAP servers</SPAN>: m23 uses the frontend phpLDAPadmin for editing entries. phpLDAPadmin can be started with a click on the phpLDAPadmin logo.
 <BR></LI>
 </UL>
-</LI>
-<LI>Click on <SPAN  CLASS="textit">"Change"</SPAN> after you made your decision.
-<BR></LI>
-<LI>Depending on the choice of the external storage you need to give additional access information for the external storage.
-<BR>
-</LI>
-</OL>
+
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html942"
+<A NAME="tex2html956"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html938"
-  HREF="node38.html">
+<A NAME="tex2html952"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html932"
+<A NAME="tex2html946"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html940"
+<A NAME="tex2html954"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html943"
-  HREF="node41.html">scp</A>
-<B> Up:</B> <A NAME="tex2html939"
-  HREF="node38.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html933"
-  HREF="node39.html">Encrypt and upload backup</A>
- &nbsp; <B>  <A NAME="tex2html941"
+<B> Next:</B> <A NAME="tex2html957"
+  HREF="node41.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html953"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html947"
+  HREF="node39.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html955"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

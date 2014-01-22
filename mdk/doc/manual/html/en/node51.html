@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>IP management</TITLE>
-<META NAME="description" CONTENT="IP management">
+<TITLE>Step by step: Adding a new job</TITLE>
+<META NAME="description" CONTENT="Step by step: Adding a new job">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,65 +19,113 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node55.html">
+<LINK REL="next" HREF="node52.html">
 <LINK REL="previous" HREF="node50.html">
-<LINK REL="up" HREF="node26.html">
+<LINK REL="up" HREF="node43.html">
 <LINK REL="next" HREF="node52.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1071"
+<A NAME="tex2html1097"
   HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1067"
-  HREF="node26.html">
+<A NAME="tex2html1093"
+  HREF="node43.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1061"
+<A NAME="tex2html1087"
   HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1069"
+<A NAME="tex2html1095"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1072"
-  HREF="node52.html">Single clients / network</A>
-<B> Up:</B> <A NAME="tex2html1068"
-  HREF="node26.html">Server</A>
-<B> Previous:</B> <A NAME="tex2html1062"
-  HREF="node50.html">Howto restore your m23</A>
- &nbsp; <B>  <A NAME="tex2html1070"
+<B> Next:</B> <A NAME="tex2html1098"
+  HREF="node52.html">Deletion of jobs</A>
+<B> Up:</B> <A NAME="tex2html1094"
+  HREF="node43.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1088"
+  HREF="node50.html">cron settings</A>
+ &nbsp; <B>  <A NAME="tex2html1096"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006100000000000000000">
-IP management</A>
-</H1>This dialog helps you to administer network settings for devices beyond m23.
-<BR><IMG
-  WIDTH="1100" HEIGHT="1307" ALIGN="BOTTOM" BORDER="0"
- SRC="./ipManagement.png"
- ALT="Image ipManagement"> 
-<BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION00688000000000000000">
+Step by step: Adding a new job</A>
+</H2>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1073"
-  HREF="node52.html">Single clients / network settings</A>
-<LI><A NAME="tex2html1074"
-  HREF="node53.html">IP adress range</A>
-<LI><A NAME="tex2html1075"
-  HREF="node54.html">Adress tables</A>
+<OL>
+<LI>Choose the time base you want to schedule the job for at <SPAN  CLASS="textit">"cron time base"</SPAN> first.
+<BR></LI>
+<LI>Now click on <SPAN  CLASS="textit">"Change"</SPAN> to adjust the next dialog elements.
+<BR></LI>
+<LI>You need to insert different values dependent on your previous choice:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Hourly</SPAN>: The job will be executed every hour or every N'th hour at the given minute.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Repeat ever N hours</SPAN>: The interval between the runs in hours. (E.g. 2: execute every two hours).
+<BR></LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+</LI>
+<LI><SPAN  CLASS="textbf">Dayly</SPAN>: The job will be executed every day at the given time.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
+<BR></LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textbf">Weekly</SPAN>: The job will be started on a given day of week at a given time.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Day of week</SPAN>: The day of week the job will be started.
+<BR></LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>Click on <SPAN  CLASS="textit">"Add"</SPAN> to add the job finally.
+<BR></LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1097"
+  HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1093"
+  HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1087"
+  HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1095"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1098"
+  HREF="node52.html">Deletion of jobs</A>
+<B> Up:</B> <A NAME="tex2html1094"
+  HREF="node43.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1088"
+  HREF="node50.html">cron settings</A>
+ &nbsp; <B>  <A NAME="tex2html1096"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Caution</TITLE>
-<META NAME="description" CONTENT="Caution">
+<TITLE>Password</TITLE>
+<META NAME="description" CONTENT="Password">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node97.html">
 <LINK REL="previous" HREF="node95.html">
 <LINK REL="up" HREF="node95.html">
 <LINK REL="next" HREF="node97.html">
@@ -28,40 +27,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1659"
+<A NAME="tex2html1680"
   HREF="node97.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1655"
+<A NAME="tex2html1676"
   HREF="node95.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1649"
+<A NAME="tex2html1672"
   HREF="node95.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1657"
+<A NAME="tex2html1678"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1660"
-  HREF="node97.html">Hint for image files</A>
-<B> Up:</B> <A NAME="tex2html1656"
-  HREF="node95.html">Create image</A>
-<B> Previous:</B> <A NAME="tex2html1650"
-  HREF="node95.html">Create image</A>
- &nbsp; <B>  <A NAME="tex2html1658"
+<B> Next:</B> <A NAME="tex2html1681"
+  HREF="node97.html">Change client</A>
+<B> Up:</B> <A NAME="tex2html1677"
+  HREF="node95.html">Client direct connection</A>
+<B> Previous:</B> <A NAME="tex2html1673"
+  HREF="node95.html">Client direct connection</A>
+ &nbsp; <B>  <A NAME="tex2html1679"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008151000000000000000">
-<SPAN  CLASS="textbf">Caution</SPAN></A>
+<H2><A NAME="SECTION008121000000000000000">
+Password</A>
 </H2>
-The client will <SPAN  CLASS="textbf">reboot immediately</SPAN> after clicking on <SPAN  CLASS="textit">"Create image"</SPAN> and before it begins to create the image! Data that has not been saved before <SPAN  CLASS="textbf">will be lost</SPAN>.
+If the client is in an early installation state, the root password for this client is: "NETROOTPWD"
 <BR>
-<BR><HR>
+Later, it will be the password you entered for root in the client add dialog.
+<BR>
+If your browser supports the SSH protocol directly, then you can click on the link to connect to the client: ssh://root@CLIENTIP
+<BR>
+Otherwise open a console and enter the command: <SPAN  CLASS="textbf">ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP</SPAN>
+To read the current client screen or to engage in the running installation use the command: <SPAN  CLASS="textbf">screen -x m23install</SPAN>
+		<BR><HR>
 <ADDRESS>
-root
-2013-08-18
+dodger
+2014-01-22
 </ADDRESS>
 </BODY>
 </HTML>
