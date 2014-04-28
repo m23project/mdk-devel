@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_addRecommendPackages</TITLE>
-<META NAME="description" CONTENT="PKG_addRecommendPackages">
+<TITLE>PKG_addUser</TITLE>
+<META NAME="description" CONTENT="PKG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node788.html">
 <LINK REL="previous" HREF="node786.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node788.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13296"
+<A NAME="tex2html13447"
   HREF="node788.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13292"
-  HREF="node766.html">
+<A NAME="tex2html13443"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13286"
+<A NAME="tex2html13437"
   HREF="node786.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13294"
+<A NAME="tex2html13445"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13297"
-  HREF="node788.html">PKG_addPackageSelection</A>
-<B> Up:</B> <A NAME="tex2html13293"
-  HREF="node766.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13287"
-  HREF="node786.html">PKG_listRecommendSubPackages</A>
- &nbsp; <B>  <A NAME="tex2html13295"
+<B> Next:</B> <A NAME="tex2html13448"
+  HREF="node788.html">PKG_cleanPackageLine</A>
+<B> Up:</B> <A NAME="tex2html13444"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13438"
+  HREF="node786.html">PKG_addDebianUser</A>
+ &nbsp; <B>  <A NAME="tex2html13446"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082421000000000000000">
-PKG_addRecommendPackages</A>
+<H2><A NAME="SECTION008244000000000000000">
+PKG_addUser</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds recommeded packages to db
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a job for creating an user on the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>amount: amount of selected packages
+<LI>client: Name of the client.
 </LI>
-<LI>client: name of client to install packages on
+<LI>login: Login name of the new user.
 </LI>
-<LI>normalPackageType2: m23normal, m23normalRemove or orig: select if the packages should be (de)installed or use the saved action
+<LI>firstpw: Password for the new user.
 </LI>
-<LI>distr: Name of the distribution.
+<LI>groups: Array of groups the user should be added.
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ PKG_addRecommendPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

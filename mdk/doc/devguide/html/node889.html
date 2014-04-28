@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_listInfofile</TITLE>
-<META NAME="description" CONTENT="PLG_listInfofile">
+<TITLE>./inc/plugin.php</TITLE>
+<META NAME="description" CONTENT="./inc/plugin.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,105 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node890.html">
-<LINK REL="previous" HREF="node888.html">
-<LINK REL="up" HREF="node867.html">
+<LINK REL="next" HREF="node913.html">
+<LINK REL="previous" HREF="node883.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node890.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14544"
+<A NAME="tex2html14672"
   HREF="node890.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14540"
-  HREF="node867.html">
+<A NAME="tex2html14668"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14534"
+<A NAME="tex2html14662"
   HREF="node888.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14542"
+<A NAME="tex2html14670"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14545"
-  HREF="node890.html">PLG_realUpdate</A>
-<B> Up:</B> <A NAME="tex2html14541"
-  HREF="node867.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14535"
-  HREF="node888.html">PLG_update</A>
- &nbsp; <B>  <A NAME="tex2html14543"
+<B> Next:</B> <A NAME="tex2html14673"
+  HREF="node890.html">PLG_listMenuPlugins</A>
+<B> Up:</B> <A NAME="tex2html14669"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html14663"
+  HREF="node888.html">PDF_output</A>
+ &nbsp; <B>  <A NAME="tex2html14671"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082622000000000000000">
-PLG_listInfofile</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> lists information of a plugin update file
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>name: name of the plugin
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008260000000000000000">
+./inc/plugin.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions dealing with (de)installation of plugins and status information.
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html14674"
+  HREF="node890.html">PLG_listMenuPlugins</A>
+<LI><A NAME="tex2html14675"
+  HREF="node891.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html14676"
+  HREF="node892.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html14677"
+  HREF="node893.html">PLG_getPLGName</A>
+<LI><A NAME="tex2html14678"
+  HREF="node894.html">PLG_getPLGPage</A>
+<LI><A NAME="tex2html14679"
+  HREF="node895.html">PLG_getPLGAuthor</A>
+<LI><A NAME="tex2html14680"
+  HREF="node896.html">PLG_getPLGUpdateURL</A>
+<LI><A NAME="tex2html14681"
+  HREF="node897.html">PLG_getPLGClientRequires</A>
+<LI><A NAME="tex2html14682"
+  HREF="node898.html">PLG_getPLGVersion</A>
+<LI><A NAME="tex2html14683"
+  HREF="node899.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html14684"
+  HREF="node900.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html14685"
+  HREF="node901.html">PLG_checkOverwriting</A>
+<LI><A NAME="tex2html14686"
+  HREF="node902.html">PLG_DBInstall</A>
+<LI><A NAME="tex2html14687"
+  HREF="node903.html">PLG_realInstall</A>
+<LI><A NAME="tex2html14688"
+  HREF="node904.html">PLG_getTempDir</A>
+<LI><A NAME="tex2html14689"
+  HREF="node905.html">PLG_getFilename</A>
+<LI><A NAME="tex2html14690"
+  HREF="node906.html">PLG_install</A>
+<LI><A NAME="tex2html14691"
+  HREF="node907.html">PLG_showPluginOverview</A>
+<LI><A NAME="tex2html14692"
+  HREF="node908.html">PLG_install</A>
+<LI><A NAME="tex2html14693"
+  HREF="node909.html">PLG_getUpdateFile</A>
+<LI><A NAME="tex2html14694"
+  HREF="node910.html">PLG_update</A>
+<LI><A NAME="tex2html14695"
+  HREF="node911.html">PLG_listInfofile</A>
+<LI><A NAME="tex2html14696"
+  HREF="node912.html">PLG_realUpdate</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

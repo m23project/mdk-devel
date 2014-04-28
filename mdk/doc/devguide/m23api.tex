@@ -238,6 +238,18 @@
 \item List of parameters, where the first of two is the checking parameter and the second the value to check.
 \end{itemize}
 
+\subsection{CHECK\_deviceName}
+\textbf{Description:} Checks if the input value is a valid device name for a HD drive or partition.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item devName: Device name to check.
+\item partition: Set to true if you want to check for a partition.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The input value is a a valid drive or partition or false on an error.
+\end{itemize}
+
 \subsection{CHECK\_int}
 \textbf{Description:} Checks if the input value is an integer and shuts down the application if not.\\
 \textbf{Parameter:}
@@ -248,7 +260,7 @@
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item The input value if it's an integer or false on an error.
+\item The input value is an integer or false on an error.
 \end{itemize}
 
 \subsection{CHECK\_float}
@@ -859,7 +871,7 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client
-\item combineJobs: If set to true, the normal installation and removal jobs are combined to a m23normal and a m23normalRemove job otherwise the jobs are switched back to waiting status.
+\item addInstallRemovalJobs: If set to true, the names of all installed packages will be combined to a m23normal and all revomed to a m23normalRemove job.
 \end{itemize}
 
 \subsection{CLIENT\_wol}
@@ -871,6 +883,13 @@
 
 \subsection{CLIENT\_recalculateStatusBar}
 \textbf{Description:} Recalculates the percent points for the pending jobs on a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+
+\subsection{CLIENT\_resetStatusBar}
+\textbf{Description:} Resets the percent points to 0 for the pending jobs on a client.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client
@@ -1502,6 +1521,17 @@
 \newpage\section{./inc/distr/halfSister/packages.php}
 Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
 Description: Basic package operations (search, add,...) for halfSister distributions\\
+
+\subsection{PKG\_updatePackageSearchCacheFile}
+\textbf{Description:} Updates the compressed package search file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item packagesource: Name of the package sources list.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The name of the package cache.
+\end{itemize}
 
 \subsection{PKG\_fastGetInstalledPackages}
 \textbf{Description:} Gets a list of all installed packages (faster than dpkg --get-selections).\\
@@ -3017,6 +3047,31 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Helper functions that did not fit into another include file.\\
 
+\subsection{HELPER\_isExecutedInCLI}
+\textbf{Description:} Checks, if it is run in CLI.\\
+\textbf{Returns:}
+\begin{itemize}
+\item True, when run in CLI otherwise false.
+\end{itemize}
+
+\subsection{HELPER\_getContentFromURL}
+\textbf{Description:} Downloads an URL via curl and gives back the site code.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item url: The URL to download.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The downloaded site code or false in case of an error.
+\end{itemize}
+
+\subsection{HELPER\_trimValue}
+\textbf{Description:} Runs trim on the input parameter and writes the result back.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item value: Value to trim.
+\end{itemize}
+
 \subsection{HELPER\_xargsRecursive}
 \textbf{Description:} Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.\\
 \textbf{Parameter:}
@@ -3264,6 +3319,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item Array with all file names.
 \end{itemize}
 
+\subsection{HELPER\_getBootLoaders}
+\textbf{Description:} Returns a list of available bootloaders.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with available bootloaders.
+\end{itemize}
+
 \subsection{HELPER\_getTimeZones}
 \textbf{Description:} Searches for all time zones.\\
 \textbf{Parameter:}
@@ -3336,8 +3398,23 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item fileName: name of the file to read
 \end{itemize}
 
-\subsection{HELPER\_getFileContents}
-\textbf{Description:} Returnes the maximum file upload size allowed by php.ini.\\
+\subsection{HELPER\_maxPhpUploadSize}
+\textbf{Description:} Returns the maximum file upload size allowed by php.ini.\\
+
+\subsection{HELPER\_compareLengthAbc}
+\textbf{Description:} Compares the length of two strings and then by alphabet\\
+\textbf{Parameter:}
+\begin{itemize}
+\item \$a: string of a certain length
+\item \$b: string of a certain length
+\end{itemize}
+
+\subsection{HELPER\_sortByLength}
+\textbf{Description:} Sorts an array by length of its values, shortest value first, keeping key-value pairs\\
+\textbf{Parameter:}
+\begin{itemize}
+\item \$array: The array you want to sort by length
+\end{itemize}
 
 \newpage\section{./inc/help.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
@@ -3624,6 +3701,11 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item statusBarName: The name of the status bar.
 \item client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+\item recalculate: true, if the remaining percent value of the status bar should be used to calculate a new (better fitting) percentpoint.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item false on errors, otherwise true.
 \end{itemize}
 
 \subsection{HTML\_setStatusBarStatusByName}
@@ -4075,6 +4157,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for multi language handling in m23.\\
 
+\subsection{I18N\_number\_format}
+\textbf{Description:} Converts numbers to the language specific number formating.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input number.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Language specific number formated number.
+\end{itemize}
+
 \subsection{I18N\_convertToHumanReadableName}
 \textbf{Description:} Converts a short language into a human readable name.\\
 \textbf{Parameter:}
@@ -4170,6 +4263,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/ldap.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for using a LDAP server\\
+
+\subsection{LDAP\_getTypes}
+\textbf{Description:} Returns an array with the known LDAP types.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Aarray with the known LDAP types.
+\end{itemize}
 
 \subsection{LDAP\_connectServer}
 \textbf{Description:} Connects with read/write access to the LDAP server on the m23 server.\\
@@ -5265,8 +5365,60 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
 Description: basic package operations (search, add,...)\\
 
+\subsection{PKG\_addHSUser}
+\textbf{Description:} Adds a job for creating an user on a halfSister client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item login: Login name of the new user.
+\item firstpw: Password for the new user.
+\item uid: Optional user ID of the new user.
+\item gid: Optional group ID of the new user.
+\end{itemize}
+
+\subsection{PKG\_addUbuntuUser}
+\textbf{Description:} Adds a job for creating an user on a Ubuntu client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item login: Login name of the new user.
+\item firstpw: Password for the new user.
+\item uid: Optional user ID of the new user.
+\item gid: Optional group ID of the new user.
+\end{itemize}
+
+\subsection{PKG\_addDebianUser}
+\textbf{Description:} Adds a job for creating an user on a Debian client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item login: Login name of the new user.
+\item firstpw: Password for the new user.
+\item uid: Optional user ID of the new user.
+\item gid: Optional group ID of the new user.
+\end{itemize}
+
+\subsection{PKG\_addUser}
+\textbf{Description:} Adds a job for creating an user on the client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item login: Login name of the new user.
+\item firstpw: Password for the new user.
+\item groups: Array of groups the user should be added.
+\item uid: Optional user ID of the new user.
+\item gid: Optional group ID of the new user.
+\end{itemize}
+
+\subsection{PKG\_cleanPackageLine}
+\textbf{Description:} Removes unwanted characters from a line containing package names and makes sure that there is only one line without line breaks.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item packageLine: Space seperated line containing the package names. The changed line will be written to the parameter too.
+\end{itemize}
+
 \subsection{PKG\_combinem23normal}
-\textbf{Description:} Combines the package names of multiple entries for m23normal and m23normalRemove jobs ind a package selection.\\
+\textbf{Description:} Combines the package names of multiple entries for m23normal and m23normalRemove jobs in a package selection.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item packageSelectionName: Name of the package selection to optimise.
@@ -6567,6 +6719,18 @@ Description: basic package operations (search, add,...)\\
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for getting information from the server\\
 
+\subsection{SERVER\_logLocalScreenSessionToFile}
+\textbf{Description:} Logs the output of a local screen session to a file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item session: name screen session to log.
+\item user: user the script runs under
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Full path to the log file.
+\end{itemize}
+
 \subsection{SERVER\_setSSLCertCheckDisabled}
 \textbf{Description:} Sets, if the SSL certificate check is disabled globally for all clients.\\
 \textbf{Parameter:}
@@ -6982,7 +7146,7 @@ Description: basic package operations (search, add,...)\\
  Description: function to generate the sources.list for the client\\
 
 \subsection{SRCLST\_getAddToFile}
-\textbf{Description:} Returns addToFile paremters from the given sources list as an associative array, where file name and file contents are seperated.\\
+\textbf{Description:} Returns addToFile paramters from the given sources list as an associative array, where file name and file contents are seperated.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item sourceName: The name of the package source list
@@ -7081,13 +7245,42 @@ Description: basic package operations (search, add,...)\\
 \item sourceName: the name of the package source list
 \end{itemize}
 
+\subsection{SRCLST\_packageInformationChangeInformationHumanReadable}
+\textbf{Description:} Returns the time point when the package information was changed last.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item distr: the short name of the distribution
+\item sourceName: the name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Time when the package information was changed last.
+\end{itemize}
+
+\subsection{SRCLST\_packageInformationChangeTime}
+\textbf{Description:} Returns the time point when the package information was changed last.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item distr: the short name of the distribution
+\item sourceName: the name of the package source list
+\item changedBefore: Amount of seconds before the package information was changed.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Time when the package information was changed last.
+\end{itemize}
+
 \subsection{SRCLST\_packageInformationOlderThan}
-\textbf{Description:} checks if a package info is older than a selected amount of minutes\\
+\textbf{Description:} Checks if a package info is older than a selected amount of minutes or if the package info directory is too smal.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item minutes: the amount of minutes the package information can be older to return true
 \item distr: the short name of the distribution
 \item sourceName: the name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true when package info is older than a selected amount of minutes or if the package info directory is too smal, otherwise false.
 \end{itemize}
 
 \subsection{SRCLST\_getStorageFS}
@@ -7263,6 +7456,189 @@ Description: basic package operations (search, add,...)\\
 \newpage\section{./inc/vm.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for managing virtual clients.\\
+
+\subsection{VM\_CloudStackDeleteClientVM}
+\textbf{Description:} Deletes a virtual machine for use with m23 in CloudStack, only a cloudstack admin can recover it\\
+\textbf{Parameter:}
+\begin{itemize}
+\item virtualMachineId:  CloudStack ID of the virtual machine
+\item VMDeletionOK: True if VM was successfully deleted, false otherwise
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item ErrorMessages or Success messages, sets parameter VMDeletionOK (true if all went well, false if an error ocurred)
+\end{itemize}
+
+\subsection{VM\_isCloudStackClient}
+\textbf{Description:} Checks, if the client is run in CloudStack\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the client is run in CloudStack otherwise false.
+\end{itemize}
+
+\subsection{VM\_CloudStackCheckConstants}
+\textbf{Description:} Checks, if the given constant values are valid.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item CLOUDSTACK\_API\_ENDPOINT: The API entpoint.
+\item CLOUDSTACK\_API\_KEY: The API key.
+\item CLOUDSTACK\_SECRET\_KEY: The secret API key.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the constant values are valid otherwise false.
+\end{itemize}
+
+\subsection{VM\_CloudStackConfigGUI}
+\textbf{Description:} Shows a dialog for editing the CloudStack config file and uploading the m23 client ISO.\\
+
+\subsection{VM\_CloudStackWriteConfFile}
+\textbf{Description:} Writes the CloudStack config file or writes a basic config file, if it does not exist.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item overwrite: Set to true, if the config file should be overwritten in any case.
+\item CLOUDSTACK\_API\_ENDPOINT: The API entpoint.
+\item CLOUDSTACK\_API\_KEY: The API key.
+\item CLOUDSTACK\_SECRET\_KEY: The secret API key.
+\item CLOUDSTACK\_SERVICE\_OFFERING\_ID: The virtual CPU and RAM combination to use for a new VM.
+\item CLOUDSTACK\_TEMPLATE\_ID: The ID of the m23 client installation ISO.
+\item CLOUDSTACK\_NETWORKIDS: The ID of the network to use.
+\item CLOUDSTACK\_DISK\_OFFERING\_ID: The virtual hard disk type.
+\end{itemize}
+
+\subsection{VM\_CloudStackUploadIso}
+\textbf{Description:} Uploads and registers a new bootable ISO file into cloudstack from a given website\\
+\textbf{Parameter:}
+\begin{itemize}
+\item isoName: the name you choose for the ISO file 
+\item isoUrl: the url from where you want cloudstack to download the ISO file
+\item zoneID: The ID of the CloudStack zone.
+\item isoUploadSuccess: is set to True if action succeeded, false otherwise
+\item isoID: is set to Cloudstack-Iso-ID if action succeeded, otherwise not set
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage about result (errormessage or success message) and sets isoUploadSuccess to True if action succeeded, false otherwise, sets isoID to Iso-ID
+\end{itemize}
+
+\subsection{VM\_CloudStackEnablePortForwarding}
+\textbf{Description:} creates a port forwarding rule for a virtual machine, with private port and public port being the same\\
+\textbf{Parameter:}
+\begin{itemize}
+\item virtualMachineId: the cloudstack ID of the virtual machine to which the rule shall apply
+\item pFSuccess: is set to true, if the rule was created
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage about result (errormessage or success message) and sets pFSuccess to True if action succeeded, false otherwise
+\end{itemize}
+
+\subsection{VM\_CloudStackSendSetVisualURL}
+\textbf{Description:} Sends the visual URL (current client ip:22) to the m23 server, if run under CloudStack.\\
+
+\subsection{VM\_CloudStackStartVM}
+\textbf{Description:} starts a virtual machine in CloudStack\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: CloudStack name of the instance / name of the m23 client.
+\item startVMOK: true if started successfully or already running, false otherwise
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage with result of start or error message
+\end{itemize}
+
+\subsection{VM\_CloudStackStopVM}
+\textbf{Description:} stops a virtual machine in CloudStack\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: CloudStack name of the instance / name of the m23 client.
+\item stopVMOK: true if stopped successfully or already stopped, false otherwise
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage with result of stop or error message
+\end{itemize}
+
+\subsection{VM\_CloudStackGetVMStatus}
+\textbf{Description:} gets the status of a virtual machine\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: CloudStack name of the instance / name of the m23 client.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage with machine status (like 'Running' or 'Stopped') or FALSE if no status could be retrieved (e.g. if machine doesn't exist)
+\end{itemize}
+
+\subsection{VM\_CloudStackClientName2ClientID}
+\textbf{Description:} returns the Cloudstack-ID of a client with the given client host name\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: Host name of the virtual machine
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Cloudstack-Client-ID if the clientname can be retrieved, False otherwise 
+\end{itemize}
+
+\subsection{VM\_CloudStackNetBootActivate}
+\textbf{Description:} attaches/exchanges or removes (if any) a network boot ISO to or from the client\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: CloudStack name of the instance / name of the m23 client.
+\item activate: TRUE for attaching ISO, FALSE for removing
+\item nBASuccess: is set to True if action succeeded, false otherwise
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage about result (errormessage or success message) and sets nBASuccess to True if action succeeded, false otherwise
+\end{itemize}
+
+\subsection{VM\_CloudStackCreateVM}
+\textbf{Description:} Creates a virtual machine for use with m23 in CloudStack\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the virtual machine, can contain ASCII letters 'a' through 'z', the digits '0' through '9', and the hyphen ('-'), must be between 1 and 63 characters long, and can't start or end with "-" and can't start with digit
+\item zoneID: zoneID for CloudStack
+\end{itemize}
+
+\subsection{VM\_CloudStack\_getServerIP}
+\textbf{Description:} Gets the external m23 server IP if the m23 server is run as CloudStack VM.\\
+\textbf{Returns:}
+\begin{itemize}
+\item External m23 server IP.
+\end{itemize}
+
+\subsection{VM\_GUIstepCreateCloudStackVM}
+\textbf{Description:} Shows a dialog to create a new VM in CloudStack.\\
+
+\subsection{VM\_CloudStack\_available}
+\textbf{Description:} Checks, if the CloudStack configuration file is included and contains the needed constants.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the CloudStack are present.
+\end{itemize}
+
+\subsection{VM\_CloudStack\_getObject}
+\textbf{Description:} Gets a new CloudStackClient object.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item CLOUDSTACK\_API\_ENDPOINT: The API entpoint.
+\item CLOUDSTACK\_API\_KEY: The API key.
+\item CLOUDSTACK\_SECRET\_KEY: The secret API key.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item New CloudStackClient object.
+\end{itemize}
+
+\subsection{VM\_CloudStack\_getVersion}
+\textbf{Description:} Gets the version of CloudStack.\\
+\textbf{Returns:}
+\begin{itemize}
+\item CloudStack version.
+\end{itemize}
 
 \subsection{VM\_shutdownAndDisableNetbootAfterInstall}
 \textbf{Description:} Reboots an VM and disables network booting.\\
@@ -7515,6 +7891,10 @@ Description: basic package operations (search, add,...)\\
 \begin{itemize}
 \item VM\_software: Code number of the virtualisation software.
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Gives back the VM host or false if there is no host for the choosen virtualisation solution.
+\end{itemize}
 
 \subsection{VM\_getAllVMHosts}
 \textbf{Description:} Returns a list of all VM hosts with a choosen virtualisation software.\\
@@ -7668,7 +8048,7 @@ Description: basic package operations (search, add,...)\\
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item BASH code to get the current status of a virtual machine.
+\item BASH code to get the current status of a virtual machine or array containing the status of the VM.
 \end{itemize}
 
 \subsection{VM\_parseVBOXdisk}

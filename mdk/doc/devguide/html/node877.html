@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_showDownloadStatus</TITLE>
-<META NAME="description" CONTENT="PLG_showDownloadStatus">
+<TITLE>PKG_getClientPackages</TITLE>
+<META NAME="description" CONTENT="PKG_getClientPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node878.html">
 <LINK REL="previous" HREF="node876.html">
-<LINK REL="up" HREF="node867.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node878.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14400"
+<A NAME="tex2html14527"
   HREF="node878.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14396"
-  HREF="node867.html">
+<A NAME="tex2html14523"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14390"
+<A NAME="tex2html14517"
   HREF="node876.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14398"
+<A NAME="tex2html14525"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14401"
-  HREF="node878.html">PLG_showDownloadStatus</A>
-<B> Up:</B> <A NAME="tex2html14397"
-  HREF="node867.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14391"
-  HREF="node876.html">PLG_getPLGVersion</A>
- &nbsp; <B>  <A NAME="tex2html14399"
+<B> Next:</B> <A NAME="tex2html14528"
+  HREF="node878.html">PKG_getPackagesListMarker</A>
+<B> Up:</B> <A NAME="tex2html14524"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html14518"
+  HREF="node876.html">PKG_getPackageIDsByName</A>
+ &nbsp; <B>  <A NAME="tex2html14526"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082610000000000000000">
-PLG_showDownloadStatus</A>
+<H2><A NAME="SECTION0082494000000000000000">
+PKG_getClientPackages</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows the status of the plugin download
+<SPAN  CLASS="textbf">Description:</SPAN> returns an array or a space separated list of all packages installed on a client
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fileName: file name with whole path to the plugin file
+<LI>client: the name of the client
+</LI>
+<LI>key: if it is not empty only packages that contain the key are returned
+</LI>
+<LI>arr: set to true if the result should be an array otherwise it's a string
+</LI>
+<LI>status: If set only returns packages of the given status
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ PLG_showDownloadStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

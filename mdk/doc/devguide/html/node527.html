@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_calcMBSize</TITLE>
-<META NAME="description" CONTENT="HELPER_calcMBSize">
+<TITLE>HELPER_m23Array2Array</TITLE>
+<META NAME="description" CONTENT="HELPER_m23Array2Array">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node528.html">
 <LINK REL="previous" HREF="node526.html">
-<LINK REL="up" HREF="node501.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node528.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9881"
+<A NAME="tex2html10025"
   HREF="node528.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9877"
-  HREF="node501.html">
+<A NAME="tex2html10021"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9871"
+<A NAME="tex2html10015"
   HREF="node526.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9879"
+<A NAME="tex2html10023"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9882"
-  HREF="node528.html">HELPER_grep</A>
-<B> Up:</B> <A NAME="tex2html9878"
-  HREF="node501.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9872"
-  HREF="node526.html">HELPER_getTimeZones</A>
- &nbsp; <B>  <A NAME="tex2html9880"
+<B> Next:</B> <A NAME="tex2html10026"
+  HREF="node528.html">HELPER_array2m23Array</A>
+<B> Up:</B> <A NAME="tex2html10022"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html10016"
+  HREF="node526.html">HELPER_arrayInsertAfterKeynumber</A>
+ &nbsp; <B>  <A NAME="tex2html10024"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081426000000000000000">
-HELPER_calcMBSize</A>
+<H2><A NAME="SECTION0081417000000000000000">
+HELPER_m23Array2Array</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> calculates the size in MB from a given input that can be a GB value or measured in <SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Converts an m23 array to a normal array.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>number: the number to convert
+<LI>m23Array: The m23 array to convert. The m23 array is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
 </LI>
-<LI>from: if number is a percent value, the output will be the percentage of the from value
-</LI>
-<LI>trunc: set to true, if the output value should be trunced
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
 </LI>
 </UL>
 
@@ -71,7 +74,7 @@ HELPER_calcMBSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_grep</TITLE>
-<META NAME="description" CONTENT="HELPER_grep">
+<TITLE>HELPER_array2m23Array</TITLE>
+<META NAME="description" CONTENT="HELPER_array2m23Array">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node529.html">
 <LINK REL="previous" HREF="node527.html">
-<LINK REL="up" HREF="node501.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node529.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9893"
+<A NAME="tex2html10037"
   HREF="node529.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9889"
-  HREF="node501.html">
+<A NAME="tex2html10033"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9883"
+<A NAME="tex2html10027"
   HREF="node527.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9891"
+<A NAME="tex2html10035"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9894"
-  HREF="node529.html">HELPER_getFdiskMountPoints</A>
-<B> Up:</B> <A NAME="tex2html9890"
-  HREF="node501.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9884"
-  HREF="node527.html">HELPER_calcMBSize</A>
- &nbsp; <B>  <A NAME="tex2html9892"
+<B> Next:</B> <A NAME="tex2html10038"
+  HREF="node529.html">print_r2</A>
+<B> Up:</B> <A NAME="tex2html10034"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html10028"
+  HREF="node527.html">HELPER_m23Array2Array</A>
+ &nbsp; <B>  <A NAME="tex2html10036"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081427000000000000000">
-HELPER_grep</A>
+<H2><A NAME="SECTION0081418000000000000000">
+HELPER_array2m23Array</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes all lines from $string seperated by $cut that contain $search
+<SPAN  CLASS="textbf">Description:</SPAN> Converts a normal array to an m23 array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>string: the text, that should be searched
+<LI>array: A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
 </LI>
-<LI>search: the string to be searched
-</LI>
-<LI>cut: seperator for the input and output lines
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The m23 array, that is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
 </LI>
 </UL>
 
@@ -72,7 +74,7 @@ HELPER_grep</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

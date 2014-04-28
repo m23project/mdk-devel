@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Patching</TITLE>
-<META NAME="description" CONTENT="Patching">
+<TITLE>usage</TITLE>
+<META NAME="description" CONTENT="usage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node128.html">
 <LINK REL="previous" HREF="node124.html">
 <LINK REL="up" HREF="node123.html">
 <LINK REL="next" HREF="node126.html">
@@ -28,55 +27,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3775"
+<A NAME="tex2html3868"
   HREF="node126.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3771"
+<A NAME="tex2html3864"
   HREF="node123.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3765"
+<A NAME="tex2html3860"
   HREF="node124.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3773"
+<A NAME="tex2html3866"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3776"
-  HREF="node126.html">screen 4.0.3</A>
-<B> Up:</B> <A NAME="tex2html3772"
-  HREF="node123.html">Screen</A>
-<B> Previous:</B> <A NAME="tex2html3766"
-  HREF="node124.html">Purpose</A>
- &nbsp; <B>  <A NAME="tex2html3774"
+<B> Next:</B> <A NAME="tex2html3869"
+  HREF="node126.html">partinfodb</A>
+<B> Up:</B> <A NAME="tex2html3865"
+  HREF="node123.html">genFStab/fstabnew</A>
+<B> Previous:</B> <A NAME="tex2html3861"
+  HREF="node124.html">Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html3867"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00762000000000000000">
-Patching</A>
+<H2><A NAME="SECTION00732000000000000000">
+usage</A>
 </H2>
-The patch solves the problem with getpwuid, that the current user can't be figured out. If applied this patch is applied, root is the current user, otherwise screen can't be executed.
-<BR>
-<BR>
-This should be used for the booimage only, because it can be a security risk.
+<PRE>
+genFstab &lt;splitter&gt; &lt;rootDeviceNr&gt;
+</PRE> 
 
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3777"
-  HREF="node126.html">screen 4.0.3</A>
-<LI><A NAME="tex2html3778"
-  HREF="node127.html">For old screen 4.0.2</A>
-</UL>
-<!--End of Table of Child-Links-->
+<UL>
+<LI>splitter: is the splitter for the parted numbers . Select '.' for english and ',' for german version. You can find out the language setting very easy: the messages printed in the console have the same language that will used for the splitter.
+</LI>
+<LI>rootDeviceNr: the number of the root device, select '3' for hda3.
+</LI>
+</UL> 
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

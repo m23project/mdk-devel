@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23 helpers</TITLE>
-<META NAME="description" CONTENT="m23 helpers">
+<TITLE>Set script status</TITLE>
+<META NAME="description" CONTENT="Set script status">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,133 +19,70 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node136.html">
-<LINK REL="previous" HREF="node23.html">
-<LINK REL="up" HREF="devguide.html">
+<LINK REL="next" HREF="node107.html">
+<LINK REL="previous" HREF="node105.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3510"
+<A NAME="tex2html3610"
   HREF="node107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3506"
-  HREF="devguide.html">
+<A NAME="tex2html3606"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3500"
+<A NAME="tex2html3600"
   HREF="node105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3508"
+<A NAME="tex2html3608"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3511"
-  HREF="node107.html">mdoc</A>
-<B> Up:</B> <A NAME="tex2html3507"
-  HREF="devguide.html">m23 Development Guide for</A>
-<B> Previous:</B> <A NAME="tex2html3501"
-  HREF="node105.html">Layoutoptions</A>
- &nbsp; <B>  <A NAME="tex2html3509"
+<B> Next:</B> <A NAME="tex2html3611"
+  HREF="node107.html">get the output of</A>
+<B> Up:</B> <A NAME="tex2html3607"
+  HREF="node102.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3601"
+  HREF="node105.html">Turn off m23 script</A>
+ &nbsp; <B>  <A NAME="tex2html3609"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00700000000000000000">
-m23 helpers</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION006114000000000000000">
+Set script status</A>
+</H2>
+After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3512"
-  HREF="node107.html">mdoc</A>
 <UL>
-<LI><A NAME="tex2html3513"
-  HREF="node108.html">what is mdoc?</A>
-<LI><A NAME="tex2html3514"
-  HREF="node109.html">how to make your source code mdoc compatible?</A>
-<LI><A NAME="tex2html3515"
-  HREF="node110.html">mdoc info block</A>
-<LI><A NAME="tex2html3516"
-  HREF="node111.html">example for a mdoc comment</A>
-<LI><A NAME="tex2html3517"
-  HREF="node112.html">using mdoc</A>
-<LI><A NAME="tex2html3518"
-  HREF="node113.html">example</A>
+<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+</LI>
+<LI>select the database "m23"
+</LI>
+<LI>select the table "clientjobs"
+</LI>
+<LI>click on "Browse"
+</LI>
+<LI>search for your job script
+</LI>
+<LI>click on "Edit"
+</LI>
+<LI>enter "waiting" at the "status" field
+</LI>
+<LI>click on "Go" to save your changes
+</LI>
 </UL>
-<BR>
-<LI><A NAME="tex2html3519"
-  HREF="node114.html">log2db</A>
-<UL>
-<LI><A NAME="tex2html3520"
-  HREF="node115.html">Introduction</A>
-<LI><A NAME="tex2html3521"
-  HREF="node116.html">usage</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3522"
-  HREF="node117.html">genFStab/fstabnew</A>
-<UL>
-<LI><A NAME="tex2html3523"
-  HREF="node118.html">Introduction</A>
-<LI><A NAME="tex2html3524"
-  HREF="node119.html">usage</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3525"
-  HREF="node120.html">partinfodb</A>
-<UL>
-<LI><A NAME="tex2html3526"
-  HREF="node121.html">Introduction</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3527"
-  HREF="node122.html">Usage</A>
-<LI><A NAME="tex2html3528"
-  HREF="node123.html">Screen</A>
-<UL>
-<LI><A NAME="tex2html3529"
-  HREF="node124.html">Purpose</A>
-<LI><A NAME="tex2html3530"
-  HREF="node125.html">Patching</A>
-<UL>
-<LI><A NAME="tex2html3531"
-  HREF="node126.html">screen 4.0.3</A>
-<LI><A NAME="tex2html3532"
-  HREF="node127.html">For old screen 4.0.2</A>
-</UL>
-<LI><A NAME="tex2html3533"
-  HREF="node128.html">Building</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3534"
-  HREF="node129.html">script</A>
-<UL>
-<LI><A NAME="tex2html3535"
-  HREF="node130.html">Getting necessary file</A>
-<LI><A NAME="tex2html3536"
-  HREF="node131.html">Building</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html3537"
-  HREF="node132.html">parted</A>
-<UL>
-<LI><A NAME="tex2html3538"
-  HREF="node133.html">Patching parted</A>
-<LI><A NAME="tex2html3539"
-  HREF="node134.html">Compiling</A>
-<LI><A NAME="tex2html3540"
-  HREF="node135.html">Building the Debian package</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

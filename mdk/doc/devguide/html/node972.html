@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_getFileContents</TITLE>
-<META NAME="description" CONTENT="SERVER_getFileContents">
+<TITLE>SERVER_changeHtpasswd</TITLE>
+<META NAME="description" CONTENT="SERVER_changeHtpasswd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node973.html">
 <LINK REL="previous" HREF="node971.html">
-<LINK REL="up" HREF="node936.html">
+<LINK REL="up" HREF="node958.html">
 <LINK REL="next" HREF="node973.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15618"
+<A NAME="tex2html15770"
   HREF="node973.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15614"
-  HREF="node936.html">
+<A NAME="tex2html15766"
+  HREF="node958.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15608"
+<A NAME="tex2html15760"
   HREF="node971.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15616"
+<A NAME="tex2html15768"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15619"
-  HREF="node973.html">SERVER_putFileContents</A>
-<B> Up:</B> <A NAME="tex2html15615"
-  HREF="node936.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15609"
-  HREF="node971.html">SERVER_deleteFile</A>
- &nbsp; <B>  <A NAME="tex2html15617"
+<B> Next:</B> <A NAME="tex2html15771"
+  HREF="node973.html">SERVER_delFromHtpasswd</A>
+<B> Up:</B> <A NAME="tex2html15767"
+  HREF="node958.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15761"
+  HREF="node971.html">SERVER_getPublicSSHKeyOfm23Server</A>
+ &nbsp; <B>  <A NAME="tex2html15769"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083136000000000000000">
-SERVER_getFileContents</A>
+<H2><A NAME="SECTION0083114000000000000000">
+SERVER_changeHtpasswd</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Get the contents of any file (even if only readable by root).
+<SPAN  CLASS="textbf">Description:</SPAN> Changes the password of a user in a htpasswd file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fileName: Name of the file to read.
+<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+</LI>
+<LI>: username: Name of the user to change
+</LI>
+<LI>: password: The according new password
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>: Contents of the file
+<LI>: True if the password was changed sucessfully.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ SERVER_getFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

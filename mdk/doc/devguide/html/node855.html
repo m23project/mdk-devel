@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientPackages</TITLE>
-<META NAME="description" CONTENT="PKG_getClientPackages">
+<TITLE>PKG_executeOnClientJobs</TITLE>
+<META NAME="description" CONTENT="PKG_executeOnClientJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node856.html">
 <LINK REL="previous" HREF="node854.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node856.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14112"
+<A NAME="tex2html14263"
   HREF="node856.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14108"
-  HREF="node766.html">
+<A NAME="tex2html14259"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14102"
+<A NAME="tex2html14253"
   HREF="node854.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14110"
+<A NAME="tex2html14261"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14113"
-  HREF="node856.html">PKG_getPackagesListMarker</A>
-<B> Up:</B> <A NAME="tex2html14109"
-  HREF="node766.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html14103"
-  HREF="node854.html">PKG_getPackageIDsByName</A>
- &nbsp; <B>  <A NAME="tex2html14111"
+<B> Next:</B> <A NAME="tex2html14264"
+  HREF="node856.html">PKG_removeFromJobList</A>
+<B> Up:</B> <A NAME="tex2html14260"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html14254"
+  HREF="node854.html">PKG_updateSourcesListAtAllClients</A>
+ &nbsp; <B>  <A NAME="tex2html14262"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082489000000000000000">
-PKG_getClientPackages</A>
+<H2><A NAME="SECTION0082472000000000000000">
+PKG_executeOnClientJobs</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array or a space separated list of all packages installed on a client
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a sql statement on all package IDs.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: the name of the client
+<LI>sql: initial SQL statement e.g. "DELETE FROM `clientjobs` WHERE "
 </LI>
-<LI>key: if it is not empty only packages that contain the key are returned
-</LI>
-<LI>arr: set to true if the result should be an array otherwise it's a string
-</LI>
-<LI>status: If set only returns packages of the given status
+<LI>packageIDList: the list of IDs of jobs to be deleted
 </LI>
 </UL>
 
@@ -74,7 +70,7 @@ PKG_getClientPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

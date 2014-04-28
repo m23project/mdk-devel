@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CHECK_float</TITLE>
-<META NAME="description" CONTENT="CHECK_float">
+<TITLE>./inc/checks.php</TITLE>
+<META NAME="description" CONTENT="./inc/checks.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,95 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node178.html">
-<LINK REL="previous" HREF="node176.html">
-<LINK REL="up" HREF="node171.html">
+<LINK REL="next" HREF="node196.html">
+<LINK REL="previous" HREF="node164.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node178.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5361"
+<A NAME="tex2html5479"
   HREF="node178.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5357"
-  HREF="node171.html">
+<A NAME="tex2html5475"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5351"
+<A NAME="tex2html5469"
   HREF="node176.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5359"
+<A NAME="tex2html5477"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5362"
-  HREF="node178.html">CHECK_strAlpha</A>
-<B> Up:</B> <A NAME="tex2html5358"
-  HREF="node171.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html5352"
-  HREF="node176.html">CHECK_int</A>
- &nbsp; <B>  <A NAME="tex2html5360"
+<B> Next:</B> <A NAME="tex2html5480"
+  HREF="node178.html">CHECK_safeFilename</A>
+<B> Up:</B> <A NAME="tex2html5476"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html5470"
+  HREF="node176.html">CAPTURE_showTableWith</A>
+ &nbsp; <B>  <A NAME="tex2html5478"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00856000000000000000">
-CHECK_float</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a float number and shuts down the application if not.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>val: Input value to check.
-</LI>
-<LI>allowEmpty: Set to true if you want to allow empty strings.
-</LI>
-<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>The input value if it's a float number or false on an error.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION00850000000000000000">
+./inc/checks.php</A>
+</H1>
+ Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (hauke@goos-habermann.de)
+<BR>
+Description: different checks for validation of email, ip, netmasks, etc.
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html5481"
+  HREF="node178.html">CHECK_safeFilename</A>
+<LI><A NAME="tex2html5482"
+  HREF="node179.html">CHECK_text2db</A>
+<LI><A NAME="tex2html5483"
+  HREF="node180.html">CHECK_db2text</A>
+<LI><A NAME="tex2html5484"
+  HREF="node181.html">CHECK_FW</A>
+<LI><A NAME="tex2html5485"
+  HREF="node182.html">CHECK_deviceName</A>
+<LI><A NAME="tex2html5486"
+  HREF="node183.html">CHECK_int</A>
+<LI><A NAME="tex2html5487"
+  HREF="node184.html">CHECK_float</A>
+<LI><A NAME="tex2html5488"
+  HREF="node185.html">CHECK_strAlpha</A>
+<LI><A NAME="tex2html5489"
+  HREF="node186.html">CHECK_strAlphaNum</A>
+<LI><A NAME="tex2html5490"
+  HREF="node187.html">CHECK_letFWDie</A>
+<LI><A NAME="tex2html5491"
+  HREF="node188.html">CHECK_str</A>
+<LI><A NAME="tex2html5492"
+  HREF="node189.html">countLinesInFile</A>
+<LI><A NAME="tex2html5493"
+  HREF="node190.html">checkIP</A>
+<LI><A NAME="tex2html5494"
+  HREF="node191.html">checkMAC</A>
+<LI><A NAME="tex2html5495"
+  HREF="node192.html">checkNetmask</A>
+<LI><A NAME="tex2html5496"
+  HREF="node193.html">checkEmail</A>
+<LI><A NAME="tex2html5497"
+  HREF="node194.html">checkFQDN</A>
+<LI><A NAME="tex2html5498"
+  HREF="node195.html">checkNormalKeys</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

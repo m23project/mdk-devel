@@ -814,6 +814,9 @@ createInitrd()
 
 	for kimgpkg in `dpkg --get-selections | grep linux-image | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g'`
 	do
+		kernelName=$(echo $kimgpkg | sed 's/^linux-image-//')
+		rm "/boot/initrd.img-$kernelName" 2> /dev/null
+		touch "/boot/initrd.img-$kernelName"
 		dpkg-reconfigure $kimgpkg
 	done
 }

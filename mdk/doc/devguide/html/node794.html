@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_changePrioritySelectedPackages</TITLE>
-<META NAME="description" CONTENT="PKG_changePrioritySelectedPackages">
+<TITLE>PKG_getDebootstrapCacheServerURL</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheServerURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node795.html">
 <LINK REL="previous" HREF="node793.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node795.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13380"
+<A NAME="tex2html13531"
   HREF="node795.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13376"
-  HREF="node766.html">
+<A NAME="tex2html13527"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13370"
+<A NAME="tex2html13521"
   HREF="node793.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13378"
+<A NAME="tex2html13529"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13381"
-  HREF="node795.html">PKG_rmSelectedPackages</A>
-<B> Up:</B> <A NAME="tex2html13377"
-  HREF="node766.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13371"
-  HREF="node793.html">PKG_addNormalPackages</A>
- &nbsp; <B>  <A NAME="tex2html13379"
+<B> Next:</B> <A NAME="tex2html13532"
+  HREF="node795.html">PKG_getDebootstrapCacheServerFile</A>
+<B> Up:</B> <A NAME="tex2html13528"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html13522"
+  HREF="node793.html">PKG_getDebootstrapCacheSfURL</A>
+ &nbsp; <B>  <A NAME="tex2html13530"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082428000000000000000">
-PKG_changePrioritySelectedPackages</A>
+<H2><A NAME="SECTION0082411000000000000000">
+PKG_getDebootstrapCacheServerURL</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Changes the priority of selected wait4acc packages.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the URL to the debootstrap cache file on the m23 server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>amount: amount of selected packages
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 </LI>
-<LI>client: name of client to install packages on
+<LI>arch: the computer architecture of the client
 </LI>
-<LI>newPriority: The new priority to set.
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The URL to the debootstrap cache file on the m23 server.
 </LI>
 </UL>
 
@@ -72,7 +76,7 @@ PKG_changePrioritySelectedPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

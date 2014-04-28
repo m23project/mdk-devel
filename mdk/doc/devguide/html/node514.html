@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_arrayInsertAfterKeynumber</TITLE>
-<META NAME="description" CONTENT="HELPER_arrayInsertAfterKeynumber">
+<TITLE>HELPER_xargsRecursive</TITLE>
+<META NAME="description" CONTENT="HELPER_xargsRecursive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node515.html">
 <LINK REL="previous" HREF="node513.html">
-<LINK REL="up" HREF="node501.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node515.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9725"
+<A NAME="tex2html9869"
   HREF="node515.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9721"
-  HREF="node501.html">
+<A NAME="tex2html9865"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9715"
+<A NAME="tex2html9859"
   HREF="node513.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9723"
+<A NAME="tex2html9867"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9726"
-  HREF="node515.html">HELPER_m23Array2Array</A>
-<B> Up:</B> <A NAME="tex2html9722"
-  HREF="node501.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9716"
-  HREF="node513.html">HELPER_arrayInsertBeforeKeynumber</A>
- &nbsp; <B>  <A NAME="tex2html9724"
+<B> Next:</B> <A NAME="tex2html9870"
+  HREF="node515.html">HELPER_getNewLogLines</A>
+<B> Up:</B> <A NAME="tex2html9866"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9860"
+  HREF="node513.html">HELPER_trimValue</A>
+ &nbsp; <B>  <A NAME="tex2html9868"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081413000000000000000">
-HELPER_arrayInsertAfterKeynumber</A>
+<H2><A NAME="SECTION008144000000000000000">
+HELPER_xargsRecursive</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Inserts a value into an array (that has simple numbers as keys) after a given key.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>inArray: The input array.
+<LI>cmd: BASH command
 </LI>
-<LI>afterKeynumber: The key number the value should be inserted after.
+<LI>argsA: Array of commands for the BASH command.
 </LI>
-<LI>val: The value that should be inserted.
+<LI>tabAmount: Amount of identing to start with.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>New array with the new value inserted.
+<LI>Recursive calls of the BASH command with error checking.
 </LI>
 </UL>
 
@@ -78,7 +78,7 @@ HELPER_arrayInsertAfterKeynumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

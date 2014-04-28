@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_logArea</TITLE>
-<META NAME="description" CONTENT="HTML_logArea">
+<TITLE>HTML_imgSwitch</TITLE>
+<META NAME="description" CONTENT="HTML_imgSwitch">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node558.html">
 <LINK REL="previous" HREF="node556.html">
-<LINK REL="up" HREF="node541.html">
+<LINK REL="up" HREF="node556.html">
 <LINK REL="next" HREF="node558.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10300"
+<A NAME="tex2html10444"
   HREF="node558.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10296"
-  HREF="node541.html">
+<A NAME="tex2html10440"
+  HREF="node556.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10290"
+<A NAME="tex2html10434"
   HREF="node556.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10298"
+<A NAME="tex2html10442"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10301"
-  HREF="node558.html">HTML_getQuestionnaireURL</A>
-<B> Up:</B> <A NAME="tex2html10297"
-  HREF="node541.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10291"
-  HREF="node556.html">HTML_jsCheckboxChanger</A>
- &nbsp; <B>  <A NAME="tex2html10299"
+<B> Next:</B> <A NAME="tex2html10445"
+  HREF="node558.html">HTML_uploadFile</A>
+<B> Up:</B> <A NAME="tex2html10441"
+  HREF="node556.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10435"
+  HREF="node556.html">./inc/html.php</A>
+ &nbsp; <B>  <A NAME="tex2html10443"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081616000000000000000">
-HTML_logArea</A>
+<H2><A NAME="SECTION008161000000000000000">
+HTML_imgSwitch</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a text area for log information (readonly).
+<SPAN  CLASS="textbf">Description:</SPAN> Defines an image button with two states and a text next to it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>htmlName: Name of the HTML element.
+<LI>$htmlName: Name of the html image input element.
 </LI>
-<LI>cols: Number of columns.
+<LI>$off_img: Name and path of image to be displayed if its state is "off"
 </LI>
-<LI>rows: Number of rows to show.
+<LI>$on_img: Name and path of image to be displayed it its state is "on"
 </LI>
-<LI>text: The log information to show.
+<LI>$off_text: Text to be displayed if state is "off"
+</LI>
+<LI>$on_text: Text to be displayed if state is "on"
+</LI>
+<LI>$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
+</LI>
+<LI>$default: State of the image input element on first load of page ("on" or "off")
+</LI>
+<LI>$outState: Current state of element (true for "on" or false for "off").
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if the button was clicked otherwise false.
 </LI>
 </UL>
 
@@ -74,7 +88,7 @@ HTML_logArea</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

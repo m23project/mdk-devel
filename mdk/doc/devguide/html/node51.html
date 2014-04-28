@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>XXX.m23plg file</TITLE>
-<META NAME="description" CONTENT="XXX.m23plg file">
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,92 +19,101 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node50.html">
-<LINK REL="up" HREF="node50.html">
+<LINK REL="next" HREF="node52.html">
+<LINK REL="previous" HREF="node47.html">
+<LINK REL="up" HREF="node38.html">
 <LINK REL="next" HREF="node52.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2830"
+<A NAME="tex2html2918"
   HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2826"
-  HREF="node50.html">
+<A NAME="tex2html2914"
+  HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2822"
+<A NAME="tex2html2908"
   HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2828"
+<A NAME="tex2html2916"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2831"
-  HREF="node52.html">Installation</A>
-<B> Up:</B> <A NAME="tex2html2827"
-  HREF="node50.html">How to create a</A>
-<B> Previous:</B> <A NAME="tex2html2823"
-  HREF="node50.html">How to create a</A>
- &nbsp; <B>  <A NAME="tex2html2829"
+<B> Next:</B> <A NAME="tex2html2919"
+  HREF="node52.html">The complete program</A>
+<B> Up:</B> <A NAME="tex2html2915"
+  HREF="node38.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2909"
+  HREF="node50.html">Send SQL statements</A>
+ &nbsp; <B>  <A NAME="tex2html2917"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00642100000000000000">
-XXX.m23plg file</A>
-</H3>
-This is your main plugin file, it should have a good chosen name and nothing like plugin.m23plg.
-<BR>
-<BR>
-It may look like this:
-<BR><TT>&lt;?PHP
-<BR>/*
-<BR>
-pluginName:Testplugin2
-<BR>
-pluginPage:testpage
-<BR>
-pluginAuthor: me
-<BR>
-pluginVersion: 1
-<BR>
-pluginUpdate: www.pc-kiel.de/plugin.dat
-<BR>
-pluginClientRequires: rdiff
-<BR>
-pluginIcon: /gfx/overview-mini.png
-<BR>*/
-<BR>
-Here stands your code
-<BR>?&gt;</TT>
-<BR>
-<BR>
-The lines between /* and */ are treated by PHP as comments, but the m23admin uses this informations for:
+<H2><A NAME="SECTION00646000000000000000">
+Example</A>
+</H2>
+<PRE>
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
 
-<UL>
-<LI>pluginName: is the name that is shown in the m23 menu
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
+
+  rows=mysql_num_rows(res); //&lt;&lt;2
+
+
+  for (int i=0; i &lt; rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //&lt;&lt;3
+
+        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
+
+        for (int fnr=0; fnr &lt; fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
+    }
+
+  mysql_free_result(res); //&lt;&lt;6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+</PRE>
+
+<OL>
+<LI>Get the number of fields of the table.
 </LI>
-<LI>pluginPage: this name is used for internal purpose, this is how the page is known to m23
+<LI>Get the amount of result rows.
 </LI>
-<LI>pluginAuthor: here you can leave your name, contact address etc.
+<LI>Fetch a row (one by one) and store the result in <SPAN  CLASS="textit">row</SPAN>.
 </LI>
-<LI>pluginVersion: version number of your plugin
+<LI>Store the lengths (in characters) of the result fields.
 </LI>
-<LI>pluginUpdate: specifies the location where to find the file, containing informations about newer versions of the plugin
+<LI>Print the fields of one row.
 </LI>
-<LI>pluginClientRequires: if your plugin needs some packages installed on the client, you have to list these packagenames here
+<LI>Free the memory by deleting the result data.
 </LI>
-<LI>pluginIcon: you can select an icon to be shown before the menu entry
-</LI>
-</UL> 
+</OL>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

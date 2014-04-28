@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getCurrentMemoryUsage</TITLE>
-<META NAME="description" CONTENT="CLIENT_getCurrentMemoryUsage">
+<TITLE>CLIENT_getOption</TITLE>
+<META NAME="description" CONTENT="CLIENT_getOption">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node214.html">
 <LINK REL="previous" HREF="node212.html">
-<LINK REL="up" HREF="node194.html">
+<LINK REL="up" HREF="node201.html">
 <LINK REL="next" HREF="node214.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5879"
+<A NAME="tex2html6016"
   HREF="node214.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5875"
-  HREF="node194.html">
+<A NAME="tex2html6012"
+  HREF="node201.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5869"
+<A NAME="tex2html6006"
   HREF="node212.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5877"
+<A NAME="tex2html6014"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5880"
-  HREF="node214.html">CLIENT_getCurrentFreeSpaceInDir</A>
-<B> Up:</B> <A NAME="tex2html5876"
-  HREF="node194.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html5870"
-  HREF="node212.html">CLIENT_getClientAmount</A>
- &nbsp; <B>  <A NAME="tex2html5878"
+<B> Next:</B> <A NAME="tex2html6017"
+  HREF="node214.html">CLIENT_getDistribution</A>
+<B> Up:</B> <A NAME="tex2html6013"
+  HREF="node201.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html6007"
+  HREF="node212.html">CLIENT_extraWebAction</A>
+ &nbsp; <B>  <A NAME="tex2html6015"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008719000000000000000">
-CLIENT_getCurrentMemoryUsage</A>
+<H2><A NAME="SECTION008712000000000000000">
+CLIENT_getOption</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the amount of free and total memory on a client or localhost.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an option of a client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientNameOrIP: The name of the client or localhost or an IP.
+<LI>client: Name of the client.
+</LI>
+<LI>optionName: Name of the option to ask (e.g. 'distr' for the client's distribution)
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Associative array with the free memory in $out['free'] and the total memory in $out['all'] in KB.
+<LI>Value of the option the client uses.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ CLIENT_getCurrentMemoryUsage</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

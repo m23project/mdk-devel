@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deletePartitionFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deletePartitionFromParam">
+<TITLE>FDISK_getBeforeFristPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_getBeforeFristPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node435.html">
 <LINK REL="previous" HREF="node433.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node435.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8707"
+<A NAME="tex2html8845"
   HREF="node435.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8703"
-  HREF="node362.html">
+<A NAME="tex2html8841"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8697"
+<A NAME="tex2html8835"
   HREF="node433.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8705"
+<A NAME="tex2html8843"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8708"
-  HREF="node435.html">FDISK_virtualDeletePartition</A>
-<B> Up:</B> <A NAME="tex2html8704"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8698"
-  HREF="node433.html">FDISK_listSupportedFS</A>
- &nbsp; <B>  <A NAME="tex2html8706"
+<B> Next:</B> <A NAME="tex2html8846"
+  HREF="node435.html">FDISK_getPartitions</A>
+<B> Up:</B> <A NAME="tex2html8842"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8836"
+  HREF="node433.html">FDISK_getAfterPartition</A>
+ &nbsp; <B>  <A NAME="tex2html8844"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081272000000000000000">
-FDISK_deletePartitionFromParam</A>
+<H2><A NAME="SECTION0081263000000000000000">
+FDISK_getBeforeFristPartition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all partition parameters of a partition from param without correcting the other partitions.
+<SPAN  CLASS="textbf">Description:</SPAN> gets the free space before the first partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
+<LI>vDev: virtual device number to access the drive
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Changed param without the partition.
+<LI>factor: the factor to multiplay percent amount of free space
 </LI>
 </UL>
 
@@ -78,7 +72,7 @@ FDISK_deletePartitionFromParam</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

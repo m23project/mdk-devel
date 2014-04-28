@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/html.php</TITLE>
-<META NAME="description" CONTENT="./inc/html.php">
+<TITLE>HELPER_grep</TITLE>
+<META NAME="description" CONTENT="HELPER_grep">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,177 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node601.html">
-<LINK REL="previous" HREF="node536.html">
-<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node542.html">
+<LINK REL="previous" HREF="node540.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node542.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10049"
+<A NAME="tex2html10193"
   HREF="node542.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10045"
-  HREF="node136.html">
+<A NAME="tex2html10189"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10039"
+<A NAME="tex2html10183"
   HREF="node540.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10047"
+<A NAME="tex2html10191"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10050"
-  HREF="node542.html">HTML_imgSwitch</A>
-<B> Up:</B> <A NAME="tex2html10046"
-  HREF="node136.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html10040"
-  HREF="node540.html">HELP_showHelpTex</A>
- &nbsp; <B>  <A NAME="tex2html10048"
+<B> Next:</B> <A NAME="tex2html10194"
+  HREF="node542.html">HELPER_getFdiskMountPoints</A>
+<B> Up:</B> <A NAME="tex2html10190"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html10184"
+  HREF="node540.html">HELPER_calcMBSize</A>
+ &nbsp; <B>  <A NAME="tex2html10192"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008160000000000000000">
-./inc/html.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions for generating often used HTML code
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0081431000000000000000">
+HELPER_grep</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> returnes all lines from $string seperated by $cut that contain $search
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html10051"
-  HREF="node542.html">HTML_imgSwitch</A>
-<LI><A NAME="tex2html10052"
-  HREF="node543.html">HTML_uploadFile</A>
-<LI><A NAME="tex2html10053"
-  HREF="node544.html">HTML_urlButton</A>
-<LI><A NAME="tex2html10054"
-  HREF="node545.html">HTML_sourceViewer</A>
-<LI><A NAME="tex2html10055"
-  HREF="node546.html">HTML_getOutputBuffer</A>
-<LI><A NAME="tex2html10056"
-  HREF="node547.html">HTML_setOutputBuffer</A>
-<LI><A NAME="tex2html10057"
-  HREF="node548.html">HTML_AJAXAutoSubmit</A>
-<LI><A NAME="tex2html10058"
-  HREF="node549.html">HTML_liveSpan</A>
-<LI><A NAME="tex2html10059"
-  HREF="node550.html">HTML_manipulateOutputBuffer</A>
-<LI><A NAME="tex2html10060"
-  HREF="node551.html">HTML_showTitle</A>
-<LI><A NAME="tex2html10061"
-  HREF="node552.html">HTML_showSmallTitle</A>
-<LI><A NAME="tex2html10062"
-  HREF="node553.html">HTML_hiddenVar</A>
-<LI><A NAME="tex2html10063"
-  HREF="node554.html">HTML_liveLogArea</A>
-<LI><A NAME="tex2html10064"
-  HREF="node555.html">HTML_checkboxChangerButtons</A>
-<LI><A NAME="tex2html10065"
-  HREF="node556.html">HTML_jsCheckboxChanger</A>
-<LI><A NAME="tex2html10066"
-  HREF="node557.html">HTML_logArea</A>
-<LI><A NAME="tex2html10067"
-  HREF="node558.html">HTML_getQuestionnaireURL</A>
-<LI><A NAME="tex2html10068"
-  HREF="node559.html">HTML_questionnaire</A>
-<LI><A NAME="tex2html10069"
-  HREF="node560.html">HTML_esel</A>
-<LI><A NAME="tex2html10070"
-  HREF="node561.html">HTML_JSMenuCloseAllEntries</A>
-<LI><A NAME="tex2html10071"
-  HREF="node562.html">HTML_JSMenuOpener</A>
-<LI><A NAME="tex2html10072"
-  HREF="node563.html">HTML_jQueryMenu</A>
-<LI><A NAME="tex2html10073"
-  HREF="node564.html">HTML_jQueryMenuHeader</A>
-<LI><A NAME="tex2html10074"
-  HREF="node565.html">HTML_jQueryMenuEnd</A>
-<LI><A NAME="tex2html10075"
-  HREF="node566.html">HTML_incStatusBarPercentByName</A>
-<LI><A NAME="tex2html10076"
-  HREF="node567.html">HTML_setStatusBarPercentPointByName</A>
-<LI><A NAME="tex2html10077"
-  HREF="node568.html">HTML_setStatusBarStatusByName</A>
-<LI><A NAME="tex2html10078"
-  HREF="node569.html">HTML_setStatusBarStatusByID</A>
-<LI><A NAME="tex2html10079"
-  HREF="node570.html">HTML_setStatusBarStatus</A>
-<LI><A NAME="tex2html10080"
-  HREF="node571.html">HTML_getStatusBarID</A>
-<LI><A NAME="tex2html10081"
-  HREF="node572.html">HTML_newStatusBar</A>
-<LI><A NAME="tex2html10082"
-  HREF="node573.html">HTML_showStatusBar</A>
-<LI><A NAME="tex2html10083"
-  HREF="node574.html">HTML_showStatusBarHTML</A>
-<LI><A NAME="tex2html10084"
-  HREF="node575.html">HTML_multiCheckBox</A>
-<LI><A NAME="tex2html10085"
-  HREF="node576.html">HTML_multiCheckBoxShow</A>
-<LI><A NAME="tex2html10086"
-  HREF="node577.html">HTML_setPage</A>
-<LI><A NAME="tex2html10087"
-  HREF="node578.html">HTML_storableInput</A>
-<LI><A NAME="tex2html10088"
-  HREF="node579.html">HTML_storableSelection</A>
-<LI><A NAME="tex2html10089"
-  HREF="node580.html">HTML_storableCheckBox</A>
-<LI><A NAME="tex2html10090"
-  HREF="node581.html">HTML_getElementValue</A>
-<LI><A NAME="tex2html10091"
-  HREF="node582.html">HTML_listSelection</A>
-<LI><A NAME="tex2html10092"
-  HREF="node583.html">HTML_showTableHeader</A>
-<LI><A NAME="tex2html10093"
-  HREF="node584.html">HTML_showTableEnd</A>
-<LI><A NAME="tex2html10094"
-  HREF="node585.html">HTML_showFormHeader</A>
-<LI><A NAME="tex2html10095"
-  HREF="node586.html">HTML_showFormEnd</A>
-<LI><A NAME="tex2html10096"
-  HREF="node587.html">HTML_submit</A>
-<LI><A NAME="tex2html10097"
-  HREF="node588.html">HTML_submitImg</A>
-<LI><A NAME="tex2html10098"
-  HREF="node589.html">HTML_input</A>
-<LI><A NAME="tex2html10099"
-  HREF="node590.html">array_makeFirst</A>
-<LI><A NAME="tex2html10100"
-  HREF="node591.html">HTML_getValidSelected</A>
-<LI><A NAME="tex2html10101"
-  HREF="node592.html">HTML_selection</A>
-<LI><A NAME="tex2html10102"
-  HREF="node593.html">HTML_checkBox</A>
-<LI><A NAME="tex2html10103"
-  HREF="node594.html">HTML_checkBoxCheckAll</A>
-<LI><A NAME="tex2html10104"
-  HREF="node595.html">HTML_submitDefine</A>
-<LI><A NAME="tex2html10105"
-  HREF="node596.html">HTML_submitCheck</A>
-<LI><A NAME="tex2html10106"
-  HREF="node597.html">HTML_showTableRow</A>
-<LI><A NAME="tex2html10107"
-  HREF="node598.html">HTML_showTableHeading</A>
-<LI><A NAME="tex2html10108"
-  HREF="node599.html">HTML_textArea</A>
-<LI><A NAME="tex2html10109"
-  HREF="node600.html">HTML_showPagePrintButton</A>
+<UL>
+<LI>string: the text, that should be searched
+</LI>
+<LI>search: the string to be searched
+</LI>
+<LI>cut: seperator for the input and output lines
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

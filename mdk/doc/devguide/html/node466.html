@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_buildRaidDialog</TITLE>
-<META NAME="description" CONTENT="FDISK_buildRaidDialog">
+<TITLE>FDISK_getNextFdiskFormatJobNr</TITLE>
+<META NAME="description" CONTENT="FDISK_getNextFdiskFormatJobNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node467.html">
 <LINK REL="previous" HREF="node465.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node467.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9091"
+<A NAME="tex2html9229"
   HREF="node467.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9087"
-  HREF="node362.html">
+<A NAME="tex2html9225"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9081"
+<A NAME="tex2html9219"
   HREF="node465.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9089"
+<A NAME="tex2html9227"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9092"
-  HREF="node467.html">FDISK_addRaidJobs</A>
-<B> Up:</B> <A NAME="tex2html9088"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9082"
-  HREF="node465.html">FDISK_addDrivePartitionToRaid</A>
- &nbsp; <B>  <A NAME="tex2html9090"
+<B> Next:</B> <A NAME="tex2html9230"
+  HREF="node467.html">FDISK_AFPselectDrive</A>
+<B> Up:</B> <A NAME="tex2html9226"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9220"
+  HREF="node465.html">FDISK_getDriveAndNr</A>
+ &nbsp; <B>  <A NAME="tex2html9228"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812104000000000000000">
-FDISK_buildRaidDialog</A>
+<H2><A NAME="SECTION0081295000000000000000">
+FDISK_getNextFdiskFormatJobNr</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for creating RAIDs of different types and assign real drives or partitions.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the next free job number for the parameters of a m23fdiskFormat job. (e.g. there are used the following parameters: command0 = rm, command1= add. Then the next command number to use will be command2 =<SPAN CLASS="MATH"></SPAN> return value is 2)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-<LI>partJobs: associative array with partition jobs
-</LI>
-<LI>currentDrive: the current drive to work on (e.g. hda)
-</LI>
-<LI>helpPage: Name of the help page to show.
-</LI>
-<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
-</LI>
-<LI>partMethod: partition method (used for the partition/format dialog). The next step will depend on this value.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
+<LI>fdiskParams: the parameters of the m23fdiskFormat job
 </LI>
 </UL>
 
@@ -84,7 +68,7 @@ FDISK_buildRaidDialog</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

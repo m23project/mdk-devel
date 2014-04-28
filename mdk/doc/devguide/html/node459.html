@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_AFPlinearScale</TITLE>
-<META NAME="description" CONTENT="FDISK_AFPlinearScale">
+<TITLE>FDISK_defineDrive</TITLE>
+<META NAME="description" CONTENT="FDISK_defineDrive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node460.html">
 <LINK REL="previous" HREF="node458.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node460.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9007"
+<A NAME="tex2html9145"
   HREF="node460.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9003"
-  HREF="node362.html">
+<A NAME="tex2html9141"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8997"
+<A NAME="tex2html9135"
   HREF="node458.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9005"
+<A NAME="tex2html9143"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9008"
-  HREF="node460.html">FDISK_AFPgetPartSizes</A>
-<B> Up:</B> <A NAME="tex2html9004"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8998"
-  HREF="node458.html">FDISK_AFPselectDrive</A>
- &nbsp; <B>  <A NAME="tex2html9006"
+<B> Next:</B> <A NAME="tex2html9146"
+  HREF="node460.html">FDISK_dev2LDevLPart</A>
+<B> Up:</B> <A NAME="tex2html9142"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9136"
+  HREF="node458.html">FDISK_showDiskDefine</A>
+ &nbsp; <B>  <A NAME="tex2html9144"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081297000000000000000">
-FDISK_AFPlinearScale</A>
+<H2><A NAME="SECTION0081288000000000000000">
+FDISK_defineDrive</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> scales all partitions sizes to match the full disk size.
+<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>driveToUse: device to use (e.g. /dev/hda)
+<LI>client: client name
 </LI>
-<LI>driveToUseSize: Size of the real drive to use.
+<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
 </LI>
-<LI>options: options array of the client
+<LI>size: size of the drive in MB
 </LI>
-<LI>command: array that stores the modificated format parameters
+<LI>upperI: upper tolerance border for disks with identical type
 </LI>
-<LI>formatarr: array that contains the original format parameters
+<LI>lowerI: lower tolerance border for disks with identical type
+</LI>
+<LI>upperO: upper tolerance border for disks with other type
+</LI>
+<LI>lowerO: lower tolerance border for disks with other type
+</LI>
+<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
+</LI>
+<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
 </LI>
 </UL>
 
@@ -76,7 +84,7 @@ FDISK_AFPlinearScale</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

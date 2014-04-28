@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_showTableRow</TITLE>
-<META NAME="description" CONTENT="HTML_showTableRow">
+<TITLE>HTML_listSelection</TITLE>
+<META NAME="description" CONTENT="HTML_listSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node598.html">
 <LINK REL="previous" HREF="node596.html">
-<LINK REL="up" HREF="node541.html">
+<LINK REL="up" HREF="node556.html">
 <LINK REL="next" HREF="node598.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10780"
+<A NAME="tex2html10924"
   HREF="node598.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10776"
-  HREF="node541.html">
+<A NAME="tex2html10920"
+  HREF="node556.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10770"
+<A NAME="tex2html10914"
   HREF="node596.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10778"
+<A NAME="tex2html10922"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10781"
-  HREF="node598.html">HTML_showTableHeading</A>
-<B> Up:</B> <A NAME="tex2html10777"
-  HREF="node541.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10771"
-  HREF="node596.html">HTML_submitCheck</A>
- &nbsp; <B>  <A NAME="tex2html10779"
+<B> Next:</B> <A NAME="tex2html10925"
+  HREF="node598.html">HTML_showTableHeader</A>
+<B> Up:</B> <A NAME="tex2html10921"
+  HREF="node556.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10915"
+  HREF="node596.html">HTML_getElementValue</A>
+ &nbsp; <B>  <A NAME="tex2html10923"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081656000000000000000">
-HTML_showTableRow</A>
+<H2><A NAME="SECTION0081641000000000000000">
+HTML_listSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a table row with a variable amount of entries. The parameters are shown side by side as rows in a table. If more than one HTML_showTableRow commands are executed in one table it is needed to always use the same amount of paramaters in each call.
+<SPAN  CLASS="textbf">Description:</SPAN> shows a selection with options stored in an array
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Arbitrary amount of cells to show in a table.
+<LI>selName: name of the selection
+</LI>
+<LI>list: array with the entries. The array can be a simple numeric array or an associative array with discrete entries for the shown name and the value. e.g. : $l[name0]="public"; $l[val0]="internal"; $l[name1]="public1"; $l[val1]="internal1"; public and public1 will be shown the user in the webbrowser, while internal and internal1 are the values that are transfered to the server.
+</LI>
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+</LI>
+<LI>firstName: if you want to use the associative array variant and a first value, you need to set the name that should be shown to the user. This name is stored in firstName
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ HTML_showTableRow</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

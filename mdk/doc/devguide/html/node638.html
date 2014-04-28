@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_deleteID</TITLE>
-<META NAME="description" CONTENT="LDAP_deleteID">
+<TITLE>./inc/ldap.php</TITLE>
+<META NAME="description" CONTENT="./inc/ldap.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,107 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node639.html">
-<LINK REL="previous" HREF="node637.html">
-<LINK REL="up" HREF="node622.html">
+<LINK REL="next" HREF="node663.html">
+<LINK REL="previous" HREF="node625.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node639.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11308"
+<A NAME="tex2html11430"
   HREF="node639.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11304"
-  HREF="node622.html">
+<A NAME="tex2html11426"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11298"
+<A NAME="tex2html11420"
   HREF="node637.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11306"
+<A NAME="tex2html11428"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11309"
-  HREF="node639.html">LDAP_addNewUserID</A>
-<B> Up:</B> <A NAME="tex2html11305"
-  HREF="node622.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html11299"
-  HREF="node637.html">LDAP_addNewID</A>
- &nbsp; <B>  <A NAME="tex2html11307"
+<B> Next:</B> <A NAME="tex2html11431"
+  HREF="node639.html">LDAP_getTypes</A>
+<B> Up:</B> <A NAME="tex2html11427"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11421"
+  HREF="node637.html">I18N_getLangVars</A>
+ &nbsp; <B>  <A NAME="tex2html11429"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081916000000000000000">
-LDAP_deleteID</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Delets an ID from the table of used IDs
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>type: "user" for user IDs
-</LI>
-<LI>id: number of the new ID
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008190000000000000000">
+./inc/ldap.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for using a LDAP server
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11432"
+  HREF="node639.html">LDAP_getTypes</A>
+<LI><A NAME="tex2html11433"
+  HREF="node640.html">LDAP_connectServer</A>
+<LI><A NAME="tex2html11434"
+  HREF="node641.html">LDAP_makeConnection</A>
+<LI><A NAME="tex2html11435"
+  HREF="node642.html">LDAP_listServers</A>
+<LI><A NAME="tex2html11436"
+  HREF="node643.html">LDAP_loadServer</A>
+<LI><A NAME="tex2html11437"
+  HREF="node644.html">LDAP_addPosix</A>
+<LI><A NAME="tex2html11438"
+  HREF="node645.html">LDAP_fqdn2dn</A>
+<LI><A NAME="tex2html11439"
+  HREF="node646.html">LDAP_installServer</A>
+<LI><A NAME="tex2html11440"
+  HREF="node647.html">LDAP_addServerTophpLdapAdmin</A>
+<LI><A NAME="tex2html11441"
+  HREF="node648.html">LDAP_delServerFromphpLdapAdmin</A>
+<LI><A NAME="tex2html11442"
+  HREF="node649.html">LDAP_checkphpLdapAdminConfiguration</A>
+<LI><A NAME="tex2html11443"
+  HREF="node650.html">LDAP_showServerManagementDialog</A>
+<LI><A NAME="tex2html11444"
+  HREF="node651.html">LDAP_I18NLdapType</A>
+<LI><A NAME="tex2html11445"
+  HREF="node652.html">LDAP_getNextID</A>
+<LI><A NAME="tex2html11446"
+  HREF="node653.html">LDAP_getNextUserID</A>
+<LI><A NAME="tex2html11447"
+  HREF="node654.html">LDAP_addNewID</A>
+<LI><A NAME="tex2html11448"
+  HREF="node655.html">LDAP_deleteID</A>
+<LI><A NAME="tex2html11449"
+  HREF="node656.html">LDAP_addNewUserID</A>
+<LI><A NAME="tex2html11450"
+  HREF="node657.html">LDAP_addNewGroupID</A>
+<LI><A NAME="tex2html11451"
+  HREF="node658.html">LDAP_getNextGroupID</A>
+<LI><A NAME="tex2html11452"
+  HREF="node659.html">LDAP_getFreeIDs</A>
+<LI><A NAME="tex2html11453"
+  HREF="node660.html">LDAP_getFreeUserIDs</A>
+<LI><A NAME="tex2html11454"
+  HREF="node661.html">LDAP_getFreeGroupIDs</A>
+<LI><A NAME="tex2html11455"
+  HREF="node662.html">LDAP_matchLDAPserver</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

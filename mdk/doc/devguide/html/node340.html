@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/edit.php</TITLE>
-<META NAME="description" CONTENT="./inc/edit.php">
+<TITLE>DHCP_isNetworkBootingActive</TITLE>
+<META NAME="description" CONTENT="DHCP_isNetworkBootingActive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,101 +19,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node362.html">
-<LINK REL="previous" HREF="node333.html">
-<LINK REL="up" HREF="node136.html">
+<LINK REL="previous" HREF="node339.html">
+<LINK REL="up" HREF="node321.html">
 <LINK REL="next" HREF="node341.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7451"
+<A NAME="tex2html7584"
   HREF="node341.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7447"
-  HREF="node136.html">
+<A NAME="tex2html7580"
+  HREF="node321.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7441"
+<A NAME="tex2html7576"
   HREF="node339.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7449"
+<A NAME="tex2html7582"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7452"
-  HREF="node341.html">EDIT_setOption</A>
-<B> Up:</B> <A NAME="tex2html7448"
-  HREF="node136.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html7442"
-  HREF="node339.html">PKG_translateClientPackageStatus</A>
- &nbsp; <B>  <A NAME="tex2html7450"
+<B> Next:</B> <A NAME="tex2html7585"
+  HREF="node341.html">./inc/distr/halfSister/packages.php</A>
+<B> Up:</B> <A NAME="tex2html7581"
+  HREF="node321.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7577"
+  HREF="node339.html">DHCP_removePXEcfg</A>
+ &nbsp; <B>  <A NAME="tex2html7583"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008110000000000000000">
-./inc/edit.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: routines for editing files with sed
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION008919000000000000000">
+DHCP_isNetworkBootingActive</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a client has network booting enabled.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html7453"
-  HREF="node341.html">EDIT_setOption</A>
-<LI><A NAME="tex2html7454"
-  HREF="node342.html">EDIT_genClientm23Random</A>
-<LI><A NAME="tex2html7455"
-  HREF="node343.html">EDIT_commentoutInsert</A>
-<LI><A NAME="tex2html7456"
-  HREF="node344.html">EDIT_countMatches</A>
-<LI><A NAME="tex2html7457"
-  HREF="node345.html">EDIT_calc</A>
-<LI><A NAME="tex2html7458"
-  HREF="node346.html">EDIT_uncomment</A>
-<LI><A NAME="tex2html7459"
-  HREF="node347.html">EDIT_commentout</A>
-<LI><A NAME="tex2html7460"
-  HREF="node348.html">EDIT_insertAfterLineNumber</A>
-<LI><A NAME="tex2html7461"
-  HREF="node349.html">EDIT_insertAtLineNumber</A>
-<LI><A NAME="tex2html7462"
-  HREF="node350.html">EDIT_insertLineNumber</A>
-<LI><A NAME="tex2html7463"
-  HREF="node351.html">EDIT_searchLineNumber</A>
-<LI><A NAME="tex2html7464"
-  HREF="node352.html">EDIT_searchLastLineNumber</A>
-<LI><A NAME="tex2html7465"
-  HREF="node353.html">EDIT_searchNextLineNumber</A>
-<LI><A NAME="tex2html7466"
-  HREF="node354.html">EDIT_replace</A>
-<LI><A NAME="tex2html7467"
-  HREF="node355.html">EDIT_prepareStr</A>
-<LI><A NAME="tex2html7468"
-  HREF="node356.html">EDIT_savePerms</A>
-<LI><A NAME="tex2html7469"
-  HREF="node357.html">EDIT_restorePerms</A>
-<LI><A NAME="tex2html7470"
-  HREF="node358.html">EDIT_deleteLines</A>
-<LI><A NAME="tex2html7471"
-  HREF="node359.html">EDIT_deleteLinesAmount</A>
-<LI><A NAME="tex2html7472"
-  HREF="node360.html">EDIT_addIfNotExists</A>
-<LI><A NAME="tex2html7473"
-  HREF="node361.html">EDIT_deleteMatching</A>
+<UL>
+<LI>clientName: name of the client
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: True, if network booting is active, false otherwise.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

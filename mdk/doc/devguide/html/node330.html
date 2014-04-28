@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_writePXEcfg</TITLE>
-<META NAME="description" CONTENT="DHCP_writePXEcfg">
+<TITLE>DHCP_bootTypeToNewFormat</TITLE>
+<META NAME="description" CONTENT="DHCP_bootTypeToNewFormat">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node331.html">
 <LINK REL="previous" HREF="node329.html">
-<LINK REL="up" HREF="node313.html">
+<LINK REL="up" HREF="node321.html">
 <LINK REL="next" HREF="node331.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7329"
+<A NAME="tex2html7466"
   HREF="node331.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7325"
-  HREF="node313.html">
+<A NAME="tex2html7462"
+  HREF="node321.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7319"
+<A NAME="tex2html7456"
   HREF="node329.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7327"
+<A NAME="tex2html7464"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7330"
-  HREF="node331.html">DHCP_removePXEcfg</A>
-<B> Up:</B> <A NAME="tex2html7326"
-  HREF="node313.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7320"
-  HREF="node329.html">DHCP_calcPXEIP</A>
- &nbsp; <B>  <A NAME="tex2html7328"
+<B> Next:</B> <A NAME="tex2html7467"
+  HREF="node331.html">DHCP_addClient</A>
+<B> Up:</B> <A NAME="tex2html7463"
+  HREF="node321.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7457"
+  HREF="node329.html">DHCP_delDynamicRange</A>
+ &nbsp; <B>  <A NAME="tex2html7465"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008917000000000000000">
-DHCP_writePXEcfg</A>
+<H2><A NAME="SECTION00899000000000000000">
+DHCP_bootTypeToNewFormat</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> writes the pxe config file for te client
+<SPAN  CLASS="textbf">Description:</SPAN> Converts a boolean boot type to the new string format.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>bootType: Boolean or string format (e.g. "pxe") boot type.
 </LI>
-<LI>arch: computer architecture (i386 or amd64)
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>String format (e.g. "pxe") boot type.
 </LI>
 </UL>
 
@@ -70,7 +74,7 @@ DHCP_writePXEcfg</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

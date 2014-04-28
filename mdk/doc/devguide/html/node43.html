@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Disconnecting from the server</TITLE>
-<META NAME="description" CONTENT="Disconnecting from the server">
+<TITLE>Adding a database user</TITLE>
+<META NAME="description" CONTENT="Adding a database user">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node44.html">
 <LINK REL="previous" HREF="node42.html">
 <LINK REL="up" HREF="node41.html">
 <LINK REL="next" HREF="node44.html">
@@ -28,47 +27,91 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2727"
+<A NAME="tex2html2821"
   HREF="node44.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2723"
+<A NAME="tex2html2817"
   HREF="node41.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2717"
+<A NAME="tex2html2813"
   HREF="node42.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2725"
+<A NAME="tex2html2819"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2728"
-  HREF="node44.html">Send SQL statements</A>
-<B> Up:</B> <A NAME="tex2html2724"
-  HREF="node41.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2718"
-  HREF="node42.html">Connecting to the server</A>
- &nbsp; <B>  <A NAME="tex2html2726"
+<B> Next:</B> <A NAME="tex2html2822"
+  HREF="node44.html">Preparing KDevelop</A>
+<B> Up:</B> <A NAME="tex2html2818"
+  HREF="node41.html">Preparing the server</A>
+<B> Previous:</B> <A NAME="tex2html2814"
+  HREF="node42.html">Enable network access</A>
+ &nbsp; <B>  <A NAME="tex2html2820"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00635200000000000000">
-Disconnecting from the server</A>
+<H3><A NAME="SECTION00643200000000000000">
+Adding a database user</A>
 </H3>
-<PRE>
-void disconnect()
-{
- mysql_close(&amp;connection);
-};
-</PRE>
-This function disconnects from the server. The global variable <SPAN  CLASS="textit">connection</SPAN> is used to identify the right connection to the server.
+You have enabled network access, now you need a database user. The new user should be able to do some changes to tables (insert, delete and update). For creating the user I use phpMyAdmin, a very powerful tool for all ways of modifying mysql databases. If you don't allready know that tool, have a look at: <SPAN  CLASS="textbf">http://www.phpmyadmin.net/</SPAN>.
+
+<UL>
+<LI>log in to your m23 server: open <SPAN  CLASS="textbf">http://&lt;serverIP&gt;/m23admin/phpMyAdmin/index.php</SPAN> in a webbrowser and adjust &lt;serverIP&gt;  to the ip address of your m23 server.
+</LI>
+<LI>select "home" on the left
+</LI>
+<LI>click on "Privileges" in the main window
+</LI>
+<LI>click "Add a new User"
+</LI>
+<LI>think about a good user name and insert it at: "User name:"
+</LI>
+<LI>for "Host:" you can leave it on "any host" and select "%" for the host name. If you want only selected hosts to log in, you can enter the ip or hostname.
+</LI>
+<LI>select a password and retype it in the text field below
+</LI>
+<LI>in "Global privileges" -&gt; "Data" select at least: INSERT, UPDATE and DELETE
+</LI>
+<LI>click the "GO" button to accept your changes
+</LI>
+<LI>select "home" on the left
+</LI>
+<LI>click on "Reload MySQL" in the main window
+</LI>
+</UL>
+After this adjustments you should be able to log in to the m23 server with your new account.
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2821"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2817"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2813"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2819"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2822"
+  HREF="node44.html">Preparing KDevelop</A>
+<B> Up:</B> <A NAME="tex2html2818"
+  HREF="node41.html">Preparing the server</A>
+<B> Previous:</B> <A NAME="tex2html2814"
+  HREF="node42.html">Enable network access</A>
+ &nbsp; <B>  <A NAME="tex2html2820"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

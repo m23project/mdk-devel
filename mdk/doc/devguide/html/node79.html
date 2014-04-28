@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compresses the m23 files</TITLE>
-<META NAME="description" CONTENT="compresses the m23 files">
+<TITLE>booting your new system</TITLE>
+<META NAME="description" CONTENT="booting your new system">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node80.html">
 <LINK REL="previous" HREF="node78.html">
-<LINK REL="up" HREF="node76.html">
+<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node80.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3180"
+<A NAME="tex2html3269"
   HREF="node80.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3176"
-  HREF="node76.html">
+<A NAME="tex2html3265"
+  HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3170"
+<A NAME="tex2html3261"
   HREF="node78.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3178"
+<A NAME="tex2html3267"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3181"
-  HREF="node80.html">generating the ISO image</A>
-<B> Up:</B> <A NAME="tex2html3177"
-  HREF="node76.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html3171"
-  HREF="node78.html">compress operating system</A>
- &nbsp; <B>  <A NAME="tex2html3179"
+<B> Next:</B> <A NAME="tex2html3270"
+  HREF="node80.html">How to create a</A>
+<B> Up:</B> <A NAME="tex2html3266"
+  HREF="node67.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html3262"
+  HREF="node78.html">system update and installation</A>
+ &nbsp; <B>  <A NAME="tex2html3268"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00662300000000000000">
-compresses the m23 files</A>
-</H3>
-The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
-<BR>
-For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
+<H2><A NAME="SECTION00667000000000000000">
+booting your new system</A>
+</H2>
+To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
+Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
+<PRE>
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        initrd=/initrd.img
+</PRE>
+vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

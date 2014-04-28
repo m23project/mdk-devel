@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_grubMd5Crypt</TITLE>
-<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
+<TITLE>HELPER_arrayReOrderKeynumbers</TITLE>
+<META NAME="description" CONTENT="HELPER_arrayReOrderKeynumbers">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node525.html">
 <LINK REL="previous" HREF="node523.html">
-<LINK REL="up" HREF="node501.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node525.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9845"
+<A NAME="tex2html9989"
   HREF="node525.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9841"
-  HREF="node501.html">
+<A NAME="tex2html9985"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9835"
+<A NAME="tex2html9979"
   HREF="node523.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9843"
+<A NAME="tex2html9987"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9846"
-  HREF="node525.html">HELPER_listFilesInDir</A>
-<B> Up:</B> <A NAME="tex2html9842"
-  HREF="node501.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9836"
-  HREF="node523.html">HELPER_generateSalt</A>
- &nbsp; <B>  <A NAME="tex2html9844"
+<B> Next:</B> <A NAME="tex2html9990"
+  HREF="node525.html">HELPER_arrayInsertBeforeKeynumber</A>
+<B> Up:</B> <A NAME="tex2html9986"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9980"
+  HREF="node523.html">HELPER_createSelfSignedCAAndServerCertificate</A>
+ &nbsp; <B>  <A NAME="tex2html9988"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081423000000000000000">
-HELPER_grubMd5Crypt</A>
+<H2><A NAME="SECTION0081414000000000000000">
+HELPER_arrayReOrderKeynumbers</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
+<SPAN  CLASS="textbf">Description:</SPAN> Changes all keys of the input array to simple ascending numbers, if the key of the inpur array is a number (if not, the key will be left unchanged). The order of the keys is preserved.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>password: Password to encrypt.
-</LI>
-<LI>length: Length of the salt.
+<LI>inArray: The input array.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
+<LI>New array with the ascending key numbers.
 </LI>
 </UL>
 
@@ -76,7 +74,7 @@ HELPER_grubMd5Crypt</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

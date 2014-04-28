@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_dev2LDevLPart</TITLE>
-<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
+<TITLE>FDISK_addJob</TITLE>
+<META NAME="description" CONTENT="FDISK_addJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node452.html">
 <LINK REL="previous" HREF="node450.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node452.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8911"
+<A NAME="tex2html9049"
   HREF="node452.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8907"
-  HREF="node362.html">
+<A NAME="tex2html9045"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8901"
+<A NAME="tex2html9039"
   HREF="node450.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8909"
+<A NAME="tex2html9047"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8912"
-  HREF="node452.html">FDISK_rereadPartTable</A>
-<B> Up:</B> <A NAME="tex2html8908"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8902"
-  HREF="node450.html">FDISK_defineDrive</A>
- &nbsp; <B>  <A NAME="tex2html8910"
+<B> Next:</B> <A NAME="tex2html9050"
+  HREF="node452.html">FDISK_bootflagJob</A>
+<B> Up:</B> <A NAME="tex2html9046"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9040"
+  HREF="node450.html">FDISK_rmJob</A>
+ &nbsp; <B>  <A NAME="tex2html9048"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081289000000000000000">
-FDISK_dev2LDevLPart</A>
+<H2><A NAME="SECTION0081280000000000000000">
+FDISK_addJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition add job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: the associative array containing all values describing the drives of the client
+<LI>path: selected device (e.g. /dev/hda)
 </LI>
-<LI>dev: the device (e.g. /dev/hda2)
+<LI>start: start point fo the partition
 </LI>
-<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
+<LI>end: end point fo the partition
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
+<LI>type: type of the partition (primary, logical)
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true if the search worked otherwise false.
+<LI>partJobs: associative array with partition jobs
+</LI>
+<LI>fullPath: full path for the partition
+</LI>
+<LI>devNr: number of the device (e.g. 1 with /dev/hda1)
 </LI>
 </UL>
 
@@ -80,7 +80,7 @@ FDISK_dev2LDevLPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

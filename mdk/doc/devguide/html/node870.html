@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_isPluginSelected</TITLE>
-<META NAME="description" CONTENT="PLG_isPluginSelected">
+<TITLE>PKG_showAllPackageSelections</TITLE>
+<META NAME="description" CONTENT="PKG_showAllPackageSelections">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node871.html">
 <LINK REL="previous" HREF="node869.html">
-<LINK REL="up" HREF="node867.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node871.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14316"
+<A NAME="tex2html14443"
   HREF="node871.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14312"
-  HREF="node867.html">
+<A NAME="tex2html14439"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14306"
+<A NAME="tex2html14433"
   HREF="node869.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14314"
+<A NAME="tex2html14441"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14317"
-  HREF="node871.html">PLG_getPLGName</A>
-<B> Up:</B> <A NAME="tex2html14313"
-  HREF="node867.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14307"
-  HREF="node869.html">PLG_isPluginSelected</A>
- &nbsp; <B>  <A NAME="tex2html14315"
+<B> Next:</B> <A NAME="tex2html14444"
+  HREF="node871.html">PKG_getPackageParams</A>
+<B> Up:</B> <A NAME="tex2html14440"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html14434"
+  HREF="node869.html">PKG_multiPackageSelectionsSelection</A>
+ &nbsp; <B>  <A NAME="tex2html14442"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008263000000000000000">
-PLG_isPluginSelected</A>
+<H2><A NAME="SECTION0082487000000000000000">
+PKG_showAllPackageSelections</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets values from the plugins like plugin name, version,...
+<SPAN  CLASS="textbf">Description:</SPAN> returns all package selection as HTML selection
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fileName: file name with whole path to the plugin file
+<LI>selName: name of the selection
 </LI>
-<LI>var: variable you want to get the value from
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+</LI>
+<LI>addEmpty: set to true to add an empty entry at the beginning.
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ PLG_isPluginSelected</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

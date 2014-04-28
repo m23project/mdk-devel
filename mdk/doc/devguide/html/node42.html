@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Connecting to the server</TITLE>
-<META NAME="description" CONTENT="Connecting to the server">
+<TITLE>Enable network access</TITLE>
+<META NAME="description" CONTENT="Enable network access">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,74 +28,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2715"
+<A NAME="tex2html2811"
   HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2711"
+<A NAME="tex2html2807"
   HREF="node41.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2705"
+<A NAME="tex2html2801"
   HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2713"
+<A NAME="tex2html2809"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2716"
-  HREF="node43.html">Disconnecting from the server</A>
-<B> Up:</B> <A NAME="tex2html2712"
-  HREF="node41.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2706"
-  HREF="node41.html">Filling main.cpp</A>
- &nbsp; <B>  <A NAME="tex2html2714"
+<B> Next:</B> <A NAME="tex2html2812"
+  HREF="node43.html">Adding a database user</A>
+<B> Up:</B> <A NAME="tex2html2808"
+  HREF="node41.html">Preparing the server</A>
+<B> Previous:</B> <A NAME="tex2html2802"
+  HREF="node41.html">Preparing the server</A>
+ &nbsp; <B>  <A NAME="tex2html2810"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00635100000000000000">
-Connecting to the server</A>
+<H3><A NAME="SECTION00643100000000000000">
+Enable network access</A>
 </H3>
-<PRE>
-#include &lt;mysql/mysql.h&gt;
-
-MYSQL connection;
-
-void connect(char *server, char *dbuser, char *passw)
-{
-  if (!mysql_connect(&amp;connection,server,dbuser,passw))
-  {
-      fprintf(stderr, "Failed to connect to database:\
-              Error: %s\n",mysql_error(&amp;connection));
-      exit(2);
-  }
-  mysql_select_db(&amp;connection,"m23");
-};
-</PRE>
-
-<OL>
-<LI>First of all we have to include the necessary header file: <SPAN  CLASS="textit">#include &lt;mysql/mysql.h&gt;</SPAN>
-</LI>
-<LI>The mysql_connect function requires a <SPAN  CLASS="textbf">MYSQL</SPAN> variable (here called
-<SPAN  CLASS="textit">connection</SPAN>) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql_connect will return 0, otherwise we get an error, print an error message and quit.
-
-<P>
-</LI>
-<LI>mysql_error will generate a human readable error message.
-
-<P>
-</LI>
-<LI>At least we should choose our database, this is done with mysql_select_db. Now the connection should be established.
-
-<P>
-</LI>
-</OL>
+To get access to the server over the network you need to do a little adjustment:
+Open <SPAN  CLASS="textit">/etc/mysql/my.cnf</SPAN> and comment out the line <TT>skip-networking</TT> so that it looks like <TT>#skip-networking</TT>.
+Don't forget to save ;) Now you have to restart the mysql server.
+<BR>
+<BR>
+I do it this way:
+<BR><TT>
+killall -9 safe_mysqld
+<BR>
+killall -9 mysqld
+<BR>/etc/init.d/mysql start
+<BR></TT>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

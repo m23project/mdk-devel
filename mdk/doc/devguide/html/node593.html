@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_checkBox</TITLE>
-<META NAME="description" CONTENT="HTML_checkBox">
+<TITLE>HTML_storableInput</TITLE>
+<META NAME="description" CONTENT="HTML_storableInput">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node594.html">
 <LINK REL="previous" HREF="node592.html">
-<LINK REL="up" HREF="node541.html">
+<LINK REL="up" HREF="node556.html">
 <LINK REL="next" HREF="node594.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10732"
+<A NAME="tex2html10876"
   HREF="node594.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10728"
-  HREF="node541.html">
+<A NAME="tex2html10872"
+  HREF="node556.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10722"
+<A NAME="tex2html10866"
   HREF="node592.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10730"
+<A NAME="tex2html10874"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10733"
-  HREF="node594.html">HTML_checkBoxCheckAll</A>
-<B> Up:</B> <A NAME="tex2html10729"
-  HREF="node541.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10723"
-  HREF="node592.html">HTML_selection</A>
- &nbsp; <B>  <A NAME="tex2html10731"
+<B> Next:</B> <A NAME="tex2html10877"
+  HREF="node594.html">HTML_storableSelection</A>
+<B> Up:</B> <A NAME="tex2html10873"
+  HREF="node556.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10867"
+  HREF="node592.html">HTML_setPage</A>
+ &nbsp; <B>  <A NAME="tex2html10875"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081652000000000000000">
-HTML_checkBox</A>
+<H2><A NAME="SECTION0081637000000000000000">
+HTML_storableInput</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a check box with label.
+<SPAN  CLASS="textbf">Description:</SPAN> HTML text or password edit line with loading and storing the values to and from the session.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>htmlName: Name of the HTML element.
 </LI>
-<LI>label: Label of the element.
-</LI>
-<LI>defaultCheck: Set to true if the check box should be checked if no HTML value is given.
-</LI>
 <LI>prefKey: Variable name of the preference the dialog element stands for.
 </LI>
-<LI>htmlValue: Value of the checkbox if clicked.
+<LI>initValue: The initial value if the element is shown first.
 </LI>
-<LI>forceReload: Set to true if the check box should be set to the state of $defaultCheck in any case.
+<LI>storePointer: Additional pointer to the variable where to store the entered value.
+</LI>
+<LI>size: Size (in characters) of the input line.
+</LI>
+<LI>maxlength: The maximum length of the entered text.
+</LI>
+<LI>type: Type of the edit line (INPUT_TYPE_text or INPUT_TYPE_password)
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>True if the check box is checked.
+<LI>Returns the entered value, the default value or false.
 </LI>
 </UL>
 
@@ -84,7 +86,7 @@ HTML_checkBox</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_fstabAddDialog</TITLE>
-<META NAME="description" CONTENT="FDISK_fstabAddDialog">
+<TITLE>FDISK_findDevNrPosition</TITLE>
+<META NAME="description" CONTENT="FDISK_findDevNrPosition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node413.html">
 <LINK REL="previous" HREF="node411.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node413.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8443"
+<A NAME="tex2html8581"
   HREF="node413.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8439"
-  HREF="node362.html">
+<A NAME="tex2html8577"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8433"
+<A NAME="tex2html8571"
   HREF="node411.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8441"
+<A NAME="tex2html8579"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8444"
-  HREF="node413.html">FDISK_adjustFstabParam</A>
-<B> Up:</B> <A NAME="tex2html8440"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8434"
-  HREF="node411.html">FDISK_fstabAddDialog2</A>
- &nbsp; <B>  <A NAME="tex2html8442"
+<B> Next:</B> <A NAME="tex2html8582"
+  HREF="node413.html">FDISK_partCreationSelect</A>
+<B> Up:</B> <A NAME="tex2html8578"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8572"
+  HREF="node411.html">FDISK_correctLogical</A>
+ &nbsp; <B>  <A NAME="tex2html8580"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081250000000000000000">
-FDISK_fstabAddDialog</A>
+<H2><A NAME="SECTION0081241000000000000000">
+FDISK_findDevNrPosition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Dialog for adding fstab entries.
+<SPAN  CLASS="textbf">Description:</SPAN> returns the device position for the new device
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>start: start position for the search
+</LI>
+<LI>end: end position for the search
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>fstab: Array that contains the fstab information. The changed fstab will be written to this parameter too.
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>newPartNr: stores the new device number
+</LI>
+<LI>type: type of the new partition
 </LI>
 </UL>
 
@@ -70,7 +78,7 @@ FDISK_fstabAddDialog</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

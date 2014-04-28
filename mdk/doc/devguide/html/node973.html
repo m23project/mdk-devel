@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_putFileContents</TITLE>
-<META NAME="description" CONTENT="SERVER_putFileContents">
+<TITLE>SERVER_delFromHtpasswd</TITLE>
+<META NAME="description" CONTENT="SERVER_delFromHtpasswd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node974.html">
 <LINK REL="previous" HREF="node972.html">
-<LINK REL="up" HREF="node936.html">
+<LINK REL="up" HREF="node958.html">
 <LINK REL="next" HREF="node974.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15630"
+<A NAME="tex2html15782"
   HREF="node974.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15626"
-  HREF="node936.html">
+<A NAME="tex2html15778"
+  HREF="node958.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15620"
+<A NAME="tex2html15772"
   HREF="node972.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15628"
+<A NAME="tex2html15780"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15631"
-  HREF="node974.html">SERVER_delLineFromFile</A>
-<B> Up:</B> <A NAME="tex2html15627"
-  HREF="node936.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15621"
-  HREF="node972.html">SERVER_getFileContents</A>
- &nbsp; <B>  <A NAME="tex2html15629"
+<B> Next:</B> <A NAME="tex2html15783"
+  HREF="node974.html">SERVER_addToHtpasswd</A>
+<B> Up:</B> <A NAME="tex2html15779"
+  HREF="node958.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15773"
+  HREF="node972.html">SERVER_changeHtpasswd</A>
+ &nbsp; <B>  <A NAME="tex2html15781"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083137000000000000000">
-SERVER_putFileContents</A>
+<H2><A NAME="SECTION0083115000000000000000">
+SERVER_delFromHtpasswd</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Stores a text to a file and changes it's mode, user and group.
+<SPAN  CLASS="textbf">Description:</SPAN> Removes a user with password to a htpasswd file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fileName: Name of the file to put the text to.
+<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
 </LI>
-<LI>text: The contents the file should have.
-</LI>
-<LI>mode: The access mode the file should have.
-</LI>
-<LI>user: The owner of the file.
-</LI>
-<LI>group: The owning group of the file.
+<LI>: username: Name of the user to remove
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>true on success and false otherwise.
+<LI>: True if the new user was added sucessfully.
 </LI>
 </UL>
 
@@ -82,7 +76,7 @@ SERVER_putFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

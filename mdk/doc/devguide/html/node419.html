@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_definePartitionSelection</TITLE>
-<META NAME="description" CONTENT="FDISK_definePartitionSelection">
+<TITLE>FDISK_listFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_listFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node420.html">
 <LINK REL="previous" HREF="node418.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node420.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8527"
+<A NAME="tex2html8665"
   HREF="node420.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8523"
-  HREF="node362.html">
+<A NAME="tex2html8661"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8517"
+<A NAME="tex2html8655"
   HREF="node418.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8525"
+<A NAME="tex2html8663"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8528"
-  HREF="node420.html">FDISK_getPartitionsFromParam</A>
-<B> Up:</B> <A NAME="tex2html8524"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8518"
-  HREF="node418.html">FDISK_listPartitions</A>
- &nbsp; <B>  <A NAME="tex2html8526"
+<B> Next:</B> <A NAME="tex2html8666"
+  HREF="node420.html">FDISK_fstabAddDialog2</A>
+<B> Up:</B> <A NAME="tex2html8662"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8656"
+  HREF="node418.html">FDISK_delFstab</A>
+ &nbsp; <B>  <A NAME="tex2html8664"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081257000000000000000">
-FDISK_definePartitionSelection</A>
+<H2><A NAME="SECTION0081248000000000000000">
+FDISK_listFstab</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Defines a HTML selection with the partitions (/dev/hda1, /dev/hda2, ...) of a device
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a HTML table with all defined mountpoints.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
-</LI>
-<LI>selName: name of the selection
-</LI>
-<LI>excludeType: type of partitions, not to show in the selection
-</LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The selected partition.
+<LI>HTML table with the fstab.
 </LI>
 </UL>
 
@@ -80,7 +74,7 @@ FDISK_definePartitionSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

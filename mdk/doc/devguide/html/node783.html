@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_closeSearch</TITLE>
-<META NAME="description" CONTENT="PKG_closeSearch">
+<TITLE>./inc/packages.php</TITLE>
+<META NAME="description" CONTENT="./inc/packages.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,257 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node784.html">
-<LINK REL="previous" HREF="node782.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="next" HREF="node883.html">
+<LINK REL="previous" HREF="node766.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node784.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13248"
+<A NAME="tex2html13300"
   HREF="node784.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13244"
-  HREF="node766.html">
+<A NAME="tex2html13296"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13238"
+<A NAME="tex2html13290"
   HREF="node782.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13246"
+<A NAME="tex2html13298"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13249"
-  HREF="node784.html">PKG_getNextPackage</A>
-<B> Up:</B> <A NAME="tex2html13245"
-  HREF="node766.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13239"
-  HREF="node782.html">PKG_countWaitingJobs</A>
- &nbsp; <B>  <A NAME="tex2html13247"
+<B> Next:</B> <A NAME="tex2html13301"
+  HREF="node784.html">PKG_addHSUser</A>
+<B> Up:</B> <A NAME="tex2html13297"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html13291"
+  HREF="node782.html">MSG_DeActivateBlogDialog</A>
+ &nbsp; <B>  <A NAME="tex2html13299"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082417000000000000000">
-PKG_closeSearch</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> closes a search request
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>file: file handle
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008240000000000000000">
+./inc/packages.php</A>
+</H1>
+Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: basic package operations (search, add,...)
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html13302"
+  HREF="node784.html">PKG_addHSUser</A>
+<LI><A NAME="tex2html13303"
+  HREF="node785.html">PKG_addUbuntuUser</A>
+<LI><A NAME="tex2html13304"
+  HREF="node786.html">PKG_addDebianUser</A>
+<LI><A NAME="tex2html13305"
+  HREF="node787.html">PKG_addUser</A>
+<LI><A NAME="tex2html13306"
+  HREF="node788.html">PKG_cleanPackageLine</A>
+<LI><A NAME="tex2html13307"
+  HREF="node789.html">PKG_combinem23normal</A>
+<LI><A NAME="tex2html13308"
+  HREF="node790.html">PKG_importSelectedPackagesFromFile</A>
+<LI><A NAME="tex2html13309"
+  HREF="node791.html">PKG_exportSelectedPackages</A>
+<LI><A NAME="tex2html13310"
+  HREF="node792.html">PKG_getDebootstrapCacheFilename</A>
+<LI><A NAME="tex2html13311"
+  HREF="node793.html">PKG_getDebootstrapCacheSfURL</A>
+<LI><A NAME="tex2html13312"
+  HREF="node794.html">PKG_getDebootstrapCacheServerURL</A>
+<LI><A NAME="tex2html13313"
+  HREF="node795.html">PKG_getDebootstrapCacheServerFile</A>
+<LI><A NAME="tex2html13314"
+  HREF="node796.html">PKG_isReconfiguredWithExtraDistr</A>
+<LI><A NAME="tex2html13315"
+  HREF="node797.html">PKG_translateClientjobsStatus</A>
+<LI><A NAME="tex2html13316"
+  HREF="node798.html">PKG_isSpecialPackageAvailableForClient</A>
+<LI><A NAME="tex2html13317"
+  HREF="node799.html">PKG_OptionPageHeader2</A>
+<LI><A NAME="tex2html13318"
+  HREF="node800.html">PKG_OptionPageTail2</A>
+<LI><A NAME="tex2html13319"
+  HREF="node801.html">PKG_decodeDebconfDescription</A>
+<LI><A NAME="tex2html13320"
+  HREF="node802.html">PKG_OptionPageRender2</A>
+<LI><A NAME="tex2html13321"
+  HREF="node803.html">PKG_countSpecialPackages</A>
+<LI><A NAME="tex2html13322"
+  HREF="node804.html">PKG_countWaitingJobs</A>
+<LI><A NAME="tex2html13323"
+  HREF="node805.html">PKG_closeSearch</A>
+<LI><A NAME="tex2html13324"
+  HREF="node806.html">PKG_getNextPackage</A>
+<LI><A NAME="tex2html13325"
+  HREF="node807.html">PKG_listRecommendPackages</A>
+<LI><A NAME="tex2html13326"
+  HREF="node808.html">PKG_listRecommendSubPackages</A>
+<LI><A NAME="tex2html13327"
+  HREF="node809.html">PKG_addRecommendPackages</A>
+<LI><A NAME="tex2html13328"
+  HREF="node810.html">PKG_addPackageSelection</A>
+<LI><A NAME="tex2html13329"
+  HREF="node811.html">PKG_addNormalPackagesToWait4Aac</A>
+<LI><A NAME="tex2html13330"
+  HREF="node812.html">PKG_addSpecialPackagesToWait4Aac</A>
+<LI><A NAME="tex2html13331"
+  HREF="node813.html">PKG_countJobsWithStatus</A>
+<LI><A NAME="tex2html13332"
+  HREF="node814.html">PKG_getClientjobsStatus</A>
+<LI><A NAME="tex2html13333"
+  HREF="node815.html">PKG_addNormalPackages</A>
+<LI><A NAME="tex2html13334"
+  HREF="node816.html">PKG_changePrioritySelectedPackages</A>
+<LI><A NAME="tex2html13335"
+  HREF="node817.html">PKG_rmSelectedPackages</A>
+<LI><A NAME="tex2html13336"
+  HREF="node818.html">PKG_listSelectedpackages</A>
+<LI><A NAME="tex2html13337"
+  HREF="node819.html">PKG_countSelectedpackages</A>
+<LI><A NAME="tex2html13338"
+  HREF="node820.html">PKG_countJobs</A>
+<LI><A NAME="tex2html13339"
+  HREF="node821.html">PKG_hasOptions</A>
+<LI><A NAME="tex2html13340"
+  HREF="node822.html">PKG_savePackageselection</A>
+<LI><A NAME="tex2html13341"
+  HREF="node823.html">PKG_addPackageToPackageselection</A>
+<LI><A NAME="tex2html13342"
+  HREF="node824.html">PKG_listSpecialpackages</A>
+<LI><A NAME="tex2html13343"
+  HREF="node825.html">PKG_addSpecialPackages</A>
+<LI><A NAME="tex2html13344"
+  HREF="node826.html">PKG_getSpecialPackagePriority</A>
+<LI><A NAME="tex2html13345"
+  HREF="node827.html">PKG_getSpecialPackageDescription</A>
+<LI><A NAME="tex2html13346"
+  HREF="node828.html">PKG_getSpecialPackageInfo</A>
+<LI><A NAME="tex2html13347"
+  HREF="node829.html">PKG_getPackageID</A>
+<LI><A NAME="tex2html13348"
+  HREF="node830.html">PKG_rmNormalJob</A>
+<LI><A NAME="tex2html13349"
+  HREF="node831.html">PKG_addJob</A>
+<LI><A NAME="tex2html13350"
+  HREF="node832.html">PKG_discardNormalJob</A>
+<LI><A NAME="tex2html13351"
+  HREF="node833.html">PKG_addWait4AccJob</A>
+<LI><A NAME="tex2html13352"
+  HREF="node834.html">PKG_addStatusJob</A>
+<LI><A NAME="tex2html13353"
+  HREF="node835.html">PKG_acceptJobs</A>
+<LI><A NAME="tex2html13354"
+  HREF="node836.html">PKG_discardJobs</A>
+<LI><A NAME="tex2html13355"
+  HREF="node837.html">PKG_discardJob</A>
+<LI><A NAME="tex2html13356"
+  HREF="node838.html">PKG_changeClientPackageAction</A>
+<LI><A NAME="tex2html13357"
+  HREF="node839.html">PKG_setClientPackageWait4Rm</A>
+<LI><A NAME="tex2html13358"
+  HREF="node840.html">PKG_setClientPackageInstalledOK</A>
+<LI><A NAME="tex2html13359"
+  HREF="node841.html">PKG_addShutdownPackage</A>
+<LI><A NAME="tex2html13360"
+  HREF="node842.html">PKG_addShutdownOrRebootPackage</A>
+<LI><A NAME="tex2html13361"
+  HREF="node843.html">PKG_getAllParams</A>
+<LI><A NAME="tex2html13362"
+  HREF="node844.html">PKG_setAllParams</A>
+<LI><A NAME="tex2html13363"
+  HREF="node845.html">PKG_OptionPageHeader</A>
+<LI><A NAME="tex2html13364"
+  HREF="node846.html">PKG_OptionPageRender</A>
+<LI><A NAME="tex2html13365"
+  HREF="node847.html">PKG_OptionPageTail</A>
+<LI><A NAME="tex2html13366"
+  HREF="node848.html">PKG_OptionPageSaveAlsParameters</A>
+<LI><A NAME="tex2html13367"
+  HREF="node849.html">PKG_OptionPageGetValue</A>
+<LI><A NAME="tex2html13368"
+  HREF="node850.html">PKG_listParams</A>
+<LI><A NAME="tex2html13369"
+  HREF="node851.html">PKG_getRecommendPackageAllInstalledSize</A>
+<LI><A NAME="tex2html13370"
+  HREF="node852.html">PKG_previewInstallationDeinstallation</A>
+<LI><A NAME="tex2html13371"
+  HREF="node853.html">PKG_showPreviewInstallationDeinstallation</A>
+<LI><A NAME="tex2html13372"
+  HREF="node854.html">PKG_updateSourcesListAtAllClients</A>
+<LI><A NAME="tex2html13373"
+  HREF="node855.html">PKG_executeOnClientJobs</A>
+<LI><A NAME="tex2html13374"
+  HREF="node856.html">PKG_removeFromJobList</A>
+<LI><A NAME="tex2html13375"
+  HREF="node857.html">PKG_changeClientJobsStatus</A>
+<LI><A NAME="tex2html13376"
+  HREF="node858.html">PKG_previewUpdateSystem</A>
+<LI><A NAME="tex2html13377"
+  HREF="node859.html">PKG_showPreviewUpdateSystem</A>
+<LI><A NAME="tex2html13378"
+  HREF="node860.html">PKG_rmAllSpecialPackagesByName</A>
+<LI><A NAME="tex2html13379"
+  HREF="node861.html">PKG_countPackages</A>
+<LI><A NAME="tex2html13380"
+  HREF="node862.html">PKG_copyWait4accPackagesToClient</A>
+<LI><A NAME="tex2html13381"
+  HREF="node863.html">PKG_copyPackagesToClient</A>
+<LI><A NAME="tex2html13382"
+  HREF="node864.html">PKG_remNormalPackages</A>
+<LI><A NAME="tex2html13383"
+  HREF="node865.html">PKG_addRemovePackagesToWait4Aac</A>
+<LI><A NAME="tex2html13384"
+  HREF="node866.html">PKG_discardRemoveJob</A>
+<LI><A NAME="tex2html13385"
+  HREF="node867.html">PKG_deletePackageselection</A>
+<LI><A NAME="tex2html13386"
+  HREF="node868.html">PKG_getAllPackageSelections</A>
+<LI><A NAME="tex2html13387"
+  HREF="node869.html">PKG_multiPackageSelectionsSelection</A>
+<LI><A NAME="tex2html13388"
+  HREF="node870.html">PKG_showAllPackageSelections</A>
+<LI><A NAME="tex2html13389"
+  HREF="node871.html">PKG_getPackageParams</A>
+<LI><A NAME="tex2html13390"
+  HREF="node872.html">PKG_getClientbyPackageID</A>
+<LI><A NAME="tex2html13391"
+  HREF="node873.html">PKG_getInfoFromPackageID</A>
+<LI><A NAME="tex2html13392"
+  HREF="node874.html">PKG_getClientIDbyPackageID</A>
+<LI><A NAME="tex2html13393"
+  HREF="node875.html">PKG_getPackageParamsVar</A>
+<LI><A NAME="tex2html13394"
+  HREF="node876.html">PKG_getPackageIDsByName</A>
+<LI><A NAME="tex2html13395"
+  HREF="node877.html">PKG_getClientPackages</A>
+<LI><A NAME="tex2html13396"
+  HREF="node878.html">PKG_getPackagesListMarker</A>
+<LI><A NAME="tex2html13397"
+  HREF="node879.html">PKG_savePackagesList</A>
+<LI><A NAME="tex2html13398"
+  HREF="node880.html">PKG_loadPackagesList</A>
+<LI><A NAME="tex2html13399"
+  HREF="node881.html">PKG_deletePackagesList</A>
+<LI><A NAME="tex2html13400"
+  HREF="node882.html">PKG_addNormalJob</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

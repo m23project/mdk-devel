@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_setHostInDB</TITLE>
-<META NAME="description" CONTENT="VM_setHostInDB">
+<TITLE>VM_CloudStackUploadIso</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackUploadIso">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1049.html">
 <LINK REL="previous" HREF="node1047.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1042.html">
 <LINK REL="next" HREF="node1049.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16598"
+<A NAME="tex2html16771"
   HREF="node1049.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16594"
-  HREF="node1017.html">
+<A NAME="tex2html16767"
+  HREF="node1042.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16588"
+<A NAME="tex2html16761"
   HREF="node1047.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16596"
+<A NAME="tex2html16769"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16599"
-  HREF="node1049.html">VM_setGuestInDB</A>
-<B> Up:</B> <A NAME="tex2html16595"
-  HREF="node1017.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16589"
-  HREF="node1047.html">VM_setVisualURL</A>
- &nbsp; <B>  <A NAME="tex2html16597"
+<B> Next:</B> <A NAME="tex2html16772"
+  HREF="node1049.html">VM_CloudStackEnablePortForwarding</A>
+<B> Up:</B> <A NAME="tex2html16768"
+  HREF="node1042.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html16762"
+  HREF="node1047.html">VM_CloudStackWriteConfFile</A>
+ &nbsp; <B>  <A NAME="tex2html16770"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083431000000000000000">
-VM_setHostInDB</A>
+<H2><A NAME="SECTION008346000000000000000">
+VM_CloudStackUploadIso</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the password for the login to the visual management console on the host for all guests, the host flag and the type of used virtualisation software.
+<SPAN  CLASS="textbf">Description:</SPAN> Uploads and registers a new bootable ISO file into cloudstack from a given website
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>VMhost: Name of the host with the virtualisation software.
+<LI>isoName: the name you choose for the ISO file 
 </LI>
-<LI>password: Password to set.
+<LI>isoUrl: the url from where you want cloudstack to download the ISO file
 </LI>
-<LI>vmSoftware: Type of the virtualisation software.
+<LI>zoneID: The ID of the CloudStack zone.
+</LI>
+<LI>isoUploadSuccess: is set to True if action succeeded, false otherwise
+</LI>
+<LI>isoID: is set to Cloudstack-Iso-ID if action succeeded, otherwise not set
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>MySQL resource or false on error.
+<LI>textmessage about result (errormessage or success message) and sets isoUploadSuccess to True if action succeeded, false otherwise, sets isoID to Iso-ID
 </LI>
 </UL>
 
@@ -78,7 +82,7 @@ VM_setHostInDB</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

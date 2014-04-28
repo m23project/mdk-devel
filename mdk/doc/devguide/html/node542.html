@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_imgSwitch</TITLE>
-<META NAME="description" CONTENT="HTML_imgSwitch">
+<TITLE>HELPER_getFdiskMountPoints</TITLE>
+<META NAME="description" CONTENT="HELPER_getFdiskMountPoints">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node543.html">
 <LINK REL="previous" HREF="node541.html">
-<LINK REL="up" HREF="node541.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node543.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10120"
+<A NAME="tex2html10205"
   HREF="node543.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10116"
-  HREF="node541.html">
+<A NAME="tex2html10201"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10110"
+<A NAME="tex2html10195"
   HREF="node541.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10118"
+<A NAME="tex2html10203"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10121"
-  HREF="node543.html">HTML_uploadFile</A>
-<B> Up:</B> <A NAME="tex2html10117"
-  HREF="node541.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10111"
-  HREF="node541.html">./inc/html.php</A>
- &nbsp; <B>  <A NAME="tex2html10119"
+<B> Next:</B> <A NAME="tex2html10206"
+  HREF="node543.html">HELPER_getApacheUser</A>
+<B> Up:</B> <A NAME="tex2html10202"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html10196"
+  HREF="node541.html">HELPER_grep</A>
+ &nbsp; <B>  <A NAME="tex2html10204"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008161000000000000000">
-HTML_imgSwitch</A>
+<H2><A NAME="SECTION0081432000000000000000">
+HELPER_getFdiskMountPoints</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Defines an image button with two states and a text next to it.
+<SPAN  CLASS="textbf">Description:</SPAN> Returnes an array with all mount points listed in /etc/fstab
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>$htmlName: Name of the html image input element.
-</LI>
-<LI>$off_img: Name and path of image to be displayed if its state is "off"
-</LI>
-<LI>$on_img: Name and path of image to be displayed it its state is "on"
-</LI>
-<LI>$off_text: Text to be displayed if state is "off"
-</LI>
-<LI>$on_text: Text to be displayed if state is "on"
-</LI>
-<LI>$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
-</LI>
-<LI>$default: State of the image input element on first load of page ("on" or "off")
-</LI>
-<LI>$outState: Current state of element (true for "on" or false for "off").
+<LI>excludeExtra: set to true, if you want to exclude /proc and /sys from the array
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>true, if the button was clicked otherwise false.
+<LI>Found mount points as array keys and values.
 </LI>
 </UL>
 
@@ -88,7 +74,7 @@ HTML_imgSwitch</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

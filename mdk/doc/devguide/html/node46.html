@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>The complete program</TITLE>
-<META NAME="description" CONTENT="The complete program">
+<TITLE>Adjusting project properties</TITLE>
+<META NAME="description" CONTENT="Adjusting project properties">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,132 +20,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node45.html">
-<LINK REL="up" HREF="node32.html">
+<LINK REL="up" HREF="node44.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2759"
+<A NAME="tex2html2857"
   HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2755"
-  HREF="node32.html">
+<A NAME="tex2html2853"
+  HREF="node44.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2751"
+<A NAME="tex2html2849"
   HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2757"
+<A NAME="tex2html2855"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2760"
-  HREF="node47.html">How to develop plugins</A>
-<B> Up:</B> <A NAME="tex2html2756"
-  HREF="node32.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html2752"
-  HREF="node45.html">Example</A>
- &nbsp; <B>  <A NAME="tex2html2758"
+<B> Next:</B> <A NAME="tex2html2858"
+  HREF="node47.html">Filling main.cpp</A>
+<B> Up:</B> <A NAME="tex2html2854"
+  HREF="node44.html">Preparing KDevelop</A>
+<B> Previous:</B> <A NAME="tex2html2850"
+  HREF="node45.html">Creating a project</A>
+ &nbsp; <B>  <A NAME="tex2html2856"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00637000000000000000">
-The complete program</A>
-</H2>
-<PRE>
-#include &lt;mysql/mysql.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+<H3><A NAME="SECTION00644200000000000000">
+Adjusting project properties</A>
+</H3>
+Select "Project" -&gt; "Options" -&gt; "Compiler options" -&gt; "Linker (tab)".
+Now add <SPAN  CLASS="textbf">-lmysqlclient -lcrypt -lnsl</SPAN> to the input line. Close the window with a click on the "OK" button. These settings are required to build applications with mysql support.
 
-MYSQL connection;
-
-void connect(char *server, char *dbuser, char *passw)
-{
-  if (!mysql_connect(&amp;connection,server,dbuser,passw))
-  {
-      fprintf(stderr, "Failed to connect to database:\
-              Error: %s\n",mysql_error(&amp;connection));
-      exit(2);
-  }
-  mysql_select_db(&amp;connection,"m23");
-};
-
-
-
-
-
-void disconnect()
-{
- mysql_close(&amp;connection);
-};
-
-
-
-
-     
-MYSQL_RES *query(char *sql)
-{
- MYSQL_RES *res;
-
- if (mysql_query(&amp;connection, sql) != 0)
-    {
-     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
-     mysql_error(&amp;connection),sql);
-     exit(2);
-    };
-
- res = mysql_store_result(&amp;connection);
-
- return(res);
-};
-
-
-
-
-
-int main(int argc, char *argv[])
-{
-  MYSQL_RES *res;
-  unsigned int fields;
-  my_ulonglong rows;
-  MYSQL_ROW row;
-
-  connect("127.0.0.1", "root", "");
-
-  res=query("SELECT * FROM `clients`");
-
-  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
-
-  rows=mysql_num_rows(res); //&lt;&lt;2
-
-
-  for (int i=0; i &lt; rows; i++)
-    {
-        unsigned long *lengths;
-
-        row=mysql_fetch_row(res); //&lt;&lt;3
-
-        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
-
-        for (int fnr=0; fnr &lt; fields; fnr++)
-            printf("[%i: %s] ", (int) lengths[fnr],
-                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
-    }
-
-  mysql_free_result(res); //&lt;&lt;6
-
-  disconnect();
-
-  return EXIT_SUCCESS;
-}
-</PRE>
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

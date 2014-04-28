@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>parted</TITLE>
-<META NAME="description" CONTENT="parted">
+<TITLE>screen 4.0.3</TITLE>
+<META NAME="description" CONTENT="screen 4.0.3">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,155 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node129.html">
-<LINK REL="up" HREF="node106.html">
+<LINK REL="next" HREF="node133.html">
+<LINK REL="previous" HREF="node131.html">
+<LINK REL="up" HREF="node131.html">
 <LINK REL="next" HREF="node133.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3855"
+<A NAME="tex2html3958"
   HREF="node133.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3851"
-  HREF="node106.html">
+<A NAME="tex2html3954"
+  HREF="node131.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3847"
+<A NAME="tex2html3948"
   HREF="node131.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3853"
+<A NAME="tex2html3956"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3856"
-  HREF="node133.html">Patching parted</A>
-<B> Up:</B> <A NAME="tex2html3852"
-  HREF="node106.html">m23 helpers</A>
-<B> Previous:</B> <A NAME="tex2html3848"
-  HREF="node131.html">Building</A>
- &nbsp; <B>  <A NAME="tex2html3854"
+<B> Next:</B> <A NAME="tex2html3959"
+  HREF="node133.html">For old screen 4.0.2</A>
+<B> Up:</B> <A NAME="tex2html3955"
+  HREF="node131.html">Patching</A>
+<B> Previous:</B> <A NAME="tex2html3949"
+  HREF="node131.html">Patching</A>
+ &nbsp; <B>  <A NAME="tex2html3957"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00780000000000000000">
-parted</A>
-</H1>
-The devlopers of parted decided to change the default visible size for partitions and harddisks from megabyte to dynamically changing measurement. This makes it very difficult to make an accurate partitioning if the size of a partition is given out on a gigabyte basis.
+<H3><A NAME="SECTION00762100000000000000">
+screen 4.0.3</A>
+</H3>
+<PRE>
+272a273,299
+&gt; //fetch records not from utmp but returns a pointer to hard coded values
+&gt; static struct passwd *fakePPP()
+&gt; {
+&gt;       struct passwd *ppp;
+&gt;       ppp = malloc(sizeof(struct passwd));
+&gt;
+&gt;       ppp-&gt;pw_name = malloc(5);
+&gt;       strcpy(ppp-&gt;pw_name,"root");
+&gt;
+&gt;       ppp-&gt;pw_passwd = malloc(5);
+&gt;       strcpy(ppp-&gt;pw_passwd,"root");
+&gt;
+&gt;       ppp-&gt;pw_uid = 0;
+&gt;       ppp-&gt;pw_gid = 0;
+&gt;
+&gt;       ppp-&gt;pw_gecos = malloc(5);
+&gt;       strcpy(ppp-&gt;pw_gecos,"root");
+&gt;
+&gt;       ppp-&gt;pw_dir = malloc(2);
+&gt;       strcpy(ppp-&gt;pw_dir,"/");
+&gt;
+&gt;       ppp-&gt;pw_shell = malloc(8);
+&gt;       strcpy(ppp-&gt;pw_shell,"/bin/sh");
+&gt;
+&gt;       return(ppp);
+&gt; }
+&gt;
+279,328d305
+&lt;   int n;
+&lt; #ifdef SHADOWPW
+&lt;   struct spwd *sss = NULL;
+&lt;   static char *spw = NULL;
+&lt; #endif
+&lt;
+&lt;   if (!ppp &amp;&amp; !(ppp = getpwnam(name)))
+&lt;     return NULL;
+&lt;
+&lt;   /* Do password sanity check..., allow ##user for SUN_C2 security */
+&lt; #ifdef SHADOWPW
+&lt; pw_try_again:
+&lt; #endif
+&lt;   n = 0;
+&lt;   if (ppp-&gt;pw_passwd[0] == '#' &amp;&amp; ppp-&gt;pw_passwd[1] == '#' &amp;&amp;
+&lt;       strcmp(ppp-&gt;pw_passwd + 2, ppp-&gt;pw_name) == 0)
+&lt;     n = 13;
+&lt;   for (; n &lt; 13; n++)
+&lt;     {
+&lt;       char c = ppp-&gt;pw_passwd[n];
+&lt;       if (!(c == '.' || c == '/' || c == '$' ||
+&lt;           (c &gt;= '0' &amp;&amp; c &lt;= '9') ||
+&lt;           (c &gt;= 'a' &amp;&amp; c &lt;= 'z') ||
+&lt;           (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')))
+&lt;       break;
+&lt;     }
+&lt;
+&lt; #ifdef SHADOWPW
+&lt;   /* try to determine real password */
+&lt;   if (n &lt; 13 &amp;&amp; sss == 0)
+&lt;     {
+&lt;       sss = getspnam(ppp-&gt;pw_name);
+&lt;       if (sss)
+&lt;       {
+&lt;         if (spw)
+&lt;           free(spw);
+&lt;         ppp-&gt;pw_passwd = spw = SaveStr(sss-&gt;sp_pwdp);
+&lt;         endspent();   /* this should delete all buffers ... */
+&lt;         goto pw_try_again;
+&lt;       }
+&lt;       endspent();     /* this should delete all buffers ... */
+&lt;     }
+&lt; #endif
+&lt;   if (n &lt; 13)
+&lt;     ppp-&gt;pw_passwd = 0;
+&lt; #ifdef linux
+&lt;   if (ppp-&gt;pw_passwd &amp;&amp; strlen(ppp-&gt;pw_passwd) == 13 + 11)
+&lt;     ppp-&gt;pw_passwd[13] = 0;   /* beware of linux's long passwords */
+&lt; #endif
+&lt;
+851,868c828,832
+&lt;   if ((LoginName = getlogin()) &amp;&amp; LoginName[0] != '\0')
+&lt;     {
+&lt;       if ((ppp = getpwnam(LoginName)) != (struct passwd *) 0)
+&lt;       if ((int)ppp-&gt;pw_uid != real_uid)
+&lt;         ppp = (struct passwd *) 0;
+&lt;     }
+&lt;   if (ppp == 0)
+&lt;     {
+&lt;       if ((ppp = getpwuid(real_uid)) == 0)
+&lt;         {
+&lt;         Panic(0, "getpwuid() can't identify your account!");
+&lt;         exit(1);
+&lt;         }
+&lt;       LoginName = ppp-&gt;pw_name;
+&lt;     }
+&lt;   LoginName = SaveStr(LoginName);
+&lt;
+&lt;   ppp = getpwbyname(LoginName, ppp);
+---
+&gt; //fetch records not from utmp but hard coded values from the fakePPP
+&gt;   ppp = fakePPP();
+&gt; //make LoginName statically
+&gt;   LoginName = malloc(5);
+&gt;   strcpy(LoginName,"root");
+</PRE>
 
 <P>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3857"
-  HREF="node133.html">Patching parted</A>
-<LI><A NAME="tex2html3858"
-  HREF="node134.html">Compiling</A>
-<LI><A NAME="tex2html3859"
-  HREF="node135.html">Building the Debian package</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

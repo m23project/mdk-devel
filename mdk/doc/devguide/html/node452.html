@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_rereadPartTable</TITLE>
-<META NAME="description" CONTENT="FDISK_rereadPartTable">
+<TITLE>FDISK_bootflagJob</TITLE>
+<META NAME="description" CONTENT="FDISK_bootflagJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node453.html">
 <LINK REL="previous" HREF="node451.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node453.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8923"
+<A NAME="tex2html9061"
   HREF="node453.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8919"
-  HREF="node362.html">
+<A NAME="tex2html9057"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8913"
+<A NAME="tex2html9051"
   HREF="node451.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8921"
+<A NAME="tex2html9059"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8924"
-  HREF="node453.html">FDISK_genPartedCommands</A>
-<B> Up:</B> <A NAME="tex2html8920"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8914"
-  HREF="node451.html">FDISK_dev2LDevLPart</A>
- &nbsp; <B>  <A NAME="tex2html8922"
+<B> Next:</B> <A NAME="tex2html9062"
+  HREF="node453.html">FDISK_formatJob</A>
+<B> Up:</B> <A NAME="tex2html9058"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9052"
+  HREF="node451.html">FDISK_addJob</A>
+ &nbsp; <B>  <A NAME="tex2html9060"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081290000000000000000">
-FDISK_rereadPartTable</A>
+<H2><A NAME="SECTION0081281000000000000000">
+FDISK_bootflagJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
+<SPAN  CLASS="textbf">Description:</SPAN> enables the booting flag on a partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: The device that was changed/created (e.g. /dev/sda5).
+<LI>path: device to activate booting on (e.g. /dev/hda1)
+</LI>
+<LI>devNr: number of partition, minor number in parted
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
@@ -68,7 +72,7 @@ FDISK_rereadPartTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

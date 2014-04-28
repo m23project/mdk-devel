@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How does an information file look like?</TITLE>
-<META NAME="description" CONTENT="How does an information file look like?">
+<TITLE>XXX.m23plg file</TITLE>
+<META NAME="description" CONTENT="XXX.m23plg file">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node58.html">
 <LINK REL="previous" HREF="node56.html">
 <LINK REL="up" HREF="node56.html">
 <LINK REL="next" HREF="node58.html">
@@ -28,47 +27,84 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2902"
+<A NAME="tex2html2999"
   HREF="node58.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2898"
+<A NAME="tex2html2995"
   HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2892"
+<A NAME="tex2html2991"
   HREF="node56.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2900"
+<A NAME="tex2html2997"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2903"
-  HREF="node58.html">Protocols for downloading files</A>
-<B> Up:</B> <A NAME="tex2html2899"
-  HREF="node56.html">Update information files</A>
-<B> Previous:</B> <A NAME="tex2html2893"
-  HREF="node56.html">Update information files</A>
- &nbsp; <B>  <A NAME="tex2html2901"
+<B> Next:</B> <A NAME="tex2html3000"
+  HREF="node58.html">Installation</A>
+<B> Up:</B> <A NAME="tex2html2996"
+  HREF="node56.html">How to create a</A>
+<B> Previous:</B> <A NAME="tex2html2992"
+  HREF="node56.html">How to create a</A>
+ &nbsp; <B>  <A NAME="tex2html2998"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00645100000000000000">
-How does an information file look like?</A>
+<H3><A NAME="SECTION00652100000000000000">
+XXX.m23plg file</A>
 </H3>
-<PRE>
-pluginURL: http://m23.sf.net/testplug.tb2
-pluginVersion: 2
-pluginSize: 1023
-pluginName: Testplugin
-pluginDescription: This is only a test plugin
-</PRE> 
+This is your main plugin file, it should have a good chosen name and nothing like plugin.m23plg.
+<BR>
+<BR>
+It may look like this:
+<BR><TT>&lt;?PHP
+<BR>/*
+<BR>
+pluginName:Testplugin2
+<BR>
+pluginPage:testpage
+<BR>
+pluginAuthor: me
+<BR>
+pluginVersion: 1
+<BR>
+pluginUpdate: www.pc-kiel.de/plugin.dat
+<BR>
+pluginClientRequires: rdiff
+<BR>
+pluginIcon: /gfx/overview-mini.png
+<BR>*/
+<BR>
+Here stands your code
+<BR>?&gt;</TT>
+<BR>
+<BR>
+The lines between /* and */ are treated by PHP as comments, but the m23admin uses this informations for:
+
+<UL>
+<LI>pluginName: is the name that is shown in the m23 menu
+</LI>
+<LI>pluginPage: this name is used for internal purpose, this is how the page is known to m23
+</LI>
+<LI>pluginAuthor: here you can leave your name, contact address etc.
+</LI>
+<LI>pluginVersion: version number of your plugin
+</LI>
+<LI>pluginUpdate: specifies the location where to find the file, containing informations about newer versions of the plugin
+</LI>
+<LI>pluginClientRequires: if your plugin needs some packages installed on the client, you have to list these packagenames here
+</LI>
+<LI>pluginIcon: you can select an icon to be shown before the menu entry
+</LI>
+</UL> 
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

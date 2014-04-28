@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getParams</TITLE>
-<META NAME="description" CONTENT="CLIENT_getParams">
+<TITLE>CLIENT_executeOnClientOrIP</TITLE>
+<META NAME="description" CONTENT="CLIENT_executeOnClientOrIP">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node225.html">
 <LINK REL="previous" HREF="node223.html">
-<LINK REL="up" HREF="node194.html">
+<LINK REL="up" HREF="node201.html">
 <LINK REL="next" HREF="node225.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6011"
+<A NAME="tex2html6148"
   HREF="node225.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6007"
-  HREF="node194.html">
+<A NAME="tex2html6144"
+  HREF="node201.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6001"
+<A NAME="tex2html6138"
   HREF="node223.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6009"
+<A NAME="tex2html6146"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6012"
-  HREF="node225.html">CLIENT_getClientStatus</A>
-<B> Up:</B> <A NAME="tex2html6008"
-  HREF="node194.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6002"
-  HREF="node223.html">CLIENT_getAskingParams</A>
- &nbsp; <B>  <A NAME="tex2html6010"
+<B> Next:</B> <A NAME="tex2html6149"
+  HREF="node225.html">CLIENT_isBasesystemInstalledFromImage</A>
+<B> Up:</B> <A NAME="tex2html6145"
+  HREF="node201.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html6139"
+  HREF="node223.html">CLIENT_getActiveNetDevices</A>
+ &nbsp; <B>  <A NAME="tex2html6147"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008730000000000000000">
-CLIENT_getParams</A>
+<H2><A NAME="SECTION008723000000000000000">
+CLIENT_executeOnClientOrIP</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns database parameters of a special client
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background or under a plain BASH under a given user. The script can be executed on the local machine "localhost" or a remote client that is accessible via SSH with a public key and without a password.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
+</LI>
+<LI>jobName: name of the job screen should show
+</LI>
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The output of the screen (only available on direct output if $runInScreen is false.
 </LI>
 </UL>
 
@@ -68,7 +82,7 @@ CLIENT_getParams</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

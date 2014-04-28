@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Example</TITLE>
-<META NAME="description" CONTENT="Example">
+<TITLE>Creating a project</TITLE>
+<META NAME="description" CONTENT="Creating a project">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,100 +20,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="next" HREF="node46.html">
-<LINK REL="previous" HREF="node41.html">
-<LINK REL="up" HREF="node32.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node44.html">
 <LINK REL="next" HREF="node46.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2749"
+<A NAME="tex2html2847"
   HREF="node46.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2745"
-  HREF="node32.html">
+<A NAME="tex2html2843"
+  HREF="node44.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2739"
+<A NAME="tex2html2837"
   HREF="node44.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2747"
+<A NAME="tex2html2845"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2750"
-  HREF="node46.html">The complete program</A>
-<B> Up:</B> <A NAME="tex2html2746"
-  HREF="node32.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html2740"
-  HREF="node44.html">Send SQL statements</A>
- &nbsp; <B>  <A NAME="tex2html2748"
+<B> Next:</B> <A NAME="tex2html2848"
+  HREF="node46.html">Adjusting project properties</A>
+<B> Up:</B> <A NAME="tex2html2844"
+  HREF="node44.html">Preparing KDevelop</A>
+<B> Previous:</B> <A NAME="tex2html2838"
+  HREF="node44.html">Preparing KDevelop</A>
+ &nbsp; <B>  <A NAME="tex2html2846"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00636000000000000000">
-Example</A>
-</H2>
-<PRE>
-int main(int argc, char *argv[])
-{
-  MYSQL_RES *res;
-  unsigned int fields;
-  my_ulonglong rows;
-  MYSQL_ROW row;
+<H3><A NAME="SECTION00644100000000000000">
+Creating a project</A>
+</H3>
+In the KDevelop GUI select "Project" -&gt; "New" select from the list "C++" under "Terminal". You have to select "C++", "C" will not work!
 
-  connect("127.0.0.1", "root", "");
-
-  res=query("SELECT * FROM `clients`");
-
-  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
-
-  rows=mysql_num_rows(res); //&lt;&lt;2
-
-
-  for (int i=0; i &lt; rows; i++)
-    {
-        unsigned long *lengths;
-
-        row=mysql_fetch_row(res); //&lt;&lt;3
-
-        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
-
-        for (int fnr=0; fnr &lt; fields; fnr++)
-            printf("[%i: %s] ", (int) lengths[fnr],
-                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
-    }
-
-  mysql_free_result(res); //&lt;&lt;6
-
-  disconnect();
-
-  return EXIT_SUCCESS;
-}
-</PRE>
-
-<OL>
-<LI>Get the number of fields of the table.
+<UL>
+<LI>select "Next"
 </LI>
-<LI>Get the amount of result rows.
+<LI>select what you want in the next dialog pages
 </LI>
-<LI>Fetch a row (one by one) and store the result in <SPAN  CLASS="textit">row</SPAN>.
-</LI>
-<LI>Store the lengths (in characters) of the result fields.
-</LI>
-<LI>Print the fields of one row.
-</LI>
-<LI>Free the memory by deleting the result data.
-</LI>
-</OL>
+</UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

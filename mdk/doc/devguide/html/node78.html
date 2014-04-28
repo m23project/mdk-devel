@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compress operating system</TITLE>
-<META NAME="description" CONTENT="compress operating system">
+<TITLE>system update and installation of additional packages</TITLE>
+<META NAME="description" CONTENT="system update and installation of additional packages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,47 +20,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="next" HREF="node79.html">
-<LINK REL="previous" HREF="node77.html">
-<LINK REL="up" HREF="node76.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node79.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3168"
+<A NAME="tex2html3259"
   HREF="node79.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3164"
-  HREF="node76.html">
+<A NAME="tex2html3255"
+  HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3158"
+<A NAME="tex2html3249"
   HREF="node77.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3166"
+<A NAME="tex2html3257"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3169"
-  HREF="node79.html">compresses the m23 files</A>
-<B> Up:</B> <A NAME="tex2html3165"
-  HREF="node76.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html3159"
-  HREF="node77.html">initrd</A>
- &nbsp; <B>  <A NAME="tex2html3167"
+<B> Next:</B> <A NAME="tex2html3260"
+  HREF="node79.html">booting your new system</A>
+<B> Up:</B> <A NAME="tex2html3256"
+  HREF="node67.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html3250"
+  HREF="node77.html">in case of an</A>
+ &nbsp; <B>  <A NAME="tex2html3258"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00662200000000000000">
-compress operating system</A>
-</H3>
-The whole current operating system is compressed mith bzip2 to a file called m23image.tb2. Some directories aren't saved, because they aren't needed or will mess up the image with useless files. E.g. /proc, /tmp, ... should not be saved. The image is stored in the /mdk/bootCD/iso directory. If there is allready a m23image.tb2 the operating isn't compressed. To regenerate the m23image.tb2 you have to delete the file.
+<H2><A NAME="SECTION00666000000000000000">
+system update and installation of additional packages</A>
+</H2>
+<PRE>
+apt-get dist-upgrade -u
+apt-get install ssh
+</PRE>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

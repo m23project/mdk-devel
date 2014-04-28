@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_installFilesystems</TITLE>
-<META NAME="description" CONTENT="FDISK_installFilesystems">
+<TITLE>./inc/fdisk.php</TITLE>
+<META NAME="description" CONTENT="./inc/fdisk.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,277 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node372.html">
-<LINK REL="previous" HREF="node370.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="next" HREF="node481.html">
+<LINK REL="previous" HREF="node349.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node372.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7951"
+<A NAME="tex2html7980"
   HREF="node372.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7947"
-  HREF="node362.html">
+<A NAME="tex2html7976"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7941"
+<A NAME="tex2html7970"
   HREF="node370.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7949"
+<A NAME="tex2html7978"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7952"
-  HREF="node372.html">FDISK_getUnusedMDs</A>
-<B> Up:</B> <A NAME="tex2html7948"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html7942"
-  HREF="node370.html">FDISK_finalChecksAndRealPartitionAndFormatStart</A>
- &nbsp; <B>  <A NAME="tex2html7950"
+<B> Next:</B> <A NAME="tex2html7981"
+  HREF="node372.html">FDISK_showFdiskCombinedGUIFunctions</A>
+<B> Up:</B> <A NAME="tex2html7977"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html7971"
+  HREF="node370.html">EDIT_deleteMatching</A>
+ &nbsp; <B>  <A NAME="tex2html7979"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008129000000000000000">
-FDISK_installFilesystems</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with the filesystems usable for installation.
+<H1><A NAME="SECTION008120000000000000000">
+./inc/fdisk.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions for partition and format of the client. print partition information and do the format itself.
 <BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html7982"
+  HREF="node372.html">FDISK_showFdiskCombinedGUIFunctions</A>
+<LI><A NAME="tex2html7983"
+  HREF="node373.html">FDISK_showCombinedFdiskGUIDialog</A>
+<LI><A NAME="tex2html7984"
+  HREF="node374.html">FDISK_mdToEndOfArray</A>
+<LI><A NAME="tex2html7985"
+  HREF="node375.html">FDISK_getFstabArray</A>
+<LI><A NAME="tex2html7986"
+  HREF="node376.html">FDISK_findFstabMountPointByDev</A>
+<LI><A NAME="tex2html7987"
+  HREF="node377.html">FDISK_swapFilesystems</A>
+<LI><A NAME="tex2html7988"
+  HREF="node378.html">FDISK_formatInstallAndSwappart</A>
+<LI><A NAME="tex2html7989"
+  HREF="node379.html">FDISK_finalChecksAndRealPartitionAndFormatStart</A>
+<LI><A NAME="tex2html7990"
+  HREF="node380.html">FDISK_installFilesystems</A>
+<LI><A NAME="tex2html7991"
+  HREF="node381.html">FDISK_getUnusedMDs</A>
+<LI><A NAME="tex2html7992"
+  HREF="node382.html">FDISK_listDrivesAndPartitions2</A>
+<LI><A NAME="tex2html7993"
+  HREF="node383.html">FDISK_printAllBars2</A>
+<LI><A NAME="tex2html7994"
+  HREF="node384.html">FDISK_showAllPartTables</A>
+<LI><A NAME="tex2html7995"
+  HREF="node385.html">FDISK_fdiskSessionPartJobs</A>
+<LI><A NAME="tex2html7996"
+  HREF="node386.html">FDISK_fdiskSessionInstPart</A>
+<LI><A NAME="tex2html7997"
+  HREF="node387.html">FDISK_fdiskSessionSwapPart</A>
+<LI><A NAME="tex2html7998"
+  HREF="node388.html">FDISK_fdiskSessionSetter</A>
+<LI><A NAME="tex2html7999"
+  HREF="node389.html">FDISK_fdiskSessionClient</A>
+<LI><A NAME="tex2html8000"
+  HREF="node390.html">FDISK_fdiskSessionParam</A>
+<LI><A NAME="tex2html8001"
+  HREF="node391.html">FDISK_fdiskSessionInstallDrive</A>
+<LI><A NAME="tex2html8002"
+  HREF="node392.html">FDISK_fdiskSessionvDevInstall</A>
+<LI><A NAME="tex2html8003"
+  HREF="node393.html">FDISK_fdiskSessionFreeSpaces</A>
+<LI><A NAME="tex2html8004"
+  HREF="node394.html">FDISK_fdiskSessionReset</A>
+<LI><A NAME="tex2html8005"
+  HREF="node395.html">FDISK_fdiskSessionPartMethod</A>
+<LI><A NAME="tex2html8006"
+  HREF="node396.html">FDISK_fdiskSessionPage</A>
+<LI><A NAME="tex2html8007"
+  HREF="node397.html">FDISK_fdiskSessionHelpPage</A>
+<LI><A NAME="tex2html8008"
+  HREF="node398.html">FDISK_fdiskSessionTitle</A>
+<LI><A NAME="tex2html8009"
+  HREF="node399.html">FDISK_fdiskSessionFstab</A>
+<LI><A NAME="tex2html8010"
+  HREF="node400.html">FDISK_getPartitionByType</A>
+<LI><A NAME="tex2html8011"
+  HREF="node401.html">FDISK_getDrivesAndPartitions</A>
+<LI><A NAME="tex2html8012"
+  HREF="node402.html">FDISK_listDrivesAndPartitions</A>
+<LI><A NAME="tex2html8013"
+  HREF="node403.html">FDISK_selectDrives</A>
+<LI><A NAME="tex2html8014"
+  HREF="node404.html">FDISK_printAllBars</A>
+<LI><A NAME="tex2html8015"
+  HREF="node405.html">FDISK_getFirstDrive</A>
+<LI><A NAME="tex2html8016"
+  HREF="node406.html">FDISK_formatPart</A>
+<LI><A NAME="tex2html8017"
+  HREF="node407.html">FDISK_getBiggestValueOf</A>
+<LI><A NAME="tex2html8018"
+  HREF="node408.html">FDISK_devNrExists</A>
+<LI><A NAME="tex2html8019"
+  HREF="node409.html">FDISK_nextLogicalDevNr</A>
+<LI><A NAME="tex2html8020"
+  HREF="node410.html">FDISK_nextPrimaryDevNr</A>
+<LI><A NAME="tex2html8021"
+  HREF="node411.html">FDISK_correctLogical</A>
+<LI><A NAME="tex2html8022"
+  HREF="node412.html">FDISK_findDevNrPosition</A>
+<LI><A NAME="tex2html8023"
+  HREF="node413.html">FDISK_partCreationSelect</A>
+<LI><A NAME="tex2html8024"
+  HREF="node414.html">FDISK_canPartTypeBeCreated</A>
+<LI><A NAME="tex2html8025"
+  HREF="node415.html">FDISK_checkFreeSpace</A>
+<LI><A NAME="tex2html8026"
+  HREF="node416.html">FDISK_installExistingDialog</A>
+<LI><A NAME="tex2html8027"
+  HREF="node417.html">FDISK_addFstab</A>
+<LI><A NAME="tex2html8028"
+  HREF="node418.html">FDISK_delFstab</A>
+<LI><A NAME="tex2html8029"
+  HREF="node419.html">FDISK_listFstab</A>
+<LI><A NAME="tex2html8030"
+  HREF="node420.html">FDISK_fstabAddDialog2</A>
+<LI><A NAME="tex2html8031"
+  HREF="node421.html">FDISK_fstabAddDialog</A>
+<LI><A NAME="tex2html8032"
+  HREF="node422.html">FDISK_adjustFstabParam</A>
+<LI><A NAME="tex2html8033"
+  HREF="node423.html">FDISK_genManualFstab</A>
+<LI><A NAME="tex2html8034"
+  HREF="node424.html">FDISK_getBelongingRaidDev</A>
+<LI><A NAME="tex2html8035"
+  HREF="node425.html">FDISK_delPart</A>
+<LI><A NAME="tex2html8036"
+  HREF="node426.html">FDISK_addPart</A>
+<LI><A NAME="tex2html8037"
+  HREF="node427.html">FDISK_listPartitions</A>
+<LI><A NAME="tex2html8038"
+  HREF="node428.html">FDISK_definePartitionSelection</A>
+<LI><A NAME="tex2html8039"
+  HREF="node429.html">FDISK_getPartitionsFromParam</A>
+<LI><A NAME="tex2html8040"
+  HREF="node430.html">FDISK_getAllDrives</A>
+<LI><A NAME="tex2html8041"
+  HREF="node431.html">FDISK_colorFS</A>
+<LI><A NAME="tex2html8042"
+  HREF="node432.html">FDISK_getPartitionPercent</A>
+<LI><A NAME="tex2html8043"
+  HREF="node433.html">FDISK_getAfterPartition</A>
+<LI><A NAME="tex2html8044"
+  HREF="node434.html">FDISK_getBeforeFristPartition</A>
+<LI><A NAME="tex2html8045"
+  HREF="node435.html">FDISK_getPartitions</A>
+<LI><A NAME="tex2html8046"
+  HREF="node436.html">FDISK_getPartInfoString</A>
+<LI><A NAME="tex2html8047"
+  HREF="node437.html">FDISK_getDriveInfoString</A>
+<LI><A NAME="tex2html8048"
+  HREF="node438.html">FDISK_getDriveInfoIcon</A>
+<LI><A NAME="tex2html8049"
+  HREF="node439.html">FDISK_getPartInfoIcon</A>
+<LI><A NAME="tex2html8050"
+  HREF="node440.html">FDISK_printBars</A>
+<LI><A NAME="tex2html8051"
+  HREF="node441.html">FDISK_getSupportedFS</A>
+<LI><A NAME="tex2html8052"
+  HREF="node442.html">FDISK_listSupportedFS</A>
+<LI><A NAME="tex2html8053"
+  HREF="node443.html">FDISK_deletePartitionFromParam</A>
+<LI><A NAME="tex2html8054"
+  HREF="node444.html">FDISK_virtualDeletePartition</A>
+<LI><A NAME="tex2html8055"
+  HREF="node445.html">FDISK_virtualAddPartition</A>
+<LI><A NAME="tex2html8056"
+  HREF="node446.html">FDISK_listPartTable</A>
+<LI><A NAME="tex2html8057"
+  HREF="node447.html">FDISK_listInstPartSelector</A>
+<LI><A NAME="tex2html8058"
+  HREF="node448.html">FDISK_formatExisting</A>
+<LI><A NAME="tex2html8059"
+  HREF="node449.html">FDISK_getvPart</A>
+<LI><A NAME="tex2html8060"
+  HREF="node450.html">FDISK_rmJob</A>
+<LI><A NAME="tex2html8061"
+  HREF="node451.html">FDISK_addJob</A>
+<LI><A NAME="tex2html8062"
+  HREF="node452.html">FDISK_bootflagJob</A>
+<LI><A NAME="tex2html8063"
+  HREF="node453.html">FDISK_formatJob</A>
+<LI><A NAME="tex2html8064"
+  HREF="node454.html">FDISK_countPartitions</A>
+<LI><A NAME="tex2html8065"
+  HREF="node455.html">FDISK_getFreeSpaces</A>
+<LI><A NAME="tex2html8066"
+  HREF="node456.html">FDISK_autoPart</A>
+<LI><A NAME="tex2html8067"
+  HREF="node457.html">FDISK_printColorDefinitions</A>
+<LI><A NAME="tex2html8068"
+  HREF="node458.html">FDISK_showDiskDefine</A>
+<LI><A NAME="tex2html8069"
+  HREF="node459.html">FDISK_defineDrive</A>
+<LI><A NAME="tex2html8070"
+  HREF="node460.html">FDISK_dev2LDevLPart</A>
+<LI><A NAME="tex2html8071"
+  HREF="node461.html">FDISK_rereadPartTable</A>
+<LI><A NAME="tex2html8072"
+  HREF="node462.html">FDISK_genPartedCommands</A>
+<LI><A NAME="tex2html8073"
+  HREF="node463.html">FDISK_listPartJobs</A>
+<LI><A NAME="tex2html8074"
+  HREF="node464.html">FDISK_getDiskType</A>
+<LI><A NAME="tex2html8075"
+  HREF="node465.html">FDISK_getDriveAndNr</A>
+<LI><A NAME="tex2html8076"
+  HREF="node466.html">FDISK_getNextFdiskFormatJobNr</A>
+<LI><A NAME="tex2html8077"
+  HREF="node467.html">FDISK_AFPselectDrive</A>
+<LI><A NAME="tex2html8078"
+  HREF="node468.html">FDISK_AFPlinearScale</A>
+<LI><A NAME="tex2html8079"
+  HREF="node469.html">FDISK_AFPgetPartSizes</A>
+<LI><A NAME="tex2html8080"
+  HREF="node470.html">FDISK_adjustFdiskParams</A>
+<LI><A NAME="tex2html8081"
+  HREF="node471.html">FDISK_virtualAddDrive</A>
+<LI><A NAME="tex2html8082"
+  HREF="node472.html">FDISK_getDrivePartitionSize</A>
+<LI><A NAME="tex2html8083"
+  HREF="node473.html">FDISK_listRaidTable</A>
+<LI><A NAME="tex2html8084"
+  HREF="node474.html">FDISK_addDrivePartitionToRaid</A>
+<LI><A NAME="tex2html8085"
+  HREF="node475.html">FDISK_buildRaidDialog</A>
+<LI><A NAME="tex2html8086"
+  HREF="node476.html">FDISK_addRaidJobs</A>
+<LI><A NAME="tex2html8087"
+  HREF="node477.html">FDISK_addRaidBeforeFormat</A>
+<LI><A NAME="tex2html8088"
+  HREF="node478.html">FDISK_raidJob</A>
+<LI><A NAME="tex2html8089"
+  HREF="node479.html">FDISK_virtualDeleteDrive</A>
+<LI><A NAME="tex2html8090"
+  HREF="node480.html">FDISK_deleteDriveFromParam</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

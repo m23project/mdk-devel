@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Better naming for your files</TITLE>
-<META NAME="description" CONTENT="Better naming for your files">
+<TITLE>Deinstallation</TITLE>
+<META NAME="description" CONTENT="Deinstallation">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,60 +19,59 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node59.html">
-<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node58.html">
+<LINK REL="up" HREF="node53.html">
 <LINK REL="next" HREF="node61.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2933"
+<A NAME="tex2html3034"
   HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2929"
-  HREF="node59.html">
+<A NAME="tex2html3030"
+  HREF="node53.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2925"
+<A NAME="tex2html3024"
   HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2931"
+<A NAME="tex2html3032"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2934"
-  HREF="node61.html">How to generate a</A>
-<B> Up:</B> <A NAME="tex2html2930"
-  HREF="node59.html">Hints</A>
-<B> Previous:</B> <A NAME="tex2html2926"
-  HREF="node59.html">Hints</A>
- &nbsp; <B>  <A NAME="tex2html2932"
+<B> Next:</B> <A NAME="tex2html3035"
+  HREF="node61.html">deinstall.sh</A>
+<B> Up:</B> <A NAME="tex2html3031"
+  HREF="node53.html">How to develop plugins</A>
+<B> Previous:</B> <A NAME="tex2html3025"
+  HREF="node59.html">install.sh</A>
+ &nbsp; <B>  <A NAME="tex2html3033"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00646100000000000000">
-Better naming for your files</A>
-</H3>
-You normally will develop your application in the /m23 directory. To make finding your files easier you should name your files like <SPAN  CLASS="textit">BACKUP_startpage.php</SPAN>. Your files should always begin with your selected prefix.
-Now you can find your files with:
-<PRE>
-find /m23/ -name BACKUP*
-</PRE> 
-To make a package with the found files, simply use the following script:
-<PRE>
-for file in `find . -name BACKUP_*`
-do
- files=$files" "$file
-done
-tar cvj -f myPackage.tb2 $files
-</PRE>
-Where you replace <SPAN  CLASS="textit">BACKUP_</SPAN> with your package prefix and <SPAN  CLASS="textit">myPackage</SPAN> with your package name.
+<H2><A NAME="SECTION00654000000000000000">
+Deinstallation</A>
+</H2>
+All your plugin files will be removed and you have the possibillity to do some additional clean up.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3036"
+  HREF="node61.html">deinstall.sh</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

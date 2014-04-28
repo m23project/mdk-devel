@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_checkAndSaveFields</TITLE>
-<META NAME="description" CONTENT="MASS_checkAndSaveFields">
+<TITLE>m23SHARED_getUserByInfo</TITLE>
+<META NAME="description" CONTENT="m23SHARED_getUserByInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node728.html">
 <LINK REL="previous" HREF="node726.html">
-<LINK REL="up" HREF="node718.html">
+<LINK REL="up" HREF="node663.html">
 <LINK REL="next" HREF="node728.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12469"
+<A NAME="tex2html12591"
   HREF="node728.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12465"
-  HREF="node718.html">
+<A NAME="tex2html12587"
+  HREF="node663.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12459"
+<A NAME="tex2html12581"
   HREF="node726.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12467"
+<A NAME="tex2html12589"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12470"
-  HREF="node728.html">MASS_openDBFile</A>
-<B> Up:</B> <A NAME="tex2html12466"
-  HREF="node718.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html12460"
-  HREF="node726.html">MASS_showTableDefinition</A>
- &nbsp; <B>  <A NAME="tex2html12468"
+<B> Next:</B> <A NAME="tex2html12592"
+  HREF="node728.html">m23SHARED_showAdminDialog</A>
+<B> Up:</B> <A NAME="tex2html12588"
+  HREF="node663.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html12582"
+  HREF="node726.html">m23SHARED_getUserByCustomerNr</A>
+ &nbsp; <B>  <A NAME="tex2html12590"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008219000000000000000">
-MASS_checkAndSaveFields</A>
+<H2><A NAME="SECTION0082064000000000000000">
+m23SHARED_getUserByInfo</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> saved the assignments from field number to property and other information to EGKparams and performes a simple check, to verify that the values of the properties are valuable. An error message is returned or an empty string, if all is ok.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the user name of m23shared customer by searching all m23shared DBs for var and value in the remotevar table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>EGKparams: enter generate keep parameters, that hold information about handling of the properties
+<LI>remotevarVar: Variable name to search in the remotevar table.
+</LI>
+<LI>remotevarValue: Value to search in the remotevar table.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>m23shared user name for the searched customer or empty string if none was found.
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ MASS_checkAndSaveFields</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

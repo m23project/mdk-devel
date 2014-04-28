@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>sources.list</TITLE>
-<META NAME="description" CONTENT="sources.list">
+<TITLE>Better naming for your files</TITLE>
+<META NAME="description" CONTENT="Better naming for your files">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node67.html">
 <LINK REL="previous" HREF="node65.html">
-<LINK REL="up" HREF="node63.html">
+<LINK REL="up" HREF="node65.html">
 <LINK REL="next" HREF="node67.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3021"
+<A NAME="tex2html3102"
   HREF="node67.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3017"
-  HREF="node63.html">
+<A NAME="tex2html3098"
+  HREF="node65.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3011"
+<A NAME="tex2html3094"
   HREF="node65.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3019"
+<A NAME="tex2html3100"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3022"
-  HREF="node67.html">/etc/network</A>
-<B> Up:</B> <A NAME="tex2html3018"
-  HREF="node63.html">editing files</A>
-<B> Previous:</B> <A NAME="tex2html3012"
-  HREF="node65.html">lilo.conf</A>
- &nbsp; <B>  <A NAME="tex2html3020"
+<B> Next:</B> <A NAME="tex2html3103"
+  HREF="node67.html">How to generate a</A>
+<B> Up:</B> <A NAME="tex2html3099"
+  HREF="node65.html">Hints</A>
+<B> Previous:</B> <A NAME="tex2html3095"
+  HREF="node65.html">Hints</A>
+ &nbsp; <B>  <A NAME="tex2html3101"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652300000000000000">
-sources.list</A>
+<H3><A NAME="SECTION00656100000000000000">
+Better naming for your files</A>
 </H3>
-Your sources.list should look like this:
+You normally will develop your application in the /m23 directory. To make finding your files easier you should name your files like <SPAN  CLASS="textit">BACKUP_startpage.php</SPAN>. Your files should always begin with your selected prefix.
+Now you can find your files with:
 <PRE>
- deb http://security.debian.org/ woody/updates main contrib non-free
- deb http://ftp.de.debian.org/debian/ stable main non-free contrib
- deb http://ftp.szczepanek.de/ftp/trusteddebian/ stable main contrib
+find /m23/ -name BACKUP*
+</PRE> 
+To make a package with the found files, simply use the following script:
+<PRE>
+for file in `find . -name BACKUP_*`
+do
+ files=$files" "$file
+done
+tar cvj -f myPackage.tb2 $files
 </PRE>
-You can add more sources if preferred.
-
-<P>
+Where you replace <SPAN  CLASS="textit">BACKUP_</SPAN> with your package prefix and <SPAN  CLASS="textit">myPackage</SPAN> with your package name.
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

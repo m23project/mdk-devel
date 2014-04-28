@@ -1,0 +1,347 @@
+#!/bin/bash
+
+#	Script for managing the RASServer.
+#	Copyright (C) 2011 Hauke Goos-Habermann (hhabermann@pc-kiel.de)
+#
+#	This program is free software; you can redistribute it and/or modify it under the terms
+#	of the GNU General Public License as published by the Free Software Foundation; either
+#	version 3 of the License, or any later version.
+#
+#	This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+#	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#	See the GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License along with this program;
+#	see the file COPYING.  If not, write to the Free Software Foundation, Inc., 59 Temple
+#	Place - Suite 330, Boston, MA 02111-1307, USA.
+
+
+
+
+
+#The host, where the RASServer is located
+host="tux10b"
+#User and host, that the current user that runs RASClient can call via SSH without password
+userHost="ras@$host"
+#Full path on the RASServer to the script
+RASServer="/home/ras/RASServer"
+#Directory containing the RAS tools
+RASDir="/mdk/m23helper/RAS"
+
+
+
+#####
+# name helpPage
+# description Generates a help page if RASClient is called with wrong parameters.
+# parameter none
+#####
+helpPage()
+{
+	echo "This script manages the RASServer (m23 remote administration service).
+
+Usage: $0 <action> <parameter 1> <parameter 2> <parameter ...>
+
+Actions:"
+
+	awk '
+
+	BEGIN {
+		show=1
+	}
+
+	/^# name / {
+		gsub("^# name ","")
+		l=l$0
+	}
+
+	/^# parameter / {
+		gsub("^# parameter ","")
+		l=l" <"$0">"
+		show=1
+	}
+
+	/^# description / {
+		gsub("^# description ","")
+		d="ö"$0
+	}
+
+	/^#####/ {
+		if (show == 1)
+		{
+			print(l""d)
+			l=" * "
+			show=0
+		}
+	}
+
+	' $0 | sort | sed 's/ö/\n   /g'
+}
+
+
+
+
+
+#####
+# name connect
+# description Connects the forwarded ports of an account to localhost
+# parameter Name of the account
+#####
+connect()
+{
+	name="$1"
+
+	if [ -z "$name" ]
+	then
+		echo "Error: No account name given!"
+		exit 1
+	fi
+
+	#Get ports and passwords for WWW and SSH forwarding
+	for service in www ssh
+	do
+		#Get all account info
+		info=$(ssh $userHost $RASServer getAccountInfo "$name-$service")
+
+		#Show the error message if there is one and exit
+		if [ $(echo $info | grep Error -c) -gt 0 ]
+		then
+			echo $info
+			exit 1
+		fi
+
+		#Get the external port from the APF server and forward it to localhost via SSH
+		port=$(echo "$info" | grep ^listenport | tr -s '[:blank:]' | cut -d' ' -f2)
+		ssh -N4L $port:localhost:$port $userHost&
+
+		#Show the password too, if it is WWW service
+		if [ $service = 'www' ]
+		then
+			add="| http://m23RASAdmin:$(echo "$info" | grep ^pass | tr -s '[:blank:]' | cut -d' ' -f2)@localhost:$port/m23admin/index.php"
+		else
+			add="| ssh -p $port root@localhost"
+		fi
+
+		echo "$service | localhost:$port $add"
+	done
+}
+
+
+
+
+
+#####
+# name disconnect
+# description Disconnects form the RASServer and stops forwarding ports of an account to localhost
+# parameter Name of the account
+#####
+disconnect()
+{
+	name="$1"
+
+	if [ -z "$name" ]
+	then
+		echo "Error: No account name given!"
+		exit 1
+	fi
+
+	#Get ports and passwords for WWW and SSH forwarding
+	for service in www ssh
+	do
+		#Get all account info
+		info=$(ssh $userHost $RASServer getAccountInfo "$name-$service")
+
+		#Show the error message if there is one and exit
+		if [ $(echo $info | grep Error -c) -gt 0 ]
+		then
+			echo $info
+			exit 1
+		fi
+
+		#Get the external port from the APF server and forward it to localhost via SSH
+		port=$(echo "$info" | grep ^listenport | tr -s '[:blank:]' | cut -d' ' -f2)
+
+		#Get the pid of the SSH client that opens an SSH tunnel to the port
+		ps -f | grep "$port:localhost:$port" | grep -v grep | tr -s '[:blank:]' | cut -d' ' -f2 | while read pid
+		do
+			#Check, if the pid is a valid number
+			if [ $pid ] && [ $pid -gt 0 ]
+			then
+				echo "Closing PID: $pid"
+				kill -9 $pid
+			fi
+		done
+	done
+}
+
+
+
+
+
+#####
+# name create
+# description Creates a new account
+# parameter Name of the new account
+#####
+create()
+{
+	ssh $userHost $RASServer createNewAccount "$1"
+}
+
+
+
+
+
+#####
+# name disable
+# description Disables SSH and WWW tunnels for an account
+# parameter Name of the account
+#####
+disable()
+{
+	ssh $userHost $RASServer disableAccount "$1"
+}
+
+
+
+
+
+#####
+# name enable
+# description Disables SSH and WWW tunnels for an account
+# parameter Name of the account
+#####
+enable()
+{
+	ssh $userHost $RASServer enableAccount "$1"
+}
+
+
+
+
+
+#####
+# name list
+# description Lists all accounts
+# parameter none
+#####
+list()
+{
+	ssh $userHost $RASServer getAllAccounts
+}
+
+
+
+
+
+#####
+# name restart
+# description Restarts the server
+# parameter none
+#####
+restart()
+{
+	ssh $userHost $RASServer restart
+}
+
+
+
+
+
+#####
+# name info
+# description Get information about an account
+# parameter Name of the account
+#####
+info()
+{
+	#Get information for SSH and WWW
+	for service in ssh www
+	do
+		ssh $userHost $RASServer getAccountInfo "$1-$service"
+	done
+}
+
+
+
+
+
+#####
+# name clientCommands
+# description Generates the commands for the client (m23 server) to allow remote login
+# parameter Name of the account
+#####
+clientCommands()
+{
+	name="$1"
+
+	if [ -z "$name" ]
+	then
+		echo "Error: No account name given!"
+		exit 1
+	fi
+
+	#Write a new PHP file beginning with an assiciative array
+	echo -n "<?php
+	\$accountData['afclient']='" > /tmp/accountData.php
+
+	#Run thru SSH and WW service (with port)
+	for servicePort in ssh:22 www:80
+	do
+		#Get service name
+		service=$(echo $servicePort | cut -d':' -f1)
+		#Get service port
+		localport=$(echo $servicePort | cut -d':' -f2)
+
+		#Get info for the service for an account
+		info=$(ssh $userHost $RASServer getAccountInfo "$name-$service")
+
+		#Check for errors and quit if there are any
+		if [ $(echo $info | grep Error -c) -gt 0 ]
+		then
+			echo $info
+			exit 1
+		fi
+
+		#Get management port and password for the account
+		manageport=$(echo "$info" | grep ^manageport | tr -s '[:blank:]' | cut -d' ' -f2)
+		pass=$(echo "$info" | grep ^pass | tr -s '[:blank:]' | cut -d' ' -f2)
+
+		#Write afclient connection command
+		echo "date +\"[%F %H:%M:%S] Start\" >> /m23/log/afclient$localport.log; afclient --ignorepkeys -vvv -p $localport -n $host -m $manageport --pass $pass 2>&1 | tee -a /m23/log/afclient$localport.log; date +\"[%F %H:%M:%S] End\" >> /m23/log/afclient$localport.log  #$service" >> /tmp/accountData.php
+	done
+	echo "';" >> /tmp/accountData.php
+
+	#Store the account name (for chat)
+	echo "\$accountData['accountName']=\"$name\";" >> /tmp/accountData.php
+
+	#Add the m23 webinterface password vor the (to create) m23support account
+	echo "\$accountData['m23adminPass']=\"$pass\";" >> /tmp/accountData.php
+
+	#Add the public SSH key of the current user
+	echo -n "\$accountData['sshKey']=\"" >> /tmp/accountData.php
+	sed 's/[a-zA-Z0-9]*@.*$/m23service@goos-habermann.de/' ~/.ssh/id_dsa.pub >> /tmp/accountData.php
+	echo "\";
+
+	?>" >> /tmp/accountData.php
+	
+	echo "The account data was written to /tmp/accountData.php"
+
+	echo "Please enter the random key of the customer:"
+	read randomkey
+	$RASDir/encodeAccountDataForMail.php $randomkey
+}
+
+
+
+
+
+# description Make sure, the action doesn't begin with one or more "-" (e.g. if the user decides to use --help)
+action=`echo "$1" | sed 's/^-*//g'`
+
+if [ `grep "$action()" $0 -c` -lt 1 ] || [ $# -eq 0 ]
+then
+	helpPage
+else
+	shift
+	$action $@
+fi

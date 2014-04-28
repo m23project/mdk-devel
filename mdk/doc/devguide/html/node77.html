@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>initrd</TITLE>
-<META NAME="description" CONTENT="initrd">
+<TITLE>in case of an error</TITLE>
+<META NAME="description" CONTENT="in case of an error">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node78.html">
 <LINK REL="previous" HREF="node76.html">
 <LINK REL="up" HREF="node76.html">
 <LINK REL="next" HREF="node78.html">
@@ -28,41 +27,44 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3156"
+<A NAME="tex2html3247"
   HREF="node78.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3152"
+<A NAME="tex2html3243"
   HREF="node76.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3146"
+<A NAME="tex2html3239"
   HREF="node76.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3154"
+<A NAME="tex2html3245"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3157"
-  HREF="node78.html">compress operating system</A>
-<B> Up:</B> <A NAME="tex2html3153"
-  HREF="node76.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html3147"
-  HREF="node76.html">what does the makeCD</A>
- &nbsp; <B>  <A NAME="tex2html3155"
+<B> Next:</B> <A NAME="tex2html3248"
+  HREF="node78.html">system update and installation</A>
+<B> Up:</B> <A NAME="tex2html3244"
+  HREF="node76.html">installing a kernel</A>
+<B> Previous:</B> <A NAME="tex2html3240"
+  HREF="node76.html">installing a kernel</A>
+ &nbsp; <B>  <A NAME="tex2html3246"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00662100000000000000">
-initrd</A>
+<H3><A NAME="SECTION00665100000000000000">
+in case of an error</A>
 </H3>
-While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.
-<BR>
-In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
+If you get an error with the <SPAN  CLASS="textit">mkinitrd</SPAN> command try it manualy. Adjust <SPAN  CLASS="textit">/boot/initrd.img-2.4.20-1-386-sec</SPAN> to the filename you entered in the <SPAN  CLASS="textit">lilo.conf</SPAN>. You have to adjust the <SPAN  CLASS="textit">/lib/modules/...</SPAN> and the root device after <SPAN  CLASS="textit">-r</SPAN> also.
+<PRE>
+mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
+</PRE>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

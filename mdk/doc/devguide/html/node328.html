@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_activateBoot</TITLE>
-<META NAME="description" CONTENT="DHCP_activateBoot">
+<TITLE>DHCP_getNetmaskOfDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getNetmaskOfDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node329.html">
 <LINK REL="previous" HREF="node327.html">
-<LINK REL="up" HREF="node313.html">
+<LINK REL="up" HREF="node321.html">
 <LINK REL="next" HREF="node329.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7305"
+<A NAME="tex2html7442"
   HREF="node329.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7301"
-  HREF="node313.html">
+<A NAME="tex2html7438"
+  HREF="node321.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7295"
+<A NAME="tex2html7432"
   HREF="node327.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7303"
+<A NAME="tex2html7440"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7306"
-  HREF="node329.html">DHCP_calcPXEIP</A>
-<B> Up:</B> <A NAME="tex2html7302"
-  HREF="node313.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7296"
-  HREF="node327.html">DHCP_setBootimage</A>
- &nbsp; <B>  <A NAME="tex2html7304"
+<B> Next:</B> <A NAME="tex2html7443"
+  HREF="node329.html">DHCP_delDynamicRange</A>
+<B> Up:</B> <A NAME="tex2html7439"
+  HREF="node321.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7433"
+  HREF="node327.html">DHCP_getDynamicRanges</A>
+ &nbsp; <B>  <A NAME="tex2html7441"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008915000000000000000">
-DHCP_activateBoot</A>
+<H2><A NAME="SECTION00897000000000000000">
+DHCP_getNetmaskOfDynamicRanges</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> switches the network boot on or off
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the netmask of a dynamic range identified by the first IP of the range.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
 </LI>
-<LI>on: true activates the network boot, false deactivates
-</LI>
-<LI>bootType: The boot type CAN be given here (e.g. pxe or etherboot)
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Netmask or false in case of an error.
 </LI>
 </UL>
 
@@ -72,7 +74,7 @@ DHCP_activateBoot</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

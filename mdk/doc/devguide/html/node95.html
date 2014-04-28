@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>xxx.text</TITLE>
-<META NAME="description" CONTENT="xxx.text">
+<TITLE>Making the bootimage</TITLE>
+<META NAME="description" CONTENT="Making the bootimage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,54 +20,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node94.html">
-<LINK REL="up" HREF="node91.html">
+<LINK REL="up" HREF="node93.html">
 <LINK REL="next" HREF="node96.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3376"
+<A NAME="tex2html3468"
   HREF="node96.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3372"
-  HREF="node91.html">
+<A NAME="tex2html3464"
+  HREF="node93.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3368"
+<A NAME="tex2html3460"
   HREF="node94.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3374"
+<A NAME="tex2html3466"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3377"
-  HREF="node96.html">debugging m23 scripts</A>
-<B> Up:</B> <A NAME="tex2html3373"
-  HREF="node91.html">The files</A>
-<B> Previous:</B> <A NAME="tex2html3369"
-  HREF="node94.html">xxx.info</A>
- &nbsp; <B>  <A NAME="tex2html3375"
+<B> Next:</B> <A NAME="tex2html3469"
+  HREF="node96.html">How to create the</A>
+<B> Up:</B> <A NAME="tex2html3465"
+  HREF="node93.html">How to generate an</A>
+<B> Previous:</B> <A NAME="tex2html3461"
+  HREF="node94.html">exchange epic100.c with the</A>
+ &nbsp; <B>  <A NAME="tex2html3467"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00691400000000000000">
-xxx.text</A>
-</H3>
-You can use html tags in your release information.
-<PRE>
-This is the new shiver update. There will be the following changes:
-&lt;ul&gt;
- &lt;li&gt; bigger&lt;/li&gt;
- &lt;li&gt; louder&lt;/li&gt;
- &lt;li&gt; ...
-&lt;/ul&gt;
-</PRE> 
+<H2><A NAME="SECTION00692000000000000000">
+Making the bootimage</A>
+</H2>
+You should find the epic100.rom file in the <SPAN  CLASS="textbf">src/bin32</SPAN>. With the help of the <SPAN  CLASS="textit">mknbi-rom</SPAN> program you can convert this from file to an Etherboot bootimage. To convert and save the bootimage as new "harddisk boot image" for m23 execute the following command:
+<BR><PRE>
+mknbi-rom epic100.rom &gt; /m23/tftp/hdboot
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

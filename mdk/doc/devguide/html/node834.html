@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_removeFromJobList</TITLE>
-<META NAME="description" CONTENT="PKG_removeFromJobList">
+<TITLE>PKG_addStatusJob</TITLE>
+<META NAME="description" CONTENT="PKG_addStatusJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node835.html">
 <LINK REL="previous" HREF="node833.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node835.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13860"
+<A NAME="tex2html14011"
   HREF="node835.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13856"
-  HREF="node766.html">
+<A NAME="tex2html14007"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13850"
+<A NAME="tex2html14001"
   HREF="node833.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13858"
+<A NAME="tex2html14009"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13861"
-  HREF="node835.html">PKG_changeClientJobsStatus</A>
-<B> Up:</B> <A NAME="tex2html13857"
-  HREF="node766.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html13851"
-  HREF="node833.html">PKG_executeOnClientJobs</A>
- &nbsp; <B>  <A NAME="tex2html13859"
+<B> Next:</B> <A NAME="tex2html14012"
+  HREF="node835.html">PKG_acceptJobs</A>
+<B> Up:</B> <A NAME="tex2html14008"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html14002"
+  HREF="node833.html">PKG_addWait4AccJob</A>
+ &nbsp; <B>  <A NAME="tex2html14010"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082468000000000000000">
-PKG_removeFromJobList</A>
+<H2><A NAME="SECTION0082451000000000000000">
+PKG_addStatusJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> removes all jobs identified by the IDs in packageIDList
+<SPAN  CLASS="textbf">Description:</SPAN> adds a job to the clientjobs table
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>packageIDList: the list of IDs of jobs to be deleted
+<LI>client: name of the client
+</LI>
+<LI>packageName: name of the package
+</LI>
+<LI>priority: priority of the package
+</LI>
+<LI>params: parameter for installing the package
+</LI>
+<LI>status: the status of the package
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ PKG_removeFromJobList</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

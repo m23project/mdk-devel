@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_removePXEcfg</TITLE>
-<META NAME="description" CONTENT="DHCP_removePXEcfg">
+<TITLE>DHCP_addClient</TITLE>
+<META NAME="description" CONTENT="DHCP_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node332.html">
 <LINK REL="previous" HREF="node330.html">
-<LINK REL="up" HREF="node313.html">
+<LINK REL="up" HREF="node321.html">
 <LINK REL="next" HREF="node332.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7341"
+<A NAME="tex2html7478"
   HREF="node332.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7337"
-  HREF="node313.html">
+<A NAME="tex2html7474"
+  HREF="node321.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7331"
+<A NAME="tex2html7468"
   HREF="node330.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7339"
+<A NAME="tex2html7476"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7342"
-  HREF="node332.html">DHCP_isNetworkBootingActive</A>
-<B> Up:</B> <A NAME="tex2html7338"
-  HREF="node313.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7332"
-  HREF="node330.html">DHCP_writePXEcfg</A>
- &nbsp; <B>  <A NAME="tex2html7340"
+<B> Next:</B> <A NAME="tex2html7479"
+  HREF="node332.html">DHCP_addLineToDHCPDConf</A>
+<B> Up:</B> <A NAME="tex2html7475"
+  HREF="node321.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html7469"
+  HREF="node330.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html7477"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008918000000000000000">
-DHCP_removePXEcfg</A>
+<H2><A NAME="SECTION008910000000000000000">
+DHCP_addClient</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> removes the PXE start file for a special client
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>clientName: name of the client
+</LI>
+<LI>ip: ip address of the client
+</LI>
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
+</LI>
+<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL>
 
@@ -68,7 +88,7 @@ DHCP_removePXEcfg</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -35,7 +35,7 @@ cleanOSForCompressing()
 	
 	if [ "$1" ] && [ $1 = "deleteSquidCache" ]
 	then
-		rm -r /var/spool/squid
+		rm -r /var/spool/squid/*
 		squid -z
 	fi
 
@@ -70,10 +70,10 @@ rm -r /var/www/squid-reports/*
 	rm /root/.ssh/id_dsa* 2> /dev/null
 	rm /root/.ssh/authorized_keys 2> /dev/null
 	bpchome=`grep backuppc /etc/passwd | cut -d':' -f6`
-	if [ $( grep -c "$badSSHKey" $bpchome/.ssh/id_rsa.pub ) -gt 0 ]
-	then
-		rm $bpchome/.ssh/id_*
-	fi
+# 	if [ $( grep -c "$badSSHKey" $bpchome/.ssh/id_rsa.pub ) -gt 0 ]
+# 	then
+# 		rm $bpchome/.ssh/id_*
+# 	fi
 	
 #start squid again
 /etc/init.d/squid start

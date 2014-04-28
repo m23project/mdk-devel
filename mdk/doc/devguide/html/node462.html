@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualAddDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualAddDrive">
+<TITLE>FDISK_genPartedCommands</TITLE>
+<META NAME="description" CONTENT="FDISK_genPartedCommands">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node463.html">
 <LINK REL="previous" HREF="node461.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node463.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9043"
+<A NAME="tex2html9181"
   HREF="node463.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9039"
-  HREF="node362.html">
+<A NAME="tex2html9177"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9033"
+<A NAME="tex2html9171"
   HREF="node461.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9041"
+<A NAME="tex2html9179"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9044"
-  HREF="node463.html">FDISK_getDrivePartitionSize</A>
-<B> Up:</B> <A NAME="tex2html9040"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9034"
-  HREF="node461.html">FDISK_adjustFdiskParams</A>
- &nbsp; <B>  <A NAME="tex2html9042"
+<B> Next:</B> <A NAME="tex2html9182"
+  HREF="node463.html">FDISK_listPartJobs</A>
+<B> Up:</B> <A NAME="tex2html9178"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9172"
+  HREF="node461.html">FDISK_rereadPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html9180"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812100000000000000000">
-FDISK_virtualAddDrive</A>
+<H2><A NAME="SECTION0081291000000000000000">
+FDISK_genPartedCommands</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new drive to the param array.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the partition and formation commands that are generated from partJobs.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>partJobs: string with information about all created partition jobs
 </LI>
-<LI>path: Device name of the new drive (e.g. /dev/md0)
-</LI>
-<LI>size: Size in MB of the new drive.
+<LI>mkfsextOptions: Extra parameter for mkfs.extX .
 </LI>
 </UL>
 
@@ -72,7 +70,7 @@ FDISK_virtualAddDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

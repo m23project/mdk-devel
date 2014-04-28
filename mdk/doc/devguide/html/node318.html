@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addDynamicRange</TITLE>
-<META NAME="description" CONTENT="DHCP_addDynamicRange">
+<TITLE>delFromArray</TITLE>
+<META NAME="description" CONTENT="delFromArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node319.html">
 <LINK REL="previous" HREF="node317.html">
-<LINK REL="up" HREF="node313.html">
+<LINK REL="up" HREF="node289.html">
 <LINK REL="next" HREF="node319.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7185"
+<A NAME="tex2html7305"
   HREF="node319.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7181"
-  HREF="node313.html">
+<A NAME="tex2html7301"
+  HREF="node289.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7175"
+<A NAME="tex2html7295"
   HREF="node317.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7183"
+<A NAME="tex2html7303"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7186"
-  HREF="node319.html">DHCP_getDynamicRanges</A>
-<B> Up:</B> <A NAME="tex2html7182"
-  HREF="node313.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7176"
-  HREF="node317.html">DHCP_delSubnetDefinition</A>
- &nbsp; <B>  <A NAME="tex2html7184"
+<B> Next:</B> <A NAME="tex2html7306"
+  HREF="node319.html">delValuesFromArray</A>
+<B> Up:</B> <A NAME="tex2html7302"
+  HREF="node289.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html7296"
+  HREF="node317.html">pingIP</A>
+ &nbsp; <B>  <A NAME="tex2html7304"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00895000000000000000">
-DHCP_addDynamicRange</A>
+<H2><A NAME="SECTION008829000000000000000">
+delFromArray</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.
+<SPAN  CLASS="textbf">Description:</SPAN> deletes all entries in the array $arr assigned by the keys stored in the array $delKeys. the new array without the entries in $delKeys is returned.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>firstIP: The first IP marking the begin of the dynamic IP range.
+<LI>arr: array with the entries to filter
 </LI>
-<LI>lastIP: The last IP marking the end of the dynamic IP range.
-</LI>
-<LI>netmask: Netmask for the IPs.
-</LI>
-<LI>gateway: The gateway IP.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true, if the DHCP server could be restarted with the new settings.
+<LI>delKeys: array with all keys to delete from $arr
 </LI>
 </UL>
 
@@ -80,7 +70,7 @@ DHCP_addDynamicRange</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

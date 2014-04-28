@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listRaidTable</TITLE>
-<META NAME="description" CONTENT="FDISK_listRaidTable">
+<TITLE>FDISK_getDiskType</TITLE>
+<META NAME="description" CONTENT="FDISK_getDiskType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node465.html">
 <LINK REL="previous" HREF="node463.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node465.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9067"
+<A NAME="tex2html9205"
   HREF="node465.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9063"
-  HREF="node362.html">
+<A NAME="tex2html9201"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9057"
+<A NAME="tex2html9195"
   HREF="node463.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9065"
+<A NAME="tex2html9203"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9068"
-  HREF="node465.html">FDISK_addDrivePartitionToRaid</A>
-<B> Up:</B> <A NAME="tex2html9064"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9058"
-  HREF="node463.html">FDISK_getDrivePartitionSize</A>
- &nbsp; <B>  <A NAME="tex2html9066"
+<B> Next:</B> <A NAME="tex2html9206"
+  HREF="node465.html">FDISK_getDriveAndNr</A>
+<B> Up:</B> <A NAME="tex2html9202"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9196"
+  HREF="node463.html">FDISK_listPartJobs</A>
+ &nbsp; <B>  <A NAME="tex2html9204"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812102000000000000000">
-FDISK_listRaidTable</A>
+<H2><A NAME="SECTION0081293000000000000000">
+FDISK_getDiskType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Get informations about the assigned real drives/partitions of a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (DISK_TYPE_IDE, DISK_TYPE_SCSI)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
-</LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>HTML table with informations about the assigned real drives/partitions.
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL>
 
@@ -76,7 +68,7 @@ FDISK_listRaidTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

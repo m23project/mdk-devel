@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_checkOverwriting</TITLE>
-<META NAME="description" CONTENT="PLG_checkOverwriting">
+<TITLE>PKG_savePackagesList</TITLE>
+<META NAME="description" CONTENT="PKG_savePackagesList">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node880.html">
 <LINK REL="previous" HREF="node878.html">
-<LINK REL="up" HREF="node867.html">
+<LINK REL="up" HREF="node783.html">
 <LINK REL="next" HREF="node880.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14424"
+<A NAME="tex2html14551"
   HREF="node880.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14420"
-  HREF="node867.html">
+<A NAME="tex2html14547"
+  HREF="node783.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14414"
+<A NAME="tex2html14541"
   HREF="node878.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14422"
+<A NAME="tex2html14549"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14425"
-  HREF="node880.html">PLG_DBInstall</A>
-<B> Up:</B> <A NAME="tex2html14421"
-  HREF="node867.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14415"
-  HREF="node878.html">PLG_showDownloadStatus</A>
- &nbsp; <B>  <A NAME="tex2html14423"
+<B> Next:</B> <A NAME="tex2html14552"
+  HREF="node880.html">PKG_loadPackagesList</A>
+<B> Up:</B> <A NAME="tex2html14548"
+  HREF="node783.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html14542"
+  HREF="node878.html">PKG_getPackagesListMarker</A>
+ &nbsp; <B>  <A NAME="tex2html14550"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082612000000000000000">
-PLG_checkOverwriting</A>
+<H2><A NAME="SECTION0082496000000000000000">
+PKG_savePackagesList</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
+<SPAN  CLASS="textbf">Description:</SPAN> stores the package names in the DB
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
+<LI>listName: name of the list to store the packages 
 </LI>
-<LI>tempDir: where to store the plugin file temporary
+<LI>packages: array or blank seperated list of packages
 </LI>
 </UL>
 
@@ -70,7 +70,7 @@ PLG_checkOverwriting</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

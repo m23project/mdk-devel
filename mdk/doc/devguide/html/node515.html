@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_m23Array2Array</TITLE>
-<META NAME="description" CONTENT="HELPER_m23Array2Array">
+<TITLE>HELPER_getNewLogLines</TITLE>
+<META NAME="description" CONTENT="HELPER_getNewLogLines">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node516.html">
 <LINK REL="previous" HREF="node514.html">
-<LINK REL="up" HREF="node501.html">
+<LINK REL="up" HREF="node510.html">
 <LINK REL="next" HREF="node516.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9737"
+<A NAME="tex2html9881"
   HREF="node516.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9733"
-  HREF="node501.html">
+<A NAME="tex2html9877"
+  HREF="node510.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9727"
+<A NAME="tex2html9871"
   HREF="node514.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9735"
+<A NAME="tex2html9879"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9738"
-  HREF="node516.html">HELPER_array2m23Array</A>
-<B> Up:</B> <A NAME="tex2html9734"
-  HREF="node501.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9728"
-  HREF="node514.html">HELPER_arrayInsertAfterKeynumber</A>
- &nbsp; <B>  <A NAME="tex2html9736"
+<B> Next:</B> <A NAME="tex2html9882"
+  HREF="node516.html">HELPER_rmRecursive</A>
+<B> Up:</B> <A NAME="tex2html9878"
+  HREF="node510.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html9872"
+  HREF="node514.html">HELPER_xargsRecursive</A>
+ &nbsp; <B>  <A NAME="tex2html9880"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081414000000000000000">
-HELPER_m23Array2Array</A>
+<H2><A NAME="SECTION008145000000000000000">
+HELPER_getNewLogLines</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Converts an m23 array to a normal array.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the last (new) lines of a (growing) log file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>m23Array: The m23 array to convert. The m23 array is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
+<LI>log: Name of the log file.
+</LI>
+<LI>sessionPrefix: Prefix for storing the last read line number in the session.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
+<LI>UTF8-encoded new lines of the log file.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ HELPER_m23Array2Array</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

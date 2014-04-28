@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_formatJob</TITLE>
-<META NAME="description" CONTENT="FDISK_formatJob">
+<TITLE>FDISK_virtualDeletePartition</TITLE>
+<META NAME="description" CONTENT="FDISK_virtualDeletePartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node445.html">
 <LINK REL="previous" HREF="node443.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node445.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8827"
+<A NAME="tex2html8965"
   HREF="node445.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8823"
-  HREF="node362.html">
+<A NAME="tex2html8961"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8817"
+<A NAME="tex2html8955"
   HREF="node443.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8825"
+<A NAME="tex2html8963"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8828"
-  HREF="node445.html">FDISK_countPartitions</A>
-<B> Up:</B> <A NAME="tex2html8824"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8818"
-  HREF="node443.html">FDISK_bootflagJob</A>
- &nbsp; <B>  <A NAME="tex2html8826"
+<B> Next:</B> <A NAME="tex2html8966"
+  HREF="node445.html">FDISK_virtualAddPartition</A>
+<B> Up:</B> <A NAME="tex2html8962"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8956"
+  HREF="node443.html">FDISK_deletePartitionFromParam</A>
+ &nbsp; <B>  <A NAME="tex2html8964"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081282000000000000000">
-FDISK_formatJob</A>
+<H2><A NAME="SECTION0081273000000000000000">
+FDISK_virtualDeletePartition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
+<SPAN  CLASS="textbf">Description:</SPAN> deletes partition from param assigned thru $vDev and $vPart.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: device to format (e.g. /dev/hda1)
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+<LI>devNr: device number of the real device
 </LI>
-<LI>partJobs: associative array with partition jobs
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
 </UL>
 
@@ -72,7 +72,7 @@ FDISK_formatJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

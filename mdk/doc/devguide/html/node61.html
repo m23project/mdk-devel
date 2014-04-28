@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to generate a new base system?</TITLE>
-<META NAME="description" CONTENT="How to generate a new base system?">
+<TITLE>deinstall.sh</TITLE>
+<META NAME="description" CONTENT="deinstall.sh">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,86 +19,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node74.html">
-<LINK REL="previous" HREF="node47.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="up" HREF="node60.html">
 <LINK REL="next" HREF="node62.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2945"
+<A NAME="tex2html3045"
   HREF="node62.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2941"
-  HREF="node23.html">
+<A NAME="tex2html3041"
+  HREF="node60.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2935"
+<A NAME="tex2html3037"
   HREF="node60.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2943"
+<A NAME="tex2html3043"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2946"
-  HREF="node62.html">install necessary system files</A>
-<B> Up:</B> <A NAME="tex2html2942"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html2936"
-  HREF="node60.html">Better naming for your</A>
- &nbsp; <B>  <A NAME="tex2html2944"
+<B> Next:</B> <A NAME="tex2html3046"
+  HREF="node62.html">Update information files</A>
+<B> Up:</B> <A NAME="tex2html3042"
+  HREF="node60.html">Deinstallation</A>
+<B> Previous:</B> <A NAME="tex2html3038"
+  HREF="node60.html">Deinstallation</A>
+ &nbsp; <B>  <A NAME="tex2html3044"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00650000000000000000">
-How to generate a new base system?</A>
-</H1>
+<H3><A NAME="SECTION00654100000000000000">
+deinstall.sh</A>
+</H3>
+This is the place to add your deinstallation script. It is similar to the install.sh, you can remove packages and do other things, but be again careful not to crash the server.
+<BR>
+<BR>
+Your deinstall.sh may look like:
+<BR><TT>
+#!/bin/bash 
+<BR>
+apt-get update
+<BR>
+apt-get remove desiredPackage</TT>
 
 <P>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2947"
-  HREF="node62.html">install necessary system files</A>
-<LI><A NAME="tex2html2948"
-  HREF="node63.html">editing files</A>
-<UL>
-<LI><A NAME="tex2html2949"
-  HREF="node64.html">fstab</A>
-<LI><A NAME="tex2html2950"
-  HREF="node65.html">lilo.conf</A>
-<LI><A NAME="tex2html2951"
-  HREF="node66.html">sources.list</A>
-<LI><A NAME="tex2html2952"
-  HREF="node67.html">/etc/network</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html2953"
-  HREF="node68.html">step in to your new system</A>
-<LI><A NAME="tex2html2954"
-  HREF="node69.html">source update and cleanup</A>
-<LI><A NAME="tex2html2955"
-  HREF="node70.html">installing a kernel</A>
-<UL>
-<LI><A NAME="tex2html2956"
-  HREF="node71.html">in case of an error</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html2957"
-  HREF="node72.html">system update and installation of additional packages</A>
-<LI><A NAME="tex2html2958"
-  HREF="node73.html">booting your new system</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_searchLastLineNumber</TITLE>
-<META NAME="description" CONTENT="EDIT_searchLastLineNumber">
+<TITLE>EDIT_commentoutInsert</TITLE>
+<META NAME="description" CONTENT="EDIT_commentoutInsert">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node353.html">
 <LINK REL="previous" HREF="node351.html">
-<LINK REL="up" HREF="node340.html">
+<LINK REL="up" HREF="node349.html">
 <LINK REL="next" HREF="node353.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7616"
+<A NAME="tex2html7754"
   HREF="node353.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7612"
-  HREF="node340.html">
+<A NAME="tex2html7750"
+  HREF="node349.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7606"
+<A NAME="tex2html7744"
   HREF="node351.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7614"
+<A NAME="tex2html7752"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7617"
-  HREF="node353.html">EDIT_searchNextLineNumber</A>
-<B> Up:</B> <A NAME="tex2html7613"
-  HREF="node340.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html7607"
-  HREF="node351.html">EDIT_searchLineNumber</A>
- &nbsp; <B>  <A NAME="tex2html7615"
+<B> Next:</B> <A NAME="tex2html7755"
+  HREF="node353.html">EDIT_countMatches</A>
+<B> Up:</B> <A NAME="tex2html7751"
+  HREF="node349.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html7745"
+  HREF="node351.html">EDIT_genClientm23Random</A>
+ &nbsp; <B>  <A NAME="tex2html7753"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081112000000000000000">
-EDIT_searchLastLineNumber</A>
+<H2><A NAME="SECTION008113000000000000000">
+EDIT_commentoutInsert</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> searches for the last line that contains "searchLine" and stores the line number in the BASH variable "m23searchLine"
+<SPAN  CLASS="textbf">Description:</SPAN> Comments out a matched line and inserts a new line after it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>file: the name of the file
 </LI>
-<LI>searchLine: line to search
+<LI>search: Search string to match the line to comment out.
+</LI>
+<LI>lineToInsert: The text of the line to insert.
+</LI>
+<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
 </LI>
 </UL>
 
@@ -70,7 +74,7 @@ EDIT_searchLastLineNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

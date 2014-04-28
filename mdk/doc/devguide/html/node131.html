@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Building</TITLE>
-<META NAME="description" CONTENT="Building">
+<TITLE>Patching</TITLE>
+<META NAME="description" CONTENT="Patching">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,6 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node134.html">
 <LINK REL="previous" HREF="node130.html">
 <LINK REL="up" HREF="node129.html">
 <LINK REL="next" HREF="node132.html">
@@ -27,60 +28,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3845"
+<A NAME="tex2html3944"
   HREF="node132.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3841"
+<A NAME="tex2html3940"
   HREF="node129.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3837"
+<A NAME="tex2html3934"
   HREF="node130.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3843"
+<A NAME="tex2html3942"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3846"
-  HREF="node132.html">parted</A>
-<B> Up:</B> <A NAME="tex2html3842"
-  HREF="node129.html">script</A>
-<B> Previous:</B> <A NAME="tex2html3838"
-  HREF="node130.html">Getting necessary file</A>
- &nbsp; <B>  <A NAME="tex2html3844"
+<B> Next:</B> <A NAME="tex2html3945"
+  HREF="node132.html">screen 4.0.3</A>
+<B> Up:</B> <A NAME="tex2html3941"
+  HREF="node129.html">Screen</A>
+<B> Previous:</B> <A NAME="tex2html3935"
+  HREF="node130.html">Purpose</A>
+ &nbsp; <B>  <A NAME="tex2html3943"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00772000000000000000">
-Building</A>
+<H2><A NAME="SECTION00762000000000000000">
+Patching</A>
 </H2>
-Extract it in the UWoody system.
+The patch solves the problem with getpwuid, that the current user can't be figured out. If applied this patch is applied, root is the current user, otherwise screen can't be executed.
+<BR>
+<BR>
+This should be used for the booimage only, because it can be a security risk.
 
 <P>
-<PRE>
-export LDFLAGS="-static"
-export CFLAGS="-static"
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-./configure
-</PRE>
-
-<P>
-Edit the file config.h and remove the line <SPAN  CLASS="textbf">#define HAVE_openpty</SPAN>.
-
-<P>
-<PRE>
-cd misc-utils
-
-make
-</PRE>
-
-<P>
-Now you should have a static linked script tool.
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3946"
+  HREF="node132.html">screen 4.0.3</A>
+<LI><A NAME="tex2html3947"
+  HREF="node133.html">For old screen 4.0.2</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

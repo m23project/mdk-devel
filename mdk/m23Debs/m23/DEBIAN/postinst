@@ -13,13 +13,16 @@ then
 	cat /tmp/badSSH/root.pub | while read badSSHKey
 	do
 		sed -i "s#$badSSHKey##g" /root/.ssh/authorized_keys
-		
-		if [ $( grep -c "$badSSHKey" /root/.ssh/id_dsa.pub ) -gt 0 ]
+		rootbadkeyexists=`grep -c "$badSSHKey" /root/.ssh/id_dsa.pub`
+		if [ ${rootbadkeyexists:-0} -gt 0 ]
 		then
 			rm /root/.ssh/id_dsa*
 		fi
 	done
 fi
+
+
+
 
 
 if [ -f /tmp/badSSH/backuppc.pub ]
@@ -29,7 +32,8 @@ then
 		sed -i "s#$badSSHKey##g" /m23/data+scripts/packages/baseSys/authorized_keys
 
 		bpchome=`grep backuppc /etc/passwd | cut -d':' -f6`
-		if [ $( grep -c "$badSSHKey" $bpchome/.ssh/id_rsa.pub ) -gt 0 ]
+		bpcbadkeyexists=`grep -c "$badSSHKey" $bpchome/.ssh/id_rsa.pub`
+		if [ ${bpcbadkeyexists:-0} -gt 0 ]
 		then
 			rm $bpchome/.ssh/id_*
 		fi

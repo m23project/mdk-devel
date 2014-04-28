@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>RMV_get4IP</TITLE>
-<META NAME="description" CONTENT="RMV_get4IP">
+<TITLE>POOL_download</TITLE>
+<META NAME="description" CONTENT="POOL_download">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node928.html">
 <LINK REL="previous" HREF="node926.html">
-<LINK REL="up" HREF="node924.html">
+<LINK REL="up" HREF="node913.html">
 <LINK REL="next" HREF="node928.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15033"
+<A NAME="tex2html15168"
   HREF="node928.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15029"
-  HREF="node924.html">
+<A NAME="tex2html15164"
+  HREF="node913.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15023"
+<A NAME="tex2html15158"
   HREF="node926.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15031"
+<A NAME="tex2html15166"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15034"
-  HREF="node928.html">RMV_set</A>
-<B> Up:</B> <A NAME="tex2html15030"
-  HREF="node924.html">./inc/remotevar.php</A>
-<B> Previous:</B> <A NAME="tex2html15024"
-  HREF="node926.html">RMV_set4IP</A>
- &nbsp; <B>  <A NAME="tex2html15032"
+<B> Next:</B> <A NAME="tex2html15169"
+  HREF="node928.html">POOL_showDownloadStatus</A>
+<B> Up:</B> <A NAME="tex2html15165"
+  HREF="node913.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html15159"
+  HREF="node926.html">POOL_getDir</A>
+ &nbsp; <B>  <A NAME="tex2html15167"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008293000000000000000">
-RMV_get4IP</A>
+<H2><A NAME="SECTION0082714000000000000000">
+POOL_download</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the value of a variable for the given ip
+<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>var: name of the variable to get the value from
+<LI>poolName: name of the pool
 </LI>
-<LI>ip: ip you want to get the value for
+<LI>distr: name of the distribution
+</LI>
+<LI>sourceslist: list of the package sources
+</LI>
+<LI>release: release branch of the choosen distribution to download the packages from
+</LI>
+<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+</LI>
+<LI>arch: download the packages for a specific CPU architecture
 </LI>
 </UL>
 
@@ -70,7 +78,7 @@ RMV_get4IP</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

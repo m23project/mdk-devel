@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Purpose</TITLE>
-<META NAME="description" CONTENT="Purpose">
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,41 +28,47 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3763"
+<A NAME="tex2html3858"
   HREF="node125.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3759"
+<A NAME="tex2html3854"
   HREF="node123.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3753"
+<A NAME="tex2html3848"
   HREF="node123.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3761"
+<A NAME="tex2html3856"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3764"
-  HREF="node125.html">Patching</A>
-<B> Up:</B> <A NAME="tex2html3760"
-  HREF="node123.html">Screen</A>
-<B> Previous:</B> <A NAME="tex2html3754"
-  HREF="node123.html">Screen</A>
- &nbsp; <B>  <A NAME="tex2html3762"
+<B> Next:</B> <A NAME="tex2html3859"
+  HREF="node125.html">usage</A>
+<B> Up:</B> <A NAME="tex2html3855"
+  HREF="node123.html">genFStab/fstabnew</A>
+<B> Previous:</B> <A NAME="tex2html3849"
+  HREF="node123.html">genFStab/fstabnew</A>
+ &nbsp; <B>  <A NAME="tex2html3857"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00761000000000000000">
-Purpose</A>
+<H2><A NAME="SECTION00731000000000000000">
+Introduction</A>
 </H2>
-Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells. It is used for logging in the current installation process of the client.
-
-<P>
+This tool generates the following files for you:
+<BR>
+<UL>
+<LI>/etc/fstab: this is the place, where the root and swap device are set and where cdrom/DVD drives and other partitions are made available for mounting.
+</LI>
+<LI>/etc/lilo.conf: this file is used for the bootloader, to make booting of the angelOne Linux system and other operating systems possible.
+</LI>
+</UL>
+All information is fetched from the partition table, the files are written automatical and icons for partitions and CDRom/DVD drives are put on the KDE desktop. The only thing you have to do is to select the device number for the root device and a splitter character for the parted numbers. parted is used for fetching the partition data. In different LANG settings you have to adjust the splitter. In this version you can only install on the first harddisk (hda), if you want the root device on hda3 you have to use '3' for the rootDevice number.
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Installation</TITLE>
-<META NAME="description" CONTENT="Installation">
+<TITLE>The complete program</TITLE>
+<META NAME="description" CONTENT="The complete program">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,88 +19,133 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node54.html">
-<LINK REL="previous" HREF="node50.html">
-<LINK REL="up" HREF="node47.html">
+<LINK REL="previous" HREF="node51.html">
+<LINK REL="up" HREF="node38.html">
 <LINK REL="next" HREF="node53.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2842"
+<A NAME="tex2html2928"
   HREF="node53.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2838"
-  HREF="node47.html">
+<A NAME="tex2html2924"
+  HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2832"
+<A NAME="tex2html2920"
   HREF="node51.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2840"
+<A NAME="tex2html2926"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2843"
-  HREF="node53.html">install.sh</A>
-<B> Up:</B> <A NAME="tex2html2839"
-  HREF="node47.html">How to develop plugins</A>
-<B> Previous:</B> <A NAME="tex2html2833"
-  HREF="node51.html">XXX.m23plg file</A>
- &nbsp; <B>  <A NAME="tex2html2841"
+<B> Next:</B> <A NAME="tex2html2929"
+  HREF="node53.html">How to develop plugins</A>
+<B> Up:</B> <A NAME="tex2html2925"
+  HREF="node38.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2921"
+  HREF="node51.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html2927"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00643000000000000000">
-Installation</A>
+<H2><A NAME="SECTION00647000000000000000">
+The complete program</A>
 </H2>
-If you install a plugin with the m23-interface the plugin package will be downloaded to /m23 and extracted. Before the real installation it will be checked that no files get overwritten. The user can select, if he wants to overwrite files or skip installation. Your plugin should have at least one XXX.m23plg file, where XXX stands for your plugin filename. You should organize your plugin package in a way, that this file will be extracted to one of these directories:
+<PRE>
+#include &lt;mysql/mysql.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<UL>
-<LI>/m23/data+scripts/m23admin/clients
-</LI>
-<LI>/m23/data+scripts/m23admin/groups
-</LI>
-<LI>/m23/data+scripts/m23admin/packages
-</LI>
-<LI>/m23/data+scripts/m23admin/server
-</LI>
-<LI>/m23/data+scripts/m23admin/tools
-</LI>
-</UL>
-In other words:
-<BR>
-your plugin package should have a directory structure like:
-<BR>
-<P>
-<TT>data+scripts/m23admin/clients/myPlugin.m23plg</TT>.
-<BR>
-<BR>
-Copy all files of your plugin application with correct pathes to the <SPAN  CLASS="textbf">project directory</SPAN>. For an easier way to make a m23 package have a look at the hint section.
-<BR>
-<BR>
-Your project directory may look like this:
-<BR><TT>/projectDir/data+scripts/m23admin/clients/myPlugin.m23plg
-<BR>/projectDir/bin/myExecutable
-<BR>/projectDir/data+scripts/myPluginDir/some data files
-<BR>/projectDir/data+scripts/myPluginDir/some more scripts.php</TT>
+MYSQL connection;
 
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+void connect(char *server, char *dbuser, char *passw)
+{
+  if (!mysql_connect(&amp;connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&amp;connection));
+      exit(2);
+  }
+  mysql_select_db(&amp;connection,"m23");
+};
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2844"
-  HREF="node53.html">install.sh</A>
-</UL>
-<!--End of Table of Child-Links-->
+
+
+
+
+void disconnect()
+{
+ mysql_close(&amp;connection);
+};
+
+
+
+
+     
+MYSQL_RES *query(char *sql)
+{
+ MYSQL_RES *res;
+
+ if (mysql_query(&amp;connection, sql) != 0)
+    {
+     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
+     mysql_error(&amp;connection),sql);
+     exit(2);
+    };
+
+ res = mysql_store_result(&amp;connection);
+
+ return(res);
+};
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
+
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
+
+  rows=mysql_num_rows(res); //&lt;&lt;2
+
+
+  for (int i=0; i &lt; rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //&lt;&lt;3
+
+        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
+
+        for (int fnr=0; fnr &lt; fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
+    }
+
+  mysql_free_result(res); //&lt;&lt;6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

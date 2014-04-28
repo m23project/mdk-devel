@@ -4,12 +4,19 @@
 
 touch /var/run/utmp
 
+for i in $( seq 0 9 )
+do
+	ifconfig eth$i 1.1.1.$i
+done
+
 #Show the MAC adress(es)
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "MAC addresses"
 ifconfig | grep eth
 echo "Press Ctrl+C if the output is too fast"
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+ln -s /bin/dhclient-script /sbin/dhclient-script
 
 #Configure via DHCP
 dhclient-script

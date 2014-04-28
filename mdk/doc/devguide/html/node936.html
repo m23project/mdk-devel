@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/server.php</TITLE>
-<META NAME="description" CONTENT="./inc/server.php">
+<TITLE>PREF_showPreferenceManager</TITLE>
+<META NAME="description" CONTENT="PREF_showPreferenceManager">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,153 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node984.html">
-<LINK REL="previous" HREF="node933.html">
-<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node937.html">
+<LINK REL="previous" HREF="node935.html">
+<LINK REL="up" HREF="node933.html">
 <LINK REL="next" HREF="node937.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15139"
+<A NAME="tex2html15286"
   HREF="node937.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15135"
-  HREF="node136.html">
+<A NAME="tex2html15282"
+  HREF="node933.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15129"
+<A NAME="tex2html15276"
   HREF="node935.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15137"
+<A NAME="tex2html15284"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15140"
-  HREF="node937.html">SERVER_setSSLCertCheckDisabled</A>
-<B> Up:</B> <A NAME="tex2html15136"
-  HREF="node136.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html15130"
-  HREF="node935.html">SCREDIT_newScriptTemplate</A>
- &nbsp; <B>  <A NAME="tex2html15138"
+<B> Next:</B> <A NAME="tex2html15287"
+  HREF="node937.html">PREF_saveAllPreferenceValues</A>
+<B> Up:</B> <A NAME="tex2html15283"
+  HREF="node933.html">./inc/preferences.php</A>
+<B> Previous:</B> <A NAME="tex2html15277"
+  HREF="node935.html">PREF_preferenceSaveManagerHandler</A>
+ &nbsp; <B>  <A NAME="tex2html15285"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008310000000000000000">
-./inc/server.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions for getting information from the server
+<H2><A NAME="SECTION008283000000000000000">
+PREF_showPreferenceManager</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog to load and delete existing preferences and to create new preferences.
 <BR>
 <P>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html15141"
-  HREF="node937.html">SERVER_setSSLCertCheckDisabled</A>
-<LI><A NAME="tex2html15142"
-  HREF="node938.html">SERVER_isSSLCertCheckDisabled</A>
-<LI><A NAME="tex2html15143"
-  HREF="node939.html">SERVER_setServerSetting</A>
-<LI><A NAME="tex2html15144"
-  HREF="node940.html">SERVER_getServerSetting</A>
-<LI><A NAME="tex2html15145"
-  HREF="node941.html">SERVER_existsServerSetting</A>
-<LI><A NAME="tex2html15146"
-  HREF="node942.html">SERVER_killPID</A>
-<LI><A NAME="tex2html15147"
-  HREF="node943.html">SERVER_killBackgroundJob</A>
-<LI><A NAME="tex2html15148"
-  HREF="node944.html">SERVER_insertLineNumber</A>
-<LI><A NAME="tex2html15149"
-  HREF="node945.html">SERVER_addAdmin</A>
-<LI><A NAME="tex2html15150"
-  HREF="node946.html">SERVER_delAdmin</A>
-<LI><A NAME="tex2html15151"
-  HREF="node947.html">SERVER_fileExists</A>
-<LI><A NAME="tex2html15152"
-  HREF="node948.html">SERVER_getPublicSSHKeyOfm23Server</A>
-<LI><A NAME="tex2html15153"
-  HREF="node949.html">SERVER_changeHtpasswd</A>
-<LI><A NAME="tex2html15154"
-  HREF="node950.html">SERVER_delFromHtpasswd</A>
-<LI><A NAME="tex2html15155"
-  HREF="node951.html">SERVER_addToHtpasswd</A>
-<LI><A NAME="tex2html15156"
-  HREF="node952.html">SERVER_dhcpServerInNetWarn</A>
-<LI><A NAME="tex2html15157"
-  HREF="node953.html">SERVER_sendScriptToSF</A>
-<LI><A NAME="tex2html15158"
-  HREF="node954.html">SERVER_dynamicIPWarn</A>
-<LI><A NAME="tex2html15159"
-  HREF="node955.html">SERVER_tmpNotWritable</A>
-<LI><A NAME="tex2html15160"
-  HREF="node956.html">SERVER_rootFreeSpace</A>
-<LI><A NAME="tex2html15161"
-  HREF="node957.html">SERVER_isProgramRunning</A>
-<LI><A NAME="tex2html15162"
-  HREF="node958.html">SERVER_checkPackageInstalled</A>
-<LI><A NAME="tex2html15163"
-  HREF="node959.html">SERVER_daemonStartStop</A>
-<LI><A NAME="tex2html15164"
-  HREF="node960.html">SERVER_installTool</A>
-<LI><A NAME="tex2html15165"
-  HREF="node961.html">SERVER_programmStatus</A>
-<LI><A NAME="tex2html15166"
-  HREF="node962.html">SERVER_apacheInfo</A>
-<LI><A NAME="tex2html15167"
-  HREF="node963.html">SERVER_mysqlInfo</A>
-<LI><A NAME="tex2html15168"
-  HREF="node964.html">SERVER_dhcpInfo</A>
-<LI><A NAME="tex2html15169"
-  HREF="node965.html">SERVER_LDAPInfo</A>
-<LI><A NAME="tex2html15170"
-  HREF="node966.html">SERVER_programmStatusTableHeader</A>
-<LI><A NAME="tex2html15171"
-  HREF="node967.html">SERVER_runInBackground</A>
-<LI><A NAME="tex2html15172"
-  HREF="node968.html">SERVER_runningInBackground</A>
-<LI><A NAME="tex2html15173"
-  HREF="node969.html">SERVER_runningInScreen</A>
-<LI><A NAME="tex2html15174"
-  HREF="node970.html">SERVER_addLineToFile</A>
-<LI><A NAME="tex2html15175"
-  HREF="node971.html">SERVER_deleteFile</A>
-<LI><A NAME="tex2html15176"
-  HREF="node972.html">SERVER_getFileContents</A>
-<LI><A NAME="tex2html15177"
-  HREF="node973.html">SERVER_putFileContents</A>
-<LI><A NAME="tex2html15178"
-  HREF="node974.html">SERVER_delLineFromFile</A>
-<LI><A NAME="tex2html15179"
-  HREF="node975.html">SERVER_addEtcHosts</A>
-<LI><A NAME="tex2html15180"
-  HREF="node976.html">SERVER_delEtcHosts</A>
-<LI><A NAME="tex2html15181"
-  HREF="node977.html">SERVER_getInstallationMedium</A>
-<LI><A NAME="tex2html15182"
-  HREF="node978.html">SERVER_getOS</A>
-<LI><A NAME="tex2html15183"
-  HREF="node979.html">SERVER_checkDownload</A>
-<LI><A NAME="tex2html15184"
-  HREF="node980.html">SERVER_checkDiskFree</A>
-<LI><A NAME="tex2html15185"
-  HREF="node981.html">SERVER_checkRunInVM</A>
-<LI><A NAME="tex2html15186"
-  HREF="node982.html">SERVER_checkKernel</A>
-<LI><A NAME="tex2html15187"
-  HREF="node983.html">SERVER_multiMkDir</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>translating the messages</TITLE>
-<META NAME="description" CONTENT="translating the messages">
+<TITLE>Building the files</TITLE>
+<META NAME="description" CONTENT="Building the files">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,50 +28,153 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2556"
+<A NAME="tex2html2651"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2552"
+<A NAME="tex2html2647"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2546"
+<A NAME="tex2html2641"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2554"
+<A NAME="tex2html2649"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2557"
-  HREF="node31.html">translating the help texts</A>
-<B> Up:</B> <A NAME="tex2html2553"
-  HREF="node27.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html2547"
-  HREF="node29.html">generate the language file</A>
- &nbsp; <B>  <A NAME="tex2html2555"
+<B> Next:</B> <A NAME="tex2html2652"
+  HREF="node31.html">CMS</A>
+<B> Up:</B> <A NAME="tex2html2648"
+  HREF="node27.html">Releasing a new m23</A>
+<B> Previous:</B> <A NAME="tex2html2642"
+  HREF="node29.html">Documentation</A>
+ &nbsp; <B>  <A NAME="tex2html2650"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00623000000000000000">
-translating the messages</A>
+Building the files</A>
 </H2>
-Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
+
+<UL>
+<LI>Debian packages
+	
+<UL>
+<LI>/mdk/bin/menuStart &rArr#Rightarrow;debs &rArr#Rightarrow;build
+</LI>
+<LI>Upload the packages, if all seems to be right: &rArr#Rightarrow;directuplinst
+	
+</LI>
+</UL>
+</LI>
+<LI>Server installation ISO
+	
+<UL>
+<LI>/mdk/bin/menuStart &rArr#Rightarrow;serverISO &rArr#Rightarrow;iso . Exit after building.
+</LI>
+<LI>Upload: cd /mdk/server; ./up iso.file
+	
+</LI>
+</UL>
+</LI>
+<LI>VirtualBox appliance
+	
+<UL>
+<LI>Create a new VM (Linux/Debian, 384 MB Ram, growing VDI 16GB HDD
+</LI>
+<LI>Change the Network card to Network bridge
+</LI>
+<LI>Start the VM and "insert" the ISO into the virtual CD drive
+</LI>
+<LI>Select "English".
+</LI>
+<LI>Use "m23s" as server name, "test" as password and local network settings.
+</LI>
+<LI>Choose the automatic partitioning and formating.
+</LI>
+<LI>Call /mdk/bin/prepareOSForCompression after reboot.
+</LI>
+<LI>Shutdown the VM
+</LI>
+<LI>Export it and compress the exported files.
+	
+</LI>
+</UL>
+</LI>
+<LI><UL>
+<LI>Write a SD card with Raspbian.
+</LI>
+<LI>Configure /etc/network/interfaces to static IP for eth0.
+</LI>
+<LI>Boot the Raspberry Pi.
+</LI>
+<LI>Log into it via SSH (user: pi, password: raspberry)
+</LI>
+<LI>Run "sudo rapi-config".
+</LI>
+<LI>Call in the menu "Expand Filesystem", set "Memory split" to 16 MB, call "Update".
+</LI>
+<LI>Reboot.
+</LI>
+<LI>Enable root access (set password to test): "sudo passwd"
+</LI>
+<LI>Log out and log into it via SSH (user: root, password: test)
+</LI>
+<LI>Remove the user pi: userdel -r -f pi
+</LI>
+<LI>Add "192.168.1.77 m23debs" to /etc/hosts
+</LI>
+<LI>Create "/etc/apt/sources.list.d/m23debs.list" with the contents "deb http://m23debs ./"
+</LI>
+<LI>Update the package index: apt-get update
+</LI>
+<LI>Install the m23 server: apt-get install m23
+</LI>
+<LI>Choose yes on all options and use "test" for all passwords.
+</LI>
+<LI>After the failure edit /etc/default/tftpd-hpa: Adjust TFTP_OPTIONS="-4 -secure"
+</LI>
+<LI>Continue the installation with: apt-get install -f
+</LI>
+<LI>Run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh
+</LI>
+<LI>/mdk/bin/prepareOSForCompression.
+	
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2651"
+  HREF="node31.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2647"
+  HREF="node27.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2641"
+  HREF="node29.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2649"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-Now translate the text between the ' " 's.
-e.g.
-<PRE>
-$I18N_help="Help";
-</PRE>
-becomes
-<PRE>
-$I18N_help="Hilfe";
-</PRE>
-Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
-<BR><HR>
+<B> Next:</B> <A NAME="tex2html2652"
+  HREF="node31.html">CMS</A>
+<B> Up:</B> <A NAME="tex2html2648"
+  HREF="node27.html">Releasing a new m23</A>
+<B> Previous:</B> <A NAME="tex2html2642"
+  HREF="node29.html">Documentation</A>
+ &nbsp; <B>  <A NAME="tex2html2650"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

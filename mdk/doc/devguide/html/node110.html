@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>mdoc info block</TITLE>
-<META NAME="description" CONTENT="mdoc info block">
+<TITLE>Filling the *OptionPage.php</TITLE>
+<META NAME="description" CONTENT="Filling the *OptionPage.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,55 +21,71 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node111.html">
 <LINK REL="previous" HREF="node109.html">
-<LINK REL="up" HREF="node107.html">
+<LINK REL="up" HREF="node108.html">
 <LINK REL="next" HREF="node111.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3593"
+<A NAME="tex2html3657"
   HREF="node111.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3589"
-  HREF="node107.html">
+<A NAME="tex2html3653"
+  HREF="node108.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3583"
+<A NAME="tex2html3647"
   HREF="node109.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3591"
+<A NAME="tex2html3655"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3594"
-  HREF="node111.html">example for a mdoc</A>
-<B> Up:</B> <A NAME="tex2html3590"
-  HREF="node107.html">mdoc</A>
-<B> Previous:</B> <A NAME="tex2html3584"
-  HREF="node109.html">how to make your</A>
- &nbsp; <B>  <A NAME="tex2html3592"
+<B> Next:</B> <A NAME="tex2html3658"
+  HREF="node111.html">Layoutoptions</A>
+<B> Up:</B> <A NAME="tex2html3654"
+  HREF="node108.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html3648"
+  HREF="node109.html">The *OptionPage.php</A>
+ &nbsp; <B>  <A NAME="tex2html3656"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00713000000000000000">
-mdoc info block</A>
+<H2><A NAME="SECTION006122000000000000000">
+Filling the *OptionPage.php</A>
 </H2>
-In the mdoc info block you can leave all information you want, e.g. you can write down your name, the function of the file etc. . This block is parsed by mdoc first and will appear in the documentation at the beginning of the chapter. A mdoc info block begins with "/*$mdocInfo" and ends with "$*/". All between these lines will be treated as a comment and is copied 1 to 1 to the documentation file. If you make a line break this line break will appear in the documentation too.
-<BR><SPAN  CLASS="textbf">Attenction: For the 'I' in mdocInfo you have to use an upcase letter. Otherwise the mdoc info block will be ignored.</SPAN>
-<BR>
-Here an example for a mdoc info block:
+To make it easier for you there are two functions that help you to generate your option page. To use these function you have to include <SPAN  CLASS="textit">/m23/inc/packages.php</SPAN>
+
+<UL>
+<LI><SPAN  CLASS="textit">PKG_OptionPageHeader($title)</SPAN>: For starting the page. It generates all necessary HTML code (colors, styles, tables, form) and expects a title for your option page. This title is shown in the window label of your webbrowser and in the window itself. It returnes an associative array with all parameters of the selected package. These values are used to initalise the OptionPage if it is opened for the first time.
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">PKG_OptionPageTail($layout)</SPAN>: Renderes the layout of the page, adds a save button and closes the HTML page.
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">PKG_OptionPageGetValue($variable,$params)</SPAN>: gets a value from the $_GET array or falls back to the params values. This is used if there havn't been entered values in the OptionPage.
+</LI>
+</UL>
+Your OptionPage needs to have the following elements:
 <PRE>
-/*$mdocInfo
- Author: Daniel Kasten (DKasten@gss-netconcepts.de)
- Description: a lot of routines for client handling.
-$*/
+include ('/m23/inc/packages.php');
+
+$params = PKG_OptionPageHeader("My OptionPage title");
+
+$layout[0]...
+
+PKG_OptionPageTail($layout);
 </PRE>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

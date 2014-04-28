@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>xxx.info</TITLE>
-<META NAME="description" CONTENT="xxx.info">
+<TITLE>exchange epic100.c with the special boot code</TITLE>
+<META NAME="description" CONTENT="exchange epic100.c with the special boot code">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,280 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node95.html">
 <LINK REL="previous" HREF="node93.html">
-<LINK REL="up" HREF="node91.html">
+<LINK REL="up" HREF="node93.html">
 <LINK REL="next" HREF="node95.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3366"
+<A NAME="tex2html3458"
   HREF="node95.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3362"
-  HREF="node91.html">
+<A NAME="tex2html3454"
+  HREF="node93.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3356"
+<A NAME="tex2html3448"
   HREF="node93.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3364"
+<A NAME="tex2html3456"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3367"
-  HREF="node95.html">xxx.text</A>
-<B> Up:</B> <A NAME="tex2html3363"
-  HREF="node91.html">The files</A>
-<B> Previous:</B> <A NAME="tex2html3357"
-  HREF="node93.html">xxx.end</A>
- &nbsp; <B>  <A NAME="tex2html3365"
+<B> Next:</B> <A NAME="tex2html3459"
+  HREF="node95.html">Making the bootimage</A>
+<B> Up:</B> <A NAME="tex2html3455"
+  HREF="node93.html">How to generate an</A>
+<B> Previous:</B> <A NAME="tex2html3449"
+  HREF="node93.html">How to generate an</A>
+ &nbsp; <B>  <A NAME="tex2html3457"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00691300000000000000">
-xxx.info</A>
-</H3>
+<H2><A NAME="SECTION00691000000000000000">
+exchange epic100.c with the special boot code</A>
+</H2>
+All Etherboot drivers have the option to boot (in case of an error or user intervention) from harddisk. To make harddisk booting the default starting method and remove the network card specific code, we have to patch one of the Etherboot drivers. I choosed the epic100 driver because of its size ;)
+<BR>
+<P>
+Here you can see how its done:
+
+<P>
 <PRE>
-shiver
+#ifdef ALLMULTI
+#error multicast support is not yet implemented
+#endif
+/* epic100.c: A SMC 83c170 EPIC/100 fast ethernet driver for Etherboot */
+
+#define LINUX_OUT_MACROS
+
+#include "etherboot.h"
+#include "nic.h"
+#include "cards.h"
+#include "timer.h"
+#include "epic100.h"
+
+#undef  virt_to_bus
+#define virt_to_bus(x)  ((unsigned long)x)
+
+#define TX_RING_SIZE    2       /* use at least 2 buffers for TX */
+#define RX_RING_SIZE    2
+
+#define PKT_BUF_SZ      1536    /* Size of each temporary Tx/Rx buffer.*/
+
+/*
+#define DEBUG_RX
+#define DEBUG_TX
+#define DEBUG_EEPROM
+*/
+
+#define EPIC_DEBUG 0    /* debug level */
+
+/* The EPIC100 Rx and Tx buffer descriptors. */
+struct epic_rx_desc {
+    unsigned short status;
+    unsigned short rxlength;
+    unsigned long  bufaddr;
+    unsigned short buflength;
+    unsigned short control;
+    unsigned long  next;
+};
+
+/* description of the tx descriptors control bits commonly used */
+#define TD_STDFLAGS     TD_LASTDESC
+
+struct epic_tx_desc {
+    unsigned short status;
+    unsigned short txlength;
+    unsigned long  bufaddr;
+    unsigned short buflength;
+    unsigned short control;
+    unsigned long  next;
+};
+
+#define delay(nanosec)   do { int _i = 3; while (--_i &gt; 0) \
+                                     { __SLOW_DOWN_IO; }} while (0)
+
+static void     epic100_open(void);
+static void     epic100_init_ring(void);
+static void     epic100_disable(struct nic *nic);
+static int      epic100_poll(struct nic *nic);
+static void     epic100_transmit(struct nic *nic, const char *destaddr,
+                                 unsigned int type, unsigned int len, const char *data);
+static int      read_eeprom(int location);
+static int      mii_read(int phy_id, int location);
+
+static int      ioaddr;
+
+static int      command;
+static int      intstat;
+static int      intmask;
+static int      genctl ;
+static int      eectl  ;
+static int      test   ;
+static int      mmctl  ;
+static int      mmdata ;
+static int      lan0   ;
+static int      rxcon  ;
+static int      txcon  ;
+static int      prcdar ;
+static int      ptcdar ;
+static int      eththr ;
+
+static unsigned int     cur_rx, cur_tx;         /* The next free ring entry */
+#ifdef  DEBUG_EEPROM
+static unsigned short   eeprom[64];
+#endif
+static signed char      phys[4];                /* MII device addresses. */
+static struct epic_rx_desc      rx_ring[RX_RING_SIZE];
+static struct epic_tx_desc      tx_ring[TX_RING_SIZE];
+#ifdef  USE_LOWMEM_BUFFER
+#define rx_packet ((char *)0x10000 - PKT_BUF_SZ * RX_RING_SIZE)
+#define tx_packet ((char *)0x10000 - PKT_BUF_SZ * RX_RING_SIZE - PKT_BUF_SZ * TX_RING_SIZE)
+#else
+static char             rx_packet[PKT_BUF_SZ * RX_RING_SIZE];
+static char             tx_packet[PKT_BUF_SZ * TX_RING_SIZE];
+#endif
+
+/***********************************************************************/
+/*                    Externally visible functions                     */
+/***********************************************************************/
+
+    static void
+epic100_reset(struct nic *nic)
+{
+    /* Soft reset the chip. */
+    outl(GC_SOFT_RESET, genctl);
+}
+
+    struct nic*
+epic100_probe(struct nic *nic, unsigned short *probeaddrs)
+{
+ return 0;
+}
+
+    static void
+epic100_open(void)
+{
+}
+
+/* Initialize the Rx and Tx rings. */
+    static void
+epic100_init_ring(void)
+{
+}
+
+/* function: epic100_transmit
+ * This transmits a packet.
+ *
+ * Arguments: char d[6]:          destination ethernet address.
+ *            unsigned short t:   ethernet protocol type.
+ *            unsigned short s:   size of the data-part of the packet.
+ *            char *p:            the data for the packet.
+ * returns:   void.
+ */
+    static void
+epic100_transmit(struct nic *nic, const char *destaddr, unsigned int type,
+                 unsigned int len, const char *data)
+{
+}
+
+/* function: epic100_poll / eth_poll
+ * This receives a packet from the network.
+ *
+ * Arguments: none
+ *
+ * returns:   1 if a packet was received.
+ *            0 if no pacet was received.
+ * side effects:
+ *            returns the packet in the array nic-&gt;packet.
+ *            returns the length of the packet in nic-&gt;packetlen.
+ */
+
+    static int
+epic100_poll(struct nic *nic)
+{
+    return 0;
+}
+
+
+    static void
+epic100_disable(struct nic *nic)
+{
+}
+
+
+#ifdef  DEBUG_EEPROM
+/* Serial EEPROM section. */
+
+/*  EEPROM_Ctrl bits. */
+#define EE_SHIFT_CLK    0x04    /* EEPROM shift clock. */
+#define EE_CS           0x02    /* EEPROM chip select. */
+#define EE_DATA_WRITE   0x08    /* EEPROM chip data in. */
+#define EE_WRITE_0      0x01
+#define EE_WRITE_1      0x09
+#define EE_DATA_READ    0x10    /* EEPROM chip data out. */
+#define EE_ENB          (0x0001 | EE_CS)
+
+/* The EEPROM commands include the alway-set leading bit. */
+#define EE_WRITE_CMD    (5 &lt;&lt; 6)
+#define EE_READ_CMD     (6 &lt;&lt; 6)
+#define EE_ERASE_CMD    (7 &lt;&lt; 6)
+
+#define eeprom_delay(n) delay(n)
+
+    static int
+read_eeprom(int location)
+{
+ return 0;
+}
+#endif
+
+
+#define MII_READOP      1
+#define MII_WRITEOP     2
+
+    static int
+mii_read(int phy_id, int location)
+{
+ return 0;
+}
+</PRE>
+
+<P>
+Exchange the code from the epic100.c file (in the <SPAN  CLASS="textbf">src</SPAN> directory) with the code above. Now you have tho change the default boot type. Exchange in <SPAN  CLASS="textit">etherboot.h</SPAN> 
+<PRE>
+#ifndef	ANS_DEFAULT	/* in case left out in Makefile */
+#define	ANS_DEFAULT	ANS_NETWORK
+#endif
+</PRE> 
+with
+<PRE>
+#define	ANS_DEFAULT ANS_LOCAL
+</PRE> 
+and
+<PRE>
+#define TIMEOUT			(10*TICKS_PER_SEC)
+</PRE> 
+with
+<PRE>
+#define TIMEOUT			(1*TICKS_PER_SEC)
+</PRE> 
+
+<P>
+Now execute the following commands:
+<BR><PRE>
+make clean
+make
 </PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

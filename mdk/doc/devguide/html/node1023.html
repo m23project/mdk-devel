@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_getVBoxVersion</TITLE>
-<META NAME="description" CONTENT="VM_getVBoxVersion">
+<TITLE>SRCLST_getStorageFS</TITLE>
+<META NAME="description" CONTENT="SRCLST_getStorageFS">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1024.html">
 <LINK REL="previous" HREF="node1022.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1007.html">
 <LINK REL="next" HREF="node1024.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16298"
+<A NAME="tex2html16409"
   HREF="node1024.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16294"
-  HREF="node1017.html">
+<A NAME="tex2html16405"
+  HREF="node1007.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16288"
+<A NAME="tex2html16399"
   HREF="node1022.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16296"
+<A NAME="tex2html16407"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16299"
-  HREF="node1024.html">VM_setVBoxAddonAsDefault</A>
-<B> Up:</B> <A NAME="tex2html16295"
-  HREF="node1017.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16289"
-  HREF="node1022.html">VM_rebootChangeBootDevice</A>
- &nbsp; <B>  <A NAME="tex2html16297"
+<B> Next:</B> <A NAME="tex2html16410"
+  HREF="node1024.html">SRCLST_supportedFS</A>
+<B> Up:</B> <A NAME="tex2html16406"
+  HREF="node1007.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html16400"
+  HREF="node1022.html">SRCLST_packageInformationOlderThan</A>
+ &nbsp; <B>  <A NAME="tex2html16408"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008346000000000000000">
-VM_getVBoxVersion</A>
+<H2><A NAME="SECTION0083216000000000000000">
+SRCLST_getStorageFS</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Get the currently installed VirtualBox version of the host.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns a file systems that can be used to install the OS and to store data. A wished file system is given and an alternative FS is returned, if this FS is not supported.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientNameOrIP: The name of the client or localhost or an IP.
+<LI>fs: File system to probe.
+</LI>
+<LI>sourceName: The name of the package source list
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The version number of VirtualBox.
+<LI>: File systems that can be used to install the OS and to store data
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ VM_getVBoxVersion</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

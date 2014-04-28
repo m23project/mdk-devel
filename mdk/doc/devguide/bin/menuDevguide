@@ -5,7 +5,7 @@ ctime=`find /mdk/doc/devguide/devguide.pdf -printf "[%TD %TH:%TM:%TS]"`
 
 menuDevguideSel=`menuDevguideSel 2>/dev/null` || menuDevguideSel=/tmp/lilom23$$
 dialog --backtitle "MDK documentation generator" --default-item "ja" --clear --title "Development guide generator" \
-        --menu "Select what you want to do\nDevguide was updated on $ctime " 11 50 4 \
+        --menu "Select what you want to do\nDevguide was updated on $ctime " 12 50 4 \
         "generate"  "generate development guide" \
         "upload"  "upload the development guide" \
 		"help" "help" 2> $menuDevguideSel

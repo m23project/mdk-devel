@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_loginGenerator</TITLE>
-<META NAME="description" CONTENT="MASS_loginGenerator">
+<TITLE>./inc/massTools.php</TITLE>
+<META NAME="description" CONTENT="./inc/massTools.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,111 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node736.html">
-<LINK REL="previous" HREF="node734.html">
-<LINK REL="up" HREF="node718.html">
+<LINK REL="next" HREF="node762.html">
+<LINK REL="previous" HREF="node663.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node736.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12565"
+<A NAME="tex2html12685"
   HREF="node736.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12561"
-  HREF="node718.html">
+<A NAME="tex2html12681"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12555"
+<A NAME="tex2html12675"
   HREF="node734.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12563"
+<A NAME="tex2html12683"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12566"
-  HREF="node736.html">MASS_ipGenerator</A>
-<B> Up:</B> <A NAME="tex2html12562"
-  HREF="node718.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html12556"
-  HREF="node734.html">MASS_passGenerator</A>
- &nbsp; <B>  <A NAME="tex2html12564"
+<B> Next:</B> <A NAME="tex2html12686"
+  HREF="node736.html">MASS_EGKradioBoxes</A>
+<B> Up:</B> <A NAME="tex2html12682"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html12676"
+  HREF="node734.html">m23SHARED_getInformationForBootingYourClientLink</A>
+ &nbsp; <B>  <A NAME="tex2html12684"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082117000000000000000">
-MASS_loginGenerator</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates the selected amount of logins
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>base: the base name of the login
-</LI>
-<LI>start: start number for incremental logins
-</LI>
-<LI>forenames: array with all forenames
-</LI>
-<LI>familynames: array with all familynames
-</LI>
-<LI>type: "incremental" if you want to add a incrementing number after the base name, "ForeFamilyName" if the logins should be created from fore- and familynames
-</LI>
-<LI>amount: the amount of logins to generate
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008210000000000000000">
+./inc/massTools.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: routines for mass installations
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html12687"
+  HREF="node736.html">MASS_EGKradioBoxes</A>
+<LI><A NAME="tex2html12688"
+  HREF="node737.html">MASS_FHradioBoxes</A>
+<LI><A NAME="tex2html12689"
+  HREF="node738.html">MASS_showFileHandDialog</A>
+<LI><A NAME="tex2html12690"
+  HREF="node739.html">MASS_propertyKeys</A>
+<LI><A NAME="tex2html12691"
+  HREF="node740.html">MASS_showFileFormatDialog</A>
+<LI><A NAME="tex2html12692"
+  HREF="node741.html">MASS_keyToI18N</A>
+<LI><A NAME="tex2html12693"
+  HREF="node742.html">MASS_I18NTokey</A>
+<LI><A NAME="tex2html12694"
+  HREF="node743.html">MASS_showTableDefinition</A>
+<LI><A NAME="tex2html12695"
+  HREF="node744.html">MASS_checkAndSaveFields</A>
+<LI><A NAME="tex2html12696"
+  HREF="node745.html">MASS_openDBFile</A>
+<LI><A NAME="tex2html12697"
+  HREF="node746.html">MASS_readDBFile</A>
+<LI><A NAME="tex2html12698"
+  HREF="node747.html">MASS_readDBFileRaw</A>
+<LI><A NAME="tex2html12699"
+  HREF="node748.html">MASS_closeDBFile</A>
+<LI><A NAME="tex2html12700"
+  HREF="node749.html">MASS_getXProperties</A>
+<LI><A NAME="tex2html12701"
+  HREF="node750.html">MASS_showGeneratorOptions</A>
+<LI><A NAME="tex2html12702"
+  HREF="node751.html">MASS_passGenerator</A>
+<LI><A NAME="tex2html12703"
+  HREF="node752.html">MASS_loginGenerator</A>
+<LI><A NAME="tex2html12704"
+  HREF="node753.html">MASS_ipGenerator</A>
+<LI><A NAME="tex2html12705"
+  HREF="node754.html">MASS_minMaxIP</A>
+<LI><A NAME="tex2html12706"
+  HREF="node755.html">MASS_generateNetmask</A>
+<LI><A NAME="tex2html12707"
+  HREF="node756.html">MASS_generateClientNames</A>
+<LI><A NAME="tex2html12708"
+  HREF="node757.html">MASS_saveGeneratorOptions</A>
+<LI><A NAME="tex2html12709"
+  HREF="node758.html">MASS_showOverview</A>
+<LI><A NAME="tex2html12710"
+  HREF="node759.html">MASS_getAllFromFile</A>
+<LI><A NAME="tex2html12711"
+  HREF="node760.html">MASS_getLongestLength</A>
+<LI><A NAME="tex2html12712"
+  HREF="node761.html">MASS_startInstall</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

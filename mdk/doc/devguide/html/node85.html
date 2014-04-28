@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>What can you do with this SDK?</TITLE>
-<META NAME="description" CONTENT="What can you do with this SDK?">
+<TITLE>compresses the m23 files</TITLE>
+<META NAME="description" CONTENT="compresses the m23 files">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node83.html">
-<LINK REL="up" HREF="node81.html">
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node82.html">
 <LINK REL="next" HREF="node86.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3252"
+<A NAME="tex2html3349"
   HREF="node86.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3248"
-  HREF="node81.html">
+<A NAME="tex2html3345"
+  HREF="node82.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3244"
+<A NAME="tex2html3339"
   HREF="node84.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3250"
+<A NAME="tex2html3347"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3253"
-  HREF="node86.html">Build a new kernel</A>
-<B> Up:</B> <A NAME="tex2html3249"
-  HREF="node81.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html3245"
-  HREF="node84.html">How it works?</A>
- &nbsp; <B>  <A NAME="tex2html3251"
+<B> Next:</B> <A NAME="tex2html3350"
+  HREF="node86.html">generating the ISO image</A>
+<B> Up:</B> <A NAME="tex2html3346"
+  HREF="node82.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html3340"
+  HREF="node84.html">compress operating system</A>
+ &nbsp; <B>  <A NAME="tex2html3348"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00673000000000000000">
-What can you do with this SDK?</A>
-</H2>
-Modify all files in root2. These files are the files for a kind of Mini Linux distribution. You should be familar to Linux, if you want to change a thing. linurc will be the first script executed after network boot. If you want to do automatic execution this is the right place. <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3254"
-  HREF="node86.html">Build a new kernel</A>
-</UL>
-<!--End of Table of Child-Links-->
+<H3><A NAME="SECTION00672300000000000000">
+compresses the m23 files</A>
+</H3>
+The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
+<BR>
+For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

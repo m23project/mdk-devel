@@ -26,6 +26,12 @@ err=0
 #####
 downloadBazaarRepo()
 {
+	ping -c 1 tux05
+	if [ $? -ne 0 ]
+	then
+		echo "You need to configure tux05 and add the SSH key"
+	fi
+
 	echo -n "Please enter the name of the new repository: "
 	read reponame
 
@@ -34,6 +40,10 @@ downloadBazaarRepo()
 
 	#Upload the commit
 	bzr pull --remember "bzr+ssh://bbazzarr@tux05/home/bbazzarr/$reponame/"
+
+	#Fix permissions
+	cd /m23/
+	chown www-data inc data+scripts -R
 }
 
 
@@ -49,17 +59,261 @@ createNewBazaarRepo()
 	echo -n "Please enter the name of the new repository: "
 	read reponame
 
+	rm -r .bzr
+
 	#Build the directory structure for Bazaar
 	sudo -u dodger bzr init
 
-	#Add the ignore rules
-	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep -v '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | sed 's#\\##g' | awk '{print("*"$0"*")}' > .bzrignore
-	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | awk '{print("RE:"$0)}' >> .bzrignore
-	grep '*$' .bzrignore | sed 's#[^/]+*$#/*#g' > /tmp/.bzrignoreadd
-	cat /tmp/.bzrignoreadd >> .bzrignore
+# 	#Add the ignore rules
+# 	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep -v '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | sed 's#\\##g' | awk '{print("*"$0"*")}' > .bzrignore
+# 	sudo -u dodger cat /mdk/m23Debs/indices/exclude* | sort -u | grep '\(\[\|\$\)' | sed -e 's#^/mdk/##' -e 's#^/m23/##' -e 's#^/##' | awk '{print("RE:"$0)}' >> .bzrignore
+# 	grep '*$' .bzrignore | sed 's#[^/]+*$#/*#g' > /tmp/.bzrignoreadd
+# 	cat /tmp/.bzrignoreadd >> .bzrignore
+# 
+# 	#Delete lines with only **
+# 	sed -i '/\*\*/d' .bzrignore
+
+	rm .bzrignore
+cat >> .bzrignore << "EOF"
+*.7z
+*.gz
+*.iso
+./m23admin/serverBackups/
+./bin.RemoteAdministrationServiceOpenTunnel-*
+./bin/.mkcert.serial
+./bin/roms/
+./data+scripts/activate.php
+./data+scripts/clientImages/
+./data+scripts/extraDebs/
+./data+scripts/m23admin/phpldapadmin/
+./data+scripts/m23admin/phpMyAdmin/
+./data+scripts/packages/baseSys/ca.crt
+./data+scripts/packages/baseSys/ca.hash
+./data+scripts/packages/baseSys/m23server.rGH1ikdPm8/
+./data+scripts/pool/
+./db/
+./dhcp/dhcpd.conf
+./dhcp/dhcpd.leases
+./etc/.htpasswd
+./etc/.phpMyLDAPAdminHtpasswd
+./inc/cronSecret.php
+./log/
+./root-only/
+./tftp/
+./tmp/
+./var/
+./vms/
+*.deb
+*.ova
+*.squashfs
+m23install-amd64
+m23install-i386
+ibdata1
+tftp
+m23shared
+etc
+a.out
+authorized_keys
+autom4te.cache
+bootCD/iso/isolinux/rescue.gz
+bootCD/iso/m23image.tb2
+bootCD/iso/m23.tb2
+bootCD/iso/mdk.tb2
+bootCD/kernel/
+bootimage/iso/isolinux/initrd.gz
+bootimage/kernel/
+client/initrd/initrd*
+client/iso/isolinux/bzImage
+client/iso/isolinux/initrd.gz
+client+server/busyBox/*
+client+server/kernel/linux*
+client+server/tmpRoot/*
+compiled/amd64/lib/modules/*
+compiled/i386/lib/modules/*
+inc/cronSecret.php
+indices/index
+knoppix/*
+m23admin/serverBackups
+bin/.mkcert.serial
+bin/roms/
+data+scripts/activate.php
+data+scripts/clientImages
+data+scripts/index.css
+data+scripts/m23admin/m23shared/
+data+scripts/m23admin/phpldapadmin/config.php
+data+scripts/m23admin/phpMyAdmin/
+data+scripts/m23shared/
+data+scripts/packages/baseSys/ca.crt
+data+scripts/packages/baseSys/ca.hash
+data+scripts/packages/baseSys/m23server.rGH1ikdPm8/
+data+scripts/pool
+data+scripts/register.php
+data+scripts/tests
+db
+dhcp/dhcpd.conf
+dhcp/dhcpd.leases
+etc/.phpMyLDAPAdminHtpasswd
+m23image.tar.7z
+inc/m23shared/
+inc/m23shared.php
+inc/m23sharedSQL-init.php
+log/
+root-only/
+tftp
+tftp/192
+tftp/clonezilla
+tftp/pxelinux.cfg/C0
+tmp/
+var/
+var/cache/
+vms/
+bootCD/iso/doc/
+client/*m23shared.goos-habermann.de*.iso
+doc/manual/screenshots
+doc/translator/temp
+gPXE-gh/gpxe
+m23Debs/knoppix-static/archivs
+m23Debs/knoppix-static/ddcxinfo-knoppix
+m23Debs/knoppix-static/extract
+m23Debs/knoppix-static/hwdata
+m23Debs/knoppix-static/hwsetup
+m23Debs/knoppix-static/lists
+m23Debs/knoppix-static/lock
+m23Debs/knoppix-static/sources.list
+m23Debs/knoppix-static/status
+m23Debs/m23-mb2008/debian
+m23Debs/toolchain-amd64/usr/
+m23Translator/config.php
+m23update/updates/
+server/initrd/initrd*
+server/iso/*.avi
+server/iso/doc
+server/iso/pool/Packages
+server/iso/pool/Packages.bz2
+server/iso/pool/Packages.gz
+phpldapadmin
+root1/dev/
+root2/dev/
+server/iso/isolinux/bzImage
+server/iso/isolinux/initrd.gz
+server/iso/m23image.tb2
+.svn/
+RE:~$
+RE:kernelNmodules/i386/bzImage_libs$
+RE:_libs$
+RE:\.libs$
+RE:\.lo$
+RE:bin/m23RemoteAdministrationServiceOpenTunnel-[a-zA-Z_0-9-]*
+RE:data+scripts/distr/halfSister/[a-zA-Z_0-9-]*\.7z
+RE:data+scripts/extraDebs/[a-zA-Z_0-9-]*
+RE:data+scripts/packages/baseSys/[a-zA-Z_0-9-]*\.7z
+RE:etc/.htpasswd$
+RE:bootCD/[a-zA-Z0-9_.\-]*\.iso$
+RE:bootCD/[a-zA-Z0-9_.\-]*\.sign$
+RE:doc/manual/screenshots/[fr|en|de]\./
+RE:doc/manual/tex/[fr|en|de]./[a-zA-Z_0-9-]*\.hlp\.tex$
+RE:server/[a-zA-Z0-9_.\-]*\.iso$
+RE:server/[a-zA-Z0-9_.\-]*\.sign$
+RE:server/iso/pool/[a-zA-Z0-9_.\-]*\.deb
+RE:\.o$
+RE:\.save$
+RE:tex\.backup$
+**
+*a.out*
+*authorized_keys*
+*autom4te.cache*
+*bootCD/iso/isolinux/rescue.gz*
+*bootCD/iso/m23image.tb2*
+*bootCD/iso/m23.tb2*
+*bootCD/iso/mdk.tb2*
+*bootCD/kernel/*
+*bootimage/iso/isolinux/initrd.gz*
+*bootimage/kernel/*
+*client/initrd/initrd**
+*client/iso/isolinux/bzImage*
+*client/iso/isolinux/initrd.gz*
+*client+server/busyBox/**
+*client+server/kernel/linux**
+*client+server/tmpRoot/**
+*compiled/amd64/lib/modules/**
+*compiled/i386/lib/modules/**
+*inc/cronSecret.php*
+*indices/index*
+*knoppix/**
+*m23admin/serverBackups*
+*bin/.mkcert.serial*
+*bin/roms/*
+*data+scripts/activate.php*
+*data+scripts/clientImages*
+*data+scripts/index.css*
+*data+scripts/m23admin/m23shared/*
+*data+scripts/m23admin/phpldapadmin/config.php*
+*data+scripts/m23admin/phpMyAdmin/*
+*data+scripts/m23shared/*
+*data+scripts/packages/baseSys/ca.crt*
+*data+scripts/packages/baseSys/ca.hash*
+*data+scripts/packages/baseSys/m23server.rGH1ikdPm8/*
+*data+scripts/pool*
+*data+scripts/register.php*
+*data+scripts/tests*
+*db*
+*dhcp/dhcpd.conf*
+*dhcp/dhcpd.leases*
+*etc/.phpMyLDAPAdminHtpasswd*
+*m23image.tar.7z*
+*inc/m23shared/*
+*inc/m23shared.php*
+*inc/m23sharedSQL-init.php*
+*log/*
+*root-only/*
+*tftp*
+*tftp/192*
+*tftp/clonezilla*
+*tftp/pxelinux.cfg/C0*
+*tmp/*
+*var/*
+*var/cache/*
+*vms/*
+*bootCD/iso/doc/*
+*client/*m23shared.goos-habermann.de*.iso*
+*doc/manual/screenshots*
+*doc/translator/temp*
+*gPXE-gh/gpxe*
+*m23Debs/knoppix-static/archivs*
+*m23Debs/knoppix-static/ddcxinfo-knoppix*
+*m23Debs/knoppix-static/extract*
+*m23Debs/knoppix-static/hwdata*
+*m23Debs/knoppix-static/hwsetup*
+*m23Debs/knoppix-static/lists*
+*m23Debs/knoppix-static/lock*
+*m23Debs/knoppix-static/sources.list*
+*m23Debs/knoppix-static/status*
+*m23Debs/m23-mb2008/debian*
+*m23Debs/toolchain-amd64/usr/*
+*m23Translator/config.php*
+*m23update/updates/*
+*server/initrd/initrd**
+*server/iso/*.avi*
+*server/iso/doc*
+*server/iso/pool/Packages*
+*server/iso/pool/Packages.bz2*
+*server/iso/pool/Packages.gz*
+*phpldapadmin*
+*root1/dev/*
+*root2/dev/*
+*server/iso/isolinux/bzImage*
+*server/iso/isolinux/initrd.gz*
+*server/iso/m23image.tb2*
+*.svn/*
+db/laravel
+*etc/*
+EOF
+	chown dodger.dodger .bzrignore
 
 	#Add all files
-	sudo -u dodger bzr add
+	sudo -u dodger bzr add *
+	sudo -u dodger bzr add data+scripts/*
+	sudo -u dodger bzr add inc/*
 
 	#Make an initial commit
 	sudo -u dodger bzr commit --message "Initial development commit for $reponame"
@@ -689,7 +943,7 @@ copym23()
 	chown www-data.www-data $m23DevelDir
 
 	cd $m23ReadLink
-	tar cv "." --exclude=./var/cache/clients/* --exclude=./var/cache/m23apt/* --exclude=./tmp/* | tar xp --same-owner --directory=$m23DevelDir
+	tar cv "." --exclude=.bzr/* --exclude=./var/cache/clients/* --exclude=./var/cache/m23apt/* --exclude=./tmp/* | tar xp --same-owner --directory=$m23DevelDir
 	sed -i 's/rock/rock-devel/' $m23DevelDir/inc/version.php
 	
 	cd $m23DevelDir
@@ -711,7 +965,7 @@ copymdk()
 	mkdir -p -m777 $mdkDevelDir
 	chown www-data.www-data $mdkDevelDir
 	
-	exclude=''
+	exclude='--exclude=.bzr/*'
 
 	if [ $excludeMDKKernel -eq 0 ]
 	then

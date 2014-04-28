@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>how to make your source code mdoc compatible?</TITLE>
-<META NAME="description" CONTENT="how to make your source code mdoc compatible?">
+<TITLE>The *OptionPage.php</TITLE>
+<META NAME="description" CONTENT="The *OptionPage.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,55 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node110.html">
 <LINK REL="previous" HREF="node108.html">
-<LINK REL="up" HREF="node107.html">
+<LINK REL="up" HREF="node108.html">
 <LINK REL="next" HREF="node110.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3581"
+<A NAME="tex2html3645"
   HREF="node110.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3577"
-  HREF="node107.html">
+<A NAME="tex2html3641"
+  HREF="node108.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3571"
+<A NAME="tex2html3635"
   HREF="node108.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3579"
+<A NAME="tex2html3643"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3582"
-  HREF="node110.html">mdoc info block</A>
-<B> Up:</B> <A NAME="tex2html3578"
-  HREF="node107.html">mdoc</A>
-<B> Previous:</B> <A NAME="tex2html3572"
-  HREF="node108.html">what is mdoc?</A>
- &nbsp; <B>  <A NAME="tex2html3580"
+<B> Next:</B> <A NAME="tex2html3646"
+  HREF="node110.html">Filling the *OptionPage.php</A>
+<B> Up:</B> <A NAME="tex2html3642"
+  HREF="node108.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html3636"
+  HREF="node108.html">Additional installation parameters for</A>
+ &nbsp; <B>  <A NAME="tex2html3644"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00712000000000000000">
-how to make your source code mdoc compatible?</A>
+<H2><A NAME="SECTION006121000000000000000">
+The *OptionPage.php</A>
 </H2>
-To tell mdoc that it should search for comments mark the begin of the search area with "/**" and the end with "**/". You have tree comment tapes:
-<BR>
-<UL>
-<LI>**n : for the name, you should leave the name of the function with all parameters here
-</LI>
-<LI>**d : this is the description of the function. here you can write longer comments about the usage, restrictions, ...
-</LI>
-<LI>**p : deals with a single parameter used for the function. you should describe all parameters used to call the function with a "**p" line each.
-</LI>
-</UL>
+If you want to enable this feature for a special package (e.g. apache) you have to design an OptionPage. This page shows and writes/reads possible options of this package. The file is called &lt;packagename&gt;OptionPage.php. In our example it's <SPAN  CLASS="textbf">apacheOptionPage.php</SPAN>. The file is placed in the 
+<BR><SPAN  CLASS="textit">/m23/data+scripts/distr/&lt;distributionname&gt;/packages directory</SPAN>. It is important to put the *OptionPage.php in the correct directory, otherwise the it can't be found.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

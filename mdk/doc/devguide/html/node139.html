@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ASSI_addClient</TITLE>
-<META NAME="description" CONTENT="ASSI_addClient">
+<TITLE>Patching parted</TITLE>
+<META NAME="description" CONTENT="Patching parted">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node140.html">
 <LINK REL="previous" HREF="node138.html">
-<LINK REL="up" HREF="node137.html">
+<LINK REL="up" HREF="node138.html">
 <LINK REL="next" HREF="node140.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html4870"
+<A NAME="tex2html4039"
   HREF="node140.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html4866"
-  HREF="node137.html">
+<A NAME="tex2html4035"
+  HREF="node138.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html4860"
+<A NAME="tex2html4029"
   HREF="node138.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html4868"
+<A NAME="tex2html4037"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html4871"
-  HREF="node140.html">ASSI_addUbuntuRoot</A>
-<B> Up:</B> <A NAME="tex2html4867"
-  HREF="node137.html">./inc/assimilate.php</A>
-<B> Previous:</B> <A NAME="tex2html4861"
-  HREF="node138.html">ASSI_showClientAddDialog</A>
- &nbsp; <B>  <A NAME="tex2html4869"
+<B> Next:</B> <A NAME="tex2html4040"
+  HREF="node140.html">Compiling</A>
+<B> Up:</B> <A NAME="tex2html4036"
+  HREF="node138.html">parted</A>
+<B> Previous:</B> <A NAME="tex2html4030"
+  HREF="node138.html">parted</A>
+ &nbsp; <B>  <A NAME="tex2html4038"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812000000000000000">
-ASSI_addClient</A>
+<H2><A NAME="SECTION00781000000000000000">
+Patching parted</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds needed data for assimilating a client.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>client: name of the client
-</LI>
-<LI>ip: IP of the client
-</LI>
-<LI>password: root password on Debian systems or combines user/root password on Ubuntu systems
-</LI>
-<LI>ubuntuuser: name of the Ubuntu user or empty if a Debian system is meant.
-</LI>
-</UL>
+The measurement has to be set to megabyte to get an accurate output of partition and harddisk sizes. This is done by the following patch:
+<PRE>
+diff -r ./libparted/exception.c ../parted-1.8.7/libparted/exception.c
+131,145c131,145
+&lt; //    if (e-&gt;type == PED_EXCEPTION_BUG)
+&lt; //            fprintf (stderr,
+&lt; //                    _("A bug has been detected in GNU Parted.  "
+&lt; //                    "Refer to the web site of parted "
+&lt; //                    "http://www.gnu.org/software/parted/parted.html "
+&lt; //                    "for more informations of what could be useful "
+&lt; //                    "for bug submitting!  "
+&lt; //                    "Please email a bug report to "
+&lt; //                    "bug-parted@gnu.org containing at least the "
+&lt; //                    "version (%s) and the following message:  "),
+&lt; //                    VERSION);
+&lt; //    else
+&lt; //            fprintf (stderr, "%s: ",
+&lt; //                     ped_exception_get_type_string (e-&gt;type));
+&lt; //    fprintf (stderr, "%s\n", e-&gt;message);
+---
+&gt;       if (e-&gt;type == PED_EXCEPTION_BUG)
+&gt;               fprintf (stderr,
+&gt;                       _("A bug has been detected in GNU Parted.  "
+&gt;                       "Refer to the web site of parted "
+&gt;                       "http://www.gnu.org/software/parted/parted.html "
+&gt;                       "for more informations of what could be useful "
+&gt;                       "for bug submitting!  "
+&gt;                       "Please email a bug report to "
+&gt;                       "bug-parted@gnu.org containing at least the "
+&gt;                       "version (%s) and the following message:  "),
+&gt;                       VERSION);
+&gt;       else
+&gt;               fprintf (stderr, "%s: ",
+&gt;                        ped_exception_get_type_string (e-&gt;type));
+&gt;       fprintf (stderr, "%s\n", e-&gt;message);
+diff -r ./libparted/unit.c ../parted-1.8.7/libparted/unit.c
+70c70
+&lt; static PedUnit default_unit = PED_UNIT_MEGABYTE;
+---
+&gt; static PedUnit default_unit = PED_UNIT_COMPACT;
+</PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

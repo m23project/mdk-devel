@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_convertSwitchStatusInfo</TITLE>
-<META NAME="description" CONTENT="VM_convertSwitchStatusInfo">
+<TITLE>UPDATE_getUrl</TITLE>
+<META NAME="description" CONTENT="UPDATE_getUrl">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1041.html">
 <LINK REL="previous" HREF="node1039.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1037.html">
 <LINK REL="next" HREF="node1041.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16502"
+<A NAME="tex2html16615"
   HREF="node1041.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16498"
-  HREF="node1017.html">
+<A NAME="tex2html16611"
+  HREF="node1037.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16492"
+<A NAME="tex2html16605"
   HREF="node1039.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16500"
+<A NAME="tex2html16613"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16503"
-  HREF="node1041.html">VM_getSWandHost</A>
-<B> Up:</B> <A NAME="tex2html16499"
-  HREF="node1017.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16493"
-  HREF="node1039.html">VM_activateNetboot</A>
- &nbsp; <B>  <A NAME="tex2html16501"
+<B> Next:</B> <A NAME="tex2html16616"
+  HREF="node1041.html">UPDATE_getInfo</A>
+<B> Up:</B> <A NAME="tex2html16612"
+  HREF="node1037.html">./inc/update.php</A>
+<B> Previous:</B> <A NAME="tex2html16606"
+  HREF="node1039.html">UPDATE_running</A>
+ &nbsp; <B>  <A NAME="tex2html16614"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083423000000000000000">
-VM_convertSwitchStatusInfo</A>
+<H2><A NAME="SECTION008333000000000000000">
+UPDATE_getUrl</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the status of a VM guest in several ways.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes a correct URL to the update source
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>status: Status of the VM guest (one of VM_STATE_*)
+<LI>base: URL to the update script
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Associative array with: $out['text']: The status as text in the current language. $out['icon']: The icon of the given status (as traffic lights). $out['imgTag']: The status as traffic light in an HTML img tag with the written status as title.
+<LI>command: "info" or "cmd"
+</LI>
+<LI>version: m23 version
+</LI>
+<LI>patchLevel: patch version number
 </LI>
 </UL>
 
@@ -74,7 +74,7 @@ VM_convertSwitchStatusInfo</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

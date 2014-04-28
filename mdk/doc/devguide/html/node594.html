@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_checkBoxCheckAll</TITLE>
-<META NAME="description" CONTENT="HTML_checkBoxCheckAll">
+<TITLE>HTML_storableSelection</TITLE>
+<META NAME="description" CONTENT="HTML_storableSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node595.html">
 <LINK REL="previous" HREF="node593.html">
-<LINK REL="up" HREF="node541.html">
+<LINK REL="up" HREF="node556.html">
 <LINK REL="next" HREF="node595.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10744"
+<A NAME="tex2html10888"
   HREF="node595.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10740"
-  HREF="node541.html">
+<A NAME="tex2html10884"
+  HREF="node556.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10734"
+<A NAME="tex2html10878"
   HREF="node593.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10742"
+<A NAME="tex2html10886"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10745"
-  HREF="node595.html">HTML_submitDefine</A>
-<B> Up:</B> <A NAME="tex2html10741"
-  HREF="node541.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10735"
-  HREF="node593.html">HTML_checkBox</A>
- &nbsp; <B>  <A NAME="tex2html10743"
+<B> Next:</B> <A NAME="tex2html10889"
+  HREF="node595.html">HTML_storableCheckBox</A>
+<B> Up:</B> <A NAME="tex2html10885"
+  HREF="node556.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html10879"
+  HREF="node593.html">HTML_storableInput</A>
+ &nbsp; <B>  <A NAME="tex2html10887"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081653000000000000000">
-HTML_checkBoxCheckAll</A>
+<H2><A NAME="SECTION0081638000000000000000">
+HTML_storableSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an array with all checked checkboxes. It assumes that value of a checked checkbox is 1.
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of radio buttons or a selection with loading and storing the checking state to and from the session.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>filter: Filter to get only the POST elements which begin with the filter string.
+<LI>htmlName: Name of the HTML element.
+</LI>
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>array: An array that hold the returned values (array keys) the naming for the elements (array values).
+</LI>
+<LI>type: SELTYPE_selection for a selection or SELTYPE_radio for radio buttons.
+</LI>
+<LI>vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
+</LI>
+<LI>defaultSelection: The value of the item to select by default.
+</LI>
+<LI>storePointer: Additional pointer to the variable where to store the entered value.
+</LI>
+<LI>js: Here can JavaScript or other parameters be added.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Array with all checked checkboxes.
+<LI>true if the check box is checked.
 </LI>
 </UL>
 
@@ -74,7 +88,7 @@ HTML_checkBoxCheckAll</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

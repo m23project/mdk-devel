@@ -11,6 +11,8 @@ cat /tmp/sources.list > /etc/apt/sources.list
 grep -v "m23testing" /etc/apt/sources.list > /tmp/sources.list
 cat /tmp/sources.list > /etc/apt/sources.list
 
+rm /etc/apt/sources.list.d/m23debs.list 2> /dev/null
+
 dd if=/dev/zero of=/tmp/z.dd bs=1M
 
 rm /tmp/z.dd

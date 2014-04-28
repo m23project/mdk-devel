@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listInstPartSelector</TITLE>
-<META NAME="description" CONTENT="FDISK_listInstPartSelector">
+<TITLE>FDISK_getDriveInfoIcon</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveInfoIcon">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node439.html">
 <LINK REL="previous" HREF="node437.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node439.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8755"
+<A NAME="tex2html8893"
   HREF="node439.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8751"
-  HREF="node362.html">
+<A NAME="tex2html8889"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8745"
+<A NAME="tex2html8883"
   HREF="node437.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8753"
+<A NAME="tex2html8891"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8756"
-  HREF="node439.html">FDISK_formatExisting</A>
-<B> Up:</B> <A NAME="tex2html8752"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8746"
-  HREF="node437.html">FDISK_listPartTable</A>
- &nbsp; <B>  <A NAME="tex2html8754"
+<B> Next:</B> <A NAME="tex2html8894"
+  HREF="node439.html">FDISK_getPartInfoIcon</A>
+<B> Up:</B> <A NAME="tex2html8890"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8884"
+  HREF="node437.html">FDISK_getDriveInfoString</A>
+ &nbsp; <B>  <A NAME="tex2html8892"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081276000000000000000">
-FDISK_listInstPartSelector</A>
+<H2><A NAME="SECTION0081267000000000000000">
+FDISK_getDriveInfoIcon</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> lists all partitions to select for swap and install partition
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>default: partition that should be shown as selected
+<LI>fstabA: Associative array with fstab information.
 </LI>
-<LI>type: array with filesystems that are possible for installation or swap
-</LI>
-<LI>selName: name of the selection
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>HTML code for showing an icon with status information about the drive.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ FDISK_listInstPartSelector</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

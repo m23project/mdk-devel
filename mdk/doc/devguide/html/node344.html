@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_countMatches</TITLE>
-<META NAME="description" CONTENT="EDIT_countMatches">
+<TITLE>pkgUpdateCacheOnServer</TITLE>
+<META NAME="description" CONTENT="pkgUpdateCacheOnServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node345.html">
 <LINK REL="previous" HREF="node343.html">
-<LINK REL="up" HREF="node340.html">
+<LINK REL="up" HREF="node341.html">
 <LINK REL="next" HREF="node345.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7520"
+<A NAME="tex2html7639"
   HREF="node345.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7516"
-  HREF="node340.html">
+<A NAME="tex2html7635"
+  HREF="node341.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7510"
+<A NAME="tex2html7629"
   HREF="node343.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7518"
+<A NAME="tex2html7637"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7521"
-  HREF="node345.html">EDIT_calc</A>
-<B> Up:</B> <A NAME="tex2html7517"
-  HREF="node340.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html7511"
-  HREF="node343.html">EDIT_commentoutInsert</A>
- &nbsp; <B>  <A NAME="tex2html7519"
+<B> Next:</B> <A NAME="tex2html7640"
+  HREF="node345.html">PKG_listPackages</A>
+<B> Up:</B> <A NAME="tex2html7636"
+  HREF="node341.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html7630"
+  HREF="node343.html">PKG_fastGetInstalledPackages</A>
+ &nbsp; <B>  <A NAME="tex2html7638"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008114000000000000000">
-EDIT_countMatches</A>
+<H2><A NAME="SECTION008103000000000000000">
+pkgUpdateCacheOnServer</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH code that counts how many times the search string can be found in the file. This can be used in ` `.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>file: file name
+<LI>$1 (packagesourcename): Name der Paketquellenliste
 </LI>
-<LI>search: search text
+<LI>$2 (packagesource): Inhalt der Paketquellenliste
+</LI>
+<LI>$3 (force): set to true (1) if you want to update the package info and the time is not over
+</LI>
+<LI>$4 (arch): Architecture (amd64/i386) to get package infos for.
 </LI>
 </UL>
 
@@ -70,7 +73,7 @@ EDIT_countMatches</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

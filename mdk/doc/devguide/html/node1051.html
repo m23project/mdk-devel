@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_createDiskImage</TITLE>
-<META NAME="description" CONTENT="VM_createDiskImage">
+<TITLE>VM_CloudStackStartVM</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackStartVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1052.html">
 <LINK REL="previous" HREF="node1050.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1042.html">
 <LINK REL="next" HREF="node1052.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16634"
+<A NAME="tex2html16807"
   HREF="node1052.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16630"
-  HREF="node1017.html">
+<A NAME="tex2html16803"
+  HREF="node1042.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16624"
+<A NAME="tex2html16797"
   HREF="node1050.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16632"
+<A NAME="tex2html16805"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16635"
-  HREF="node1052.html">VM_delVMCMD</A>
-<B> Up:</B> <A NAME="tex2html16631"
-  HREF="node1017.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16625"
-  HREF="node1050.html">VM_statusIcons</A>
- &nbsp; <B>  <A NAME="tex2html16633"
+<B> Next:</B> <A NAME="tex2html16808"
+  HREF="node1052.html">VM_CloudStackStopVM</A>
+<B> Up:</B> <A NAME="tex2html16804"
+  HREF="node1042.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html16798"
+  HREF="node1050.html">VM_CloudStackSendSetVisualURL</A>
+ &nbsp; <B>  <A NAME="tex2html16806"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083434000000000000000">
-VM_createDiskImage</A>
+<H2><A NAME="SECTION008349000000000000000">
+VM_CloudStackStartVM</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new empty virtual harddisk image file.
+<SPAN  CLASS="textbf">Description:</SPAN> starts a virtual machine in CloudStack
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_KVM for KVM or VM_SW_VBOX for VirtualBox OSE
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
 </LI>
-<LI>vmname: Name of the VM.
-</LI>
-<LI>diskname: Name of the image file without extension.
-</LI>
-<LI>size: Size of the image file in MB.
+<LI>startVMOK: true if started successfully or already running, false otherwise
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to create a virtual disk image.
+<LI>textmessage with result of start or error message
 </LI>
 </UL>
 
@@ -80,7 +76,7 @@ VM_createDiskImage</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

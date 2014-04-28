@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Enable network access</TITLE>
-<META NAME="description" CONTENT="Enable network access">
+<TITLE>translating the messages</TITLE>
+<META NAME="description" CONTENT="translating the messages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,59 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node37.html">
 <LINK REL="previous" HREF="node35.html">
-<LINK REL="up" HREF="node35.html">
+<LINK REL="up" HREF="node33.html">
 <LINK REL="next" HREF="node37.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2642"
+<A NAME="tex2html2725"
   HREF="node37.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2638"
-  HREF="node35.html">
+<A NAME="tex2html2721"
+  HREF="node33.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2632"
+<A NAME="tex2html2715"
   HREF="node35.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2640"
+<A NAME="tex2html2723"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2643"
-  HREF="node37.html">Adding a database user</A>
-<B> Up:</B> <A NAME="tex2html2639"
-  HREF="node35.html">Preparing the server</A>
-<B> Previous:</B> <A NAME="tex2html2633"
-  HREF="node35.html">Preparing the server</A>
- &nbsp; <B>  <A NAME="tex2html2641"
+<B> Next:</B> <A NAME="tex2html2726"
+  HREF="node37.html">translating the help texts</A>
+<B> Up:</B> <A NAME="tex2html2722"
+  HREF="node33.html">How to translate m23?</A>
+<B> Previous:</B> <A NAME="tex2html2716"
+  HREF="node35.html">generate the language file</A>
+ &nbsp; <B>  <A NAME="tex2html2724"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00633100000000000000">
-Enable network access</A>
-</H3>
-To get access to the server over the network you need to do a little adjustment:
-Open <SPAN  CLASS="textit">/etc/mysql/my.cnf</SPAN> and comment out the line <TT>skip-networking</TT> so that it looks like <TT>#skip-networking</TT>.
-Don't forget to save ;) Now you have to restart the mysql server.
+<H2><A NAME="SECTION00633000000000000000">
+translating the messages</A>
+</H2>
+Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
 <BR>
-<BR>
-I do it this way:
-<BR><TT>
-killall -9 safe_mysqld
-<BR>
-killall -9 mysqld
-<BR>/etc/init.d/mysql start
-<BR></TT>
-
-<P>
+Now translate the text between the ' " 's.
+e.g.
+<PRE>
+$I18N_help="Help";
+</PRE>
+becomes
+<PRE>
+$I18N_help="Hilfe";
+</PRE>
+Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

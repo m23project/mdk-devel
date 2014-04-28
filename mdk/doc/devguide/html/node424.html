@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getAfterPartition</TITLE>
-<META NAME="description" CONTENT="FDISK_getAfterPartition">
+<TITLE>FDISK_getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node425.html">
 <LINK REL="previous" HREF="node423.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node425.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8587"
+<A NAME="tex2html8725"
   HREF="node425.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8583"
-  HREF="node362.html">
+<A NAME="tex2html8721"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8577"
+<A NAME="tex2html8715"
   HREF="node423.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8585"
+<A NAME="tex2html8723"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8588"
-  HREF="node425.html">FDISK_getBeforeFristPartition</A>
-<B> Up:</B> <A NAME="tex2html8584"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8578"
-  HREF="node423.html">FDISK_getPartitionPercent</A>
- &nbsp; <B>  <A NAME="tex2html8586"
+<B> Next:</B> <A NAME="tex2html8726"
+  HREF="node425.html">FDISK_delPart</A>
+<B> Up:</B> <A NAME="tex2html8722"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8716"
+  HREF="node423.html">FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html8724"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081262000000000000000">
-FDISK_getAfterPartition</A>
+<H2><A NAME="SECTION0081253000000000000000">
+FDISK_getBelongingRaidDev</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> calculates ??? of free size after a selected partition
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
-</LI>
-<LI>factor: the factor to multiplay percent amount of free space
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ FDISK_getAfterPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

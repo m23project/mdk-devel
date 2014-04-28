@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_getFreeGroupIDs</TITLE>
-<META NAME="description" CONTENT="LDAP_getFreeGroupIDs">
+<TITLE>LDAP_addPosix</TITLE>
+<META NAME="description" CONTENT="LDAP_addPosix">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node645.html">
 <LINK REL="previous" HREF="node643.html">
-<LINK REL="up" HREF="node622.html">
+<LINK REL="up" HREF="node638.html">
 <LINK REL="next" HREF="node645.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11380"
+<A NAME="tex2html11526"
   HREF="node645.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11376"
-  HREF="node622.html">
+<A NAME="tex2html11522"
+  HREF="node638.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11370"
+<A NAME="tex2html11516"
   HREF="node643.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11378"
+<A NAME="tex2html11524"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11381"
-  HREF="node645.html">LDAP_matchLDAPserver</A>
-<B> Up:</B> <A NAME="tex2html11377"
-  HREF="node622.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html11371"
-  HREF="node643.html">LDAP_getFreeUserIDs</A>
- &nbsp; <B>  <A NAME="tex2html11379"
+<B> Next:</B> <A NAME="tex2html11527"
+  HREF="node645.html">LDAP_fqdn2dn</A>
+<B> Up:</B> <A NAME="tex2html11523"
+  HREF="node638.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html11517"
+  HREF="node643.html">LDAP_loadServer</A>
+ &nbsp; <B>  <A NAME="tex2html11525"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081922000000000000000">
-LDAP_getFreeGroupIDs</A>
+<H2><A NAME="SECTION008196000000000000000">
+LDAP_addPosix</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with free group IDs of the selected type.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>start: start ID to check if it's free
+<LI>ldapServer: name of the LDAP server stored in the configuration file
 </LI>
-<LI>amount: the amount of IDs to return
+<LI>account: the login name
+</LI>
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
 </LI>
 </UL>
 
@@ -70,7 +80,7 @@ LDAP_getFreeGroupIDs</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

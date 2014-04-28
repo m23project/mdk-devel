@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_correctLogical</TITLE>
-<META NAME="description" CONTENT="FDISK_correctLogical">
+<TITLE>FDISK_listDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node403.html">
 <LINK REL="previous" HREF="node401.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node403.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8323"
+<A NAME="tex2html8461"
   HREF="node403.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8319"
-  HREF="node362.html">
+<A NAME="tex2html8457"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8313"
+<A NAME="tex2html8451"
   HREF="node401.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8321"
+<A NAME="tex2html8459"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8324"
-  HREF="node403.html">FDISK_findDevNrPosition</A>
-<B> Up:</B> <A NAME="tex2html8320"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8314"
-  HREF="node401.html">FDISK_nextPrimaryDevNr</A>
- &nbsp; <B>  <A NAME="tex2html8322"
+<B> Next:</B> <A NAME="tex2html8462"
+  HREF="node403.html">FDISK_selectDrives</A>
+<B> Up:</B> <A NAME="tex2html8458"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8452"
+  HREF="node401.html">FDISK_getDrivesAndPartitions</A>
+ &nbsp; <B>  <A NAME="tex2html8460"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081240000000000000000">
-FDISK_correctLogical</A>
+<H2><A NAME="SECTION0081231000000000000000">
+FDISK_listDrivesAndPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> corrects the order of the logical partitions after deleting $devNr.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>default: the drive to show first
 </LI>
-<LI>devNr: the real device number to delete
+<LI>selName: the name the selection is called in PHP and HTML
+</LI>
+<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>String with the HTML selection.
 </LI>
 </UL>
 
@@ -72,7 +80,7 @@ FDISK_correctLogical</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

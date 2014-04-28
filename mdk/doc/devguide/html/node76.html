@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>what does the makeCD script?</TITLE>
-<META NAME="description" CONTENT="what does the makeCD script?">
+<TITLE>installing a kernel</TITLE>
+<META NAME="description" CONTENT="installing a kernel">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,72 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node78.html">
 <LINK REL="previous" HREF="node75.html">
-<LINK REL="up" HREF="node74.html">
+<LINK REL="up" HREF="node67.html">
 <LINK REL="next" HREF="node77.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3140"
+<A NAME="tex2html3236"
   HREF="node77.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3136"
-  HREF="node74.html">
+<A NAME="tex2html3232"
+  HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3132"
+<A NAME="tex2html3226"
   HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3138"
+<A NAME="tex2html3234"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3141"
-  HREF="node77.html">initrd</A>
-<B> Up:</B> <A NAME="tex2html3137"
-  HREF="node74.html">How to create a</A>
-<B> Previous:</B> <A NAME="tex2html3133"
-  HREF="node75.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html3139"
+<B> Next:</B> <A NAME="tex2html3237"
+  HREF="node77.html">in case of an</A>
+<B> Up:</B> <A NAME="tex2html3233"
+  HREF="node67.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html3227"
+  HREF="node75.html">source update and cleanup</A>
+ &nbsp; <B>  <A NAME="tex2html3235"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00662000000000000000">
-what does the makeCD script?</A>
+<H2><A NAME="SECTION00665000000000000000">
+installing a kernel</A>
 </H2>
+You can list all available kernels with the following command:
+<PRE>
+apt-cache search kernel | grep kernel-image
+</PRE>
+Pick one out adjust the <SPAN  CLASS="textit">image</SPAN> value in your new <SPAN  CLASS="textit">lilo.conf</SPAN>. To install your new kernel type the following:
+<PRE>
+apt-get install myChosenKernel-Image
+</PRE>
 
-<UL>
-<LI>generates a new initrd files used for booting from the CD
-</LI>
-<LI>compresses the server operating system
-</LI>
-<LI>compresses the m23 files
-</LI>
-<LI>generates the ISO image to burn on a CD
-</LI>
-</UL>
+<P>
 <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3142"
-  HREF="node77.html">initrd</A>
-<LI><A NAME="tex2html3143"
-  HREF="node78.html">compress operating system</A>
-<LI><A NAME="tex2html3144"
-  HREF="node79.html">compresses the m23 files</A>
-<LI><A NAME="tex2html3145"
-  HREF="node80.html">generating the ISO image</A>
+<LI><A NAME="tex2html3238"
+  HREF="node77.html">in case of an error</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_runInBackground</TITLE>
-<META NAME="description" CONTENT="SERVER_runInBackground">
+<TITLE>SERVER_insertLineNumber</TITLE>
+<META NAME="description" CONTENT="SERVER_insertLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node968.html">
 <LINK REL="previous" HREF="node966.html">
-<LINK REL="up" HREF="node936.html">
+<LINK REL="up" HREF="node958.html">
 <LINK REL="next" HREF="node968.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15558"
+<A NAME="tex2html15710"
   HREF="node968.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15554"
-  HREF="node936.html">
+<A NAME="tex2html15706"
+  HREF="node958.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15548"
+<A NAME="tex2html15700"
   HREF="node966.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15556"
+<A NAME="tex2html15708"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15559"
-  HREF="node968.html">SERVER_runningInBackground</A>
-<B> Up:</B> <A NAME="tex2html15555"
-  HREF="node936.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15549"
-  HREF="node966.html">SERVER_programmStatusTableHeader</A>
- &nbsp; <B>  <A NAME="tex2html15557"
+<B> Next:</B> <A NAME="tex2html15711"
+  HREF="node968.html">SERVER_addAdmin</A>
+<B> Up:</B> <A NAME="tex2html15707"
+  HREF="node958.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html15701"
+  HREF="node966.html">SERVER_killBackgroundJob</A>
+ &nbsp; <B>  <A NAME="tex2html15709"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083131000000000000000">
-SERVER_runInBackground</A>
+<H2><A NAME="SECTION008319000000000000000">
+SERVER_insertLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background under a given user
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a text AT or AFTER a line number or creates a new file with the given name, if it doesn't exists.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>jobName: name of the job screen should show
+<LI>file: the name of the file
 </LI>
-<LI>cmds: the commands of the script 
+<LI>lineNumber: reference line number for inserting
 </LI>
-<LI>user: user the script should be run under
+<LI>insertText: text to insert
 </LI>
-<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+<LI>mode: The access mode the newly created file should have.
+</LI>
+<LI>insertMode: "0" insert AT, "1" insert AFTER line number
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ SERVER_runInBackground</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

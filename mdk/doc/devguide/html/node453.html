@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_genPartedCommands</TITLE>
-<META NAME="description" CONTENT="FDISK_genPartedCommands">
+<TITLE>FDISK_formatJob</TITLE>
+<META NAME="description" CONTENT="FDISK_formatJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node454.html">
 <LINK REL="previous" HREF="node452.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node454.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8935"
+<A NAME="tex2html9073"
   HREF="node454.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8931"
-  HREF="node362.html">
+<A NAME="tex2html9069"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8925"
+<A NAME="tex2html9063"
   HREF="node452.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8933"
+<A NAME="tex2html9071"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8936"
-  HREF="node454.html">FDISK_listPartJobs</A>
-<B> Up:</B> <A NAME="tex2html8932"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8926"
-  HREF="node452.html">FDISK_rereadPartTable</A>
- &nbsp; <B>  <A NAME="tex2html8934"
+<B> Next:</B> <A NAME="tex2html9074"
+  HREF="node454.html">FDISK_countPartitions</A>
+<B> Up:</B> <A NAME="tex2html9070"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9064"
+  HREF="node452.html">FDISK_bootflagJob</A>
+ &nbsp; <B>  <A NAME="tex2html9072"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081291000000000000000">
-FDISK_genPartedCommands</A>
+<H2><A NAME="SECTION0081282000000000000000">
+FDISK_formatJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the partition and formation commands that are generated from partJobs.
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>partJobs: string with information about all created partition jobs
+<LI>path: device to format (e.g. /dev/hda1)
 </LI>
-<LI>mkfsextOptions: Extra parameter for mkfs.extX .
+<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ FDISK_genPartedCommands</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

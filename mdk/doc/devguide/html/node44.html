@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Send SQL statements</TITLE>
-<META NAME="description" CONTENT="Send SQL statements">
+<TITLE>Preparing KDevelop</TITLE>
+<META NAME="description" CONTENT="Preparing KDevelop">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,74 +19,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node43.html">
-<LINK REL="up" HREF="node41.html">
+<LINK REL="next" HREF="node47.html">
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node38.html">
 <LINK REL="next" HREF="node45.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2737"
+<A NAME="tex2html2833"
   HREF="node45.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2733"
-  HREF="node41.html">
+<A NAME="tex2html2829"
+  HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2729"
+<A NAME="tex2html2823"
   HREF="node43.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2735"
+<A NAME="tex2html2831"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2738"
-  HREF="node45.html">Example</A>
-<B> Up:</B> <A NAME="tex2html2734"
-  HREF="node41.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html2730"
-  HREF="node43.html">Disconnecting from the server</A>
- &nbsp; <B>  <A NAME="tex2html2736"
+<B> Next:</B> <A NAME="tex2html2834"
+  HREF="node45.html">Creating a project</A>
+<B> Up:</B> <A NAME="tex2html2830"
+  HREF="node38.html">how to access mysql</A>
+<B> Previous:</B> <A NAME="tex2html2824"
+  HREF="node43.html">Adding a database user</A>
+ &nbsp; <B>  <A NAME="tex2html2832"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00635300000000000000">
-Send SQL statements</A>
-</H3>
-<PRE>
-MYSQL_RES *query(char *sql)
-{
- MYSQL_RES *res;
+<H2><A NAME="SECTION00644000000000000000">
+Preparing KDevelop</A>
+</H2>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
- if (mysql_query(&amp;connection, sql) != 0)
-    {
-     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
-     mysql_error(&amp;connection),sql);
-     exit(2);
-    };
-
- res = mysql_store_result(&amp;connection);
-
- return(res);
-};
-</PRE>
-
-<OL>
-<LI>We declare a variable (<SPAN  CLASS="textit">res</SPAN>)that will held the result of our query
-</LI>
-<LI>mysql_query requires a established connection to a mysql server and a valid sql statement. If the statement gets executed corretly, it returns 0, otherwise you can use the mysql_error function to get the error message.
-</LI>
-<LI>And at last mysql_store_result stores the result of our query or <SPAN  CLASS="textbf">NULL</SPAN> if there was an error.
-</LI>
-</OL>
-
-<P>
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2835"
+  HREF="node45.html">Creating a project</A>
+<LI><A NAME="tex2html2836"
+  HREF="node46.html">Adjusting project properties</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

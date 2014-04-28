@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>what does the makeCD script?</TITLE>
+<META NAME="description" CONTENT="what does the makeCD script?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node83.html">
 <LINK REL="previous" HREF="node81.html">
-<LINK REL="up" HREF="node81.html">
+<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node83.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3219"
+<A NAME="tex2html3309"
   HREF="node83.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3215"
-  HREF="node81.html">
+<A NAME="tex2html3305"
+  HREF="node80.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3209"
+<A NAME="tex2html3301"
   HREF="node81.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3217"
+<A NAME="tex2html3307"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3220"
-  HREF="node83.html">creating a new bootimage</A>
-<B> Up:</B> <A NAME="tex2html3216"
-  HREF="node81.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html3210"
-  HREF="node81.html">How to make network</A>
- &nbsp; <B>  <A NAME="tex2html3218"
+<B> Next:</B> <A NAME="tex2html3310"
+  HREF="node83.html">initrd</A>
+<B> Up:</B> <A NAME="tex2html3306"
+  HREF="node80.html">How to create a</A>
+<B> Previous:</B> <A NAME="tex2html3302"
+  HREF="node81.html">Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html3308"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00671000000000000000">
-Introduction</A>
+<H2><A NAME="SECTION00672000000000000000">
+what does the makeCD script?</A>
 </H2>
-What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
-<BR>
-A client runs for first start up thru the following sequence:
-<BR>
+
 <UL>
-<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
+<LI>generates a new initrd files used for booting from the CD
 </LI>
-<LI>fetch the bootimage from the server with TFTP protocoll
+<LI>compresses the server operating system
 </LI>
-<LI>load and extract the image to the client memory
+<LI>compresses the m23 files
 </LI>
-<LI>start the contained kernel
+<LI>generates the ISO image to burn on a CD
 </LI>
-<LI>kernel loades the included initrd
-</LI>
-<LI>start up script fetches IP, netmask, etc. from the server again
-</LI>
-<LI>the script fetches the first job for the client and saves the job script file
-</LI>
-<LI>the script is executed and the next job will be fetched from the server
-</LI>
-</UL> 
-This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+</UL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3311"
+  HREF="node83.html">initrd</A>
+<LI><A NAME="tex2html3312"
+  HREF="node84.html">compress operating system</A>
+<LI><A NAME="tex2html3313"
+  HREF="node85.html">compresses the m23 files</A>
+<LI><A NAME="tex2html3314"
+  HREF="node86.html">generating the ISO image</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

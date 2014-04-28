@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getAskingParams</TITLE>
-<META NAME="description" CONTENT="CLIENT_getAskingParams">
+<TITLE>CLIENT_getActiveNetDevices</TITLE>
+<META NAME="description" CONTENT="CLIENT_getActiveNetDevices">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node224.html">
 <LINK REL="previous" HREF="node222.html">
-<LINK REL="up" HREF="node194.html">
+<LINK REL="up" HREF="node201.html">
 <LINK REL="next" HREF="node224.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5999"
+<A NAME="tex2html6136"
   HREF="node224.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5995"
-  HREF="node194.html">
+<A NAME="tex2html6132"
+  HREF="node201.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5989"
+<A NAME="tex2html6126"
   HREF="node222.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5997"
+<A NAME="tex2html6134"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6000"
-  HREF="node224.html">CLIENT_getParams</A>
-<B> Up:</B> <A NAME="tex2html5996"
-  HREF="node194.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html5990"
-  HREF="node222.html">CLIENT_exists</A>
- &nbsp; <B>  <A NAME="tex2html5998"
+<B> Next:</B> <A NAME="tex2html6137"
+  HREF="node224.html">CLIENT_executeOnClientOrIP</A>
+<B> Up:</B> <A NAME="tex2html6133"
+  HREF="node201.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html6127"
+  HREF="node222.html">CLIENT_getClientID</A>
+ &nbsp; <B>  <A NAME="tex2html6135"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008729000000000000000">
-CLIENT_getAskingParams</A>
+<H2><A NAME="SECTION008722000000000000000">
+CLIENT_getActiveNetDevices</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns database parameters of the asking client. The client is authetified by its m23shared clients name, client ID or ip
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks for active network devices on a client or localhost.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associtative array with active network cards (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> eth0 [type] =<SPAN CLASS="MATH"></SPAN> encap:Ethernet [mac] =<SPAN CLASS="MATH"></SPAN> 00:52:66:23:00:23 ) [1] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> venet0 [type] =<SPAN CLASS="MATH"></SPAN> encap:UNSPEC [mac] =<SPAN CLASS="MATH"></SPAN> 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 ) )
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

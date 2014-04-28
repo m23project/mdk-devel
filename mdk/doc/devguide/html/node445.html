@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_countPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_countPartitions">
+<TITLE>FDISK_virtualAddPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_virtualAddPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node446.html">
 <LINK REL="previous" HREF="node444.html">
-<LINK REL="up" HREF="node362.html">
+<LINK REL="up" HREF="node371.html">
 <LINK REL="next" HREF="node446.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8839"
+<A NAME="tex2html8977"
   HREF="node446.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8835"
-  HREF="node362.html">
+<A NAME="tex2html8973"
+  HREF="node371.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8829"
+<A NAME="tex2html8967"
   HREF="node444.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8837"
+<A NAME="tex2html8975"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8840"
-  HREF="node446.html">FDISK_getFreeSpaces</A>
-<B> Up:</B> <A NAME="tex2html8836"
-  HREF="node362.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8830"
-  HREF="node444.html">FDISK_formatJob</A>
- &nbsp; <B>  <A NAME="tex2html8838"
+<B> Next:</B> <A NAME="tex2html8978"
+  HREF="node446.html">FDISK_listPartTable</A>
+<B> Up:</B> <A NAME="tex2html8974"
+  HREF="node371.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html8968"
+  HREF="node444.html">FDISK_virtualDeletePartition</A>
+ &nbsp; <B>  <A NAME="tex2html8976"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081283000000000000000">
-FDISK_countPartitions</A>
+<H2><A NAME="SECTION0081274000000000000000">
+FDISK_virtualAddPartition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> count all partitions of a selected type
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param param
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>vDev: virtuell internal used device number.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>start: start MB of the new partition
+</LI>
+<LI>end: end MB of the new partition
 </LI>
 <LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>devNr: returnes the device number
 </LI>
 </UL>
 
@@ -72,7 +78,7 @@ FDISK_countPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

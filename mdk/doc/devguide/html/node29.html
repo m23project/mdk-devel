@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>generate the language file</TITLE>
-<META NAME="description" CONTENT="generate the language file">
+<TITLE>Documentation</TITLE>
+<META NAME="description" CONTENT="Documentation">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,53 +28,87 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2544"
+<A NAME="tex2html2639"
   HREF="node30.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2540"
+<A NAME="tex2html2635"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2534"
+<A NAME="tex2html2629"
   HREF="node28.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2542"
+<A NAME="tex2html2637"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2545"
-  HREF="node30.html">translating the messages</A>
-<B> Up:</B> <A NAME="tex2html2541"
-  HREF="node27.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html2535"
-  HREF="node28.html">make directories</A>
- &nbsp; <B>  <A NAME="tex2html2543"
+<B> Next:</B> <A NAME="tex2html2640"
+  HREF="node30.html">Building the files</A>
+<B> Up:</B> <A NAME="tex2html2636"
+  HREF="node27.html">Releasing a new m23</A>
+<B> Previous:</B> <A NAME="tex2html2630"
+  HREF="node28.html">Switch to relase</A>
+ &nbsp; <B>  <A NAME="tex2html2638"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00622000000000000000">
-generate the language file</A>
+Documentation</A>
 </H2>
-To give your language a name and make it available to m23 create a <SPAN  CLASS="textit">language.info</SPAN> file.
-<BR>
-The language.info has to contain the following lines:
-<PRE>
-language: &lt;the full name of your language&gt;
-shortlanguage: &lt;the short 2 letter name of the language&gt;
-</PRE>
-m23 uses the word for the language that is used in the origin country. e.g. Deutsch and not German, Francais and not French.
-<BR>
-<BR>
-Your language.info may look like this:
-<BR><PRE>
-language:Deutsch
-shortlanguage:de
-</PRE>
+
+<UL>
+<LI>Translate all new and changed texts (/m23/inc/help/* and /m23/inc/i18n/*)
+</LI>
+<LI>Check for missing I18N variables. Run /mdk/doc/manual/bin/checkForMissingi18n.sh
+</LI>
+<LI>Manual
+	
+<UL>
+<LI>Check, if all parts seem to be there. Run: /mdk/doc/manual/bin/checkForMissingHlp.sh
+</LI>
+<LI>Check, if there are all screenshots present. Run: /mdk/doc/manual/bin/checkMissingScreenshots.sh
+</LI>
+<LI>Generate and update the screenshots
+</LI>
+<LI>Run /mdk/bin/menuStart &rArr#Rightarrow;doc &rArr#Rightarrow;manual
+</LI>
+<LI>Choose the language: &rArr#Rightarrow;lang. Choose all
+</LI>
+<LI>Generate the tex files: &rArr#Rightarrow;text
+</LI>
+<LI>Optimise the PNGs. &rArr#Rightarrow;optimisePNGs
+</LI>
+<LI>Generate PDF and HTML version of the manual: &rArr#Rightarrow;pdf-html
+</LI>
+<LI>Upload: &rArr#Rightarrow;upload
+</LI>
+<LI>Go back
+	
+</LI>
+</UL>
+</LI>
+<LI>Development guide
+	
+<UL>
+<LI>Add (maybe existing new) LaTeX files
+</LI>
+<LI>Build the development guide: &rArr#Rightarrow;devguide
+</LI>
+<LI>Generate it: &rArr#Rightarrow;generate
+</LI>
+<LI>Upload: &rArr#Rightarrow;upload
+	
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

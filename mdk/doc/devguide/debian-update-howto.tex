@@ -7,6 +7,8 @@ To fully support a new Debian/Ubuntu release a few steps are needed. The followi
 
 \item Create an empty file (touch) with the release name of the new distribution release under /m23/data+scripts/distr/debian/debootstrap/scripts/.
 
+\item Add the new release to the list in DISTR_releaseVersionTranslator.
+
 \item Check, if all desired desktop environments are present in the file /m23/inc/distr/<distribution>/info.txt and add missing desktops.
 
 \item Write a new package source list (based on a previous release) in the m23 webinterface and choose the release with the name of the previously touched file name. Hook all desktops that should be deployed with this release.

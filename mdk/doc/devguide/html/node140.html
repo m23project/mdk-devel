@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ASSI_addUbuntuRoot</TITLE>
-<META NAME="description" CONTENT="ASSI_addUbuntuRoot">
+<TITLE>Compiling</TITLE>
+<META NAME="description" CONTENT="Compiling">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node141.html">
 <LINK REL="previous" HREF="node139.html">
-<LINK REL="up" HREF="node137.html">
+<LINK REL="up" HREF="node138.html">
 <LINK REL="next" HREF="node141.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html4882"
+<A NAME="tex2html4051"
   HREF="node141.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html4878"
-  HREF="node137.html">
+<A NAME="tex2html4047"
+  HREF="node138.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html4872"
+<A NAME="tex2html4041"
   HREF="node139.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html4880"
+<A NAME="tex2html4049"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html4883"
-  HREF="node141.html">ASSI_prepareClient</A>
-<B> Up:</B> <A NAME="tex2html4879"
-  HREF="node137.html">./inc/assimilate.php</A>
-<B> Previous:</B> <A NAME="tex2html4873"
-  HREF="node139.html">ASSI_addClient</A>
- &nbsp; <B>  <A NAME="tex2html4881"
+<B> Next:</B> <A NAME="tex2html4052"
+  HREF="node141.html">Building the Debian package</A>
+<B> Up:</B> <A NAME="tex2html4048"
+  HREF="node138.html">parted</A>
+<B> Previous:</B> <A NAME="tex2html4042"
+  HREF="node139.html">Patching parted</A>
+ &nbsp; <B>  <A NAME="tex2html4050"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00813000000000000000">
-ASSI_addUbuntuRoot</A>
+<H2><A NAME="SECTION00782000000000000000">
+Compiling</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Enables the root account in Ubuntu if a Ubuntu installation is found.
-<BR>
+Compiling has to be done with the following line:
+<PRE>
+./configure --without-readline --prefix=/usr --disable-debug
+</PRE>
+Readline support should be removed to decrease the size of the bootimage. Prefix mus be set to make it use the default Debian installation root. Debug must be disabled to remove silly debugging information of libparted that makes the output of m23hwscanner corrupt.
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

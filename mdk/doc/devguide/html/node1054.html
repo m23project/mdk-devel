@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_createVM</TITLE>
-<META NAME="description" CONTENT="VM_createVM">
+<TITLE>VM_CloudStackClientName2ClientID</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackClientName2ClientID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1055.html">
 <LINK REL="previous" HREF="node1053.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1042.html">
 <LINK REL="next" HREF="node1055.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16670"
+<A NAME="tex2html16843"
   HREF="node1055.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16666"
-  HREF="node1017.html">
+<A NAME="tex2html16839"
+  HREF="node1042.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16660"
+<A NAME="tex2html16833"
   HREF="node1053.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16668"
+<A NAME="tex2html16841"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16671"
-  HREF="node1055.html">VM_startVM</A>
-<B> Up:</B> <A NAME="tex2html16667"
-  HREF="node1017.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16661"
-  HREF="node1053.html">VM_activateNetbootCMD</A>
- &nbsp; <B>  <A NAME="tex2html16669"
+<B> Next:</B> <A NAME="tex2html16844"
+  HREF="node1055.html">VM_CloudStackNetBootActivate</A>
+<B> Up:</B> <A NAME="tex2html16840"
+  HREF="node1042.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html16834"
+  HREF="node1053.html">VM_CloudStackGetVMStatus</A>
+ &nbsp; <B>  <A NAME="tex2html16842"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083437000000000000000">
-VM_createVM</A>
+<H2><A NAME="SECTION0083412000000000000000">
+VM_CloudStackClientName2ClientID</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a virtual machine.
+<SPAN  CLASS="textbf">Description:</SPAN> returns the Cloudstack-ID of a client with the given client host name
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmName: Name of the VM.
-</LI>
-<LI>ramSize: Size of the memory in MB.
-</LI>
-<LI>diskName: Name of the virtual harddisk file.
-</LI>
-<LI>mac: MAC address of the virtual network card. It can be in the format 12:23:34:45:56:78 or 122334455678.
-</LI>
-<LI>netDev: Device of the real network card that is used to let the VM communictae with the outer world.
+<LI>clientname: Host name of the virtual machine
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to create a virtual machine.
+<LI>Cloudstack-Client-ID if the clientname can be retrieved, False otherwise 
 </LI>
 </UL>
 
@@ -84,7 +74,7 @@ VM_createVM</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CHECK_strAlphaNum</TITLE>
-<META NAME="description" CONTENT="CHECK_strAlphaNum">
+<TITLE>CHECK_text2db</TITLE>
+<META NAME="description" CONTENT="CHECK_text2db">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node180.html">
 <LINK REL="previous" HREF="node178.html">
-<LINK REL="up" HREF="node171.html">
+<LINK REL="up" HREF="node177.html">
 <LINK REL="next" HREF="node180.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5385"
+<A NAME="tex2html5521"
   HREF="node180.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5381"
-  HREF="node171.html">
+<A NAME="tex2html5517"
+  HREF="node177.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5375"
+<A NAME="tex2html5511"
   HREF="node178.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5383"
+<A NAME="tex2html5519"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5386"
-  HREF="node180.html">CHECK_letFWDie</A>
-<B> Up:</B> <A NAME="tex2html5382"
-  HREF="node171.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html5376"
-  HREF="node178.html">CHECK_strAlpha</A>
- &nbsp; <B>  <A NAME="tex2html5384"
+<B> Next:</B> <A NAME="tex2html5522"
+  HREF="node180.html">CHECK_db2text</A>
+<B> Up:</B> <A NAME="tex2html5518"
+  HREF="node177.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html5512"
+  HREF="node178.html">CHECK_safeFilename</A>
+ &nbsp; <B>  <A NAME="tex2html5520"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00858000000000000000">
-CHECK_strAlphaNum</A>
+<H2><A NAME="SECTION00852000000000000000">
+CHECK_text2db</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and digits and shuts down the application if not.
+<SPAN  CLASS="textbf">Description:</SPAN> Makes a text safe for using it in the database.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>val: Input value to check.
+<LI>val: Text to use;
 </LI>
-<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
-</LI>
-<LI>allowEmpty: Set to true if you want to allow empty strings.
-</LI>
-<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+<LI>like: Set to true if the text should be used as the LIKE parameter.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The input value if it contains only characters and digits or stops (or false, if $returnNoDie is true) the program on an error.
+<LI>The safe made text.
 </LI>
 </UL>
 
@@ -80,7 +76,7 @@ CHECK_strAlphaNum</A>
 <BR><HR>
 <ADDRESS>
 root
-2013-08-18
+2014-01-25
 </ADDRESS>
 </BODY>
 </HTML>
