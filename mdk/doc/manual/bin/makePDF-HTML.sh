@@ -1,4 +1,3 @@
-
 for LANG in `cat /tmp/m23language`
 do
 	cd /mdk/doc/manual/tex/$LANG/not-generated
@@ -22,8 +21,23 @@ do
 
 	mkdir -p /mdk/doc/manual/html/$LANG
 
+	# Get all Tex files that are in referenced in manual.tex
+	sed 's#\\\\#\n\\#g' manual.tex | grep -i "\input{" | cut -d'{' -f2 | cut -d'}' -f1 | grep -v gpl.tex > /tmp/allTexFiles
+
+	# Change all " => ''
+	cat /tmp/allTexFiles | while read f
+	do
+		sed -i "s#\"#''#g" $f
+	done
+
 	latex2html manual.tex -local_icons -dir /mdk/doc/manual/html/$LANG/
 
+	# Change back all '' => "
+	cat /tmp/allTexFiles | while read f
+	do
+		sed -i "s#''#\"#g" $f
+	done
+	
 	if test -d /m23/doc/manual/
 	then
 		ln -s /mdk/doc/manual/html/$LANG /m23/doc/manual/
