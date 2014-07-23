@@ -806,10 +806,21 @@ setRootPwd()
 #Creates the initrds for all installed kernel
 createInitrd()
 {
-	for kernelName in `ls /lib/modules/ | grep -v m23`
+# 	for kernelName in `ls /lib/modules/ | grep -v m23`
+# 	do
+# 		rm "/boot/initrd.img-$kernelName" 2> /dev/null
+# 		touch "/boot/initrd.img-$kernelName"
+# 	done
+
+	# Check for and add extX module, if missing in /etc/initramfs-tools/modules
+	for i in `seq 2 4`
 	do
-		rm "/boot/initrd.img-$kernelName" 2> /dev/null
-		touch "/boot/initrd.img-$kernelName"
+		ext="ext$i"
+
+		if [ $(grep -c $ext /etc/initramfs-tools/modules) -eq 0 ]
+		then
+			echo $ext >> /etc/initramfs-tools/modules
+		fi
 	done
 
 	for kimgpkg in `dpkg --get-selections | grep linux-image | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g'`
