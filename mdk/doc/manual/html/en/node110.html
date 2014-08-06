@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint for computer architectures</TITLE>
-<META NAME="description" CONTENT="Hint for computer architectures">
+<TITLE>Using m23 with an external DHCP server</TITLE>
+<META NAME="description" CONTENT="Using m23 with an external DHCP server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,73 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node109.html">
-<LINK REL="up" HREF="node107.html">
+<LINK REL="next" HREF="node116.html">
+<LINK REL="previous" HREF="node106.html">
+<LINK REL="up" HREF="node105.html">
 <LINK REL="next" HREF="node111.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1878"
+<A NAME="tex2html1880"
   HREF="node111.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1874"
-  HREF="node107.html">
+<A NAME="tex2html1876"
+  HREF="node105.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html1870"
   HREF="node109.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1876"
+<A NAME="tex2html1878"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1879"
-  HREF="node111.html">Using m23 with an</A>
-<B> Up:</B> <A NAME="tex2html1875"
-  HREF="node107.html">Add a new client</A>
+<B> Next:</B> <A NAME="tex2html1881"
+  HREF="node111.html">The other DHCP server</A>
+<B> Up:</B> <A NAME="tex2html1877"
+  HREF="node105.html">Control clients</A>
 <B> Previous:</B> <A NAME="tex2html1871"
-  HREF="node109.html">Additional information:</A>
- &nbsp; <B>  <A NAME="tex2html1877"
+  HREF="node109.html">Hint for computer architectures</A>
+ &nbsp; <B>  <A NAME="tex2html1879"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00913000000000000000">
-Hint for computer architectures</A>
-</H2>
-m23 supports 32 and 64 bit systems natively. A 32 bit distribution can be installed on a 64 bit computer, but not vice versa. You should choose <SPAN  CLASS="textit">"amd64"</SPAN> to use the full potential of a 64 bit CPU. Not only AMD's 64 bit CPUs, but also Intel's fall under the category of <SPAN  CLASS="textit">"amd64"</SPAN>. Some of the supported 64 bit CPUs are Intel Pentium D, Pentium Extreme Edition, Celeron D and Core 2 and the AMD CPUs Sempron, Athlon 64, Athlon X2 and Phenom.
-<BR>	<BR><HR>
+<H1><A NAME="SECTION00920000000000000000">
+Using m23 with an external DHCP server</A>
+</H1>Scenario: There is an existing DHCP server in your network, that distributes network settings (IP, netmask, ...) to all your computers and an m23 server, that should install the clients.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
+<BR>
+Problem: The installation of the m23 clients doesn't work, because the other DHCP server assigns the network settings faster that the m23 server.
+<BR>
+Reason: The m23 server needs to assign the IP and other network settings to let the client boot and install via the network. If these settings are distributed by another DHCP server, the client cannot find the m23 server, cannot download the network bootimage and cannot be installed. This cannot be changed generally, because there are standards in the network and boot protocols, that define a standardised network booting procedure.
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1882"
+  HREF="node111.html">The other DHCP server can be deactivated</A>
+<LI><A NAME="tex2html1883"
+  HREF="node112.html">The other DHCP server CANNOT be deactivated</A>
+<LI><A NAME="tex2html1884"
+  HREF="node113.html">ISC DHCP server</A>
+<LI><A NAME="tex2html1885"
+  HREF="node114.html">Other DHCP server</A>
+<LI><A NAME="tex2html1886"
+  HREF="node115.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

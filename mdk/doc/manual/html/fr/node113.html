@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Serveur DHCP ISC</TITLE>
-<META NAME="description" CONTENT="Serveur DHCP ISC">
+<TITLE>Autre serveur DHCP</TITLE>
+<META NAME="description" CONTENT="Autre serveur DHCP">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,86 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node114.html">
 <LINK REL="previous" HREF="node112.html">
-<LINK REL="up" HREF="node110.html">
+<LINK REL="up" HREF="node109.html">
 <LINK REL="next" HREF="node114.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1920"
+<A NAME="tex2html1916"
   HREF="node114.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1916"
-  HREF="node110.html">
+<A NAME="tex2html1912"
+  HREF="node109.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1910"
+<A NAME="tex2html1906"
   HREF="node112.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1918"
+<A NAME="tex2html1914"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1921"
-  HREF="node114.html">Autre serveur DHCP</A>
-<B> monter:</B> <A NAME="tex2html1917"
-  HREF="node110.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1911"
-  HREF="node112.html">Si l'autre serveur DHCP</A>
- &nbsp; <B>  <A NAME="tex2html1919"
+<B> suivant:</B> <A NAME="tex2html1917"
+  HREF="node114.html">Proxy DHCP</A>
+<B> monter:</B> <A NAME="tex2html1913"
+  HREF="node109.html">Utiliser m23 conjointement avec</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1907"
+  HREF="node112.html">Serveur DHCP ISC</A>
+ &nbsp; <B>  <A NAME="tex2html1915"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001023000000000000000">
-Serveur DHCP ISC</A>
+<H2><A NAME="SECTION001024000000000000000">
+Autre serveur DHCP</A>
 </H2>
-Si le serveur DHCP externe est un serveur DHCP "ISC", vous pouvez utiliser ce dernier &#224; la place du serveur DHCP m23.
-<BR>
+
 <OL>
-<LI>Choisissez <SPAN  CLASS="textit">"PXE"</SPAN> dans <SPAN  CLASS="textit">"Type de boot"</SPAN> lorsque vous ajoutez un nouveau client m23 par l'interface web. Saisissez le nom de l'ordinateur &#224; assigner au client m23 par le serveur DHCP dans <SPAN  CLASS="textit">"Nom du poste client"</SPAN>.
+<LI>Choisissez <SPAN  CLASS="textit">''PXE''</SPAN> dans <SPAN  CLASS="textit">''Type de boot''</SPAN> lorsque vous ajoutez un nouveau client m23 par l'interface web. Saisissez le nom de l'ordinateur &#224; assigner au client m23 par le serveur DHCP dans <SPAN  CLASS="textit">''Nom du poste client''</SPAN>.
 <BR></LI>
-<LI>D&#233;sactivez le serveur DHCP de votre serveur m23: En &#233;ditant le fichier suivant /etc/default/isc-dhcp-server sur le serveur m23, commentez la ligne ci-dessous en ajoutant un "#" au d&#233;but de celle-ci INTERFACES=... cette derni&#232;re deviendra #INTERFACES=... puis ajoutez une nouvelle ligne INTERFACES="" en dessous de celle pr&#233;c&#233;demment comment&#233;. Finalement, red&#233;marrez le serveur DHCP en tapant la commande /etc/init.d/isc-dhcp-server restart Le serveur DHCP sera toujours fonctionnel mais ne r&#233;pondra plus &#224; aucune requ&#232;te DHCP.
+<LI>Ajustez votre serveur DHCP de sorte qu'il assigne le nom du poste client indiqu&#233; dans l'interface web m23 au poste client m23.
 <BR></LI>
-<LI>Dans la configuration de votre serveur DHCP, activez l'option use-host-decl-names on pour le groupe contenant les clients m23.
+<LI>Le nom du noyau PXE, transmis par votre serveur DHCP au poste client, doit &#234;tre <SPAN  CLASS="textbf">pxelinux.0</SPAN>. Le serveur TFTP est le serveur m23.
 <BR></LI>
-<LI>Mettez r&#233;guli&#232;rement &#224; jour le groupe m23 dans la configuration de votre serveur DHCP (par exemple en utilisant une t&#226;che "cron" ou une autre m&#233;thode automatis&#233;e) utilisant les donn&#233;es de votre serveur DHCP m23 par l'URL http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php Cette URL fournit la configuration des clients m23, devant booter sur le r&#233;seau, dans le format attendu par le "serveur DHCP ISC". Le groupe pour les clients m23 pourrait par exemple ressembler au code ci-dessous.	
-<BR><PRE>
-group {
-use-host-decl-names on; 
-$\langle$A partir des donn\'ees de exportDHCPSettings.php ins\'er\'ees$\rangle$
-}
-</PRE>
-</LI>
+<LI>Configurez le serveur DHCP de mani&#232;re &#224; ce qu'il fournisse l'adresse IP du serveur m23 comme adresse d'origine pour les clients m23.
+<BR></LI>
+<LI>Si malgr&#233; cela, votre serveur DHCP ne fonctionne toujours pas apr&#232;s l'ajustement des param&#232;tres, vous devez installer un serveur TFTP sur l'ordinateur h&#233;bergeant votre serveur DHCP. La configuration de base du serveur TFTP peut s'inspirer des fichiers de configuration du r&#233;pertoire /m23/tftp/.
+<BR></LI>
 </OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1920"
-  HREF="node114.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1916"
-  HREF="node110.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1910"
-  HREF="node112.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1918"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html1921"
-  HREF="node114.html">Autre serveur DHCP</A>
-<B> monter:</B> <A NAME="tex2html1917"
-  HREF="node110.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1911"
-  HREF="node112.html">Si l'autre serveur DHCP</A>
- &nbsp; <B>  <A NAME="tex2html1919"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

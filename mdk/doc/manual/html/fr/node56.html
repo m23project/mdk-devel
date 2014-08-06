@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Postes client unitaires / paramètres du réseau</TITLE>
-<META NAME="description" CONTENT="Postes client unitaires / paramètres du réseau">
+<TITLE>Interval des adresses IP</TITLE>
+<META NAME="description" CONTENT="Interval des adresses IP">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,78 +21,78 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node57.html">
 <LINK REL="previous" HREF="node55.html">
-<LINK REL="up" HREF="node55.html">
+<LINK REL="up" HREF="node54.html">
 <LINK REL="next" HREF="node57.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1158"
+<A NAME="tex2html1154"
   HREF="node57.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1154"
-  HREF="node55.html">
+<A NAME="tex2html1150"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1148"
+<A NAME="tex2html1144"
   HREF="node55.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1156"
+<A NAME="tex2html1152"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1159"
-  HREF="node57.html">Interval des adresses IP</A>
-<B> monter:</B> <A NAME="tex2html1155"
-  HREF="node55.html">Gestion des adresses IP</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1149"
-  HREF="node55.html">Gestion des adresses IP</A>
- &nbsp; <B>  <A NAME="tex2html1157"
+<B> suivant:</B> <A NAME="tex2html1155"
+  HREF="node57.html">Tableaux d'adresses</A>
+<B> monter:</B> <A NAME="tex2html1151"
+  HREF="node54.html">Gestion des adresses IP</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1145"
+  HREF="node55.html">Postes client unitaires /</A>
+ &nbsp; <B>  <A NAME="tex2html1153"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION007111000000000000000">
-Postes client unitaires / param&#232;tres du r&#233;seau</A>
+<H2><A NAME="SECTION007112000000000000000">
+Interval des adresses IP</A>
 </H2>
-Ici, il vous est possible d'assigner des param&#232;tres r&#233;seau sp&#233;cifiques &#224; des machines individuelles ou bien de r&#233;server des valeurs sp&#233;cifiques qui ne seront alors plus disponibles pour des postes client m23, ainsi il ne sera plus possible d'assigner &#224; tort ces valeurs &#224; un poste client m23.
+Pour les plages d'adresses IP, une fonctionnalit&#233; similaire est disponible. Contrairement &#224; la fonction <SPAN  CLASS="textit">''Postes client unitaires / param&#232;tres du r&#233;seau''</SPAN>, vous n'y entrerez pas des machines individuelles ou des param&#232;tres de r&#233;seau unitaires, mais des plages d'adresses IP qui ne seront plus disponibles pour m23 ou bien dont les adresses IP seront assign&#233;es dynamiquement par le serveur DHCP aux machines n'&#233;tant pas de postes client m23.
 <BR>
 <UL>
 <LI>
-<BR>		<SPAN  CLASS="textbf">R&#233;server le nom de poste client / l' IP / l'adresse MAC</SPAN>: En utilisant la fonction <SPAN  CLASS="textbf">R&#233;server le nom de poste client / l' IP / l'adresse MAC</SPAN>, vous pouvez r&#233;server un nom de poste client, une adresse IP ou une adresse MAC (par exemple l'adresse IP d'une imprimante r&#233;seau), afin que cette valeur ne puisse pas &#234;tre utilis&#233;e &#224; tort par des postes client m23. Entrez l'adresse IP, l'adresse MAC ou le nom que vous souhaitez r&#233;server dans les champs <SPAN  CLASS="textit">"Nom du poste client"</SPAN>, <SPAN  CLASS="textit">"Adresse IP"</SPAN> ou <SPAN  CLASS="textit">"Adresse MAC"</SPAN>, puis cliquez sur <SPAN  CLASS="textit">"R&#233;server le nom de poste client / l' IP / l'adresse MAC"</SPAN>. L'utilisation de la fonction "R&#233;server le nom de poste client / l' IP / l'adresse MAC" n&#233;cessite au moins une valeur dans un des champs marqu&#233;s par 1.
+<BR>		<SPAN  CLASS="textbf">R&#233;server la plage d'adresses IP</SPAN>: Entrez la premi&#232;re et la derni&#232;re adresse IP dans les champs <SPAN  CLASS="textit">''Premi&#232;re adresse IP''</SPAN> et <SPAN  CLASS="textit">''Derni&#232;re adresse IP''</SPAN> et le masque de r&#233;seau correspondant (<SPAN  CLASS="textit">''Masque r&#233;seau''</SPAN>), puis cliquez sur <SPAN  CLASS="textit">''R&#233;server la plage d'adresses IP''</SPAN>, s.v.p. Toutes les adresses IP dans cette plage (la premi&#232;re et la derni&#232;re adresse IP incluses) seront ne seront plus disponibles pour les postes client m23. Les valeurs marqu&#233;es par 1 sont n&#233;cessaires pour cette fonction.
 <BR></LI>
 <LI>
-<BR>		<SPAN  CLASS="textbf">Ajouter des param&#232;tres au server DHCP</SPAN>: Si vous souhaitez assigner des param&#232;tres r&#233;seau &#224; une machine (externe) en utilisant DHCP, entrez les valeurs d&#233;sir&#233;es dans les champs <SPAN  CLASS="textit">"Nom du poste client"</SPAN>, <SPAN  CLASS="textit">"Adresse IP"</SPAN>, <SPAN  CLASS="textit">"Masque r&#233;seau"</SPAN>, <SPAN  CLASS="textit">"Adresse MAC"</SPAN> et <SPAN  CLASS="textit">"Passerelle"</SPAN>, puis cliquez sur <SPAN  CLASS="textit">"Ajouter des param&#232;tres au server DHCP"</SPAN>. Tous les champs marqu&#233;s par 2 sont n&#233;cessaires &#224; cette fonction.
+<BR>		<SPAN  CLASS="textbf">Ajouter une plage d'adresses IP dynamique</SPAN>: Entrez la premi&#232;re et la derni&#232;re adresse IP dans les champs <SPAN  CLASS="textit">''Premi&#232;re adresse IP''</SPAN> et <SPAN  CLASS="textit">''Derni&#232;re adresse IP''</SPAN> et le masque r&#233;seau correspondant (<SPAN  CLASS="textit">''Masque r&#233;seau''</SPAN>) ainsi que la passerelle (<SPAN  CLASS="textit">''Passerelle''</SPAN>) puis cliquez sur <SPAN  CLASS="textit">''Ajouter une plage d'adresses IP dynamique''</SPAN>, s.v.p. Toutes les adresses IP dans la plage indiqu&#233; (la premi&#232;re et la derni&#232;re adresse IP incluses) seront assign&#233;es dynamiquement aux machines cherchant un serveur DHCP sur le r&#233;seau. Les valeurs marqu&#233;es avec 2 sont n&#233;cessaires pour cette fonction.
 <BR></LI>
 </UL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1158"
+<A NAME="tex2html1154"
   HREF="node57.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1154"
-  HREF="node55.html">
+<A NAME="tex2html1150"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1148"
+<A NAME="tex2html1144"
   HREF="node55.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1156"
+<A NAME="tex2html1152"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1159"
-  HREF="node57.html">Interval des adresses IP</A>
-<B> monter:</B> <A NAME="tex2html1155"
-  HREF="node55.html">Gestion des adresses IP</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1149"
-  HREF="node55.html">Gestion des adresses IP</A>
- &nbsp; <B>  <A NAME="tex2html1157"
+<B> suivant:</B> <A NAME="tex2html1155"
+  HREF="node57.html">Tableaux d'adresses</A>
+<B> monter:</B> <A NAME="tex2html1151"
+  HREF="node54.html">Gestion des adresses IP</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1145"
+  HREF="node55.html">Postes client unitaires /</A>
+ &nbsp; <B>  <A NAME="tex2html1153"
   HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

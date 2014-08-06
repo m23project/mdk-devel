@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Color codes</TITLE>
-<META NAME="description" CONTENT="Color codes">
+<TITLE>Description of daemons</TITLE>
+<META NAME="description" CONTENT="Description of daemons">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,9 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node39.html">
 <LINK REL="previous" HREF="node37.html">
-<LINK REL="up" HREF="node36.html">
+<LINK REL="up" HREF="node35.html">
 <LINK REL="next" HREF="node39.html">
 </HEAD>
 
@@ -32,9 +31,9 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   HREF="node39.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
 <A NAME="tex2html930"
-  HREF="node36.html">
+  HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html924"
+<A NAME="tex2html926"
   HREF="node37.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
 <A NAME="tex2html932"
@@ -42,33 +41,35 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A NAME="tex2html935"
-  HREF="node39.html">Description of daemons</A>
+  HREF="node39.html">Manage LDAP servers</A>
 <B> Up:</B> <A NAME="tex2html931"
-  HREF="node36.html">Daemons and programs</A>
-<B> Previous:</B> <A NAME="tex2html925"
-  HREF="node37.html">Hint</A>
+  HREF="node35.html">Daemons and programs</A>
+<B> Previous:</B> <A NAME="tex2html927"
+  HREF="node37.html">Color codes</A>
  &nbsp; <B>  <A NAME="tex2html933"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00642000000000000000">
-Color codes</A>
+<H2><A NAME="SECTION00643000000000000000">
+Description of daemons</A>
 </H2>
 
 <UL>
-<LI><SPAN  CLASS="textbf">Green</SPAN>: The daemon is running in the background and can be stopped or restarted. Stopping of daemons is <SPAN  CLASS="textbf">NOT</SPAN> recommended.
+<LI><SPAN  CLASS="textbf">apache</SPAN>: Apache is a web server and the most important part of m23. The m23 administration interface and the client jobs are generated via Apache and PHP.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Yellow</SPAN>: The daemon is installed but not running. Some daemons are just started if they are needed. A daemon with this state can be started.
+<LI><SPAN  CLASS="textbf">mysql</SPAN>: MySQL is a database server which stores the client information.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">Red</SPAN>: The daemon is not installed and not running. This means that an important server component of m23 was removed or not installed. You can install it by choosing <SPAN  CLASS="textit">"Install"</SPAN> from the action list after the daemon and clicking on <SPAN  CLASS="textit">"Do actions"</SPAN>.
+<LI><SPAN  CLASS="textbf">dhcpd3</SPAN>: The DHCP server assigns IP addresses to the clients and can only be started if there is a minimum of one managed clients. A ''yellow'' state is not always an indicator for an error.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">slapd</SPAN>: This is the daemon of the LDAP server OpenLDAP. With LDAP you can store login on a central server and use these login from all clients that can access this server.
 <BR></LI>
 </UL>
 <BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

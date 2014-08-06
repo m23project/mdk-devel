@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Description of daemons</TITLE>
-<META NAME="description" CONTENT="Description of daemons">
+<TITLE>Manage LDAP servers</TITLE>
+<META NAME="description" CONTENT="Manage LDAP servers">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node38.html">
-<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node35.html">
+<LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node40.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html944"
+<A NAME="tex2html946"
   HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html940"
-  HREF="node36.html">
+<A NAME="tex2html942"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html936"
   HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html942"
+<A NAME="tex2html944"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html945"
-  HREF="node40.html">Manage LDAP servers</A>
-<B> Up:</B> <A NAME="tex2html941"
-  HREF="node36.html">Daemons and programs</A>
+<B> Next:</B> <A NAME="tex2html947"
+  HREF="node40.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html943"
+  HREF="node26.html">Server</A>
 <B> Previous:</B> <A NAME="tex2html937"
-  HREF="node38.html">Color codes</A>
- &nbsp; <B>  <A NAME="tex2html943"
+  HREF="node38.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html945"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00643000000000000000">
-Description of daemons</A>
-</H2>
-
+<H1><A NAME="SECTION00650000000000000000">
+Manage LDAP servers</A>
+</H1>
+<IMG
+  WIDTH="1007" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ldapSettings.png"
+ ALT="Image ldapSettings"> 
+<BR>
+You can manage different LDAP servers in this dialog that can be used for user authentification on the clients. An OpenLDAP server can be installed and configured in addition.
+<BR>
 <UL>
-<LI><SPAN  CLASS="textbf">apache</SPAN>: Apache is a web server and the most important part of m23. The m23 administration interface and the client jobs are generated via Apache and PHP.
+<LI><SPAN  CLASS="textbf">Add a new LDAP server</SPAN>: Please enter the needed information in the edit lines. The name of the server is ''free form'' and is entered under <SPAN  CLASS="textit">''LDAP server name''</SPAN>. It is not required to be the same as the hostname of the LDAP server.<SPAN  CLASS="textit">''LDAP server host''</SPAN> has to be the IP or hostname of the LDAP server and must be resolvable from all clients. The preselected port can be cachanged under <SPAN  CLASS="textit">''LDAP server port''</SPAN>. If you enter a valid administrator password under <SPAN  CLASS="textit">''Password''</SPAN> and <SPAN  CLASS="textit">''Password (repeated)''</SPAN> the LDAP server can be used for storing new usr accounts. If you leave empty both passwords the server is assumed as read only. Click on <SPAN  CLASS="textit">''Add''</SPAN> after entering all required data.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">mysql</SPAN>: MySQL is a database server which stores the client information.
+<LI><SPAN  CLASS="textbf">Change an existing LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">''Load''</SPAN>. Now you can see all server data in the edit lines. Modify any values you want and click on <SPAN  CLASS="textit">''Save changes''</SPAN> afterwards.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">dhcpd3</SPAN>: The DHCP server assigns IP addresses to the clients and can only be started if there is a minimum of one managed clients. A "yellow" state is not always an indicator for an error.
+<LI><SPAN  CLASS="textbf">Delete a LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">''Delete''</SPAN>.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">slapd</SPAN>: This is the daemon of the LDAP server OpenLDAP. With LDAP you can store login on a central server and use these login from all clients that can access this server.
+<LI><SPAN  CLASS="textbf">Edit entries of the LDAP servers</SPAN>: m23 uses the frontend phpLDAPadmin for editing entries. phpLDAPadmin can be started with a click on the phpLDAPadmin logo.
 <BR></LI>
 </UL>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html946"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html942"
+  HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html936"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html944"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html947"
+  HREF="node40.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html943"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html937"
+  HREF="node38.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html945"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint for the GPG keys</TITLE>
-<META NAME="description" CONTENT="Hint for the GPG keys">
+<TITLE>scp</TITLE>
+<META NAME="description" CONTENT="scp">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,94 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node46.html">
 <LINK REL="previous" HREF="node44.html">
-<LINK REL="up" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node46.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1025"
+<A NAME="tex2html1027"
   HREF="node46.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1021"
-  HREF="node43.html">
+<A NAME="tex2html1023"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1015"
+<A NAME="tex2html1017"
   HREF="node44.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1023"
+<A NAME="tex2html1025"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1026"
-  HREF="node46.html">scp</A>
-<B> Up:</B> <A NAME="tex2html1022"
-  HREF="node43.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1016"
-  HREF="node44.html">Encrypt and upload backup</A>
- &nbsp; <B>  <A NAME="tex2html1024"
+<B> Next:</B> <A NAME="tex2html1028"
+  HREF="node46.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html1024"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1018"
+  HREF="node44.html">Hint for the GPG</A>
+ &nbsp; <B>  <A NAME="tex2html1026"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00682000000000000000">
-Hint for the GPG keys</A>
+<H2><A NAME="SECTION00683000000000000000">
+scp</A>
 </H2>
-Click on <SPAN  CLASS="textit">"Manage GPG keys"</SPAN>, if the desired GPG key for encrypting the data cannot be found in the list.
-<BR>
-<OL>
-<LI>
-<BR>
-Choose the type of storing service at <SPAN  CLASS="textit">"File storage service"</SPAN>. The following services are supported by m23:
+			To use ''Secure Copy'' you are required to enter the following values:
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">-</SPAN>: This option stores the backups on the hard disk of the m23 server only. You should use this alternative, if you <SPAN  CLASS="textbf">really</SPAN> do not want to use an external storage server. It is NOT possible to restore the m23 server in case of data loss e.g. caused by a head crash in the harddisk of the m23 server. The backups are stored on the m23 server in the directory 
-<BR><PRE>
-/m23/root-only/serverBackups/
-</PRE>
- and can be copied manually to an external storage.
+<LI><SPAN  CLASS="textbf">User</SPAN>: This is the user name the m23 server needs to connect to the SCP server and to copy the files to it.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">scp</SPAN>: Secure Copy allows to copy data to any computer that is reachable by the network and that is running the SSH daemon. This option is the method of choice, if you own an SSH server that is capable of storing the backup files. To add this server to your standard backup cycle is saving your m23 server in an optimal way.
+<LI><SPAN  CLASS="textbf">SCP server</SPAN>: Enter the IP or the name of the SCP server accessible by the m23 server.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">share-online.biz</SPAN>: The m23 server will upload the encrypted backup data to a so-called file hosting service, if you choose this option. This may be an option for you, if don't own a server for storing the m23 server backups. Your backup data is safe due to the GPG encryption before the upload. The upload of your backup data may take some time.
+<LI><SPAN  CLASS="textbf">SCP store directory</SPAN>: The directory on the SCP server where to place the backup files. You should use full path names here.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">GPG key</SPAN>: Choose the GPG key for encrypting the backups before copying.
 <BR></LI>
 </UL>
-</LI>
-<LI>Click on <SPAN  CLASS="textit">"Change"</SPAN> after you made your decision.
-<BR></LI>
-<LI>Depending on the choice of the external storage you need to give additional access information for the external storage.
-<BR>
-</LI>
-</OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1025"
-  HREF="node46.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1021"
-  HREF="node43.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1015"
-  HREF="node44.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1023"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1026"
-  HREF="node46.html">scp</A>
-<B> Up:</B> <A NAME="tex2html1022"
-  HREF="node43.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1016"
-  HREF="node44.html">Encrypt and upload backup</A>
- &nbsp; <B>  <A NAME="tex2html1024"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

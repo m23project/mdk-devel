@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP-Server verwalten</TITLE>
-<META NAME="description" CONTENT="LDAP-Server verwalten">
+<TITLE>GPG-Schlüssel verwalten</TITLE>
+<META NAME="description" CONTENT="GPG-Schlüssel verwalten">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,7 +20,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node41.html">
-<LINK REL="previous" HREF="node36.html">
+<LINK REL="previous" HREF="node39.html">
 <LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node41.html">
 </HEAD>
@@ -28,79 +28,65 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html963"
+<A NAME="tex2html959"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html959"
+<A NAME="tex2html955"
   HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html953"
+<A NAME="tex2html949"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html961"
+<A NAME="tex2html957"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html964"
-  HREF="node41.html">GPG-Schlüssel verwalten</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html960"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html960"
+  HREF="node41.html">Abbilddateien verwalten</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html956"
   HREF="node26.html">Server</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html954"
-  HREF="node39.html">Dämonenerklärung</A>
- &nbsp; <B>  <A NAME="tex2html962"
+<B> Vorherige Seite:</B> <A NAME="tex2html950"
+  HREF="node39.html">LDAP-Server verwalten</A>
+ &nbsp; <B>  <A NAME="tex2html958"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00650000000000000000">
-LDAP-Server verwalten</A>
-</H1>
-<IMG
-  WIDTH="1042" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
- SRC="./ldapSettings.png"
- ALT="Image ldapSettings"> 
-<BR>
-Dieser Dialog gibt Ihnen die M&#246;glichkeit mehrere LDAP-Server zu verwalten, damit diese von den Clients zur Benutzerauthentifizierung genutzt werden k&#246;nnen. Zus&#228;tzlich kann OpenLDAP auf dem m23-Server installiert und eingerichtet werden.
+<H1><A NAME="SECTION00660000000000000000">
+GPG-Schl&#252;ssel verwalten</A>
+</H1>Mit dem Dialog <SPAN  CLASS="textit">''GPG-Schl&#252;ssel verwalten''</SPAN> k&#246;nnen Sie neue GPG-Schl&#252;ssel zum m23-Server hinzuf&#252;gen oder existierende l&#246;schen. 
+<BR><IMG
+  WIDTH="1252" HEIGHT="504" ALIGN="BOTTOM" BORDER="0"
+ SRC="./manageGPGKeysDialog.png"
+ ALT="Image manageGPGKeysDialog"> 
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Neuen LDAP-Server hinzuf&#252;gen</SPAN>: Geben Sie dazu in den Eingabefeldern die ben&#246;tigten Daten an. Der Name des Servers kann dabei unter <SPAN  CLASS="textit">&#34;LDAP-Servername&#34;</SPAN> frei gew&#228;hlt werden, da er nicht mit dem Hostnamen des Servers identisch sein mu&#223;. <SPAN  CLASS="textit">&#34;LDAP-Serverhost&#34;</SPAN> ist hingegen die IP-Adresse oder der voll qualifizierte Hostname des LDAP-Servers. Bedenken Sie dabei, da&#223; bei Verwendung des Hostnamens eine Aufl&#246;sung durch den Client m&#246;glich sein mu&#223;. Zus&#228;tzlich kann die voreingestellte Portadresse unter <SPAN  CLASS="textit">&#34;LDAP-Serverport&#34;</SPAN> ge&#228;ndert werden. Wird unter <SPAN  CLASS="textit">&#34;Pa&#223;wort&#34;</SPAN> und <SPAN  CLASS="textit">&#34;Pa&#223;wort wiederholen&#34;</SPAN> ein f&#252;r den LDAP-Server g&#252;ltiges Administrator-Pa&#223;wort eingegeben, so kann m23 Anmeldungsdaten f&#252;r die Clients auf dem LDAP-Server speichern. Sind die Pa&#223;wortfelder hingegen leer, so k&#246;nnen die Anmeldungsdaten ausschlie&#223;lich von diesem Server gelesen werden. Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;Hinzuf&#252;gen&#34;</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Vorhandenen LDAP-Server modifizieren</SPAN>: W&#228;hlen Sie zuerst einen LDAP-Server aus der Liste aus und klicken Sie auf <SPAN  CLASS="textit">&#34;Laden&#34;</SPAN>. Nun werden die Server-Daten in den Eingabefeldern angezeigt. Modifizieren Sie die gew&#252;nschten Werte und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">&#34;&#196;nderungen speichern&#34;</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">LDAP-Server l&#246;schen</SPAN>: W&#228;hlen Sie zuerst einen LDAP-Server aus der Liste aus und klicken Sie dann auf <SPAN  CLASS="textit">&#34;L&#246;schen&#34;</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Eintr&#228;ge des LDAP-Servers bearbeiten</SPAN>: F&#252;r das Bearbeiten der Eintr&#228;ge im LDAP greift m23 auf die Oberfl&#228;che phpLDAPadmin zur&#252;ck. Diese kann mit einem Klick auf das dazugeh&#246;rige Symbol gestartet werden.
-<BR></LI>
-</UL>
+<LI><SPAN  CLASS="textbf">Hinzuf&#252;gen eines neuen Schl&#252;ssels:</SPAN>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html963"
-  HREF="node41.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html959"
-  HREF="node26.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html953"
-  HREF="node39.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html961"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html964"
-  HREF="node41.html">GPG-Schlüssel verwalten</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html960"
-  HREF="node26.html">Server</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html954"
-  HREF="node39.html">Dämonenerklärung</A>
- &nbsp; <B>  <A NAME="tex2html962"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<OL>
+<LI>Kopieren Sie zuerst den gew&#252;nschten GPG/PGP-Schl&#252;ssel mittels Ihrer bevorzugten Schl&#252;sselverwaltung in die Zwischenablage.
+<BR></LI>
+<LI>F&#252;gen Sie dann den Schl&#252;ssel in das Eingabefeld neben <SPAN  CLASS="textit">''GPG-Schl&#252;ssel importieren''</SPAN> ein.
+<BR></LI>
+<LI>Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''GPG-Schl&#252;ssel importieren''</SPAN>.
+<BR></LI>
+</OL>
+</LI>
+<LI><SPAN  CLASS="textbf">L&#246;schen eines vorhandenen Schl&#252;ssels:</SPAN>
+
+<OL>
+<LI>W&#228;hlen Sie aus der Liste den Schl&#252;ssel aus, den Sie l&#246;schen m&#246;chten.
+<BR></LI>
+<LI>Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN>.
+<BR></LI>
+</OL>
+</LI>
+</UL>
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

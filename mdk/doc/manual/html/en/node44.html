@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Encrypt and upload backup</TITLE>
-<META NAME="description" CONTENT="Encrypt and upload backup">
+<TITLE>Hint for the GPG keys</TITLE>
+<META NAME="description" CONTENT="Hint for the GPG keys">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,94 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node45.html">
 <LINK REL="previous" HREF="node43.html">
-<LINK REL="up" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node45.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1013"
+<A NAME="tex2html1015"
   HREF="node45.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1009"
-  HREF="node43.html">
+<A NAME="tex2html1011"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1003"
+<A NAME="tex2html1005"
   HREF="node43.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1011"
+<A NAME="tex2html1013"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1014"
-  HREF="node45.html">Hint for the GPG</A>
-<B> Up:</B> <A NAME="tex2html1010"
-  HREF="node43.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1004"
-  HREF="node43.html">Server backup</A>
- &nbsp; <B>  <A NAME="tex2html1012"
+<B> Next:</B> <A NAME="tex2html1016"
+  HREF="node45.html">scp</A>
+<B> Up:</B> <A NAME="tex2html1012"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1006"
+  HREF="node43.html">Encrypt and upload backup</A>
+ &nbsp; <B>  <A NAME="tex2html1014"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00681000000000000000">
-Encrypt and upload backup</A>
+<H2><A NAME="SECTION00682000000000000000">
+Hint for the GPG keys</A>
 </H2>
-Here you need to enter the required access information for the chosen external storage and the GPG key for encrypting the backup data.
+Click on <SPAN  CLASS="textit">''Manage GPG keys''</SPAN>, if the desired GPG key for encrypting the data cannot be found in the list.
 <BR>
-<BR><HR>
+<OL>
+<LI>
+<BR>
+Choose the type of storing service at <SPAN  CLASS="textit">''File storage service''</SPAN>. The following services are supported by m23:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">-</SPAN>: This option stores the backups on the hard disk of the m23 server only. You should use this alternative, if you <SPAN  CLASS="textbf">really</SPAN> do not want to use an external storage server. It is NOT possible to restore the m23 server in case of data loss e.g. caused by a head crash in the harddisk of the m23 server. The backups are stored on the m23 server in the directory 
+<BR><PRE>
+/m23/root-only/serverBackups/
+</PRE>
+ and can be copied manually to an external storage.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">scp</SPAN>: Secure Copy allows to copy data to any computer that is reachable by the network and that is running the SSH daemon. This option is the method of choice, if you own an SSH server that is capable of storing the backup files. To add this server to your standard backup cycle is saving your m23 server in an optimal way.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">share-online.biz</SPAN>: The m23 server will upload the encrypted backup data to a so-called file hosting service, if you choose this option. This may be an option for you, if don't own a server for storing the m23 server backups. Your backup data is safe due to the GPG encryption before the upload. The upload of your backup data may take some time.
+<BR></LI>
+</UL>
+</LI>
+<LI>Click on <SPAN  CLASS="textit">''Change''</SPAN> after you made your decision.
+<BR></LI>
+<LI>Depending on the choice of the external storage you need to give additional access information for the external storage.
+<BR>
+</LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1015"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1011"
+  HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1005"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1013"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1016"
+  HREF="node45.html">scp</A>
+<B> Up:</B> <A NAME="tex2html1012"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1006"
+  HREF="node43.html">Encrypt and upload backup</A>
+ &nbsp; <B>  <A NAME="tex2html1014"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

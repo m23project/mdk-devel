@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Notez</TITLE>
-<META NAME="description" CONTENT="Notez">
+<TITLE>Crit&#232;res d'ajustement</TITLE>
+<META NAME="description" CONTENT="Crit&#232;res d'ajustement">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,82 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node196.html">
 <LINK REL="previous" HREF="node194.html">
-<LINK REL="up" HREF="node194.html">
+<LINK REL="up" HREF="node193.html">
 <LINK REL="next" HREF="node196.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2977"
+<A NAME="tex2html2973"
   HREF="node196.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2973"
-  HREF="node194.html">
+<A NAME="tex2html2969"
+  HREF="node193.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2967"
+<A NAME="tex2html2963"
   HREF="node194.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2975"
+<A NAME="tex2html2971"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2978"
-  HREF="node196.html">Crit&#232;res d'ajustement</A>
-<B> monter:</B> <A NAME="tex2html2974"
-  HREF="node194.html">D&#233;finir le type et</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2968"
-  HREF="node194.html">D&#233;finir le type et</A>
- &nbsp; <B>  <A NAME="tex2html2976"
+<B> suivant:</B> <A NAME="tex2html2974"
+  HREF="node196.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html2970"
+  HREF="node193.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2964"
+  HREF="node194.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html2972"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001521000000000000000">
-Notez</A>
+<H2><A NAME="SECTION001522000000000000000">
+Crit&#232;res d'ajustement</A>
 </H2>
-
+Nous supposons que les param&#232;tres du disque dur d&#233;finis ne peuvent s'appliquer &#224; tous vos postes clients. M23 fournit diff&#233;rentes m&#233;thodes pour l'adaptation individuelle des partitions pour vos diff&#233;rents clients.
+<BR>
 <UL>
-<LI><SPAN  CLASS="textbf">IDE:</SPAN> /dev/hd? indique les disques IDE, /dev/hda le premier, /dev/hdb le deuxi&#232;me etc.
+<LI>Le <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Crit&#232;re de s&#233;lection du disque dur<SPAN CLASS="MATH"></SPAN></SPAN> d&#233;termine l'algorithme de s&#233;lection du disque dur dans le cas ou il y en aurait plusieurs.
+<BR>
+<UL>
+<LI>La fonction <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Comme indiqu&#233;<SPAN CLASS="MATH"></SPAN></SPAN> force l'utilisation du disque dur s&#233;lectionn&#233; ci-dessus, bien qu'il puisse y avoir des disques durs dont la taille correspondrait mieux &#224; la taille requise. Si ce disque dur n'existait pas (par exemple s'il n'y a pas de /dev/hda pour un syst&#232;me SCSI), un autre disque dur sera s&#233;lectionn&#233;. Si cette fonction n'est pas activ&#233;e, le disque dur le mieux adapt&#233; sera s&#233;lectionn&#233; selon les crit&#232;res suivants:
 <BR></LI>
-<LI><SPAN  CLASS="textbf">SCSI:</SPAN> /dev/sd? indiquent les disques SCSI.
-<BR></LI>
+<LI>Les bornes de tol&#233;rance pour <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Du m&#234;me type<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN> indiquent la taille maximum (le disque dur du client est plus grand que celui du poste client ma&#238;tre) et la taille minimum (le disque dur du client est plus petit que celui du client ma&#238;tre). Des disques durs dont la taille est comprise entre ces deux valeurs sont conformes. Lorsque des disques durs d'un m&#234;me type doivent (par exemple du type IDE) &#234;tre utilis&#233;s, s&#233;lectionnez des bornes de tol&#233;rences plus restreintes (mettre les bornes de tol&#233;rances sup&#233;rieures et inf&#233;rieures sur 0) pour le disque dur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>		
+</LI>
 </UL>
-<BR><HR>
+</LI>
+</UL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2973"
+  HREF="node196.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2969"
+  HREF="node193.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2963"
+  HREF="node194.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2971"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html2974"
+  HREF="node196.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html2970"
+  HREF="node193.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2964"
+  HREF="node194.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html2972"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Wiederherstellung Ihres m23-Servers</TITLE>
-<META NAME="description" CONTENT="Wiederherstellung Ihres m23-Servers">
+<TITLE>IP-Verwaltung</TITLE>
+<META NAME="description" CONTENT="IP-Verwaltung">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,8 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node56.html">
-<LINK REL="previous" HREF="node53.html">
+<LINK REL="next" HREF="node59.html">
+<LINK REL="previous" HREF="node54.html">
 <LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node56.html">
 </HEAD>
@@ -28,114 +28,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1149"
+<A NAME="tex2html1145"
   HREF="node56.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1145"
+<A NAME="tex2html1141"
   HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1139"
+<A NAME="tex2html1135"
   HREF="node54.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1147"
+<A NAME="tex2html1143"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1150"
-  HREF="node56.html">IP-Verwaltung</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1146"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1146"
+  HREF="node56.html">Einzelne Clients/Netzwerkeinstellungen</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1142"
   HREF="node26.html">Server</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1140"
-  HREF="node54.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html1148"
+<B> Vorherige Seite:</B> <A NAME="tex2html1136"
+  HREF="node54.html">Wiederherstellung Ihres m23-Servers</A>
+ &nbsp; <B>  <A NAME="tex2html1144"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006100000000000000000">
-Wiederherstellung Ihres m23-Servers</A>
-</H1>Sollte es zu einem Ausfall Ihres m23-Servers kommen, so k&#246;nnen Sie diesen mittels der zuvor angelegten Backups in einen der gesicherten Zust&#228;nde zur&#252;ckversetzen. Gehen Sie hierzu wie folgt vor:
+<H1><A NAME="SECTION006110000000000000000">
+IP-Verwaltung</A>
+</H1>In diesem Dialog k&#246;nnen Sie Netzwerkeinstellungen f&#252;r Rechner verwalten, die keine m23-Clients sind.
 <BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./serverRestore.png"
- ALT="Image serverRestore"> 
+  WIDTH="1100" HEIGHT="1192" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ipManagement.png"
+ ALT="Image ipManagement"> 
 <BR>
-<OL>
-<LI>Installieren Sie Ihren m23-Server auf einer fehlerfreien Festplatte mit der m23-Serverinstallations-CD (zu beziehen von m23.sf.net).
-<BR></LI>
-<LI>Speichern Sie die letzte Sicherungsdatei auf dem Rechner, der auch den GPG-Schl&#252;ssel zum ver- und entschl&#252;sseln bereith&#228;lt.
-<BR></LI>
-<LI>Wenn es sich um ein Linux-System handelt, so entschl&#252;sseln Sie die Backup-Datei auf der Kommandozeile mittels:
-<BR><PRE>
-gpg -d  m23backup.tar
-</PRE>
-	Ansonsten verwenden Sie die GPG-Anwendung Ihres Betriebssystems.
-<BR></LI>
-<LI>Kopieren Sie die entschl&#252;sselte Sicherungsdatei <SPAN  CLASS="textit">m23backup.tar&#34;</SPAN> auf den neu installierten m23-Server in das Verzeichnis <SPAN  CLASS="textit">&#34;/tmp&#34;</SPAN>. Unter Linux k&#246;nnen Sie das Kopieren mit SCP durchf&#252;hren:
-<BR><PRE>
-scp m23backup.tar root@[IP]:/tmp
-</PRE>
-	Ersetzen Sie hierbei <SPAN  CLASS="textit">&#34;[IP]&#34;</SPAN> durch die IP Ihres m23-Servers. Unter Windows k&#246;nnen Sie das Programm WinSCP (www.winscp.net) verwenden.
-<BR></LI>
-<LI>Loggen Sie sich auf dem m23-Server als Benutzer <SPAN  CLASS="textbf">root</SPAN> ein.
-<BR></LI>
-<LI>Wechseln Sie in das Verzeichnis <SPAN  CLASS="textit">&#34;/tmp&#34;</SPAN> mit:
-<BR><PRE>
-cd /tmp
-</PRE>
-</LI>
-<LI>Erstellen Sie ein neues Verzeichnis f&#252;r die entpackten Daten und wechseln Sie in dieses:
-<BR><PRE>
-mkdir restore; cd restore
-</PRE>
-</LI>
-<LI>Entpacken Sie das Backup mit:
-<BR><PRE>
-tar xfv /tmp/m23backup.tar
-</PRE>
-</LI>
-<LI>Starten Sie den Wiederherstellungsproze&#223; mit:
-<BR><PRE>
-/m23/bin/m23Restore
-</PRE>
-</LI>
-<LI>Nach Beendigung der Wiederherstellung sollten Sie Ihren m23-Server neu starten, z.B. mit:
-<BR><PRE>
-reboot
-</PRE>
-</LI>
-<LI>Nun sollte Ihr m23-Server wieder funktionsf&#228;hig sein.
-<BR></LI>
-</OL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1149"
-  HREF="node56.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1145"
-  HREF="node26.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1139"
-  HREF="node54.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1147"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1150"
-  HREF="node56.html">IP-Verwaltung</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1146"
-  HREF="node26.html">Server</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1140"
-  HREF="node54.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html1148"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1147"
+  HREF="node56.html">Einzelne Clients/Netzwerkeinstellungen</A>
+<LI><A NAME="tex2html1148"
+  HREF="node57.html">IP-Adressen-Bereiche</A>
+<LI><A NAME="tex2html1149"
+  HREF="node58.html">Adreﬂlisten</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

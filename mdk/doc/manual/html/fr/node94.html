@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Connexion directe au poste client</TITLE>
-<META NAME="description" CONTENT="Connexion directe au poste client">
+<TITLE>Mot de passe</TITLE>
+<META NAME="description" CONTENT="Mot de passe">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,63 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node96.html">
 <LINK REL="previous" HREF="node93.html">
-<LINK REL="up" HREF="node66.html">
+<LINK REL="up" HREF="node93.html">
 <LINK REL="next" HREF="node95.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1658"
+<A NAME="tex2html1653"
   HREF="node95.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1654"
-  HREF="node66.html">
+<A NAME="tex2html1649"
+  HREF="node93.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1648"
+<A NAME="tex2html1645"
   HREF="node93.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1656"
+<A NAME="tex2html1651"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1659"
-  HREF="node95.html">Mot de passe</A>
-<B> monter:</B> <A NAME="tex2html1655"
-  HREF="node66.html">Administrer des clients</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1649"
-  HREF="node93.html">Changer l'&#233;tat du d&#233;bogage</A>
- &nbsp; <B>  <A NAME="tex2html1657"
+<B> suivant:</B> <A NAME="tex2html1654"
+  HREF="node95.html">Modifier un poste client</A>
+<B> monter:</B> <A NAME="tex2html1650"
+  HREF="node93.html">Connexion directe au poste</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1646"
+  HREF="node93.html">Connexion directe au poste</A>
+ &nbsp; <B>  <A NAME="tex2html1652"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009120000000000000000">
-Connexion directe au poste client</A>
-</H1>Une connexion directe au poste client peut &#234;tre n&#233;cessaire pour intervenir manuellement sur le processus d'installation, pour visualiser l'affichage d'un h&#244;te distant ou encore pour tester ou d&#233;boguer. La connexion sera effectu&#233;e par SSH,
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./client_directConnection.png"
- ALT="Image client_directConnection"> 
+<H2><A NAME="SECTION009121000000000000000">
+Mot de passe</A>
+</H2>
+Si le poste client est encore au d&#233;but de l'installation, le mot de passe root est: <SPAN CLASS="MATH"></SPAN>NETROOTPWD<SPAN CLASS="MATH"></SPAN>.
 <BR>
-elle peut &#234;tre &#233;tablie &#224; partir de tout poste ayant un client SSH de connexion.
+Plus tard, ce sera le mot de passe saisi pendant la cr&#233;ation du poste client.
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1660"
-  HREF="node95.html">Mot de passe</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+Si votre navigateur web supporte le protocole SSH directement, vous pouvez &#233;tablir la connexion en cliquant sur ce lien: ssh://root@CLIENTIP
+<BR>
+Sinon, ouvrez un terminal et entrez la commande: <SPAN  CLASS="textbf">ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP</SPAN>.
+<BR>
+Afin de lire l'affichage actuel du poste client ou d'intervenir sur l'installation en cours utilisez cette commande: <SPAN  CLASS="textbf">screen -x m23install</SPAN>.
+<BR>		<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

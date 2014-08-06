@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Select value generation method</TITLE>
-<META NAME="description" CONTENT="Select value generation method">
+<TITLE>Adjustment criteria</TITLE>
+<META NAME="description" CONTENT="Adjustment criteria">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,63 +19,84 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node199.html">
-<LINK REL="previous" HREF="node193.html">
-<LINK REL="up" HREF="node191.html">
+<LINK REL="next" HREF="node198.html">
+<LINK REL="previous" HREF="node196.html">
+<LINK REL="up" HREF="node195.html">
 <LINK REL="next" HREF="node198.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2992"
+<A NAME="tex2html3002"
   HREF="node198.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2988"
-  HREF="node191.html">
+<A NAME="tex2html2998"
+  HREF="node195.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2982"
+<A NAME="tex2html2992"
   HREF="node196.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2990"
+<A NAME="tex2html3000"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2993"
-  HREF="node198.html">There are 3 methods</A>
-<B> Up:</B> <A NAME="tex2html2989"
-  HREF="node191.html">Mass installation</A>
-<B> Previous:</B> <A NAME="tex2html2983"
+<B> Next:</B> <A NAME="tex2html3003"
+  HREF="node198.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2999"
+  HREF="node195.html">Define disk type and</A>
+<B> Previous:</B> <A NAME="tex2html2993"
   HREF="node196.html">Hint</A>
- &nbsp; <B>  <A NAME="tex2html2991"
+ &nbsp; <B>  <A NAME="tex2html3001"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001430000000000000000">
-Select value generation method</A>
-</H1>
-<IMG
-  WIDTH="1008" HEIGHT="970" ALIGN="BOTTOM" BORDER="0"
- SRC="./mi_step0.png"
- ALT="Image mi_step0"> 
+<H2><A NAME="SECTION001422000000000000000">
+Adjustment criteria</A>
+</H2>
+It is assumed that the defined hard disk parameters aren't valid for all your clients. m23 offers different methods for individual partitioning adjustment of your clients.
 <BR>
-Here you can select the method for generation of the needed values.
+<UL>
+<LI>The <SPAN  CLASS="textit">''Disk selection criteria''</SPAN> defines the algorithm for choosing the hard disk of the client if there should be more than one.
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2994"
-  HREF="node198.html">There are 3 methods</A>
+<UL>
+<LI><SPAN  CLASS="textit">''As specified''</SPAN> uses the hard disk selected above, even if there should be a hard disk whose size matches the specified size better. If the defined hard disk shouldn't exist (e.g. there is no /dev/hda in a SCSI system) another hard disk is chosen. If this option is not activated the best hard disk will be selected according to the following criteria.
+<BR></LI>
+<LI>The tolerances for <SPAN  CLASS="textit">''Identical type''</SPAN> and <SPAN  CLASS="textit">''Other types''</SPAN> define the upper tolerance (client hard disk is bigger than defined) and the lower tolerance (client hard disk is smaller) from the defined size. Hard disks within the tolerance are detected as a match. If you prefer hard disks of the same type (e.g. IDE) choose a smaller or no (set upper and lower tolerance to 0) tolerance for hard disks of <SPAN  CLASS="textit">''Other types''</SPAN>.
+<BR>	
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+</LI>
+</UL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3002"
+  HREF="node198.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2998"
+  HREF="node195.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2992"
+  HREF="node196.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3000"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3003"
+  HREF="node198.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2999"
+  HREF="node195.html">Define disk type and</A>
+<B> Previous:</B> <A NAME="tex2html2993"
+  HREF="node196.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html3001"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

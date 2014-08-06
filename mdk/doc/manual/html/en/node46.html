@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>scp</TITLE>
-<META NAME="description" CONTENT="scp">
+<TITLE>Hint</TITLE>
+<META NAME="description" CONTENT="Hint">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,57 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node47.html">
 <LINK REL="previous" HREF="node45.html">
-<LINK REL="up" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1037"
+<A NAME="tex2html1039"
   HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1033"
-  HREF="node43.html">
+<A NAME="tex2html1035"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1027"
+<A NAME="tex2html1029"
   HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1035"
+<A NAME="tex2html1037"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1038"
-  HREF="node47.html">Hint</A>
-<B> Up:</B> <A NAME="tex2html1034"
-  HREF="node43.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1028"
-  HREF="node45.html">Hint for the GPG</A>
- &nbsp; <B>  <A NAME="tex2html1036"
+<B> Next:</B> <A NAME="tex2html1040"
+  HREF="node47.html">share-online.biz</A>
+<B> Up:</B> <A NAME="tex2html1036"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1030"
+  HREF="node45.html">scp</A>
+ &nbsp; <B>  <A NAME="tex2html1038"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00683000000000000000">
-scp</A>
+<H2><A NAME="SECTION00684000000000000000">
+Hint</A>
 </H2>
-			To use "Secure Copy" you are required to enter the following values:
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">User</SPAN>: This is the user name the m23 server needs to connect to the SCP server and to copy the files to it.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">SCP server</SPAN>: Enter the IP or the name of the SCP server accessible by the m23 server.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">SCP store directory</SPAN>: The directory on the SCP server where to place the backup files. You should use full path names here.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">GPG key</SPAN>: Choose the GPG key for encrypting the backups before copying.
-<BR></LI>
-</UL>
-<BR><HR>
+			You need to make sure that the SCP server can be reached by the root account of the m23 server. Add the contents of the file 
+<BR><PRE>
+/root/.ssh/id\_dsa.pub
+</PRE>
+ on the m23 server to the file 
+<BR><PRE>
+~/.ssh/authorized\_keys
+</PRE>
+ on the SCP server owned by the user given above to ensure this. You can use the tool 
+<BR><PRE>
+ssh-copy-id
+</PRE>
+ for the key exchange too: 
+<BR><PRE>
+ssh-copy-id -i /root/.ssh/id\_dsa.pub benutzer@SCP-Server
+</PRE>
+.
+<BR>			<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

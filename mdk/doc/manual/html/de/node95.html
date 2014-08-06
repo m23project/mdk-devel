@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Client-Direkt-Verbindung</TITLE>
-<META NAME="description" CONTENT="Client-Direkt-Verbindung">
+<TITLE>Paﬂwort</TITLE>
+<META NAME="description" CONTENT="Paﬂwort">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,61 +19,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node97.html">
 <LINK REL="previous" HREF="node94.html">
-<LINK REL="up" HREF="node67.html">
+<LINK REL="up" HREF="node94.html">
 <LINK REL="next" HREF="node96.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1676"
+<A NAME="tex2html1671"
   HREF="node96.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1672"
-  HREF="node67.html">
+<A NAME="tex2html1667"
+  HREF="node94.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1666"
+<A NAME="tex2html1663"
   HREF="node94.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1674"
+<A NAME="tex2html1669"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1677"
-  HREF="node96.html">Paﬂwort</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1673"
-  HREF="node67.html">Clients verwalten</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1667"
-  HREF="node94.html">Debug-Status ‰ndern</A>
- &nbsp; <B>  <A NAME="tex2html1675"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1672"
+  HREF="node96.html">Client ‰ndern</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1668"
+  HREF="node94.html">Client-Direkt-Verbindung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1664"
+  HREF="node94.html">Client-Direkt-Verbindung</A>
+ &nbsp; <B>  <A NAME="tex2html1670"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008120000000000000000">
-Client-Direkt-Verbindung</A>
-</H1>Eine Client-Direkt-Verbindung kann dazu verwendet werden, um manuell in den Installations-Proze&#223; eines Clients einzugreifen, oder die Bildschirmausgabe von einem entfernten Ort aus zu lesen, sowie zu Test- und Debug-Zwecken. Die Verbindung wird per SSH aufgebaut und kann so mit jedem SSH-Client hergestellt werden.
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./client_directConnection.png"
- ALT="Image client_directConnection"> 
+<H2><A NAME="SECTION008121000000000000000">
+Pa&#223;wort</A>
+</H2>
+Ist der Client noch in einem fr&#252;hen Installationsstadium, so lautet das Root-Pa&#223;wort: ''NETROOTPWD''
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1678"
-  HREF="node96.html">Paﬂwort</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+Sp&#228;ter ist es das Pa&#223;wort, das Sie beim Anlegen des Clients vergeben haben.
+<BR>
+Sollte Ihr Browser das SSH-Protokoll direkt unterst&#252;tzen, so k&#246;nnen Sie die Verbindung durch Anklicken dieses Links herstellen: ssh://root@CLIENTIP
+<BR>
+Sonst &#246;ffnen Sie bitte eine Konsole und geben den Befehl: <SPAN  CLASS="textbf">ssh -o UserKnownHostsFile=/dev/null -l root CLIENTIP</SPAN>
+Um in die aktuelle Client-Bildschirmausgabe zu lesen oder in die laufende Installation einzugreifen benutzen Sie den Befehl: <SPAN  CLASS="textbf">screen -x m23install</SPAN>
+		<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

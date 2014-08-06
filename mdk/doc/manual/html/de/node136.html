@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis</TITLE>
-<META NAME="description" CONTENT="Hinweis">
+<TITLE>Manuelle Integration</TITLE>
+<META NAME="description" CONTENT="Manuelle Integration">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node137.html">
 <LINK REL="previous" HREF="node135.html">
-<LINK REL="up" HREF="node135.html">
+<LINK REL="up" HREF="node134.html">
 <LINK REL="next" HREF="node137.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2211"
+<A NAME="tex2html2207"
   HREF="node137.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2207"
-  HREF="node135.html">
+<A NAME="tex2html2203"
+  HREF="node134.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2201"
+<A NAME="tex2html2197"
   HREF="node135.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2209"
+<A NAME="tex2html2205"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2212"
-  HREF="node137.html">Manuelle Integration</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2208"
-  HREF="node135.html">Client integrieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2202"
-  HREF="node135.html">Client integrieren</A>
- &nbsp; <B>  <A NAME="tex2html2210"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2208"
+  HREF="node137.html">Hinweis für die Integration</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2204"
+  HREF="node134.html">Client integrieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2198"
+  HREF="node135.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html2206"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00961000000000000000">
-Hinweis</A>
+<H2><A NAME="SECTION00962000000000000000">
+Manuelle Integration</A>
 </H2>
-F&#252;r eine automatische Integration wird auf der Clientseite ein laufender SSH-D&#228;mon, der das Einloggen als root&#235;rlaubt, sowie das Programm &#34;wget&#252;nd das Paket coreutils&#34; vorrausgesetzt. Weiterhin ist es erforderlich, da&#223; Pakete aus dem Internet per APT installiert werden k&#246;nnen.
-<BR>
+Sollte auf dem Client kein SSH-D&#228;mon laufen, so ist es auch m&#246;glich, den Integrationsproze&#223; auf dem Client per Hand anzusto&#223;en. F&#252;hren Sie dazu folgende Befehle als ''root'' in der Konsole des Clients aus (serverIP dabei durch die IP des m23-Servers ersetzen):
+<BR><PRE>
+cd /tmp; wget http://$\langle$serverIP$\rangle$/work.php -O work.php; sh work.php
+</PRE>
 <BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

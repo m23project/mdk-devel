@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Der andere DHCP-Server kann NICHT deaktiviert werden</TITLE>
-<META NAME="description" CONTENT="Der andere DHCP-Server kann NICHT deaktiviert werden">
+<TITLE>ISC DHCP Server</TITLE>
+<META NAME="description" CONTENT="ISC DHCP Server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,86 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node114.html">
 <LINK REL="previous" HREF="node112.html">
-<LINK REL="up" HREF="node111.html">
+<LINK REL="up" HREF="node110.html">
 <LINK REL="next" HREF="node114.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1927"
+<A NAME="tex2html1923"
   HREF="node114.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1923"
-  HREF="node111.html">
+<A NAME="tex2html1919"
+  HREF="node110.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1917"
+<A NAME="tex2html1913"
   HREF="node112.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1925"
+<A NAME="tex2html1921"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1928"
-  HREF="node114.html">ISC DHCP Server</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1924"
-  HREF="node111.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1918"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1924"
+  HREF="node114.html">Anderer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1920"
+  HREF="node110.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1914"
   HREF="node112.html">Der andere DHCP-Server kann</A>
- &nbsp; <B>  <A NAME="tex2html1926"
+ &nbsp; <B>  <A NAME="tex2html1922"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00922000000000000000">
-Der andere DHCP-Server kann NICHT deaktiviert werden</A>
+<H2><A NAME="SECTION00923000000000000000">
+ISC DHCP Server</A>
 </H2>
-In diesem Falle m&#252;ssen Sie die Konfiguration des anderen DHCP-Servers per Hand anpassen und ggf. einen TFTP-Server einrichten. Wie die Konfiguration genau vorzunehmen ist, entnehmen Sie bitte der Dokumentation Ihres DHCP- und des TFTP-Servers.
+Handelt es sich bei dem anderen DHCP-Server um den ISC DHCP server, so k&#246;nnen Sie diesen anstelle des m23-DHCP-Servers verwenden.
 <BR>
-<BR><HR>
+<OL>
+<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+<BR></LI>
+<LI>Deaktivieren Sie den DHCP-Server auf dem m23-Server: Editieren Sie die Datei /etc/default/isc-dhcp-server auf dem m23-Server, kommentieren die Zeile INTERFACES=... mit einer vorangestellten ''#'' aus und f&#252;gen darunter die neue Zeile INTERFACES='''' ein. Starten Sie anschlie&#223;end den DHCP-Server mit /etc/init.d/isc-dhcp-server restart neu. Dieser l&#228;uft dann zwar, beantwortet aber keine Anfragen mehr.
+<BR></LI>
+<LI>Setzen Sie in der Konfiguration Ihres DHCP-Servers die Option use-host-decl-names on f&#252;r die Gruppe, die die m23-Clients enthalten soll.
+<BR></LI>
+<LI>Aktualisieren Sie die m23-Gruppe in der Konfiguration Ihres DHCP-Servers regelm&#228;&#223;ig (z.B. mittels cronjob oder anderer Verfahren) mit den Daten des m23-Servers von der URL http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php. Diese URL stellt die Konfiguration in ''ISC DHCP server''-Notation f&#252;r m23-Clients, die &#252;ber das Netzwerk booten sollen, bereit. Die Gruppe mit den m23-Clients k&#246;nnte dann wie folgt aussehen:
+<BR><PRE>
+group {
+use-host-decl-names on;
+$\langle$Aus exportDHCPSettings.php eingefügte Daten$\rangle$
+}
+</PRE>
+</LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1923"
+  HREF="node114.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1919"
+  HREF="node110.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1913"
+  HREF="node112.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1921"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1924"
+  HREF="node114.html">Anderer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1920"
+  HREF="node110.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1914"
+  HREF="node112.html">Der andere DHCP-Server kann</A>
+ &nbsp; <B>  <A NAME="tex2html1922"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

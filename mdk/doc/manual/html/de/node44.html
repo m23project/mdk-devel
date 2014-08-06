@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Serversicherung verschlüsseln und hochladen</TITLE>
-<META NAME="description" CONTENT="Serversicherung verschlüsseln und hochladen">
+<TITLE>Hinweis zu GPG-Schlüsseln</TITLE>
+<META NAME="description" CONTENT="Hinweis zu GPG-Schlüsseln">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,94 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node45.html">
 <LINK REL="previous" HREF="node43.html">
-<LINK REL="up" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node45.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1020"
+<A NAME="tex2html1016"
   HREF="node45.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1016"
-  HREF="node43.html">
+<A NAME="tex2html1012"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1010"
+<A NAME="tex2html1006"
   HREF="node43.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1018"
+<A NAME="tex2html1014"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1021"
-  HREF="node45.html">Hinweis zu GPG-Schlüsseln</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1017"
-  HREF="node43.html">Server-Backup</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1011"
-  HREF="node43.html">Server-Backup</A>
- &nbsp; <B>  <A NAME="tex2html1019"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1017"
+  HREF="node45.html">scp</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1013"
+  HREF="node42.html">Server-Backup</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1007"
+  HREF="node43.html">Serversicherung verschlüsseln und hochladen</A>
+ &nbsp; <B>  <A NAME="tex2html1015"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00681000000000000000">
-Serversicherung verschl&#252;sseln und hochladen</A>
+<H2><A NAME="SECTION00682000000000000000">
+Hinweis zu GPG-Schl&#252;sseln</A>
 </H2>
-Hier geben Sie die f&#252;r die Nutzung des gew&#228;hlten externen Speichers erforderlichen Daten ein und bestimmen den GPG-Schl&#252;ssel zum Verschl&#252;sseln der Backupdaten.
+Sollte sich der Schl&#252;ssel, den Sie zum Sichern der Daten verwenden m&#246;chten, nicht in der Liste befinden, so klicken Sie auf <SPAN  CLASS="textit">''GPG-Schl&#252;ssel verwalten''</SPAN> neben der Schl&#252;sselauswahl.
 <BR>
-<BR><HR>
+<OL>
+<LI>
+<BR>
+Unter <SPAN  CLASS="textit">''Dateispeicherdienst''</SPAN> w&#228;hlen Sie zuerst aus, wie Sie die Daten sichern m&#246;chten. Zur Auswahl stehen:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">-</SPAN>: Diese Option sichert den m23-Server nur auf der Festplatte des m23-Servers. Sie sollten diese M&#246;glichkeit nur verwenden, wenn Sie <SPAN  CLASS="textbf">wirklich</SPAN> keinen anderen Server zum Sichern der Backupdaten verwenden m&#246;chten. Im Falle eines Datenverlustes z.B. durch Ausfall der Festplatte des m23-Servers kann keine Wiederherstellung des Servers vorgenommen werden. Sie k&#246;nnen auch die Backups, die auf dem m23-Server im Verzeichnis 
+<BR><PRE>
+/m23/root-only/serverBackups/
+</PRE>
+ abgelegt werden, manuell auf ein externes Medium kopieren.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">scp</SPAN>: Mittels Secure Copy k&#246;nnen Sie die Backup-Daten auf jeden beliebigen Rechner sichern, auf dem ein SSH-Server l&#228;uft. Diese Variante bietet sich an, wenn Sie einen SSH-Server besitzen, der f&#252;r die Speicherung von Backups geeignet ist. Falls dessen Daten ebenfalls in einem Backupzyklus gesichert werden, ist dies eine sehr sichere M&#246;glichkeit zum Schutz Ihres m23-Servers.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">share-online.biz</SPAN>: W&#228;hlen Sie diese Einstellung, so l&#228;dt der m23-Server die verschl&#252;sselten Backupdaten auf einen sogenannten One-Click-Hoster. Sollten Sie keinen Server zur Sicherung des m23-Servers besitzen, so mag diese Variante eine Option f&#252;r Sie sein. Durch die Verschl&#252;sselung sind die Backup-Daten vor dem Einsehen durch andere gesch&#252;tzt. Das Hochladen kann unter Umst&#228;nden einige Zeit in Anspruch nehmen.
+<BR></LI>
+</UL>
+</LI>
+<LI>Klicken Sie auf <SPAN  CLASS="textit">''&#196;ndern''</SPAN> nachdem Sie Ihre Wahl getroffen haben.
+<BR></LI>
+<LI>Je nach Dateispeicherdienst m&#252;ssen Sie andere Angaben machen, damit der gew&#228;hlte Dienst genutzt werden kann.
+<BR>
+</LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1016"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1012"
+  HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1006"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1014"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1017"
+  HREF="node45.html">scp</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1013"
+  HREF="node42.html">Server-Backup</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1007"
+  HREF="node43.html">Serversicherung verschlüsseln und hochladen</A>
+ &nbsp; <B>  <A NAME="tex2html1015"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ISC DHCP Server</TITLE>
-<META NAME="description" CONTENT="ISC DHCP Server">
+<TITLE>Anderer DHCP-Server</TITLE>
+<META NAME="description" CONTENT="Anderer DHCP-Server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,86 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node115.html">
 <LINK REL="previous" HREF="node113.html">
-<LINK REL="up" HREF="node111.html">
+<LINK REL="up" HREF="node110.html">
 <LINK REL="next" HREF="node115.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1939"
+<A NAME="tex2html1935"
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1935"
-  HREF="node111.html">
+<A NAME="tex2html1931"
+  HREF="node110.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1929"
+<A NAME="tex2html1925"
   HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1937"
+<A NAME="tex2html1933"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1940"
-  HREF="node115.html">Anderer DHCP-Server</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1936"
-  HREF="node111.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1930"
-  HREF="node113.html">Der andere DHCP-Server kann</A>
- &nbsp; <B>  <A NAME="tex2html1938"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1936"
+  HREF="node115.html">Proxy DHCP</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1932"
+  HREF="node110.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1926"
+  HREF="node113.html">ISC DHCP Server</A>
+ &nbsp; <B>  <A NAME="tex2html1934"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00923000000000000000">
-ISC DHCP Server</A>
+<H2><A NAME="SECTION00924000000000000000">
+Anderer DHCP-Server</A>
 </H2>
-Handelt es sich bei dem anderen DHCP-Server um den ISC DHCP server, so k&#246;nnen Sie diesen anstelle des m23-DHCP-Servers verwenden.
-<BR>
+
 <OL>
-<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">&#34;PXE&#34;</SPAN> unter <SPAN  CLASS="textit">&#34;Boottyp&#34;</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">&#34;Clientname&#34;</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
 <BR></LI>
-<LI>Deaktivieren Sie den DHCP-Server auf dem m23-Server: Editieren Sie die Datei /etc/default/isc-dhcp-server auf dem m23-Server, kommentieren die Zeile INTERFACES=... mit einer vorangestellten &#34;#&#228;us und f&#252;gen darunter die neue Zeile INTERFACES= ein. Starten Sie anschlie&#223;end den DHCP-Server mit /etc/init.d/isc-dhcp-server restart neu. Dieser l&#228;uft dann zwar, beantwortet aber keine Anfragen mehr.
+<LI>Konfigurieren Sie Ihren DHCP-Server so, da&#223; der m23-Client den in der m23-Weboberfl&#228;che angegebenen Rechnernamen zugewiesen bekommt.
 <BR></LI>
-<LI>Setzen Sie in der Konfiguration Ihres DHCP-Servers die Option use-host-decl-names on f&#252;r die Gruppe, die die m23-Clients enthalten soll.
+<LI>Der PXE-Kernel, den Ihr DHCP-Server an den m23-Client &#252;bermittelt, mu&#223; <SPAN  CLASS="textbf">pxelinux.0</SPAN> hei&#223;en. TFTP-Server ist der m23-Server.
 <BR></LI>
-<LI>Aktualisieren Sie die m23-Gruppe in der Konfiguration Ihres DHCP-Servers regelm&#228;&#223;ig (z.B. mittels cronjob oder anderer Verfahren) mit den Daten des m23-Servers von der URL http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php. Diese URL stellt die Konfiguration in &#207;SC DHCP serverNotation f&#252;r m23-Clients, die &#252;ber das Netzwerk booten sollen, bereit. Die Gruppe mit den m23-Clients k&#246;nnte dann wie folgt aussehen:
-<BR><PRE>
-group {
-use-host-decl-names on;
-$\langle$Aus exportDHCPSettings.php eingefügte Daten$\rangle$
-}
-</PRE>
-</LI>
+<LI>Konfigurieren Sie den DHCP-Server so, da&#223; dieser den m23-Clients als Herkunfts-IP die IP des m23-Servers &#252;bermittelt.
+<BR></LI>
+<LI>Sollte sich der DHCP-Server nicht so einrichten lassen, so m&#252;ssen Sie ggf. einen eigenen TFTP-Server auf demselben Rechner einrichten, der auch Ihren DHCP-Server beinhaltet. Als Basis f&#252;r die Einrichtung des TFTPs k&#246;nnen Sie die Konfigurationsdateien aus dem Verzeichnis /m23/tftp/ verwenden.
+<BR></LI>
 </OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1939"
-  HREF="node115.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1935"
-  HREF="node111.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1929"
-  HREF="node113.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1937"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1940"
-  HREF="node115.html">Anderer DHCP-Server</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1936"
-  HREF="node111.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1930"
-  HREF="node113.html">Der andere DHCP-Server kann</A>
- &nbsp; <B>  <A NAME="tex2html1938"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

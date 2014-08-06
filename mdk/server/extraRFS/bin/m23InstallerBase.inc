@@ -803,16 +803,9 @@ setRootPwd()
 
 
 
-#Creates the initrds for all installed kernel
-createInitrd()
+# Check for and add extX module, if missing in /etc/initramfs-tools/modules
+addExtModulesToInitramfsConf()
 {
-# 	for kernelName in `ls /lib/modules/ | grep -v m23`
-# 	do
-# 		rm "/boot/initrd.img-$kernelName" 2> /dev/null
-# 		touch "/boot/initrd.img-$kernelName"
-# 	done
-
-	# Check for and add extX module, if missing in /etc/initramfs-tools/modules
 	for i in `seq 2 4`
 	do
 		ext="ext$i"
@@ -822,14 +815,30 @@ createInitrd()
 			echo $ext >> /etc/initramfs-tools/modules
 		fi
 	done
+}
+
+
+
+
+
+#Creates the initrds for all installed kernel
+createInitrd()
+{
+	for kernelName in `ls /lib/modules/ | grep -v m23`
+	do
+		rm "/boot/initrd.img-$kernelName" 2> /dev/null
+		touch "/boot/initrd.img-$kernelName"
+	done
 
 	for kimgpkg in `dpkg --get-selections | grep linux-image | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g'`
 	do
-		kernelName=$(echo $kimgpkg | sed 's/^linux-image-//')
-		rm "/boot/initrd.img-$kernelName" 2> /dev/null
-		touch "/boot/initrd.img-$kernelName"
+# 		kernelName=$(echo $kimgpkg | sed 's/^linux-image-//')
+# 		rm "/boot/initrd.img-$kernelName" 2> /dev/null
+# 		touch "/boot/initrd.img-$kernelName"
 		dpkg-reconfigure $kimgpkg
 	done
+
+	apt-get install -f -y --force-yes
 }
 
 
@@ -1232,6 +1241,8 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 	grep -v "Acquire::http::Proxy" /etc/apt/apt.conf > /tmp/apt.conf
 	cat /tmp/apt.conf > /etc/apt/apt.conf
 	rm /tmp/apt.conf
+
+	addExtModulesToInitramfsConf
 
 	updateSystem
 

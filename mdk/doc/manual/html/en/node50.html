@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>cron settings</TITLE>
-<META NAME="description" CONTENT="cron settings">
+<TITLE>Step by step: Adding a new job</TITLE>
+<META NAME="description" CONTENT="Step by step: Adding a new job">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,111 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node51.html">
 <LINK REL="previous" HREF="node49.html">
-<LINK REL="up" HREF="node43.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node51.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1085"
+<A NAME="tex2html1087"
   HREF="node51.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1081"
-  HREF="node43.html">
+<A NAME="tex2html1083"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1075"
+<A NAME="tex2html1077"
   HREF="node49.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1083"
+<A NAME="tex2html1085"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1086"
-  HREF="node51.html">Step by step: Adding</A>
-<B> Up:</B> <A NAME="tex2html1082"
-  HREF="node43.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1076"
-  HREF="node49.html">Hint:</A>
- &nbsp; <B>  <A NAME="tex2html1084"
+<B> Next:</B> <A NAME="tex2html1088"
+  HREF="node51.html">Deletion of jobs</A>
+<B> Up:</B> <A NAME="tex2html1084"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1078"
+  HREF="node49.html">cron settings</A>
+ &nbsp; <B>  <A NAME="tex2html1086"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00687000000000000000">
-cron settings</A>
+<H2><A NAME="SECTION00688000000000000000">
+Step by step: Adding a new job</A>
 </H2>
-The cron daemon executes recurrent jobs at defined points in time and these can be defined with the dialog elements. Points in time for the current job are shown in a table under the heading <SPAN  CLASS="textit">"cron entries"</SPAN>, if there are any. Waiting jobs are marked with a white dot and running jobs with an orange dot.
+
+<OL>
+<LI>Choose the time base you want to schedule the job for at <SPAN  CLASS="textit">''cron time base''</SPAN> first.
+<BR></LI>
+<LI>Now click on <SPAN  CLASS="textit">''Change''</SPAN> to adjust the next dialog elements.
+<BR></LI>
+<LI>You need to insert different values dependent on your previous choice:
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Hourly</SPAN>: The job will be executed every hour or every N'th hour at the given minute.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Repeat ever N hours</SPAN>: The interval between the runs in hours. (E.g. 2: execute every two hours).
+<BR></LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textbf">Dayly</SPAN>: The job will be executed every day at the given time.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
+<BR></LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textbf">Weekly</SPAN>: The job will be started on a given day of week at a given time.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Start minute</SPAN>: The minute the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Start hour</SPAN>: The hour the job will be started.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Day of week</SPAN>: The day of week the job will be started.
+<BR></LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>Click on <SPAN  CLASS="textit">''Add''</SPAN> to add the job finally.
+<BR></LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1087"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1083"
+  HREF="node42.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1077"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1085"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1088"
+  HREF="node51.html">Deletion of jobs</A>
+<B> Up:</B> <A NAME="tex2html1084"
+  HREF="node42.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1078"
+  HREF="node49.html">cron settings</A>
+ &nbsp; <B>  <A NAME="tex2html1086"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Administrer le serveur LDAP</TITLE>
-<META NAME="description" CONTENT="Administrer le serveur LDAP">
+<TITLE>Gérer les clés GPG</TITLE>
+<META NAME="description" CONTENT="Gérer les clés GPG">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,7 +20,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node40.html">
-<LINK REL="previous" HREF="node35.html">
+<LINK REL="previous" HREF="node38.html">
 <LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node40.html">
 </HEAD>
@@ -28,79 +28,65 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html945"
+<A NAME="tex2html941"
   HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html941"
+<A NAME="tex2html937"
   HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html935"
+<A NAME="tex2html931"
   HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html943"
+<A NAME="tex2html939"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html946"
-  HREF="node40.html">Gérer les clés GPG</A>
-<B> monter:</B> <A NAME="tex2html942"
+<B> suivant:</B> <A NAME="tex2html942"
+  HREF="node40.html">Administrer les fichiers image</A>
+<B> monter:</B> <A NAME="tex2html938"
   HREF="node25.html">Serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html936"
-  HREF="node38.html">Description des d&#233;mons</A>
- &nbsp; <B>  <A NAME="tex2html944"
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html932"
+  HREF="node38.html">Administrer le serveur LDAP</A>
+ &nbsp; <B>  <A NAME="tex2html940"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00750000000000000000">
-Administrer le serveur LDAP</A>
-</H1>
-<IMG
-  WIDTH="1125" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
- SRC="./ldapSettings.png"
- ALT="Image ldapSettings"> 
-<BR>
-Ce dialogue vous donne la possibilit&#233; d'administrer plusieurs serveurs LDAP, afin que ceux-ci puissent &#234;tre utilis&#233;s pour l'authentification des utilisateurs par les postes clients. De plus, OpenLDAP peut &#234;tre install&#233; et configur&#233; sur le serveur m23.
+<H1><A NAME="SECTION00760000000000000000">
+G&#233;rer les cl&#233;s GPG</A>
+</H1>Dans ce dialogue <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>G&#233;rer les cl&#233;s GPG<SPAN CLASS="MATH"></SPAN></SPAN>, vous pouvez ajouter des nouvelles cl&#233;s GPG au serveur ou effacer des cl&#233;s existantes. 
+<BR><IMG
+  WIDTH="1249" HEIGHT="504" ALIGN="BOTTOM" BORDER="0"
+ SRC="./manageGPGKeysDialog.png"
+ ALT="Image manageGPGKeysDialog"> 
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Ajouter un nouveau serveur LDAP:</SPAN> Entrez les donn&#233;es n&#233;cessaires dans les champs de saisie. Le nom du serveur peut &#234;tre choisi librement sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Nom du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN> il n'est pas n&#233;cessaire qu'il soit identique avec le nom d'h&#244;te du serveur.<SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ordinateur h&#244;te du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN> par contre, l'adresse IP ou le nom d'h&#244;te complet (avec FQDN) du serveur LDAP est requis. Si vous utilisez un nom d'h&#244;te, celui-ci doit &#234;tre resolvable par le poste client. De plus, vous pouvez changer l'adresse de connexion indiqu&#233;e sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Port de connexion du serveur LDAP<SPAN CLASS="MATH"></SPAN></SPAN>. Si vous entrez un mot de passe d'administrateur valide pour le serveur LDAP dans <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Mot de passe<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Veuillez r&#233;p&#233;ter le mot de passe<SPAN CLASS="MATH"></SPAN></SPAN>, m23 peut enregistrer les donn&#233;es d'authentification pour les postes clients sur le serveur LDAP. Si vous laissez libre les champs pour le mot de passe, les donn&#233;es d'authentification ne pourront qu'&#234;tre lues de ce serveur. Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Modifier un serveur LDAP existant:</SPAN> S&#233;lectionnez en premier lieu un serveur LDAP dans la liste et cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Charger<SPAN CLASS="MATH"></SPAN></SPAN>, les donn&#233;es du serveur seront affich&#233;es dans les champs de saisie. Modifiez les valeurs souhait&#233;es, puis, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Enregistrer les changements<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Effacer un serveur LDAP:</SPAN> S&#233;lectionnez tout d'abord un serveur LDAP dans la liste, puis, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Editer les donn&#233;es enregistr&#233;es sur le serveur LDAP:</SPAN> Pour la configuration des donn&#233;es enregistr&#233;es sur le serveur LDAP, m23 utilise l'interface graphique de phpLDAPadmin. Celle-ci peut &#234;tre lanc&#233;e en cliquant sur son ic&#244;ne.
-<BR></LI>
-</UL>
+<LI><SPAN  CLASS="textbf">Ajouter une nouvelle cl&#233;:</SPAN>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html945"
-  HREF="node40.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html941"
-  HREF="node25.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html935"
-  HREF="node38.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html943"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html946"
-  HREF="node40.html">Gérer les clés GPG</A>
-<B> monter:</B> <A NAME="tex2html942"
-  HREF="node25.html">Serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html936"
-  HREF="node38.html">Description des d&#233;mons</A>
- &nbsp; <B>  <A NAME="tex2html944"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
+<OL>
+<LI>Avec votre outil pr&#233;f&#233;r&#233; de gestion des cl&#233;s GPG, copiez tout d'abord la cl&#233; souhait&#233;e dans le presse-papiers.
+<BR></LI>
+<LI>Puis, entrez la cl&#233; dans le champ de saisie &#224; la gauche de <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Importer la cl&#233; GPG<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR></LI>
+<LI>Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Importer la cl&#233; GPG<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR></LI>
+</OL>
+</LI>
+<LI><SPAN  CLASS="textbf">Effacer une cl&#233; existante:</SPAN>
+
+<OL>
+<LI>S&#233;lectionnez la cl&#233; &#224; effacer dans la liste.
+<BR></LI>
+<LI>Cliquez ensuite sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR></LI>
+</OL>
+</LI>
+</UL>
+<BR><HR>
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>

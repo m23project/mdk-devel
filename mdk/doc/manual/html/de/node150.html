@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Löschen von Gasterweiterungen</TITLE>
-<META NAME="description" CONTENT="Löschen von Gasterweiterungen">
+<TITLE>Apache CloudStack</TITLE>
+<META NAME="description" CONTENT="Apache CloudStack">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,48 +19,97 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node149.html">
-<LINK REL="up" HREF="node147.html">
+<LINK REL="previous" HREF="node146.html">
+<LINK REL="up" HREF="node138.html">
 <LINK REL="next" HREF="node151.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2395"
+<A NAME="tex2html2389"
   HREF="node151.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2391"
-  HREF="node147.html">
+<A NAME="tex2html2385"
+  HREF="node138.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2387"
+<A NAME="tex2html2381"
   HREF="node149.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2393"
+<A NAME="tex2html2387"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2396"
-  HREF="node151.html">Apache CloudStack</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2392"
-  HREF="node147.html">VirtualBox-Erweiterungen herunterladen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2388"
-  HREF="node149.html">Standardversion festlegen</A>
- &nbsp; <B>  <A NAME="tex2html2394"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2390"
+  HREF="node151.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2386"
+  HREF="node138.html">Virtualisierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2382"
+  HREF="node149.html">Löschen von Gasterweiterungen</A>
+ &nbsp; <B>  <A NAME="tex2html2388"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001023000000000000000">
-L&#246;schen von Gasterweiterungen</A>
-</H2>
-Mit einem Klick auf <SPAN  CLASS="textit">&#34;VirtualBox-Erweiterungen l&#246;schen&#34;</SPAN> gelangen Sie zum Paket-Architekten, in dem Sie auch die Gasterweiterungen l&#246;schen k&#246;nnen.
+<H1><A NAME="SECTION001030000000000000000">
+Apache CloudStack<SUP></SUP></A>
+</H1>In diesem Dialog k&#246;nnen Sie Einstellungen f&#252;r Apache CloudStack<SUP></SUP> vornehmen.
+<BR><IMG
+  WIDTH="897" HEIGHT="646" ALIGN="BOTTOM" BORDER="0"
+ SRC="./cloudStack.png"
+ ALT="Image cloudStack"> 
+<BR>
+Unter <SPAN  CLASS="textit">''Zugangsdaten''</SPAN> nehmen Sie einige grundlegende Einstellungen vor, damit eine Verbindung zum Apache CloudStack<SUP></SUP>-Service hergestellt werden kann. Diese Parameter erhalten Sie von Ihrem Apache CloudStack<SUP></SUP>-Betreiber oder aus Ihrer eigenen Apache CloudStack<SUP></SUP>-Installation.
+<BR>
+Unter <SPAN  CLASS="textit">''API-Endpunkt''</SPAN> geben Sie die Adresse (z.B. https://mein-server/client/api ) f&#252;r die Kommunikation zum Apache CloudStack<SUP></SUP>-Service an. F&#252;r den Zugriff ben&#246;tigen Sie au&#223;erdem einen API-Schl&#252;ssel und einen geheimen API-Schl&#252;ssel, welche Sie unter <SPAN  CLASS="textit">''API-Schl&#252;ssel''</SPAN> und <SPAN  CLASS="textit">''Geheimer API-Schl&#252;ssel''</SPAN> eintragen.
+<BR><SPAN  CLASS="textit">''Service offering ID''</SPAN> (CPU und RAM), <SPAN  CLASS="textit">''Netzwerk-ID''</SPAN> (virtuelles Apache CloudStack<SUP></SUP>-Netzwerk) und <SPAN  CLASS="textit">''Disk offering ID''</SPAN> (virtueller Festplattentyp) beschreiben die Werte, mit denen ein neuer m23-Client in Apache CloudStack<SUP></SUP> angelegt wird.
+<BR>
+Unver&#228;nderlich sind (im Moment) die Auswahl des Bootmediums mit dem die Betriebssysteminstallation durchgef&#252;hrt wird <SPAN  CLASS="textit">''ISO-ID''</SPAN>, die ben&#246;tigte L&#246;sung zum Virtualisieren <SPAN  CLASS="textit">''Virtualisierungssoftware''</SPAN> und die Nummer des Betriebssystems <SPAN  CLASS="textit">''Betriebssystem-Nummer''</SPAN>.
+<BR>
+Mit einem Klick auf <SPAN  CLASS="textit">''Speichern''</SPAN> bzw. <SPAN  CLASS="textit">''Testen''</SPAN> speichern Sie die Konfiguration, wobei der 2. Button zuvor einen Verbindungstest durchf&#252;hrt und nur speichert, wenn kein Fehler vorliegt.
+<BR>
+Unter <SPAN  CLASS="textit">''Apache CloudStack<SUP></SUP> Client-Boot-ISO''</SPAN> w&#228;hlen Sie die Apache CloudStack<SUP></SUP>-Zone (<SPAN  CLASS="textit">''VM-Gastgeberrechner''</SPAN>) aus, in die (falls noch nicht geschehen) das m23-Client-Boot-ISO hochgeladen wird. Starten Sie den Upload mit einem Klick auf <SPAN  CLASS="textit">''Hochladen''</SPAN>. <SPAN  CLASS="textit">''ISO-ID''</SPAN> wird nach dem Hochladen automatisch angepa&#223;t.
+<BR>
+Die Informationen werden in der Datei <SPAN  CLASS="textit">''/m23/inc/CloudStackConf.php''</SPAN> auf dem Server abgelegt, die Sie auch mit einem Texteditor bearbeiten k&#246;nnen.
 <BR>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2391"
+  HREF="node151.html">Hinweis</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2389"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2385"
+  HREF="node138.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2381"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2387"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2390"
+  HREF="node151.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2386"
+  HREF="node138.html">Virtualisierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2382"
+  HREF="node149.html">Löschen von Gasterweiterungen</A>
+ &nbsp; <B>  <A NAME="tex2html2388"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 dodger
-2014-01-22
+2014-08-06
 </ADDRESS>
 </BODY>
 </HTML>
