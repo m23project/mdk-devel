@@ -15,9 +15,9 @@ rm /tmp/dash.debconf
 grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
 
 #Add the URL for server update if missing
-if [ `grep -c "http://switch.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
+if [ `grep -c "http://kent.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
 then
-	echo "deb http://switch.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
+	echo "deb http://kent.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
 fi
 
 cat /tmp/sources.list > /etc/apt/sources.list
