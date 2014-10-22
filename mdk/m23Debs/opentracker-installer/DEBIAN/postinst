@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+tempDir='/tmp/opentracker'
+optionsToEnable="-DWANT_ACCESSLIST_WHITE -DWANT_COMPRESSION_GZIP -DWANT_RESTRICT_STATS"
+
+
+
+# CVS/GIT
+	mkdir -p $tempDir
+	cd $tempDir
+
+	cvs -d :pserver:cvs@cvs.fefe.de:/cvs -z9 co libowfat
+	cd libowfat
+	make
+	cd ..
+	git clone git://erdgeist.org/opentracker
+	cd opentracker
+
+	for opt in `echo $optionsToEnable`
+	do
+		sed -i "s/^#FEATURES+=$opt$/FEATURES+=$opt/" Makefile
+	done
+	make
+	mv opentracker /usr/bin/
+
+	cd /
+	rm -r $tempDir
+
+
+
+# Included tar
+if [ ! -f /usr/bin/opentracker ]
+then
+	mkdir -p $tempDir
+	cd $tempDir
+
+	tar xfvj /usr/share/opentracker/opentracker-src.tar.bz2
+
+	cd libowfat
+	make
+	cd ..
+
+	cd opentracker
+
+	for opt in `echo $optionsToEnable`
+	do
+		sed -i "s/^#FEATURES+=$opt$/FEATURES+=$opt/" Makefile
+	done
+	make
+
+	cd /
+	rm -r $tempDir
+fi
+
+if [ ! -f /usr/bin/opentracker ]
+then
+	echo 'Could not compile opentracker'
+	exit 1
+fi
+
+db_stop
