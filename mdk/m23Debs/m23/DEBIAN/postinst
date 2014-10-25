@@ -361,6 +361,12 @@ then
 	#copy the public key to the m23 directory
 	cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
 	chown www-data.www-data /m23/data+scripts/packages/baseSys/authorized_keys
+else
+	if [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ]
+	then
+		cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+		chown www-data.www-data /m23/data+scripts/packages/baseSys/authorized_keys
+	fi
 fi
 
 
