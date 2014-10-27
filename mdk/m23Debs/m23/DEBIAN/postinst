@@ -4,6 +4,9 @@
 . /usr/share/debconf/confmodule
 
 
+#Create a symlinks to the System-V-Init directory to get the Bittorrent tracker and initial client, if there are .torrent files in the share directory
+ln -s /m23/vms/bin/restoreBTServer /etc/init.d/
+update-rc.d -f restoreBTServer defaults
 
 
 
