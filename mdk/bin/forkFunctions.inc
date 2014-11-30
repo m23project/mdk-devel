@@ -307,6 +307,8 @@ RE:tex\.backup$
 *.svn/*
 db/laravel
 *etc/*
+*mailConf.php*
+*CloudStackConf.php*
 EOF
 	chown dodger.dodger .bzrignore
 
