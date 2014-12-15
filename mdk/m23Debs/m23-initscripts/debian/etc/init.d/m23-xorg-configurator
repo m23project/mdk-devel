@@ -82,6 +82,7 @@ cp -r /etc/sysconfig/* /etc/sysconfig2
 #This may be created by m23-xorg.conf-generator.sh
 if [ -f /tmp/reboot ]
 then
+	rm /tmp/reboot
 	echo ">>>Rebooting..." >> /var/log/m23-xorg.conf-generator.log
 	reboot
 fi
