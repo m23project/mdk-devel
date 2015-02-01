@@ -8,6 +8,9 @@ fi
 
 suite=$1
 
+# Make sure that p7zip-full (7za), debootstrap and dpkg-dev (dpkg-architecture) are installed.
+apt-get install -y p7zip-full debootstrap dpkg-dev
+
 #Figure out the architecture to download the packages
 if [ $2 ]
 then
@@ -20,7 +23,7 @@ mkdir "$suite-$arch"
 cd "$suite-$arch"
 
 #Debootstrap the distribution
-debootstrap --arch=$arch --include="parted wget" $suite .
+debootstrap --arch=$arch --include="parted wget" $suite . http://ftp.de.debian.org/debian
 
 #Delete the packages
 rm ./var/cache/apt/archives/* 2> /dev/null

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Get all packages from tasksel, that install desktops
+tasksel --list-tasks 2> /dev/null | grep desktop | cut -d' ' -f2 | sed 's/[\t ].*//' | xargs -n1 tasksel -t install  2> /dev/null | sed 's/.* install //'

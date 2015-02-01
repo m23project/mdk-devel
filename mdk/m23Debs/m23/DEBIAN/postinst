@@ -855,6 +855,8 @@ updateSQLIfOlder $oldversionint 131100637 "CREATE TABLE m23Admins ( ID int(10) u
 updateSQLIfOlder $oldversionint 131100669 "ALTER TABLE recommendpackages CHANGE normalPackage normalPackage LONGTEXT NOT NULL"
 
 updateSQLIfOlder $oldversionint 143100752 "ALTER TABLE clients ADD CFDiskTemp LONGBLOB NOT NULL AFTER partitions"
+updateSQLIfOlder $oldversionint 143100752 "ALTER TABLE clients ADD definedDiskSizes LONGBLOB NOT NULL AFTER CFDiskTemp"
+
 
 ######################
 # DB adjustments END #
