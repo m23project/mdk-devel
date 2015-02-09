@@ -351,6 +351,10 @@ createRFSCopyExtraFilesAndDirs()
 	tar --same-owner -C `getRootFSDownloadDirWithArch`/completeExtracted -c . | tar x
 	cp -n -a `getCompiledDirWithArch`/* .
 
+	#Copy the current version of m23hwscanner
+	cp -v /mdk/m23Debs/m23-hwscanner/debian/bin/m23hwscanner bin
+
+
 	kernelName=$(ls lib/modules/)
 	depmod -a -b . $kernelName
 
@@ -454,7 +458,7 @@ createRFSFinishInitrd()
 	#prepare the kernel image
 	chmod 0555 $kernelSDir/bzImage
 	chown root:root $kernelSDir/bzImage
-	rdev $kernelSDir/bzImage /dev/ram0
+#	rdev $kernelSDir/bzImage /dev/ram0
 
 	#compress the initrd image and move it to the directory
 	echo -n "Compressing the initrd..."
@@ -620,8 +624,6 @@ for deb in `ls archivs/*$arch*.deb archivs/*_all.deb`
 do
 	dpkg-deb -X $deb .
 done
-
-
 
 mkdir completeExtracted
 # 	dpkg-deb -X /mdk/m23Debs/debs/hwsetup*$arch*.deb completeExtracted

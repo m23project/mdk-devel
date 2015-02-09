@@ -9,12 +9,13 @@ menuVarInit
 
 #	"update" "build m23/MDK updates"\
 startOption=`startOption 2>/dev/null` || startOption=/tmp/startOption$$
-dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "Main menu" --menu "Main menu" 14 75 8 \
+dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "Main menu" --menu "Main menu" 15 75 9 \
 	"serverISO" "tools for generating, burning a server ISO" \
 	"clientISO" "netBootImage and ISO for client installation"\
 	"debs" "build special m23 Debian packages"\
 	"doc" "build documents"\
 	"fork" "Management of development/release version on this machine"\
+	"menuVarReset" "Resets (deletes) all variable files"\
 	"help" "view the help file for this menu" \
 	"quit" "quit menu" 2> $startOption
 retval=$?
@@ -29,6 +30,16 @@ esac
 choice=`cat $startOption`
 
 rm $startOption
+
+
+
+# Resets (deletes) all variable files
+if test $choice == "menuVarReset"
+then
+	menuVarReset
+	/mdk/bin/menuStart
+fi
+
 
 #build iso
 if test $choice == "serverISO"

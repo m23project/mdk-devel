@@ -64,7 +64,8 @@ dialog --clear --title "Kernel version" \
 "2.6" "Linux kernel v2.6" \
 "3.2" "Linux kernel v3.2" \
 "3.4" "Linux kernel v3.4" \
-"3.9" "Linux kernel v3.9" 2> /tmp/kernelMenuBranch
+"3.9" "Linux kernel v3.9" \
+"3.16" "Linux kernel v3.16" 2> /tmp/kernelMenuBranch
 retval=$?
 case $retval in
 	1)
@@ -111,7 +112,7 @@ listKernelVersions()
 	else
 		# Kernels 3.x
 		wget -o /dev/null ftp://ftp.kernel.org/pub/linux/kernel/v3.x/
-		for kernelname in `grep "linux-" index.html | cut -d'"' -f2 | grep tar.bz2 | grep -v sign | tr -s ' ' | cut -d' ' -f9  | cut -d'/' -f8 | grep "linux-$kernelBranch" | sort -t'.' -k2,3 -n -r`
+		for kernelname in `grep "linux-" index.html | cut -d'"' -f2 | grep tar.xz | grep -v sign | tr -s ' ' | cut -d' ' -f9  | cut -d'/' -f8 | grep "linux-$kernelBranch" | sort -t'.' -k2,3 -n -r`
 		do
 			echo "\"$kernelname\" \"\" \\"
 		done
@@ -167,9 +168,15 @@ echo "Downloading the kernel"
 wget -c ftp://ftp.kernel.org/pub/linux/kernel/v'$kernelDownloadDir'/$kernelDownloadFile
 
 echo "Extracting kernel"
-tar xfj $kernelDownloadFile
 
-echo $kernelDownloadFile | sed "s/.tar.bz2//" > /tmp/m23kernelDir
+if [ $( file $kernelDownloadFile | grep -c XZ) -gt 0 ]
+then
+	tar xfJ $kernelDownloadFile
+	echo $kernelDownloadFile | sed "s/.tar.xz//" > /tmp/m23kernelDir
+else
+	tar xfj $kernelDownloadFile
+	echo $kernelDownloadFile | sed "s/.tar.bz2//" > /tmp/m23kernelDir
+fi
 
 rm `echo $kernelDownload`
 

@@ -737,6 +737,22 @@ fi
 
 
 
+#name checkUEFI()
+#description Checks, if UEFI is active and stores the result in the associative array.
+checkUEFI()
+{
+	if [ -d /sys/firmware/efi ]
+	then
+		addAssoc "uefi" "1"
+	else
+		addAssoc "uefi" "0"
+	fi
+}
+
+
+
+
+
 bootDevice=$1
 rootDevice=$2
 export rootDevice
@@ -771,6 +787,7 @@ fi
 
 addAssoc "ver" "2"
 
+checkUEFI
 scanDisksPartitions
 getHardwareData
 
