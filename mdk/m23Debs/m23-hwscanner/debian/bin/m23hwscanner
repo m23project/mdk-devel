@@ -68,7 +68,7 @@ getDrives()
 {
 	echo No | parted -m -l 2> /dev/null | grep "dev" | sed 's#Error: ##g' | sed -e '/Read-only file system/b1;b;:1 N;d' | cut -d':' -f1 | sed 's#[^a-z0-9A-Z/]##g' > /tmp/getDrives.list
 	dmesg | grep '\* md[0-9].* configuration \*' | sed 's#[^md0-9]##g' | awk '{print("/dev/"$0)}' >> /tmp/getDrives.list
-	sort -u /tmp/getDrives.list | grep dev
+	sort -u /tmp/getDrives.list | grep dev | grep -v dev/sc
 }
 
 

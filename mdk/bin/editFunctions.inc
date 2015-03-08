@@ -9,6 +9,8 @@ file=$1
 search=$2
 insert=$3
 
+echo "EDIT_addIfNotExists($@)"
+
 tempFile="/tmp/m23edit$$"
 
 awk -vS="$search" -vA="$insert" '
