@@ -867,7 +867,7 @@ updateDB
 
 #Adjust the ramdisk sizes of all PXE settings
 kernelRamDisk=`grep kernelRamDisk /m23/inc/kernelRamDisk.inc | sed 's/[^0-9]//g'`
-sed -i "s/ramdisk_size=[0-9]*/ramdisk_size=$kernelRamDisk/g" /m23/tftp/pxelinux.cfg/*
+sed -i "s/ramdisk_size=[0-9]*/ramdisk_size=$kernelRamDisk/g" /m23/tftp/pxelinux.cfg/* /m23/tftp/grub/grub.cfg
 restartDHCPServer
 
 
