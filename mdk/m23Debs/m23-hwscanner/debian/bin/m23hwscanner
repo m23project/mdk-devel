@@ -623,6 +623,9 @@ scanDisksPartitions()
 
 		#label the partition
 		checkdisklabel "$path" 2> /dev/null > /dev/null
+		
+		[ `parted -s $path print | grep Table | grep -i -c gpt` -gt 0 ]
+		isGPT=$?
 
 		#Get all information about the drive
 		driveInfo=`getDriveInfo "$path"`
@@ -654,13 +657,19 @@ scanDisksPartitions()
 			
 			#echo "$path: $partInfo dn: $devNr pn: $partNr fs:`getPartFS $partInfo`"
 
-			#Only add a type here if it's not a MD (MDs get RAID-? as type)
-			if [ `echo $path | grep md -c` -eq 0 ]
+			if [ $isGPT -eq 0 ]
 			then
-				addAssoc `printf "dev%ipart%i_type" $devNr $partNr` `getPartType $partInfo`
+				addAssoc `printf "dev%ipart%i_type" $devNr $partNr` 'efipart'
 				partPath="$path`getPartNr $partInfo`"
 			else
-				partPath=$path
+				#Only add a type here if it's not a MD (MDs get RAID-? as type)
+				if [ `echo $path | grep md -c` -eq 0 ]
+				then
+					addAssoc `printf "dev%ipart%i_type" $devNr $partNr` `getPartType $partInfo`
+					partPath="$path`getPartNr $partInfo`"
+				else
+					partPath=$path
+				fi
 			fi
 
 			#figure out, if the partition is bootable

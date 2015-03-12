@@ -1,17 +1,30 @@
 #!/bin/sh
 
+# What disk label is wanted?
+if [ `dmidecode | grep "Vendor: Apple Computer, Inc." -c` -gt 0 ] || [ -d /sys/firmware/efi ]
+then
+	wantedLabel='gpt'
+else
+	wantedLabel='msdos'
+fi
+
+# Check, if there is no disk label => Set the wanted disk label
 parted -s $1 print 2> /tmp/checklabeltest
 parted -s $1 print >> /tmp/checklabeltest 2> /dev/null
 if [ `grep unrecognised /tmp/checklabeltest -c` -gt 0 ]
-# || [ `grep loop /tmp/checklabeltest -c` -gt 0 ]
 then
 	if [ `grep "Warning:" /tmp/checklabeltest -c` -eq 0 ]
 	then
-		if [ `dmidecode | grep "Vendor: Apple Computer, Inc." -c` -eq 0 ]
-		then
-			parted -s $1 mklabel msdos
-		else
-			parted -s $1 mklabel GPT
-		fi
+		parted -s $1 mklabel $wantedLabel
+		exit 0
 	fi
 fi
+
+# A wrong disk label is set => Set the wanted disk label
+if [ `parted -s $1 print | grep Table | grep -i -c $wantedLabel` -eq 0 ]
+then
+	parted -s $1 mklabel $wantedLabel
+	exit 0
+fi
+
+exit 0

@@ -1,4 +1,8 @@
 #!/bin/sh
+
+#For UEFI
+mount -o remount,rw /dev/ram0 /
+
 /bin/HWMiniInit.sh
 
 mv /dev/random /dev/random-blocks
