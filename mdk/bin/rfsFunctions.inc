@@ -277,6 +277,9 @@ createRFSBins()
 	#Needed for lspci (but seems not to be detected on amd64)
 	createRFScopyLib libresolv.so.2
 
+	#Needed for sgdisk (but seems not to be detected on amd64)
+	createRFScopyLib libicudata.so.48
+
 	createRFScopyLib libdbus-1.so.3
 	createRFScopyLib libhal.so.1
 	createRFScopyLib libudev.so.0
