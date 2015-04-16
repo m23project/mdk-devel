@@ -525,9 +525,7 @@ createRFSISO()
 
 	#adjust the size of the kernel ramdisk in the isolinux configuration
 	ramdiskSize=`getRamDiskSize`
-	sed "s/ramdisk_size=[0-9]*/ramdisk_size=$ramdiskSize/g" isolinux/isolinux.cfg > isolinux.cfg.tmp
-	cat isolinux.cfg.tmp > isolinux/isolinux.cfg
-	rm isolinux.cfg.tmp
+	sed -i "s/ramdisk_size=[0-9]*/ramdisk_size=$ramdiskSize/g" isolinux/isolinux.cfg boot/grub/grub.cfg
 
 	#copy the initrd and kernel to the dir the mkiso expects
 	cp $initrdBuildDir/initrd.gz `getKernelStoreDirWithArch`/bzImage isolinux
@@ -541,8 +539,14 @@ createRFSISO()
 	fi
 
 	#make the iso image
-	#mkisofs -o $bootCDPrefix-$arch.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
-	mkisofs -p "The m23 team [http://m23.sf.net]" -A "MDK [m23 development kit]" -T -J -R -V $bootCDPrefix -o $bootCDPrefix-$arch$extraName.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+	if [ $arch = 'amd64' ]
+	then
+	# BIOS + EFI for 64 bit systems
+		mkisofs -p "The m23 team [http://m23.sf.net]" -A "MDK [m23 development kit]" -T -J -joliet-long -R -V $bootCDPrefix -o $bootCDPrefix-$arch$extraName.iso -b isolinux/isolinux.bin -c isolinux/boot.cat --no-emul-boot -boot-load-size 4 -boot-info-table --eltorito-alt-boot boot/grub/efi.img .
+	else
+		# BIOS only for 32 bit systems
+		mkisofs -p "The m23 team [http://m23.sf.net]" -A "MDK [m23 development kit]" -T -J -joliet-long -R -V $bootCDPrefix -m boot -m efi -m .disk -o $bootCDPrefix-$arch$extraName.iso -b isolinux/isolinux.bin -c isolinux/boot.cat --no-emul-boot -boot-load-size 4 -boot-info-table .
+	fi	
 
 	#Check if the iso should be moved to a special directory
 	if [ $isoDir ]
