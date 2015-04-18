@@ -578,7 +578,7 @@ getPartFS()
 {
 	fs=$(echo "$1" | cut -d'#' -f6)
 	
-	if [ -z $fs ]
+	if [ -z $fs ] || [ -d /sys/firmware/efi ]
 	then
 		echo "$1" | cut -d'#' -f5 | awk '/primary|extended|logical/ {print(""); exit 0}
 {print}'
