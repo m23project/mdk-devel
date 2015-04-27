@@ -83,6 +83,18 @@ sed "s/###M23###/$fnks/" /m23/data+scripts/m23admin/packages/codepress/languages
 
 
 
+#adds all m23 PHP commands to the mode-php.js of ace to highlight m23 commands like normal PHP commands.
+addm23CommandsToACE()
+{
+fnks=`grep ^function /m23/inc/* -r -h | grep _ | cut -d' ' -f2 | cut -d'(' -f1 | sort -u | awk -v ORS='|' '{print}' | sed 's/|$//'`
+
+sed "s/###M23###/$fnks/" /m23/data+scripts/ace/src-min-noconflict/mode-php.js.pre-insert-m23-functions > /m23/data+scripts/ace/src-min-noconflict/mode-php.js
+}
+
+
+
+
+
 #Get all m23 files and directories are owned by the user dodger and stores the result in the file /tmp/dodgerFiles.lst
 dodgerFilesGetFileList()
 {
