@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UPDATE_getInfo</TITLE>
-<META NAME="description" CONTENT="UPDATE_getInfo">
+<TITLE>POOL_download</TITLE>
+<META NAME="description" CONTENT="POOL_download">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node1042.html">
 <LINK REL="previous" HREF="node1040.html">
-<LINK REL="up" HREF="node1037.html">
+<LINK REL="up" HREF="node1027.html">
 <LINK REL="next" HREF="node1042.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16625"
+<A NAME="tex2html17010"
   HREF="node1042.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16621"
-  HREF="node1037.html">
+<A NAME="tex2html17006"
+  HREF="node1027.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16617"
+<A NAME="tex2html17000"
   HREF="node1040.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16623"
+<A NAME="tex2html17008"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16626"
-  HREF="node1042.html">./inc/vm.php</A>
-<B> Up:</B> <A NAME="tex2html16622"
-  HREF="node1037.html">./inc/update.php</A>
-<B> Previous:</B> <A NAME="tex2html16618"
-  HREF="node1040.html">UPDATE_getUrl</A>
- &nbsp; <B>  <A NAME="tex2html16624"
+<B> Next:</B> <A NAME="tex2html17011"
+  HREF="node1042.html">POOL_showDownloadStatus</A>
+<B> Up:</B> <A NAME="tex2html17007"
+  HREF="node1027.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html17001"
+  HREF="node1040.html">POOL_getDir</A>
+ &nbsp; <B>  <A NAME="tex2html17009"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008334000000000000000">
-UPDATE_getInfo</A>
+<H2><A NAME="SECTION0083114000000000000000">
+POOL_download</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns the information text from the URL
+<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>URL: URL to the information text
+<LI>poolName: name of the pool
 </LI>
-<LI>refreshTime: The time in minutes the file is downloaded again.
+<LI>distr: name of the distribution
+</LI>
+<LI>sourceslist: list of the package sources
+</LI>
+<LI>release: release branch of the choosen distribution to download the packages from
+</LI>
+<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+</LI>
+<LI>arch: download the packages for a specific CPU architecture
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

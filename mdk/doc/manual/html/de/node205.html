@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis</TITLE>
-<META NAME="description" CONTENT="Hinweis">
+<TITLE>Client definieren</TITLE>
+<META NAME="description" CONTENT="Client definieren">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,64 +19,118 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node206.html">
+<LINK REL="next" HREF="node211.html">
 <LINK REL="previous" HREF="node204.html">
-<LINK REL="up" HREF="node203.html">
+<LINK REL="up" HREF="node204.html">
 <LINK REL="next" HREF="node206.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3102"
+<A NAME="tex2html3153"
   HREF="node206.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3098"
-  HREF="node203.html">
+<A NAME="tex2html3149"
+  HREF="node204.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3092"
+<A NAME="tex2html3143"
   HREF="node204.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3100"
+<A NAME="tex2html3151"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3103"
-  HREF="node206.html">Den Feldern in der</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3099"
-  HREF="node203.html">Dateiquelle wählen/Spalten zuordnen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3093"
-  HREF="node204.html">Datei auswählen und hochladen</A>
- &nbsp; <B>  <A NAME="tex2html3101"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3154"
+  HREF="node206.html">Hinweis: Externer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3150"
+  HREF="node204.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3144"
+  HREF="node204.html">Masseninstallation</A>
+ &nbsp; <B>  <A NAME="tex2html3152"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001452000000000000000">
-Hinweis</A>
-</H2>
-Neben der grundlegenden Bedingung, da&#223; die in der Datei abgelegten Werte zu den Eigenschaften passen m&#252;ssen, gelten f&#252;r folgende Eigenschaften die zus&#228;tzlichen Bedingungen:
+<H1><A NAME="SECTION001410000000000000000">
+Client definieren</A>
+</H1>
+<IMG
+  WIDTH="826" HEIGHT="1343" ALIGN="BOTTOM" BORDER="0"
+ SRC="./clientBuilder.png"
+ ALT="Image clientBuilder"> 
+<BR>
+Die hier gemachten Voreinstellungen werden f&#252;r alle Massen-Clients benutzt, die von diesem Musterclient abgeleitet werden.
+<BR>
+Einige dieser Einstellungen k&#246;nnen von Client zu Client variieren, diese k&#246;nnen aus einer Datei eingelesen, per Hand eingegeben, automatisch generiert oder f&#252;r alle beibehalten werden. Eine genaue Auswahl &#252;ber die Art der Erstellung treffen Sie bei beim Durchf&#252;hren einer ''Massen-Installation''.
+<BR>(mit * gekennzeichnete Felder m&#252;ssen auf jeden Fall korrekt ausgef&#252;llt werden)
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Anmeldungsdaten lokal auf dem Client speichern.</SPAN>: Wert ''yes'' aktiviert diese Option, jeder andere Wert deaktiviert sie.
+<LI><SPAN  CLASS="textbf">Voreinstellung:</SPAN> Sie k&#246;nnen bereits gespeicherte Konfigurationen ausw&#228;hlen und anschlie&#223;end laden oder l&#246;schen. M&#246;chten Sie die aktuelle Konfiguration speichern, geben Sie einen aussagekr&#228;ftigen Namen ein und klicken auf <SPAN  CLASS="textit">''Speichern''</SPAN>.
 <BR></LI>
-<LI><SPAN  CLASS="textbf">LDAP</SPAN>: Es sind 3 verschiedene Werte zul&#228;ssig:
-<BR>
-<UL>
-<LI>''none'': LDAP nicht benutzen
+<LI><SPAN  CLASS="textbf">Sprache:</SPAN>Hier k&#246;nnen Sie die Sprache f&#252;r Ihren m23-Client ausw&#228;hlen. Diese Sprache wird f&#252;r die Tastatur-, Desktop- und Konsolen-Einstellung verwendet.
 <BR></LI>
-<LI>''read'': Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen.
+<LI><SPAN  CLASS="textbf">Anmeldungsname:</SPAN> Der Name mit dem sich der Benutzer beim Client anmeldet.
 <BR></LI>
-<LI>''write'': Anmeldungsdaten in den LDAP-Server speichern.
+<LI><SPAN  CLASS="textbf">Clientname:</SPAN> Ist der einmalige Name Ihres Clients, dieser sollte nicht mehrfach verwendet werden.
 <BR></LI>
-</UL>
-</LI>
+<LI><SPAN  CLASS="textbf">Abteilung:</SPAN> Diese Angabe ist freiwillig, hier k&#246;nnen Sie eintragen, wo sich der Rechner befindet (z.B. Raumnummer etc.).
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Vorname:</SPAN> Vorname des Benutzers, entspricht dem Loginnamen
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Nachname:</SPAN> Nachname des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">eMail:</SPAN> eMail-Adresse des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Boottyp:</SPAN> Bootstandard f&#252;r das Booten der Clients &#252;ber das Netzwerk 
+<BR></LI>
 </UL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3155"
+  HREF="node206.html">Hinweis: Externer DHCP-Server</A>
+<LI><A NAME="tex2html3156"
+  HREF="node207.html">Hinweis: UEFI</A>
+<LI><A NAME="tex2html3157"
+  HREF="node208.html">Hinweis</A>
+<LI><A NAME="tex2html3158"
+  HREF="node209.html">Hinweis zur Rechnerarchitektur</A>
+<LI><A NAME="tex2html3159"
+  HREF="node210.html">Hinweis: UEFI</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3153"
+  HREF="node206.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3149"
+  HREF="node204.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3143"
+  HREF="node204.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3151"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3154"
+  HREF="node206.html">Hinweis: Externer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3150"
+  HREF="node204.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3144"
+  HREF="node204.html">Masseninstallation</A>
+ &nbsp; <B>  <A NAME="tex2html3152"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

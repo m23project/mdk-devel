@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_liveLogArea</TITLE>
-<META NAME="description" CONTENT="HTML_liveLogArea">
+<TITLE>FDISK_getDriveAndNr</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveAndNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node570.html">
 <LINK REL="previous" HREF="node568.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node570.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10588"
+<A NAME="tex2html10929"
   HREF="node570.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10584"
-  HREF="node556.html">
+<A NAME="tex2html10925"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10578"
+<A NAME="tex2html10919"
   HREF="node568.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10586"
+<A NAME="tex2html10927"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10589"
-  HREF="node570.html">HTML_checkboxChangerButtons</A>
-<B> Up:</B> <A NAME="tex2html10585"
-  HREF="node556.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10579"
-  HREF="node568.html">HTML_hiddenVar</A>
- &nbsp; <B>  <A NAME="tex2html10587"
+<B> Next:</B> <A NAME="tex2html10930"
+  HREF="node570.html">FDISK_getNextFdiskFormatJobNr</A>
+<B> Up:</B> <A NAME="tex2html10926"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10920"
+  HREF="node568.html">FDISK_getDiskType</A>
+ &nbsp; <B>  <A NAME="tex2html10928"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081613000000000000000">
-HTML_liveLogArea</A>
+<H2><A NAME="SECTION0081694000000000000000">
+FDISK_getDriveAndNr</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a log area that updates itself via AJAX by polling from a given URL.
+<SPAN  CLASS="textbf">Description:</SPAN> splits a path (e.g. /dev/hda1) in the device (/dev/hda) and the device number (1). The device is returned as element 0 and the number as element 1 in an array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>htmlNames: Name of the log area.
+<LI>path: the path to partition (e.g. /dev/hde1)
 </LI>
-<LI>width: The width in characters of the log area.
-</LI>
-<LI>height: The height in characters of the log area.
-</LI>
-<LI>url: The HTTP URL to poll.
-</LI>
-<LI>timeout: Time in milliseconds to poll the URL for new status.
-</LI>
-<LI>maxLines: Maximum amount of lines to show in the log area (older lines are removed, when there are too many).
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with two parts. $out[0]=drive (e.g. /dev/hda), $out[1]=the device number
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

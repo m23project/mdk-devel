@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStackGetVMStatus</TITLE>
-<META NAME="description" CONTENT="VM_CloudStackGetVMStatus">
+<TITLE>PREF_getClientPreferences</TITLE>
+<META NAME="description" CONTENT="PREF_getClientPreferences">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1054.html">
 <LINK REL="previous" HREF="node1052.html">
-<LINK REL="up" HREF="node1042.html">
+<LINK REL="up" HREF="node1047.html">
 <LINK REL="next" HREF="node1054.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16831"
+<A NAME="tex2html17164"
   HREF="node1054.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16827"
-  HREF="node1042.html">
+<A NAME="tex2html17160"
+  HREF="node1047.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16821"
+<A NAME="tex2html17154"
   HREF="node1052.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16829"
+<A NAME="tex2html17162"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16832"
-  HREF="node1054.html">VM_CloudStackClientName2ClientID</A>
-<B> Up:</B> <A NAME="tex2html16828"
-  HREF="node1042.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16822"
-  HREF="node1052.html">VM_CloudStackStopVM</A>
- &nbsp; <B>  <A NAME="tex2html16830"
+<B> Next:</B> <A NAME="tex2html17165"
+  HREF="node1054.html">PREF_getValue</A>
+<B> Up:</B> <A NAME="tex2html17161"
+  HREF="node1047.html">./inc/preferences.php</A>
+<B> Previous:</B> <A NAME="tex2html17155"
+  HREF="node1052.html">PREF_loadAllPreferenceValues</A>
+ &nbsp; <B>  <A NAME="tex2html17163"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083411000000000000000">
-VM_CloudStackGetVMStatus</A>
+<H2><A NAME="SECTION008326000000000000000">
+PREF_getClientPreferences</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the status of a virtual machine
+<SPAN  CLASS="textbf">Description:</SPAN> list all preferences
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientname: CloudStack name of the instance / name of the m23 client.
+<LI>default: The name of the preference to list first
+</LI>
+<LI>directOutput: If enabled the preference names will be given out as a HTML option list. If disabled an array with the preference names as key and value will be returned.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>textmessage with machine status (like 'Running' or 'Stopped') or FALSE if no status could be retrieved (e.g. if machine doesn't exist)
+<LI>Array with the preference names or nothing on enabled directOutput.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

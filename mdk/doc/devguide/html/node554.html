@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELP_getHelpString</TITLE>
-<META NAME="description" CONTENT="HELP_getHelpString">
+<TITLE>FDISK_rmJob</TITLE>
+<META NAME="description" CONTENT="FDISK_rmJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node555.html">
 <LINK REL="previous" HREF="node553.html">
-<LINK REL="up" HREF="node551.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node555.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10351"
+<A NAME="tex2html10749"
   HREF="node555.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10347"
-  HREF="node551.html">
+<A NAME="tex2html10745"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10341"
+<A NAME="tex2html10739"
   HREF="node553.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10349"
+<A NAME="tex2html10747"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10352"
-  HREF="node555.html">HELP_showHelpTex</A>
-<B> Up:</B> <A NAME="tex2html10348"
-  HREF="node551.html">./inc/help.php</A>
-<B> Previous:</B> <A NAME="tex2html10342"
-  HREF="node553.html">HELP_getHelp</A>
- &nbsp; <B>  <A NAME="tex2html10350"
+<B> Next:</B> <A NAME="tex2html10750"
+  HREF="node555.html">FDISK_addJob</A>
+<B> Up:</B> <A NAME="tex2html10746"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10740"
+  HREF="node553.html">FDISK_getvPart</A>
+ &nbsp; <B>  <A NAME="tex2html10748"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008153000000000000000">
-HELP_getHelpString</A>
+<H2><A NAME="SECTION0081679000000000000000">
+FDISK_rmJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns the help block for the online help
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition remove job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>topic: the name of the help file
+<LI>dev: selected device (e.g. hda)
 </LI>
-<LI>language: two character language description (e.g. de, en, fr,...)
+<LI>devNr: number of partition, minor number in parted
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

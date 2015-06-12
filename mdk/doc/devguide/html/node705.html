@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_changePasswordDialog</TITLE>
-<META NAME="description" CONTENT="m23SHARED_changePasswordDialog">
+<TITLE>HTML_listSelection</TITLE>
+<META NAME="description" CONTENT="HTML_listSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,49 +28,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12327"
+<A NAME="tex2html12688"
   HREF="node706.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12323"
+<A NAME="tex2html12684"
   HREF="node663.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12317"
+<A NAME="tex2html12678"
   HREF="node704.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12325"
+<A NAME="tex2html12686"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12328"
-  HREF="node706.html">m23SHARED_changePasswordDialog</A>
-<B> Up:</B> <A NAME="tex2html12324"
-  HREF="node663.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html12318"
-  HREF="node704.html">m23SHARED_getCurrentUser</A>
- &nbsp; <B>  <A NAME="tex2html12326"
+<B> Next:</B> <A NAME="tex2html12689"
+  HREF="node706.html">HTML_showTableHeader</A>
+<B> Up:</B> <A NAME="tex2html12685"
+  HREF="node663.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12679"
+  HREF="node704.html">HTML_getElementValue</A>
+ &nbsp; <B>  <A NAME="tex2html12687"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082042000000000000000">
-m23SHARED_changePasswordDialog</A>
+HTML_listSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Tries to change the password for the current m23shared user and shows an error or sucess message. Both of the entered passwords must be identically.
+<SPAN  CLASS="textbf">Description:</SPAN> shows a selection with options stored in an array
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>pwd1: The password.
+<LI>selName: name of the selection
 </LI>
-<LI>pwd2: The retyped password.
+<LI>list: array with the entries. The array can be a simple numeric array or an associative array with discrete entries for the shown name and the value. e.g. : $l[name0]="public"; $l[val0]="internal"; $l[name1]="public1"; $l[val1]="internal1"; public and public1 will be shown the user in the webbrowser, while internal and internal1 are the values that are transfered to the server.
+</LI>
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+</LI>
+<LI>firstName: if you want to use the associative array variant and a first value, you need to set the name that should be shown to the user. This name is stored in firstName
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_showAddDialog</TITLE>
-<META NAME="description" CONTENT="CLIENT_showAddDialog">
+<TITLE>./inc/client.php</TITLE>
+<META NAME="description" CONTENT="./inc/client.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,237 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node283.html">
-<LINK REL="previous" HREF="node281.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="next" HREF="node372.html">
+<LINK REL="previous" HREF="node277.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node283.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6844"
+<A NAME="tex2html7201"
   HREF="node283.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6840"
-  HREF="node201.html">
+<A NAME="tex2html7197"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6834"
+<A NAME="tex2html7191"
   HREF="node281.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6842"
+<A NAME="tex2html7199"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6845"
-  HREF="node283.html">CLIENT_deleteClient</A>
-<B> Up:</B> <A NAME="tex2html6841"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6835"
-  HREF="node281.html">CLIENT_showDelDialog</A>
- &nbsp; <B>  <A NAME="tex2html6843"
+<B> Next:</B> <A NAME="tex2html7202"
+  HREF="node283.html">CLIENT_removeServerCache</A>
+<B> Up:</B> <A NAME="tex2html7198"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html7192"
+  HREF="node281.html">CLIENT_DETAILS_addIcon2</A>
+ &nbsp; <B>  <A NAME="tex2html7200"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008781000000000000000">
-CLIENT_showAddDialog</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows the dialog for adding, defining or changing a client
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>addType: defines the behaviour and appearance of the dialog
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008100000000000000000">
+./inc/client.php</A>
+</H1>
+ Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: a lot of routines for client handling. routines for: install and deinstall packages on clients, get information about a special client, list all clients,...
+<BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html7203"
+  HREF="node283.html">CLIENT_removeServerCache</A>
+<LI><A NAME="tex2html7204"
+  HREF="node284.html">CLIENT_touchLiveLogFile</A>
+<LI><A NAME="tex2html7205"
+  HREF="node285.html">CLIENT_getNextFreeIp</A>
+<LI><A NAME="tex2html7206"
+  HREF="node286.html">CLIENT_getAllAsRes</A>
+<LI><A NAME="tex2html7207"
+  HREF="node287.html">CLIENT_touchLogFile</A>
+<LI><A NAME="tex2html7208"
+  HREF="node288.html">CLIENT_liveLogJobName</A>
+<LI><A NAME="tex2html7209"
+  HREF="node289.html">CLIENT_stopLiveScreenRecording</A>
+<LI><A NAME="tex2html7210"
+  HREF="node290.html">CLIENT_startLiveScreenRecording</A>
+<LI><A NAME="tex2html7211"
+  HREF="node291.html">CLIENT_getOverviewSearchLine</A>
+<LI><A NAME="tex2html7212"
+  HREF="node292.html">CLIENT_showOverviewSearchDialog</A>
+<LI><A NAME="tex2html7213"
+  HREF="node293.html">CLIENT_extraWebAction</A>
+<LI><A NAME="tex2html7214"
+  HREF="node294.html">CLIENT_getOption</A>
+<LI><A NAME="tex2html7215"
+  HREF="node295.html">CLIENT_getDistribution</A>
+<LI><A NAME="tex2html7216"
+  HREF="node296.html">CLIENT_runDebconf</A>
+<LI><A NAME="tex2html7217"
+  HREF="node297.html">CLIENT_copyDebconfDB</A>
+<LI><A NAME="tex2html7218"
+  HREF="node298.html">CLIENT_setDebconfDB</A>
+<LI><A NAME="tex2html7219"
+  HREF="node299.html">CLIENT_getDebconfDB</A>
+<LI><A NAME="tex2html7220"
+  HREF="node300.html">CLIENT_getDebconfDBValue</A>
+<LI><A NAME="tex2html7221"
+  HREF="node301.html">CLIENT_getAllClientNames</A>
+<LI><A NAME="tex2html7222"
+  HREF="node302.html">CLIENT_getClientAmount</A>
+<LI><A NAME="tex2html7223"
+  HREF="node303.html">CLIENT_getCurrentMemoryUsage</A>
+<LI><A NAME="tex2html7224"
+  HREF="node304.html">CLIENT_getCurrentFreeSpaceInDir</A>
+<LI><A NAME="tex2html7225"
+  HREF="node305.html">CLIENT_getClientID</A>
+<LI><A NAME="tex2html7226"
+  HREF="node306.html">CLIENT_getActiveNetDevices</A>
+<LI><A NAME="tex2html7227"
+  HREF="node307.html">CLIENT_executeOnClientOrIP</A>
+<LI><A NAME="tex2html7228"
+  HREF="node308.html">CLIENT_isBasesystemInstalledFromImage</A>
+<LI><A NAME="tex2html7229"
+  HREF="node309.html">CLIENT_addClient</A>
+<LI><A NAME="tex2html7230"
+  HREF="node310.html">CLIENT_IPexists</A>
+<LI><A NAME="tex2html7231"
+  HREF="node311.html">CLIENT_MACexists</A>
+<LI><A NAME="tex2html7232"
+  HREF="node312.html">CLIENT_exists</A>
+<LI><A NAME="tex2html7233"
+  HREF="node313.html">CLIENT_getAskingParams</A>
+<LI><A NAME="tex2html7234"
+  HREF="node314.html">CLIENT_getParams</A>
+<LI><A NAME="tex2html7235"
+  HREF="node315.html">CLIENT_getClientStatus</A>
+<LI><A NAME="tex2html7236"
+  HREF="node316.html">CLIENT_getProperty</A>
+<LI><A NAME="tex2html7237"
+  HREF="node317.html">CLIENT_listPackages</A>
+<LI><A NAME="tex2html7238"
+  HREF="node318.html">CLIENT_getPossibleActions</A>
+<LI><A NAME="tex2html7239"
+  HREF="node319.html">CLIENT_acceptChanges</A>
+<LI><A NAME="tex2html7240"
+  HREF="node320.html">CLIENT_showHardwareInfo</A>
+<LI><A NAME="tex2html7241"
+  HREF="node321.html">CLIENT_showGeneralInfo</A>
+<LI><A NAME="tex2html7242"
+  HREF="node322.html">CLIENT_showWaitingJobs</A>
+<LI><A NAME="tex2html7243"
+  HREF="node323.html">CLIENT_setLastmodify</A>
+<LI><A NAME="tex2html7244"
+  HREF="node324.html">CLIENT_getSubnet</A>
+<LI><A NAME="tex2html7245"
+  HREF="node325.html">CLIENT_getBroadcast</A>
+<LI><A NAME="tex2html7246"
+  HREF="node326.html">CLIENT_convertMac</A>
+<LI><A NAME="tex2html7247"
+  HREF="node327.html">CLIENT_getIPbyName</A>
+<LI><A NAME="tex2html7248"
+  HREF="node328.html">CLIENT_getNamebyIP</A>
+<LI><A NAME="tex2html7249"
+  HREF="node329.html">CLIENT_getMACbyName</A>
+<LI><A NAME="tex2html7250"
+  HREF="node330.html">CLIENT_sshFetchJob</A>
+<LI><A NAME="tex2html7251"
+  HREF="node331.html">CLIENT_backToRed</A>
+<LI><A NAME="tex2html7252"
+  HREF="node332.html">CLIENT_desasterRecovery</A>
+<LI><A NAME="tex2html7253"
+  HREF="node333.html">CLIENT_wol</A>
+<LI><A NAME="tex2html7254"
+  HREF="node334.html">CLIENT_recalculateStatusBar</A>
+<LI><A NAME="tex2html7255"
+  HREF="node335.html">CLIENT_resetStatusBar</A>
+<LI><A NAME="tex2html7256"
+  HREF="node336.html">CLIENT_startInstall</A>
+<LI><A NAME="tex2html7257"
+  HREF="node337.html">CLIENT_resetAndInstall</A>
+<LI><A NAME="tex2html7258"
+  HREF="node338.html">CLIENT_getBootType</A>
+<LI><A NAME="tex2html7259"
+  HREF="node339.html">CLIENT_isrunning</A>
+<LI><A NAME="tex2html7260"
+  HREF="node340.html">CLIENT_reset</A>
+<LI><A NAME="tex2html7261"
+  HREF="node341.html">CLIENT_showLog</A>
+<LI><A NAME="tex2html7262"
+  HREF="node342.html">CLIENT_getClientName</A>
+<LI><A NAME="tex2html7263"
+  HREF="node343.html">CLIENT_getAllOptions</A>
+<LI><A NAME="tex2html7264"
+  HREF="node344.html">CLIENT_setAllOptions</A>
+<LI><A NAME="tex2html7265"
+  HREF="node345.html">CLIENT_getAllAskingOptions</A>
+<LI><A NAME="tex2html7266"
+  HREF="node346.html">CLIENT_getSetOption</A>
+<LI><A NAME="tex2html7267"
+  HREF="node347.html">CLIENT_options2HiddenForm</A>
+<LI><A NAME="tex2html7268"
+  HREF="node348.html">CLIENT_hiddenForm2options</A>
+<LI><A NAME="tex2html7269"
+  HREF="node349.html">CLIENT_getStatusimage</A>
+<LI><A NAME="tex2html7270"
+  HREF="node350.html">CLIENT_showStatusSelection</A>
+<LI><A NAME="tex2html7271"
+  HREF="node351.html">CLIENT_listCriticalClients</A>
+<LI><A NAME="tex2html7272"
+  HREF="node352.html">CLIENT_isInDebugMode</A>
+<LI><A NAME="tex2html7273"
+  HREF="node353.html">CLIENT_toggleDebugMode</A>
+<LI><A NAME="tex2html7274"
+  HREF="node354.html">CLIENT_getStatusimage</A>
+<LI><A NAME="tex2html7275"
+  HREF="node355.html">CLIENT_generateHTMLStatusBar</A>
+<LI><A NAME="tex2html7276"
+  HREF="node356.html">CLIENT_showDebugSelection</A>
+<LI><A NAME="tex2html7277"
+  HREF="node357.html">CLIENT_isInRescueMode</A>
+<LI><A NAME="tex2html7278"
+  HREF="node358.html">CLIENT_showDirectConnectionHelp</A>
+<LI><A NAME="tex2html7279"
+  HREF="node359.html">CLIENT_isInDebugMode</A>
+<LI><A NAME="tex2html7280"
+  HREF="node360.html">CLIENT_HTMLBackToDetails</A>
+<LI><A NAME="tex2html7281"
+  HREF="node361.html">CLIENT_getId</A>
+<LI><A NAME="tex2html7282"
+  HREF="node362.html">CLIENT_query</A>
+<LI><A NAME="tex2html7283"
+  HREF="node363.html">CLIENT_addChangeElement</A>
+<LI><A NAME="tex2html7284"
+  HREF="node364.html">CLIENT_showDelDialog</A>
+<LI><A NAME="tex2html7285"
+  HREF="node365.html">CLIENT_showAddDialog</A>
+<LI><A NAME="tex2html7286"
+  HREF="node366.html">CLIENT_deleteClient</A>
+<LI><A NAME="tex2html7287"
+  HREF="node367.html">CLIENT_getNames</A>
+<LI><A NAME="tex2html7288"
+  HREF="node368.html">CLIENT_getNamesWithPackages</A>
+<LI><A NAME="tex2html7289"
+  HREF="node369.html">CLIENT_changeClient</A>
+<LI><A NAME="tex2html7290"
+  HREF="node370.html">CLIENT_setAllParams</A>
+<LI><A NAME="tex2html7291"
+  HREF="node371.html">CLIENT_plinkFetchJob</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

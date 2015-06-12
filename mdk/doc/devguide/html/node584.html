@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarStatusByID</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarStatusByID">
+<TITLE>FDISK_deleteDriveFromParam</TITLE>
+<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node585.html">
 <LINK REL="previous" HREF="node583.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node585.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10768"
+<A NAME="tex2html11107"
   HREF="node585.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10764"
-  HREF="node556.html">
+<A NAME="tex2html11103"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10758"
+<A NAME="tex2html11099"
   HREF="node583.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10766"
+<A NAME="tex2html11105"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10769"
-  HREF="node585.html">HTML_setStatusBarStatus</A>
-<B> Up:</B> <A NAME="tex2html10765"
-  HREF="node556.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10759"
-  HREF="node583.html">HTML_setStatusBarStatusByName</A>
- &nbsp; <B>  <A NAME="tex2html10767"
+<B> Next:</B> <A NAME="tex2html11108"
+  HREF="node585.html">./inc/groups.php</A>
+<B> Up:</B> <A NAME="tex2html11104"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11100"
+  HREF="node583.html">FDISK_virtualDeleteDrive</A>
+ &nbsp; <B>  <A NAME="tex2html11106"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081628000000000000000">
-HTML_setStatusBarStatusByID</A>
+<H2><A NAME="SECTION00816109000000000000000">
+FDISK_deleteDriveFromParam</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>id: ID of the status bar
+<LI>vDev: Virtual (internally used) device number of the drive to delete.
 </LI>
-<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
-</LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
+<LI>param: parameter string containing status informations about the harddisks.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>: false on parameter error.
+<LI>Changed param without the drive.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

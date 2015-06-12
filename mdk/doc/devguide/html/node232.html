@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getClientStatus</TITLE>
-<META NAME="description" CONTENT="CLIENT_getClientStatus">
+<TITLE>CAutoTest::parseAnswersFromXML</TITLE>
+<META NAME="description" CONTENT="CAutoTest::parseAnswersFromXML">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node233.html">
 <LINK REL="previous" HREF="node231.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="up" HREF="node192.html">
 <LINK REL="next" HREF="node233.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6244"
+<A NAME="tex2html6564"
   HREF="node233.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6240"
-  HREF="node201.html">
+<A NAME="tex2html6560"
+  HREF="node192.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6234"
+<A NAME="tex2html6554"
   HREF="node231.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6242"
+<A NAME="tex2html6562"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6245"
-  HREF="node233.html">CLIENT_getProperty</A>
-<B> Up:</B> <A NAME="tex2html6241"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6235"
-  HREF="node231.html">CLIENT_getParams</A>
- &nbsp; <B>  <A NAME="tex2html6243"
+<B> Next:</B> <A NAME="tex2html6565"
+  HREF="node233.html">CAutoTest::parseXML</A>
+<B> Up:</B> <A NAME="tex2html6561"
+  HREF="node192.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html6555"
+  HREF="node231.html">CAutoTest::parseActionFromXML</A>
+ &nbsp; <B>  <A NAME="tex2html6563"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008731000000000000000">
-CLIENT_getClientStatus</A>
+<H2><A NAME="SECTION008640000000000000000">
+CAutoTest::parseAnswersFromXML</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the current client status
+<SPAN  CLASS="textbf">Description:</SPAN> Parses an (good, warn, bad) array from the XML.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: name of the client
+<LI>xmlO: Prased XML structure pointing to the array.
+</LI>
+<LI>goodWarnBad: Answer type (CAutoTest::GWB_GOOD, GWB_WARN or GWB_BAD).
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associative array with the good, warn or bad answers, how to fetch the answer from the client/webbrowser/etc. and the answer type (GWB_GOOD, GWB_WARN or GWB_BAD).
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

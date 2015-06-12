@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Paket-Architekt</TITLE>
-<META NAME="description" CONTENT="Paket-Architekt">
+<TITLE>Allgemeines Vorgehen</TITLE>
+<META NAME="description" CONTENT="Allgemeines Vorgehen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,99 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node182.html">
-<LINK REL="previous" HREF="node175.html">
-<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node181.html">
+<LINK REL="previous" HREF="node179.html">
+<LINK REL="up" HREF="node179.html">
 <LINK REL="next" HREF="node181.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2781"
+<A NAME="tex2html2827"
   HREF="node181.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2777"
-  HREF="node158.html">
+<A NAME="tex2html2823"
+  HREF="node179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2771"
+<A NAME="tex2html2817"
   HREF="node179.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2779"
+<A NAME="tex2html2825"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2782"
-  HREF="node181.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2778"
-  HREF="node158.html">Pakete</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2772"
-  HREF="node179.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html2780"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2828"
+  HREF="node181.html">Löschen einer Zusammenstellung</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2824"
+  HREF="node179.html">Paketzusammen&amp;shy;stellungen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2818"
+  HREF="node179.html">Paketzusammen&amp;shy;stellungen</A>
+ &nbsp; <B>  <A NAME="tex2html2826"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001260000000000000000">
-Paket-Architekt</A>
-</H1>
-<IMG
-  WIDTH="1154" HEIGHT="1111" ALIGN="BOTTOM" BORDER="0"
- SRC="./packageBuilder.png"
- ALT="Image packageBuilder"> 
-<BR>
-Der in m23 integrierte Paket-Architekt ist ein komfortables Werkzeug, um direkt aus der m23-Oberfl&#228;che heraus Debian-Pakete zu erstellen, die dann wie gewohnt auf den Clients installiert werden k&#246;nnen. Diese Pakete k&#246;nnen einzelne Dateien oder ganze Verzeichnisb&#228;ume enthalten.
-<BR>
-Die Pakete werden aus Archivdateien im tar-Format mit bzip2- oder gzip-Kompression erzeugt. Darin enthaltene Benutzer- und Zugriffsrechte von Dateien und Verzeichnissen werden dabei ohne Neukompression beibehalten. Die erzeugten Debian-Pakete sind unabh&#228;ngig von einer Distribution und einer Distributionsversion und k&#246;nnen somit auf Debian-, Ubuntu- oder Kubuntu-Clients verwendet werden.
-<BR>
-Die Erstellung des Paketes l&#228;uft folgenderma&#223;en ab:
-<BR>
+<H2><A NAME="SECTION001251000000000000000">
+Allgemeines Vorgehen</A>
+</H2>
+
 <OL>
-<LI>Ablegen der tar-Datei in das Verzeichnis /m23/data+scripts/extraDebs/. Dies kann z.B. durch Hochladen mittels scp geschehen oder durch den integrierten Datei-Upload <SPAN  CLASS="textit">''Tar-Datei zum Umwandeln hochladen''</SPAN>.
+<LI>Klicken Sie auf <SPAN  CLASS="textit">''Paketzusammenstellungen''</SPAN>, <SPAN  CLASS="textit">''Normale Pakete''</SPAN> oder <SPAN  CLASS="textit">''Spezialpakete (f&#252;r erfahrene Benutzer)''</SPAN>.
 <BR></LI>
-<LI>Nach dem Ablegen der Datei klicken Sie auf <SPAN  CLASS="textit">''Aktualisieren''</SPAN>, damit diese in der Liste <SPAN  CLASS="textit">''Dateiliste''</SPAN> erscheinen.
+<LI>Geben Sie das Suchkriterium ein oder lassen Sie das Suchfeld leer, um alle Paketzusammenstellungen anzuzeigen.
 <BR></LI>
-<LI>W&#228;hlen Sie die Datei aus, die sie umwandeln m&#246;chten und klicken neben dem Dateinamen auf <SPAN  CLASS="textit">''In Debian-Paket umwandeln''</SPAN>. Die Aktualisierung der Paketindexdateien erfolgt automatisch, so da&#223; die Paketquelle sofort verwendet werden kann.
+<LI>Klicken Sie auf <SPAN  CLASS="textit">''Suchen''</SPAN>.
+<BR></LI>
+<LI>W&#228;hlen Sie unter <SPAN  CLASS="textit">''gefundene Pakete''</SPAN> die gew&#252;nschten Pakete aus.
+<BR></LI>
+<LI>Klicken Sie auf <SPAN  CLASS="textit">''Vormerken''</SPAN>.
+<BR></LI>
+<LI>Jetzt k&#246;nnen Sie einzelne Pakete aus der Zusammenstellung <SPAN  CLASS="textbf">l&#246;schen</SPAN>, indem Sie hinter dem Paketnamen bei <SPAN  CLASS="textit">''L&#246;schen''</SPAN> einen Haken setzen und anschlie&#223;end auf <SPAN  CLASS="textit">''Ausgew&#228;hlte verwerfen''</SPAN> klicken.
+<BR></LI>
+<LI>Zus&#228;tzliche Pakete k&#246;nnen <SPAN  CLASS="textbf">hinzugef&#252;gt</SPAN> werden, indem Sie &#252;ber den Suchen-Dialog neue suchen und die gew&#252;nschten Pakete hinzuf&#252;gen.
+<BR></LI>
+<LI>Speichern Sie die Zusammenstellung unter gleichem oder anderem Namen.
 <BR></LI>
 </OL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2783"
-  HREF="node181.html">Hinweis</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2781"
-  HREF="node181.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2777"
-  HREF="node158.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2771"
-  HREF="node179.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2779"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2782"
-  HREF="node181.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2778"
-  HREF="node158.html">Pakete</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2772"
-  HREF="node179.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html2780"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

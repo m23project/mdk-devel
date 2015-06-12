@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_passGenerator</TITLE>
-<META NAME="description" CONTENT="HELPER_passGenerator">
+<TITLE>FDISK_definePartitionSelection</TITLE>
+<META NAME="description" CONTENT="FDISK_definePartitionSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node533.html">
 <LINK REL="previous" HREF="node531.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node533.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10085"
+<A NAME="tex2html10485"
   HREF="node533.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10081"
-  HREF="node510.html">
+<A NAME="tex2html10481"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10075"
+<A NAME="tex2html10475"
   HREF="node531.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10083"
+<A NAME="tex2html10483"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10086"
-  HREF="node533.html">HELPER_array2AssociativeArray</A>
-<B> Up:</B> <A NAME="tex2html10082"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html10076"
-  HREF="node531.html">HELPER_getRemoteFileContents</A>
- &nbsp; <B>  <A NAME="tex2html10084"
+<B> Next:</B> <A NAME="tex2html10486"
+  HREF="node533.html">FDISK_getPartitionsFromParam</A>
+<B> Up:</B> <A NAME="tex2html10482"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10476"
+  HREF="node531.html">FDISK_listPartitions</A>
+ &nbsp; <B>  <A NAME="tex2html10484"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081422000000000000000">
-HELPER_passGenerator</A>
+<H2><A NAME="SECTION0081657000000000000000">
+FDISK_definePartitionSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates semi-random passwords via pwgen or DB_genPassword.
+<SPAN  CLASS="textbf">Description:</SPAN> Defines a HTML selection with the partitions (/dev/hda1, /dev/hda2, ...) of a device
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>length: The length of the passwords.
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>amount: The amount of passwords to generate.
+<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
+</LI>
+<LI>selName: name of the selection
+</LI>
+<LI>excludeType: type of partitions, not to show in the selection
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Array with the generated passwords if $amount <SPAN CLASS="MATH"></SPAN> 1 or the password string directly if $amount = 1.
+<LI>The selected partition.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getStatusimage</TITLE>
-<META NAME="description" CONTENT="CLIENT_getStatusimage">
+<TITLE>CHECK_strAlpha</TITLE>
+<META NAME="description" CONTENT="CHECK_strAlpha">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node267.html">
 <LINK REL="previous" HREF="node265.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="up" HREF="node257.html">
 <LINK REL="next" HREF="node267.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6652"
+<A NAME="tex2html7009"
   HREF="node267.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6648"
-  HREF="node201.html">
+<A NAME="tex2html7005"
+  HREF="node257.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6642"
+<A NAME="tex2html6999"
   HREF="node265.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6650"
+<A NAME="tex2html7007"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6653"
-  HREF="node267.html">CLIENT_showStatusSelection</A>
-<B> Up:</B> <A NAME="tex2html6649"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6643"
-  HREF="node265.html">CLIENT_hiddenForm2options</A>
- &nbsp; <B>  <A NAME="tex2html6651"
+<B> Next:</B> <A NAME="tex2html7010"
+  HREF="node267.html">CHECK_strAlphaNum</A>
+<B> Up:</B> <A NAME="tex2html7006"
+  HREF="node257.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html7000"
+  HREF="node265.html">CHECK_float</A>
+ &nbsp; <B>  <A NAME="tex2html7008"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008765000000000000000">
-CLIENT_getStatusimage</A>
+<H2><A NAME="SECTION00889000000000000000">
+CHECK_strAlpha</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> return the image name with the correct color
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>status: the status that should be converted to an image
+<LI>val: Input value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The input value if it contains only characters or stops (or false, if $returnNoDie is true) the program on an error.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

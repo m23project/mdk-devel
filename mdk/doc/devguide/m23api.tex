@@ -22,6 +22,148 @@
 \subsection{ASSI\_prepareClient}
 \textbf{Description:} Prepares a client for assimilisation.\\
 
+\newpage\section{./inc/autoTest.php}
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
+ Description: Functions for test automation.\\
+
+\subsection{AUTOTEST\_getKey}
+\textbf{Description:} Generates the needed scan codes to produce a given character.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item charIn: Input character.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Needed scan codes to produce a given character.
+\end{itemize}
+
+\subsection{AUTOTEST\_calcScancodes}
+\textbf{Description:} Converts an input string that may contain special keys into scancodes (e.g. for usage with VirtualBox)\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input string with normal and special keys.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Scancodes that represent the input string.
+\end{itemize}
+
+\subsection{AUTOTEST\_keyAndRelease}
+\textbf{Description:} Generates (Shift press,) key, key release (and Shift release) codes.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item keyCode: Key (scan) code.
+\item pressShift: true, when Shift should be pressed.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item (Shift press,) key, key release (and Shift release)
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_create}
+\textbf{Description:} Creates a new VM with virtual hard drive in VirtualBox.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item diskSize: Size of the virtual HD in MB.
+\item ramSize: Size of RAM in MB.
+\item VMCreationMessage: Variable where the VirtualBox (error) messages will be written to.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the creation was successfully, otherwise false.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_enableCapture}
+\textbf{Description:} Enables capturing the screen of a VM to a movie file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item movieFile: File to store the capturing in.
+\item VMenableCaptureMessage: Variable where the VirtualBox (error) messages will be written to.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_delete}
+\textbf{Description:} Deletes a VM and its virtual hard drive from VirtualBox.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item VMDeletionMessage: Variable where the VirtualBox (error) messages will be written to.
+\item vmName: Name of the VM.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_start}
+\textbf{Description:} Starts a virtual machine in an existing X session.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item VMStartMessage: Variable where the VirtualBox (error) messages will be written to.
+\item vmName: Name of the VM.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_insertBootISO}
+\textbf{Description:} Inserts a bootable ISO into a VM.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item iso: ISO file with full path.
+\item VMinsertBootISOMessage: Variable where the VirtualBox (error) messages will be written to.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_rebootFromHD}
+\textbf{Description:} Stops the VM, disables booting from ISO and enables HDD booting and starts the VM again.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\end{itemize}
+
+\subsection{AUTOTEST\_executePHPFunction}
+\textbf{Description:} Executes a PHP function with (optionall) parameters.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item params: [0] function name, [1...] parameters for the PHP function.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_keyboardWrite}
+\textbf{Description:} Emulates the keystrokes into a VM.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item toType: Input string with normal and special keys.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_ocrScreen}
+\textbf{Description:} Uses gocr to convert the contents of the VirtualBox VM display to text.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The recognised text of the display.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_getStatus}
+\textbf{Description:} Parses the complete status of a VM.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with the current state of the VM.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_isRunning}
+\textbf{Description:} Checks if a VM is switched on.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the VM is powered on, otherwise false.
+\end{itemize}
+
 \newpage\section{./inc/backup.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for controling BackupPC\\
@@ -193,6 +335,515 @@
 \subsection{CAPTURE\_showTableWith}
 \textbf{Description:} Adds a width element if in captureLoad mode.\\
 
+\newpage\section{./inc/CAutoTest.php}
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
+ Description: Class for test automation.\\
+
+\subsection{CClient::\_\_construct}
+\textbf{Description:} Constructor for new CClient objects. The object holds all information about a single client and loads the values from the DB.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: ID of an existing client (to load), name of an existing or nonexisting (to create) client or associative array of parameters.
+\item checkMode: Check for the input variable.
+\end{itemize}
+
+\subsection{CAutoTest::readAndDefineOrDieXML}
+\textbf{Description:} Checks, is a given variable has a value that is not NULL (it was read via XML) or let the programm die with an error.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item constant: Name of the constant to define.
+\item val: Value read from the XML to check.
+\end{itemize}
+
+\subsection{CAutoTest::readSettings}
+\textbf{Description:} Reads basic settings from settings.m23test and sets them as constants.\\
+
+\subsection{CAutoTest::VMCreate}
+\textbf{Description:} Creates a new VM with virtual hard drive in VirtualBox and (optionally) inserts a bootable ISO into a VM.\\
+
+\subsection{CAutoTest::VMStart}
+\textbf{Description:} Starts a virtual machine in an existing X session.\\
+
+\subsection{CAutoTest::setISO}
+\textbf{Description:} Sets the filename and path of the ISO image for booting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item isoFile: Filename and path of the ISO image for booting.
+\end{itemize}
+
+\subsection{CAutoTest::getISO}
+\textbf{Description:} Get the filename and path to the ISO image for booting.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Filename and path to the ISO image for booting.
+\end{itemize}
+
+\subsection{CAutoTest::isVM}
+\textbf{Description:} Check, if the the test should be run in a VM.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the test should be run in a VM, otherwise false.
+\end{itemize}
+
+\subsection{CAutoTest::getVM\_hdsize}
+\textbf{Description:} Get the hard disk size of the virtual machine (to create).\\
+\textbf{Returns:}
+\begin{itemize}
+\item Hard disk size of the VM.
+\end{itemize}
+
+\subsection{CAutoTest::getVMRam}
+\textbf{Description:} Get the ram size of the virtual machine (to create).\\
+\textbf{Returns:}
+\begin{itemize}
+\item Ram size of the VM.
+\end{itemize}
+
+\subsection{CAutoTest::getMachine}
+\textbf{Description:} Get the name of the (real or virtual) machine, the test is run on.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Name of the (real or virtual) machine, the test is run on.
+\end{itemize}
+
+\subsection{CAutoTest::getMovieFileName}
+\textbf{Description:} Get the movie file name for capturing the VM's screen.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Movie file name (with full path) for capturing the VM's screen.
+\end{itemize}
+
+\subsection{CAutoTest::getLogFileName}
+\textbf{Description:} Get the file name for the log file.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Log file name (with full path).
+\end{itemize}
+
+\subsection{CAutoTest::addToLogFile}
+\textbf{Description:} Appends lines to the log file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item lines: The lines to add.
+\end{itemize}
+
+\subsection{CAutoTest::getTimestampString}
+\textbf{Description:} Returns the date and time in human readable form.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Date and time in human readable form.
+\end{itemize}
+
+\subsection{CAutoTest::setTriggered}
+\textbf{Description:} Sets the trigger state ofthe current sequence event.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item triggered: true, when the current sequence event was triggered, otherwise false.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the current sequence event was triggered.
+\end{itemize}
+
+\subsection{CAutoTest::isTriggered}
+\textbf{Description:} Checks, if the current sequence event was triggered.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, when the current sequence event was triggered.
+\end{itemize}
+
+\subsection{CAutoTest::setTimeout}
+\textbf{Description:} Sets the timeout for the current sequence element.\\
+
+\subsection{CAutoTest::decTimeout}
+\textbf{Description:} Decrements the remaining time for the timeout.\\
+
+\subsection{CAutoTest::addToSequence}
+\textbf{Description:} Adds an element to the sequence.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item triggerType: Type of the trigger (CAutoTest::TRIGGER\_*) or the type event, that should happen to begin with the given element of the sequence.
+\item triggerParam: Parameter for the trigger (e.g. string that should be read from the screen when in CAutoTest::TRIGGER\_OCR mode).
+\item answersA: Associative array with the answers and parameters.
+\item execType: Type of action (CAutoTest::EXEC\_*), that will be executed when the trigger is hit.
+\item execParam: Parameter for the action (e.g. keys to press, when in CAutoTest::EXEC\_KEY mode).
+\item timeout: Time to wait (in seconds) until the element of sequence will become a failure.
+\item description: Description for the test.
+\end{itemize}
+
+\subsection{CAutoTest::matchArray}
+\textbf{Description:} Checks, if the search text is found in one of the texts contained in the array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item search: Text to search in the array elements.
+\item array: Array with texts as element values.
+\end{itemize}
+
+\subsection{CAutoTest::getAnswersA}
+\textbf{Description:} Returns the array with the answers of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with the answers of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::getTriggerTypes}
+\textbf{Description:} Returns the trigger type of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Trigger type of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::getTriggerParams}
+\textbf{Description:} Returns the trigger parameter of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Trigger parameter of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::getExecTypes}
+\textbf{Description:} Returns the type of execution of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Type of execution of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::getExecParams}
+\textbf{Description:} Returns the parameter for execution of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Parameter for execution of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::checkTriggerResult}
+\textbf{Description:} Checks, if the result (e.g. from AUTOTEST\_VM\_ocrScreen) is found in the good, warn or bad array and executes the matching element finish handler.\\
+
+\subsection{CAutoTest::executeTriggerAction}
+\textbf{Description:} Executes the action of the current sequence element.\\
+
+\subsection{CAutoTest::waitForTrigger}
+\textbf{Description:} Waits for a trigger event, to execute the action.\\
+
+\subsection{CAutoTest::getCurElement}
+\textbf{Description:} Returns the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Trigger type of the current sequence element.
+\end{itemize}
+
+\subsection{CAutoTest::nextCurElement}
+\textbf{Description:} Increments the current sequence element number.\\
+
+\subsection{CAutoTest::showAndLogMessage}
+\textbf{Description:} Shows a message and logs it to the log file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message to show in the console and the log file.
+\item prefix: A prefix show before the message to indicate the type of the message.
+\end{itemize}
+
+\subsection{CAutoTest::elemOk}
+\textbf{Description:} The current sequence elements was finished sucessfully.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message to show in the console and the log file.
+\end{itemize}
+
+\subsection{CAutoTest::elemWarn}
+\textbf{Description:} The current sequence elements was finished with a warning.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message to show in the console and the log file.
+\end{itemize}
+
+\subsection{CAutoTest::elemBad}
+\textbf{Description:} There was an error in the current sequence element, so the execution must bestopped.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message to show in the console and the log file.
+\end{itemize}
+
+\subsection{CAutoTest::setVariableFromXML}
+\textbf{Description:} Returns the input value when it is not NULL or exists the script with an error message.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item val: Input value.
+\item descr: Description for the value.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Input value when it is not NULL or exists the script with an error message.
+\end{itemize}
+
+\subsection{CAutoTest::triggerTypeToConstant}
+\textbf{Description:} Tries to convert the trigger type (string) to a trigger type constant.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item type: Trigger type (string).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Trigger type constant.
+\end{itemize}
+
+\subsection{CAutoTest::parseTriggerFromXML}
+\textbf{Description:} Parses the trigger and its type from the XML.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item xmlO: Prased XML structure pointing to the trigger.
+\item testDescription: Description of the test.
+\item testTrigger: Trigger parameter. (Result is written to this pointer)
+\item testTriggerType: Trigger type. (Result is written to this pointer)
+\end{itemize}
+
+\subsection{CAutoTest::parseActionFromXML}
+\textbf{Description:} Parses the action and its type from the XML.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item xmlO: Prased XML structure pointing to the action.
+\item testDescription: Description of the test.
+\item testAction: Action parameter. (Result is written to this pointer)
+\item testActionType: Action type. (Result is written to this pointer)
+\end{itemize}
+
+\subsection{CAutoTest::parseAnswersFromXML}
+\textbf{Description:} Parses an (good, warn, bad) array from the XML.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item xmlO: Prased XML structure pointing to the array.
+\item goodWarnBad: Answer type (CAutoTest::GWB\_GOOD, GWB\_WARN or GWB\_BAD).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with the good, warn or bad answers, how to fetch the answer from the client/webbrowser/etc. and the answer type (GWB\_GOOD, GWB\_WARN or GWB\_BAD).
+\end{itemize}
+
+\subsection{CAutoTest::parseXML}
+\textbf{Description:} Parses the XML test description file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item xmlFile: File name (with full path) of the XML test description file.
+\item argv: Array with the command line parameters.
+\end{itemize}
+
+\newpage\section{./inc/CFDiskAlles.php}
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
+ Description: functions for partition and format of the client. print partition information and do the format itself.\\
+
+\subsection{FDISK\_mdToEndOfArray}
+\textbf{Description:} Orders all MD devices from the input array to the end of the output array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =$>$ /dev/md0 [/dev/sda1] =$>$ /dev/sda1 [/dev/sdb2] =$>$ /dev/sdb2 )).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =$>$ /dev/sda1 [/dev/sdb2] =$>$ /dev/sdb2 [/dev/md0] =$>$ /dev/md0 )).
+\end{itemize}
+
+\subsection{FDISK\_fdiskSessionReset}
+\textbf{Description:} Sets back all session variables (client name optionally) for partitioning and formating a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item resetClientName: If set to true, the name of the client will be deleted too (and re-set by FDISK\_fdiskSessionClient).
+\end{itemize}
+
+\subsection{FDISK\_fdiskSessionPartMethod}
+\textbf{Description:} Stores the partitioning method in the session.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item newMethod: The new method to set or false for not changing.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The current partitioning method.
+\end{itemize}
+
+\subsection{FDISK\_fdiskSessionTitle}
+\textbf{Description:} Stores the partitioning title in the session.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item newTitle: The new title to set or false for not changing.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The current partitioning title.
+\end{itemize}
+
+\subsection{FDISK\_getPartitionByType}
+\textbf{Description:} Gets the FIRST partition matching a partition type.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\item vDev: Virtual (internally used) device number.
+\item type: type of the partition (primary, extended, logical)
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
+\end{itemize}
+
+\subsection{FDISK\_listDrivesAndPartitions}
+\textbf{Description:} Generates a selection that contains all drives and partitions of a given client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\item default: the drive to show first
+\item selName: the name the selection is called in PHP and HTML
+\item pathFilter: Set this to another value than false if you want only devices with a given string in it.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item String with the HTML selection.
+\end{itemize}
+
+\subsection{FDISK\_selectDrives}
+\textbf{Description:} creates a selection list of all drives\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\item selName: the name the selection is called in PHP and HTML
+\item first: the drive to show first
+\end{itemize}
+
+\subsection{FDISK\_getFirstDrive}
+\textbf{Description:} return the first drive as installation drive\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\end{itemize}
+
+\subsection{FDISK\_delFstab}
+\textbf{Description:} Removes an entry from the fstab array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item fstab: Array that contains the fstab information. The changed fstab will be written to this parameter too.
+\item fstabNr: Number of the fstab entry to delete.
+\end{itemize}
+
+\subsection{FDISK\_fstabAddDialog2}
+\textbf{Description:} Dialog for adding fstab entries. This version uses the param and fstab parameters from the session.\\
+
+\subsection{FDISK\_adjustFstabParam}
+\textbf{Description:} Adjust the parameter block of a fstab line to make it use an supported FS.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: The parameter block of a fstab line
+\item sourceName: The name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Adjust the parameter block of a fstab line
+\end{itemize}
+
+\subsection{FDISK\_genManualFstab}
+\textbf{Description:} Generates commands to edit a given fstab, add new entries and remove old ones before.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\item mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
+\end{itemize}
+
+\subsection{FDISK\_getAllDrives}
+\textbf{Description:} gets all drives of the client\\
+\textbf{Parameter:}
+\begin{itemize}
+\item partitions: associative array containing status information about the harddisks
+\end{itemize}
+
+\subsection{FDISK\_listSupportedFS}
+\textbf{Description:} lists all supported fileSystems for the menu.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item selName: name the selection list, used for the html form
+\item showFirst: name of file system shown first
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The currently choosen file system.
+\end{itemize}
+
+\subsection{FDISK\_listInstPartSelector}
+\textbf{Description:} lists all partitions to select for swap and install partition\\
+\textbf{Parameter:}
+\begin{itemize}
+\item param: parameter string containing status informations about the harddisks
+\item default: partition that should be shown as selected
+\item type: array with filesystems that are possible for installation or swap
+\item selName: name of the selection
+\end{itemize}
+
+\subsection{FDISK\_defineDrive}
+\textbf{Description:} defines drive information for the clientBuilder\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: client name
+\item path: path to the drive (/dev/hda, /dev/hdb, ...)
+\item size: size of the drive in MB
+\item upperI: upper tolerance border for disks with identical type
+\item lowerI: lower tolerance border for disks with identical type
+\item upperO: upper tolerance border for disks with other type
+\item lowerO: lower tolerance border for disks with other type
+\item asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
+\item sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
+\end{itemize}
+
+\subsection{FDISK\_getDiskType}
+\textbf{Description:} returnes the type of the drive (CFDiskBasic::DISK\_TYPE\_IDE, CFDiskBasic::DISK\_TYPE\_SCSI)\\
+\textbf{Parameter:}
+\begin{itemize}
+\item path: the path to the device (e.g. /dev/hde)
+\end{itemize}
+
+\subsection{FDISK\_getDrivePartitionSize}
+\textbf{Description:} Calculates the size of a drive or partition.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vDev: Virtual (internally used) device number.
+\item vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
+\item param: parameter string containing status information about the harddisks
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Size of the drive or partition in MB.
+\end{itemize}
+
+\subsection{FDISK\_deleteDriveFromParam}
+\textbf{Description:} Deletes all drive and partition parameters of a drive from param without correcting any order.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vDev: Virtual (internally used) device number of the drive to delete.
+\item param: parameter string containing status informations about the harddisks.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Changed param without the drive.
+\end{itemize}
+
+\subsection{CFDiskIO::setClientName}
+\textbf{Description:} Sets the client name, if given via constructor.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: String to check, if it is a valid client name.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if it is a valid client name, otherwise false.
+\end{itemize}
+
+\subsection{CFDiskIO::getClientName}
+\textbf{Description:} Gets the client name, if set via constructor.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : Client name or dies, when no client name was set.
+\end{itemize}
+
+\subsection{CFDiskIO::getClientObject}
+\textbf{Description:} Gets the client object, of the client the partitioning belongs to.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : Client object.
+\end{itemize}
+
 \newpage\section{./inc/checks.php}
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (hauke@goos-habermann.de)\\
  Description: different checks for validation of email, ip, netmasks, etc.\\
@@ -239,15 +890,28 @@
 \end{itemize}
 
 \subsection{CHECK\_deviceName}
-\textbf{Description:} Checks if the input value is a valid device name for a HD drive or partition.\\
+\textbf{Description:} Checks if the input value is a valid device name for a HD drive or partition or a RAID.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item devName: Device name to check.
 \item partition: Set to true if you want to check for a partition.
+\item diskOrPartition: Set to true, if a disk or partition should be valid. This overwrites the parameter "partition".
+\item raidAllowed: Set to true, if RAIDs are allowed too.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item The input value is a a valid drive or partition or false on an error.
+\item The input value is a valid drive, partition or RAID or false on an error.
+\end{itemize}
+
+\subsection{CHECK\_mointPoint}
+\textbf{Description:} Checks if the input value is a valid mountpoint.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item mountpoint: Mountpoint to check.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The input value is a valid mountpoint or false on an error.
 \end{itemize}
 
 \subsection{CHECK\_int}
@@ -330,6 +994,7 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item dateiname: file name
+\item ignoreEmpty: If set to true, empty lines are ignored.
 \end{itemize}
 
 \subsection{checkIP}
@@ -560,6 +1225,14 @@
 \item clientName: Name of the client.
 \end{itemize}
 
+\subsection{CLIENT\_copyDebconfDB}
+\textbf{Description:} Copies all debconf values from one client to another.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: Name of the source client.
+\item destClient: Name of the destination client.
+\end{itemize}
+
 \subsection{CLIENT\_setDebconfDB}
 \textbf{Description:} Sets debconf values for a client and a package.\\
 \textbf{Parameter:}
@@ -596,6 +1269,13 @@
 \textbf{Returns:}
 \begin{itemize}
 \item Value of the package variable.
+\end{itemize}
+
+\subsection{CLIENT\_getAllClientNames}
+\textbf{Description:} Gets the names of all clients.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with the names of all clients.
 \end{itemize}
 
 \subsection{CLIENT\_getClientAmount}
@@ -683,7 +1363,6 @@
 \item data['gateway']: gateway of the client
 \item data['dns1']: DNS server 1
 \item data['dns2']: DNS server 2
-\item data['pxe']: if true PXE is the boot standard, otherwise Etherboot
 \item data['newgroup']: group of the client
 \item data['language']: client language
 \item data['firstpw']: password for the first user login
@@ -853,10 +1532,11 @@
 \end{itemize}
 
 \subsection{CLIENT\_sshFetchJob}
-\textbf{Description:} connects to the client and lets it fetch the next job\\
+\textbf{Description:} Connects to the client via SSH and lets the next job fetch and execute it in a screen (named "m23install").\\
 \textbf{Parameter:}
 \begin{itemize}
 \item clientName: name of the client
+\item ip: Optional parameter for the client's IP (faster than getting the IP by the client name)
 \end{itemize}
 
 \subsection{CLIENT\_backToRed}
@@ -872,6 +1552,7 @@
 \begin{itemize}
 \item clientName: name of the client
 \item addInstallRemovalJobs: If set to true, the names of all installed packages will be combined to a m23normal and all revomed to a m23normalRemove job.
+\item addShutdownOrRebootPackage: If set to true, a shutdown or reboot package will be added.
 \end{itemize}
 
 \subsection{CLIENT\_wol}
@@ -1141,6 +1822,141 @@
 \item jobName: name of the screen job on the server
 \item ubuntuUser: name of the Ubuntu user or empty if a Debian system is meant.
 \end{itemize}
+
+\newpage\section{./inc/CScredit.php}
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
+ Description: Functions for the embedded script editor.\\
+
+\subsection{CScredit::\_\_construct}
+\textbf{Description:} Constructor for new CScredit objects.\\
+
+\subsection{CScredit::setCurrentScriptFilename}
+\textbf{Description:} Corrects the given filename to have it a valid prefix and suffix and sets it as current file name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item filename: The filename to check and correct.
+\end{itemize}
+
+\subsection{CScredit::getCurrentScriptFilename}
+\textbf{Description:} Gets the current script filename.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current script filename.
+\end{itemize}
+
+\subsection{CScredit::getCurrentScriptFilenameFullPath}
+\textbf{Description:} Gets the current script filename with full path.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current script filename full path.
+\end{itemize}
+
+\subsection{CScredit::getCurrentScriptFilenameWithoutInstallPhp}
+\textbf{Description:} Gets the current script filename without "Install.php" at its end.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current script filename without "Install.php" at its end.
+\end{itemize}
+
+\subsection{CScredit::getLocalScriptFilenames}
+\textbf{Description:} Gets the filenames of local scripts.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with the filenames of local scripts.
+\end{itemize}
+
+\subsection{CScredit::updateOnlineScriptInfo}
+\textbf{Description:} Downloads the information about online available scripts.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the information could be fetched, otherwise false.
+\end{itemize}
+
+\subsection{CScredit::getNextOnlineScriptInfo}
+\textbf{Description:} Gets an information about all scripts that are available online. Every call of the function fetches the information about one script.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ts: Timestamp, when the script was uploaded.
+\item scriptId: Id of the script (needed for download).
+\item scriptName: Name of the script.
+\item author: Name of the author.
+\item description: Description for the script.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if an entry could be read otherwise (e.g. if all entries were read) false.
+\end{itemize}
+
+\subsection{CScredit::loadOnlineScript}
+\textbf{Description:} Loads an online script into the editor.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item scriptIdToLoad: Id of the script to load.
+\end{itemize}
+
+\subsection{CScredit::getOnlineScriptDialog}
+\textbf{Description:} Generates a dialog with JavaScript to get information about online scripts with download option.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Dialog (HTML) with JavaScript to get information about online scripts with download option.
+\end{itemize}
+
+\subsection{CScredit::isNotSaved}
+\textbf{Description:} Returns if there is no script in the editor (after submitting).\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if there is no script in the editor (after submitting), otherwise false.
+\end{itemize}
+
+\subsection{CScredit::getNewScriptTemplate}
+\textbf{Description:} Returns a template for a basic script.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Text of the script template.
+\end{itemize}
+
+\subsection{CScredit::uploadScript}
+\textbf{Description:} Checks, if all needed information are given before uploading the script.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item author: Name of the script author (or pseudonyme)
+\item description: Description for the script.
+\item text: The script code itself.
+\end{itemize}
+
+\subsection{CScredit::getCurrentScript}
+\textbf{Description:} Get the text of the editor window.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current text of the editor window.
+\end{itemize}
+
+\subsection{CScredit::setCurrentScript}
+\textbf{Description:} Set the text of the editor window.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item text: Current text of the editor window to set.
+\end{itemize}
+
+\subsection{CScredit::deleteCurrentScript}
+\textbf{Description:} Deletes the current script, if one is loaded.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the script could be deleted, otherwise false.
+\end{itemize}
+
+\subsection{CScredit::getViewScriptOutputDialog}
+\textbf{Description:} Generates a dialog with JavaScript to choose a client and to open the script output viewer for the currentry saved script.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Dialog (HTML) with JavaScript to choose a client and to open the script output viewer for the currentry saved script.
+\end{itemize}
+
+\subsection{CScredit::saveScript}
+\textbf{Description:} Saves the script in the editor to the file.\\
+
+\subsection{CScredit::show}
+\textbf{Description:} Shows a script editor with syntax highlighting.\\
 
 \newpage\section{./inc/db.php}
  Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
@@ -1593,6 +2409,18 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/edit.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: routines for editing files with sed\\
+
+\subsection{EDIT\_writeToFile}
+\textbf{Description:} Writes a text to a file on a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item file: Name of the file.
+\item text: The text to insert.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Code for writing a text to a file on a client.
+\end{itemize}
 
 \subsection{EDIT\_setOption}
 \textbf{Description:} Changes an option in a configuration file to a given value.\\
@@ -3047,6 +3875,39 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Helper functions that did not fit into another include file.\\
 
+\subsection{HELPER\_URIencode}
+\textbf{Description:} Encodes a string like the JavaScript function URIencode would do it.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input string to be encoded.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Encoded version of the string
+\end{itemize}
+
+\subsection{HELPER\_isUpper}
+\textbf{Description:} Checks, if a character is upper case\\
+\textbf{Parameter:}
+\begin{itemize}
+\item char: Character to check.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, when upper case otherwise false
+\end{itemize}
+
+\subsection{HELPER\_filesize}
+\textbf{Description:} Gets the correct file size of a file, even if it is bigger than 2 GB.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item fileName: Name of the file with full path.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The file size of the file in bytes.
+\end{itemize}
+
 \subsection{HELPER\_isExecutedInCLI}
 \textbf{Description:} Checks, if it is run in CLI.\\
 \textbf{Returns:}
@@ -3675,6 +4536,18 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item The jQuery code for beginning the menu.
 \end{itemize}
 
+\subsection{HTML\_jQueryReStoreYWindowPosition}
+\textbf{Description:} Generates jQuery code for storing the Y scroll position of the window and to restore the position after a submit.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item variablePrefix: Prefix for the hidden variable with the Y position.
+\item hiddenPosCode: Variable where the hidden variable HTML code is written to.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The jQuery code for storing the Y scroll position of the window and to restore the position after a submit.
+\end{itemize}
+
 \subsection{HTML\_jQueryMenuEnd}
 \textbf{Description:} Generates code for ending a the jQuery accordion menu.\\
 \textbf{Parameter:}
@@ -4096,6 +4969,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item paramName: parameter to read from the hardware info (e.g. cpu, mem, ...)
+\item clientName: name of the client
+\end{itemize}
+
+\subsection{HWINFO\_getMemory}
+\textbf{Description:} returns the size of memory\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+
+\subsection{HWINFO\_getHDSize}
+\textbf{Description:} Returnes the sizes of all harddisks in a string, sperated by html breaks\\
+\textbf{Parameter:}
+\begin{itemize}
 \item clientName: name of the client
 \end{itemize}
 
@@ -6020,6 +6907,15 @@ Description: basic package operations (search, add,...)\\
 \item status: New status to set
 \end{itemize}
 
+\subsection{PKG\_removeSpecialFromJobList}
+\textbf{Description:} Removes a special job from the joblist identified by package name and priority.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: Name of the client
+\item package: Name of the package.
+\item priority: Priority of the job.
+\end{itemize}
+
 \subsection{PKG\_previewUpdateSystem}
 \textbf{Description:} returns the information of an system update request\\
 \textbf{Parameter:}
@@ -6042,6 +6938,39 @@ Description: basic package operations (search, add,...)\\
 \begin{itemize}
 \item clientName: name of the client 
 \item packageName: name of the special package
+\end{itemize}
+
+\subsection{PKG\_getClientsWithPackage}
+\textbf{Description:} Gets all clients that have the specific package installed (or with another status).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item packageName: Name of the package.
+\item status: The status the package should have.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with all clients that have the specific package installed (or with another status).
+\end{itemize}
+
+\subsection{PKG\_getClientsWithWaitingJobs}
+\textbf{Description:} Gets all clients that have waiting jobs.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with all clients that have waiting jobs.
+\end{itemize}
+
+\subsection{PKG\_getClientsByPackages}
+\textbf{Description:} Gets all clients that have the specific packages (not) installed (or with another given status).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item packageNames: Array with the packages to check.
+\item status: Debian status code or true for "installed".
+\item and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
+\item not: If set to true, only clients, that have no packes with the given status will be added to the output array.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with all clients that have the specific package (not) installed (or with another given status).
 \end{itemize}
 
 \subsection{PKG\_countPackages}
@@ -6705,6 +7634,13 @@ Description: basic package operations (search, add,...)\\
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for the embedded script editor.\\
 
+\subsection{SCREDIT\_correctScriptFilename}
+\textbf{Description:} Corrects the given filename to have it a valid prefix and suffix.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item filename: The filename to check and correct.
+\end{itemize}
+
 \subsection{SCREDIT\_showEditor}
 \textbf{Description:} Shows a script editor with syntax highlighting if JavaScript is enabled or a normal textarea input dialog.\\
 
@@ -7141,6 +8077,17 @@ Description: basic package operations (search, add,...)\\
 \item mode: The access mode of the path to create (should start with "0" e.g. 0777)
 \end{itemize}
 
+\subsection{SERVER\_commandAvailable}
+\textbf{Description:} Checks, if a given command is available for the given user.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item user: user the command should be run under.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true when the command is available otherwise false.
+\end{itemize}
+
 \newpage\section{./inc/sourceslist.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: function to generate the sources.list for the client\\
@@ -7356,6 +8303,48 @@ Description: basic package operations (search, add,...)\\
 \item first: the desktop that should be shown first
 \end{itemize}
 
+\subsection{SRCLST\_doesDistrSupportEFI}
+\textbf{Description:} Checks, if a sources list contains a distribution that supports EFI.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item sourceName: the name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the distribution supports EFI, otherwise false.
+\end{itemize}
+
+\subsection{SRCLST\_getListnamesWithEfiSupport}
+\textbf{Description:} Gets a list with all sources lists that support EFI.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with all sources lists that support EFI.
+\end{itemize}
+
+\subsection{SRCLST\_clientUsesEfiButSourcesListDoesntSupportEfi}
+\textbf{Description:} Checks, if the client uses EFI and the choosen sources list doesn't.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item sourceName: The name of the package source list.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if the client uses EFI and the choosen sources list doesn't, otherwise false.
+\end{itemize}
+
+\subsection{SRCLST\_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi}
+\textbf{Description:} Shows an error message, if the client uses EFI and the choosen sources list doesn't.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
+\item sourceName: The name of the package source list.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : false, if the client uses EFI and the choosen sources list doesn't, otherwise true.
+\end{itemize}
+
 \subsection{SRCLST\_showAlternativeArchitectureSelection}
 \textbf{Description:} Shows a list with available CPU architectures of the sources list, in case that the wanted architecture is not available in the sources list. The alternative architecture will be written to the arch option of the client.\\
 \textbf{Parameter:}
@@ -7457,6 +8446,24 @@ Description: basic package operations (search, add,...)\\
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for managing virtual clients.\\
 
+\subsection{VM\_captureVMScreenAsMovie}
+\textbf{Description:} Enables/disables capturing the screen of a VM to a movie file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item type: VM\_SW\_VBOX for VirtualBox OSE
+\item vmname: Name of the VM.
+\item enable: true for enabling the capturing, false for disabling.
+\item movieFile: File to store the capturing in.
+\item width: Width of the movie.
+\item height: Height of the movie.
+\item rate: Bitrate of the movie.
+\item fps: Frames per second
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item BASH code for enabling/disabling the capturing of the VM's screens to a movie file.
+\end{itemize}
+
 \subsection{VM\_CloudStackDeleteClientVM}
 \textbf{Description:} Deletes a virtual machine for use with m23 in CloudStack, only a cloudstack admin can recover it\\
 \textbf{Parameter:}
@@ -7497,7 +8504,7 @@ Description: basic package operations (search, add,...)\\
 \textbf{Parameter:}
 \begin{itemize}
 \item overwrite: Set to true, if the config file should be overwritten in any case.
-\item CLOUDSTACK\_API\_ENDPOINT: The API entpoint.
+\item CLOUDSTACK\_API\_ENDPOINT: The API endpoint.
 \item CLOUDSTACK\_API\_KEY: The API key.
 \item CLOUDSTACK\_SECRET\_KEY: The secret API key.
 \item CLOUDSTACK\_SERVICE\_OFFERING\_ID: The virtual CPU and RAM combination to use for a new VM.
@@ -7531,6 +8538,18 @@ Description: basic package operations (search, add,...)\\
 \textbf{Returns:}
 \begin{itemize}
 \item textmessage about result (errormessage or success message) and sets pFSuccess to True if action succeeded, false otherwise
+\end{itemize}
+
+\subsection{VM\_CloudStackDisablePortForwarding}
+\textbf{Description:} deletes a port forwarding rule for a virtual machine, with private port and public port being the same (CLOUDSTACK\_X2GO\_PORTNUMBER)\\
+\textbf{Parameter:}
+\begin{itemize}
+\item virtualMachineId: the cloudstack ID of the virtual machine from which the port forwarding rule shall be deleted
+\item pFDSuccess: is set to true, if the rule was deleted successfully
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item textmessage about result (errormessage or success message) and sets pFDSuccess to True if action succeeded, false otherwise
 \end{itemize}
 
 \subsection{VM\_CloudStackSendSetVisualURL}
@@ -8009,6 +9028,31 @@ Description: basic package operations (search, add,...)\\
 \textbf{Returns:}
 \begin{itemize}
 \item BASH code to create a virtual machine.
+\end{itemize}
+
+\subsection{VM\_insertBootISO}
+\textbf{Description:} Inserts a bootable ISO into a VM.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item type: VM\_SW\_VBOX for VirtualBox OSE
+\item vmName: Name of the VM.
+\item iso: ISO file with full path.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item BASH code to insert a bootable ISO into a VM.
+\end{itemize}
+
+\subsection{VM\_startVMInExistingXSession}
+\textbf{Description:} Starts a virtual machine in an existing X session.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item type: VM\_SW\_VBOX for VirtualBox OSE
+\item vmName: Name of the VM.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item BASH code to start a virtual machine and finding the DISPLAY number of the user who runs this script.
 \end{itemize}
 
 \subsection{VM\_startVM}

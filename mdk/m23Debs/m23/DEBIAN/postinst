@@ -378,11 +378,23 @@ db_get m23/configureSquid
 if [ "$RET" = "true" ]
 then
 
-rm /etc/squid/squid.conf 2> /dev/null
+if [ -d /etc/squid3 ]
+then
+	squidName='squid3'
+	squidConf="/etc/squid3/squid.conf"
+else
+	squidName='squid'
+	squidConf="/etc/squid/squid.conf"
+fi
+
+
+rm $squidConf 2> /dev/null
 
 hname=`cat /etc/hostname`
 
-cat >> /etc/squid/squid.conf << "EOFSQUID"
+if [ $squidName = 'squid' ]
+then
+cat >> $squidConf << "EOFSQUID"
 acl all src all
 acl manager proto cache_object
 acl localhost src 127.0.0.1/32
@@ -453,22 +465,72 @@ refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload re
 
 http_access deny purge !localhost
 EOFSQUID
+else
+cat >> $squidConf << "EOFSQUID3"
+acl SSL_ports port 443
+acl Safe_ports port 80          # http
+acl Safe_ports port 21          # ftp
+acl Safe_ports port 443         # https
+acl Safe_ports port 210         # wais
+acl Safe_ports port 1025-65535  # unregistered ports
+acl Safe_ports port 280         # http-mgmt
+acl Safe_ports port 488         # gss-http
+acl Safe_ports port 591         # filemaker
+acl Safe_ports port 777         # multiling http
+acl CONNECT method CONNECT
+
+http_access deny !Safe_ports
+http_access deny CONNECT !SSL_ports
+http_access allow all
+
+http_port 2323
+
+cache_dir ufs /var/spool/squid3 X_CACHESIZE_X 16 256
+
+maximum_object_size 1024000 KB
+
+access_log /var/log/squid3/access.log squid
+
+coredump_dir /var/spool/squid3
+
+acl NOCACHE url_regex -i 192.168.1.6
+no_cache deny NOCACHE
+
+visible_hostname m23iso
+
+refresh_pattern Release$         0   41%    360
+refresh_pattern Packages.bz2$   0   41%    360
+refresh_pattern Packages.gz$    0   41%    360
+refresh_pattern Packages$        0   41%    360
+
+refresh_pattern Sources.gz$     0   41%    360
+refresh_pattern Sources$         0   41%    360
+refresh_pattern Sources.bz2$    0   41%    360
+
+refresh_pattern .orig.tar.gz$ 525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .diff.gz$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .deb$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .tar.7z$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .dsc$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+EOFSQUID3
+fi
 
 	#Get the free 1K blocks of /var in MB and divide by 2
 	free=$[ $(df -P /var | awk 'NR==2 {print $4}') / 2048 ]
 
 	#Adjust the config file
-	sed -i "s#X_CACHESIZE_X#$free#g" /etc/squid/squid.conf
-	sed -i "s#acl NOCACHE url_regex -i .*#acl NOCACHE url_regex -i $IPINT#g" /etc/squid/squid.conf
-	sed -i "s#visible_hostname .*#visible_hostname $hname#g" /etc/squid/squid.conf
+	sed -i "s#X_CACHESIZE_X#$free#g" $squidConf
+	sed -i "s#acl NOCACHE url_regex -i .*#acl NOCACHE url_regex -i $IPINT#g" $squidConf
+	sed -i "s#visible_hostname .*#visible_hostname $hname#g" $squidConf
 
-	chown root.root /etc/squid/squid.conf
-	chmod 644 /etc/squid/squid.conf
+	chown root.root $squidConf
+	chmod 644 $squidConf
 
 	#restarting squid
-	/etc/init.d/squid stop
-	squid -z
-	/etc/init.d/squid start
+	/etc/init.d/$squidName stop
+	$squidName -z
+	/etc/init.d/$squidName start
 fi
 
 
@@ -510,7 +572,38 @@ then
 	then
 		#Configuration for Apache 2.x
 
-		rm /etc/apache2/sites-enabled/m23.conf 2> /dev/null
+		rm /etc/apache2/sites-enabled/m23.conf /etc/apache2/sites-enabled/000-default.conf 2> /dev/null
+
+		# Config snippets for Apache 2.2
+		allowAll='
+		Order allow,deny
+		Allow from all
+		'
+		sslDirSettings=''
+		phpCharSet=''
+
+
+		# Check, if apache2ctl is present
+		type apache2ctl &> /dev/null
+		if [ $? -eq 0 ]
+		then
+			# Check, if Apache 2.4 is installed
+			if [ $(apache2ctl -v | grep version | grep -c '/2\.4') -gt 0 ]
+			then
+				# Overwrite the Apache 2.2 snippets
+				allowAll='Require all granted'
+				sslDirSettings='
+		<Directory /m23/data+scripts>
+			Options Indexes Includes FollowSymLinks MultiViews
+			AllowOverride AuthConfig
+			Require all granted
+		</Directory>
+		'
+				phpCharSet='
+		php_value default_charset "ISO-8859-1"
+		'
+			fi
+		fi
 
 		for IP in 127.0.0.1 localhost $IPINT
 		do
@@ -518,11 +611,11 @@ echo "<VirtualHost *:80>
 	ServerName $IP
 	DocumentRoot /m23/data+scripts
 	<Directory /m23/data+scripts>
-	    Options Indexes Includes FollowSymLinks MultiViews
+		Options Indexes Includes FollowSymLinks MultiViews
 		AllowOverride AuthConfig
-	    Order allow,deny
-	    Allow from all
+		$allowAll
 	</Directory>
+	$phpCharSet
 </VirtualHost>
 " >> /etc/apache2/sites-enabled/m23.conf
 		done
@@ -547,7 +640,10 @@ echo "	<VirtualHost *:443>
 			SSLOptions +StdEnvVars
 		</Directory>
 
+		$sslDirSettings
+
 		SetEnvIf User-Agent \".*MSIE.*\" nokeepalive ssl-unclean-shutdown
+		$phpCharSet
 	</VirtualHost>
 " >> /etc/apache2/sites-enabled/m23.conf
 		done
@@ -569,13 +665,11 @@ echo "	<VirtualHost *:443>
 	fi
 	
 	#Get the absolute path to the PHP ini file(s)
-	for phpFile in `find /etc/php?/apache* | grep php.ini`
+	for phpFile in `find /etc/php?/apache* | grep php.ini` `find /etc/php?/cli | grep php.ini`
 	do
 		#PHP settings
-		sed 's/register_globals = Off/register_globals = On/g' $phpFile > /tmp/php2.ini
-		sed 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' /tmp/php2.ini > /tmp/php.ini
-	
-		mv /tmp/php.ini $phpFile
+		sed -i -e 's/register_globals = Off/register_globals = On/g' -e 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
+
 		chown root.root $phpFile
 		chmod 644 $phpFile
 	
@@ -600,6 +694,9 @@ echo "	<VirtualHost *:443>
 	#Create a script that "knows" how to control the Apache 1.x/2.x process.
 	echo "/etc/init.d/apache$apacheV \$1" > /tmp/apachectl
 	chmod +x /tmp/apachectl
+
+	# Make sure, the Apache user gets a shell. Needed for sudo by www-data otherwise the '-i' in SERVER_runInBackground need to be removed
+	chsh -s /bin/sh www-data
 fi
 
 db_get m23/configureSudo
@@ -656,6 +753,7 @@ then
 		php -r "include(\"/m23/inc/backup.php\");
 		include(\"/m23/inc/server.php\");
 		include(\"/m23/inc/edit.php\");
+		include(\"/m23/inc/helper.php\");
 		BACKUP_addAdmin(\"$admin\");"
 	done
 
@@ -924,5 +1022,8 @@ then
 	' /etc/sudoers > /tmp/sudoers
 	cat /tmp/sudoers > /etc/sudoers
 fi
+
+# Needed on Debian 8
+/etc/init.d/mysql restart
 
 db_stop

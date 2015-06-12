@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Manual assimilation</TITLE>
-<META NAME="description" CONTENT="Manual assimilation">
+<TITLE>Work on multiple clients</TITLE>
+<META NAME="description" CONTENT="Work on multiple clients">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node136.html">
 <LINK REL="previous" HREF="node134.html">
-<LINK REL="up" HREF="node133.html">
+<LINK REL="up" HREF="node132.html">
 <LINK REL="next" HREF="node136.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2192"
+<A NAME="tex2html2221"
   HREF="node136.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2188"
-  HREF="node133.html">
+<A NAME="tex2html2217"
+  HREF="node132.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2182"
+<A NAME="tex2html2211"
   HREF="node134.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2190"
+<A NAME="tex2html2219"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2193"
-  HREF="node136.html">Hint for the assimilation</A>
-<B> Up:</B> <A NAME="tex2html2189"
-  HREF="node133.html">Client assimilation</A>
-<B> Previous:</B> <A NAME="tex2html2183"
-  HREF="node134.html">Hint</A>
- &nbsp; <B>  <A NAME="tex2html2191"
+<B> Next:</B> <A NAME="tex2html2222"
+  HREF="node136.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2218"
+  HREF="node132.html">Delete a client</A>
+<B> Previous:</B> <A NAME="tex2html2212"
+  HREF="node134.html">Jobs</A>
+ &nbsp; <B>  <A NAME="tex2html2220"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00962000000000000000">
-Manual assimilation</A>
+<H2><A NAME="SECTION00953000000000000000">
+Work on multiple clients</A>
 </H2>
-You can start the assimilation by hand if there is no SSH daemon running on the client. Execute the following commands as root in a console on the client (replace ''serverIP'' with the IP of your m23 server):
-<BR><PRE>
-cd /tmp; wget http://$\langle$serverIP$\rangle$/work.php -O work.php; sh work.php
-</PRE>
+Select the clients by checking the boxes in the client lines.
+<BR>
+Now you can work on all selected clients::
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">remove from group</SPAN>: Select the group, all clients should be deleted from. Nothing is done, if a client is not in the selected group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">add to group</SPAN>: Select the group, all clients should be added to. Nothing is done, if a client already is in the selected group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">move to group</SPAN>: Moves the clients to another group.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Recover</SPAN>: Completely reinstalls the clients.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Delete</SPAN>: Deletes the selected clients.
+<BR></LI>
+</UL>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

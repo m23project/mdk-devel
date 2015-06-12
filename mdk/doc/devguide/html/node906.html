@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_install</TITLE>
-<META NAME="description" CONTENT="PLG_install">
+<TITLE>PKG_isReconfiguredWithExtraDistr</TITLE>
+<META NAME="description" CONTENT="PKG_isReconfiguredWithExtraDistr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node907.html">
 <LINK REL="previous" HREF="node905.html">
-<LINK REL="up" HREF="node889.html">
+<LINK REL="up" HREF="node893.html">
 <LINK REL="next" HREF="node907.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14899"
+<A NAME="tex2html15349"
   HREF="node907.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14895"
-  HREF="node889.html">
+<A NAME="tex2html15345"
+  HREF="node893.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14889"
+<A NAME="tex2html15339"
   HREF="node905.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14897"
+<A NAME="tex2html15347"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14900"
-  HREF="node907.html">PLG_showPluginOverview</A>
-<B> Up:</B> <A NAME="tex2html14896"
-  HREF="node889.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14890"
-  HREF="node905.html">PLG_getFilename</A>
- &nbsp; <B>  <A NAME="tex2html14898"
+<B> Next:</B> <A NAME="tex2html15350"
+  HREF="node907.html">PKG_translateClientjobsStatus</A>
+<B> Up:</B> <A NAME="tex2html15346"
+  HREF="node893.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15340"
+  HREF="node905.html">PKG_getDebootstrapCacheServerFile</A>
+ &nbsp; <B>  <A NAME="tex2html15348"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082617000000000000000">
-PLG_install</A>
+<H2><A NAME="SECTION0082813000000000000000">
+PKG_isReconfiguredWithExtraDistr</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> installs a plugin. extracts the files in the plugin file to a temporary directory. checks if currently existing files would be overwritten by the plugin files. if so, ask the user, if he wants to install or stop installation.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the distribution is used for configuring a system that was installed via image.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>url: the place where to get the plugin file from. following transport protocols are allowed: http, ftp and local files. e.g. "http://myserver.de/test.m23plg" is avalid url.
+<LI>pkgID: The ID of the base installation package.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>True, if the distribution is used for configuring, otherwise false.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_genPartedCommands</TITLE>
-<META NAME="description" CONTENT="FDISK_genPartedCommands">
+<TITLE>EDIT_insertAtLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAtLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node463.html">
 <LINK REL="previous" HREF="node461.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node452.html">
 <LINK REL="next" HREF="node463.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9181"
+<A NAME="tex2html9538"
   HREF="node463.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9177"
-  HREF="node371.html">
+<A NAME="tex2html9534"
+  HREF="node452.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9171"
+<A NAME="tex2html9528"
   HREF="node461.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9179"
+<A NAME="tex2html9536"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9182"
-  HREF="node463.html">FDISK_listPartJobs</A>
-<B> Up:</B> <A NAME="tex2html9178"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9172"
-  HREF="node461.html">FDISK_rereadPartTable</A>
- &nbsp; <B>  <A NAME="tex2html9180"
+<B> Next:</B> <A NAME="tex2html9539"
+  HREF="node463.html">EDIT_insertLineNumber</A>
+<B> Up:</B> <A NAME="tex2html9535"
+  HREF="node452.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9529"
+  HREF="node461.html">EDIT_insertAfterLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html9537"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081291000000000000000">
-FDISK_genPartedCommands</A>
+<H2><A NAME="SECTION0081510000000000000000">
+EDIT_insertAtLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the partition and formation commands that are generated from partJobs.
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AT a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>partJobs: string with information about all created partition jobs
+<LI>file: the name of the file
 </LI>
-<LI>mkfsextOptions: Extra parameter for mkfs.extX .
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_array2m23Array</TITLE>
-<META NAME="description" CONTENT="HELPER_array2m23Array">
+<TITLE>FDISK_getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node529.html">
 <LINK REL="previous" HREF="node527.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node529.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10037"
+<A NAME="tex2html10437"
   HREF="node529.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10033"
-  HREF="node510.html">
+<A NAME="tex2html10433"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10027"
+<A NAME="tex2html10427"
   HREF="node527.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10035"
+<A NAME="tex2html10435"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10038"
-  HREF="node529.html">print_r2</A>
-<B> Up:</B> <A NAME="tex2html10034"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html10028"
-  HREF="node527.html">HELPER_m23Array2Array</A>
- &nbsp; <B>  <A NAME="tex2html10036"
+<B> Next:</B> <A NAME="tex2html10438"
+  HREF="node529.html">FDISK_delPart</A>
+<B> Up:</B> <A NAME="tex2html10434"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10428"
+  HREF="node527.html">FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html10436"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081418000000000000000">
-HELPER_array2m23Array</A>
+<H2><A NAME="SECTION0081653000000000000000">
+FDISK_getBelongingRaidDev</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Converts a normal array to an m23 array.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>array: A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The m23 array, that is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

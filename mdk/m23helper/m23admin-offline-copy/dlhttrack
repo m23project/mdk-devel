@@ -1,0 +1,13 @@
+#!/bin/bash
+httrack -N1 --update http://god:m23@192.168.1.23/m23admin/index.php +"*.gif" +"*.jpg" +"*.png" +"*.js" \
++"*shCoreDefault.css*" \
+-"*phpldapadmin*" \
+-"*recoverclient*" \
+-"*phpMyAdmin/*" \
+-"*searchLine*"
+
+# Clean the directory
+rm *
+rm -r hts-cache/
+mv web/* .
+rmdir web/

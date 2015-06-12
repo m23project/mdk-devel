@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listPartJobs</TITLE>
-<META NAME="description" CONTENT="FDISK_listPartJobs">
+<TITLE>EDIT_insertLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node464.html">
 <LINK REL="previous" HREF="node462.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node452.html">
 <LINK REL="next" HREF="node464.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9193"
+<A NAME="tex2html9550"
   HREF="node464.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9189"
-  HREF="node371.html">
+<A NAME="tex2html9546"
+  HREF="node452.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9183"
+<A NAME="tex2html9540"
   HREF="node462.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9191"
+<A NAME="tex2html9548"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9194"
-  HREF="node464.html">FDISK_getDiskType</A>
-<B> Up:</B> <A NAME="tex2html9190"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9184"
-  HREF="node462.html">FDISK_genPartedCommands</A>
- &nbsp; <B>  <A NAME="tex2html9192"
+<B> Next:</B> <A NAME="tex2html9551"
+  HREF="node464.html">EDIT_searchLineNumber</A>
+<B> Up:</B> <A NAME="tex2html9547"
+  HREF="node452.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9541"
+  HREF="node462.html">EDIT_insertAtLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html9549"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081292000000000000000">
-FDISK_listPartJobs</A>
+<H2><A NAME="SECTION0081511000000000000000">
+EDIT_insertLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> print all part jobs in the table
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AT or AFTER a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>partJobs: string with information about all created partition jobs
+<LI>file: the name of the file
+</LI>
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>insertMode: "0" insert AT, "1" insert AFTER line number
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

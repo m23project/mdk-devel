@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addLineToDHCPDConf</TITLE>
-<META NAME="description" CONTENT="DHCP_addLineToDHCPDConf">
+<TITLE>CLIENT_desasterRecovery</TITLE>
+<META NAME="description" CONTENT="CLIENT_desasterRecovery">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node333.html">
 <LINK REL="previous" HREF="node331.html">
-<LINK REL="up" HREF="node321.html">
+<LINK REL="up" HREF="node282.html">
 <LINK REL="next" HREF="node333.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7490"
+<A NAME="tex2html7890"
   HREF="node333.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7486"
-  HREF="node321.html">
+<A NAME="tex2html7886"
+  HREF="node282.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7480"
+<A NAME="tex2html7880"
   HREF="node331.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7488"
+<A NAME="tex2html7888"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7491"
-  HREF="node333.html">DHCP_restartDHCPserver</A>
-<B> Up:</B> <A NAME="tex2html7487"
-  HREF="node321.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7481"
-  HREF="node331.html">DHCP_addClient</A>
- &nbsp; <B>  <A NAME="tex2html7489"
+<B> Next:</B> <A NAME="tex2html7891"
+  HREF="node333.html">CLIENT_wol</A>
+<B> Up:</B> <A NAME="tex2html7887"
+  HREF="node282.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html7881"
+  HREF="node331.html">CLIENT_backToRed</A>
+ &nbsp; <B>  <A NAME="tex2html7889"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008911000000000000000">
-DHCP_addLineToDHCPDConf</A>
+<H2><A NAME="SECTION0081050000000000000000">
+CLIENT_desasterRecovery</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a line to the dhcpd.conf file.
+<SPAN  CLASS="textbf">Description:</SPAN> recover a client: all client jobs are done again, status is set to 0
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>line: Line to add.
+<LI>clientName: name of the client
+</LI>
+<LI>addInstallRemovalJobs: If set to true, the names of all installed packages will be combined to a m23normal and all revomed to a m23normalRemove job.
+</LI>
+<LI>addShutdownOrRebootPackage: If set to true, a shutdown or reboot package will be added.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

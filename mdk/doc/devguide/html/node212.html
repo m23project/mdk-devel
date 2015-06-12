@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_extraWebAction</TITLE>
-<META NAME="description" CONTENT="CLIENT_extraWebAction">
+<TITLE>CAutoTest::addToSequence</TITLE>
+<META NAME="description" CONTENT="CAutoTest::addToSequence">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node213.html">
 <LINK REL="previous" HREF="node211.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="up" HREF="node192.html">
 <LINK REL="next" HREF="node213.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6004"
+<A NAME="tex2html6324"
   HREF="node213.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6000"
-  HREF="node201.html">
+<A NAME="tex2html6320"
+  HREF="node192.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5994"
+<A NAME="tex2html6314"
   HREF="node211.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6002"
+<A NAME="tex2html6322"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6005"
-  HREF="node213.html">CLIENT_getOption</A>
-<B> Up:</B> <A NAME="tex2html6001"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html5995"
-  HREF="node211.html">CLIENT_showOverviewSearchDialog</A>
- &nbsp; <B>  <A NAME="tex2html6003"
+<B> Next:</B> <A NAME="tex2html6325"
+  HREF="node213.html">CAutoTest::matchArray</A>
+<B> Up:</B> <A NAME="tex2html6321"
+  HREF="node192.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html6315"
+  HREF="node211.html">CAutoTest::decTimeout</A>
+ &nbsp; <B>  <A NAME="tex2html6323"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008711000000000000000">
-CLIENT_extraWebAction</A>
+<H2><A NAME="SECTION008620000000000000000">
+CAutoTest::addToSequence</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Executes extra actions from the client details page.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds an element to the sequence.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>action: The action to execute.
+<LI>triggerType: Type of the trigger (CAutoTest::TRIGGER_*) or the type event, that should happen to begin with the given element of the sequence.
 </LI>
-<LI>client: Name of the client.
+<LI>triggerParam: Parameter for the trigger (e.g. string that should be read from the screen when in CAutoTest::TRIGGER_OCR mode).
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>True if the action was executed or false otherwise.
+<LI>answersA: Associative array with the answers and parameters.
+</LI>
+<LI>execType: Type of action (CAutoTest::EXEC_*), that will be executed when the trigger is hit.
+</LI>
+<LI>execParam: Parameter for the action (e.g. keys to press, when in CAutoTest::EXEC_KEY mode).
+</LI>
+<LI>timeout: Time to wait (in seconds) until the element of sequence will become a failure.
+</LI>
+<LI>description: Description for the test.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

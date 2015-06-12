@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_setLastmodify</TITLE>
-<META NAME="description" CONTENT="CLIENT_setLastmodify">
+<TITLE>FDISK_listDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node241.html">
 <LINK REL="previous" HREF="node239.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="up" HREF="node234.html">
 <LINK REL="next" HREF="node241.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6340"
+<A NAME="tex2html6680"
   HREF="node241.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6336"
-  HREF="node201.html">
+<A NAME="tex2html6676"
+  HREF="node234.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6330"
+<A NAME="tex2html6670"
   HREF="node239.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6338"
+<A NAME="tex2html6678"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6341"
-  HREF="node241.html">CLIENT_getSubnet</A>
-<B> Up:</B> <A NAME="tex2html6337"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6331"
-  HREF="node239.html">CLIENT_showWaitingJobs</A>
- &nbsp; <B>  <A NAME="tex2html6339"
+<B> Next:</B> <A NAME="tex2html6681"
+  HREF="node241.html">FDISK_selectDrives</A>
+<B> Up:</B> <A NAME="tex2html6677"
+  HREF="node234.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6671"
+  HREF="node239.html">FDISK_getPartitionByType</A>
+ &nbsp; <B>  <A NAME="tex2html6679"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008739000000000000000">
-CLIENT_setLastmodify</A>
+<H2><A NAME="SECTION00876000000000000000">
+FDISK_listDrivesAndPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> sets the last modified time of a client
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>id: id of the client
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>client: name of the client
+<LI>default: the drive to show first
+</LI>
+<LI>selName: the name the selection is called in PHP and HTML
+</LI>
+<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>String with the HTML selection.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

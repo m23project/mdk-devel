@@ -877,6 +877,8 @@ installGrub()
 
 	showDialog "$I18N_windowheader" "$I18N_windowheader" msgbox 14 45 "$I18N_installationfinishedtext"
 
+	eject /mnt/cdrom
+
 	/sbin/reboot -f 2> /dev/null
 	reboot -f 2> /dev/null
 	reboot 2> /dev/null
@@ -999,9 +1001,9 @@ installDebs()
 
 
 	#Add the URL for server update if missing
-	if [ `grep -c "http://switch.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
+	if [ `grep -c "http://vorboss.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
 	then
-		echo "deb http://switch.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
+		echo "deb http://vorboss.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
 	fi
 
 	mv /tmp/sources.list /etc/apt
@@ -1063,7 +1065,12 @@ updateSystem()
 		#Make sure, ischroot will return 2 to stop sysvinit from shuting down the installation
 		mv /usr/bin/ischroot /usr/bin/ischroot.deactivated
 
-		apt-get -y --force-yes update
+		echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/90localsettings
+		dpkg --clear-avail
+		sync-available
+		echo 3 > /proc/sys/vm/drop_caches
+
+		apt-get -y --force-yes update		
 		export DEBIAN_FRONTEND=noninteractive
 		apt-get -y --force-yes upgrade
 

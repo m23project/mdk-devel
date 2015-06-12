@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deleteDriveFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
+<TITLE>FDISK_findFstabMountPointByDev</TITLE>
+<META NAME="description" CONTENT="FDISK_findFstabMountPointByDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,63 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node481.html">
 <LINK REL="previous" HREF="node479.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node481.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9395"
+<A NAME="tex2html9861"
   HREF="node481.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9391"
-  HREF="node371.html">
+<A NAME="tex2html9857"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9387"
+<A NAME="tex2html9851"
   HREF="node479.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9393"
+<A NAME="tex2html9859"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9396"
-  HREF="node481.html">./inc/groups.php</A>
-<B> Up:</B> <A NAME="tex2html9392"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9388"
-  HREF="node479.html">FDISK_virtualDeleteDrive</A>
- &nbsp; <B>  <A NAME="tex2html9394"
+<B> Next:</B> <A NAME="tex2html9862"
+  HREF="node481.html">FDISK_swapFilesystems</A>
+<B> Up:</B> <A NAME="tex2html9858"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9852"
+  HREF="node479.html">FDISK_getFstabArray</A>
+ &nbsp; <B>  <A NAME="tex2html9860"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812109000000000000000">
-FDISK_deleteDriveFromParam</A>
+<H2><A NAME="SECTION008165000000000000000">
+FDISK_findFstabMountPointByDev</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches a client's fstab for a device and figures out the according mount point.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number of the drive to delete.
+<LI>fstabA: The fstab as array.
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
+<LI>dev: The device.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Changed param without the drive.
+<LI>Mount point for the device.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

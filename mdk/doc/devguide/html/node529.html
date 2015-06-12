@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>print_r2</TITLE>
-<META NAME="description" CONTENT="print_r2">
+<TITLE>FDISK_delPart</TITLE>
+<META NAME="description" CONTENT="FDISK_delPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node530.html">
 <LINK REL="previous" HREF="node528.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node530.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10049"
+<A NAME="tex2html10449"
   HREF="node530.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10045"
-  HREF="node510.html">
+<A NAME="tex2html10445"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10039"
+<A NAME="tex2html10439"
   HREF="node528.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10047"
+<A NAME="tex2html10447"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10050"
-  HREF="node530.html">HELPER_debugBacktraceToFile</A>
-<B> Up:</B> <A NAME="tex2html10046"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html10040"
-  HREF="node528.html">HELPER_array2m23Array</A>
- &nbsp; <B>  <A NAME="tex2html10048"
+<B> Next:</B> <A NAME="tex2html10450"
+  HREF="node530.html">FDISK_addPart</A>
+<B> Up:</B> <A NAME="tex2html10446"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10440"
+  HREF="node528.html">FDISK_getBelongingRaidDev</A>
+ &nbsp; <B>  <A NAME="tex2html10448"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081419000000000000000">
-print_r2</A>
+<H2><A NAME="SECTION0081654000000000000000">
+FDISK_delPart</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Function like print_r, but sorts the entries, if the input is an array and converts newlines to HTML breaks.
+<SPAN  CLASS="textbf">Description:</SPAN> deletes a partition from the param string and generates the parted commands
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>in: Value to print.
+<LI>dev: the partition to delete (e.g. /dev/hda4)
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>partJobs: parted commands
+</LI>
+<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Changed param string.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

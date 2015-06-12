@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_runningInBackground</TITLE>
-<META NAME="description" CONTENT="SERVER_runningInBackground">
+<TITLE>PKG_getClientPackages</TITLE>
+<META NAME="description" CONTENT="PKG_getClientPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node992.html">
 <LINK REL="previous" HREF="node990.html">
-<LINK REL="up" HREF="node958.html">
+<LINK REL="up" HREF="node893.html">
 <LINK REL="next" HREF="node992.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15998"
+<A NAME="tex2html16369"
   HREF="node992.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15994"
-  HREF="node958.html">
+<A NAME="tex2html16365"
+  HREF="node893.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15988"
+<A NAME="tex2html16359"
   HREF="node990.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15996"
+<A NAME="tex2html16367"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15999"
-  HREF="node992.html">SERVER_runningInScreen</A>
-<B> Up:</B> <A NAME="tex2html15995"
-  HREF="node958.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15989"
-  HREF="node990.html">SERVER_runInBackground</A>
- &nbsp; <B>  <A NAME="tex2html15997"
+<B> Next:</B> <A NAME="tex2html16370"
+  HREF="node992.html">PKG_getPackagesListMarker</A>
+<B> Up:</B> <A NAME="tex2html16366"
+  HREF="node893.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html16360"
+  HREF="node990.html">PKG_getPackageIDsByName</A>
+ &nbsp; <B>  <A NAME="tex2html16368"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083133000000000000000">
-SERVER_runningInBackground</A>
+<H2><A NAME="SECTION0082898000000000000000">
+PKG_getClientPackages</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns "true" if a lock file for a given job name is existing.
+<SPAN  CLASS="textbf">Description:</SPAN> returns an array or a space separated list of all packages installed on a client
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>jobName: name of the job
+<LI>client: the name of the client
+</LI>
+<LI>key: if it is not empty only packages that contain the key are returned
+</LI>
+<LI>arr: set to true if the result should be an array otherwise it's a string
+</LI>
+<LI>status: If set only returns packages of the given status
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

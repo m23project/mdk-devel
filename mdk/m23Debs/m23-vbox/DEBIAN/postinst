@@ -22,6 +22,31 @@ fi
 #Create a symlink to the System-V-Init directory to get the VMs run that were started before the system was stopped.
 ln -s /m23/vms/bin/restoreVMsStates /etc/rcS.d/S42restoreVMsStates 2> /dev/null
 
+
+
+
+
+# Create a service file, if systemd is used.
+type systemctl &> /dev/null
+if [ $? -eq 0 ] && [ ! -f /etc/systemd/system/restoreVMsStates.service ]
+then
+ 	cat >> /etc/systemd/system/restoreVMsStates.service << systemdEOF
+[Unit]
+Description=Restores the state of VMs.
+After=syslog.target
+
+[Service]
+ExecStart=/m23/vms/bin/restoreVMsStates
+
+[Install]
+WantedBy=multi-user.target
+systemdEOF
+fi
+
+
+
+
+
 #Add the user m23-vbox to the tty group to allow access by "screen"
 #addgroup m23-vbox tty
 usermod -a -G tty m23-vbox

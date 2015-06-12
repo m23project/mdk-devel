@@ -1,7 +1,4 @@
 <?php
-
-	include("/home/groups/m/m2/m23/db.php");
-
 	//retrurns the contents of a file
 	function rFile($fName)
 	{
@@ -17,14 +14,13 @@
 		return($text);
 	};
 
-	$patchDir="/home/groups/m/m2/m23/htdocs/m23patch/0.5.0";
-// 	$patchDir="/matrix23/arbeit/wwwTests/0.5.0";
+	$patchDir="/home/project-web/m23/htdocs/m23patch/0.5.0";
 
 	chdir($patchDir);
 
 	$pipe=popen("find -type f -printf \"%f\\n\" | grep info | sort","r");
 
-	switch ($_GET[action])
+	switch ($_GET['action'])
 		{
 			case "info":
 				{
@@ -43,12 +39,12 @@
 
 	while ($fileName=fgets($pipe))
 		{
-			$temp=split("\.",$fileName);
+			$temp=explode(".",$fileName);
 			$ver=$temp[0];
 
-			if ($ver > $_GET[patch])
+			if ($ver > $_GET['patch'])
 				{
-					switch ($_GET[action])
+					switch ($_GET['action'])
 						{
 							case "cmd":
 								{
@@ -68,7 +64,7 @@
 				};
 		};
 		
-	switch ($_GET[action])
+	switch ($_GET['action'])
 		{
 			case "info":
 				{
@@ -81,21 +77,20 @@
 					echo("cd /
 $start
 
-if test `grep http://m23.sourceforge.net/m23inst/ /etc/apt/sources.list | grep ^deb -c` -eq 0
-then
-	echo \"deb http://m23.sourceforge.net/m23inst/ ./\" >> /etc/apt/sources.list
-fi
+#Remove old m23 entries in sources list
+sed -i '/m23/d' /etc/apt/sources.list
+echo 'deb http://kent.dl.sourceforge.net/project/m23/m23inst/ ./' >> /etc/apt/sources.list
 
 if [ `grep \"Acquire::http::Proxy\" /etc/apt/apt.conf -c` -gt 0 ]
 then
- proxyIP=`grep \"Acquire::http::Proxy\" /etc/apt/apt.conf | cut -d'\"' -f2 | cut -d'/' -f3 | cut -d':' -f1`
- ping -c 1 \"\$proxyIP\" > /dev/null
- if [ $? -ne 0 ]
- then
-  grep -v \"Acquire::http::Proxy\" /etc/apt/apt.conf > /tmp/apt.conf
-  cat /tmp/apt.conf > /etc/apt/apt.conf
-  rm /tmp/apt.conf
- fi
+	proxyIP=`grep \"Acquire::http::Proxy\" /etc/apt/apt.conf | cut -d'\"' -f2 | cut -d'/' -f3 | cut -d':' -f1`
+	ping -c 1 \"\$proxyIP\" > /dev/null
+	if [ $? -ne 0 ]
+	then
+		grep -v \"Acquire::http::Proxy\" /etc/apt/apt.conf > /tmp/apt.conf
+		cat /tmp/apt.conf > /etc/apt/apt.conf
+		rm /tmp/apt.conf
+	fi
 fi
 
 
@@ -115,21 +110,7 @@ done
 
 
 $end\n");
-		
-			$dbConnection=dbConnect();
-			
-			if ($dbConnection === false)
-				return(false);
-
-			$sql="INSERT INTO `m23update` (`oldversion` , `newversion` , `time`, `type`, `host` )
-VALUES ('".$_GET['patch']."', '$ver', '".time()."','m23patch','".getenv("REMOTE_ADDR")."');";
-
-			$result=mysql_query($sql);
-
-			mysql_close($dbConnection);
-			break;
 		};
 	};
-		
 	pclose($pipe);
 ?>

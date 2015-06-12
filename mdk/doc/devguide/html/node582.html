@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarPercentPointByName</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarPercentPointByName">
+<TITLE>FDISK_raidJob</TITLE>
+<META NAME="description" CONTENT="FDISK_raidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node583.html">
 <LINK REL="previous" HREF="node581.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node583.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10744"
+<A NAME="tex2html11085"
   HREF="node583.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10740"
-  HREF="node556.html">
+<A NAME="tex2html11081"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10734"
+<A NAME="tex2html11075"
   HREF="node581.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10742"
+<A NAME="tex2html11083"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10745"
-  HREF="node583.html">HTML_setStatusBarStatusByName</A>
-<B> Up:</B> <A NAME="tex2html10741"
-  HREF="node556.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10735"
-  HREF="node581.html">HTML_incStatusBarPercentByName</A>
- &nbsp; <B>  <A NAME="tex2html10743"
+<B> Next:</B> <A NAME="tex2html11086"
+  HREF="node583.html">FDISK_virtualDeleteDrive</A>
+<B> Up:</B> <A NAME="tex2html11082"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11076"
+  HREF="node581.html">FDISK_addRaidBeforeFormat</A>
+ &nbsp; <B>  <A NAME="tex2html11084"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081626000000000000000">
-HTML_setStatusBarPercentPointByName</A>
+<H2><A NAME="SECTION00816107000000000000000">
+FDISK_raidJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the value of a percent point according to the amount of waiting packages and stores the result in the DB.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a job to create a RAID on given drives/partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>statusBarName: The name of the status bar.
+<LI>raidDev: RAID device (e.g. /dev/md0)
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
 </LI>
-<LI>recalculate: true, if the remaining percent value of the status bar should be used to calculate a new (better fitting) percentpoint.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>false on errors, otherwise true.
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

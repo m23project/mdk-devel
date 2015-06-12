@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartInfoIcon</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartInfoIcon">
+<TITLE>DHCP_activateBoot</TITLE>
+<META NAME="description" CONTENT="DHCP_activateBoot">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node440.html">
 <LINK REL="previous" HREF="node438.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node424.html">
 <LINK REL="next" HREF="node440.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8905"
+<A NAME="tex2html9237"
   HREF="node440.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8901"
-  HREF="node371.html">
+<A NAME="tex2html9233"
+  HREF="node424.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8895"
+<A NAME="tex2html9227"
   HREF="node438.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8903"
+<A NAME="tex2html9235"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8906"
-  HREF="node440.html">FDISK_printBars</A>
-<B> Up:</B> <A NAME="tex2html8902"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8896"
-  HREF="node438.html">FDISK_getDriveInfoIcon</A>
- &nbsp; <B>  <A NAME="tex2html8904"
+<B> Next:</B> <A NAME="tex2html9238"
+  HREF="node440.html">DHCP_calcPXEIP</A>
+<B> Up:</B> <A NAME="tex2html9234"
+  HREF="node424.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9228"
+  HREF="node438.html">DHCP_setBootimage</A>
+ &nbsp; <B>  <A NAME="tex2html9236"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081268000000000000000">
-FDISK_getPartInfoIcon</A>
+<H2><A NAME="SECTION0081315000000000000000">
+DHCP_activateBoot</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> switches the network boot on or off
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>clientName: name of the client
 </LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1) and if set to false, the icon and the status information will be generated for a drive and not for a partition.
+<LI>on: true activates the network boot, false deactivates
 </LI>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>fstabA: Associative array with fstab information.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>HTML code for showing an icon with status information about the drive or partition.
+<LI>bootType: The boot type CAN be given here (e.g. pxe or etherboot)
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

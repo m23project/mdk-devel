@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getValue</TITLE>
-<META NAME="description" CONTENT="SRCLST_getValue">
+<TITLE>PLG_checkOverwriting</TITLE>
+<META NAME="description" CONTENT="PLG_checkOverwriting">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1016.html">
 <LINK REL="previous" HREF="node1014.html">
-<LINK REL="up" HREF="node1007.html">
+<LINK REL="up" HREF="node1003.html">
 <LINK REL="next" HREF="node1016.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16313"
+<A NAME="tex2html16681"
   HREF="node1016.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16309"
-  HREF="node1007.html">
+<A NAME="tex2html16677"
+  HREF="node1003.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16303"
+<A NAME="tex2html16671"
   HREF="node1014.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16311"
+<A NAME="tex2html16679"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16314"
-  HREF="node1016.html">SRCLST_loadSourceList</A>
-<B> Up:</B> <A NAME="tex2html16310"
-  HREF="node1007.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html16304"
-  HREF="node1014.html">SRCLST_genSelection</A>
- &nbsp; <B>  <A NAME="tex2html16312"
+<B> Next:</B> <A NAME="tex2html16682"
+  HREF="node1016.html">PLG_DBInstall</A>
+<B> Up:</B> <A NAME="tex2html16678"
+  HREF="node1003.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html16672"
+  HREF="node1014.html">PLG_showDownloadStatus</A>
+ &nbsp; <B>  <A NAME="tex2html16680"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008328000000000000000">
-SRCLST_getValue</A>
+<H2><A NAME="SECTION0083012000000000000000">
+PLG_checkOverwriting</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets a value from the sourceslist table
+<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>name: the name of the package source list
+<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
 </LI>
-<LI>var: the name of the table row
+<LI>tempDir: where to store the plugin file temporary
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

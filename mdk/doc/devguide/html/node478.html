@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_raidJob</TITLE>
-<META NAME="description" CONTENT="FDISK_raidJob">
+<TITLE>FDISK_mdToEndOfArray</TITLE>
+<META NAME="description" CONTENT="FDISK_mdToEndOfArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node479.html">
 <LINK REL="previous" HREF="node477.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node479.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9373"
+<A NAME="tex2html9837"
   HREF="node479.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9369"
-  HREF="node371.html">
+<A NAME="tex2html9833"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9363"
+<A NAME="tex2html9827"
   HREF="node477.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9371"
+<A NAME="tex2html9835"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9374"
-  HREF="node479.html">FDISK_virtualDeleteDrive</A>
-<B> Up:</B> <A NAME="tex2html9370"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9364"
-  HREF="node477.html">FDISK_addRaidBeforeFormat</A>
- &nbsp; <B>  <A NAME="tex2html9372"
+<B> Next:</B> <A NAME="tex2html9838"
+  HREF="node479.html">FDISK_getFstabArray</A>
+<B> Up:</B> <A NAME="tex2html9834"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9828"
+  HREF="node477.html">FDISK_showCombinedFdiskGUIDialog</A>
+ &nbsp; <B>  <A NAME="tex2html9836"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812107000000000000000">
-FDISK_raidJob</A>
+<H2><A NAME="SECTION008163000000000000000">
+FDISK_mdToEndOfArray</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a job to create a RAID on given drives/partitions.
+<SPAN  CLASS="textbf">Description:</SPAN> Orders all MD devices from the input array to the end of the output array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>raidDev: RAID device (e.g. /dev/md0)
+<LI>in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 )).
 </LI>
-<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
-</LI>
-<LI>partJobs: associative array with partition jobs
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 )).
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

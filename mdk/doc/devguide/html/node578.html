@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_jQueryMenu</TITLE>
-<META NAME="description" CONTENT="HTML_jQueryMenu">
+<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
+<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node579.html">
 <LINK REL="previous" HREF="node577.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node579.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10696"
+<A NAME="tex2html11037"
   HREF="node579.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10692"
-  HREF="node556.html">
+<A NAME="tex2html11033"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10686"
+<A NAME="tex2html11027"
   HREF="node577.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10694"
+<A NAME="tex2html11035"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10697"
-  HREF="node579.html">HTML_jQueryMenuHeader</A>
-<B> Up:</B> <A NAME="tex2html10693"
-  HREF="node556.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10687"
-  HREF="node577.html">HTML_JSMenuOpener</A>
- &nbsp; <B>  <A NAME="tex2html10695"
+<B> Next:</B> <A NAME="tex2html11038"
+  HREF="node579.html">FDISK_buildRaidDialog</A>
+<B> Up:</B> <A NAME="tex2html11034"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11028"
+  HREF="node577.html">FDISK_listRaidTable</A>
+ &nbsp; <B>  <A NAME="tex2html11036"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081622000000000000000">
-HTML_jQueryMenu</A>
+<H2><A NAME="SECTION00816103000000000000000">
+FDISK_addDrivePartitionToRaid</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates an entry for the jQuery accordion menu
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>title: Title for the menu entry.
+<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
 </LI>
-<LI>html: HTML code of the menu entry. Here can stand all that is expressable with HTML. This part is shown and hidden.
+<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
 </LI>
-<LI>titleCSS: CSS class for marking the title.
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+</LI>
+<LI>param: parameter string containing status information about the harddisks
+</LI>
+<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The jQuery code for the menu entry.
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

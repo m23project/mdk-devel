@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_rereadPartTable</TITLE>
-<META NAME="description" CONTENT="FDISK_rereadPartTable">
+<TITLE>EDIT_insertAfterLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAfterLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node462.html">
 <LINK REL="previous" HREF="node460.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node452.html">
 <LINK REL="next" HREF="node462.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9169"
+<A NAME="tex2html9526"
   HREF="node462.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9165"
-  HREF="node371.html">
+<A NAME="tex2html9522"
+  HREF="node452.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9159"
+<A NAME="tex2html9516"
   HREF="node460.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9167"
+<A NAME="tex2html9524"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9170"
-  HREF="node462.html">FDISK_genPartedCommands</A>
-<B> Up:</B> <A NAME="tex2html9166"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9160"
-  HREF="node460.html">FDISK_dev2LDevLPart</A>
- &nbsp; <B>  <A NAME="tex2html9168"
+<B> Next:</B> <A NAME="tex2html9527"
+  HREF="node462.html">EDIT_insertAtLineNumber</A>
+<B> Up:</B> <A NAME="tex2html9523"
+  HREF="node452.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9517"
+  HREF="node460.html">EDIT_commentout</A>
+ &nbsp; <B>  <A NAME="tex2html9525"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081290000000000000000">
-FDISK_rereadPartTable</A>
+<H2><A NAME="SECTION008159000000000000000">
+EDIT_insertAfterLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AFTER a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: The device that was changed/created (e.g. /dev/sda5).
+<LI>file: the name of the file
+</LI>
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

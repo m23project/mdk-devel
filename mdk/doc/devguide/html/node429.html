@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitionsFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitionsFromParam">
+<TITLE>DHCP_addDynamicRange</TITLE>
+<META NAME="description" CONTENT="DHCP_addDynamicRange">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node430.html">
 <LINK REL="previous" HREF="node428.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node424.html">
 <LINK REL="next" HREF="node430.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8785"
+<A NAME="tex2html9117"
   HREF="node430.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8781"
-  HREF="node371.html">
+<A NAME="tex2html9113"
+  HREF="node424.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8775"
+<A NAME="tex2html9107"
   HREF="node428.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8783"
+<A NAME="tex2html9115"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8786"
-  HREF="node430.html">FDISK_getAllDrives</A>
-<B> Up:</B> <A NAME="tex2html8782"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8776"
-  HREF="node428.html">FDISK_definePartitionSelection</A>
- &nbsp; <B>  <A NAME="tex2html8784"
+<B> Next:</B> <A NAME="tex2html9118"
+  HREF="node430.html">DHCP_getDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html9114"
+  HREF="node424.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9108"
+  HREF="node428.html">DHCP_delSubnetDefinition</A>
+ &nbsp; <B>  <A NAME="tex2html9116"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081258000000000000000">
-FDISK_getPartitionsFromParam</A>
+<H2><A NAME="SECTION008135000000000000000">
+DHCP_addDynamicRange</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with the partitions (/dev/hda1, /dev/hda2, ...) of a device
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
+<LI>lastIP: The last IP marking the end of the dynamic IP range.
 </LI>
-<LI>selName: name of the selection
+<LI>netmask: Netmask for the IPs.
 </LI>
-<LI>excludeType: type of partitions, not to show in the selection
+<LI>gateway: The gateway IP.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Selected partition.
+<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

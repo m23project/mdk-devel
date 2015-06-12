@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_listAllClientsInGroups</TITLE>
-<META NAME="description" CONTENT="GRP_listAllClientsInGroups">
+<TITLE>FDISK_listDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node507.html">
 <LINK REL="previous" HREF="node505.html">
-<LINK REL="up" HREF="node481.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node507.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9735"
+<A NAME="tex2html10173"
   HREF="node507.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9731"
-  HREF="node481.html">
+<A NAME="tex2html10169"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9725"
+<A NAME="tex2html10163"
   HREF="node505.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9733"
+<A NAME="tex2html10171"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9736"
-  HREF="node507.html">GRP_HTMLBackToOverview</A>
-<B> Up:</B> <A NAME="tex2html9732"
-  HREF="node481.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html9726"
-  HREF="node505.html">GRP_showSelDistrSources</A>
- &nbsp; <B>  <A NAME="tex2html9734"
+<B> Next:</B> <A NAME="tex2html10174"
+  HREF="node507.html">FDISK_selectDrives</A>
+<B> Up:</B> <A NAME="tex2html10170"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10164"
+  HREF="node505.html">FDISK_getDrivesAndPartitions</A>
+ &nbsp; <B>  <A NAME="tex2html10172"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081325000000000000000">
-GRP_listAllClientsInGroups</A>
+<H2><A NAME="SECTION0081631000000000000000">
+FDISK_listDrivesAndPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array with all client names contained in the groups
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>groupNames: the names of the groups stored in an array
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>default: the drive to show first
+</LI>
+<LI>selName: the name the selection is called in PHP and HTML
+</LI>
+<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>String with the HTML selection.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

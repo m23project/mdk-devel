@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addDynamicRange</TITLE>
-<META NAME="description" CONTENT="DHCP_addDynamicRange">
+<TITLE>CLIENT_convertMac</TITLE>
+<META NAME="description" CONTENT="CLIENT_convertMac">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node327.html">
 <LINK REL="previous" HREF="node325.html">
-<LINK REL="up" HREF="node321.html">
+<LINK REL="up" HREF="node282.html">
 <LINK REL="next" HREF="node327.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7418"
+<A NAME="tex2html7818"
   HREF="node327.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7414"
-  HREF="node321.html">
+<A NAME="tex2html7814"
+  HREF="node282.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7408"
+<A NAME="tex2html7808"
   HREF="node325.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7416"
+<A NAME="tex2html7816"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7419"
-  HREF="node327.html">DHCP_getDynamicRanges</A>
-<B> Up:</B> <A NAME="tex2html7415"
-  HREF="node321.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html7409"
-  HREF="node325.html">DHCP_delSubnetDefinition</A>
- &nbsp; <B>  <A NAME="tex2html7417"
+<B> Next:</B> <A NAME="tex2html7819"
+  HREF="node327.html">CLIENT_getIPbyName</A>
+<B> Up:</B> <A NAME="tex2html7815"
+  HREF="node282.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html7809"
+  HREF="node325.html">CLIENT_getBroadcast</A>
+ &nbsp; <B>  <A NAME="tex2html7817"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00895000000000000000">
-DHCP_addDynamicRange</A>
+<H2><A NAME="SECTION0081044000000000000000">
+CLIENT_convertMac</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.
+<SPAN  CLASS="textbf">Description:</SPAN> converts a mac address to a 00:11... or 0011 format
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>firstIP: The first IP marking the begin of the dynamic IP range.
+<LI>mac: the mac address
 </LI>
-<LI>lastIP: The last IP marking the end of the dynamic IP range.
-</LI>
-<LI>netmask: Netmask for the IPs.
-</LI>
-<LI>gateway: The gateway IP.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true, if the DHCP server could be restarted with the new settings.
+<LI>splitter: select a character to split the mac in couples of two characters, if you leeave it blank, splitting characters will be removed
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

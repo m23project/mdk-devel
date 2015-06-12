@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_activateNetbootCMD</TITLE>
-<META NAME="description" CONTENT="VM_activateNetbootCMD">
+<TITLE>SERVER_daemonStartStop</TITLE>
+<META NAME="description" CONTENT="SERVER_daemonStartStop">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1098.html">
 <LINK REL="previous" HREF="node1096.html">
-<LINK REL="up" HREF="node1042.html">
+<LINK REL="up" HREF="node1073.html">
 <LINK REL="next" HREF="node1098.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17359"
+<A NAME="tex2html17746"
   HREF="node1098.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17355"
-  HREF="node1042.html">
+<A NAME="tex2html17742"
+  HREF="node1073.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17349"
+<A NAME="tex2html17736"
   HREF="node1096.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17357"
+<A NAME="tex2html17744"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17360"
-  HREF="node1098.html">VM_createVM</A>
-<B> Up:</B> <A NAME="tex2html17356"
-  HREF="node1042.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html17350"
-  HREF="node1096.html">VM_delVMCMD</A>
- &nbsp; <B>  <A NAME="tex2html17358"
+<B> Next:</B> <A NAME="tex2html17747"
+  HREF="node1098.html">SERVER_installTool</A>
+<B> Up:</B> <A NAME="tex2html17743"
+  HREF="node1073.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17737"
+  HREF="node1096.html">SERVER_checkPackageInstalled</A>
+ &nbsp; <B>  <A NAME="tex2html17745"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083455000000000000000">
-VM_activateNetbootCMD</A>
+<H2><A NAME="SECTION0083524000000000000000">
+SERVER_daemonStartStop</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command line to (de)activate network booting of a VM.
+<SPAN  CLASS="textbf">Description:</SPAN> starts, stops and restarts daemons
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
+<LI>daemonScript: the file name of the script, that handles the real starting, stopping and restarting and understands the $action
 </LI>
-<LI>vmName: Name of the VM.
-</LI>
-<LI>activate: true for booting from network, false for booting from the HD.
+<LI>action: start, stop or restart
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to delete a virtual machine.
+<LI>: true on successfully execution otherwise false.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_searchNextLineNumber</TITLE>
-<META NAME="description" CONTENT="EDIT_searchNextLineNumber">
+<TITLE>CLIENT_query</TITLE>
+<META NAME="description" CONTENT="CLIENT_query">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node363.html">
 <LINK REL="previous" HREF="node361.html">
-<LINK REL="up" HREF="node349.html">
+<LINK REL="up" HREF="node282.html">
 <LINK REL="next" HREF="node363.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7874"
+<A NAME="tex2html8250"
   HREF="node363.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7870"
-  HREF="node349.html">
+<A NAME="tex2html8246"
+  HREF="node282.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7864"
+<A NAME="tex2html8240"
   HREF="node361.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7872"
+<A NAME="tex2html8248"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7875"
-  HREF="node363.html">EDIT_replace</A>
-<B> Up:</B> <A NAME="tex2html7871"
-  HREF="node349.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html7865"
-  HREF="node361.html">EDIT_searchLastLineNumber</A>
- &nbsp; <B>  <A NAME="tex2html7873"
+<B> Next:</B> <A NAME="tex2html8251"
+  HREF="node363.html">CLIENT_addChangeElement</A>
+<B> Up:</B> <A NAME="tex2html8247"
+  HREF="node282.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html8241"
+  HREF="node361.html">CLIENT_getId</A>
+ &nbsp; <B>  <A NAME="tex2html8249"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081113000000000000000">
-EDIT_searchNextLineNumber</A>
+<H2><A NAME="SECTION0081080000000000000000">
+CLIENT_query</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> searches for the next line number that contains "searchLine"
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the result of a query for getting all clients matching selected states and groupNames. Empty values are interpreted as 'all' for this kind of value.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>file: the name of the file
+<LI>o1: operator 1 (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects of the first state should be equal, smaler or bigger that the state in s1
 </LI>
-<LI>searchLine: line to search
+<LI>s1: first state to compare with the state of the client
+</LI>
+<LI>o2: operator 2
+</LI>
+<LI>s2: second state to compare
+</LI>
+<LI>groupName: if you want to filter for special group, set it to the group name
+</LI>
+<LI>o3: operator 3
+</LI>
+<LI>s3: third state to compare
+</LI>
+<LI>search: Search string to search all clients for and only list matching clients or all if $search is empty.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

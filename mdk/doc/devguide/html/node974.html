@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_addToHtpasswd</TITLE>
-<META NAME="description" CONTENT="SERVER_addToHtpasswd">
+<TITLE>PKG_getClientsByPackages</TITLE>
+<META NAME="description" CONTENT="PKG_getClientsByPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node975.html">
 <LINK REL="previous" HREF="node973.html">
-<LINK REL="up" HREF="node958.html">
+<LINK REL="up" HREF="node893.html">
 <LINK REL="next" HREF="node975.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15794"
+<A NAME="tex2html16165"
   HREF="node975.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15790"
-  HREF="node958.html">
+<A NAME="tex2html16161"
+  HREF="node893.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15784"
+<A NAME="tex2html16155"
   HREF="node973.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15792"
+<A NAME="tex2html16163"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15795"
-  HREF="node975.html">SERVER_dhcpServerInNetWarn</A>
-<B> Up:</B> <A NAME="tex2html15791"
-  HREF="node958.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15785"
-  HREF="node973.html">SERVER_delFromHtpasswd</A>
- &nbsp; <B>  <A NAME="tex2html15793"
+<B> Next:</B> <A NAME="tex2html16166"
+  HREF="node975.html">PKG_countPackages</A>
+<B> Up:</B> <A NAME="tex2html16162"
+  HREF="node893.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html16156"
+  HREF="node973.html">PKG_getClientsWithWaitingJobs</A>
+ &nbsp; <B>  <A NAME="tex2html16164"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083116000000000000000">
-SERVER_addToHtpasswd</A>
+<H2><A NAME="SECTION0082881000000000000000">
+PKG_getClientsByPackages</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new user with password to a htpasswd file.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+<LI>packageNames: Array with the packages to check.
 </LI>
-<LI>: username: Name of the new user to add
+<LI>status: Debian status code or true for "installed".
 </LI>
-<LI>: password: The according password for the new user
+<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
+</LI>
+<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>: True if the new user was added sucessfully.
+<LI>Array with all clients that have the specific package (not) installed (or with another given status).
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

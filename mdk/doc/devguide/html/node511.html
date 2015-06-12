@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_isExecutedInCLI</TITLE>
-<META NAME="description" CONTENT="HELPER_isExecutedInCLI">
+<TITLE>FDISK_getBiggestValueOf</TITLE>
+<META NAME="description" CONTENT="FDISK_getBiggestValueOf">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node512.html">
 <LINK REL="previous" HREF="node510.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9833"
+<A NAME="tex2html10233"
   HREF="node512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9829"
-  HREF="node510.html">
+<A NAME="tex2html10229"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9823"
+<A NAME="tex2html10223"
   HREF="node510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9831"
+<A NAME="tex2html10231"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9834"
-  HREF="node512.html">HELPER_getContentFromURL</A>
-<B> Up:</B> <A NAME="tex2html9830"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html9824"
-  HREF="node510.html">./inc/helper.php</A>
- &nbsp; <B>  <A NAME="tex2html9832"
+<B> Next:</B> <A NAME="tex2html10234"
+  HREF="node512.html">FDISK_devNrExists</A>
+<B> Up:</B> <A NAME="tex2html10230"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10224"
+  HREF="node510.html">FDISK_formatPart</A>
+ &nbsp; <B>  <A NAME="tex2html10232"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008141000000000000000">
-HELPER_isExecutedInCLI</A>
+<H2><A NAME="SECTION0081636000000000000000">
+FDISK_getBiggestValueOf</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if it is run in CLI.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> gets the biggest value from a special type of partition
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>True, when run in CLI otherwise false.
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>dev: selected device (e.g. hda)
+</LI>
+<LI>partType: type of the partition (logical, primary, extended)
+</LI>
+<LI>varType: define part of the key for the associative array (e.g. "type" means $param["dev$vDev"."part$vPart"."_type"])
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

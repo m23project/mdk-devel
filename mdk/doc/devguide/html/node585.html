@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarStatus</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarStatus">
+<TITLE>./inc/groups.php</TITLE>
+<META NAME="description" CONTENT="./inc/groups.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,115 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node586.html">
-<LINK REL="previous" HREF="node584.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="next" HREF="node614.html">
+<LINK REL="previous" HREF="node475.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node586.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10780"
+<A NAME="tex2html11119"
   HREF="node586.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10776"
-  HREF="node556.html">
+<A NAME="tex2html11115"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10770"
+<A NAME="tex2html11109"
   HREF="node584.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10778"
+<A NAME="tex2html11117"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10781"
-  HREF="node586.html">HTML_getStatusBarID</A>
-<B> Up:</B> <A NAME="tex2html10777"
-  HREF="node556.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html10771"
-  HREF="node584.html">HTML_setStatusBarStatusByID</A>
- &nbsp; <B>  <A NAME="tex2html10779"
+<B> Next:</B> <A NAME="tex2html11120"
+  HREF="node586.html">GRP_exists</A>
+<B> Up:</B> <A NAME="tex2html11116"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11110"
+  HREF="node584.html">FDISK_deleteDriveFromParam</A>
+ &nbsp; <B>  <A NAME="tex2html11118"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081629000000000000000">
-HTML_setStatusBarStatus</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID or clientname AND status bar name.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>id: ID of the status bar (Optional parameter to set values of status bar with given ID).
-</LI>
-<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
-</LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
-</LI>
-<LI>statusBarName: The name of the status bar.
-</LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: false on parameter error.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008170000000000000000">
+./inc/groups.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: group management funtions
+<BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11121"
+  HREF="node586.html">GRP_exists</A>
+<LI><A NAME="tex2html11122"
+  HREF="node587.html">GRP_add</A>
+<LI><A NAME="tex2html11123"
+  HREF="node588.html">GRP_getIdByName</A>
+<LI><A NAME="tex2html11124"
+  HREF="node589.html">GRP_del</A>
+<LI><A NAME="tex2html11125"
+  HREF="node590.html">GRP_isClientInGroup</A>
+<LI><A NAME="tex2html11126"
+  HREF="node591.html">GRP_addClientToGroup</A>
+<LI><A NAME="tex2html11127"
+  HREF="node592.html">GRP_delClientFromGroup</A>
+<LI><A NAME="tex2html11128"
+  HREF="node593.html">GRP_listGroupsAndCount</A>
+<LI><A NAME="tex2html11129"
+  HREF="node594.html">GRP_showGroupsAndCount</A>
+<LI><A NAME="tex2html11130"
+  HREF="node595.html">GRP_ren</A>
+<LI><A NAME="tex2html11131"
+  HREF="node596.html">GRP_HTMLBackToDetails</A>
+<LI><A NAME="tex2html11132"
+  HREF="node597.html">GRP_countClients</A>
+<LI><A NAME="tex2html11133"
+  HREF="node598.html">GRP_showGeneralInfo</A>
+<LI><A NAME="tex2html11134"
+  HREF="node599.html">GRP_showRenDialog</A>
+<LI><A NAME="tex2html11135"
+  HREF="node600.html">GRP_moveClientToGroup</A>
+<LI><A NAME="tex2html11136"
+  HREF="node601.html">GRP_listGroups</A>
+<LI><A NAME="tex2html11137"
+  HREF="node602.html">GRP_groupSelection</A>
+<LI><A NAME="tex2html11138"
+  HREF="node603.html">GRP_showDelDialog</A>
+<LI><A NAME="tex2html11139"
+  HREF="node604.html">GRP_doClientMoreGroups</A>
+<LI><A NAME="tex2html11140"
+  HREF="node605.html">GRP_listClientGroups</A>
+<LI><A NAME="tex2html11141"
+  HREF="node606.html">GRP_showClientGroups</A>
+<LI><A NAME="tex2html11142"
+  HREF="node607.html">GRP_listAllClientsInGroup</A>
+<LI><A NAME="tex2html11143"
+  HREF="node608.html">GRP_getDistrsAndSourcesLists</A>
+<LI><A NAME="tex2html11144"
+  HREF="node609.html">GRP_showSelDistrSources</A>
+<LI><A NAME="tex2html11145"
+  HREF="node610.html">GRP_listAllClientsInGroups</A>
+<LI><A NAME="tex2html11146"
+  HREF="node611.html">GRP_HTMLBackToOverview</A>
+<LI><A NAME="tex2html11147"
+  HREF="node612.html">GRP_getAllPackages</A>
+<LI><A NAME="tex2html11148"
+  HREF="node613.html">GRP_desasterRecovery</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

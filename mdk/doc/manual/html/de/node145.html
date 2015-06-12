@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Arbeitsspeicher, Festplatte und CPU (VirtualBox)</TITLE>
-<META NAME="description" CONTENT="Arbeitsspeicher, Festplatte und CPU (VirtualBox)">
+<TITLE>VirtualBox</TITLE>
+<META NAME="description" CONTENT="VirtualBox">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,48 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node146.html">
 <LINK REL="previous" HREF="node144.html">
-<LINK REL="up" HREF="node139.html">
+<LINK REL="up" HREF="node143.html">
 <LINK REL="next" HREF="node146.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2330"
+<A NAME="tex2html2370"
   HREF="node146.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2326"
-  HREF="node139.html">
+<A NAME="tex2html2366"
+  HREF="node143.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2322"
+<A NAME="tex2html2360"
   HREF="node144.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2328"
+<A NAME="tex2html2368"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2331"
-  HREF="node146.html">VirtualBox-Erweiterungen herunterladen</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2327"
-  HREF="node139.html">VM erstellen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2323"
-  HREF="node144.html">Hinweis zum VM-Gastgeberrechner (VirtualBox)</A>
- &nbsp; <B>  <A NAME="tex2html2329"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2371"
+  HREF="node146.html">Apache CloudStack</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2367"
+  HREF="node143.html">VM erstellen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2361"
+  HREF="node144.html">Schrittweises Vorgehen</A>
+ &nbsp; <B>  <A NAME="tex2html2369"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001016000000000000000">
-Arbeitsspeicher, Festplatte und CPU (VirtualBox)</A>
+<H2><A NAME="SECTION001012000000000000000">
+VirtualBox</A>
 </H2>
-Der einer virtuellen Maschine zugewiesene Arbeitsspeicher wird vom physikalisch vorhandenen Arbeitsspeicher des Gastgeberrechners abgezogen, wenn die VM gestartet wird. Jeder virtuelle Client besitzt eine virtuelle Festplatte in Form einer Datei, die anfangs sehr klein und im weiteren Betrieb auf die tats&#228;chlich ben&#246;tigte Gr&#246;&#223;e bis zur vorgegebenen Festplattengr&#246;&#223;e anw&#228;chst. Die CPU-Auslastung von Anwendungen ist prinzipbedingt h&#246;her, wenn diese in einer VM ausgef&#252;hrt werden, als wenn dieses direkt auf der Maschine geschieht.
+		L&#228;uft der VM-Gastgeberrechner, so werden Ihnen eine Vielzahl an Informationen &#252;ber dessen gegenw&#228;rtigen Status angezeigt. M&#246;chten Sie diesen VM-Gastgeberrechner verwenden, so w&#228;hlen Sie die Eigenschaften f&#252;r den virtuellen m23-Client aus:
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Gastgeberrechner-Netzwerkkarte</SPAN>: Sollte der VM-Gastgeberrechner &#252;ber mehr als eine Netzwerkkarte verf&#252;gen, so w&#228;hlen Sie die Netzwerkkarte aus, mit der dieser mit Ihrem &#252;brigen Netzwerk kommuniziert. Virtuelle Maschinen werden mittels einer Software-Netzwerkbr&#252;cke an das physikalische Netzwerk angeschlossen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Name der VM</SPAN>: W&#228;hlen Sie hier den Namen f&#252;r die virtuelle Maschine. Dieser Name ist identisch mit dem Namen des m23-Clients.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">MAC-Adresse</SPAN>: Die MAC-Adresse des virtuellen Clients. Es wird eine zuf&#228;llige MAC-Adresse erstellt, die Sie beibehalten oder &#228;ndern k&#246;nnen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Arbeitsspeicher</SPAN>: Die Gr&#246;&#223;e des Arbeitsspeichers Ihres virtuellen m23-Clients. Diese sollte so gew&#228;hlt werden, da&#223; noch gen&#252;gend Speicher f&#252;r andere laufende Anwendungen und ggf. weitere virtuelle Maschinen verf&#252;gbar ist.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Festplatte</SPAN>: Die (maximale) Gr&#246;&#223;e der virtuellen Festplatte.
+<BR></LI>
+</UL>
+		Klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Anlegen''</SPAN>.
+<BR>		<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -d "html/de" ] || [ ! -d "html/en" ] || [ ! -d "html/fr" ]
+then
+	echo "The offline copies must be in the directories:
+html/de
+html/en
+html/fr
+"
+	exit 1
+fi
+
+. /mdk/bin/docFunctions.inc
+uploadHtml /matrix23/arbeit/m23-Oberfläche-offline-Kopie/ /home/project-web/m23/htdocs/offline-copy/

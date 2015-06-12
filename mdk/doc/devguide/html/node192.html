@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>checkNetmask</TITLE>
-<META NAME="description" CONTENT="checkNetmask">
+<TITLE>./inc/CAutoTest.php</TITLE>
+<META NAME="description" CONTENT="./inc/CAutoTest.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,141 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node193.html">
-<LINK REL="previous" HREF="node191.html">
-<LINK REL="up" HREF="node177.html">
+<LINK REL="next" HREF="node234.html">
+<LINK REL="previous" HREF="node179.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node193.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5677"
+<A NAME="tex2html6043"
   HREF="node193.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5673"
-  HREF="node177.html">
+<A NAME="tex2html6039"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5667"
+<A NAME="tex2html6033"
   HREF="node191.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5675"
+<A NAME="tex2html6041"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5678"
-  HREF="node193.html">checkEmail</A>
-<B> Up:</B> <A NAME="tex2html5674"
-  HREF="node177.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html5668"
-  HREF="node191.html">checkMAC</A>
- &nbsp; <B>  <A NAME="tex2html5676"
+<B> Next:</B> <A NAME="tex2html6044"
+  HREF="node193.html">CClient::__construct</A>
+<B> Up:</B> <A NAME="tex2html6040"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html6034"
+  HREF="node191.html">CAPTURE_showTableWith</A>
+ &nbsp; <B>  <A NAME="tex2html6042"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008515000000000000000">
-checkNetmask</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a netmask is valid
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>string: netmask value to check
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true if netmask is valid, else false
-</LI>
-</UL>
-
+<H1><A NAME="SECTION00860000000000000000">
+./inc/CAutoTest.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for test automation.
+<BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html6045"
+  HREF="node193.html">CClient::__construct</A>
+<LI><A NAME="tex2html6046"
+  HREF="node194.html">CAutoTest::readAndDefineOrDieXML</A>
+<LI><A NAME="tex2html6047"
+  HREF="node195.html">CAutoTest::readSettings</A>
+<LI><A NAME="tex2html6048"
+  HREF="node196.html">CAutoTest::VMCreate</A>
+<LI><A NAME="tex2html6049"
+  HREF="node197.html">CAutoTest::VMStart</A>
+<LI><A NAME="tex2html6050"
+  HREF="node198.html">CAutoTest::setISO</A>
+<LI><A NAME="tex2html6051"
+  HREF="node199.html">CAutoTest::getISO</A>
+<LI><A NAME="tex2html6052"
+  HREF="node200.html">CAutoTest::isVM</A>
+<LI><A NAME="tex2html6053"
+  HREF="node201.html">CAutoTest::getVM_hdsize</A>
+<LI><A NAME="tex2html6054"
+  HREF="node202.html">CAutoTest::getVMRam</A>
+<LI><A NAME="tex2html6055"
+  HREF="node203.html">CAutoTest::getMachine</A>
+<LI><A NAME="tex2html6056"
+  HREF="node204.html">CAutoTest::getMovieFileName</A>
+<LI><A NAME="tex2html6057"
+  HREF="node205.html">CAutoTest::getLogFileName</A>
+<LI><A NAME="tex2html6058"
+  HREF="node206.html">CAutoTest::addToLogFile</A>
+<LI><A NAME="tex2html6059"
+  HREF="node207.html">CAutoTest::getTimestampString</A>
+<LI><A NAME="tex2html6060"
+  HREF="node208.html">CAutoTest::setTriggered</A>
+<LI><A NAME="tex2html6061"
+  HREF="node209.html">CAutoTest::isTriggered</A>
+<LI><A NAME="tex2html6062"
+  HREF="node210.html">CAutoTest::setTimeout</A>
+<LI><A NAME="tex2html6063"
+  HREF="node211.html">CAutoTest::decTimeout</A>
+<LI><A NAME="tex2html6064"
+  HREF="node212.html">CAutoTest::addToSequence</A>
+<LI><A NAME="tex2html6065"
+  HREF="node213.html">CAutoTest::matchArray</A>
+<LI><A NAME="tex2html6066"
+  HREF="node214.html">CAutoTest::getAnswersA</A>
+<LI><A NAME="tex2html6067"
+  HREF="node215.html">CAutoTest::getTriggerTypes</A>
+<LI><A NAME="tex2html6068"
+  HREF="node216.html">CAutoTest::getTriggerParams</A>
+<LI><A NAME="tex2html6069"
+  HREF="node217.html">CAutoTest::getExecTypes</A>
+<LI><A NAME="tex2html6070"
+  HREF="node218.html">CAutoTest::getExecParams</A>
+<LI><A NAME="tex2html6071"
+  HREF="node219.html">CAutoTest::checkTriggerResult</A>
+<LI><A NAME="tex2html6072"
+  HREF="node220.html">CAutoTest::executeTriggerAction</A>
+<LI><A NAME="tex2html6073"
+  HREF="node221.html">CAutoTest::waitForTrigger</A>
+<LI><A NAME="tex2html6074"
+  HREF="node222.html">CAutoTest::getCurElement</A>
+<LI><A NAME="tex2html6075"
+  HREF="node223.html">CAutoTest::nextCurElement</A>
+<LI><A NAME="tex2html6076"
+  HREF="node224.html">CAutoTest::showAndLogMessage</A>
+<LI><A NAME="tex2html6077"
+  HREF="node225.html">CAutoTest::elemOk</A>
+<LI><A NAME="tex2html6078"
+  HREF="node226.html">CAutoTest::elemWarn</A>
+<LI><A NAME="tex2html6079"
+  HREF="node227.html">CAutoTest::elemBad</A>
+<LI><A NAME="tex2html6080"
+  HREF="node228.html">CAutoTest::setVariableFromXML</A>
+<LI><A NAME="tex2html6081"
+  HREF="node229.html">CAutoTest::triggerTypeToConstant</A>
+<LI><A NAME="tex2html6082"
+  HREF="node230.html">CAutoTest::parseTriggerFromXML</A>
+<LI><A NAME="tex2html6083"
+  HREF="node231.html">CAutoTest::parseActionFromXML</A>
+<LI><A NAME="tex2html6084"
+  HREF="node232.html">CAutoTest::parseAnswersFromXML</A>
+<LI><A NAME="tex2html6085"
+  HREF="node233.html">CAutoTest::parseXML</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

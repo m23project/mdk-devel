@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/m23shared/m23shared.php</TITLE>
-<META NAME="description" CONTENT="./inc/m23shared/m23shared.php">
+<TITLE>./inc/html.php</TITLE>
+<META NAME="description" CONTENT="./inc/html.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,8 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node735.html">
-<LINK REL="previous" HREF="node638.html">
+<LINK REL="next" HREF="node724.html">
+<LINK REL="previous" HREF="node658.html">
 <LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node664.html">
 </HEAD>
@@ -28,37 +28,37 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11752"
+<A NAME="tex2html12124"
   HREF="node664.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11748"
+<A NAME="tex2html12120"
   HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11742"
+<A NAME="tex2html12114"
   HREF="node662.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11750"
+<A NAME="tex2html12122"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11753"
-  HREF="node664.html">m23SHARED_deleteBills</A>
-<B> Up:</B> <A NAME="tex2html11749"
+<B> Next:</B> <A NAME="tex2html12125"
+  HREF="node664.html">HTML_imgSwitch</A>
+<B> Up:</B> <A NAME="tex2html12121"
   HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html11743"
-  HREF="node662.html">LDAP_matchLDAPserver</A>
- &nbsp; <B>  <A NAME="tex2html11751"
+<B> Previous:</B> <A NAME="tex2html12115"
+  HREF="node662.html">HELP_showHelpTex</A>
+ &nbsp; <B>  <A NAME="tex2html12123"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H1><A NAME="SECTION008200000000000000000">
-./inc/m23shared/m23shared.php</A>
+./inc/html.php</A>
 </H1>
- Author: Hauke Goos-Habermann (HHabermann@goos-habermann.de)
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
 <BR>
-Description: database functions, open, close the database, get ip of the calling client
+Description: functions for generating often used HTML code
 <BR>
 <P>
 <BR><HR>
@@ -66,154 +66,132 @@ Description: database functions, open, close the database, get ip of the calling
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html11754"
-  HREF="node664.html">m23SHARED_deleteBills</A>
-<LI><A NAME="tex2html11755"
-  HREF="node665.html">m23SHARED_deleteUserdataFromDB</A>
-<LI><A NAME="tex2html11756"
-  HREF="node666.html">m23SHARED_isMarkedForDeletion</A>
-<LI><A NAME="tex2html11757"
-  HREF="node667.html">m23SHARED_markForDeletion</A>
-<LI><A NAME="tex2html11758"
-  HREF="node668.html">m23SHARED_DBname</A>
-<LI><A NAME="tex2html11759"
-  HREF="node669.html">m23SHARED_getDBnameByInterface</A>
-<LI><A NAME="tex2html11760"
-  HREF="node670.html">m23SHARED_getDBnameByClient</A>
-<LI><A NAME="tex2html11761"
-  HREF="node671.html">m23SHARED_init</A>
-<LI><A NAME="tex2html11762"
-  HREF="node672.html">m23SHARED_new</A>
-<LI><A NAME="tex2html11763"
-  HREF="node673.html">m23SHARED_setLicense</A>
-<LI><A NAME="tex2html11764"
-  HREF="node674.html">m23SHARED_evaluationDaysLeft</A>
-<LI><A NAME="tex2html11765"
-  HREF="node675.html">m23SHARED_evaluationEndDate</A>
-<LI><A NAME="tex2html11766"
-  HREF="node676.html">m23SHARED_paidClients</A>
-<LI><A NAME="tex2html11767"
-  HREF="node677.html">m23SHARED_getCompleteClientName</A>
-<LI><A NAME="tex2html11768"
-  HREF="node678.html">m23SHARED_getServerIP</A>
-<LI><A NAME="tex2html11769"
-  HREF="node679.html">m23SHARED_getPayTypeArray</A>
-<LI><A NAME="tex2html11770"
-  HREF="node680.html">m23SHARED_getSalutationsArray</A>
-<LI><A NAME="tex2html11771"
-  HREF="node681.html">m23SHARED_getSalutationHeadline</A>
-<LI><A NAME="tex2html11772"
-  HREF="node682.html">m23SHARED_getPayTypeHumanReadable</A>
-<LI><A NAME="tex2html11773"
-  HREF="node683.html">m23SHARED_getMonthlyFee</A>
-<LI><A NAME="tex2html11774"
-  HREF="node684.html">m23SHARED_getCustomerEmail</A>
-<LI><A NAME="tex2html11775"
-  HREF="node685.html">m23SHARED_setCustomerEmail</A>
-<LI><A NAME="tex2html11776"
-  HREF="node686.html">m23SHARED_generateActivationKey</A>
-<LI><A NAME="tex2html11777"
-  HREF="node687.html">m23SHARED_getActivationKey</A>
-<LI><A NAME="tex2html11778"
-  HREF="node688.html">m23SHARED_generateCustomerNumber</A>
-<LI><A NAME="tex2html11779"
-  HREF="node689.html">m23SHARED_getCustomerNr</A>
-<LI><A NAME="tex2html11780"
-  HREF="node690.html">m23SHARED_activate</A>
-<LI><A NAME="tex2html11781"
-  HREF="node691.html">m23SHARED_setCustomerLanguage</A>
-<LI><A NAME="tex2html11782"
-  HREF="node692.html">m23SHARED_getCustomerLanguage</A>
-<LI><A NAME="tex2html11783"
-  HREF="node693.html">m23SHARED_sendActivationMail</A>
-<LI><A NAME="tex2html11784"
-  HREF="node694.html">m23SHARED_sendActivationMail</A>
-<LI><A NAME="tex2html11785"
-  HREF="node695.html">m23SHARED_setRealName</A>
-<LI><A NAME="tex2html11786"
-  HREF="node696.html">m23SHARED_getRealName</A>
-<LI><A NAME="tex2html11787"
-  HREF="node697.html">m23SHARED_changeClientAmount</A>
-<LI><A NAME="tex2html11788"
-  HREF="node698.html">m23SHARED_showBill</A>
-<LI><A NAME="tex2html11789"
-  HREF="node699.html">m23SHARED_billDateSelection</A>
-<LI><A NAME="tex2html11790"
-  HREF="node700.html">m23SHARED_priceFormater</A>
-<LI><A NAME="tex2html11791"
-  HREF="node701.html">m23SHARED_calculateBill</A>
-<LI><A NAME="tex2html11792"
-  HREF="node702.html">m23SHARED_getLicenseType</A>
-<LI><A NAME="tex2html11793"
-  HREF="node703.html">m23SHARED_sendAdminMail</A>
-<LI><A NAME="tex2html11794"
-  HREF="node704.html">m23SHARED_getCurrentUser</A>
-<LI><A NAME="tex2html11795"
-  HREF="node705.html">m23SHARED_changePasswordDialog</A>
-<LI><A NAME="tex2html11796"
-  HREF="node706.html">m23SHARED_changePasswordDialog</A>
-<LI><A NAME="tex2html11797"
-  HREF="node707.html">m23SHARED_getBillDates</A>
-<LI><A NAME="tex2html11798"
-  HREF="node708.html">m23SHARED_downloadBillPDFLink</A>
-<LI><A NAME="tex2html11799"
-  HREF="node709.html">m23SHARED_getCustomerAddress</A>
-<LI><A NAME="tex2html11800"
-  HREF="node710.html">m23SHARED_getCustomerBankHTML</A>
-<LI><A NAME="tex2html11801"
-  HREF="node711.html">m23SHARED_pdfBill</A>
-<LI><A NAME="tex2html11802"
-  HREF="node712.html">m23SHARED_setBankAccount</A>
-<LI><A NAME="tex2html11803"
-  HREF="node713.html">m23SHARED_setAddress</A>
-<LI><A NAME="tex2html11804"
-  HREF="node714.html">m23SHARED_unusedPaidClientsAvailable</A>
-<LI><A NAME="tex2html11805"
-  HREF="node715.html">m23SHARED_showLicenseDialog</A>
-<LI><A NAME="tex2html11806"
-  HREF="node716.html">m23SHARED_getAllm23sharedUsers</A>
-<LI><A NAME="tex2html11807"
-  HREF="node717.html">m23SHARED_switchUser</A>
-<LI><A NAME="tex2html11808"
-  HREF="node718.html">m23SHARED_prepareBillMailSending</A>
-<LI><A NAME="tex2html11809"
-  HREF="node719.html">m23SHARED_markBillMailAsSent</A>
-<LI><A NAME="tex2html11810"
-  HREF="node720.html">m23SHARED_sendAllBillMails</A>
-<LI><A NAME="tex2html11811"
-  HREF="node721.html">m23SHARED_addExtraBill</A>
-<LI><A NAME="tex2html11812"
-  HREF="node722.html">m23SHARED_showDonationDialog</A>
-<LI><A NAME="tex2html11813"
-  HREF="node723.html">m23SHARED_showBootMediaDownloadDialog</A>
-<LI><A NAME="tex2html11814"
-  HREF="node724.html">m23SHARED_allUserDBQuery</A>
-<LI><A NAME="tex2html11815"
-  HREF="node725.html">m23SHARED_getUserByResident</A>
-<LI><A NAME="tex2html11816"
-  HREF="node726.html">m23SHARED_getUserByCustomerNr</A>
-<LI><A NAME="tex2html11817"
-  HREF="node727.html">m23SHARED_getUserByInfo</A>
-<LI><A NAME="tex2html11818"
-  HREF="node728.html">m23SHARED_showAdminDialog</A>
-<LI><A NAME="tex2html11819"
-  HREF="node729.html">m23SHARED_blockAccount</A>
-<LI><A NAME="tex2html11820"
-  HREF="node730.html">m23SHARED_isAccountBlocked</A>
-<LI><A NAME="tex2html11821"
-  HREF="node731.html">m23SHARED_showAddExtraBillDialog</A>
-<LI><A NAME="tex2html11822"
-  HREF="node732.html">m23SHARED_showBillDialog</A>
-<LI><A NAME="tex2html11823"
-  HREF="node733.html">m23SHARED_showPriceListTable</A>
-<LI><A NAME="tex2html11824"
-  HREF="node734.html">m23SHARED_getInformationForBootingYourClientLink</A>
+<LI><A NAME="tex2html12126"
+  HREF="node664.html">HTML_imgSwitch</A>
+<LI><A NAME="tex2html12127"
+  HREF="node665.html">HTML_uploadFile</A>
+<LI><A NAME="tex2html12128"
+  HREF="node666.html">HTML_urlButton</A>
+<LI><A NAME="tex2html12129"
+  HREF="node667.html">HTML_sourceViewer</A>
+<LI><A NAME="tex2html12130"
+  HREF="node668.html">HTML_getOutputBuffer</A>
+<LI><A NAME="tex2html12131"
+  HREF="node669.html">HTML_setOutputBuffer</A>
+<LI><A NAME="tex2html12132"
+  HREF="node670.html">HTML_AJAXAutoSubmit</A>
+<LI><A NAME="tex2html12133"
+  HREF="node671.html">HTML_liveSpan</A>
+<LI><A NAME="tex2html12134"
+  HREF="node672.html">HTML_manipulateOutputBuffer</A>
+<LI><A NAME="tex2html12135"
+  HREF="node673.html">HTML_showTitle</A>
+<LI><A NAME="tex2html12136"
+  HREF="node674.html">HTML_showSmallTitle</A>
+<LI><A NAME="tex2html12137"
+  HREF="node675.html">HTML_hiddenVar</A>
+<LI><A NAME="tex2html12138"
+  HREF="node676.html">HTML_liveLogArea</A>
+<LI><A NAME="tex2html12139"
+  HREF="node677.html">HTML_checkboxChangerButtons</A>
+<LI><A NAME="tex2html12140"
+  HREF="node678.html">HTML_jsCheckboxChanger</A>
+<LI><A NAME="tex2html12141"
+  HREF="node679.html">HTML_logArea</A>
+<LI><A NAME="tex2html12142"
+  HREF="node680.html">HTML_getQuestionnaireURL</A>
+<LI><A NAME="tex2html12143"
+  HREF="node681.html">HTML_questionnaire</A>
+<LI><A NAME="tex2html12144"
+  HREF="node682.html">HTML_esel</A>
+<LI><A NAME="tex2html12145"
+  HREF="node683.html">HTML_JSMenuCloseAllEntries</A>
+<LI><A NAME="tex2html12146"
+  HREF="node684.html">HTML_JSMenuOpener</A>
+<LI><A NAME="tex2html12147"
+  HREF="node685.html">HTML_jQueryMenu</A>
+<LI><A NAME="tex2html12148"
+  HREF="node686.html">HTML_jQueryMenuHeader</A>
+<LI><A NAME="tex2html12149"
+  HREF="node687.html">HTML_jQueryReStoreYWindowPosition</A>
+<LI><A NAME="tex2html12150"
+  HREF="node688.html">HTML_jQueryMenuEnd</A>
+<LI><A NAME="tex2html12151"
+  HREF="node689.html">HTML_incStatusBarPercentByName</A>
+<LI><A NAME="tex2html12152"
+  HREF="node690.html">HTML_setStatusBarPercentPointByName</A>
+<LI><A NAME="tex2html12153"
+  HREF="node691.html">HTML_setStatusBarStatusByName</A>
+<LI><A NAME="tex2html12154"
+  HREF="node692.html">HTML_setStatusBarStatusByID</A>
+<LI><A NAME="tex2html12155"
+  HREF="node693.html">HTML_setStatusBarStatus</A>
+<LI><A NAME="tex2html12156"
+  HREF="node694.html">HTML_getStatusBarID</A>
+<LI><A NAME="tex2html12157"
+  HREF="node695.html">HTML_newStatusBar</A>
+<LI><A NAME="tex2html12158"
+  HREF="node696.html">HTML_showStatusBar</A>
+<LI><A NAME="tex2html12159"
+  HREF="node697.html">HTML_showStatusBarHTML</A>
+<LI><A NAME="tex2html12160"
+  HREF="node698.html">HTML_multiCheckBox</A>
+<LI><A NAME="tex2html12161"
+  HREF="node699.html">HTML_multiCheckBoxShow</A>
+<LI><A NAME="tex2html12162"
+  HREF="node700.html">HTML_setPage</A>
+<LI><A NAME="tex2html12163"
+  HREF="node701.html">HTML_storableInput</A>
+<LI><A NAME="tex2html12164"
+  HREF="node702.html">HTML_storableSelection</A>
+<LI><A NAME="tex2html12165"
+  HREF="node703.html">HTML_storableCheckBox</A>
+<LI><A NAME="tex2html12166"
+  HREF="node704.html">HTML_getElementValue</A>
+<LI><A NAME="tex2html12167"
+  HREF="node705.html">HTML_listSelection</A>
+<LI><A NAME="tex2html12168"
+  HREF="node706.html">HTML_showTableHeader</A>
+<LI><A NAME="tex2html12169"
+  HREF="node707.html">HTML_showTableEnd</A>
+<LI><A NAME="tex2html12170"
+  HREF="node708.html">HTML_showFormHeader</A>
+<LI><A NAME="tex2html12171"
+  HREF="node709.html">HTML_showFormEnd</A>
+<LI><A NAME="tex2html12172"
+  HREF="node710.html">HTML_submit</A>
+<LI><A NAME="tex2html12173"
+  HREF="node711.html">HTML_submitImg</A>
+<LI><A NAME="tex2html12174"
+  HREF="node712.html">HTML_input</A>
+<LI><A NAME="tex2html12175"
+  HREF="node713.html">array_makeFirst</A>
+<LI><A NAME="tex2html12176"
+  HREF="node714.html">HTML_getValidSelected</A>
+<LI><A NAME="tex2html12177"
+  HREF="node715.html">HTML_selection</A>
+<LI><A NAME="tex2html12178"
+  HREF="node716.html">HTML_checkBox</A>
+<LI><A NAME="tex2html12179"
+  HREF="node717.html">HTML_checkBoxCheckAll</A>
+<LI><A NAME="tex2html12180"
+  HREF="node718.html">HTML_submitDefine</A>
+<LI><A NAME="tex2html12181"
+  HREF="node719.html">HTML_submitCheck</A>
+<LI><A NAME="tex2html12182"
+  HREF="node720.html">HTML_showTableRow</A>
+<LI><A NAME="tex2html12183"
+  HREF="node721.html">HTML_showTableHeading</A>
+<LI><A NAME="tex2html12184"
+  HREF="node722.html">HTML_textArea</A>
+<LI><A NAME="tex2html12185"
+  HREF="node723.html">HTML_showPagePrintButton</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_m23Array2Array</TITLE>
-<META NAME="description" CONTENT="HELPER_m23Array2Array">
+<TITLE>FDISK_genManualFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node528.html">
 <LINK REL="previous" HREF="node526.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node528.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10025"
+<A NAME="tex2html10425"
   HREF="node528.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10021"
-  HREF="node510.html">
+<A NAME="tex2html10421"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10015"
+<A NAME="tex2html10415"
   HREF="node526.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10023"
+<A NAME="tex2html10423"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10026"
-  HREF="node528.html">HELPER_array2m23Array</A>
-<B> Up:</B> <A NAME="tex2html10022"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html10016"
-  HREF="node526.html">HELPER_arrayInsertAfterKeynumber</A>
- &nbsp; <B>  <A NAME="tex2html10024"
+<B> Next:</B> <A NAME="tex2html10426"
+  HREF="node528.html">FDISK_getBelongingRaidDev</A>
+<B> Up:</B> <A NAME="tex2html10422"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10416"
+  HREF="node526.html">FDISK_adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html10424"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081417000000000000000">
-HELPER_m23Array2Array</A>
+<H2><A NAME="SECTION0081652000000000000000">
+FDISK_genManualFstab</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Converts an m23 array to a normal array.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>m23Array: The m23 array to convert. The m23 array is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

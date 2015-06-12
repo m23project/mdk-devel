@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ `whoami` != "root" ]
 then
 	echo "You MUST BE root here. Switch to root account and start again. Now press \"enter\" to leave."
@@ -25,7 +26,6 @@ deleteDoublesmakeIndexAndReturn()
 
 
 
-
 tmp=`ls -t /mdk/m23Debs/debs/hwsetup* | head -n1`
 knoppixver=`find "$tmp" -type f -printf "%TD %TH:%TM"`
 tmp=`ls -t /mdk/m23Debs/debs/m23hwscanner* | head -n1`
@@ -34,15 +34,16 @@ tmp=`ls -t /mdk/m23Debs/debs/m23-skel* | head -n1`
 extraver=`find "$tmp" -type f -printf "%TD %TH:%TM"`
 
 debOption=`debOption 2>/dev/null` || debOption=/tmp/debOption$$
+
 dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 deb package builder" \
-        --menu "Main menu" 19 76 12 \
-	"-extra-" "--Special m23 packages for the client--"\
+	--menu "Main menu" 19 76 12 \
+	"-extra-" "-=Special m23 packages for the client=-"\
 	"knoppix" "fetches and build static Knoppix debs (hwsetup and co.) [$knoppixver]" \
 	"m23extra" "build m23-ksp.,-skel,-initsc.,m23-vbox [$extraver]" \
 	"upload" "upload the packages to SF"\
 	"squidcl" "Remove Packages* from local Squid"\
 	"emptysquid" "Remove ALL from local Squid"\
-	"-m23inst-" "--m23 server software installation packages--"\
+	"-m23inst-" "-=m23 server software installation packages=-"\
 	"build" "check for file changes and (re)create the packages"\
 	"directuplinst" "upload the m23 installation packages directly"\
 	"uploadtesting" "upload the m23 installation packages as testing"\
@@ -50,10 +51,10 @@ dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 deb
 	"quit" "quit menu" 2> $debOption
 retval=$?
 case $retval in
-    1)
-       exit;;
-    255)
-       exit;;
+	1)
+		exit;;
+	255)
+		exit;;
 esac
 
 #"uplinst" "upload the m23 installation packages"\

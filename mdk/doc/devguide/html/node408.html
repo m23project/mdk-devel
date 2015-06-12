@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_devNrExists</TITLE>
-<META NAME="description" CONTENT="FDISK_devNrExists">
+<TITLE>sendClientLogStatus</TITLE>
+<META NAME="description" CONTENT="sendClientLogStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node409.html">
 <LINK REL="previous" HREF="node407.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node392.html">
 <LINK REL="next" HREF="node409.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8533"
+<A NAME="tex2html8848"
   HREF="node409.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8529"
-  HREF="node371.html">
+<A NAME="tex2html8844"
+  HREF="node392.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8523"
+<A NAME="tex2html8838"
   HREF="node407.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8531"
+<A NAME="tex2html8846"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8534"
-  HREF="node409.html">FDISK_nextLogicalDevNr</A>
-<B> Up:</B> <A NAME="tex2html8530"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8524"
-  HREF="node407.html">FDISK_getBiggestValueOf</A>
- &nbsp; <B>  <A NAME="tex2html8532"
+<B> Next:</B> <A NAME="tex2html8849"
+  HREF="node409.html">deleteClientLogs</A>
+<B> Up:</B> <A NAME="tex2html8845"
+  HREF="node392.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html8839"
+  HREF="node407.html">returnClientStageStatus</A>
+ &nbsp; <B>  <A NAME="tex2html8847"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081237000000000000000">
-FDISK_devNrExists</A>
+<H2><A NAME="SECTION0081216000000000000000">
+sendClientLogStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a certain device number exists
+<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send log status to the server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>status: how the line should be named, that is logged to the server
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>ok: true: operation sucessful, false: failure
 </LI>
-<LI>devNr: device numer you want to check
+<LI>critical: if it is set to "true" the execution of the script is stopped and a local rescue console is opened
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_showSelDistrSources</TITLE>
-<META NAME="description" CONTENT="GRP_showSelDistrSources">
+<TITLE>FDISK_getDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_getDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node506.html">
 <LINK REL="previous" HREF="node504.html">
-<LINK REL="up" HREF="node481.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node506.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9723"
+<A NAME="tex2html10161"
   HREF="node506.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9719"
-  HREF="node481.html">
+<A NAME="tex2html10157"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9713"
+<A NAME="tex2html10151"
   HREF="node504.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9721"
+<A NAME="tex2html10159"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9724"
-  HREF="node506.html">GRP_listAllClientsInGroups</A>
-<B> Up:</B> <A NAME="tex2html9720"
-  HREF="node481.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html9714"
-  HREF="node504.html">GRP_getDistrsAndSourcesLists</A>
- &nbsp; <B>  <A NAME="tex2html9722"
+<B> Next:</B> <A NAME="tex2html10162"
+  HREF="node506.html">FDISK_listDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html10158"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10152"
+  HREF="node504.html">FDISK_getPartitionByType</A>
+ &nbsp; <B>  <A NAME="tex2html10160"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081324000000000000000">
-GRP_showSelDistrSources</A>
+<H2><A NAME="SECTION0081630000000000000000">
+FDISK_getDrivesAndPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows a dialog for selection of distribution and package source name. The choices are taken form distr and packagesource values of the clients in the group. If there is only one entry for one or both of the values, the value is written back to the input variable otherwise a HTML selection is shown.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an array that contains all drives and partitions of a given client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>groupNames: group names stores in an array
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>distr: distribution to show first and variable to write the distribution name back
+<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it. If you add an "!" the beginning all is given out that doesn't contains the filter string (without the "!").
 </LI>
-<LI>sourceslist: sources list to show first and variable to write the sources list name back
+<LI>addSizesAndTypes: If set to true, the array will contain the sizes, filesystems and types of the partitions and drives.
+</LI>
+<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with drives and partitions and (optionally) their sizes, filesystems and types.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

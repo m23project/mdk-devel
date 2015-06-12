@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_programmStatus</TITLE>
-<META NAME="description" CONTENT="SERVER_programmStatus">
+<TITLE>PKG_showAllPackageSelections</TITLE>
+<META NAME="description" CONTENT="PKG_showAllPackageSelections">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node985.html">
 <LINK REL="previous" HREF="node983.html">
-<LINK REL="up" HREF="node958.html">
+<LINK REL="up" HREF="node893.html">
 <LINK REL="next" HREF="node985.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15914"
+<A NAME="tex2html16285"
   HREF="node985.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15910"
-  HREF="node958.html">
+<A NAME="tex2html16281"
+  HREF="node893.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15904"
+<A NAME="tex2html16275"
   HREF="node983.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15912"
+<A NAME="tex2html16283"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15915"
-  HREF="node985.html">SERVER_apacheInfo</A>
-<B> Up:</B> <A NAME="tex2html15911"
-  HREF="node958.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html15905"
-  HREF="node983.html">SERVER_installTool</A>
- &nbsp; <B>  <A NAME="tex2html15913"
+<B> Next:</B> <A NAME="tex2html16286"
+  HREF="node985.html">PKG_getPackageParams</A>
+<B> Up:</B> <A NAME="tex2html16282"
+  HREF="node893.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html16276"
+  HREF="node983.html">PKG_multiPackageSelectionsSelection</A>
+ &nbsp; <B>  <A NAME="tex2html16284"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083126000000000000000">
-SERVER_programmStatus</A>
+<H2><A NAME="SECTION0082891000000000000000">
+PKG_showAllPackageSelections</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
+<SPAN  CLASS="textbf">Description:</SPAN> returns all package selection as HTML selection
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
+<LI>selName: name of the selection
 </LI>
-<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
 </LI>
-<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
+<LI>addEmpty: set to true to add an empty entry at the beginning.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

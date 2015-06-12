@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_getTypes</TITLE>
-<META NAME="description" CONTENT="LDAP_getTypes">
+<TITLE>HELPER_passGenerator</TITLE>
+<META NAME="description" CONTENT="HELPER_passGenerator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node640.html">
 <LINK REL="previous" HREF="node638.html">
-<LINK REL="up" HREF="node638.html">
+<LINK REL="up" HREF="node614.html">
 <LINK REL="next" HREF="node640.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11466"
+<A NAME="tex2html11836"
   HREF="node640.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11462"
-  HREF="node638.html">
+<A NAME="tex2html11832"
+  HREF="node614.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11456"
+<A NAME="tex2html11826"
   HREF="node638.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11464"
+<A NAME="tex2html11834"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11467"
-  HREF="node640.html">LDAP_connectServer</A>
-<B> Up:</B> <A NAME="tex2html11463"
-  HREF="node638.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html11457"
-  HREF="node638.html">./inc/ldap.php</A>
- &nbsp; <B>  <A NAME="tex2html11465"
+<B> Next:</B> <A NAME="tex2html11837"
+  HREF="node640.html">HELPER_array2AssociativeArray</A>
+<B> Up:</B> <A NAME="tex2html11833"
+  HREF="node614.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11827"
+  HREF="node638.html">HELPER_getRemoteFileContents</A>
+ &nbsp; <B>  <A NAME="tex2html11835"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008191000000000000000">
-LDAP_getTypes</A>
+<H2><A NAME="SECTION0081825000000000000000">
+HELPER_passGenerator</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with the known LDAP types.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates semi-random passwords via pwgen or DB_genPassword.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Aarray with the known LDAP types.
+<LI>length: The length of the passwords.
+</LI>
+<LI>amount: The amount of passwords to generate.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with the generated passwords if $amount <SPAN CLASS="MATH"></SPAN> 1 or the password string directly if $amount = 1.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

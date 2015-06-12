@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getBeforeFristPartition</TITLE>
-<META NAME="description" CONTENT="FDISK_getBeforeFristPartition">
+<TITLE>DHCP_addClient</TITLE>
+<META NAME="description" CONTENT="DHCP_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node435.html">
 <LINK REL="previous" HREF="node433.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node424.html">
 <LINK REL="next" HREF="node435.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8845"
+<A NAME="tex2html9177"
   HREF="node435.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8841"
-  HREF="node371.html">
+<A NAME="tex2html9173"
+  HREF="node424.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8835"
+<A NAME="tex2html9167"
   HREF="node433.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8843"
+<A NAME="tex2html9175"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8846"
-  HREF="node435.html">FDISK_getPartitions</A>
-<B> Up:</B> <A NAME="tex2html8842"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8836"
-  HREF="node433.html">FDISK_getAfterPartition</A>
- &nbsp; <B>  <A NAME="tex2html8844"
+<B> Next:</B> <A NAME="tex2html9178"
+  HREF="node435.html">DHCP_addLineToDHCPDConf</A>
+<B> Up:</B> <A NAME="tex2html9174"
+  HREF="node424.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9168"
+  HREF="node433.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html9176"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081263000000000000000">
-FDISK_getBeforeFristPartition</A>
+<H2><A NAME="SECTION0081310000000000000000">
+DHCP_addClient</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the free space before the first partition
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>clientName: name of the client
 </LI>
-<LI>vDev: virtual device number to access the drive
+<LI>ip: ip address of the client
 </LI>
-<LI>factor: the factor to multiplay percent amount of free space
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
+</LI>
+<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

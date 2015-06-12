@@ -18,22 +18,21 @@ articleDir=$1
 last=`cat "$articleDir/lastUpdate.txt"`
 newlast=0
 
-find "$articleDir" -type f -printf "%p*%CY%Cm%Cd%CH%CM\n" | grep -v '~' | grep html | while read file
+find "$articleDir" -type f -printf "%p\n" | grep -v '~' | grep html | sort -n | while read name
 do
-	name=`echo $file | cut -d'*' -f1`
-	date=`echo $file | cut -d'*' -f2`
 	id=`basename $name | cut -d'#' -f1`
 
-	#Update the date of the newest file
-	if [ $date -gt $newlast ]
-	then
-		echo $date > "$articleDir/lastUpdate.txt"
-		newlast=$date
-	fi
 
 	#Get the heading and post it as Twitter message
-	if [ $last -lt $date ]
+	if [ $last -lt $id ]
 	then
+	#Update the date of the newest file
+	if [ $id -gt $newlast ]
+		then
+			echo $id > "$articleDir/lastUpdate.txt"
+			newlast=$id
+		fi
+
 		msg=`head -1 $name`
 		/mdk/m23helper/twitter/twitterFaceBook-Message.sh "$msg" m23news "#m23" "http://m23.sourceforge.net/PostNuke-0.750/html/index.php?id=$id"
 	fi

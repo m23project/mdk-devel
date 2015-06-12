@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_getFilename</TITLE>
-<META NAME="description" CONTENT="PLG_getFilename">
+<TITLE>PKG_getDebootstrapCacheServerFile</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheServerFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node906.html">
 <LINK REL="previous" HREF="node904.html">
-<LINK REL="up" HREF="node889.html">
+<LINK REL="up" HREF="node893.html">
 <LINK REL="next" HREF="node906.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14887"
+<A NAME="tex2html15337"
   HREF="node906.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14883"
-  HREF="node889.html">
+<A NAME="tex2html15333"
+  HREF="node893.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14877"
+<A NAME="tex2html15327"
   HREF="node904.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14885"
+<A NAME="tex2html15335"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14888"
-  HREF="node906.html">PLG_install</A>
-<B> Up:</B> <A NAME="tex2html14884"
-  HREF="node889.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html14878"
-  HREF="node904.html">PLG_getTempDir</A>
- &nbsp; <B>  <A NAME="tex2html14886"
+<B> Next:</B> <A NAME="tex2html15338"
+  HREF="node906.html">PKG_isReconfiguredWithExtraDistr</A>
+<B> Up:</B> <A NAME="tex2html15334"
+  HREF="node893.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15328"
+  HREF="node904.html">PKG_getDebootstrapCacheServerURL</A>
+ &nbsp; <B>  <A NAME="tex2html15336"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082616000000000000000">
-PLG_getFilename</A>
+<H2><A NAME="SECTION0082812000000000000000">
+PKG_getDebootstrapCacheServerFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the filename for the plugin file
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the full path to the debootstrap cache file on the m23 server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>url: the place where to get the plugin file from. following transport protocols are allowed: http, ftp and local files. e.g. "http://myserver.de/test.m23plg" is avalid url.
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+</LI>
+<LI>arch: the computer architecture of the client
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The full path to the debootstrap cache file on the m23 server.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

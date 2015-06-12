@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_activate</TITLE>
-<META NAME="description" CONTENT="m23SHARED_activate">
+<TITLE>HTML_setStatusBarPercentPointByName</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarPercentPointByName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,49 +28,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12147"
+<A NAME="tex2html12508"
   HREF="node691.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12143"
+<A NAME="tex2html12504"
   HREF="node663.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12137"
+<A NAME="tex2html12498"
   HREF="node689.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12145"
+<A NAME="tex2html12506"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12148"
-  HREF="node691.html">m23SHARED_setCustomerLanguage</A>
-<B> Up:</B> <A NAME="tex2html12144"
-  HREF="node663.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html12138"
-  HREF="node689.html">m23SHARED_getCustomerNr</A>
- &nbsp; <B>  <A NAME="tex2html12146"
+<B> Next:</B> <A NAME="tex2html12509"
+  HREF="node691.html">HTML_setStatusBarStatusByName</A>
+<B> Up:</B> <A NAME="tex2html12505"
+  HREF="node663.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12499"
+  HREF="node689.html">HTML_incStatusBarPercentByName</A>
+ &nbsp; <B>  <A NAME="tex2html12507"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082027000000000000000">
-m23SHARED_activate</A>
+HTML_setStatusBarPercentPointByName</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Activates a customer account identified by user and activation code, makes some checks if the data is correct and sends a welcome email.
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the value of a percent point according to the amount of waiting packages and stores the result in the DB.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>user: The user name of the customer.
+<LI>statusBarName: The name of the status bar.
 </LI>
-<LI>code: The activation code for the account.
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+</LI>
+<LI>recalculate: true, if the remaining percent value of the status bar should be used to calculate a new (better fitting) percentpoint.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>false on errors, otherwise true.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

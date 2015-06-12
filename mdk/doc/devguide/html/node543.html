@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getApacheUser</TITLE>
-<META NAME="description" CONTENT="HELPER_getApacheUser">
+<TITLE>FDISK_getPartInfoIcon</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartInfoIcon">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node544.html">
 <LINK REL="previous" HREF="node542.html">
-<LINK REL="up" HREF="node510.html">
+<LINK REL="up" HREF="node475.html">
 <LINK REL="next" HREF="node544.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10217"
+<A NAME="tex2html10617"
   HREF="node544.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10213"
-  HREF="node510.html">
+<A NAME="tex2html10613"
+  HREF="node475.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10207"
+<A NAME="tex2html10607"
   HREF="node542.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10215"
+<A NAME="tex2html10615"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10218"
-  HREF="node544.html">HELPER_getApacheGroup</A>
-<B> Up:</B> <A NAME="tex2html10214"
-  HREF="node510.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html10208"
-  HREF="node542.html">HELPER_getFdiskMountPoints</A>
- &nbsp; <B>  <A NAME="tex2html10216"
+<B> Next:</B> <A NAME="tex2html10618"
+  HREF="node544.html">FDISK_printBars</A>
+<B> Up:</B> <A NAME="tex2html10614"
+  HREF="node475.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10608"
+  HREF="node542.html">FDISK_getDriveInfoIcon</A>
+ &nbsp; <B>  <A NAME="tex2html10616"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081433000000000000000">
-HELPER_getApacheUser</A>
+<H2><A NAME="SECTION0081668000000000000000">
+FDISK_getPartInfoIcon</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the name of the Apache user
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive or partition.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1) and if set to false, the icon and the status information will be generated for a drive and not for a partition.
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>fstabA: Associative array with fstab information.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>HTML code for showing an icon with status information about the drive or partition.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

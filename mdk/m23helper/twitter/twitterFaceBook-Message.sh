@@ -12,6 +12,9 @@ then
 	exit 1
 fi
 
+# Convert HTML characters into "normal" characters
+msg=$(php -r "print(utf8_decode(html_entity_decode(\"$msg\")));")
+
 #Shorten the URL
 # slink=`wget "http://bit.ly/?url=$link&submit=Shorten" -O - | grep tweet_body | grep  bit.ly | cut -d'>' -f2 | cut -d'<' -f1`
 # slink=`wget http://is.gd/create.php --post-data="URL=$link" -O - | sed 's/>/\n/g' | grep shortened | grep is.gd | cut -d'"' -f2`

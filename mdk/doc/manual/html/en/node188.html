@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Pool builder (Select package sources and packages)</TITLE>
-<META NAME="description" CONTENT="Pool builder (Select package sources and packages)">
+<TITLE>Poll builder</TITLE>
+<META NAME="description" CONTENT="Poll builder">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,130 +19,78 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node190.html">
-<LINK REL="previous" HREF="node187.html">
-<LINK REL="up" HREF="node183.html">
+<LINK REL="next" HREF="node198.html">
+<LINK REL="previous" HREF="node162.html">
+<LINK REL="up" HREF="manual.html">
 <LINK REL="next" HREF="node189.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2878"
+<A NAME="tex2html2898"
   HREF="node189.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2874"
-  HREF="node183.html">
+<A NAME="tex2html2894"
+  HREF="manual.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2868"
+<A NAME="tex2html2888"
   HREF="node187.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2876"
+<A NAME="tex2html2896"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2879"
-  HREF="node189.html">Hint</A>
-<B> Up:</B> <A NAME="tex2html2875"
-  HREF="node183.html">Poll builder</A>
-<B> Previous:</B> <A NAME="tex2html2869"
-  HREF="node187.html">Pool builder (Create package</A>
- &nbsp; <B>  <A NAME="tex2html2877"
+<B> Next:</B> <A NAME="tex2html2899"
+  HREF="node189.html">Pool builder (Create, edit,</A>
+<B> Up:</B> <A NAME="tex2html2895"
+  HREF="manual.html">m23 manual m23 rock</A>
+<B> Previous:</B> <A NAME="tex2html2889"
+  HREF="node187.html">Hints</A>
+ &nbsp; <B>  <A NAME="tex2html2897"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001340000000000000000">
-Pool builder (Select package sources and packages)</A>
+<H1><A NAME="SECTION001300000000000000000">
+Poll builder</A>
 </H1>
-<IMG
-  WIDTH="1145" HEIGHT="1402" ALIGN="BOTTOM" BORDER="0"
- SRC="./poolBuilderSelectPackageSourcesAndPackages.png"
- ALT="Image poolBuilderSelectPackageSourcesAndPackages"> 
-<BR>
-Here you can chosse the originating package source for your packages. This is done in two steps:
-<BR>
-<OL>
-<LI>You should select packages sources at first.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Loading a package source</SPAN>: Select a package source from the list (top/right) and click on <SPAN  CLASS="textit">''Load''</SPAN>. The package source will be loaded in the editor.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Deletion a package source</SPAN>: To delete the package source loaded in the editor, click on the <SPAN  CLASS="textit">''Delete''</SPAN> button and accept your decision in the next dialog.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Saving a package source</SPAN>: The system will always save the package source loaded in the editor. It doesn't matter which package source is selected in the list. After you have selected a distribution, it is possible that you need to specify your choice. Choose a user interface from the list displayed under the editor and select the architecture(s) supported by the package sources list under <SPAN  CLASS="textit">''Architecture''</SPAN>. Think about a good name for your package source and enter it below <SPAN  CLASS="textit">''Package source name''</SPAN>. If you have loaded a package source before, the package source name is written into the field <SPAN  CLASS="textit">''Package source name''</SPAN> automatically. If you want, you can enter a comment into the <SPAN  CLASS="textit">''Description''</SPAN> text field. Afterwards, click on the <SPAN  CLASS="textit">''Save''</SPAN> button.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Test the package source</SPAN>: After entering a package source list, you should test if all sources are working properly. Simply click on the <SPAN  CLASS="textit">''Test''</SPAN> button. The package description files will be downloaded and a test report will be shown thereafter. It can take minutes until the report is shown, depending on your internet connection speed and the speed of the used software package servers.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Select Mirror</SPAN>: If you would like to use a different mirror (the standard server is ftp.debian.org) for the installation of the base system, enter it as follows in a new line of your package source: 
-<BR><PRE>
-#mirror: [URL to the packages]
-</PRE>
-. <SPAN  CLASS="textit">URL to the packages</SPAN> describes the protocol, the hostname or the IP and the directory that contains the packages. A valid URL may look like this: 
-<BR><PRE>
-#mirror: http://192.168.7.14/debianCDs
-</PRE>
-.
-<BR></LI>
-</UL>
-Activated lists will be shown in the <SPAN  CLASS="textit">''Package sources''</SPAN>-window.
-<BR></LI>
-<LI>Using the lower part you can add a blank-seperated list of packages you wish to use for this pool.
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Load / Delete:</SPAN> If you have already created a list you can choose it in <SPAN  CLASS="textit">''Package list''</SPAN> and then you can either load it by clicking <SPAN  CLASS="textit">''Load''</SPAN> or remove it by clicking <SPAN  CLASS="textit">''Delete''</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Add</SPAN>: By clicking on <SPAN  CLASS="textit">''Add''</SPAN> you can add pages from the selected  package to the list loaded in the editor.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Save</SPAN>: Enter a name in <SPAN  CLASS="textit">''Package list''</SPAN> and hit  <SPAN  CLASS="textit">''Save''</SPAN> for saving your currently edited package list.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Add packages from client</SPAN>: This option maybe extremely useful for those who like to get a package list from a previously installed client. To add all the packages from a certain client choose this client (you will only see clients which have packages installed) and hit <SPAN  CLASS="textit">''Add''</SPAN>. You can even add packages from more than one client - multiple selected packages will only be added once.
-<BR></LI>
-</UL>
-</LI>
-<LI>All packes needed for installing the base system (expect the kerne) are downloaded if you activate the option <SPAN  CLASS="textit">''Download base packages''</SPAN>.
-<BR></LI>
-<LI>To finish this step hit <SPAN  CLASS="textit">''Next step (Start download)''.</SPAN>
-</LI>
-</OL>
 <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2880"
-  HREF="node189.html">Hint</A>
+<LI><A NAME="tex2html2900"
+  HREF="node189.html">Pool builder (Create, edit, delete pool)</A>
+<UL>
+<LI><A NAME="tex2html2901"
+  HREF="node190.html">Hint</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2902"
+  HREF="node191.html">Pool builder (Read packages from CD)</A>
+<LI><A NAME="tex2html2903"
+  HREF="node192.html">Pool builder (Create package index)</A>
+<LI><A NAME="tex2html2904"
+  HREF="node193.html">Pool builder (Select package sources and packages)</A>
+<UL>
+<LI><A NAME="tex2html2905"
+  HREF="node194.html">Hint</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2906"
+  HREF="node195.html">Pool builder (Start download)</A>
+<LI><A NAME="tex2html2907"
+  HREF="node196.html">Pool builder (Packages are beeing downloaded)</A>
+<LI><A NAME="tex2html2908"
+  HREF="node197.html">Package sources</A>
 </UL>
 <!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2878"
-  HREF="node189.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2874"
-  HREF="node183.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2868"
-  HREF="node187.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2876"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2879"
-  HREF="node189.html">Hint</A>
-<B> Up:</B> <A NAME="tex2html2875"
-  HREF="node183.html">Poll builder</A>
-<B> Previous:</B> <A NAME="tex2html2869"
-  HREF="node187.html">Pool builder (Create package</A>
- &nbsp; <B>  <A NAME="tex2html2877"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DMI_getBoard</TITLE>
-<META NAME="description" CONTENT="DMI_getBoard">
+<TITLE>HELPER_xargsRecursive</TITLE>
+<META NAME="description" CONTENT="HELPER_xargsRecursive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node622.html">
 <LINK REL="previous" HREF="node620.html">
-<LINK REL="up" HREF="node616.html">
+<LINK REL="up" HREF="node614.html">
 <LINK REL="next" HREF="node622.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11218"
+<A NAME="tex2html11620"
   HREF="node622.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11214"
-  HREF="node616.html">
+<A NAME="tex2html11616"
+  HREF="node614.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11208"
+<A NAME="tex2html11610"
   HREF="node620.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11216"
+<A NAME="tex2html11618"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11219"
-  HREF="node622.html">DMI_getMemory</A>
-<B> Up:</B> <A NAME="tex2html11215"
-  HREF="node616.html">./inc/hwinfo.php</A>
-<B> Previous:</B> <A NAME="tex2html11209"
-  HREF="node620.html">DMI_getParam</A>
- &nbsp; <B>  <A NAME="tex2html11217"
+<B> Next:</B> <A NAME="tex2html11621"
+  HREF="node622.html">HELPER_getNewLogLines</A>
+<B> Up:</B> <A NAME="tex2html11617"
+  HREF="node614.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11611"
+  HREF="node620.html">HELPER_trimValue</A>
+ &nbsp; <B>  <A NAME="tex2html11619"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008175000000000000000">
-DMI_getBoard</A>
+<H2><A NAME="SECTION008187000000000000000">
+HELPER_xargsRecursive</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> get the dmi board informations
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>cmd: BASH command
+</LI>
+<LI>argsA: Array of commands for the BASH command.
+</LI>
+<LI>tabAmount: Amount of identing to start with.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Recursive calls of the BASH command with error checking.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

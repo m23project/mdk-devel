@@ -7,6 +7,22 @@ cd /mdk/bin
 menuVarInit
 . /tmp/menuVars
 
+runAsRootUser()
+{
+	clear
+	whoami
+	echo $1
+	if [ `whoami` != "root" ]
+	then
+		echo "This menu entry MUST BE run as \"root\". If you are not root allready you have to enter your root password"
+		su -c $1
+	else
+		bash $1
+	fi
+	read gaga
+}
+
+
 #	"update" "build m23/MDK updates"\
 startOption=`startOption 2>/dev/null` || startOption=/tmp/startOption$$
 dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "Main menu" --menu "Main menu" 15 75 9 \
@@ -44,23 +60,20 @@ fi
 #build iso
 if test $choice == "serverISO"
 then
-	echo "This menu entry MUST BE run as \"root\". If you are not root allready you have to enter your root password"
-	su -c /mdk/bin/menuServerISO
+	runAsRootUser /mdk/bin/menuServerISO
 	/mdk/bin/menuStart
 fi
 
 if test $choice == "clientISO"
 then
-	echo "This menu entry MUST BE run as \"root\". If you are not root allready you have to enter your root password"
-	su -c /mdk/bin/menuClientISO
+	runAsRootUser /mdk/bin/menuClientISO
 	/mdk/bin/menuStart
 fi
 
 if test $choice == "debs"
 then
-	echo "This menu entry MUST BE run as \"root\". If you are not root allready you have to enter your root password"
-	su -c /mdk/m23Debs/bin/menuDeb
-	read gaga
+	
+	runAsRootUser /mdk/m23Debs/bin/menuDeb
 	/mdk/bin/menuStart
 fi
 
@@ -72,9 +85,7 @@ fi
 
 if test $choice == "fork"
 then
-	echo "This menu entry MUST BE run as \"root\". If you are not root allready you have to enter your root password"
-	su -c /mdk/bin/menuFork
-	read gaga
+	runAsRootUser  /mdk/bin/menuFork
 	/mdk/bin/menuStart
 fi
 

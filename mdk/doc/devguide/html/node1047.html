@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStackWriteConfFile</TITLE>
-<META NAME="description" CONTENT="VM_CloudStackWriteConfFile">
+<TITLE>./inc/preferences.php</TITLE>
+<META NAME="description" CONTENT="./inc/preferences.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,83 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1048.html">
-<LINK REL="previous" HREF="node1046.html">
-<LINK REL="up" HREF="node1042.html">
+<LINK REL="next" HREF="node1060.html">
+<LINK REL="previous" HREF="node1027.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node1048.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16759"
+<A NAME="tex2html17080"
   HREF="node1048.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16755"
-  HREF="node1042.html">
+<A NAME="tex2html17076"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16749"
+<A NAME="tex2html17070"
   HREF="node1046.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16757"
+<A NAME="tex2html17078"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16760"
-  HREF="node1048.html">VM_CloudStackUploadIso</A>
-<B> Up:</B> <A NAME="tex2html16756"
-  HREF="node1042.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html16750"
-  HREF="node1046.html">VM_CloudStackConfigGUI</A>
- &nbsp; <B>  <A NAME="tex2html16758"
+<B> Next:</B> <A NAME="tex2html17081"
+  HREF="node1048.html">PREF_preferenceLoadManagerHandler</A>
+<B> Up:</B> <A NAME="tex2html17077"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html17071"
+  HREF="node1046.html">POOL_showSourcesList</A>
+ &nbsp; <B>  <A NAME="tex2html17079"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008345000000000000000">
-VM_CloudStackWriteConfFile</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Writes the CloudStack config file or writes a basic config file, if it does not exist.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>overwrite: Set to true, if the config file should be overwritten in any case.
-</LI>
-<LI>CLOUDSTACK_API_ENDPOINT: The API entpoint.
-</LI>
-<LI>CLOUDSTACK_API_KEY: The API key.
-</LI>
-<LI>CLOUDSTACK_SECRET_KEY: The secret API key.
-</LI>
-<LI>CLOUDSTACK_SERVICE_OFFERING_ID: The virtual CPU and RAM combination to use for a new VM.
-</LI>
-<LI>CLOUDSTACK_TEMPLATE_ID: The ID of the m23 client installation ISO.
-</LI>
-<LI>CLOUDSTACK_NETWORKIDS: The ID of the network to use.
-</LI>
-<LI>CLOUDSTACK_DISK_OFFERING_ID: The virtual hard disk type.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008320000000000000000">
+./inc/preferences.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions to save and load preferences for client setup.
+<BR>
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html17082"
+  HREF="node1048.html">PREF_preferenceLoadManagerHandler</A>
+<LI><A NAME="tex2html17083"
+  HREF="node1049.html">PREF_preferenceSaveManagerHandler</A>
+<LI><A NAME="tex2html17084"
+  HREF="node1050.html">PREF_showPreferenceManager</A>
+<LI><A NAME="tex2html17085"
+  HREF="node1051.html">PREF_saveAllPreferenceValues</A>
+<LI><A NAME="tex2html17086"
+  HREF="node1052.html">PREF_loadAllPreferenceValues</A>
+<LI><A NAME="tex2html17087"
+  HREF="node1053.html">PREF_getClientPreferences</A>
+<LI><A NAME="tex2html17088"
+  HREF="node1054.html">PREF_getValue</A>
+<LI><A NAME="tex2html17089"
+  HREF="node1055.html">PREF_putValue</A>
+<LI><A NAME="tex2html17090"
+  HREF="node1056.html">PREF_delete</A>
+<LI><A NAME="tex2html17091"
+  HREF="node1057.html">PREF_exists</A>
+<LI><A NAME="tex2html17092"
+  HREF="node1058.html">PREF_putAllOptions</A>
+<LI><A NAME="tex2html17093"
+  HREF="node1059.html">PREF_getAllValues</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

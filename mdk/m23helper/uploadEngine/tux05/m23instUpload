@@ -25,7 +25,7 @@ uploadFRS()
 	#link the file to the temporary dir
 	ln -s "$file" "$releaseDir"
 
-	rsync -vPyrL -e ssh "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/$category"
+	rsync -vPyrL -e ssh "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m23/$category"
 	rm -r "$tempDir"
 }
 
@@ -112,7 +112,7 @@ fi
 
 
 
-#ssh hhabermann@shell.sf.net '/home/groups/m/m2/m23/bin/deleteOldDoubles /home/project-web/m23/htdocs/m23inst'
+#ssh hhabermann@shell.sf.net '/home/groups/m23/bin/deleteOldDoubles /home/project-web/m23/htdocs/m23inst'
 (remoteDeleteOldDoubles 2>&1; echo $? > /tmp/ret) | tee /tmp/err
 if test `cat /tmp/ret` -ne 0
 then
@@ -154,12 +154,16 @@ fi
 	fi
 done
 
+m23DuplicateToFRS
+
+# Wait 30 minutes
+sleep 1800
 
 #check if the pool works
 cd /m23test/
-rm archivs/m23*
-local-apt-update
-local-apt-download -y m23 2>&1 | tee /tmp/poolCheck.log
+rm archives/m23*
+local-apt-update -o=Dir::Etc::sourceparts="/does/not/exist"
+local-apt-download -y m23 m23-mb2009 m23-vbox 2>&1 | tee /tmp/poolCheck.log
 php -r '
 $f=fopen("/tmp/poolCheck.log","r");
 
@@ -172,4 +176,13 @@ fclose($f);
 '
 rm /tmp/poolCheck.log
 
-m23DuplicateToFRS
+
+cd /m23test/archives
+(md5sum -c /m23inst/all.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(grep m23 /tmp/err | grep -v OK -c) -gt 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler-FRS: MD5", "MD5-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "MD5-Fehler."
+	exit 1
+fi

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Information pour l'installation d'un système d'exploitation sur des systèmes RAID</TITLE>
-<META NAME="description" CONTENT="Information pour l'installation d'un système d'exploitation sur des systèmes RAID">
+<TITLE>Note</TITLE>
+<META NAME="description" CONTENT="Note">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,75 +19,83 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node122.html">
 <LINK REL="previous" HREF="node120.html">
-<LINK REL="up" HREF="node115.html">
+<LINK REL="up" HREF="node117.html">
 <LINK REL="next" HREF="node122.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2014"
+<A NAME="tex2html2044"
   HREF="node122.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2010"
-  HREF="node115.html">
+<A NAME="tex2html2040"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2006"
+<A NAME="tex2html2034"
   HREF="node120.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2012"
+<A NAME="tex2html2042"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2015"
-  HREF="node122.html">Choisir la distribution des</A>
-<B> monter:</B> <A NAME="tex2html2011"
-  HREF="node115.html">Partitionnement et formatage du</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2007"
-  HREF="node120.html">Informations suppl&#233;mentaires concernant les</A>
- &nbsp; <B>  <A NAME="tex2html2013"
+<B> suivant:</B> <A NAME="tex2html2045"
+  HREF="node122.html">Note &#224; propos de</A>
+<B> monter:</B> <A NAME="tex2html2041"
+  HREF="node117.html">Partitionnement et formatage du</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2035"
+  HREF="node120.html">Index du menu dans</A>
+ &nbsp; <B>  <A NAME="tex2html2043"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001036000000000000000">
-Information pour l'installation d'un syst&#232;me d'exploitation sur des syst&#232;mes RAID</A>
+<H2><A NAME="SECTION001034000000000000000">
+Note</A>
 </H2>
-Lorsque le syst&#232;me d'exploitation doit &#234;tre install&#233; sur un lecteur RAID, il est n&#233;cessaire dans la plupart des cas (sauf pour RAID-1) que vous &#233;tablissiez une partition suppl&#233;mentaire pour le noyau et les modules (/boot), ne faisant pas partie du lecteur RAID. Une taille d'environ 250 MB suffit &#224; cette partition pour conserver plusieures versions de noyau. S'il n'y avait plus de partition libre, cliquez sur le bouton <SPAN  CLASS="textit">Pr&#233;cedent</SPAN> jusqu'&#224; ce que vous atteigniez la cr&#233;ation et l'effacement de partitions puis cr&#233;ez la partition n&#233;cessaire (/boot) avant le lecteur RAID.
-<BR><SPAN  CLASS="textbf">Partition pour l&amp;apos;installation et le swap</SPAN>
-Pour l'installation du poste client m23, vous devez choisir une partition pour l'installation du syst&#232;me d'exploitation sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Partition pour l&amp;apos;installation<SPAN CLASS="MATH"></SPAN></SPAN> et une partition pour l'espace de swap sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Partition pour le swap<SPAN CLASS="MATH"></SPAN></SPAN>, puis cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Choisir<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR><SPAN  CLASS="textbf">D&#233;finir les points de montage</SPAN>
-Si vous d&#233;sirez des points de montage additionels, vous pouvez les d&#233;finir sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&#233;finir les points de montage<SPAN CLASS="MATH"></SPAN></SPAN>. Entrez la partition, le point de montage et les param&#232;tres requis au montage, puis cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN>. Ces informations correspondent &#224; celles pouvant &#234;tre trouv&#233;es dans le fichier <SPAN  CLASS="textbf">/etc/fstab</SPAN> d'un syst&#232;me Linux. Vous pouvez voir les points de montage d&#233;j&#224; d&#233;finis dans la table sous le champs de saisie. Si vous d&#233;sirez effacer un point de montage cr&#233;&#233;, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN> sur la ligne concern&#233;e.
+Ces mod&#232;les de disques durs peuvent &#234;tre d&#233;finis comme de vrais disques durs (partitionnement, formattage, RAIDS logiciels, partitions d'installation et de swap) Les tailles saisies peuvent &#234;tre similaires (ou identiques) &#224; la celui des disques physiques dans les postes clients, mais les noms des p&#233;riph&#233;riques doivent &#234;tre identiques aux noms des p&#233;riph&#233;riques physiques. Si la taille du mod&#232;le de disque diff&#232;re de la taille r&#233;elle du disque sur le client, les tailles respectives des partitions seront ajust&#233;es en cons&#233;quence.
+<BR><SPAN  CLASS="textbf">Sch&#233;ma de partitionnement</SPAN>
+Des schemas pr&#233;d&#233;finis pour le partitionnement et le formatage du disque dur du poste client m23 peuvent &#234;tre choisis ici. Confirmez votre choix en cliquant sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Employer ce sch&#233;ma<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Partitionnement automatique:</SPAN> Pour le partitionnement automatique, toutes les donn&#233;es du premier disque dur seront effac&#233;es et deux nouvelles partitions seront cr&#233;&#233;es, la premi&#232;re pour les donn&#233;es et le syst&#232;me d'exploitation et la seconde pour le swap.
+<BR></LI>
+</UL>
+<SPAN  CLASS="textbf">Effacer la partition actuelle</SPAN>
+En cliquant sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>, vous effacez la partition actuelle (indiqu&#233;e sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Partition actuelle<SPAN CLASS="MATH"></SPAN></SPAN>).
+<BR><SPAN  CLASS="textbf">Cr&#233;er une nouvelle partition</SPAN>
+Vous pouvez cr&#233;er une nouvelle partition dans l'espace non utilis&#233; du disque dur. S&#233;lectionnez le d&#233;but et la fin de la nouvelle partition en cliquant sur la partie blanche (quand JavaScript est activ&#233;) ou entrez-les sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&#233;but<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Fin<SPAN CLASS="MATH"></SPAN></SPAN>. Vous pouvez &#233;galement cr&#233;er une partition ne prenant pas tout l'espace libre. Choisissez le type de partition sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Type<SPAN CLASS="MATH"></SPAN></SPAN>, pour cr&#233;er une partition primaire (primary), &#233;tendue (extended) ou logique (logical). Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN>.
 <BR>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2014"
+<A NAME="tex2html2044"
   HREF="node122.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2010"
-  HREF="node115.html">
+<A NAME="tex2html2040"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2006"
+<A NAME="tex2html2034"
   HREF="node120.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2012"
+<A NAME="tex2html2042"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2015"
-  HREF="node122.html">Choisir la distribution des</A>
-<B> monter:</B> <A NAME="tex2html2011"
-  HREF="node115.html">Partitionnement et formatage du</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2007"
-  HREF="node120.html">Informations suppl&#233;mentaires concernant les</A>
- &nbsp; <B>  <A NAME="tex2html2013"
+<B> suivant:</B> <A NAME="tex2html2045"
+  HREF="node122.html">Note &#224; propos de</A>
+<B> monter:</B> <A NAME="tex2html2041"
+  HREF="node117.html">Partitionnement et formatage du</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2035"
+  HREF="node120.html">Index du menu dans</A>
+ &nbsp; <B>  <A NAME="tex2html2043"
   HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

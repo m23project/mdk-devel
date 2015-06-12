@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_showWaitingJobs</TITLE>
-<META NAME="description" CONTENT="CLIENT_showWaitingJobs">
+<TITLE>FDISK_getPartitionByType</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartitionByType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node240.html">
 <LINK REL="previous" HREF="node238.html">
-<LINK REL="up" HREF="node201.html">
+<LINK REL="up" HREF="node234.html">
 <LINK REL="next" HREF="node240.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6328"
+<A NAME="tex2html6668"
   HREF="node240.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6324"
-  HREF="node201.html">
+<A NAME="tex2html6664"
+  HREF="node234.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6318"
+<A NAME="tex2html6658"
   HREF="node238.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6326"
+<A NAME="tex2html6666"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6329"
-  HREF="node240.html">CLIENT_setLastmodify</A>
-<B> Up:</B> <A NAME="tex2html6325"
-  HREF="node201.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html6319"
-  HREF="node238.html">CLIENT_showGeneralInfo</A>
- &nbsp; <B>  <A NAME="tex2html6327"
+<B> Next:</B> <A NAME="tex2html6669"
+  HREF="node240.html">FDISK_listDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html6665"
+  HREF="node234.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6659"
+  HREF="node238.html">FDISK_fdiskSessionTitle</A>
+ &nbsp; <B>  <A NAME="tex2html6667"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008738000000000000000">
-CLIENT_showWaitingJobs</A>
+<H2><A NAME="SECTION00875000000000000000">
+FDISK_getPartitionByType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows the waiting jobs for the client
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the FIRST partition matching a partition type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: name of the client
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
 </LI>
 </UL>
 
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

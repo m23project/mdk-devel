@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_showLicenseDialog</TITLE>
-<META NAME="description" CONTENT="m23SHARED_showLicenseDialog">
+<TITLE>HTML_selection</TITLE>
+<META NAME="description" CONTENT="HTML_selection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,41 +28,67 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12447"
+<A NAME="tex2html12808"
   HREF="node716.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12443"
+<A NAME="tex2html12804"
   HREF="node663.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12437"
+<A NAME="tex2html12798"
   HREF="node714.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12445"
+<A NAME="tex2html12806"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12448"
-  HREF="node716.html">m23SHARED_getAllm23sharedUsers</A>
-<B> Up:</B> <A NAME="tex2html12444"
-  HREF="node663.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html12438"
-  HREF="node714.html">m23SHARED_unusedPaidClientsAvailable</A>
- &nbsp; <B>  <A NAME="tex2html12446"
+<B> Next:</B> <A NAME="tex2html12809"
+  HREF="node716.html">HTML_checkBox</A>
+<B> Up:</B> <A NAME="tex2html12805"
+  HREF="node663.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12799"
+  HREF="node714.html">HTML_getValidSelected</A>
+ &nbsp; <B>  <A NAME="tex2html12807"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082052000000000000000">
-m23SHARED_showLicenseDialog</A>
+HTML_selection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for viewing and changing the license and paid client amount.
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of radio buttons or a selection.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>htmlName: Name of the HTML element.
+</LI>
+<LI>array: An array that hold the returned values (array keys) the naming for the elements (array values).
+</LI>
+<LI>type: SELTYPE_selection for a selection or SELTYPE_radio for radio buttons.
+</LI>
+<LI>vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
+</LI>
+<LI>defaultSelection: The value of the item to select by default.
+</LI>
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>js: Here can JavaScript or other parameters be added.
+</LI>
+<LI>multipleSize: If set to a number (and not to false) a multi selection is generated, where the user can select multiple entries. The number sets the amount of entries to show the user.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The value of the selected element or false if nothing was selected.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_installFilesystems</TITLE>
-<META NAME="description" CONTENT="FDISK_installFilesystems">
+<TITLE>CScredit::getNextOnlineScriptInfo</TITLE>
+<META NAME="description" CONTENT="CScredit::getNextOnlineScriptInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node381.html">
 <LINK REL="previous" HREF="node379.html">
-<LINK REL="up" HREF="node371.html">
+<LINK REL="up" HREF="node372.html">
 <LINK REL="next" HREF="node381.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8197"
+<A NAME="tex2html8483"
   HREF="node381.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8193"
-  HREF="node371.html">
+<A NAME="tex2html8479"
+  HREF="node372.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8187"
+<A NAME="tex2html8473"
   HREF="node379.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8195"
+<A NAME="tex2html8481"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8198"
-  HREF="node381.html">FDISK_getUnusedMDs</A>
-<B> Up:</B> <A NAME="tex2html8194"
-  HREF="node371.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html8188"
-  HREF="node379.html">FDISK_finalChecksAndRealPartitionAndFormatStart</A>
- &nbsp; <B>  <A NAME="tex2html8196"
+<B> Next:</B> <A NAME="tex2html8484"
+  HREF="node381.html">CScredit::loadOnlineScript</A>
+<B> Up:</B> <A NAME="tex2html8480"
+  HREF="node372.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html8474"
+  HREF="node379.html">CScredit::updateOnlineScriptInfo</A>
+ &nbsp; <B>  <A NAME="tex2html8482"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008129000000000000000">
-FDISK_installFilesystems</A>
+<H2><A NAME="SECTION008118000000000000000">
+CScredit::getNextOnlineScriptInfo</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with the filesystems usable for installation.
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets an information about all scripts that are available online. Every call of the function fetches the information about one script.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>ts: Timestamp, when the script was uploaded.
+</LI>
+<LI>scriptId: Id of the script (needed for download).
+</LI>
+<LI>scriptName: Name of the script.
+</LI>
+<LI>author: Name of the author.
+</LI>
+<LI>description: Description for the script.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if an entry could be read otherwise (e.g. if all entries were read) false.
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

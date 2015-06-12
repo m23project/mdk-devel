@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Télécharger des outils complémentaires pour VirtualBox</TITLE>
-<META NAME="description" CONTENT="Télécharger des outils complémentaires pour VirtualBox">
+<TITLE>VirtualBox</TITLE>
+<META NAME="description" CONTENT="VirtualBox">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,65 +19,93 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node148.html">
-<LINK REL="previous" HREF="node137.html">
-<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node145.html">
+<LINK REL="previous" HREF="node143.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node145.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2310"
+<A NAME="tex2html2340"
   HREF="node145.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2306"
-  HREF="node136.html">
+<A NAME="tex2html2336"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2300"
+<A NAME="tex2html2330"
   HREF="node143.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2308"
+<A NAME="tex2html2338"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2311"
-  HREF="node145.html">T&#233;l&#233;charger des outils compl&#233;mentaires</A>
-<B> monter:</B> <A NAME="tex2html2307"
-  HREF="node136.html">Virtualisation</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2301"
-  HREF="node143.html">M&#233;moire vive, disque dur</A>
- &nbsp; <B>  <A NAME="tex2html2309"
+<B> suivant:</B> <A NAME="tex2html2341"
+  HREF="node145.html">Apache CloudStack</A>
+<B> monter:</B> <A NAME="tex2html2337"
+  HREF="node142.html">Créer une machine virtuelle</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2331"
+  HREF="node143.html">D&#233;roulement pas &#224; pas</A>
+ &nbsp; <B>  <A NAME="tex2html2339"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001120000000000000000">
-T&#233;l&#233;charger des outils compl&#233;mentaires pour VirtualBox</A>
-</H1>Sur cette page, vous pouvez t&#233;l&#233;charger les outils compl&#233;mentaires de VirtualBox afin qu'il puissent &#234;tre install&#233;s automatiquement sur les postes client m23 install&#233;s sous VirtualBox. L'installation de ces outils compl&#233;mentaires sur le poste client am&#233;liorera les interactions avec le poste client virtualis&#233;. Pour une cohabitation optimale entre le h&#244;te et le poste client de VirtualBox, la version de VirtualBox et celle des outils compl&#233;mentaires du poste client doivent &#234;tre identiques. S'il n'y pas d'outil compl&#233;mentaire sur le serveur m23, le client tentera de t&#233;l&#233;charger les outils compl&#233;mentaires directement sur internet. Vous pouvez &#233;galement choisir une version standard, qui sera install&#233;e lorsque le poste client ne peut pas identifier la version appropri&#233;e de VirtualBox.
-<BR><IMG
-  WIDTH="1492" HEIGHT="732" ALIGN="BOTTOM" BORDER="0"
- SRC="./downloadVBoxAddons.png"
- ALT="Image downloadVBoxAddons"> 
+<H2><A NAME="SECTION001112000000000000000">
+VirtualBox</A>
+</H2>
+		Si le poste client m23 / syst&#232;me h&#244;te est fonctionnel, une multitude d'informations s'afficheront sur son &#233;tat actuel. 
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2312"
-  HREF="node145.html">T&#233;l&#233;charger des outils compl&#233;mentaires pour les postes client</A>
-<LI><A NAME="tex2html2313"
-  HREF="node146.html">Choisir la version standard</A>
-<LI><A NAME="tex2html2314"
-  HREF="node147.html">Effacer des outils compl&#233;mentaires</A>
+Vous devez sp&#233;cifier les param&#232;tres pour votre nouveau client virtuel m23 apr&#232;s avoir choisi la machine virtuelle (VM) h&#244;te devant l'accueillir: 
+<BR>
+<UL>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Carte r&#233;seau de l&amp;apos;ordinateur h&#244;te:</SPAN>: Vous devez s&#233;lectionner la carte r&#233;seau physique de votre ordinateur, s'il dispose de plusieures cartes r&#233;seau. S&#233;lectionnez celle communiquant avec votre r&#233;seau local (LAN). Les machines virtuelles (VM) sont connect&#233;es au r&#233;seau physique par un pont r&#233;seau logiciel (network bridge).
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Nom de la machine virtuelle:</SPAN> Le nom de la machine virtuelle est identique &#224; celui du poste client m23 correspondant.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Adresse MAC:</SPAN> L'adresse MAC du poste client virtuel sera g&#233;n&#233;r&#233;e al&#233;atoirement, vous pouvez la conserver ou la modifier (p. ex. si elle est d&#233;j&#224; attribu&#233;e sur une des machines de votre r&#233;seau local).
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">M&#233;moire vive:</SPAN> La taille de la m&#233;moire vive (RAM) de votre poste client m23 virtuel doit &#234;tre raisonnablement choisie afin qu'assez de m&#233;moire libre reste pour les autres applications actives et les &#233;ventuelles autres machines virtuelles.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Disque dur:</SPAN> La taille maximale du disque dur virtuel.
+<BR></LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+		Finalement, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Cr&#233;er<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>		
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2340"
+  HREF="node145.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2336"
+  HREF="node142.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2330"
+  HREF="node143.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2338"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html2341"
+  HREF="node145.html">Apache CloudStack</A>
+<B> monter:</B> <A NAME="tex2html2337"
+  HREF="node142.html">Créer une machine virtuelle</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2331"
+  HREF="node143.html">D&#233;roulement pas &#224; pas</A>
+ &nbsp; <B>  <A NAME="tex2html2339"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-dodger
-2014-08-06
+root
+2015-04-30
 </ADDRESS>
 </BODY>
 </HTML>

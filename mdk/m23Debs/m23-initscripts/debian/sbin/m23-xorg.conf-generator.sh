@@ -526,7 +526,7 @@ fi
 configXOrgVMware()
 {
 	#Check if the m23 client is run in VMWare and try to install the VMware X11 driver
-	if [ `dmesg | grep VMware -c` -gt 0 ]
+	if [ `dmesg | grep VMware -c` -gt 0 ] && [ `dmesg | grep VBOX -c` -eq 0 ]
 	then
 		waitForFreeLock
 		apt-get --force-yes -y -q install xserver-xorg-video-vmware
