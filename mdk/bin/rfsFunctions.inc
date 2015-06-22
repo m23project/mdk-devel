@@ -20,43 +20,21 @@ getNextLoop()
 		exit 42
 	fi
 
-	touch testLoopImage
-
-	lnr=0 #start for searching a free loop device at /dev/loop0
-	while `true`
-	do
-		if test ! -b "/dev/loop$lnr" #test if the block loop device file exists
-		then
-			echo "Can't bind the device/file to a loop device. Maybe you are running out of loop files and increasing the amount of loop files may help:"
-			echo "	modprobe loop max_loop=255"
-			echo "	for nr in \`seq 0 255\`"
-			echo "	do"
-			echo "		mknod /dev/loop\$nr b 7 $lnr"
-			echo "	done"
-			echo "The last checked loop file was: /dev/loop$lnr"
-			exit 23
-		fi
-
-		#try to connect the test file to a loop device
-		losetup "/dev/loop$lnr" testLoopImage 2>/dev/null
-		if test $? -eq 0
-		then
-			#it seems to work ;)
-
-			#unloop the test file
-			losetup -d "/dev/loop$lnr"
-
-			#bind the found loop device to the file/device
-			losetup "/dev/loop$lnr" "$extra"
-			echo "/dev/loop$lnr"
-			rm testLoopImage
-			exit 0
-		fi
-
-		lnr=`expr $lnr \+ 1`
-	done
-	rm testLoopImage
-	exit 1	
+	lodev=`losetup -f`
+	if [ $? -eq 0 ]
+	then
+		losetup "$lodev" "$extra"
+		echo "$lodev"
+	else
+		echo "Can't bind the device/file to a loop device. Maybe you are running out of loop files and increasing the amount of loop files may help:"
+		echo "	modprobe loop max_loop=255"
+		echo "	for nr in \`seq 0 255\`"
+		echo "	do"
+		echo "		mknod /dev/loop\$nr b 7 $lnr"
+		echo "	done"
+		echo "The last checked loop file was: /dev/loop$lnr"
+		exit 23
+	fi
 }
 
 
@@ -68,6 +46,8 @@ getNextLoop()
 disconnectLoop()
 {
 	loopSearch="$1"
+	echo ">>>> disconnectLoop:"
+	losetup -a
 	losetup -a | grep "$loopSearch" | cut -d':' -f1 | xargs -n1 losetup -d
 }
 
@@ -236,6 +216,12 @@ createRFSBins()
 			#simple ldd for same architecture as the host
 			for lib in `ldd bin/$bin 2> /dev/null | cut -d " " -f1 | grep -v '(0x'`
 			do
+				# Skip script, statically linked files and symbolic links
+				if [ $(file bin/$bin | grep -i 'script' -c) -gt 0 ] || [ $(file bin/$bin | grep -i 'statically' -c) -gt 0 ] || [ $(file bin/$bin | grep -i 'symbolic link' -c) -gt 0 ]
+				then
+					continue
+				fi
+
 				createRFScopyLib $lib $bin
 			done
 		else
@@ -429,6 +415,7 @@ createRFSImage()
 
 	#remove the binding between the loop device and the initrd
 	#because there is no connection between the future mount point and the loop device and the loop device would not get freed automatically by unmounting
+	echo "losetup -d $loopDev"
 	losetup -d $loopDev
 
 	#mount it with loop option => connection the future mount point and the loop device

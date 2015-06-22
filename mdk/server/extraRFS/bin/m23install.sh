@@ -1,6 +1,8 @@
 #!/bin/bash
 I18N_windowheader=`cat /version.txt`
 
+dmesg -n 1
+
 dialog --backtitle "$I18N_windowheader" --default-item "de" --clear --title "$I18N_windowheader" --menu "Installation language/Installationssprache" 9 60 2 \
 		"de" "Deutsch" \
 		"en" "English" 2> /tmp/dialog.value

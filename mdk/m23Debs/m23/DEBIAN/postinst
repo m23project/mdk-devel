@@ -256,6 +256,9 @@ rm /m23/etc/.htpasswd.orig
 db_get m23/configMySQL
 if [ "$RET" = "true" ]
 then
+	# Make sure, innoDB is enabled
+	sed -i 's/skip-innodb/#skip-innodb/' /etc/mysql/my.cnf
+	/etc/init.d/mysql restart
 
 	dbname="m23"
 	dbserver="localhost"

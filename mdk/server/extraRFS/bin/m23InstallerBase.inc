@@ -12,6 +12,8 @@
 #Checks the fstab for needed entries and adds them, if missing. Then mounts the devices
 checkFstabAndMount()
 {
+	mkdir -p /proc /sys /dev/pts
+
 	if [ `grep -c proc /etc/fstab` -eq 0 ]
 	then
 		echo "none /proc proc defaults 0 0" >> /etc/fstab
@@ -26,10 +28,12 @@ checkFstabAndMount()
 	then
 		echo "none /dev/pts devpts defaults 0 0" >> /etc/fstab
 	fi
-	
-	mount /proc
-	mount /sys
-	mount /dev/pts
+
+	sync
+
+	mount /proc 2> /dev/null
+	mount /sys 2> /dev/null
+	mount /dev/pts 2> /dev/null
 }
 
 
@@ -161,15 +165,14 @@ configureMySQLmycnf()
 		chown root.root /etc/mysql/my.cnf
 		chmod 644 /etc/mysql/my.cnf
 	fi
-	
-	if [ $(grep -c 'Debian GNU/Linux 7' /etc/issue) -gt 0 ]
-	then
-		sed -i 's/skip-innodb/#skip-innodb/g' /etc/mysql/my.cnf
-	fi
+
+	sed -i 's/skip-innodb/#skip-innodb/g' /etc/mysql/my.cnf
 
 	#starting the server
 	/etc/init.d/mysql stop
 	/etc/init.d/mysql start
+
+	mysqld_safe&
 
 	#Get username and password for the MySQL database
 	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
@@ -861,18 +864,28 @@ installGrub()
 
 	if test `cat /tmp/dialog.value` = "y"
 	then
+		checkFstabAndMount
+
 		bootDevice="/dev/$installdrive"
 		rootDevice="/dev/$rootdev"
 
 		createInitrd
-
-		grub-install --recheck --force $bootDevice
-
-		update-grub -y 2> /dev/null
-		if [ $? -ne 0 ]
+		
+		if /usr/sbin/grub-install $bootDevice
 		then
-			/usr/sbin/update-grub
+			echo "grub ok"
+		else
+			grub-install --recheck --force $bootDevice
 		fi
+
+		/usr/sbin/update-grub2
+		sync
+
+# 		update-grub -y 2> /dev/null
+# 		if [ $? -ne 0 ]
+# 		then
+# 			/usr/sbin/update-grub
+# 		fi
 	fi
 
 	showDialog "$I18N_windowheader" "$I18N_windowheader" msgbox 14 45 "$I18N_installationfinishedtext"

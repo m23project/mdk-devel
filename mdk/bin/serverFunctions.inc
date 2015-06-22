@@ -102,7 +102,7 @@ mv /root/.* /tmp/m23root
 cleanOSForCompressing
 
 #search for all directories and files to compress
- list=`find . -maxdepth 1 | grep -v m23 | grep -v tmp | grep matrix23 -v | grep mdk -v | grep -v brennen | grep proc -v | grep -v backup | grep updates -v | grep upl -v | cut -d'/' -f2`
+ list=`find . -maxdepth 1 | grep -v sys | grep -v m23 | grep -v tmp | grep matrix23 -v | grep mdk -v | grep -v brennen | grep proc -v | grep -v backup | grep updates -v | grep upl -v | cut -d'/' -f2`
 
 #convert list to string
  dirlist=""
