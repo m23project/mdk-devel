@@ -66,7 +66,7 @@ updateDB()
 		bunzip2 /tmp/m23-install/m23.sql.bz2
 		echo "Entpacken: /tmp/m23-install/m23.sql.bz2"  >> /m23.log
 		sqlfile="/tmp/m23-install/m23.sql"
-		. /usr/share/wwwconfig-common/mysql-exec.sh
+		. /usr/share/wwwconfig-common/mysql-exec.sh >> /m23.log
 		rm $sqlfile
 
 		#create database m23captured
@@ -74,7 +74,7 @@ updateDB()
 		. /usr/share/wwwconfig-common/mysql-createdb.sh
 		bunzip2  /tmp/m23-install/m23captured.sql.bz2	
 		sqlfile="/tmp/m23-install/m23captured.sql"
-		. /usr/share/wwwconfig-common/mysql-exec.sh
+		. /usr/share/wwwconfig-common/mysql-exec.sh >> /m23.log
 		rm $sqlfile
 		rm -r /tmp/m23-install
 	fi

@@ -171,8 +171,10 @@ configureMySQLmycnf()
 	#starting the server
 	/etc/init.d/mysql stop
 	/etc/init.d/mysql start
+	
+# 	echo "DEBUG"
+# 	read lala
 
-	mysqld_safe&
 
 	#Get username and password for the MySQL database
 	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
@@ -183,6 +185,10 @@ configureMySQLmycnf()
 	do
 		mysql -u$dbadmin -p$dbadmpass m23 -e "TRUNCATE $table;"
 	done
+
+# echo "DEBUG"
+# mysqlshow -u$dbadmin -p$dbadmpass m23
+# read lala
 
 # 	echo "TRUNCATE clientgroups;
 # 	TRUNCATE clientjobs;
@@ -1003,12 +1009,18 @@ installDebs()
 
 	apt-get -y --force-yes update
 	export DEBIAN_FRONTEND=noninteractive
+# echo "DEBUG"
 	apt-get -y --force-yes install m23
+# read lala
 
 	#Make sure GPG will be configured and there are no keys stored
 	rm /home/grdmgpg/.gnupg/secring.gpg /home/grdmgpg/.gnupg/pubring.gpg
 
+# echo "DEBUG"
 	dpkg-reconfigure m23
+# read lala
+
+	
 	apt-get -y --force-yes install m23-vbox
 	dpkg-reconfigure m23-vbox
 
@@ -1080,7 +1092,7 @@ updateSystem()
 
 		echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/90localsettings
 		dpkg --clear-avail
-		sync-available
+		sync-available 2> /dev/null
 		echo 3 > /proc/sys/vm/drop_caches
 
 		apt-get -y --force-yes update		
@@ -1093,6 +1105,44 @@ updateSystem()
 		mv /sbin/init.deactivated /sbin/init
 		mv /usr/bin/ischroot.deactivated /usr/bin/ischroot
 	fi
+}
+
+
+
+
+
+# Change MySQL init to a version working with the boot CD
+setISOInitMySQL()
+{
+	if [ ! -f /etc/init.d/mysql.m23 ]
+	then
+		mv /etc/init.d/mysql /etc/init.d/mysql.m23
+		
+		cat >> /etc/init.d/mysql << "EOF"
+#!/bin/bash
+case "${1:-''}" in
+	'start')
+		mysqld_safe&
+		sleep 3
+	;;
+	'stop')
+		killall -9 mysqld_safe
+		sleep 1
+	;;
+esac
+EOF
+	chmod +x /etc/init.d/mysql
+	fi
+}
+
+
+
+
+
+# Change MySQL init to a version working with systemd
+setSystemdInitMySQL()
+{
+	mv /etc/init.d/mysql.m23 /etc/init.d/mysql
 }
 
 
@@ -1126,6 +1176,7 @@ startBaseInstallation()
 
 	extractFromCD
 	chrootSystem
+#	setISOInitMySQL
 	configureNetwork
 	configureMySQLmycnf
 	setRootPwd
@@ -1267,6 +1318,6 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 	updateSystem
 
 	umount /mnt/cdrom
-	#installLilo
+#	setSystemdInitMySQL
 	installGrub
 }

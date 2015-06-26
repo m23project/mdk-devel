@@ -33,7 +33,7 @@ $result=db_query($exportSql);
 
 //lock table for write operations
 $out = "LOCK TABLES `sourceslist` WRITE;\n";
-while ($row = mysql_fetch_assoc($result))
+while ($row = mysqli_fetch_assoc($result))
 {
 	//check if the sourceslist should get exported
 	if (in_array($row["name"],$allowedNames))
