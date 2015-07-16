@@ -467,5 +467,7 @@ mkRelease()
 		then
 			rm Release.gpg
 		fi
+
+		cat Release | sudo -u dodger gpg --default-key 0x3305E63A -a -s --clearsign > InRelease
 	fi
 }
