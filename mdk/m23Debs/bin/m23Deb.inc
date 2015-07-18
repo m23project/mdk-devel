@@ -379,6 +379,8 @@ uploadClientPackagesToSF()
 	rsync `rsyncUploadSpeedLimit` -avPyrL -e ssh --delete-after --delete /mdk/m23Debs/debs/ "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23debs"
 	#Upload to backups
 	rsync `rsyncUploadSpeedLimit` -avPyrL -e ssh /mdk/m23Debs/debs/*.deb "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23clientpackages"
+	
+	rsync `rsyncUploadSpeedLimit` -rzaPy --delete-after --delete * root@tux05:/var/www/deb/
 }
 
 
@@ -469,5 +471,9 @@ mkRelease()
 		fi
 
 		cat Release | sudo -u dodger gpg --default-key 0x3305E63A -a -s --clearsign > InRelease
+		if [ $(find InRelease -printf "%s") -eq 0 ]
+		then
+			rm InRelease
+		fi
 	fi
 }
