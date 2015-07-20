@@ -380,7 +380,7 @@ uploadClientPackagesToSF()
 	#Upload to backups
 	rsync `rsyncUploadSpeedLimit` -avPyrL -e ssh /mdk/m23Debs/debs/*.deb "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23clientpackages"
 	
-	rsync `rsyncUploadSpeedLimit` -rzaPy --delete-after --delete * root@tux05:/var/www/deb/
+	rsync `rsyncUploadSpeedLimit` -rzaPy --delete-after --delete * root@tux05:/var/www/m23debs/
 }
 
 
