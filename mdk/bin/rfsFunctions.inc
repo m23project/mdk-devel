@@ -95,7 +95,7 @@ createRFScopyLib()
 	if test `echo $linkAndFile | egrep -c '^\?'` -gt 0
 	then
 		#it's a real file
-		cp -u $libsrc lib
+		cp -u -v $libsrc lib
 	else
 		#it's a link
 		#get the link destination (the real library file)
@@ -104,7 +104,7 @@ createRFScopyLib()
 		realFile=$(basename $realFile)
 
 		#copy the real library to the bootimage lib dir
-		cp -u `find $extractedDebsDir -name $realFile -xtype f | grep lib | sort | tail -1` lib
+		cp -v -u `find $extractedDebsDir -name $realFile -xtype f | grep lib | sort | tail -1` lib
 
 		#create a symlink from the requested library name to the real library (like it was in the extracted debs dir)
 		cd lib
@@ -199,8 +199,9 @@ createRFSBins()
 			ln -s "$binSource" "bin/$basenameLink"
 			echo "+lnk $basenameLink"
 
-			#Get the complete path to the binary in the temp directory
-			binSource="$extractedDebsDir/$binSource"
+			# Make sure, the found file is from the temp directory and not the local root filesystem
+			# e.g. /bin/modinfo => /bin/kmod => /mdk/client+server/tmpRoot/i386/bin/kmod
+			binSource=$( find $extractedDebsDir | grep $binSource | head -1 )
 		fi
 		
 		echo "+bin $binSource"
@@ -210,18 +211,24 @@ createRFSBins()
 		
 		echo $bin > /tmp/mdk-createRFSBins.txt
 
+		# Skip script and statically linked files
+		if [ $(file bin/$bin | grep -i 'script' -c) -gt 0 ] || [ $(file bin/$bin | grep -i 'statically' -c) -gt 0 ]
+		then
+			continue
+		fi
+
 		#use different methods to detect the libraries needed by the executables
 		if test `getBuildArch` == "x86"
 		then
+			# Use the bin source of symbolic links to get the needed libraries
+			if [ $(file bin/$bin | grep -i 'symbolic link' -c) -gt 0 ]
+			then
+				bin=$( basename "$binSource")
+			fi
+
 			#simple ldd for same architecture as the host
 			for lib in `ldd bin/$bin 2> /dev/null | cut -d " " -f1 | grep -v '(0x'`
 			do
-				# Skip script, statically linked files and symbolic links
-				if [ $(file bin/$bin | grep -i 'script' -c) -gt 0 ] || [ $(file bin/$bin | grep -i 'statically' -c) -gt 0 ] || [ $(file bin/$bin | grep -i 'symbolic link' -c) -gt 0 ]
-				then
-					continue
-				fi
-
 				createRFScopyLib $lib $bin
 			done
 		else
