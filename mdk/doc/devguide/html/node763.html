@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_getNextUserID</TITLE>
-<META NAME="description" CONTENT="LDAP_getNextUserID">
+<TITLE>LDAP_addPosix</TITLE>
+<META NAME="description" CONTENT="LDAP_addPosix">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node764.html">
 <LINK REL="previous" HREF="node762.html">
-<LINK REL="up" HREF="node748.html">
+<LINK REL="up" HREF="node757.html">
 <LINK REL="next" HREF="node764.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13424"
+<A NAME="tex2html13472"
   HREF="node764.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13420"
-  HREF="node748.html">
+<A NAME="tex2html13468"
+  HREF="node757.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13414"
+<A NAME="tex2html13462"
   HREF="node762.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13422"
+<A NAME="tex2html13470"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13425"
-  HREF="node764.html">LDAP_addNewID</A>
-<B> Up:</B> <A NAME="tex2html13421"
-  HREF="node748.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html13415"
-  HREF="node762.html">LDAP_getNextID</A>
- &nbsp; <B>  <A NAME="tex2html13423"
+<B> Next:</B> <A NAME="tex2html13473"
+  HREF="node764.html">LDAP_fqdn2dn</A>
+<B> Up:</B> <A NAME="tex2html13469"
+  HREF="node757.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html13463"
+  HREF="node762.html">LDAP_loadServer</A>
+ &nbsp; <B>  <A NAME="tex2html13471"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082315000000000000000">
-LDAP_getNextUserID</A>
+<H2><A NAME="SECTION008236000000000000000">
+LDAP_addPosix</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the next higher than the highest user ID
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>ldapServer: name of the LDAP server stored in the configuration file
+</LI>
+<LI>account: the login name
+</LI>
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

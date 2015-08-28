@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getQuestionnaireURL</TITLE>
-<META NAME="description" CONTENT="HTML_getQuestionnaireURL">
+<TITLE>HTML_liveSpan</TITLE>
+<META NAME="description" CONTENT="HTML_liveSpan">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node681.html">
 <LINK REL="previous" HREF="node679.html">
-<LINK REL="up" HREF="node663.html">
+<LINK REL="up" HREF="node672.html">
 <LINK REL="next" HREF="node681.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12388"
+<A NAME="tex2html12436"
   HREF="node681.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12384"
-  HREF="node663.html">
+<A NAME="tex2html12432"
+  HREF="node672.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12378"
+<A NAME="tex2html12426"
   HREF="node679.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12386"
+<A NAME="tex2html12434"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12389"
-  HREF="node681.html">HTML_questionnaire</A>
-<B> Up:</B> <A NAME="tex2html12385"
-  HREF="node663.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12379"
-  HREF="node679.html">HTML_logArea</A>
- &nbsp; <B>  <A NAME="tex2html12387"
+<B> Next:</B> <A NAME="tex2html12437"
+  HREF="node681.html">HTML_manipulateOutputBuffer</A>
+<B> Up:</B> <A NAME="tex2html12433"
+  HREF="node672.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12427"
+  HREF="node679.html">HTML_AJAXAutoSubmit</A>
+ &nbsp; <B>  <A NAME="tex2html12435"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082017000000000000000">
-HTML_getQuestionnaireURL</A>
+<H2><A NAME="SECTION008208000000000000000">
+HTML_liveSpan</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the complete URL to the m23 questionnaire in the language of the webinterface.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a span that updates itself via AJAX by polling from a given URL.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Complete URL to the m23 questionnaire in the language of the webinterface.
+<LI>htmlNames: Name of the span.
+</LI>
+<LI>url: The HTTP URL to poll.
+</LI>
+<LI>staticValue: Value that should be shown, when AJAX is not available (e.g. when JavaScript is disabled)
+</LI>
+<LI>timeout: Time in milliseconds to poll the URL for new status.
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ HTML_getQuestionnaireURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

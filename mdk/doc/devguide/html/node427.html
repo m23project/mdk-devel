@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addSubnetDefinition</TITLE>
-<META NAME="description" CONTENT="DHCP_addSubnetDefinition">
+<TITLE>delValuesFromArray</TITLE>
+<META NAME="description" CONTENT="delValuesFromArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node428.html">
 <LINK REL="previous" HREF="node426.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="up" HREF="node393.html">
 <LINK REL="next" HREF="node428.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9093"
+<A NAME="tex2html9120"
   HREF="node428.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9089"
-  HREF="node424.html">
+<A NAME="tex2html9116"
+  HREF="node393.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9083"
+<A NAME="tex2html9110"
   HREF="node426.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9091"
+<A NAME="tex2html9118"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9094"
-  HREF="node428.html">DHCP_delSubnetDefinition</A>
-<B> Up:</B> <A NAME="tex2html9090"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9084"
-  HREF="node426.html">DHCP_lineNumberAffterLastClient</A>
- &nbsp; <B>  <A NAME="tex2html9092"
+<B> Next:</B> <A NAME="tex2html9121"
+  HREF="node428.html">DB_getLikeableColumns</A>
+<B> Up:</B> <A NAME="tex2html9117"
+  HREF="node393.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html9111"
+  HREF="node426.html">delFromArray</A>
+ &nbsp; <B>  <A NAME="tex2html9119"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008133000000000000000">
-DHCP_addSubnetDefinition</A>
+<H2><A NAME="SECTION0081234000000000000000">
+delValuesFromArray</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds the subnet definition to the dhcpd.conf to let the DHCP server give out network information to clients to other subnets.
+<SPAN  CLASS="textbf">Description:</SPAN> deletes all entries in the array $arr with values stored in the array $delVals.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>subnet: The subnet.
+<LI>arr: array with the entries to filter
 </LI>
-<LI>netmask: netmask for the ip
+<LI>delVals: array with all values to delete from $arr
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>array without the entries in $delVals.
 </LI>
 </UL>
 
@@ -70,7 +76,7 @@ DHCP_addSubnetDefinition</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1731,6 +1731,19 @@
 \subsection{CLIENT\_isInDebugMode}
 \textbf{Description:} returnes "true", if the asking client is in debug mode\\
 
+\subsection{CLIENT\_getToDetailsURL}
+\textbf{Description:} Generates the link to the client's control center page\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: the name of the client
+\item id: the id of the client
+\item section: section to jump on the page
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Link to the client's control center page
+\end{itemize}
+
 \subsection{CLIENT\_HTMLBackToDetails}
 \textbf{Description:} generates HTML code for returning to the client controll center page\\
 \textbf{Parameter:}
@@ -2000,6 +2013,27 @@
 \item id: package ID
 \end{itemize}
 
+\subsection{DB\_getConnection}
+\textbf{Description:} Gets the MySQLi connection.\\
+\textbf{Returns:}
+\begin{itemize}
+\item MySQLi connection.
+\end{itemize}
+
+\subsection{DB\_setConnection}
+\textbf{Description:} Sets the MySQLi connection to use globally.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item conn: MySQLi connection to use globally.
+\end{itemize}
+
+\subsection{DB\_isConnectionValid}
+\textbf{Description:} Checks, if the MySQLi connection is valid.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true on valid MySQLi connection, otherwise false.
+\end{itemize}
+
 \subsection{dbConnect}
 \textbf{Description:} connects to the m23 database\\
 
@@ -2011,6 +2045,13 @@
 
 \subsection{getServerNetmask}
 \textbf{Description:} returnes the netmask of the m23 server\\
+
+\subsection{getServerNetwork}
+\textbf{Description:} Get the network IP of the m23 server.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Network IP of the m23 server.
+\end{itemize}
 
 \subsection{getDNSServers}
 \textbf{Description:} Returnes an array with the DNS servers of the m23 server.\\
@@ -3695,6 +3736,10 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item groupName: name of the group
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Group number or false, if no matching group is found.
+\end{itemize}
 
 \subsection{GRP\_del}
 \textbf{Description:} deletes all clients from the group and the group itself\\
@@ -3920,6 +3965,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item url: The URL to download.
+\item range: If set, a part of the file will be downloaded. (e.g. 0-500 will download the first 500 kb)
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -3988,6 +4034,29 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item Hashed value.
+\end{itemize}
+
+\subsection{HELPER\_netmaskAmountOfSetBits}
+\textbf{Description:} Calculates the amount of set bits in a network mask (as used in the short form of netmasks).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : nm: The netmask in decimal notation.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Amount of set bits in the network mask.
+\end{itemize}
+
+\subsection{HELPER\_networkCalculator}
+\textbf{Description:} Calculates the network IP by a given IP and the netmask.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : ip: The IP.
+\item : nm: The netmask.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Network IP.s
 \end{itemize}
 
 \subsection{HELPER\_netmaskCalculator}
@@ -4214,6 +4283,36 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item string: the text, that should be searched
 \item search: the string to be searched
 \item cut: seperator for the input and output lines
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The found lines as string separated by \$cut.
+\end{itemize}
+
+\subsection{HELPER\_grepNot}
+\textbf{Description:} Returnes all lines from \$string seperated by \$cut that do NOT contain \$search.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item string: the text, that should be searched
+\item search: the string to be searched
+\item cut: seperator for the input and output lines
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The found lines as string separated by \$cut.
+\end{itemize}
+
+\subsection{HELPER\_grepCount}
+\textbf{Description:} Counts the lines from \$string seperated by \$cut that contain \$search.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item string: the text, that should be searched
+\item search: the string to be searched
+\item cut: seperator for the input and output lines
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Amount of lines that match the \$search.
 \end{itemize}
 
 \subsection{HELPER\_getFdiskMountPoints}
@@ -8164,11 +8263,22 @@ Description: basic package operations (search, add,...)\\
 \item var: the name of the table row
 \end{itemize}
 
-\subsection{SRCLST\_loadSourceList}
-\textbf{Description:} loads and returnes the the package source list\\
+\subsection{SRCLST\_loadSourceListFromDB}
+\textbf{Description:} loads and returnes the the package source list from the DB.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item name: the name of the package source list
+\end{itemize}
+
+\subsection{SRCLST\_loadSourceList}
+\textbf{Description:} Loads and returnes the package source list and tries to find a valid mirror for m23debs.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: the name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item package source list
 \end{itemize}
 
 \subsection{SRCLST\_getDescription}
@@ -8408,6 +8518,31 @@ Description: basic package operations (search, add,...)\\
 \begin{itemize}
 \item distr: the distribution to search the name of the sources list under
 \item search: the contents of the sources list to search
+\end{itemize}
+
+\subsection{SRCLST\_possiblem23debsMirrors}
+\textbf{Description:} Returns an array with mirrors for m23 debs.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Array with mirrors for m23 debs.
+\end{itemize}
+
+\subsection{SRCLST\_checkm23debsMirror}
+\textbf{Description:} Checks, if the url contains a valid mirror for m23debs.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item url: URL of the (possible) m23debs mirror.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the url contains a valid mirror for m23debs, otherwise false.
+\end{itemize}
+
+\subsection{SRCLST\_getWorkingm23debsMirror}
+\textbf{Description:} Get the url of a working m23debs mirror.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Url to a working m23debs mirror or false, if none could be found.
 \end{itemize}
 
 \newpage\section{./inc/update.php}

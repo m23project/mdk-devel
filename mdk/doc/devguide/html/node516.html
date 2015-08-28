@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_findDevNrPosition</TITLE>
-<META NAME="description" CONTENT="FDISK_findDevNrPosition">
+<TITLE>FDISK_getBiggestValueOf</TITLE>
+<META NAME="description" CONTENT="FDISK_getBiggestValueOf">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node517.html">
 <LINK REL="previous" HREF="node515.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node517.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10293"
+<A NAME="tex2html10337"
   HREF="node517.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10289"
-  HREF="node475.html">
+<A NAME="tex2html10333"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10283"
+<A NAME="tex2html10327"
   HREF="node515.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10291"
+<A NAME="tex2html10335"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10294"
-  HREF="node517.html">FDISK_partCreationSelect</A>
-<B> Up:</B> <A NAME="tex2html10290"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10284"
-  HREF="node515.html">FDISK_correctLogical</A>
- &nbsp; <B>  <A NAME="tex2html10292"
+<B> Next:</B> <A NAME="tex2html10338"
+  HREF="node517.html">FDISK_devNrExists</A>
+<B> Up:</B> <A NAME="tex2html10334"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10328"
+  HREF="node515.html">FDISK_formatPart</A>
+ &nbsp; <B>  <A NAME="tex2html10336"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081641000000000000000">
-FDISK_findDevNrPosition</A>
+<H2><A NAME="SECTION0081636000000000000000">
+FDISK_getBiggestValueOf</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns the device position for the new device
+<SPAN  CLASS="textbf">Description:</SPAN> gets the biggest value from a special type of partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>start: start position for the search
-</LI>
-<LI>end: end position for the search
-</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>dev: selected device (e.g. hda)
 </LI>
-<LI>newPartNr: stores the new device number
+<LI>partType: type of the partition (logical, primary, extended)
 </LI>
-<LI>type: type of the new partition
+<LI>varType: define part of the key for the associative array (e.g. "type" means $param["dev$vDev"."part$vPart"."_type"])
 </LI>
 </UL>
 
@@ -78,7 +74,7 @@ FDISK_findDevNrPosition</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/massTools.php</TITLE>
-<META NAME="description" CONTENT="./inc/massTools.php">
+<TITLE>m23SHARED_getUserByCustomerNr</TITLE>
+<META NAME="description" CONTENT="m23SHARED_getUserByCustomerNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,111 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node872.html">
-<LINK REL="previous" HREF="node773.html">
-<LINK REL="up" HREF="node142.html">
+<LINK REL="next" HREF="node846.html">
+<LINK REL="previous" HREF="node844.html">
+<LINK REL="up" HREF="node782.html">
 <LINK REL="next" HREF="node846.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14475"
+<A NAME="tex2html14525"
   HREF="node846.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14471"
-  HREF="node142.html">
+<A NAME="tex2html14521"
+  HREF="node782.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14465"
+<A NAME="tex2html14515"
   HREF="node844.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14473"
+<A NAME="tex2html14523"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14476"
-  HREF="node846.html">MASS_EGKradioBoxes</A>
-<B> Up:</B> <A NAME="tex2html14472"
-  HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html14466"
-  HREF="node844.html">m23SHARED_getInformationForBootingYourClientLink</A>
- &nbsp; <B>  <A NAME="tex2html14474"
+<B> Next:</B> <A NAME="tex2html14526"
+  HREF="node846.html">m23SHARED_getUserByInfo</A>
+<B> Up:</B> <A NAME="tex2html14522"
+  HREF="node782.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html14516"
+  HREF="node844.html">m23SHARED_getUserByResident</A>
+ &nbsp; <B>  <A NAME="tex2html14524"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008250000000000000000">
-./inc/massTools.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: routines for mass installations
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0082463000000000000000">
+m23SHARED_getUserByCustomerNr</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the user name of m23shared customer by the customer number.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html14477"
-  HREF="node846.html">MASS_EGKradioBoxes</A>
-<LI><A NAME="tex2html14478"
-  HREF="node847.html">MASS_FHradioBoxes</A>
-<LI><A NAME="tex2html14479"
-  HREF="node848.html">MASS_showFileHandDialog</A>
-<LI><A NAME="tex2html14480"
-  HREF="node849.html">MASS_propertyKeys</A>
-<LI><A NAME="tex2html14481"
-  HREF="node850.html">MASS_showFileFormatDialog</A>
-<LI><A NAME="tex2html14482"
-  HREF="node851.html">MASS_keyToI18N</A>
-<LI><A NAME="tex2html14483"
-  HREF="node852.html">MASS_I18NTokey</A>
-<LI><A NAME="tex2html14484"
-  HREF="node853.html">MASS_showTableDefinition</A>
-<LI><A NAME="tex2html14485"
-  HREF="node854.html">MASS_checkAndSaveFields</A>
-<LI><A NAME="tex2html14486"
-  HREF="node855.html">MASS_openDBFile</A>
-<LI><A NAME="tex2html14487"
-  HREF="node856.html">MASS_readDBFile</A>
-<LI><A NAME="tex2html14488"
-  HREF="node857.html">MASS_readDBFileRaw</A>
-<LI><A NAME="tex2html14489"
-  HREF="node858.html">MASS_closeDBFile</A>
-<LI><A NAME="tex2html14490"
-  HREF="node859.html">MASS_getXProperties</A>
-<LI><A NAME="tex2html14491"
-  HREF="node860.html">MASS_showGeneratorOptions</A>
-<LI><A NAME="tex2html14492"
-  HREF="node861.html">MASS_passGenerator</A>
-<LI><A NAME="tex2html14493"
-  HREF="node862.html">MASS_loginGenerator</A>
-<LI><A NAME="tex2html14494"
-  HREF="node863.html">MASS_ipGenerator</A>
-<LI><A NAME="tex2html14495"
-  HREF="node864.html">MASS_minMaxIP</A>
-<LI><A NAME="tex2html14496"
-  HREF="node865.html">MASS_generateNetmask</A>
-<LI><A NAME="tex2html14497"
-  HREF="node866.html">MASS_generateClientNames</A>
-<LI><A NAME="tex2html14498"
-  HREF="node867.html">MASS_saveGeneratorOptions</A>
-<LI><A NAME="tex2html14499"
-  HREF="node868.html">MASS_showOverview</A>
-<LI><A NAME="tex2html14500"
-  HREF="node869.html">MASS_getAllFromFile</A>
-<LI><A NAME="tex2html14501"
-  HREF="node870.html">MASS_getLongestLength</A>
-<LI><A NAME="tex2html14502"
-  HREF="node871.html">MASS_startInstall</A>
+<UL>
+<LI>customerNr: Customer number of the m23shared customer.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>m23shared user name for the searched customer or empty string if none was found.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

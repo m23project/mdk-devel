@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/pool.php</TITLE>
-<META NAME="description" CONTENT="./inc/pool.php">
+<TITLE>PLG_getTempDir</TITLE>
+<META NAME="description" CONTENT="PLG_getTempDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,97 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1047.html">
-<LINK REL="previous" HREF="node1003.html">
-<LINK REL="up" HREF="node142.html">
+<LINK REL="next" HREF="node1028.html">
+<LINK REL="previous" HREF="node1026.html">
+<LINK REL="up" HREF="node1012.html">
 <LINK REL="next" HREF="node1028.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16823"
+<A NAME="tex2html16873"
   HREF="node1028.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16819"
-  HREF="node142.html">
+<A NAME="tex2html16869"
+  HREF="node1012.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16813"
+<A NAME="tex2html16863"
   HREF="node1026.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16821"
+<A NAME="tex2html16871"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16824"
-  HREF="node1028.html">POOL_selectPoolType</A>
-<B> Up:</B> <A NAME="tex2html16820"
-  HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html16814"
-  HREF="node1026.html">PLG_realUpdate</A>
- &nbsp; <B>  <A NAME="tex2html16822"
+<B> Next:</B> <A NAME="tex2html16874"
+  HREF="node1028.html">PLG_getFilename</A>
+<B> Up:</B> <A NAME="tex2html16870"
+  HREF="node1012.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html16864"
+  HREF="node1026.html">PLG_realInstall</A>
+ &nbsp; <B>  <A NAME="tex2html16872"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008310000000000000000">
-./inc/pool.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions for administrating package pools
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0083015000000000000000">
+PLG_getTempDir</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> generates the name for the plugin temp dir
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html16825"
-  HREF="node1028.html">POOL_selectPoolType</A>
-<LI><A NAME="tex2html16826"
-  HREF="node1029.html">POOL_getPools</A>
-<LI><A NAME="tex2html16827"
-  HREF="node1030.html">POOL_showLoadDeleteCreate</A>
-<LI><A NAME="tex2html16828"
-  HREF="node1031.html">POOL_create</A>
-<LI><A NAME="tex2html16829"
-  HREF="node1032.html">POOL_setProperty</A>
-<LI><A NAME="tex2html16830"
-  HREF="node1033.html">POOL_getProperty</A>
-<LI><A NAME="tex2html16831"
-  HREF="node1034.html">POOL_delete</A>
-<LI><A NAME="tex2html16832"
-  HREF="node1035.html">POOL_showReadCD</A>
-<LI><A NAME="tex2html16833"
-  HREF="node1036.html">POOL_readCD</A>
-<LI><A NAME="tex2html16834"
-  HREF="node1037.html">POOL_createExtendedPackageIndex</A>
-<LI><A NAME="tex2html16835"
-  HREF="node1038.html">POOL_showCreatePackageIndex</A>
-<LI><A NAME="tex2html16836"
-  HREF="node1039.html">POOL_getSize</A>
-<LI><A NAME="tex2html16837"
-  HREF="node1040.html">POOL_getDir</A>
-<LI><A NAME="tex2html16838"
-  HREF="node1041.html">POOL_download</A>
-<LI><A NAME="tex2html16839"
-  HREF="node1042.html">POOL_showDownloadStatus</A>
-<LI><A NAME="tex2html16840"
-  HREF="node1043.html">POOL_prepare</A>
-<LI><A NAME="tex2html16841"
-  HREF="node1044.html">POOL_makeRepository</A>
-<LI><A NAME="tex2html16842"
-  HREF="node1045.html">POOL_getCDDistributionRelease</A>
-<LI><A NAME="tex2html16843"
-  HREF="node1046.html">POOL_showSourcesList</A>
+<UL>
+<LI>url: the place where to get the plugin file from. following transport protocols are allowed: http, ftp and local files. e.g. "http://myserver.de/test.m23plg" is avalid url.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

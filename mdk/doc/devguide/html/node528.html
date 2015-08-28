@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getBelongingRaidDev</TITLE>
-<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
+<TITLE>FDISK_listFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_listFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node529.html">
 <LINK REL="previous" HREF="node527.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node529.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10437"
+<A NAME="tex2html10481"
   HREF="node529.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10433"
-  HREF="node475.html">
+<A NAME="tex2html10477"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10427"
+<A NAME="tex2html10471"
   HREF="node527.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10435"
+<A NAME="tex2html10479"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10438"
-  HREF="node529.html">FDISK_delPart</A>
-<B> Up:</B> <A NAME="tex2html10434"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10428"
-  HREF="node527.html">FDISK_genManualFstab</A>
- &nbsp; <B>  <A NAME="tex2html10436"
+<B> Next:</B> <A NAME="tex2html10482"
+  HREF="node529.html">FDISK_fstabAddDialog2</A>
+<B> Up:</B> <A NAME="tex2html10478"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10472"
+  HREF="node527.html">FDISK_delFstab</A>
+ &nbsp; <B>  <A NAME="tex2html10480"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081653000000000000000">
-FDISK_getBelongingRaidDev</A>
+<H2><A NAME="SECTION0081648000000000000000">
+FDISK_listFstab</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a HTML table with all defined mountpoints.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
-</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
+<LI>HTML table with the fstab.
 </LI>
 </UL>
 
@@ -76,7 +74,7 @@ FDISK_getBelongingRaidDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1026,9 +1026,9 @@ installDebs()
 
 
 	#Add the URL for server update if missing
-	if [ `grep -c "http://vorboss.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
+	if [ `grep "http://skylink.dl.sourceforge.net" /tmp/sources.list | grep ^deb -c` -eq 0 ]
 	then
-		echo "deb http://vorboss.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
+		echo "deb http://skylink.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
 	fi
 
 	mv /tmp/sources.list /etc/apt

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualDeletePartition</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualDeletePartition">
+<TITLE>FDISK_getPartInfoIcon</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartInfoIcon">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node549.html">
 <LINK REL="previous" HREF="node547.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node549.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10677"
+<A NAME="tex2html10721"
   HREF="node549.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10673"
-  HREF="node475.html">
+<A NAME="tex2html10717"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10667"
+<A NAME="tex2html10711"
   HREF="node547.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10675"
+<A NAME="tex2html10719"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10678"
-  HREF="node549.html">FDISK_virtualAddPartition</A>
-<B> Up:</B> <A NAME="tex2html10674"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10668"
-  HREF="node547.html">FDISK_deletePartitionFromParam</A>
- &nbsp; <B>  <A NAME="tex2html10676"
+<B> Next:</B> <A NAME="tex2html10722"
+  HREF="node549.html">FDISK_printBars</A>
+<B> Up:</B> <A NAME="tex2html10718"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10712"
+  HREF="node547.html">FDISK_getDriveInfoIcon</A>
+ &nbsp; <B>  <A NAME="tex2html10720"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081673000000000000000">
-FDISK_virtualDeletePartition</A>
+<H2><A NAME="SECTION0081668000000000000000">
+FDISK_getPartInfoIcon</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> deletes partition from param assigned thru $vDev and $vPart.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive or partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>devNr: device number of the real device
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1) and if set to false, the icon and the status information will be generated for a drive and not for a partition.
 </LI>
 <LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>fstabA: Associative array with fstab information.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>HTML code for showing an icon with status information about the drive or partition.
 </LI>
 </UL>
 
@@ -72,7 +80,7 @@ FDISK_virtualDeletePartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

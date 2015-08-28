@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_status</TITLE>
-<META NAME="description" CONTENT="VM_status">
+<TITLE>VM_setVisualURL</TITLE>
+<META NAME="description" CONTENT="VM_setVisualURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1227.html">
 <LINK REL="previous" HREF="node1225.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1227.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19391"
+<A NAME="tex2html19443"
   HREF="node1227.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19387"
-  HREF="node1162.html">
+<A NAME="tex2html19439"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19381"
+<A NAME="tex2html19433"
   HREF="node1225.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19389"
+<A NAME="tex2html19441"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19392"
-  HREF="node1227.html">VM_parseVBOXdisk</A>
-<B> Up:</B> <A NAME="tex2html19388"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19382"
-  HREF="node1225.html">VM_stopVMCommandFile</A>
- &nbsp; <B>  <A NAME="tex2html19390"
+<B> Next:</B> <A NAME="tex2html19444"
+  HREF="node1227.html">VM_setHostInDB</A>
+<B> Up:</B> <A NAME="tex2html19440"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19434"
+  HREF="node1225.html">VM_getAllVMHosts</A>
+ &nbsp; <B>  <A NAME="tex2html19442"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083864000000000000000">
-VM_status</A>
+<H2><A NAME="SECTION0083851000000000000000">
+VM_setVisualURL</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the current status of a virtual machine.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the URL to connect to the visual management console.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
+<LI>VMguest: Name of the guest that is run in the virtualisation software.
 </LI>
-<LI>vmName: Name of the VM.
+<LI>url: The URL to connect to the visual management console (e.g. 192.168.1.23:23 with VNC).
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to get the current status of a virtual machine or array containing the status of the VM.
+<LI>MySQL resource or false on error.
 </LI>
 </UL>
 
@@ -76,7 +76,7 @@ VM_status</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

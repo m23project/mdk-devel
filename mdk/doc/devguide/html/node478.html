@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_mdToEndOfArray</TITLE>
-<META NAME="description" CONTENT="FDISK_mdToEndOfArray">
+<TITLE>EDIT_addIfNotExists</TITLE>
+<META NAME="description" CONTENT="EDIT_addIfNotExists">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node479.html">
 <LINK REL="previous" HREF="node477.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node457.html">
 <LINK REL="next" HREF="node479.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9837"
+<A NAME="tex2html9774"
   HREF="node479.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9833"
-  HREF="node475.html">
+<A NAME="tex2html9770"
+  HREF="node457.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9827"
+<A NAME="tex2html9764"
   HREF="node477.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9835"
+<A NAME="tex2html9772"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9838"
-  HREF="node479.html">FDISK_getFstabArray</A>
-<B> Up:</B> <A NAME="tex2html9834"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9828"
-  HREF="node477.html">FDISK_showCombinedFdiskGUIDialog</A>
- &nbsp; <B>  <A NAME="tex2html9836"
+<B> Next:</B> <A NAME="tex2html9775"
+  HREF="node479.html">EDIT_deleteMatching</A>
+<B> Up:</B> <A NAME="tex2html9771"
+  HREF="node457.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9765"
+  HREF="node477.html">EDIT_deleteLinesAmount</A>
+ &nbsp; <B>  <A NAME="tex2html9773"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008163000000000000000">
-FDISK_mdToEndOfArray</A>
+<H2><A NAME="SECTION0081521000000000000000">
+EDIT_addIfNotExists</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Orders all MD devices from the input array to the end of the output array.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new line if the search pattern cannot be found.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 )).
+<LI>file: the name to the file
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 )).
+<LI>search: regular expression to search
+</LI>
+<LI>add: line to add
 </LI>
 </UL>
 
@@ -74,7 +72,7 @@ FDISK_mdToEndOfArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

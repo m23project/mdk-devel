@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_definePartitionSelection</TITLE>
-<META NAME="description" CONTENT="FDISK_definePartitionSelection">
+<TITLE>FDISK_genManualFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node533.html">
 <LINK REL="previous" HREF="node531.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node533.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10485"
+<A NAME="tex2html10529"
   HREF="node533.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10481"
-  HREF="node475.html">
+<A NAME="tex2html10525"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10475"
+<A NAME="tex2html10519"
   HREF="node531.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10483"
+<A NAME="tex2html10527"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10486"
-  HREF="node533.html">FDISK_getPartitionsFromParam</A>
-<B> Up:</B> <A NAME="tex2html10482"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10476"
-  HREF="node531.html">FDISK_listPartitions</A>
- &nbsp; <B>  <A NAME="tex2html10484"
+<B> Next:</B> <A NAME="tex2html10530"
+  HREF="node533.html">FDISK_getBelongingRaidDev</A>
+<B> Up:</B> <A NAME="tex2html10526"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10520"
+  HREF="node531.html">FDISK_adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html10528"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081657000000000000000">
-FDISK_definePartitionSelection</A>
+<H2><A NAME="SECTION0081652000000000000000">
+FDISK_genManualFstab</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Defines a HTML selection with the partitions (/dev/hda1, /dev/hda2, ...) of a device
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
-</LI>
-<LI>selName: name of the selection
-</LI>
-<LI>excludeType: type of partitions, not to show in the selection
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>The selected partition.
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
 </LI>
 </UL>
 
@@ -80,7 +70,7 @@ FDISK_definePartitionSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

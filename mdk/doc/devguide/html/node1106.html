@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_runningInBackground</TITLE>
-<META NAME="description" CONTENT="SERVER_runningInBackground">
+<TITLE>SERVER_daemonStartStop</TITLE>
+<META NAME="description" CONTENT="SERVER_daemonStartStop">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1107.html">
 <LINK REL="previous" HREF="node1105.html">
-<LINK REL="up" HREF="node1073.html">
+<LINK REL="up" HREF="node1082.html">
 <LINK REL="next" HREF="node1107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17854"
+<A NAME="tex2html17902"
   HREF="node1107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17850"
-  HREF="node1073.html">
+<A NAME="tex2html17898"
+  HREF="node1082.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17844"
+<A NAME="tex2html17892"
   HREF="node1105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17852"
+<A NAME="tex2html17900"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17855"
-  HREF="node1107.html">SERVER_runningInScreen</A>
-<B> Up:</B> <A NAME="tex2html17851"
-  HREF="node1073.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17845"
-  HREF="node1105.html">SERVER_runInBackground</A>
- &nbsp; <B>  <A NAME="tex2html17853"
+<B> Next:</B> <A NAME="tex2html17903"
+  HREF="node1107.html">SERVER_installTool</A>
+<B> Up:</B> <A NAME="tex2html17899"
+  HREF="node1082.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17893"
+  HREF="node1105.html">SERVER_checkPackageInstalled</A>
+ &nbsp; <B>  <A NAME="tex2html17901"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083533000000000000000">
-SERVER_runningInBackground</A>
+<H2><A NAME="SECTION0083524000000000000000">
+SERVER_daemonStartStop</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns "true" if a lock file for a given job name is existing.
+<SPAN  CLASS="textbf">Description:</SPAN> starts, stops and restarts daemons
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>jobName: name of the job
+<LI>daemonScript: the file name of the script, that handles the real starting, stopping and restarting and understands the $action
+</LI>
+<LI>action: start, stop or restart
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: true on successfully execution otherwise false.
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ SERVER_runningInBackground</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

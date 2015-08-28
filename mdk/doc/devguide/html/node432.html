@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_delDynamicRange</TITLE>
-<META NAME="description" CONTENT="DHCP_delDynamicRange">
+<TITLE>DHCP_addSubnetDefinition</TITLE>
+<META NAME="description" CONTENT="DHCP_addSubnetDefinition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node433.html">
 <LINK REL="previous" HREF="node431.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="up" HREF="node429.html">
 <LINK REL="next" HREF="node433.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9153"
+<A NAME="tex2html9197"
   HREF="node433.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9149"
-  HREF="node424.html">
+<A NAME="tex2html9193"
+  HREF="node429.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9143"
+<A NAME="tex2html9187"
   HREF="node431.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9151"
+<A NAME="tex2html9195"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9154"
-  HREF="node433.html">DHCP_bootTypeToNewFormat</A>
-<B> Up:</B> <A NAME="tex2html9150"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9144"
-  HREF="node431.html">DHCP_getNetmaskOfDynamicRanges</A>
- &nbsp; <B>  <A NAME="tex2html9152"
+<B> Next:</B> <A NAME="tex2html9198"
+  HREF="node433.html">DHCP_delSubnetDefinition</A>
+<B> Up:</B> <A NAME="tex2html9194"
+  HREF="node429.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9188"
+  HREF="node431.html">DHCP_lineNumberAffterLastClient</A>
+ &nbsp; <B>  <A NAME="tex2html9196"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008138000000000000000">
-DHCP_delDynamicRange</A>
+<H2><A NAME="SECTION008133000000000000000">
+DHCP_addSubnetDefinition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Removes a dynamic IP range from the dhcpd.conf and restarts the DHCP server.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds the subnet definition to the dhcpd.conf to let the DHCP server give out network information to clients to other subnets.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>firstIP: The first IP marking the begin of the dynamic IP range.
+<LI>subnet: The subnet.
 </LI>
-<LI>lastIP: The last IP marking the end of the dynamic IP range.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true, if the DHCP server could be restarted with the new settings.
+<LI>netmask: netmask for the ip
 </LI>
 </UL>
 
@@ -76,7 +70,7 @@ DHCP_delDynamicRange</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

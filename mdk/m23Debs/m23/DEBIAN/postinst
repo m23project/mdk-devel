@@ -459,12 +459,18 @@ refresh_pattern Sources.gz$     0   41%    360
 refresh_pattern Sources$         0   41%    360
 refresh_pattern Sources.bz2$    0   41%    360
 
-refresh_pattern .orig.tar.gz$ 525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
-refresh_pattern .diff.gz$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
-refresh_pattern .deb$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
-refresh_pattern .tar.7z$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
-refresh_pattern .dsc$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
-refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+
+refresh_pattern deb$			129600 100% 129600
+refresh_pattern udeb$			129600 100% 129600
+refresh_pattern tar.gz$			129600 100% 129600
+refresh_pattern tar.xz$			129600 100% 129600
+refresh_pattern tar.bz2$		129600 100% 129600
+refresh_pattern .orig.tar.gz$	129600 100% 129600
+refresh_pattern .diff.gz$		129600 100% 129600
+refresh_pattern .tar.7z$		129600 100% 129600
+refresh_pattern .dsc$			129600 100% 129600
+refresh_pattern .rpm$			129600 100% 129600
+
 
 http_access deny purge !localhost
 EOFSQUID

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deleteDriveFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
+<TITLE>FDISK_buildRaidDialog</TITLE>
+<META NAME="description" CONTENT="FDISK_buildRaidDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node585.html">
 <LINK REL="previous" HREF="node583.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node585.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11107"
+<A NAME="tex2html11153"
   HREF="node585.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11103"
-  HREF="node475.html">
+<A NAME="tex2html11149"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11099"
+<A NAME="tex2html11143"
   HREF="node583.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11105"
+<A NAME="tex2html11151"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11108"
-  HREF="node585.html">./inc/groups.php</A>
-<B> Up:</B> <A NAME="tex2html11104"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html11100"
-  HREF="node583.html">FDISK_virtualDeleteDrive</A>
- &nbsp; <B>  <A NAME="tex2html11106"
+<B> Next:</B> <A NAME="tex2html11154"
+  HREF="node585.html">FDISK_addRaidJobs</A>
+<B> Up:</B> <A NAME="tex2html11150"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11144"
+  HREF="node583.html">FDISK_addDrivePartitionToRaid</A>
+ &nbsp; <B>  <A NAME="tex2html11152"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00816109000000000000000">
-FDISK_deleteDriveFromParam</A>
+<H2><A NAME="SECTION00816104000000000000000">
+FDISK_buildRaidDialog</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for creating RAIDs of different types and assign real drives or partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number of the drive to delete.
+<LI>param: parameter string containing status information about the harddisks
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
+<LI>partJobs: associative array with partition jobs
+</LI>
+<LI>currentDrive: the current drive to work on (e.g. hda)
+</LI>
+<LI>helpPage: Name of the help page to show.
+</LI>
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+</LI>
+<LI>partMethod: partition method (used for the partition/format dialog). The next step will depend on this value.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Changed param without the drive.
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL>
 
@@ -75,7 +84,7 @@ FDISK_deleteDriveFromParam</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

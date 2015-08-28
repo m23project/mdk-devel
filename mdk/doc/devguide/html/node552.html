@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_formatExisting</TITLE>
-<META NAME="description" CONTENT="FDISK_formatExisting">
+<TITLE>FDISK_deletePartitionFromParam</TITLE>
+<META NAME="description" CONTENT="FDISK_deletePartitionFromParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,51 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node553.html">
 <LINK REL="previous" HREF="node551.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node553.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10725"
+<A NAME="tex2html10769"
   HREF="node553.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10721"
-  HREF="node475.html">
+<A NAME="tex2html10765"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10715"
+<A NAME="tex2html10759"
   HREF="node551.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10723"
+<A NAME="tex2html10767"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10726"
-  HREF="node553.html">FDISK_getvPart</A>
-<B> Up:</B> <A NAME="tex2html10722"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10716"
-  HREF="node551.html">FDISK_listInstPartSelector</A>
- &nbsp; <B>  <A NAME="tex2html10724"
+<B> Next:</B> <A NAME="tex2html10770"
+  HREF="node553.html">FDISK_virtualDeletePartition</A>
+<B> Up:</B> <A NAME="tex2html10766"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10760"
+  HREF="node551.html">FDISK_listSupportedFS</A>
+ &nbsp; <B>  <A NAME="tex2html10768"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081677000000000000000">
-FDISK_formatExisting</A>
+<H2><A NAME="SECTION0081672000000000000000">
+FDISK_deletePartitionFromParam</A>
 </H2>
-<SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all partition parameters of a partition from param without correcting the other partitions.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>instPart: partition to put the operation system on (e.g. /dev/hda1)
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>swapPart: partition to put the swap file system on (e.g. /dev/hdb2)
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
 </LI>
-<LI>command: parted commands to do the installation
+<LI>param: parameter string containing status informations about the harddisks.
 </LI>
-<LI>param: parameter string containing status informations about the harddisks
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Changed param without the partition.
 </LI>
 </UL>
 
@@ -73,7 +78,7 @@ FDISK_formatExisting</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

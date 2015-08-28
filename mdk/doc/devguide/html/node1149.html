@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</TITLE>
-<META NAME="description" CONTENT="SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi">
+<TITLE>SRCLST_getStorageFS</TITLE>
+<META NAME="description" CONTENT="SRCLST_getStorageFS">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1150.html">
 <LINK REL="previous" HREF="node1148.html">
-<LINK REL="up" HREF="node1123.html">
+<LINK REL="up" HREF="node1132.html">
 <LINK REL="next" HREF="node1150.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18401"
+<A NAME="tex2html18453"
   HREF="node1150.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18397"
-  HREF="node1123.html">
+<A NAME="tex2html18449"
+  HREF="node1132.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18391"
+<A NAME="tex2html18443"
   HREF="node1148.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18399"
+<A NAME="tex2html18451"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18402"
-  HREF="node1150.html">SRCLST_showAlternativeArchitectureSelection</A>
-<B> Up:</B> <A NAME="tex2html18398"
-  HREF="node1123.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18392"
-  HREF="node1148.html">SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
- &nbsp; <B>  <A NAME="tex2html18400"
+<B> Next:</B> <A NAME="tex2html18454"
+  HREF="node1150.html">SRCLST_supportedFS</A>
+<B> Up:</B> <A NAME="tex2html18450"
+  HREF="node1132.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html18444"
+  HREF="node1148.html">SRCLST_packageInformationOlderThan</A>
+ &nbsp; <B>  <A NAME="tex2html18452"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083626000000000000000">
-SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
+<H2><A NAME="SECTION0083617000000000000000">
+SRCLST_getStorageFS</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows an error message, if the client uses EFI and the choosen sources list doesn't.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns a file systems that can be used to install the OS and to store data. A wished file system is given and an alternative FS is returned, if this FS is not supported.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: Name of the client.
+<LI>fs: File system to probe.
 </LI>
-<LI>sourceName: The name of the package source list.
+<LI>sourceName: The name of the package source list
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>: false, if the client uses EFI and the choosen sources list doesn't, otherwise true.
+<LI>: File systems that can be used to install the OS and to store data
 </LI>
 </UL>
 
@@ -76,7 +76,7 @@ SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

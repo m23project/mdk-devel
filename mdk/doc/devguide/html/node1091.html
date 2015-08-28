@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_sendScriptToSF</TITLE>
-<META NAME="description" CONTENT="SERVER_sendScriptToSF">
+<TITLE>SERVER_insertLineNumber</TITLE>
+<META NAME="description" CONTENT="SERVER_insertLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1092.html">
 <LINK REL="previous" HREF="node1090.html">
-<LINK REL="up" HREF="node1073.html">
+<LINK REL="up" HREF="node1082.html">
 <LINK REL="next" HREF="node1092.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17674"
+<A NAME="tex2html17722"
   HREF="node1092.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17670"
-  HREF="node1073.html">
+<A NAME="tex2html17718"
+  HREF="node1082.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17664"
+<A NAME="tex2html17712"
   HREF="node1090.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17672"
+<A NAME="tex2html17720"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17675"
-  HREF="node1092.html">SERVER_dynamicIPWarn</A>
-<B> Up:</B> <A NAME="tex2html17671"
-  HREF="node1073.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17665"
-  HREF="node1090.html">SERVER_dhcpServerInNetWarn</A>
- &nbsp; <B>  <A NAME="tex2html17673"
+<B> Next:</B> <A NAME="tex2html17723"
+  HREF="node1092.html">SERVER_addAdmin</A>
+<B> Up:</B> <A NAME="tex2html17719"
+  HREF="node1082.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17713"
+  HREF="node1090.html">SERVER_killBackgroundJob</A>
+ &nbsp; <B>  <A NAME="tex2html17721"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083518000000000000000">
-SERVER_sendScriptToSF</A>
+<H2><A NAME="SECTION008359000000000000000">
+SERVER_insertLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Uploads a script to m23.sf.net for public use.
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a text AT or AFTER a line number or creates a new file with the given name, if it doesn't exists.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>name: Name of the script.
+<LI>file: the name of the file
 </LI>
-<LI>author: Name of the script author.
+<LI>lineNumber: reference line number for inserting
 </LI>
-<LI>description: Short descriptive text for the purpose of the script.
+<LI>insertText: text to insert
 </LI>
-<LI>script: Source code of the script.
+<LI>mode: The access mode the newly created file should have.
+</LI>
+<LI>insertMode: "0" insert AT, "1" insert AFTER line number
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ SERVER_sendScriptToSF</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

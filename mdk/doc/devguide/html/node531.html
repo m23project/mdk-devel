@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_listPartitions">
+<TITLE>FDISK_adjustFstabParam</TITLE>
+<META NAME="description" CONTENT="FDISK_adjustFstabParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node532.html">
 <LINK REL="previous" HREF="node530.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node532.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10473"
+<A NAME="tex2html10517"
   HREF="node532.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10469"
-  HREF="node475.html">
+<A NAME="tex2html10513"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10463"
+<A NAME="tex2html10507"
   HREF="node530.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10471"
+<A NAME="tex2html10515"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10474"
-  HREF="node532.html">FDISK_definePartitionSelection</A>
-<B> Up:</B> <A NAME="tex2html10470"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10464"
-  HREF="node530.html">FDISK_addPart</A>
- &nbsp; <B>  <A NAME="tex2html10472"
+<B> Next:</B> <A NAME="tex2html10518"
+  HREF="node532.html">FDISK_genManualFstab</A>
+<B> Up:</B> <A NAME="tex2html10514"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10508"
+  HREF="node530.html">FDISK_fstabAddDialog</A>
+ &nbsp; <B>  <A NAME="tex2html10516"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081656000000000000000">
-FDISK_listPartitions</A>
+<H2><A NAME="SECTION0081651000000000000000">
+FDISK_adjustFstabParam</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> lists the partitions (/dev/hda1, /dev/hda2, ...) of a device and generates a selection
+<SPAN  CLASS="textbf">Description:</SPAN> Adjust the parameter block of a fstab line to make it use an supported FS.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>param: The parameter block of a fstab line
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
-</LI>
-<LI>selName: name of the selection
-</LI>
-<LI>excludeType: type of partitions, not to show in the selection
+<LI>sourceName: The name of the package source list
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>HTML code for the selection.
+<LI>Adjust the parameter block of a fstab line
 </LI>
 </UL>
 
@@ -80,7 +76,7 @@ FDISK_listPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

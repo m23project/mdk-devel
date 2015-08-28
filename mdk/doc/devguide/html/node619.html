@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getContentFromURL</TITLE>
-<META NAME="description" CONTENT="HELPER_getContentFromURL">
+<TITLE>./inc/helper.php</TITLE>
+<META NAME="description" CONTENT="./inc/helper.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,153 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node620.html">
-<LINK REL="previous" HREF="node618.html">
-<LINK REL="up" HREF="node614.html">
+<LINK REL="next" HREF="node667.html">
+<LINK REL="previous" HREF="node590.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node620.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11596"
+<A NAME="tex2html11597"
   HREF="node620.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11592"
-  HREF="node614.html">
+<A NAME="tex2html11593"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11586"
+<A NAME="tex2html11587"
   HREF="node618.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11594"
+<A NAME="tex2html11595"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11597"
-  HREF="node620.html">HELPER_trimValue</A>
-<B> Up:</B> <A NAME="tex2html11593"
-  HREF="node614.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11587"
-  HREF="node618.html">HELPER_isExecutedInCLI</A>
- &nbsp; <B>  <A NAME="tex2html11595"
+<B> Next:</B> <A NAME="tex2html11598"
+  HREF="node620.html">HELPER_URIencode</A>
+<B> Up:</B> <A NAME="tex2html11594"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11588"
+  HREF="node618.html">GRP_desasterRecovery</A>
+ &nbsp; <B>  <A NAME="tex2html11596"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008185000000000000000">
-HELPER_getContentFromURL</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Downloads an URL via curl and gives back the site code.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>url: The URL to download.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>The downloaded site code or false in case of an error.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008180000000000000000">
+./inc/helper.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Helper functions that did not fit into another include file.
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11599"
+  HREF="node620.html">HELPER_URIencode</A>
+<LI><A NAME="tex2html11600"
+  HREF="node621.html">HELPER_isUpper</A>
+<LI><A NAME="tex2html11601"
+  HREF="node622.html">HELPER_filesize</A>
+<LI><A NAME="tex2html11602"
+  HREF="node623.html">HELPER_isExecutedInCLI</A>
+<LI><A NAME="tex2html11603"
+  HREF="node624.html">HELPER_getContentFromURL</A>
+<LI><A NAME="tex2html11604"
+  HREF="node625.html">HELPER_trimValue</A>
+<LI><A NAME="tex2html11605"
+  HREF="node626.html">HELPER_xargsRecursive</A>
+<LI><A NAME="tex2html11606"
+  HREF="node627.html">HELPER_getNewLogLines</A>
+<LI><A NAME="tex2html11607"
+  HREF="node628.html">HELPER_rmRecursive</A>
+<LI><A NAME="tex2html11608"
+  HREF="node629.html">HELPER_showBAfH</A>
+<LI><A NAME="tex2html11609"
+  HREF="node630.html">HELPER_ucrc32</A>
+<LI><A NAME="tex2html11610"
+  HREF="node631.html">HELPER_md5x5</A>
+<LI><A NAME="tex2html11611"
+  HREF="node632.html">HELPER_netmaskAmountOfSetBits</A>
+<LI><A NAME="tex2html11612"
+  HREF="node633.html">HELPER_networkCalculator</A>
+<LI><A NAME="tex2html11613"
+  HREF="node634.html">HELPER_netmaskCalculator</A>
+<LI><A NAME="tex2html11614"
+  HREF="node635.html">HELPER_importAllIntoPOST</A>
+<LI><A NAME="tex2html11615"
+  HREF="node636.html">HELPER_randomUsername</A>
+<LI><A NAME="tex2html11616"
+  HREF="node637.html">HELPER_createSelfSignedCAAndServerCertificate</A>
+<LI><A NAME="tex2html11617"
+  HREF="node638.html">HELPER_arrayReOrderKeynumbers</A>
+<LI><A NAME="tex2html11618"
+  HREF="node639.html">HELPER_arrayInsertBeforeKeynumber</A>
+<LI><A NAME="tex2html11619"
+  HREF="node640.html">HELPER_arrayInsertAfterKeynumber</A>
+<LI><A NAME="tex2html11620"
+  HREF="node641.html">HELPER_m23Array2Array</A>
+<LI><A NAME="tex2html11621"
+  HREF="node642.html">HELPER_array2m23Array</A>
+<LI><A NAME="tex2html11622"
+  HREF="node643.html">print_r2</A>
+<LI><A NAME="tex2html11623"
+  HREF="node644.html">HELPER_debugBacktraceToFile</A>
+<LI><A NAME="tex2html11624"
+  HREF="node645.html">HELPER_getRemoteFileContents</A>
+<LI><A NAME="tex2html11625"
+  HREF="node646.html">HELPER_passGenerator</A>
+<LI><A NAME="tex2html11626"
+  HREF="node647.html">HELPER_array2AssociativeArray</A>
+<LI><A NAME="tex2html11627"
+  HREF="node648.html">HELPER_randomMAC</A>
+<LI><A NAME="tex2html11628"
+  HREF="node649.html">HELPER_generateSalt</A>
+<LI><A NAME="tex2html11629"
+  HREF="node650.html">HELPER_grubMd5Crypt</A>
+<LI><A NAME="tex2html11630"
+  HREF="node651.html">HELPER_listFilesInDir</A>
+<LI><A NAME="tex2html11631"
+  HREF="node652.html">HELPER_getBootLoaders</A>
+<LI><A NAME="tex2html11632"
+  HREF="node653.html">HELPER_getTimeZones</A>
+<LI><A NAME="tex2html11633"
+  HREF="node654.html">HELPER_calcMBSize</A>
+<LI><A NAME="tex2html11634"
+  HREF="node655.html">HELPER_grep</A>
+<LI><A NAME="tex2html11635"
+  HREF="node656.html">HELPER_grepNot</A>
+<LI><A NAME="tex2html11636"
+  HREF="node657.html">HELPER_grepCount</A>
+<LI><A NAME="tex2html11637"
+  HREF="node658.html">HELPER_getFdiskMountPoints</A>
+<LI><A NAME="tex2html11638"
+  HREF="node659.html">HELPER_getApacheUser</A>
+<LI><A NAME="tex2html11639"
+  HREF="node660.html">HELPER_getApacheGroup</A>
+<LI><A NAME="tex2html11640"
+  HREF="node661.html">HELPER_putFileContents</A>
+<LI><A NAME="tex2html11641"
+  HREF="node662.html">HELPER_getFileContents</A>
+<LI><A NAME="tex2html11642"
+  HREF="node663.html">HELPER_showFileContents</A>
+<LI><A NAME="tex2html11643"
+  HREF="node664.html">HELPER_maxPhpUploadSize</A>
+<LI><A NAME="tex2html11644"
+  HREF="node665.html">HELPER_compareLengthAbc</A>
+<LI><A NAME="tex2html11645"
+  HREF="node666.html">HELPER_sortByLength</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

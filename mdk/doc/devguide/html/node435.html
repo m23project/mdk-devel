@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addLineToDHCPDConf</TITLE>
-<META NAME="description" CONTENT="DHCP_addLineToDHCPDConf">
+<TITLE>DHCP_getDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node436.html">
 <LINK REL="previous" HREF="node434.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="up" HREF="node429.html">
 <LINK REL="next" HREF="node436.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9189"
+<A NAME="tex2html9233"
   HREF="node436.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9185"
-  HREF="node424.html">
+<A NAME="tex2html9229"
+  HREF="node429.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9179"
+<A NAME="tex2html9223"
   HREF="node434.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9187"
+<A NAME="tex2html9231"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9190"
-  HREF="node436.html">DHCP_restartDHCPserver</A>
-<B> Up:</B> <A NAME="tex2html9186"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9180"
-  HREF="node434.html">DHCP_addClient</A>
- &nbsp; <B>  <A NAME="tex2html9188"
+<B> Next:</B> <A NAME="tex2html9234"
+  HREF="node436.html">DHCP_getNetmaskOfDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html9230"
+  HREF="node429.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9224"
+  HREF="node434.html">DHCP_addDynamicRange</A>
+ &nbsp; <B>  <A NAME="tex2html9232"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081311000000000000000">
-DHCP_addLineToDHCPDConf</A>
+<H2><A NAME="SECTION008136000000000000000">
+DHCP_getDynamicRanges</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a line to the dhcpd.conf file.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all dynamic IP ranges from the dhcpd.conf.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>line: Line to add.
+<LI>Associative array with the found IP ranges (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [netmask] =<SPAN CLASS="MATH"></SPAN> 255.255.255.0 [firstIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.10 [lastIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.200 [gateway] =<SPAN CLASS="MATH"></SPAN> 192.168.1.1 ) [1] =<SPAN CLASS="MATH"></SPAN> ...)) or empty array.
 </LI>
 </UL>
 
@@ -68,7 +68,7 @@ DHCP_addLineToDHCPDConf</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

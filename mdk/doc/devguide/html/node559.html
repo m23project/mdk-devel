@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getFreeSpaces</TITLE>
-<META NAME="description" CONTENT="FDISK_getFreeSpaces">
+<TITLE>FDISK_rmJob</TITLE>
+<META NAME="description" CONTENT="FDISK_rmJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node560.html">
 <LINK REL="previous" HREF="node558.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node560.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10809"
+<A NAME="tex2html10853"
   HREF="node560.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10805"
-  HREF="node475.html">
+<A NAME="tex2html10849"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10799"
+<A NAME="tex2html10843"
   HREF="node558.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10807"
+<A NAME="tex2html10851"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10810"
-  HREF="node560.html">FDISK_autoPart</A>
-<B> Up:</B> <A NAME="tex2html10806"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10800"
-  HREF="node558.html">FDISK_countPartitions</A>
- &nbsp; <B>  <A NAME="tex2html10808"
+<B> Next:</B> <A NAME="tex2html10854"
+  HREF="node560.html">FDISK_addJob</A>
+<B> Up:</B> <A NAME="tex2html10850"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10844"
+  HREF="node558.html">FDISK_getvPart</A>
+ &nbsp; <B>  <A NAME="tex2html10852"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081684000000000000000">
-FDISK_getFreeSpaces</A>
+<H2><A NAME="SECTION0081679000000000000000">
+FDISK_rmJob</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> get free spaces as array
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition remove job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
 <LI>dev: selected device (e.g. hda)
+</LI>
+<LI>devNr: number of partition, minor number in parted
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ FDISK_getFreeSpaces</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

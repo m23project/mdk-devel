@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDriveAndNr</TITLE>
-<META NAME="description" CONTENT="FDISK_getDriveAndNr">
+<TITLE>FDISK_dev2LDevLPart</TITLE>
+<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node570.html">
 <LINK REL="previous" HREF="node568.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node570.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10929"
+<A NAME="tex2html10973"
   HREF="node570.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10925"
-  HREF="node475.html">
+<A NAME="tex2html10969"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10919"
+<A NAME="tex2html10963"
   HREF="node568.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10927"
+<A NAME="tex2html10971"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10930"
-  HREF="node570.html">FDISK_getNextFdiskFormatJobNr</A>
-<B> Up:</B> <A NAME="tex2html10926"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10920"
-  HREF="node568.html">FDISK_getDiskType</A>
- &nbsp; <B>  <A NAME="tex2html10928"
+<B> Next:</B> <A NAME="tex2html10974"
+  HREF="node570.html">FDISK_rereadPartTable</A>
+<B> Up:</B> <A NAME="tex2html10970"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10964"
+  HREF="node568.html">FDISK_defineDrive</A>
+ &nbsp; <B>  <A NAME="tex2html10972"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081694000000000000000">
-FDISK_getDriveAndNr</A>
+<H2><A NAME="SECTION0081689000000000000000">
+FDISK_dev2LDevLPart</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> splits a path (e.g. /dev/hda1) in the device (/dev/hda) and the device number (1). The device is returned as element 0 and the number as element 1 in an array.
+<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: the path to partition (e.g. /dev/hde1)
+<LI>param: the associative array containing all values describing the drives of the client
+</LI>
+<LI>dev: the device (e.g. /dev/hda2)
+</LI>
+<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
+</LI>
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Array with two parts. $out[0]=drive (e.g. /dev/hda), $out[1]=the device number
+<LI>true if the search worked otherwise false.
 </LI>
 </UL>
 
@@ -74,7 +80,7 @@ FDISK_getDriveAndNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

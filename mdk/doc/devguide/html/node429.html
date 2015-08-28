@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addDynamicRange</TITLE>
-<META NAME="description" CONTENT="DHCP_addDynamicRange">
+<TITLE>./inc/dhcp.php</TITLE>
+<META NAME="description" CONTENT="./inc/dhcp.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,68 +19,97 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node430.html">
-<LINK REL="previous" HREF="node428.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="next" HREF="node449.html">
+<LINK REL="previous" HREF="node393.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node430.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9117"
+<A NAME="tex2html9142"
   HREF="node430.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9113"
-  HREF="node424.html">
+<A NAME="tex2html9138"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9107"
+<A NAME="tex2html9132"
   HREF="node428.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9115"
+<A NAME="tex2html9140"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9118"
-  HREF="node430.html">DHCP_getDynamicRanges</A>
-<B> Up:</B> <A NAME="tex2html9114"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9108"
-  HREF="node428.html">DHCP_delSubnetDefinition</A>
- &nbsp; <B>  <A NAME="tex2html9116"
+<B> Next:</B> <A NAME="tex2html9143"
+  HREF="node430.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<B> Up:</B> <A NAME="tex2html9139"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html9133"
+  HREF="node428.html">DB_getLikeableColumns</A>
+ &nbsp; <B>  <A NAME="tex2html9141"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008135000000000000000">
-DHCP_addDynamicRange</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>firstIP: The first IP marking the begin of the dynamic IP range.
-</LI>
-<LI>lastIP: The last IP marking the end of the dynamic IP range.
-</LI>
-<LI>netmask: Netmask for the IPs.
-</LI>
-<LI>gateway: The gateway IP.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true, if the DHCP server could be restarted with the new settings.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008130000000000000000">
+./inc/dhcp.php</A>
+</H1>
+ Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions to add and remove a client to/from the dhcp server list.
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html9144"
+  HREF="node430.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<LI><A NAME="tex2html9145"
+  HREF="node431.html">DHCP_lineNumberAffterLastClient</A>
+<LI><A NAME="tex2html9146"
+  HREF="node432.html">DHCP_addSubnetDefinition</A>
+<LI><A NAME="tex2html9147"
+  HREF="node433.html">DHCP_delSubnetDefinition</A>
+<LI><A NAME="tex2html9148"
+  HREF="node434.html">DHCP_addDynamicRange</A>
+<LI><A NAME="tex2html9149"
+  HREF="node435.html">DHCP_getDynamicRanges</A>
+<LI><A NAME="tex2html9150"
+  HREF="node436.html">DHCP_getNetmaskOfDynamicRanges</A>
+<LI><A NAME="tex2html9151"
+  HREF="node437.html">DHCP_delDynamicRange</A>
+<LI><A NAME="tex2html9152"
+  HREF="node438.html">DHCP_bootTypeToNewFormat</A>
+<LI><A NAME="tex2html9153"
+  HREF="node439.html">DHCP_addClient</A>
+<LI><A NAME="tex2html9154"
+  HREF="node440.html">DHCP_addLineToDHCPDConf</A>
+<LI><A NAME="tex2html9155"
+  HREF="node441.html">DHCP_restartDHCPserver</A>
+<LI><A NAME="tex2html9156"
+  HREF="node442.html">DHCP_rmClient</A>
+<LI><A NAME="tex2html9157"
+  HREF="node443.html">DHCP_setBootimage</A>
+<LI><A NAME="tex2html9158"
+  HREF="node444.html">DHCP_activateBoot</A>
+<LI><A NAME="tex2html9159"
+  HREF="node445.html">DHCP_calcPXEIP</A>
+<LI><A NAME="tex2html9160"
+  HREF="node446.html">DHCP_writePXEcfg</A>
+<LI><A NAME="tex2html9161"
+  HREF="node447.html">DHCP_removePXEcfg</A>
+<LI><A NAME="tex2html9162"
+  HREF="node448.html">DHCP_isNetworkBootingActive</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

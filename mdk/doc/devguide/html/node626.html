@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_md5x5</TITLE>
-<META NAME="description" CONTENT="HELPER_md5x5">
+<TITLE>HELPER_xargsRecursive</TITLE>
+<META NAME="description" CONTENT="HELPER_xargsRecursive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node627.html">
 <LINK REL="previous" HREF="node625.html">
-<LINK REL="up" HREF="node614.html">
+<LINK REL="up" HREF="node619.html">
 <LINK REL="next" HREF="node627.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11680"
+<A NAME="tex2html11728"
   HREF="node627.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11676"
-  HREF="node614.html">
+<A NAME="tex2html11724"
+  HREF="node619.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11670"
+<A NAME="tex2html11718"
   HREF="node625.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11678"
+<A NAME="tex2html11726"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11681"
-  HREF="node627.html">HELPER_netmaskCalculator</A>
-<B> Up:</B> <A NAME="tex2html11677"
-  HREF="node614.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11671"
-  HREF="node625.html">HELPER_ucrc32</A>
- &nbsp; <B>  <A NAME="tex2html11679"
+<B> Next:</B> <A NAME="tex2html11729"
+  HREF="node627.html">HELPER_getNewLogLines</A>
+<B> Up:</B> <A NAME="tex2html11725"
+  HREF="node619.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11719"
+  HREF="node625.html">HELPER_trimValue</A>
+ &nbsp; <B>  <A NAME="tex2html11727"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081812000000000000000">
-HELPER_md5x5</A>
+<H2><A NAME="SECTION008187000000000000000">
+HELPER_xargsRecursive</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Hashes an input value 5 times with MD5.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>: in: Input to hash.
+<LI>cmd: BASH command
+</LI>
+<LI>argsA: Array of commands for the BASH command.
+</LI>
+<LI>tabAmount: Amount of identing to start with.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Hashed value.
+<LI>Recursive calls of the BASH command with error checking.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ HELPER_md5x5</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

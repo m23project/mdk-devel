@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStack_available</TITLE>
-<META NAME="description" CONTENT="VM_CloudStack_available">
+<TITLE>VM_CloudStackWriteConfFile</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackWriteConfFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1182.html">
 <LINK REL="previous" HREF="node1180.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1182.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18851"
+<A NAME="tex2html18903"
   HREF="node1182.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18847"
-  HREF="node1162.html">
+<A NAME="tex2html18899"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18841"
+<A NAME="tex2html18893"
   HREF="node1180.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18849"
+<A NAME="tex2html18901"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18852"
-  HREF="node1182.html">VM_CloudStack_getObject</A>
-<B> Up:</B> <A NAME="tex2html18848"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18842"
-  HREF="node1180.html">VM_GUIstepCreateCloudStackVM</A>
- &nbsp; <B>  <A NAME="tex2html18850"
+<B> Next:</B> <A NAME="tex2html18904"
+  HREF="node1182.html">VM_CloudStackUploadIso</A>
+<B> Up:</B> <A NAME="tex2html18900"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18894"
+  HREF="node1180.html">VM_CloudStackConfigGUI</A>
+ &nbsp; <B>  <A NAME="tex2html18902"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083819000000000000000">
-VM_CloudStack_available</A>
+<H2><A NAME="SECTION008386000000000000000">
+VM_CloudStackWriteConfFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the CloudStack configuration file is included and contains the needed constants.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Writes the CloudStack config file or writes a basic config file, if it does not exist.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>true, if the CloudStack are present.
+<LI>overwrite: Set to true, if the config file should be overwritten in any case.
+</LI>
+<LI>CLOUDSTACK_API_ENDPOINT: The API endpoint.
+</LI>
+<LI>CLOUDSTACK_API_KEY: The API key.
+</LI>
+<LI>CLOUDSTACK_SECRET_KEY: The secret API key.
+</LI>
+<LI>CLOUDSTACK_SERVICE_OFFERING_ID: The virtual CPU and RAM combination to use for a new VM.
+</LI>
+<LI>CLOUDSTACK_TEMPLATE_ID: The ID of the m23 client installation ISO.
+</LI>
+<LI>CLOUDSTACK_NETWORKIDS: The ID of the network to use.
+</LI>
+<LI>CLOUDSTACK_DISK_OFFERING_ID: The virtual hard disk type.
 </LI>
 </UL>
 
@@ -68,7 +82,7 @@ VM_CloudStack_available</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

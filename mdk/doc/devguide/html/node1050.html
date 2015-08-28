@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PREF_showPreferenceManager</TITLE>
-<META NAME="description" CONTENT="PREF_showPreferenceManager">
+<TITLE>POOL_download</TITLE>
+<META NAME="description" CONTENT="POOL_download">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1051.html">
 <LINK REL="previous" HREF="node1049.html">
-<LINK REL="up" HREF="node1047.html">
+<LINK REL="up" HREF="node1036.html">
 <LINK REL="next" HREF="node1051.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17128"
+<A NAME="tex2html17166"
   HREF="node1051.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17124"
-  HREF="node1047.html">
+<A NAME="tex2html17162"
+  HREF="node1036.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17118"
+<A NAME="tex2html17156"
   HREF="node1049.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17126"
+<A NAME="tex2html17164"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17129"
-  HREF="node1051.html">PREF_saveAllPreferenceValues</A>
-<B> Up:</B> <A NAME="tex2html17125"
-  HREF="node1047.html">./inc/preferences.php</A>
-<B> Previous:</B> <A NAME="tex2html17119"
-  HREF="node1049.html">PREF_preferenceSaveManagerHandler</A>
- &nbsp; <B>  <A NAME="tex2html17127"
+<B> Next:</B> <A NAME="tex2html17167"
+  HREF="node1051.html">POOL_showDownloadStatus</A>
+<B> Up:</B> <A NAME="tex2html17163"
+  HREF="node1036.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html17157"
+  HREF="node1049.html">POOL_getDir</A>
+ &nbsp; <B>  <A NAME="tex2html17165"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008323000000000000000">
-PREF_showPreferenceManager</A>
+<H2><A NAME="SECTION0083114000000000000000">
+POOL_download</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog to load and delete existing preferences and to create new preferences.
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>poolName: name of the pool
+</LI>
+<LI>distr: name of the distribution
+</LI>
+<LI>sourceslist: list of the package sources
+</LI>
+<LI>release: release branch of the choosen distribution to download the packages from
+</LI>
+<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+</LI>
+<LI>arch: download the packages for a specific CPU architecture
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

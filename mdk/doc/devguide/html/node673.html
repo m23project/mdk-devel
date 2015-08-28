@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_showTitle</TITLE>
-<META NAME="description" CONTENT="HTML_showTitle">
+<TITLE>HTML_imgSwitch</TITLE>
+<META NAME="description" CONTENT="HTML_imgSwitch">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node674.html">
 <LINK REL="previous" HREF="node672.html">
-<LINK REL="up" HREF="node663.html">
+<LINK REL="up" HREF="node672.html">
 <LINK REL="next" HREF="node674.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12304"
+<A NAME="tex2html12352"
   HREF="node674.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12300"
-  HREF="node663.html">
+<A NAME="tex2html12348"
+  HREF="node672.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12294"
+<A NAME="tex2html12342"
   HREF="node672.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12302"
+<A NAME="tex2html12350"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12305"
-  HREF="node674.html">HTML_showSmallTitle</A>
-<B> Up:</B> <A NAME="tex2html12301"
-  HREF="node663.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12295"
-  HREF="node672.html">HTML_manipulateOutputBuffer</A>
- &nbsp; <B>  <A NAME="tex2html12303"
+<B> Next:</B> <A NAME="tex2html12353"
+  HREF="node674.html">HTML_uploadFile</A>
+<B> Up:</B> <A NAME="tex2html12349"
+  HREF="node672.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12343"
+  HREF="node672.html">./inc/html.php</A>
+ &nbsp; <B>  <A NAME="tex2html12351"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082010000000000000000">
-HTML_showTitle</A>
+<H2><A NAME="SECTION008201000000000000000">
+HTML_imgSwitch</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a title.
+<SPAN  CLASS="textbf">Description:</SPAN> Defines an image button with two states and a text next to it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>title: Text of the title.
+<LI>$htmlName: Name of the html image input element.
+</LI>
+<LI>$off_img: Name and path of image to be displayed if its state is "off"
+</LI>
+<LI>$on_img: Name and path of image to be displayed it its state is "on"
+</LI>
+<LI>$off_text: Text to be displayed if state is "off"
+</LI>
+<LI>$on_text: Text to be displayed if state is "on"
+</LI>
+<LI>$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
+</LI>
+<LI>$default: State of the image input element on first load of page ("on" or "off")
+</LI>
+<LI>$outState: Current state of element (true for "on" or false for "off").
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>true, if the button was clicked otherwise false.
 </LI>
 </UL>
 
@@ -68,7 +88,7 @@ HTML_showTitle</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

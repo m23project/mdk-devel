@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_isReconfiguredWithExtraDistr</TITLE>
-<META NAME="description" CONTENT="PKG_isReconfiguredWithExtraDistr">
+<TITLE>PKG_addUser</TITLE>
+<META NAME="description" CONTENT="PKG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node907.html">
 <LINK REL="previous" HREF="node905.html">
-<LINK REL="up" HREF="node893.html">
+<LINK REL="up" HREF="node902.html">
 <LINK REL="next" HREF="node907.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15349"
+<A NAME="tex2html15397"
   HREF="node907.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15345"
-  HREF="node893.html">
+<A NAME="tex2html15393"
+  HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15339"
+<A NAME="tex2html15387"
   HREF="node905.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15347"
+<A NAME="tex2html15395"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15350"
-  HREF="node907.html">PKG_translateClientjobsStatus</A>
-<B> Up:</B> <A NAME="tex2html15346"
-  HREF="node893.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15340"
-  HREF="node905.html">PKG_getDebootstrapCacheServerFile</A>
- &nbsp; <B>  <A NAME="tex2html15348"
+<B> Next:</B> <A NAME="tex2html15398"
+  HREF="node907.html">PKG_cleanPackageLine</A>
+<B> Up:</B> <A NAME="tex2html15394"
+  HREF="node902.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15388"
+  HREF="node905.html">PKG_addDebianUser</A>
+ &nbsp; <B>  <A NAME="tex2html15396"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082813000000000000000">
-PKG_isReconfiguredWithExtraDistr</A>
+<H2><A NAME="SECTION008284000000000000000">
+PKG_addUser</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the distribution is used for configuring a system that was installed via image.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a job for creating an user on the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>pkgID: The ID of the base installation package.
+<LI>client: Name of the client.
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>True, if the distribution is used for configuring, otherwise false.
+<LI>login: Login name of the new user.
+</LI>
+<LI>firstpw: Password for the new user.
+</LI>
+<LI>groups: Array of groups the user should be added.
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ PKG_isReconfiguredWithExtraDistr</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStack_getVersion</TITLE>
-<META NAME="description" CONTENT="VM_CloudStack_getVersion">
+<TITLE>VM_CloudStackEnablePortForwarding</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackEnablePortForwarding">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1184.html">
 <LINK REL="previous" HREF="node1182.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1184.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18875"
+<A NAME="tex2html18927"
   HREF="node1184.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18871"
-  HREF="node1162.html">
+<A NAME="tex2html18923"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18865"
+<A NAME="tex2html18917"
   HREF="node1182.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18873"
+<A NAME="tex2html18925"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18876"
-  HREF="node1184.html">VM_shutdownAndDisableNetbootAfterInstall</A>
-<B> Up:</B> <A NAME="tex2html18872"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18866"
-  HREF="node1182.html">VM_CloudStack_getObject</A>
- &nbsp; <B>  <A NAME="tex2html18874"
+<B> Next:</B> <A NAME="tex2html18928"
+  HREF="node1184.html">VM_CloudStackDisablePortForwarding</A>
+<B> Up:</B> <A NAME="tex2html18924"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18918"
+  HREF="node1182.html">VM_CloudStackUploadIso</A>
+ &nbsp; <B>  <A NAME="tex2html18926"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083821000000000000000">
-VM_CloudStack_getVersion</A>
+<H2><A NAME="SECTION008388000000000000000">
+VM_CloudStackEnablePortForwarding</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the version of CloudStack.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> creates a port forwarding rule for a virtual machine, with private port and public port being the same
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>CloudStack version.
+<LI>virtualMachineId: the cloudstack ID of the virtual machine to which the rule shall apply
+</LI>
+<LI>pFSuccess: is set to true, if the rule was created
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>textmessage about result (errormessage or success message) and sets pFSuccess to True if action succeeded, false otherwise
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ VM_CloudStack_getVersion</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_shutdownAndDisableNetbootAfterInstall</TITLE>
-<META NAME="description" CONTENT="VM_shutdownAndDisableNetbootAfterInstall">
+<TITLE>VM_CloudStackStartVM</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackStartVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1187.html">
 <LINK REL="previous" HREF="node1185.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1187.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18911"
+<A NAME="tex2html18963"
   HREF="node1187.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18907"
-  HREF="node1162.html">
+<A NAME="tex2html18959"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18901"
+<A NAME="tex2html18953"
   HREF="node1185.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18909"
+<A NAME="tex2html18961"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18912"
-  HREF="node1187.html">VM_shutdownAndDisableNetboot</A>
-<B> Up:</B> <A NAME="tex2html18908"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18902"
-  HREF="node1185.html">VM_rebootAndActivateNetboot</A>
- &nbsp; <B>  <A NAME="tex2html18910"
+<B> Next:</B> <A NAME="tex2html18964"
+  HREF="node1187.html">VM_CloudStackStopVM</A>
+<B> Up:</B> <A NAME="tex2html18960"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18954"
+  HREF="node1185.html">VM_CloudStackSendSetVisualURL</A>
+ &nbsp; <B>  <A NAME="tex2html18962"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083824000000000000000">
-VM_shutdownAndDisableNetbootAfterInstall</A>
+<H2><A NAME="SECTION0083811000000000000000">
+VM_CloudStackStartVM</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shuts down an VM and disables network booting.
+<SPAN  CLASS="textbf">Description:</SPAN> starts a virtual machine in CloudStack
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vmName: Name of the VM.
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
+</LI>
+<LI>startVMOK: true if started successfully or already running, false otherwise
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>textmessage with result of start or error message
 </LI>
 </UL>
 
@@ -68,7 +76,7 @@ VM_shutdownAndDisableNetbootAfterInstall</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

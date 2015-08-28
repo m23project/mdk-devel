@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientsByPackages</TITLE>
-<META NAME="description" CONTENT="PKG_getClientsByPackages">
+<TITLE>PKG_executeOnClientJobs</TITLE>
+<META NAME="description" CONTENT="PKG_executeOnClientJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node975.html">
 <LINK REL="previous" HREF="node973.html">
-<LINK REL="up" HREF="node893.html">
+<LINK REL="up" HREF="node902.html">
 <LINK REL="next" HREF="node975.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16165"
+<A NAME="tex2html16213"
   HREF="node975.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16161"
-  HREF="node893.html">
+<A NAME="tex2html16209"
+  HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16155"
+<A NAME="tex2html16203"
   HREF="node973.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16163"
+<A NAME="tex2html16211"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16166"
-  HREF="node975.html">PKG_countPackages</A>
-<B> Up:</B> <A NAME="tex2html16162"
-  HREF="node893.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16156"
-  HREF="node973.html">PKG_getClientsWithWaitingJobs</A>
- &nbsp; <B>  <A NAME="tex2html16164"
+<B> Next:</B> <A NAME="tex2html16214"
+  HREF="node975.html">PKG_removeFromJobList</A>
+<B> Up:</B> <A NAME="tex2html16210"
+  HREF="node902.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html16204"
+  HREF="node973.html">PKG_updateSourcesListAtAllClients</A>
+ &nbsp; <B>  <A NAME="tex2html16212"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082881000000000000000">
-PKG_getClientsByPackages</A>
+<H2><A NAME="SECTION0082872000000000000000">
+PKG_executeOnClientJobs</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a sql statement on all package IDs.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>packageNames: Array with the packages to check.
+<LI>sql: initial SQL statement e.g. "DELETE FROM `clientjobs` WHERE "
 </LI>
-<LI>status: Debian status code or true for "installed".
-</LI>
-<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
-</LI>
-<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Array with all clients that have the specific package (not) installed (or with another given status).
+<LI>packageIDList: the list of IDs of jobs to be deleted
 </LI>
 </UL>
 
@@ -80,7 +70,7 @@ PKG_getClientsByPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

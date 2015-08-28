@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getBootLoaders</TITLE>
-<META NAME="description" CONTENT="HELPER_getBootLoaders">
+<TITLE>HELPER_getRemoteFileContents</TITLE>
+<META NAME="description" CONTENT="HELPER_getRemoteFileContents">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node646.html">
 <LINK REL="previous" HREF="node644.html">
-<LINK REL="up" HREF="node614.html">
+<LINK REL="up" HREF="node619.html">
 <LINK REL="next" HREF="node646.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11908"
+<A NAME="tex2html11956"
   HREF="node646.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11904"
-  HREF="node614.html">
+<A NAME="tex2html11952"
+  HREF="node619.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11898"
+<A NAME="tex2html11946"
   HREF="node644.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11906"
+<A NAME="tex2html11954"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11909"
-  HREF="node646.html">HELPER_getTimeZones</A>
-<B> Up:</B> <A NAME="tex2html11905"
-  HREF="node614.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11899"
-  HREF="node644.html">HELPER_listFilesInDir</A>
- &nbsp; <B>  <A NAME="tex2html11907"
+<B> Next:</B> <A NAME="tex2html11957"
+  HREF="node646.html">HELPER_passGenerator</A>
+<B> Up:</B> <A NAME="tex2html11953"
+  HREF="node619.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11947"
+  HREF="node644.html">HELPER_debugBacktraceToFile</A>
+ &nbsp; <B>  <A NAME="tex2html11955"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081831000000000000000">
-HELPER_getBootLoaders</A>
+<H2><A NAME="SECTION0081826000000000000000">
+HELPER_getRemoteFileContents</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns a list of available bootloaders.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads a file if it is not older than a given time and returns its contents.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>Array with available bootloaders.
+<LI>url: The URL where to download the file from.
+</LI>
+<LI>storeFile: The file name to store the download in.
+</LI>
+<LI>refreshTime: The time in minutes the file is downloaded again.
+</LI>
+<LI>forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The contents of the files from chache or from download or false if no file could be found.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ HELPER_getBootLoaders</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

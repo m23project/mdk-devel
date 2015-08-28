@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_insertAfterLineNumber</TITLE>
-<META NAME="description" CONTENT="EDIT_insertAfterLineNumber">
+<TITLE>EDIT_commentoutInsert</TITLE>
+<META NAME="description" CONTENT="EDIT_commentoutInsert">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node462.html">
 <LINK REL="previous" HREF="node460.html">
-<LINK REL="up" HREF="node452.html">
+<LINK REL="up" HREF="node457.html">
 <LINK REL="next" HREF="node462.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9526"
+<A NAME="tex2html9570"
   HREF="node462.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9522"
-  HREF="node452.html">
+<A NAME="tex2html9566"
+  HREF="node457.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9516"
+<A NAME="tex2html9560"
   HREF="node460.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9524"
+<A NAME="tex2html9568"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9527"
-  HREF="node462.html">EDIT_insertAtLineNumber</A>
-<B> Up:</B> <A NAME="tex2html9523"
-  HREF="node452.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9517"
-  HREF="node460.html">EDIT_commentout</A>
- &nbsp; <B>  <A NAME="tex2html9525"
+<B> Next:</B> <A NAME="tex2html9571"
+  HREF="node462.html">EDIT_countMatches</A>
+<B> Up:</B> <A NAME="tex2html9567"
+  HREF="node457.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9561"
+  HREF="node460.html">EDIT_genClientm23Random</A>
+ &nbsp; <B>  <A NAME="tex2html9569"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008159000000000000000">
-EDIT_insertAfterLineNumber</A>
+<H2><A NAME="SECTION008154000000000000000">
+EDIT_commentoutInsert</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AFTER a line number
+<SPAN  CLASS="textbf">Description:</SPAN> Comments out a matched line and inserts a new line after it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>file: the name of the file
 </LI>
-<LI>lineNumber: reference line number for inserting
+<LI>search: Search string to match the line to comment out.
 </LI>
-<LI>insertText: text to insert
+<LI>lineToInsert: The text of the line to insert.
 </LI>
-<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
+<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
 </LI>
 </UL>
 
@@ -74,7 +74,7 @@ EDIT_insertAfterLineNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

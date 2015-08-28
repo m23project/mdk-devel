@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_debugBacktraceToFile</TITLE>
-<META NAME="description" CONTENT="HELPER_debugBacktraceToFile">
+<TITLE>HELPER_createSelfSignedCAAndServerCertificate</TITLE>
+<META NAME="description" CONTENT="HELPER_createSelfSignedCAAndServerCertificate">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node638.html">
 <LINK REL="previous" HREF="node636.html">
-<LINK REL="up" HREF="node614.html">
+<LINK REL="up" HREF="node619.html">
 <LINK REL="next" HREF="node638.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11812"
+<A NAME="tex2html11860"
   HREF="node638.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11808"
-  HREF="node614.html">
+<A NAME="tex2html11856"
+  HREF="node619.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11802"
+<A NAME="tex2html11850"
   HREF="node636.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11810"
+<A NAME="tex2html11858"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11813"
-  HREF="node638.html">HELPER_getRemoteFileContents</A>
-<B> Up:</B> <A NAME="tex2html11809"
-  HREF="node614.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11803"
-  HREF="node636.html">print_r2</A>
- &nbsp; <B>  <A NAME="tex2html11811"
+<B> Next:</B> <A NAME="tex2html11861"
+  HREF="node638.html">HELPER_arrayReOrderKeynumbers</A>
+<B> Up:</B> <A NAME="tex2html11857"
+  HREF="node619.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11851"
+  HREF="node636.html">HELPER_randomUsername</A>
+ &nbsp; <B>  <A NAME="tex2html11859"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081823000000000000000">
-HELPER_debugBacktraceToFile</A>
+<H2><A NAME="SECTION0081818000000000000000">
+HELPER_createSelfSignedCAAndServerCertificate</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Writes/Appends debug information about all calling functions and parameters into a file.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a selfsigned CA and a server certificate.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>file: File name with full path, where the debug information should be stored.
+<LI>CADn: Information about the CA.
+</LI>
+<LI>serverDn: Information about the server.
+</LI>
+<LI>password: Password for the private server key.
+</LI>
+<LI>expirationDate: Expiration of the certificates in days.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associative array with the certificate of the CA, the certificate and private key of the server.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ HELPER_debugBacktraceToFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

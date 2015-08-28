@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/hwinfo.php</TITLE>
-<META NAME="description" CONTENT="./inc/hwinfo.php">
+<TITLE>HTML_selection</TITLE>
+<META NAME="description" CONTENT="HTML_selection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,79 +19,76 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node735.html">
-<LINK REL="previous" HREF="node663.html">
-<LINK REL="up" HREF="node142.html">
+<LINK REL="next" HREF="node725.html">
+<LINK REL="previous" HREF="node723.html">
+<LINK REL="up" HREF="node672.html">
 <LINK REL="next" HREF="node725.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12914"
+<A NAME="tex2html12964"
   HREF="node725.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12910"
-  HREF="node142.html">
+<A NAME="tex2html12960"
+  HREF="node672.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12904"
+<A NAME="tex2html12954"
   HREF="node723.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12912"
+<A NAME="tex2html12962"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12915"
-  HREF="node725.html">HWINFO_getParam</A>
-<B> Up:</B> <A NAME="tex2html12911"
-  HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html12905"
-  HREF="node723.html">HTML_showPagePrintButton</A>
- &nbsp; <B>  <A NAME="tex2html12913"
+<B> Next:</B> <A NAME="tex2html12965"
+  HREF="node725.html">HTML_checkBox</A>
+<B> Up:</B> <A NAME="tex2html12961"
+  HREF="node672.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12955"
+  HREF="node723.html">HTML_getValidSelected</A>
+ &nbsp; <B>  <A NAME="tex2html12963"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008210000000000000000">
-./inc/hwinfo.php</A>
-</H1>
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions to view the hardware information of the client.
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION0082052000000000000000">
+HTML_selection</A>
+</H2>
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of radio buttons or a selection.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html12916"
-  HREF="node725.html">HWINFO_getParam</A>
-<LI><A NAME="tex2html12917"
-  HREF="node726.html">HWINFO_getMemory</A>
-<LI><A NAME="tex2html12918"
-  HREF="node727.html">HWINFO_getHDSize</A>
-<LI><A NAME="tex2html12919"
-  HREF="node728.html">HWINFO_printPartitions</A>
-<LI><A NAME="tex2html12920"
-  HREF="node729.html">DMI_getAllTextBox</A>
-<LI><A NAME="tex2html12921"
-  HREF="node730.html">DMI_getParam</A>
-<LI><A NAME="tex2html12922"
-  HREF="node731.html">DMI_getBoard</A>
-<LI><A NAME="tex2html12923"
-  HREF="node732.html">DMI_getMemory</A>
-<LI><A NAME="tex2html12924"
-  HREF="node733.html">DMI_getCPU</A>
-<LI><A NAME="tex2html12925"
-  HREF="node734.html">DMI_getSlot</A>
+<UL>
+<LI>htmlName: Name of the HTML element.
+</LI>
+<LI>array: An array that hold the returned values (array keys) the naming for the elements (array values).
+</LI>
+<LI>type: SELTYPE_selection for a selection or SELTYPE_radio for radio buttons.
+</LI>
+<LI>vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
+</LI>
+<LI>defaultSelection: The value of the item to select by default.
+</LI>
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>js: Here can JavaScript or other parameters be added.
+</LI>
+<LI>multipleSize: If set to a number (and not to false) a multi selection is generated, where the user can select multiple entries. The number sets the amount of entries to show the user.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The value of the selected element or false if nothing was selected.
+</LI>
+</UL>
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

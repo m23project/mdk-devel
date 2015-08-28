@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addClient</TITLE>
-<META NAME="description" CONTENT="DHCP_addClient">
+<TITLE>DHCP_addDynamicRange</TITLE>
+<META NAME="description" CONTENT="DHCP_addDynamicRange">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node435.html">
 <LINK REL="previous" HREF="node433.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="up" HREF="node429.html">
 <LINK REL="next" HREF="node435.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9177"
+<A NAME="tex2html9221"
   HREF="node435.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9173"
-  HREF="node424.html">
+<A NAME="tex2html9217"
+  HREF="node429.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9167"
+<A NAME="tex2html9211"
   HREF="node433.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9175"
+<A NAME="tex2html9219"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9178"
-  HREF="node435.html">DHCP_addLineToDHCPDConf</A>
-<B> Up:</B> <A NAME="tex2html9174"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9168"
-  HREF="node433.html">DHCP_bootTypeToNewFormat</A>
- &nbsp; <B>  <A NAME="tex2html9176"
+<B> Next:</B> <A NAME="tex2html9222"
+  HREF="node435.html">DHCP_getDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html9218"
+  HREF="node429.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9212"
+  HREF="node433.html">DHCP_delSubnetDefinition</A>
+ &nbsp; <B>  <A NAME="tex2html9220"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081310000000000000000">
-DHCP_addClient</A>
+<H2><A NAME="SECTION008135000000000000000">
+DHCP_addDynamicRange</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a dynamic IP range to the dhcpd.conf and restarts the DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>clientName: name of the client
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
 </LI>
-<LI>ip: ip address of the client
+<LI>lastIP: The last IP marking the end of the dynamic IP range.
 </LI>
-<LI>netmask: netmask for the ip
+<LI>netmask: Netmask for the IPs.
 </LI>
-<LI>mac: mac addresse of the network card
-</LI>
-<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
-</LI>
-<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
-</LI>
-<LI>gateway: The gateway for the client.
-</LI>
-<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+<LI>gateway: The gateway IP.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
@@ -88,7 +80,7 @@ DHCP_addClient</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

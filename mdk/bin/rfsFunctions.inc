@@ -201,7 +201,7 @@ createRFSBins()
 
 			# Make sure, the found file is from the temp directory and not the local root filesystem
 			# e.g. /bin/modinfo => /bin/kmod => /mdk/client+server/tmpRoot/i386/bin/kmod
-			binSource=$( find $extractedDebsDir | grep $binSource | head -1 )
+			binSource=$( find $extractedDebsDir | grep $binSource$ | head -1 )
 		fi
 		
 		echo "+bin $binSource"

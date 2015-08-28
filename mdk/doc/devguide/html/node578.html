@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
-<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
+<TITLE>FDISK_AFPgetPartSizes</TITLE>
+<META NAME="description" CONTENT="FDISK_AFPgetPartSizes">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node579.html">
 <LINK REL="previous" HREF="node577.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node579.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11037"
+<A NAME="tex2html11081"
   HREF="node579.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11033"
-  HREF="node475.html">
+<A NAME="tex2html11077"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11027"
+<A NAME="tex2html11071"
   HREF="node577.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11035"
+<A NAME="tex2html11079"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11038"
-  HREF="node579.html">FDISK_buildRaidDialog</A>
-<B> Up:</B> <A NAME="tex2html11034"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html11028"
-  HREF="node577.html">FDISK_listRaidTable</A>
- &nbsp; <B>  <A NAME="tex2html11036"
+<B> Next:</B> <A NAME="tex2html11082"
+  HREF="node579.html">FDISK_adjustFdiskParams</A>
+<B> Up:</B> <A NAME="tex2html11078"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11072"
+  HREF="node577.html">FDISK_AFPlinearScale</A>
+ &nbsp; <B>  <A NAME="tex2html11080"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00816103000000000000000">
-FDISK_addDrivePartitionToRaid</A>
+<H2><A NAME="SECTION0081698000000000000000">
+FDISK_AFPgetPartSizes</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> writes the sizes of the installation, swap and other partitions to the variables.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
+<LI>formatArr: array that contains the oformat parameters
 </LI>
-<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
+<LI>options: options array of the client
 </LI>
-<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+<LI>instPartSize: stores the size of the installation partition
 </LI>
-<LI>param: parameter string containing status information about the harddisks
+<LI>instSwapSize: stores the size of the swap partition
 </LI>
-<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
+<LI>otherSize: stores the size of the other partition(s)
 </LI>
 </UL>
 
@@ -82,7 +76,7 @@ FDISK_addDrivePartitionToRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

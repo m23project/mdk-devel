@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/edit.php</TITLE>
-<META NAME="description" CONTENT="./inc/edit.php">
+<TITLE>pkgUpdateCacheOnServer</TITLE>
+<META NAME="description" CONTENT="pkgUpdateCacheOnServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,103 +19,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node475.html">
-<LINK REL="previous" HREF="node444.html">
-<LINK REL="up" HREF="node142.html">
+<LINK REL="next" HREF="node453.html">
+<LINK REL="previous" HREF="node451.html">
+<LINK REL="up" HREF="node449.html">
 <LINK REL="next" HREF="node453.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9396"
+<A NAME="tex2html9442"
   HREF="node453.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9392"
-  HREF="node142.html">
+<A NAME="tex2html9438"
+  HREF="node449.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9386"
+<A NAME="tex2html9432"
   HREF="node451.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9394"
+<A NAME="tex2html9440"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9397"
-  HREF="node453.html">EDIT_writeToFile</A>
-<B> Up:</B> <A NAME="tex2html9393"
-  HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html9387"
-  HREF="node451.html">PKG_translateClientPackageStatus</A>
- &nbsp; <B>  <A NAME="tex2html9395"
+<B> Next:</B> <A NAME="tex2html9443"
+  HREF="node453.html">PKG_listPackages</A>
+<B> Up:</B> <A NAME="tex2html9439"
+  HREF="node449.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html9433"
+  HREF="node451.html">PKG_fastGetInstalledPackages</A>
+ &nbsp; <B>  <A NAME="tex2html9441"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION008150000000000000000">
-./inc/edit.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: routines for editing files with sed
-<BR>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION008143000000000000000">
+pkgUpdateCacheOnServer</A>
+</H2>
+<SPAN  CLASS="textbf">Parameter:</SPAN>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html9398"
-  HREF="node453.html">EDIT_writeToFile</A>
-<LI><A NAME="tex2html9399"
-  HREF="node454.html">EDIT_setOption</A>
-<LI><A NAME="tex2html9400"
-  HREF="node455.html">EDIT_genClientm23Random</A>
-<LI><A NAME="tex2html9401"
-  HREF="node456.html">EDIT_commentoutInsert</A>
-<LI><A NAME="tex2html9402"
-  HREF="node457.html">EDIT_countMatches</A>
-<LI><A NAME="tex2html9403"
-  HREF="node458.html">EDIT_calc</A>
-<LI><A NAME="tex2html9404"
-  HREF="node459.html">EDIT_uncomment</A>
-<LI><A NAME="tex2html9405"
-  HREF="node460.html">EDIT_commentout</A>
-<LI><A NAME="tex2html9406"
-  HREF="node461.html">EDIT_insertAfterLineNumber</A>
-<LI><A NAME="tex2html9407"
-  HREF="node462.html">EDIT_insertAtLineNumber</A>
-<LI><A NAME="tex2html9408"
-  HREF="node463.html">EDIT_insertLineNumber</A>
-<LI><A NAME="tex2html9409"
-  HREF="node464.html">EDIT_searchLineNumber</A>
-<LI><A NAME="tex2html9410"
-  HREF="node465.html">EDIT_searchLastLineNumber</A>
-<LI><A NAME="tex2html9411"
-  HREF="node466.html">EDIT_searchNextLineNumber</A>
-<LI><A NAME="tex2html9412"
-  HREF="node467.html">EDIT_replace</A>
-<LI><A NAME="tex2html9413"
-  HREF="node468.html">EDIT_prepareStr</A>
-<LI><A NAME="tex2html9414"
-  HREF="node469.html">EDIT_savePerms</A>
-<LI><A NAME="tex2html9415"
-  HREF="node470.html">EDIT_restorePerms</A>
-<LI><A NAME="tex2html9416"
-  HREF="node471.html">EDIT_deleteLines</A>
-<LI><A NAME="tex2html9417"
-  HREF="node472.html">EDIT_deleteLinesAmount</A>
-<LI><A NAME="tex2html9418"
-  HREF="node473.html">EDIT_addIfNotExists</A>
-<LI><A NAME="tex2html9419"
-  HREF="node474.html">EDIT_deleteMatching</A>
+<UL>
+<LI>$1 (packagesourcename): Name der Paketquellenliste
+</LI>
+<LI>$2 (packagesource): Inhalt der Paketquellenliste
+</LI>
+<LI>$3 (force): set to true (1) if you want to update the package info and the time is not over
+</LI>
+<LI>$4 (arch): Architecture (amd64/i386) to get package infos for.
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

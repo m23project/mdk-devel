@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UPDATE_getUrl</TITLE>
-<META NAME="description" CONTENT="UPDATE_getUrl">
+<TITLE>SRCLST_showAlternativeArchitectureSelection</TITLE>
+<META NAME="description" CONTENT="SRCLST_showAlternativeArchitectureSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1161.html">
 <LINK REL="previous" HREF="node1159.html">
-<LINK REL="up" HREF="node1157.html">
+<LINK REL="up" HREF="node1132.html">
 <LINK REL="next" HREF="node1161.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18535"
+<A NAME="tex2html18585"
   HREF="node1161.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18531"
-  HREF="node1157.html">
+<A NAME="tex2html18581"
+  HREF="node1132.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18525"
+<A NAME="tex2html18575"
   HREF="node1159.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18533"
+<A NAME="tex2html18583"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18536"
-  HREF="node1161.html">UPDATE_getInfo</A>
-<B> Up:</B> <A NAME="tex2html18532"
-  HREF="node1157.html">./inc/update.php</A>
-<B> Previous:</B> <A NAME="tex2html18526"
-  HREF="node1159.html">UPDATE_running</A>
- &nbsp; <B>  <A NAME="tex2html18534"
+<B> Next:</B> <A NAME="tex2html18586"
+  HREF="node1161.html">SRCLST_isArchAvailable</A>
+<B> Up:</B> <A NAME="tex2html18582"
+  HREF="node1132.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html18576"
+  HREF="node1159.html">SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
+ &nbsp; <B>  <A NAME="tex2html18584"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008373000000000000000">
-UPDATE_getUrl</A>
+<H2><A NAME="SECTION0083628000000000000000">
+SRCLST_showAlternativeArchitectureSelection</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes a correct URL to the update source
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a list with available CPU architectures of the sources list, in case that the wanted architecture is not available in the sources list. The alternative architecture will be written to the arch option of the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>base: URL to the update script
+<LI>sourceName: The name of the package source list.
 </LI>
-<LI>command: "info" or "cmd"
+<LI>wantedArch: The CPU architecture of the m23 client.
 </LI>
-<LI>version: m23 version
+<LI>client: Name of the client.
 </LI>
-<LI>patchLevel: patch version number
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: A CPU architecture supported by the package source list.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ UPDATE_getUrl</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

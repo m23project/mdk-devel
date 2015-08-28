@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_formatJob</TITLE>
-<META NAME="description" CONTENT="FDISK_formatJob">
+<TITLE>FDISK_formatExisting</TITLE>
+<META NAME="description" CONTENT="FDISK_formatExisting">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node558.html">
 <LINK REL="previous" HREF="node556.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node558.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10785"
+<A NAME="tex2html10829"
   HREF="node558.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10781"
-  HREF="node475.html">
+<A NAME="tex2html10825"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10775"
+<A NAME="tex2html10819"
   HREF="node556.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10783"
+<A NAME="tex2html10827"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10786"
-  HREF="node558.html">FDISK_countPartitions</A>
-<B> Up:</B> <A NAME="tex2html10782"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10776"
-  HREF="node556.html">FDISK_bootflagJob</A>
- &nbsp; <B>  <A NAME="tex2html10784"
+<B> Next:</B> <A NAME="tex2html10830"
+  HREF="node558.html">FDISK_getvPart</A>
+<B> Up:</B> <A NAME="tex2html10826"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10820"
+  HREF="node556.html">FDISK_listInstPartSelector</A>
+ &nbsp; <B>  <A NAME="tex2html10828"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081682000000000000000">
-FDISK_formatJob</A>
+<H2><A NAME="SECTION0081677000000000000000">
+FDISK_formatExisting</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: device to format (e.g. /dev/hda1)
+<LI>instPart: partition to put the operation system on (e.g. /dev/hda1)
 </LI>
-<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+<LI>swapPart: partition to put the swap file system on (e.g. /dev/hdb2)
 </LI>
-<LI>partJobs: associative array with partition jobs
+<LI>command: parted commands to do the installation
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
 </UL>
 
@@ -72,7 +73,7 @@ FDISK_formatJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

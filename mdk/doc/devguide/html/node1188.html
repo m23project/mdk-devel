@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_rebootChangeBootDevice</TITLE>
-<META NAME="description" CONTENT="VM_rebootChangeBootDevice">
+<TITLE>VM_CloudStackGetVMStatus</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackGetVMStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1189.html">
 <LINK REL="previous" HREF="node1187.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1189.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18935"
+<A NAME="tex2html18987"
   HREF="node1189.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18931"
-  HREF="node1162.html">
+<A NAME="tex2html18983"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18925"
+<A NAME="tex2html18977"
   HREF="node1187.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18933"
+<A NAME="tex2html18985"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18936"
-  HREF="node1189.html">VM_getVBoxVersion</A>
-<B> Up:</B> <A NAME="tex2html18932"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18926"
-  HREF="node1187.html">VM_shutdownAndDisableNetboot</A>
- &nbsp; <B>  <A NAME="tex2html18934"
+<B> Next:</B> <A NAME="tex2html18988"
+  HREF="node1189.html">VM_CloudStackClientName2ClientID</A>
+<B> Up:</B> <A NAME="tex2html18984"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18978"
+  HREF="node1187.html">VM_CloudStackStopVM</A>
+ &nbsp; <B>  <A NAME="tex2html18986"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083826000000000000000">
-VM_rebootChangeBootDevice</A>
+<H2><A NAME="SECTION0083813000000000000000">
+VM_CloudStackGetVMStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command to reboot an VM and to disable network booting.
+<SPAN  CLASS="textbf">Description:</SPAN> gets the status of a virtual machine
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmname: Name of the VM.
-</LI>
-<LI>visual: If set to true, the VM should be run in visual mode otherwise in headless mode.
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to reboot an VM and to disable network booting.
+<LI>textmessage with machine status (like 'Running' or 'Stopped') or FALSE if no status could be retrieved (e.g. if machine doesn't exist)
 </LI>
 </UL>
 
@@ -78,7 +74,7 @@ VM_rebootChangeBootDevice</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

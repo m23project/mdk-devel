@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_AFPgetPartSizes</TITLE>
-<META NAME="description" CONTENT="FDISK_AFPgetPartSizes">
+<TITLE>FDISK_getDiskType</TITLE>
+<META NAME="description" CONTENT="FDISK_getDiskType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node574.html">
 <LINK REL="previous" HREF="node572.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node574.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10977"
+<A NAME="tex2html11021"
   HREF="node574.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10973"
-  HREF="node475.html">
+<A NAME="tex2html11017"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10967"
+<A NAME="tex2html11011"
   HREF="node572.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10975"
+<A NAME="tex2html11019"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10978"
-  HREF="node574.html">FDISK_adjustFdiskParams</A>
-<B> Up:</B> <A NAME="tex2html10974"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10968"
-  HREF="node572.html">FDISK_AFPlinearScale</A>
- &nbsp; <B>  <A NAME="tex2html10976"
+<B> Next:</B> <A NAME="tex2html11022"
+  HREF="node574.html">FDISK_getDriveAndNr</A>
+<B> Up:</B> <A NAME="tex2html11018"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11012"
+  HREF="node572.html">FDISK_listPartJobs</A>
+ &nbsp; <B>  <A NAME="tex2html11020"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081698000000000000000">
-FDISK_AFPgetPartSizes</A>
+<H2><A NAME="SECTION0081693000000000000000">
+FDISK_getDiskType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> writes the sizes of the installation, swap and other partitions to the variables.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (DISK_TYPE_IDE, DISK_TYPE_SCSI)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>formatArr: array that contains the oformat parameters
-</LI>
-<LI>options: options array of the client
-</LI>
-<LI>instPartSize: stores the size of the installation partition
-</LI>
-<LI>instSwapSize: stores the size of the swap partition
-</LI>
-<LI>otherSize: stores the size of the other partition(s)
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL>
 
@@ -76,7 +68,7 @@ FDISK_AFPgetPartSizes</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

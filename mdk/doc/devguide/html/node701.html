@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_storableInput</TITLE>
-<META NAME="description" CONTENT="HTML_storableInput">
+<TITLE>HTML_setStatusBarStatusByID</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatusByID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node702.html">
 <LINK REL="previous" HREF="node700.html">
-<LINK REL="up" HREF="node663.html">
+<LINK REL="up" HREF="node672.html">
 <LINK REL="next" HREF="node702.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12640"
+<A NAME="tex2html12688"
   HREF="node702.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12636"
-  HREF="node663.html">
+<A NAME="tex2html12684"
+  HREF="node672.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12630"
+<A NAME="tex2html12678"
   HREF="node700.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12638"
+<A NAME="tex2html12686"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12641"
-  HREF="node702.html">HTML_storableSelection</A>
-<B> Up:</B> <A NAME="tex2html12637"
-  HREF="node663.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12631"
-  HREF="node700.html">HTML_setPage</A>
- &nbsp; <B>  <A NAME="tex2html12639"
+<B> Next:</B> <A NAME="tex2html12689"
+  HREF="node702.html">HTML_setStatusBarStatus</A>
+<B> Up:</B> <A NAME="tex2html12685"
+  HREF="node672.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12679"
+  HREF="node700.html">HTML_setStatusBarStatusByName</A>
+ &nbsp; <B>  <A NAME="tex2html12687"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082038000000000000000">
-HTML_storableInput</A>
+<H2><A NAME="SECTION0082029000000000000000">
+HTML_setStatusBarStatusByID</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> HTML text or password edit line with loading and storing the values to and from the session.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>htmlName: Name of the HTML element.
+<LI>id: ID of the status bar
 </LI>
-<LI>prefKey: Variable name of the preference the dialog element stands for.
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
 </LI>
-<LI>initValue: The initial value if the element is shown first.
-</LI>
-<LI>storePointer: Additional pointer to the variable where to store the entered value.
-</LI>
-<LI>size: Size (in characters) of the input line.
-</LI>
-<LI>maxlength: The maximum length of the entered text.
-</LI>
-<LI>type: Type of the edit line (INPUT_TYPE_text or INPUT_TYPE_password)
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Returns the entered value, the default value or false.
+<LI>: false on parameter error.
 </LI>
 </UL>
 
@@ -86,7 +78,7 @@ HTML_storableInput</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

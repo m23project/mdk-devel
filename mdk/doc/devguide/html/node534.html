@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getAllDrives</TITLE>
-<META NAME="description" CONTENT="FDISK_getAllDrives">
+<TITLE>FDISK_delPart</TITLE>
+<META NAME="description" CONTENT="FDISK_delPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node535.html">
 <LINK REL="previous" HREF="node533.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node535.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10509"
+<A NAME="tex2html10553"
   HREF="node535.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10505"
-  HREF="node475.html">
+<A NAME="tex2html10549"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10499"
+<A NAME="tex2html10543"
   HREF="node533.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10507"
+<A NAME="tex2html10551"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10510"
-  HREF="node535.html">FDISK_colorFS</A>
-<B> Up:</B> <A NAME="tex2html10506"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10500"
-  HREF="node533.html">FDISK_getPartitionsFromParam</A>
- &nbsp; <B>  <A NAME="tex2html10508"
+<B> Next:</B> <A NAME="tex2html10554"
+  HREF="node535.html">FDISK_addPart</A>
+<B> Up:</B> <A NAME="tex2html10550"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10544"
+  HREF="node533.html">FDISK_getBelongingRaidDev</A>
+ &nbsp; <B>  <A NAME="tex2html10552"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081659000000000000000">
-FDISK_getAllDrives</A>
+<H2><A NAME="SECTION0081654000000000000000">
+FDISK_delPart</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets all drives of the client
+<SPAN  CLASS="textbf">Description:</SPAN> deletes a partition from the param string and generates the parted commands
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>partitions: associative array containing status information about the harddisks
+<LI>dev: the partition to delete (e.g. /dev/hda4)
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>partJobs: parted commands
+</LI>
+<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Changed param string.
 </LI>
 </UL>
 
@@ -68,7 +80,7 @@ FDISK_getAllDrives</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

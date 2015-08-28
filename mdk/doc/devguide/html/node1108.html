@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_addLineToFile</TITLE>
-<META NAME="description" CONTENT="SERVER_addLineToFile">
+<TITLE>SERVER_programmStatus</TITLE>
+<META NAME="description" CONTENT="SERVER_programmStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1109.html">
 <LINK REL="previous" HREF="node1107.html">
-<LINK REL="up" HREF="node1073.html">
+<LINK REL="up" HREF="node1082.html">
 <LINK REL="next" HREF="node1109.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17878"
+<A NAME="tex2html17926"
   HREF="node1109.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17874"
-  HREF="node1073.html">
+<A NAME="tex2html17922"
+  HREF="node1082.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17868"
+<A NAME="tex2html17916"
   HREF="node1107.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17876"
+<A NAME="tex2html17924"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17879"
-  HREF="node1109.html">SERVER_deleteFile</A>
-<B> Up:</B> <A NAME="tex2html17875"
-  HREF="node1073.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17869"
-  HREF="node1107.html">SERVER_runningInScreen</A>
- &nbsp; <B>  <A NAME="tex2html17877"
+<B> Next:</B> <A NAME="tex2html17927"
+  HREF="node1109.html">SERVER_apacheInfo</A>
+<B> Up:</B> <A NAME="tex2html17923"
+  HREF="node1082.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17917"
+  HREF="node1107.html">SERVER_installTool</A>
+ &nbsp; <B>  <A NAME="tex2html17925"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083535000000000000000">
-SERVER_addLineToFile</A>
+<H2><A NAME="SECTION0083526000000000000000">
+SERVER_programmStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds (if the search pattern can't be found) a line to a file on the server
+<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>file: name of the file to edit
+<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
 </LI>
-<LI>search: the search pattern
+<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
 </LI>
-<LI>add: the line to add
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: true on successfully execution otherwise false.
+<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
 </LI>
 </UL>
 
@@ -78,7 +72,7 @@ SERVER_addLineToFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

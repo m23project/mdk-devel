@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitionByType</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitionByType">
+<TITLE>FDISK_fdiskSessionPartMethod</TITLE>
+<META NAME="description" CONTENT="FDISK_fdiskSessionPartMethod">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node505.html">
 <LINK REL="previous" HREF="node503.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node505.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10149"
+<A NAME="tex2html10193"
   HREF="node505.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10145"
-  HREF="node475.html">
+<A NAME="tex2html10189"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10139"
+<A NAME="tex2html10183"
   HREF="node503.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10147"
+<A NAME="tex2html10191"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10150"
-  HREF="node505.html">FDISK_getDrivesAndPartitions</A>
-<B> Up:</B> <A NAME="tex2html10146"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10140"
-  HREF="node503.html">FDISK_fdiskSessionFstab</A>
- &nbsp; <B>  <A NAME="tex2html10148"
+<B> Next:</B> <A NAME="tex2html10194"
+  HREF="node505.html">FDISK_fdiskSessionPage</A>
+<B> Up:</B> <A NAME="tex2html10190"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10184"
+  HREF="node503.html">FDISK_fdiskSessionReset</A>
+ &nbsp; <B>  <A NAME="tex2html10192"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081629000000000000000">
-FDISK_getPartitionByType</A>
+<H2><A NAME="SECTION0081624000000000000000">
+FDISK_fdiskSessionPartMethod</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the FIRST partition matching a partition type.
+<SPAN  CLASS="textbf">Description:</SPAN> Stores the partitioning method in the session.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>type: type of the partition (primary, extended, logical)
+<LI>newMethod: The new method to set or false for not changing.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
+<LI>The current partitioning method.
 </LI>
 </UL>
 
@@ -78,7 +74,7 @@ FDISK_getPartitionByType</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

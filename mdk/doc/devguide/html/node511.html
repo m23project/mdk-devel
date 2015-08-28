@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getBiggestValueOf</TITLE>
-<META NAME="description" CONTENT="FDISK_getBiggestValueOf">
+<TITLE>FDISK_listDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node512.html">
 <LINK REL="previous" HREF="node510.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10233"
+<A NAME="tex2html10277"
   HREF="node512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10229"
-  HREF="node475.html">
+<A NAME="tex2html10273"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10223"
+<A NAME="tex2html10267"
   HREF="node510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10231"
+<A NAME="tex2html10275"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10234"
-  HREF="node512.html">FDISK_devNrExists</A>
-<B> Up:</B> <A NAME="tex2html10230"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10224"
-  HREF="node510.html">FDISK_formatPart</A>
- &nbsp; <B>  <A NAME="tex2html10232"
+<B> Next:</B> <A NAME="tex2html10278"
+  HREF="node512.html">FDISK_selectDrives</A>
+<B> Up:</B> <A NAME="tex2html10274"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10268"
+  HREF="node510.html">FDISK_getDrivesAndPartitions</A>
+ &nbsp; <B>  <A NAME="tex2html10276"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081636000000000000000">
-FDISK_getBiggestValueOf</A>
+<H2><A NAME="SECTION0081631000000000000000">
+FDISK_listDrivesAndPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the biggest value from a special type of partition
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>dev: selected device (e.g. hda)
+<LI>default: the drive to show first
 </LI>
-<LI>partType: type of the partition (logical, primary, extended)
+<LI>selName: the name the selection is called in PHP and HTML
 </LI>
-<LI>varType: define part of the key for the associative array (e.g. "type" means $param["dev$vDev"."part$vPart"."_type"])
+<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>String with the HTML selection.
 </LI>
 </UL>
 
@@ -74,7 +80,7 @@ FDISK_getBiggestValueOf</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

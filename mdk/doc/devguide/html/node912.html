@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_OptionPageRender2</TITLE>
-<META NAME="description" CONTENT="PKG_OptionPageRender2">
+<TITLE>PKG_getDebootstrapCacheSfURL</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheSfURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node913.html">
 <LINK REL="previous" HREF="node911.html">
-<LINK REL="up" HREF="node893.html">
+<LINK REL="up" HREF="node902.html">
 <LINK REL="next" HREF="node913.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15421"
+<A NAME="tex2html15469"
   HREF="node913.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15417"
-  HREF="node893.html">
+<A NAME="tex2html15465"
+  HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15411"
+<A NAME="tex2html15459"
   HREF="node911.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15419"
+<A NAME="tex2html15467"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15422"
-  HREF="node913.html">PKG_countSpecialPackages</A>
-<B> Up:</B> <A NAME="tex2html15418"
-  HREF="node893.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15412"
-  HREF="node911.html">PKG_decodeDebconfDescription</A>
- &nbsp; <B>  <A NAME="tex2html15420"
+<B> Next:</B> <A NAME="tex2html15470"
+  HREF="node913.html">PKG_getDebootstrapCacheServerURL</A>
+<B> Up:</B> <A NAME="tex2html15466"
+  HREF="node902.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15460"
+  HREF="node911.html">PKG_getDebootstrapCacheFilename</A>
+ &nbsp; <B>  <A NAME="tex2html15468"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082819000000000000000">
-PKG_OptionPageRender2</A>
+<H2><A NAME="SECTION0082810000000000000000">
+PKG_getDebootstrapCacheSfURL</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Renderes the layout of an OptionPage for debconf and stored the debconf settings into the DB.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the URL to the debootstrap cache file on the SourceForge server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>layout: The elements (variable name, type (string, boolean, (multi)select), default value, description) of the debconf templates.
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 </LI>
-<LI>client: The name of the client, the debconf settings should be stored for.
+<LI>arch: the computer architecture of the client
 </LI>
-<LI>package: Name of the package, the debconf settings should be stored for.
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The URL to the debootstrap cache file on the SourceForge server.
 </LI>
 </UL>
 
@@ -72,7 +76,7 @@ PKG_OptionPageRender2</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

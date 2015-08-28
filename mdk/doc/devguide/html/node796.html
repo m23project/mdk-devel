@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_generateActivationKey</TITLE>
-<META NAME="description" CONTENT="m23SHARED_generateActivationKey">
+<TITLE>m23SHARED_getCompleteClientName</TITLE>
+<META NAME="description" CONTENT="m23SHARED_getCompleteClientName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node797.html">
 <LINK REL="previous" HREF="node795.html">
-<LINK REL="up" HREF="node773.html">
+<LINK REL="up" HREF="node782.html">
 <LINK REL="next" HREF="node797.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13889"
+<A NAME="tex2html13937"
   HREF="node797.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13885"
-  HREF="node773.html">
+<A NAME="tex2html13933"
+  HREF="node782.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13879"
+<A NAME="tex2html13927"
   HREF="node795.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13887"
+<A NAME="tex2html13935"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13890"
-  HREF="node797.html">m23SHARED_getActivationKey</A>
-<B> Up:</B> <A NAME="tex2html13886"
-  HREF="node773.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html13880"
-  HREF="node795.html">m23SHARED_setCustomerEmail</A>
- &nbsp; <B>  <A NAME="tex2html13888"
+<B> Next:</B> <A NAME="tex2html13938"
+  HREF="node797.html">m23SHARED_getServerIP</A>
+<B> Up:</B> <A NAME="tex2html13934"
+  HREF="node782.html">./inc/m23shared/m23shared.php</A>
+<B> Previous:</B> <A NAME="tex2html13928"
+  HREF="node795.html">m23SHARED_paidClients</A>
+ &nbsp; <B>  <A NAME="tex2html13936"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082423000000000000000">
-m23SHARED_generateActivationKey</A>
+<H2><A NAME="SECTION0082414000000000000000">
+m23SHARED_getCompleteClientName</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates a random activation key and stores it into the DB.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the complete name of a m23 shared client ($_SESSION variables need to be set).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>: Random activation key.
+<LI>: clientName: Name of the client (if the value from the session should not/cannot be taken)
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: Client name of a m23 shared client (e.g. m23SrGH1ikdPZ8.test)
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ m23SHARED_generateActivationKey</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

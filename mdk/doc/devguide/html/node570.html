@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getNextFdiskFormatJobNr</TITLE>
-<META NAME="description" CONTENT="FDISK_getNextFdiskFormatJobNr">
+<TITLE>FDISK_rereadPartTable</TITLE>
+<META NAME="description" CONTENT="FDISK_rereadPartTable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node571.html">
 <LINK REL="previous" HREF="node569.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node571.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10941"
+<A NAME="tex2html10985"
   HREF="node571.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10937"
-  HREF="node475.html">
+<A NAME="tex2html10981"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10931"
+<A NAME="tex2html10975"
   HREF="node569.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10939"
+<A NAME="tex2html10983"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10942"
-  HREF="node571.html">FDISK_AFPselectDrive</A>
-<B> Up:</B> <A NAME="tex2html10938"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10932"
-  HREF="node569.html">FDISK_getDriveAndNr</A>
- &nbsp; <B>  <A NAME="tex2html10940"
+<B> Next:</B> <A NAME="tex2html10986"
+  HREF="node571.html">FDISK_genPartedCommands</A>
+<B> Up:</B> <A NAME="tex2html10982"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10976"
+  HREF="node569.html">FDISK_dev2LDevLPart</A>
+ &nbsp; <B>  <A NAME="tex2html10984"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081695000000000000000">
-FDISK_getNextFdiskFormatJobNr</A>
+<H2><A NAME="SECTION0081690000000000000000">
+FDISK_rereadPartTable</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the next free job number for the parameters of a m23fdiskFormat job. (e.g. there are used the following parameters: command0 = rm, command1= add. Then the next command number to use will be command2 =<SPAN CLASS="MATH"></SPAN> return value is 2)
+<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fdiskParams: the parameters of the m23fdiskFormat job
+<LI>path: The device that was changed/created (e.g. /dev/sda5).
 </LI>
 </UL>
 
@@ -68,7 +68,7 @@ FDISK_getNextFdiskFormatJobNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

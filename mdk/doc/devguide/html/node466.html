@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_searchNextLineNumber</TITLE>
-<META NAME="description" CONTENT="EDIT_searchNextLineNumber">
+<TITLE>EDIT_insertAfterLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAfterLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node467.html">
 <LINK REL="previous" HREF="node465.html">
-<LINK REL="up" HREF="node452.html">
+<LINK REL="up" HREF="node457.html">
 <LINK REL="next" HREF="node467.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9586"
+<A NAME="tex2html9630"
   HREF="node467.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9582"
-  HREF="node452.html">
+<A NAME="tex2html9626"
+  HREF="node457.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9576"
+<A NAME="tex2html9620"
   HREF="node465.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9584"
+<A NAME="tex2html9628"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9587"
-  HREF="node467.html">EDIT_replace</A>
-<B> Up:</B> <A NAME="tex2html9583"
-  HREF="node452.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9577"
-  HREF="node465.html">EDIT_searchLastLineNumber</A>
- &nbsp; <B>  <A NAME="tex2html9585"
+<B> Next:</B> <A NAME="tex2html9631"
+  HREF="node467.html">EDIT_insertAtLineNumber</A>
+<B> Up:</B> <A NAME="tex2html9627"
+  HREF="node457.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9621"
+  HREF="node465.html">EDIT_commentout</A>
+ &nbsp; <B>  <A NAME="tex2html9629"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081514000000000000000">
-EDIT_searchNextLineNumber</A>
+<H2><A NAME="SECTION008159000000000000000">
+EDIT_insertAfterLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> searches for the next line number that contains "searchLine"
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AFTER a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>file: the name of the file
 </LI>
-<LI>searchLine: line to search
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -70,7 +74,7 @@ EDIT_searchNextLineNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_addRaidBeforeFormat</TITLE>
-<META NAME="description" CONTENT="FDISK_addRaidBeforeFormat">
+<TITLE>FDISK_getDrivePartitionSize</TITLE>
+<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node582.html">
 <LINK REL="previous" HREF="node580.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node582.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11073"
+<A NAME="tex2html11117"
   HREF="node582.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11069"
-  HREF="node475.html">
+<A NAME="tex2html11113"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11063"
+<A NAME="tex2html11107"
   HREF="node580.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11071"
+<A NAME="tex2html11115"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11074"
-  HREF="node582.html">FDISK_raidJob</A>
-<B> Up:</B> <A NAME="tex2html11070"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html11064"
-  HREF="node580.html">FDISK_addRaidJobs</A>
- &nbsp; <B>  <A NAME="tex2html11072"
+<B> Next:</B> <A NAME="tex2html11118"
+  HREF="node582.html">FDISK_listRaidTable</A>
+<B> Up:</B> <A NAME="tex2html11114"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html11108"
+  HREF="node580.html">FDISK_virtualAddDrive</A>
+ &nbsp; <B>  <A NAME="tex2html11116"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00816106000000000000000">
-FDISK_addRaidBeforeFormat</A>
+<H2><A NAME="SECTION00816101000000000000000">
+FDISK_getDrivePartitionSize</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates and places a job to create a RAID on given drives/partitions before the formating of the RAID device.
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>raidDev: RAID device (e.g. /dev/md0)
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
 </LI>
-<LI>partJobs: associative array with partition jobs.
+<LI>param: parameter string containing status information about the harddisks
 </LI>
-<LI>raidMode: The type of the RAID (0,1,5, ...)
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Size of the drive or partition in MB.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ FDISK_addRaidBeforeFormat</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_bootflagJob</TITLE>
-<META NAME="description" CONTENT="FDISK_bootflagJob">
+<TITLE>FDISK_listInstPartSelector</TITLE>
+<META NAME="description" CONTENT="FDISK_listInstPartSelector">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node557.html">
 <LINK REL="previous" HREF="node555.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node557.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10773"
+<A NAME="tex2html10817"
   HREF="node557.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10769"
-  HREF="node475.html">
+<A NAME="tex2html10813"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10763"
+<A NAME="tex2html10807"
   HREF="node555.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10771"
+<A NAME="tex2html10815"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10774"
-  HREF="node557.html">FDISK_formatJob</A>
-<B> Up:</B> <A NAME="tex2html10770"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10764"
-  HREF="node555.html">FDISK_addJob</A>
- &nbsp; <B>  <A NAME="tex2html10772"
+<B> Next:</B> <A NAME="tex2html10818"
+  HREF="node557.html">FDISK_formatExisting</A>
+<B> Up:</B> <A NAME="tex2html10814"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10808"
+  HREF="node555.html">FDISK_listPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html10816"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081681000000000000000">
-FDISK_bootflagJob</A>
+<H2><A NAME="SECTION0081676000000000000000">
+FDISK_listInstPartSelector</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> enables the booting flag on a partition
+<SPAN  CLASS="textbf">Description:</SPAN> lists all partitions to select for swap and install partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>path: device to activate booting on (e.g. /dev/hda1)
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>devNr: number of partition, minor number in parted
+<LI>default: partition that should be shown as selected
 </LI>
-<LI>partJobs: associative array with partition jobs
+<LI>type: array with filesystems that are possible for installation or swap
+</LI>
+<LI>selName: name of the selection
 </LI>
 </UL>
 
@@ -72,7 +74,7 @@ FDISK_bootflagJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

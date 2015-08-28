@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_createDiskImage</TITLE>
-<META NAME="description" CONTENT="VM_createDiskImage">
+<TITLE>VM_getHTMLStatusBlock</TITLE>
+<META NAME="description" CONTENT="VM_getHTMLStatusBlock">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1218.html">
 <LINK REL="previous" HREF="node1216.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1218.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19283"
+<A NAME="tex2html19335"
   HREF="node1218.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19279"
-  HREF="node1162.html">
+<A NAME="tex2html19331"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19273"
+<A NAME="tex2html19325"
   HREF="node1216.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19281"
+<A NAME="tex2html19333"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19284"
-  HREF="node1218.html">VM_delVMCMD</A>
-<B> Up:</B> <A NAME="tex2html19280"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19274"
-  HREF="node1216.html">VM_statusIcons</A>
- &nbsp; <B>  <A NAME="tex2html19282"
+<B> Next:</B> <A NAME="tex2html19336"
+  HREF="node1218.html">VM_activateNetboot</A>
+<B> Up:</B> <A NAME="tex2html19332"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19326"
+  HREF="node1216.html">VM_vmSwNr2Name</A>
+ &nbsp; <B>  <A NAME="tex2html19334"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083855000000000000000">
-VM_createDiskImage</A>
+<H2><A NAME="SECTION0083842000000000000000">
+VM_getHTMLStatusBlock</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new empty virtual harddisk image file.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates and returns a status block in a HTML table with informations (VM host, VM software, VM power switch state, visual console URL and password, VM NICs) about the selected VM client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_KVM for KVM or VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmname: Name of the VM.
-</LI>
-<LI>diskname: Name of the image file without extension.
-</LI>
-<LI>size: Size of the image file in MB.
+<LI>clientName: Name of the VM client.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to create a virtual disk image.
+<LI>HTML table with information about the VM.
 </LI>
 </UL>
 
@@ -80,7 +74,7 @@ VM_createDiskImage</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

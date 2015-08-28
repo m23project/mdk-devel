@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_replace</TITLE>
-<META NAME="description" CONTENT="EDIT_replace">
+<TITLE>EDIT_insertAtLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAtLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node468.html">
 <LINK REL="previous" HREF="node466.html">
-<LINK REL="up" HREF="node452.html">
+<LINK REL="up" HREF="node457.html">
 <LINK REL="next" HREF="node468.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9598"
+<A NAME="tex2html9642"
   HREF="node468.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9594"
-  HREF="node452.html">
+<A NAME="tex2html9638"
+  HREF="node457.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9588"
+<A NAME="tex2html9632"
   HREF="node466.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9596"
+<A NAME="tex2html9640"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9599"
-  HREF="node468.html">EDIT_prepareStr</A>
-<B> Up:</B> <A NAME="tex2html9595"
-  HREF="node452.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9589"
-  HREF="node466.html">EDIT_searchNextLineNumber</A>
- &nbsp; <B>  <A NAME="tex2html9597"
+<B> Next:</B> <A NAME="tex2html9643"
+  HREF="node468.html">EDIT_insertLineNumber</A>
+<B> Up:</B> <A NAME="tex2html9639"
+  HREF="node457.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9633"
+  HREF="node466.html">EDIT_insertAfterLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html9641"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081515000000000000000">
-EDIT_replace</A>
+<H2><A NAME="SECTION0081510000000000000000">
+EDIT_insertAtLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> replaces $searchLine with $replaceText
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AT a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>file: the name of the file
 </LI>
-<LI>searchLine: line to search
+<LI>lineNumber: reference line number for inserting
 </LI>
-<LI>repaceText: text to replace with
+<LI>insertText: text to insert
 </LI>
-<LI>mode: can be "g" to replace all matching lines. Any other value will only replace the first occurrence.
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -74,7 +74,7 @@ EDIT_replace</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

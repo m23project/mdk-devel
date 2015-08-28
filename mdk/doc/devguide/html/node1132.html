@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_loadSourceList</TITLE>
-<META NAME="description" CONTENT="SRCLST_loadSourceList">
+<TITLE>./inc/sourceslist.php</TITLE>
+<META NAME="description" CONTENT="./inc/sourceslist.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,133 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1133.html">
-<LINK REL="previous" HREF="node1131.html">
-<LINK REL="up" HREF="node1123.html">
+<LINK REL="next" HREF="node1170.html">
+<LINK REL="previous" HREF="node1082.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node1133.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18197"
+<A NAME="tex2html18212"
   HREF="node1133.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18193"
-  HREF="node1123.html">
+<A NAME="tex2html18208"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18187"
+<A NAME="tex2html18202"
   HREF="node1131.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18195"
+<A NAME="tex2html18210"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18198"
-  HREF="node1133.html">SRCLST_getDescription</A>
-<B> Up:</B> <A NAME="tex2html18194"
-  HREF="node1123.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18188"
-  HREF="node1131.html">SRCLST_getValue</A>
- &nbsp; <B>  <A NAME="tex2html18196"
+<B> Next:</B> <A NAME="tex2html18213"
+  HREF="node1133.html">SRCLST_getAddToFile</A>
+<B> Up:</B> <A NAME="tex2html18209"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html18203"
+  HREF="node1131.html">SERVER_commandAvailable</A>
+ &nbsp; <B>  <A NAME="tex2html18211"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008369000000000000000">
-SRCLST_loadSourceList</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> loads and returnes the the package source list
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>name: the name of the package source list
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008360000000000000000">
+./inc/sourceslist.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: function to generate the sources.list for the client
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html18214"
+  HREF="node1133.html">SRCLST_getAddToFile</A>
+<LI><A NAME="tex2html18215"
+  HREF="node1134.html">SRCLST_getRelease</A>
+<LI><A NAME="tex2html18216"
+  HREF="node1135.html">SRCLST_genList</A>
+<LI><A NAME="tex2html18217"
+  HREF="node1136.html">SRCLST_saveArchitectures</A>
+<LI><A NAME="tex2html18218"
+  HREF="node1137.html">SRCLST_saveList</A>
+<LI><A NAME="tex2html18219"
+  HREF="node1138.html">SRCLST_querySourceslists</A>
+<LI><A NAME="tex2html18220"
+  HREF="node1139.html">SRCLST_genSelection</A>
+<LI><A NAME="tex2html18221"
+  HREF="node1140.html">SRCLST_getValue</A>
+<LI><A NAME="tex2html18222"
+  HREF="node1141.html">SRCLST_loadSourceListFromDB</A>
+<LI><A NAME="tex2html18223"
+  HREF="node1142.html">SRCLST_loadSourceList</A>
+<LI><A NAME="tex2html18224"
+  HREF="node1143.html">SRCLST_getDescription</A>
+<LI><A NAME="tex2html18225"
+  HREF="node1144.html">SRCLST_delete</A>
+<LI><A NAME="tex2html18226"
+  HREF="node1145.html">SRCLST_checkList</A>
+<LI><A NAME="tex2html18227"
+  HREF="node1146.html">SRCLST_packageInformationChangeInformationHumanReadable</A>
+<LI><A NAME="tex2html18228"
+  HREF="node1147.html">SRCLST_packageInformationChangeTime</A>
+<LI><A NAME="tex2html18229"
+  HREF="node1148.html">SRCLST_packageInformationOlderThan</A>
+<LI><A NAME="tex2html18230"
+  HREF="node1149.html">SRCLST_getStorageFS</A>
+<LI><A NAME="tex2html18231"
+  HREF="node1150.html">SRCLST_supportedFS</A>
+<LI><A NAME="tex2html18232"
+  HREF="node1151.html">SRCLST_alternativeFS</A>
+<LI><A NAME="tex2html18233"
+  HREF="node1152.html">SRCLST_getParameter</A>
+<LI><A NAME="tex2html18234"
+  HREF="node1153.html">SRCLST_getMirror</A>
+<LI><A NAME="tex2html18235"
+  HREF="node1154.html">SRCLST_getDesktopList</A>
+<LI><A NAME="tex2html18236"
+  HREF="node1155.html">SRCLST_showDesktopsSel</A>
+<LI><A NAME="tex2html18237"
+  HREF="node1156.html">SRCLST_doesDistrSupportEFI</A>
+<LI><A NAME="tex2html18238"
+  HREF="node1157.html">SRCLST_getListnamesWithEfiSupport</A>
+<LI><A NAME="tex2html18239"
+  HREF="node1158.html">SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
+<LI><A NAME="tex2html18240"
+  HREF="node1159.html">SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
+<LI><A NAME="tex2html18241"
+  HREF="node1160.html">SRCLST_showAlternativeArchitectureSelection</A>
+<LI><A NAME="tex2html18242"
+  HREF="node1161.html">SRCLST_isArchAvailable</A>
+<LI><A NAME="tex2html18243"
+  HREF="node1162.html">SRCLST_getArchitectures</A>
+<LI><A NAME="tex2html18244"
+  HREF="node1163.html">SRCLST_showEditor</A>
+<LI><A NAME="tex2html18245"
+  HREF="node1164.html">SRCLST_getListnames</A>
+<LI><A NAME="tex2html18246"
+  HREF="node1165.html">SRCLST_cleanList</A>
+<LI><A NAME="tex2html18247"
+  HREF="node1166.html">SRCLST_matchList</A>
+<LI><A NAME="tex2html18248"
+  HREF="node1167.html">SRCLST_possiblem23debsMirrors</A>
+<LI><A NAME="tex2html18249"
+  HREF="node1168.html">SRCLST_checkm23debsMirror</A>
+<LI><A NAME="tex2html18250"
+  HREF="node1169.html">SRCLST_getWorkingm23debsMirror</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

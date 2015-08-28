@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_addPosix</TITLE>
-<META NAME="description" CONTENT="LDAP_addPosix">
+<TITLE>I18N_addClientLanguageToCache</TITLE>
+<META NAME="description" CONTENT="I18N_addClientLanguageToCache">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node755.html">
 <LINK REL="previous" HREF="node753.html">
-<LINK REL="up" HREF="node748.html">
+<LINK REL="up" HREF="node744.html">
 <LINK REL="next" HREF="node755.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13316"
+<A NAME="tex2html13342"
   HREF="node755.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13312"
-  HREF="node748.html">
+<A NAME="tex2html13338"
+  HREF="node744.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13306"
+<A NAME="tex2html13332"
   HREF="node753.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13314"
+<A NAME="tex2html13340"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13317"
-  HREF="node755.html">LDAP_fqdn2dn</A>
-<B> Up:</B> <A NAME="tex2html13313"
-  HREF="node748.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html13307"
-  HREF="node753.html">LDAP_loadServer</A>
- &nbsp; <B>  <A NAME="tex2html13315"
+<B> Next:</B> <A NAME="tex2html13343"
+  HREF="node755.html">I18N_cacheClientLanguages</A>
+<B> Up:</B> <A NAME="tex2html13339"
+  HREF="node744.html">./inc/i18n.php</A>
+<B> Previous:</B> <A NAME="tex2html13333"
+  HREF="node753.html">I18N_listWebinterfaceLanguages</A>
+ &nbsp; <B>  <A NAME="tex2html13341"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008236000000000000000">
-LDAP_addPosix</A>
+<H2><A NAME="SECTION0082210000000000000000">
+I18N_addClientLanguageToCache</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new client language to the i18n DB cache.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>ldapServer: name of the LDAP server stored in the configuration file
+<LI>shortLanguage: Two letter TLD (or longer code for countries that have more than a language (e.g. be-nl, be-fr))
 </LI>
-<LI>account: the login name
+<LI>longLanguage: Long human readable country/language name.
 </LI>
-<LI>forename: the forename of the user
-</LI>
-<LI>familyname: the familyname of the user
-</LI>
-<LI>pwd: the unencrypted password
-</LI>
-<LI>uid: Linux user ID
-</LI>
-<LI>gid: Linux group ID
+<LI>in: Associative array with the information for the language.
 </LI>
 </UL>
 
@@ -80,7 +72,7 @@ LDAP_addPosix</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_defineDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_defineDrive">
+<TITLE>FDISK_countPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_countPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node564.html">
 <LINK REL="previous" HREF="node562.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node564.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10857"
+<A NAME="tex2html10901"
   HREF="node564.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10853"
-  HREF="node475.html">
+<A NAME="tex2html10897"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10847"
+<A NAME="tex2html10891"
   HREF="node562.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10855"
+<A NAME="tex2html10899"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10858"
-  HREF="node564.html">FDISK_dev2LDevLPart</A>
-<B> Up:</B> <A NAME="tex2html10854"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10848"
-  HREF="node562.html">FDISK_showDiskDefine</A>
- &nbsp; <B>  <A NAME="tex2html10856"
+<B> Next:</B> <A NAME="tex2html10902"
+  HREF="node564.html">FDISK_getFreeSpaces</A>
+<B> Up:</B> <A NAME="tex2html10898"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10892"
+  HREF="node562.html">FDISK_formatJob</A>
+ &nbsp; <B>  <A NAME="tex2html10900"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081688000000000000000">
-FDISK_defineDrive</A>
+<H2><A NAME="SECTION0081683000000000000000">
+FDISK_countPartitions</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
+<SPAN  CLASS="textbf">Description:</SPAN> count all partitions of a selected type
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: client name
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>size: size of the drive in MB
-</LI>
-<LI>upperI: upper tolerance border for disks with identical type
-</LI>
-<LI>lowerI: lower tolerance border for disks with identical type
-</LI>
-<LI>upperO: upper tolerance border for disks with other type
-</LI>
-<LI>lowerO: lower tolerance border for disks with other type
-</LI>
-<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
-</LI>
-<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
+<LI>type: type of the partition (primary, extended, logical)
 </LI>
 </UL>
 
@@ -84,7 +72,7 @@ FDISK_defineDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

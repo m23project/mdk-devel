@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_insertBootISO</TITLE>
-<META NAME="description" CONTENT="VM_insertBootISO">
+<TITLE>VM_getStatus</TITLE>
+<META NAME="description" CONTENT="VM_getStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1222.html">
 <LINK REL="previous" HREF="node1220.html">
-<LINK REL="up" HREF="node1162.html">
+<LINK REL="up" HREF="node1175.html">
 <LINK REL="next" HREF="node1222.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19331"
+<A NAME="tex2html19383"
   HREF="node1222.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19327"
-  HREF="node1162.html">
+<A NAME="tex2html19379"
+  HREF="node1175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19321"
+<A NAME="tex2html19373"
   HREF="node1220.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19329"
+<A NAME="tex2html19381"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19332"
-  HREF="node1222.html">VM_startVMInExistingXSession</A>
-<B> Up:</B> <A NAME="tex2html19328"
-  HREF="node1162.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19322"
-  HREF="node1220.html">VM_createVM</A>
- &nbsp; <B>  <A NAME="tex2html19330"
+<B> Next:</B> <A NAME="tex2html19384"
+  HREF="node1222.html">VM_GUIstepCreateGuest</A>
+<B> Up:</B> <A NAME="tex2html19380"
+  HREF="node1175.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19374"
+  HREF="node1220.html">VM_getSWandHost</A>
+ &nbsp; <B>  <A NAME="tex2html19382"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083859000000000000000">
-VM_insertBootISO</A>
+<H2><A NAME="SECTION0083846000000000000000">
+VM_getStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Inserts a bootable ISO into a VM.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the current status of a VM guest.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmName: Name of the VM.
-</LI>
-<LI>iso: ISO file with full path.
+<LI>clientName: Name of the virtualised client.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to insert a bootable ISO into a VM.
+<LI>Array with the current state of the VM or false is the client is no VM guest.
 </LI>
 </UL>
 
@@ -78,7 +74,7 @@ VM_insertBootISO</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

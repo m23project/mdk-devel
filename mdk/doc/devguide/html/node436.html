@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_restartDHCPserver</TITLE>
-<META NAME="description" CONTENT="DHCP_restartDHCPserver">
+<TITLE>DHCP_getNetmaskOfDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getNetmaskOfDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node437.html">
 <LINK REL="previous" HREF="node435.html">
-<LINK REL="up" HREF="node424.html">
+<LINK REL="up" HREF="node429.html">
 <LINK REL="next" HREF="node437.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9201"
+<A NAME="tex2html9245"
   HREF="node437.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9197"
-  HREF="node424.html">
+<A NAME="tex2html9241"
+  HREF="node429.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9191"
+<A NAME="tex2html9235"
   HREF="node435.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9199"
+<A NAME="tex2html9243"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9202"
-  HREF="node437.html">DHCP_rmClient</A>
-<B> Up:</B> <A NAME="tex2html9198"
-  HREF="node424.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html9192"
-  HREF="node435.html">DHCP_addLineToDHCPDConf</A>
- &nbsp; <B>  <A NAME="tex2html9200"
+<B> Next:</B> <A NAME="tex2html9246"
+  HREF="node437.html">DHCP_delDynamicRange</A>
+<B> Up:</B> <A NAME="tex2html9242"
+  HREF="node429.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html9236"
+  HREF="node435.html">DHCP_getDynamicRanges</A>
+ &nbsp; <B>  <A NAME="tex2html9244"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081312000000000000000">
-DHCP_restartDHCPserver</A>
+<H2><A NAME="SECTION008137000000000000000">
+DHCP_getNetmaskOfDynamicRanges</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Restarts the DHCP server.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the netmask of a dynamic range identified by the first IP of the range.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>true if it clould be (re)started otherwise false.
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Netmask or false in case of an error.
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ DHCP_restartDHCPserver</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

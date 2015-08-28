@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDriveInfoIcon</TITLE>
-<META NAME="description" CONTENT="FDISK_getDriveInfoIcon">
+<TITLE>FDISK_getAfterPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_getAfterPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node543.html">
 <LINK REL="previous" HREF="node541.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node543.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10605"
+<A NAME="tex2html10649"
   HREF="node543.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10601"
-  HREF="node475.html">
+<A NAME="tex2html10645"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10595"
+<A NAME="tex2html10639"
   HREF="node541.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10603"
+<A NAME="tex2html10647"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10606"
-  HREF="node543.html">FDISK_getPartInfoIcon</A>
-<B> Up:</B> <A NAME="tex2html10602"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10596"
-  HREF="node541.html">FDISK_getDriveInfoString</A>
- &nbsp; <B>  <A NAME="tex2html10604"
+<B> Next:</B> <A NAME="tex2html10650"
+  HREF="node543.html">FDISK_getBeforeFristPartition</A>
+<B> Up:</B> <A NAME="tex2html10646"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10640"
+  HREF="node541.html">FDISK_getPartitionPercent</A>
+ &nbsp; <B>  <A NAME="tex2html10648"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081667000000000000000">
-FDISK_getDriveInfoIcon</A>
+<H2><A NAME="SECTION0081662000000000000000">
+FDISK_getAfterPartition</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive.
+<SPAN  CLASS="textbf">Description:</SPAN> calculates ??? of free size after a selected partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>fstabA: Associative array with fstab information.
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>HTML code for showing an icon with status information about the drive.
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
+</LI>
+<LI>factor: the factor to multiplay percent amount of free space
 </LI>
 </UL>
 
@@ -78,7 +74,7 @@ FDISK_getDriveInfoIcon</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

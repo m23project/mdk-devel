@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getTimeZones</TITLE>
-<META NAME="description" CONTENT="HELPER_getTimeZones">
+<TITLE>HELPER_passGenerator</TITLE>
+<META NAME="description" CONTENT="HELPER_passGenerator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node647.html">
 <LINK REL="previous" HREF="node645.html">
-<LINK REL="up" HREF="node614.html">
+<LINK REL="up" HREF="node619.html">
 <LINK REL="next" HREF="node647.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11920"
+<A NAME="tex2html11968"
   HREF="node647.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11916"
-  HREF="node614.html">
+<A NAME="tex2html11964"
+  HREF="node619.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11910"
+<A NAME="tex2html11958"
   HREF="node645.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11918"
+<A NAME="tex2html11966"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11921"
-  HREF="node647.html">HELPER_calcMBSize</A>
-<B> Up:</B> <A NAME="tex2html11917"
-  HREF="node614.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11911"
-  HREF="node645.html">HELPER_getBootLoaders</A>
- &nbsp; <B>  <A NAME="tex2html11919"
+<B> Next:</B> <A NAME="tex2html11969"
+  HREF="node647.html">HELPER_array2AssociativeArray</A>
+<B> Up:</B> <A NAME="tex2html11965"
+  HREF="node619.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11959"
+  HREF="node645.html">HELPER_getRemoteFileContents</A>
+ &nbsp; <B>  <A NAME="tex2html11967"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081832000000000000000">
-HELPER_getTimeZones</A>
+<H2><A NAME="SECTION0081827000000000000000">
+HELPER_passGenerator</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Searches for all time zones.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates semi-random passwords via pwgen or DB_genPassword.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>country: two letter country name that is used to select a timezone if none is set with $first.
+<LI>length: The length of the passwords.
+</LI>
+<LI>amount: The amount of passwords to generate.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Array with all time zones.
+<LI>Array with the generated passwords if $amount <SPAN CLASS="MATH"></SPAN> 1 or the password string directly if $amount = 1.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ HELPER_getTimeZones</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

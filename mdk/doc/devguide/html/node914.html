@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_countWaitingJobs</TITLE>
-<META NAME="description" CONTENT="PKG_countWaitingJobs">
+<TITLE>PKG_getDebootstrapCacheServerFile</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheServerFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node915.html">
 <LINK REL="previous" HREF="node913.html">
-<LINK REL="up" HREF="node893.html">
+<LINK REL="up" HREF="node902.html">
 <LINK REL="next" HREF="node915.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15445"
+<A NAME="tex2html15493"
   HREF="node915.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15441"
-  HREF="node893.html">
+<A NAME="tex2html15489"
+  HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15435"
+<A NAME="tex2html15483"
   HREF="node913.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15443"
+<A NAME="tex2html15491"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15446"
-  HREF="node915.html">PKG_closeSearch</A>
-<B> Up:</B> <A NAME="tex2html15442"
-  HREF="node893.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15436"
-  HREF="node913.html">PKG_countSpecialPackages</A>
- &nbsp; <B>  <A NAME="tex2html15444"
+<B> Next:</B> <A NAME="tex2html15494"
+  HREF="node915.html">PKG_isReconfiguredWithExtraDistr</A>
+<B> Up:</B> <A NAME="tex2html15490"
+  HREF="node902.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15484"
+  HREF="node913.html">PKG_getDebootstrapCacheServerURL</A>
+ &nbsp; <B>  <A NAME="tex2html15492"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082821000000000000000">
-PKG_countWaitingJobs</A>
+<H2><A NAME="SECTION0082812000000000000000">
+PKG_getDebootstrapCacheServerFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns the amount of a special waiting package
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the full path to the debootstrap cache file on the m23 server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>client: name of the client
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 </LI>
-<LI>package: name of the package you want to know the amount
+<LI>arch: the computer architecture of the client
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The full path to the debootstrap cache file on the m23 server.
 </LI>
 </UL>
 
@@ -70,7 +76,7 @@ PKG_countWaitingJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

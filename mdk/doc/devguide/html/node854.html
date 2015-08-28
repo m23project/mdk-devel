@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_checkAndSaveFields</TITLE>
-<META NAME="description" CONTENT="MASS_checkAndSaveFields">
+<TITLE>./inc/massTools.php</TITLE>
+<META NAME="description" CONTENT="./inc/massTools.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,111 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node855.html">
-<LINK REL="previous" HREF="node853.html">
-<LINK REL="up" HREF="node845.html">
+<LINK REL="next" HREF="node881.html">
+<LINK REL="previous" HREF="node782.html">
+<LINK REL="up" HREF="node142.html">
 <LINK REL="next" HREF="node855.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14609"
+<A NAME="tex2html14631"
   HREF="node855.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14605"
-  HREF="node845.html">
+<A NAME="tex2html14627"
+  HREF="node142.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14599"
+<A NAME="tex2html14621"
   HREF="node853.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14607"
+<A NAME="tex2html14629"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14610"
-  HREF="node855.html">MASS_openDBFile</A>
-<B> Up:</B> <A NAME="tex2html14606"
-  HREF="node845.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html14600"
-  HREF="node853.html">MASS_showTableDefinition</A>
- &nbsp; <B>  <A NAME="tex2html14608"
+<B> Next:</B> <A NAME="tex2html14632"
+  HREF="node855.html">MASS_EGKradioBoxes</A>
+<B> Up:</B> <A NAME="tex2html14628"
+  HREF="node142.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html14622"
+  HREF="node853.html">m23SHARED_getInformationForBootingYourClientLink</A>
+ &nbsp; <B>  <A NAME="tex2html14630"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008259000000000000000">
-MASS_checkAndSaveFields</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> saved the assignments from field number to property and other information to EGKparams and performes a simple check, to verify that the values of the properties are valuable. An error message is returned or an empty string, if all is ok.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>EGKparams: enter generate keep parameters, that hold information about handling of the properties
-</LI>
-</UL>
-
+<H1><A NAME="SECTION008250000000000000000">
+./inc/massTools.php</A>
+</H1>
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: routines for mass installations
+<BR>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html14633"
+  HREF="node855.html">MASS_EGKradioBoxes</A>
+<LI><A NAME="tex2html14634"
+  HREF="node856.html">MASS_FHradioBoxes</A>
+<LI><A NAME="tex2html14635"
+  HREF="node857.html">MASS_showFileHandDialog</A>
+<LI><A NAME="tex2html14636"
+  HREF="node858.html">MASS_propertyKeys</A>
+<LI><A NAME="tex2html14637"
+  HREF="node859.html">MASS_showFileFormatDialog</A>
+<LI><A NAME="tex2html14638"
+  HREF="node860.html">MASS_keyToI18N</A>
+<LI><A NAME="tex2html14639"
+  HREF="node861.html">MASS_I18NTokey</A>
+<LI><A NAME="tex2html14640"
+  HREF="node862.html">MASS_showTableDefinition</A>
+<LI><A NAME="tex2html14641"
+  HREF="node863.html">MASS_checkAndSaveFields</A>
+<LI><A NAME="tex2html14642"
+  HREF="node864.html">MASS_openDBFile</A>
+<LI><A NAME="tex2html14643"
+  HREF="node865.html">MASS_readDBFile</A>
+<LI><A NAME="tex2html14644"
+  HREF="node866.html">MASS_readDBFileRaw</A>
+<LI><A NAME="tex2html14645"
+  HREF="node867.html">MASS_closeDBFile</A>
+<LI><A NAME="tex2html14646"
+  HREF="node868.html">MASS_getXProperties</A>
+<LI><A NAME="tex2html14647"
+  HREF="node869.html">MASS_showGeneratorOptions</A>
+<LI><A NAME="tex2html14648"
+  HREF="node870.html">MASS_passGenerator</A>
+<LI><A NAME="tex2html14649"
+  HREF="node871.html">MASS_loginGenerator</A>
+<LI><A NAME="tex2html14650"
+  HREF="node872.html">MASS_ipGenerator</A>
+<LI><A NAME="tex2html14651"
+  HREF="node873.html">MASS_minMaxIP</A>
+<LI><A NAME="tex2html14652"
+  HREF="node874.html">MASS_generateNetmask</A>
+<LI><A NAME="tex2html14653"
+  HREF="node875.html">MASS_generateClientNames</A>
+<LI><A NAME="tex2html14654"
+  HREF="node876.html">MASS_saveGeneratorOptions</A>
+<LI><A NAME="tex2html14655"
+  HREF="node877.html">MASS_showOverview</A>
+<LI><A NAME="tex2html14656"
+  HREF="node878.html">MASS_getAllFromFile</A>
+<LI><A NAME="tex2html14657"
+  HREF="node879.html">MASS_getLongestLength</A>
+<LI><A NAME="tex2html14658"
+  HREF="node880.html">MASS_startInstall</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

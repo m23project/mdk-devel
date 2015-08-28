@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_addChangeElement</TITLE>
-<META NAME="description" CONTENT="CLIENT_addChangeElement">
+<TITLE>CLIENT_query</TITLE>
+<META NAME="description" CONTENT="CLIENT_query">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,41 +28,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8262"
+<A NAME="tex2html8302"
   HREF="node364.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8258"
+<A NAME="tex2html8298"
   HREF="node282.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8252"
+<A NAME="tex2html8292"
   HREF="node362.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8260"
+<A NAME="tex2html8300"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8263"
-  HREF="node364.html">CLIENT_showDelDialog</A>
-<B> Up:</B> <A NAME="tex2html8259"
+<B> Next:</B> <A NAME="tex2html8303"
+  HREF="node364.html">CLIENT_addChangeElement</A>
+<B> Up:</B> <A NAME="tex2html8299"
   HREF="node282.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html8253"
-  HREF="node362.html">CLIENT_query</A>
- &nbsp; <B>  <A NAME="tex2html8261"
+<B> Previous:</B> <A NAME="tex2html8293"
+  HREF="node362.html">CLIENT_getId</A>
+ &nbsp; <B>  <A NAME="tex2html8301"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0081081000000000000000">
-CLIENT_addChangeElement</A>
+CLIENT_query</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a HTML dialog element for changing a client property.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the result of a query for getting all clients matching selected states and groupNames. Empty values are interpreted as 'all' for this kind of value.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>elem: Name of the element.
+<LI>o1: operator 1 (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects of the first state should be equal, smaler or bigger that the state in s1
 </LI>
-<LI>serverOnlyElement: Set to true if the element could only be changed in the DB and not on the server (e.g. a misspelled MAC)
+<LI>s1: first state to compare with the state of the client
+</LI>
+<LI>o2: operator 2
+</LI>
+<LI>s2: second state to compare
+</LI>
+<LI>groupName: if you want to filter for special group, set it to the group name
+</LI>
+<LI>o3: operator 3
+</LI>
+<LI>s3: third state to compare
+</LI>
+<LI>search: Search string to search all clients for and only list matching clients or all if $search is empty.
 </LI>
 </UL>
 
@@ -70,7 +82,7 @@ CLIENT_addChangeElement</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

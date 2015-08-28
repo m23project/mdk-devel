@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getFirstDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_getFirstDrive">
+<TITLE>FDISK_getPartitionByType</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartitionByType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node510.html">
 <LINK REL="previous" HREF="node508.html">
-<LINK REL="up" HREF="node475.html">
+<LINK REL="up" HREF="node480.html">
 <LINK REL="next" HREF="node510.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10209"
+<A NAME="tex2html10253"
   HREF="node510.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10205"
-  HREF="node475.html">
+<A NAME="tex2html10249"
+  HREF="node480.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10199"
+<A NAME="tex2html10243"
   HREF="node508.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10207"
+<A NAME="tex2html10251"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10210"
-  HREF="node510.html">FDISK_formatPart</A>
-<B> Up:</B> <A NAME="tex2html10206"
-  HREF="node475.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10200"
-  HREF="node508.html">FDISK_printAllBars</A>
- &nbsp; <B>  <A NAME="tex2html10208"
+<B> Next:</B> <A NAME="tex2html10254"
+  HREF="node510.html">FDISK_getDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html10250"
+  HREF="node480.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10244"
+  HREF="node508.html">FDISK_fdiskSessionFstab</A>
+ &nbsp; <B>  <A NAME="tex2html10252"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081634000000000000000">
-FDISK_getFirstDrive</A>
+<H2><A NAME="SECTION0081629000000000000000">
+FDISK_getPartitionByType</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> return the first drive as installation drive
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the FIRST partition matching a partition type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
 </LI>
 </UL>
 
@@ -68,7 +78,7 @@ FDISK_getFirstDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>

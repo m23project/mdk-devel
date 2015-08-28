@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_generateNetmask</TITLE>
-<META NAME="description" CONTENT="MASS_generateNetmask">
+<TITLE>MASS_readDBFile</TITLE>
+<META NAME="description" CONTENT="MASS_readDBFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node866.html">
 <LINK REL="previous" HREF="node864.html">
-<LINK REL="up" HREF="node845.html">
+<LINK REL="up" HREF="node854.html">
 <LINK REL="next" HREF="node866.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14741"
+<A NAME="tex2html14789"
   HREF="node866.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14737"
-  HREF="node845.html">
+<A NAME="tex2html14785"
+  HREF="node854.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14731"
+<A NAME="tex2html14779"
   HREF="node864.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14739"
+<A NAME="tex2html14787"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14742"
-  HREF="node866.html">MASS_generateClientNames</A>
-<B> Up:</B> <A NAME="tex2html14738"
-  HREF="node845.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html14732"
-  HREF="node864.html">MASS_minMaxIP</A>
- &nbsp; <B>  <A NAME="tex2html14740"
+<B> Next:</B> <A NAME="tex2html14790"
+  HREF="node866.html">MASS_readDBFileRaw</A>
+<B> Up:</B> <A NAME="tex2html14786"
+  HREF="node854.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html14780"
+  HREF="node864.html">MASS_openDBFile</A>
+ &nbsp; <B>  <A NAME="tex2html14788"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082520000000000000000">
-MASS_generateNetmask</A>
+<H2><A NAME="SECTION0082511000000000000000">
+MASS_readDBFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> generate netmasks from ip addresses via network class definitions.
+<SPAN  CLASS="textbf">Description:</SPAN> reads a line from the DB file and returnes an associated array with the properties as key and the fields of the file as values.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>ip: the ip that shoulb be used to calculate the netmask
+<LI>fileName: name of the DB file
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Associative array with the values of the DB line or false, if the line was empty.
 </LI>
 </UL>
 
@@ -68,7 +74,7 @@ MASS_generateNetmask</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-08-25
 </ADDRESS>
 </BODY>
 </HTML>
