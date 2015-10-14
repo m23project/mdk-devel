@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint for RAIDs and partitions</TITLE>
-<META NAME="description" CONTENT="Hint for RAIDs and partitions">
+<TITLE>Note about file systems</TITLE>
+<META NAME="description" CONTENT="Note about file systems">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node127.html">
 <LINK REL="previous" HREF="node125.html">
-<LINK REL="up" HREF="node118.html">
+<LINK REL="up" HREF="node120.html">
 <LINK REL="next" HREF="node127.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2109"
+<A NAME="tex2html2126"
   HREF="node127.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2105"
-  HREF="node118.html">
+<A NAME="tex2html2122"
+  HREF="node120.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2099"
+<A NAME="tex2html2116"
   HREF="node125.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2107"
+<A NAME="tex2html2124"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2110"
-  HREF="node127.html">Hint for the installation</A>
-<B> Up:</B> <A NAME="tex2html2106"
-  HREF="node118.html">Client partitioning and formating</A>
-<B> Previous:</B> <A NAME="tex2html2100"
-  HREF="node125.html">Step by step</A>
- &nbsp; <B>  <A NAME="tex2html2108"
+<B> Next:</B> <A NAME="tex2html2127"
+  HREF="node127.html">Step by step</A>
+<B> Up:</B> <A NAME="tex2html2123"
+  HREF="node120.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2117"
+  HREF="node125.html">Note about UEFI</A>
+ &nbsp; <B>  <A NAME="tex2html2125"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00938000000000000000">
-Hint for RAIDs and partitions</A>
+<H2><A NAME="SECTION00936000000000000000">
+Note about file systems</A>
 </H2>
-The Linux kernel accesses the software RAIDs via <SPAN  CLASS="textit">''multi devices''</SPAN>. These RAID drives behave like partitions and cannot be partitioned further. This limitation is made by m23 to accomplish backwards compatibility to older Linux kernels.
+If you choose a file system which is not supported by the distribution of the client (which you will select in a later step), the file system will automatically be set to one that is supported.
+<BR><SPAN  CLASS="textbf">''RAID drives''</SPAN>
+You can join partitions and/or complete drives to create software RAIDs in that space. m23 and accordingly the program mdadm support RAID levels 0, 1, 4, 5, 6 and 10. These RAID levels have advantages and disadvantages in relation to speed increase and data reliability. For additional information about RAIDs read the Wikipedia page http://en.wikipedia.org/wiki/RAID, please. You can create several RAIDs on a single client and use the RAIDs for operating system installation, the swap partition etc. Please read the hint if you want to install an operating system on a RAID.
 <BR>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

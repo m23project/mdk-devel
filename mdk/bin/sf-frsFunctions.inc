@@ -25,7 +25,7 @@ uploadFRS()
 	#link the file to the temporary dir
 	ln -s "$file" "$releaseDir"
 
-	rsync `rsUP` -vPyrL -e ssh "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/$category"
+	rsync `rsUS` -vPyrL -e ssh "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/$category"
 	rm -r "$tempDir"
 }
 

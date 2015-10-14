@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientjobsStatus</TITLE>
-<META NAME="description" CONTENT="PKG_getClientjobsStatus">
+<TITLE>PKG_countJobsWithStatus</TITLE>
+<META NAME="description" CONTENT="PKG_countJobsWithStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,35 +28,35 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15721"
+<A NAME="tex2html15734"
   HREF="node934.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15717"
+<A NAME="tex2html15730"
   HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15711"
+<A NAME="tex2html15724"
   HREF="node932.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15719"
+<A NAME="tex2html15732"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15722"
-  HREF="node934.html">PKG_addNormalPackages</A>
-<B> Up:</B> <A NAME="tex2html15718"
+<B> Next:</B> <A NAME="tex2html15735"
+  HREF="node934.html">PKG_getClientjobsStatus</A>
+<B> Up:</B> <A NAME="tex2html15731"
   HREF="node902.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15712"
-  HREF="node932.html">PKG_countJobsWithStatus</A>
- &nbsp; <B>  <A NAME="tex2html15720"
+<B> Previous:</B> <A NAME="tex2html15725"
+  HREF="node932.html">PKG_addSpecialPackagesToWait4Aac</A>
+ &nbsp; <B>  <A NAME="tex2html15733"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082831000000000000000">
-PKG_getClientjobsStatus</A>
+PKG_countJobsWithStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> return the status of a job
+<SPAN  CLASS="textbf">Description:</SPAN> Counts named jobs on a client that have a special status.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
@@ -64,11 +64,13 @@ PKG_getClientjobsStatus</A>
 </LI>
 <LI>package: name of the package
 </LI>
-<LI>distr: the name of the distribution
+<LI>status: The status to search for
 </LI>
-<LI>params: parameter for installing the package
-</LI>
-<LI>normalPackage: the name of a normal package
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>The amount of packages on the client with the given status.
 </LI>
 </UL>
 
@@ -76,7 +78,7 @@ PKG_getClientjobsStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

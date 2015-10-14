@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Note &#224; propos des syst&#232;mes de fichiers</TITLE>
-<META NAME="description" CONTENT="Note &#224; propos des syst&#232;mes de fichiers">
+<TITLE>Note</TITLE>
+<META NAME="description" CONTENT="Note">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node124.html">
 <LINK REL="previous" HREF="node122.html">
-<LINK REL="up" HREF="node117.html">
+<LINK REL="up" HREF="node119.html">
 <LINK REL="next" HREF="node124.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2068"
+<A NAME="tex2html2085"
   HREF="node124.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2064"
-  HREF="node117.html">
+<A NAME="tex2html2081"
+  HREF="node119.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2058"
+<A NAME="tex2html2075"
   HREF="node122.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2066"
+<A NAME="tex2html2083"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2069"
-  HREF="node124.html">Cr&#233;ation d'un syst&#232;me RAID</A>
-<B> monter:</B> <A NAME="tex2html2065"
-  HREF="node117.html">Partitionnement et formatage du</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2059"
-  HREF="node122.html">Note &#224; propos de</A>
- &nbsp; <B>  <A NAME="tex2html2067"
+<B> suivant:</B> <A NAME="tex2html2086"
+  HREF="node124.html">Note &#224; propos de</A>
+<B> monter:</B> <A NAME="tex2html2082"
+  HREF="node119.html">Partitionnement et formatage du</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2076"
+  HREF="node122.html">Index du menu dans</A>
+ &nbsp; <B>  <A NAME="tex2html2084"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001036000000000000000">
-Note &#224; propos des syst&#232;mes de fichiers</A>
+<H2><A NAME="SECTION001034000000000000000">
+Note</A>
 </H2>
-Si vous avez choisi un syst&#232;me de fichier non support&#233; par la distribution &#224; installer sue le client(que vous s&#233;lectionnerez &#224; une &#233;tape future), le syst&#232;me de fichier sera automatiquement substitu&#233; par un de ceux support&#233;s.
-<BR><SPAN  CLASS="textbf">''Lecteurs RAID''</SPAN>
-Vous pouvez assembler des partitions ou des disques entiers sous forme d'un syst&#232;me RAID logiciel. m23 en accord avec le programme mdadm supportent respectivement les RAID de type 0, 1, 4, 5, 6 et 10, offrant respectivement des avantages et d&#233;savantages quant &#224; la c&#233;l&#233;rit&#233; d'&#233;criture et la s&#233;curit&#233; de panne. Nous vous conseillons vivement de consulter les informations suppl&#233;mentaires sur la page wikipedia http://fr.wikipedia.org/wiki/RAID_(informatique). Vous pouvez cr&#233;er plusieurs syst&#232;mes RAID logiciels par poste client puis, les utiliser pour l'installation du syst&#232;me d'exploitation, la partition swap etc. Veuillez-bien lire, s'il vous pla&#238;t, les informations suppl&#233;mentaires, si vous souhaitez installer le syst&#232;me d'exploitation sur un syst&#232;me RAID.
+Ces mod&#232;les de disques durs peuvent &#234;tre d&#233;finis comme de vrais disques durs (partitionnement, formattage, RAIDS logiciels, partitions d'installation et de swap) Les tailles saisies peuvent &#234;tre similaires (ou identiques) &#224; la celui des disques physiques dans les postes clients, mais les noms des p&#233;riph&#233;riques doivent &#234;tre identiques aux noms des p&#233;riph&#233;riques physiques. Si la taille du mod&#232;le de disque diff&#232;re de la taille r&#233;elle du disque sur le client, les tailles respectives des partitions seront ajust&#233;es en cons&#233;quence.
+<BR><SPAN  CLASS="textbf">Sch&#233;ma de partitionnement</SPAN>
+Des schemas pr&#233;d&#233;finis pour le partitionnement et le formatage du disque dur du poste client m23 peuvent &#234;tre choisis ici. Confirmez votre choix en cliquant sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Employer ce sch&#233;ma<SPAN CLASS="MATH"></SPAN></SPAN>.
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Partitionnement automatique:</SPAN> Pour le partitionnement automatique, toutes les donn&#233;es du premier disque dur seront effac&#233;es et deux nouvelles partitions seront cr&#233;&#233;es, la premi&#232;re pour les donn&#233;es et le syst&#232;me d'exploitation et la seconde pour le swap.
+<BR></LI>
+</UL>
+<SPAN  CLASS="textbf">Effacer la partition actuelle</SPAN>
+En cliquant sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>, vous effacez la partition actuelle (indiqu&#233;e sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Partition actuelle<SPAN CLASS="MATH"></SPAN></SPAN>).
+<BR><SPAN  CLASS="textbf">Cr&#233;er une nouvelle partition</SPAN>
+Vous pouvez cr&#233;er une nouvelle partition dans l'espace non utilis&#233; du disque dur. S&#233;lectionnez le d&#233;but et la fin de la nouvelle partition en cliquant sur la partie blanche (quand JavaScript est activ&#233;) ou entrez-les sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&#233;but<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Fin<SPAN CLASS="MATH"></SPAN></SPAN>. Vous pouvez &#233;galement cr&#233;er une partition ne prenant pas tout l'espace libre. Choisissez le type de partition sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Type<SPAN CLASS="MATH"></SPAN></SPAN>, pour cr&#233;er une partition primaire (primary), &#233;tendue (extended) ou logique (logical). Enfin, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Ajouter<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2085"
+  HREF="node124.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2081"
+  HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2075"
+  HREF="node122.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2083"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html2086"
+  HREF="node124.html">Note &#224; propos de</A>
+<B> monter:</B> <A NAME="tex2html2082"
+  HREF="node119.html">Partitionnement et formatage du</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2076"
+  HREF="node122.html">Index du menu dans</A>
+ &nbsp; <B>  <A NAME="tex2html2084"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

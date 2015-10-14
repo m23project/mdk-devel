@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_deleteFile</TITLE>
-<META NAME="description" CONTENT="SERVER_deleteFile">
+<TITLE>SERVER_runInBackground</TITLE>
+<META NAME="description" CONTENT="SERVER_runInBackground">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1119.html">
 <LINK REL="previous" HREF="node1117.html">
-<LINK REL="up" HREF="node1082.html">
+<LINK REL="up" HREF="node1083.html">
 <LINK REL="next" HREF="node1119.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18046"
+<A NAME="tex2html18062"
   HREF="node1119.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18042"
-  HREF="node1082.html">
+<A NAME="tex2html18058"
+  HREF="node1083.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18036"
+<A NAME="tex2html18052"
   HREF="node1117.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18044"
+<A NAME="tex2html18060"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18047"
-  HREF="node1119.html">SERVER_getFileContents</A>
-<B> Up:</B> <A NAME="tex2html18043"
-  HREF="node1082.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html18037"
-  HREF="node1117.html">SERVER_addLineToFile</A>
- &nbsp; <B>  <A NAME="tex2html18045"
+<B> Next:</B> <A NAME="tex2html18063"
+  HREF="node1119.html">SERVER_runningInBackground</A>
+<B> Up:</B> <A NAME="tex2html18059"
+  HREF="node1083.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html18053"
+  HREF="node1117.html">SERVER_programmStatusTableHeader</A>
+ &nbsp; <B>  <A NAME="tex2html18061"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083536000000000000000">
-SERVER_deleteFile</A>
+<H2><A NAME="SECTION0083535000000000000000">
+SERVER_runInBackground</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a file from the server.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background under a given user
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>fileName: Name of the file to delete.
+<LI>jobName: name of the job screen should show
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: true on successfully execution otherwise false.
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
 </LI>
 </UL>
 
@@ -74,7 +74,7 @@ SERVER_deleteFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

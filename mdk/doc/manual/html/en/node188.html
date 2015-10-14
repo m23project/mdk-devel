@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Poll builder</TITLE>
-<META NAME="description" CONTENT="Poll builder">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,78 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node198.html">
-<LINK REL="previous" HREF="node162.html">
-<LINK REL="up" HREF="manual.html">
+<LINK REL="previous" HREF="node187.html">
+<LINK REL="up" HREF="node186.html">
 <LINK REL="next" HREF="node189.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2898"
+<A NAME="tex2html2925"
   HREF="node189.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2894"
-  HREF="manual.html">
+<A NAME="tex2html2921"
+  HREF="node186.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2888"
+<A NAME="tex2html2917"
   HREF="node187.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2896"
+<A NAME="tex2html2923"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2899"
-  HREF="node189.html">Pool builder (Create, edit,</A>
-<B> Up:</B> <A NAME="tex2html2895"
-  HREF="manual.html">m23 manual m23 rock</A>
-<B> Previous:</B> <A NAME="tex2html2889"
-  HREF="node187.html">Hints</A>
- &nbsp; <B>  <A NAME="tex2html2897"
+<B> Next:</B> <A NAME="tex2html2926"
+  HREF="node189.html">Script editor</A>
+<B> Up:</B> <A NAME="tex2html2922"
+  HREF="node186.html">Package builder</A>
+<B> Previous:</B> <A NAME="tex2html2918"
+  HREF="node187.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html2924"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001300000000000000000">
-Poll builder</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2900"
-  HREF="node189.html">Pool builder (Create, edit, delete pool)</A>
-<UL>
-<LI><A NAME="tex2html2901"
-  HREF="node190.html">Hint</A>
-</UL>
+<H2><A NAME="SECTION001262000000000000000">
+BitTorrent</A>
+</H2>
+If you would like to distribute large files to many client computers, and would like to reduce the strain this puts on the server, you can use the BitTorrent functionality. BitTorrent makes it possible that the m23 clients share parts of already downloaded files among each other, which (in the ideal case) will result in the m23 server only transferring this file a single time.
 <BR>
-<LI><A NAME="tex2html2902"
-  HREF="node191.html">Pool builder (Read packages from CD)</A>
-<LI><A NAME="tex2html2903"
-  HREF="node192.html">Pool builder (Create package index)</A>
-<LI><A NAME="tex2html2904"
-  HREF="node193.html">Pool builder (Select package sources and packages)</A>
-<UL>
-<LI><A NAME="tex2html2905"
-  HREF="node194.html">Hint</A>
-</UL>
+To use Bittorrent, follow these steps:
 <BR>
-<LI><A NAME="tex2html2906"
-  HREF="node195.html">Pool builder (Start download)</A>
-<LI><A NAME="tex2html2907"
-  HREF="node196.html">Pool builder (Packages are beeing downloaded)</A>
-<LI><A NAME="tex2html2908"
-  HREF="node197.html">Package sources</A>
-</UL>
-<!--End of Table of Child-Links-->
+<OL>
+<LI>Copy the file(s) you would like to transfer to the clients into the directory <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> on your m23 server.
+<BR></LI>
+<LI>Click on the button labelled <SPAN  CLASS="textit">''Create .torrent''</SPAN> behind the corresponding file name.
+<BR></LI>
+<LI>In your own scripts, use the m23 function 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

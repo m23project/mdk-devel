@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_saveList</TITLE>
-<META NAME="description" CONTENT="SRCLST_saveList">
+<TITLE>SRCLST_getAddToFile</TITLE>
+<META NAME="description" CONTENT="SRCLST_getAddToFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1138.html">
 <LINK REL="previous" HREF="node1136.html">
-<LINK REL="up" HREF="node1132.html">
+<LINK REL="up" HREF="node1136.html">
 <LINK REL="next" HREF="node1138.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18309"
+<A NAME="tex2html18325"
   HREF="node1138.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18305"
-  HREF="node1132.html">
+<A NAME="tex2html18321"
+  HREF="node1136.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18299"
+<A NAME="tex2html18315"
   HREF="node1136.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18307"
+<A NAME="tex2html18323"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18310"
-  HREF="node1138.html">SRCLST_querySourceslists</A>
-<B> Up:</B> <A NAME="tex2html18306"
-  HREF="node1132.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18300"
-  HREF="node1136.html">SRCLST_saveArchitectures</A>
- &nbsp; <B>  <A NAME="tex2html18308"
+<B> Next:</B> <A NAME="tex2html18326"
+  HREF="node1138.html">SRCLST_getRelease</A>
+<B> Up:</B> <A NAME="tex2html18322"
+  HREF="node1136.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html18316"
+  HREF="node1136.html">./inc/sourceslist.php</A>
+ &nbsp; <B>  <A NAME="tex2html18324"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008365000000000000000">
-SRCLST_saveList</A>
+<H2><A NAME="SECTION008361000000000000000">
+SRCLST_getAddToFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> saves the package source list
+<SPAN  CLASS="textbf">Description:</SPAN> Returns addToFile paramters from the given sources list as an associative array, where file name and file contents are seperated.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>name: the name of the package source list
+<LI>sourceName: The name of the package source list
 </LI>
-<LI>list: the list of sources as simple text
-</LI>
-<LI>description: a descriptive text for the list
-</LI>
-<LI>distr: the name of the distribution the list is for
-</LI>
-<LI>release: the name of the release the list is for
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>: Associative array with file name and file contents (e.g. [0] =<SPAN CLASS="MATH"></SPAN> Array ([file] =<SPAN CLASS="MATH"></SPAN> file1.txt, [text] =<SPAN CLASS="MATH"></SPAN> text1), [1] =<SPAN CLASS="MATH"></SPAN> Array ([file] =<SPAN CLASS="MATH"></SPAN> file2.txt, [text] =<SPAN CLASS="MATH"></SPAN> text2), ...)
 </LI>
 </UL>
 
@@ -76,7 +74,7 @@ SRCLST_saveList</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

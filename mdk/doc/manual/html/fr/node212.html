@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Assigner les colonnes du fichier de donn&#233;es aux propri&#233;t&#233;s du poste client</TITLE>
-<META NAME="description" CONTENT="Assigner les colonnes du fichier de donn&#233;es aux propri&#233;t&#233;s du poste client">
+<TITLE>Crit&#232;res d'ajustement</TITLE>
+<META NAME="description" CONTENT="Crit&#232;res d'ajustement">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,82 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node213.html">
 <LINK REL="previous" HREF="node211.html">
-<LINK REL="up" HREF="node209.html">
+<LINK REL="up" HREF="node210.html">
 <LINK REL="next" HREF="node213.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3212"
+<A NAME="tex2html3240"
   HREF="node213.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3208"
-  HREF="node209.html">
+<A NAME="tex2html3236"
+  HREF="node210.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3202"
+<A NAME="tex2html3230"
   HREF="node211.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3210"
+<A NAME="tex2html3238"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html3213"
-  HREF="node213.html">Proc&#233;dez comme suit:</A>
-<B> monter:</B> <A NAME="tex2html3209"
-  HREF="node209.html">Choisir la source de</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3203"
+<B> suivant:</B> <A NAME="tex2html3241"
+  HREF="node213.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html3237"
+  HREF="node210.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3231"
   HREF="node211.html">Notez</A>
- &nbsp; <B>  <A NAME="tex2html3211"
+ &nbsp; <B>  <A NAME="tex2html3239"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001553000000000000000">
-Assigner les colonnes du fichier de donn&#233;es aux propri&#233;t&#233;s du poste client</A>
+<H2><A NAME="SECTION001522000000000000000">
+Crit&#232;res d'ajustement</A>
 </H2>
-Apr&#232;s avoir t&#233;l&#233;charg&#233; un fichier de donn&#233;es, vous pouvez assigner les colonnes de ce fichier aux propri&#233;t&#233;s de vos postes client.
+Nous supposons que les param&#232;tres du disque dur d&#233;finis ne peuvent s'appliquer &#224; tous vos postes clients. M23 fournit diff&#233;rentes m&#233;thodes pour l'adaptation individuelle des partitions pour vos diff&#233;rents clients.
 <BR>
-<BR><HR>
+<UL>
+<LI>Le <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Crit&#232;re de s&#233;lection du disque dur<SPAN CLASS="MATH"></SPAN></SPAN> d&#233;termine l'algorithme de s&#233;lection du disque dur dans le cas ou il y en aurait plusieurs.
+<BR>
+<UL>
+<LI>La fonction <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Comme indiqu&#233;<SPAN CLASS="MATH"></SPAN></SPAN> force l'utilisation du disque dur s&#233;lectionn&#233; ci-dessus, bien qu'il puisse y avoir des disques durs dont la taille correspondrait mieux &#224; la taille requise. Si ce disque dur n'existait pas (par exemple s'il n'y a pas de /dev/hda pour un syst&#232;me SCSI), un autre disque dur sera s&#233;lectionn&#233;. Si cette fonction n'est pas activ&#233;e, le disque dur le mieux adapt&#233; sera s&#233;lectionn&#233; selon les crit&#232;res suivants:
+<BR></LI>
+<LI>Les bornes de tol&#233;rance pour <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Du m&#234;me type<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN> indiquent la taille maximum (le disque dur du client est plus grand que celui du poste client ma&#238;tre) et la taille minimum (le disque dur du client est plus petit que celui du client ma&#238;tre). Des disques durs dont la taille est comprise entre ces deux valeurs sont conformes. Lorsque des disques durs d'un m&#234;me type doivent (par exemple du type IDE) &#234;tre utilis&#233;s, s&#233;lectionnez des bornes de tol&#233;rences plus restreintes (mettre les bornes de tol&#233;rances sup&#233;rieures et inf&#233;rieures sur 0) pour le disque dur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>D&amp;apos;un autre type<SPAN CLASS="MATH"></SPAN></SPAN>.
+<BR>		
+</LI>
+</UL>
+</LI>
+</UL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3240"
+  HREF="node213.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3236"
+  HREF="node210.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3230"
+  HREF="node211.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3238"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html3241"
+  HREF="node213.html">Notez</A>
+<B> monter:</B> <A NAME="tex2html3237"
+  HREF="node210.html">D&#233;finir le type et</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3231"
+  HREF="node211.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html3239"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_checkOverwriting</TITLE>
-<META NAME="description" CONTENT="PLG_checkOverwriting">
+<TITLE>PLG_showDownloadStatus</TITLE>
+<META NAME="description" CONTENT="PLG_showDownloadStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1025.html">
 <LINK REL="previous" HREF="node1023.html">
-<LINK REL="up" HREF="node1012.html">
+<LINK REL="up" HREF="node1013.html">
 <LINK REL="next" HREF="node1025.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16837"
+<A NAME="tex2html16850"
   HREF="node1025.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16833"
-  HREF="node1012.html">
+<A NAME="tex2html16846"
+  HREF="node1013.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16827"
+<A NAME="tex2html16840"
   HREF="node1023.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16835"
+<A NAME="tex2html16848"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16838"
-  HREF="node1025.html">PLG_DBInstall</A>
-<B> Up:</B> <A NAME="tex2html16834"
-  HREF="node1012.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html16828"
+<B> Next:</B> <A NAME="tex2html16851"
+  HREF="node1025.html">PLG_checkOverwriting</A>
+<B> Up:</B> <A NAME="tex2html16847"
+  HREF="node1013.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html16841"
   HREF="node1023.html">PLG_showDownloadStatus</A>
- &nbsp; <B>  <A NAME="tex2html16836"
+ &nbsp; <B>  <A NAME="tex2html16849"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083012000000000000000">
-PLG_checkOverwriting</A>
+<H2><A NAME="SECTION0083011000000000000000">
+PLG_showDownloadStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
+<SPAN  CLASS="textbf">Description:</SPAN> downloads or copies the plugin to the temp dir
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
+<LI>url: the place where to get the plugin file from. following transport protocols are allowed: http, ftp and local files. e.g. "http://myserver.de/test.m23plg" is avalid url.
 </LI>
 <LI>tempDir: where to store the plugin file temporary
+</LI>
+<LI>fileName: file name with whole path to the plugin file
 </LI>
 </UL>
 
@@ -70,7 +72,7 @@ PLG_checkOverwriting</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

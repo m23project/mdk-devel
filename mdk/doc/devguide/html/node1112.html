@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_LDAPInfo</TITLE>
-<META NAME="description" CONTENT="SERVER_LDAPInfo">
+<TITLE>SERVER_programmStatus</TITLE>
+<META NAME="description" CONTENT="SERVER_programmStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1113.html">
 <LINK REL="previous" HREF="node1111.html">
-<LINK REL="up" HREF="node1082.html">
+<LINK REL="up" HREF="node1083.html">
 <LINK REL="next" HREF="node1113.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17974"
+<A NAME="tex2html17990"
   HREF="node1113.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17970"
-  HREF="node1082.html">
+<A NAME="tex2html17986"
+  HREF="node1083.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17964"
+<A NAME="tex2html17980"
   HREF="node1111.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17972"
+<A NAME="tex2html17988"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17975"
-  HREF="node1113.html">SERVER_programmStatusTableHeader</A>
-<B> Up:</B> <A NAME="tex2html17971"
-  HREF="node1082.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17965"
-  HREF="node1111.html">SERVER_dhcpInfo</A>
- &nbsp; <B>  <A NAME="tex2html17973"
+<B> Next:</B> <A NAME="tex2html17991"
+  HREF="node1113.html">SERVER_apacheInfo</A>
+<B> Up:</B> <A NAME="tex2html17987"
+  HREF="node1083.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17981"
+  HREF="node1111.html">SERVER_installToolInBackground</A>
+ &nbsp; <B>  <A NAME="tex2html17989"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083530000000000000000">
-SERVER_LDAPInfo</A>
+<H2><A NAME="SECTION0083529000000000000000">
+SERVER_programmStatus</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes an information string for the LDAP server.
-<BR>
+<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+
+<UL>
+<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
+</LI>
+<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
+</LI>
+<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
+</LI>
+</UL>
+
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

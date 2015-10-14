@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint</TITLE>
-<META NAME="description" CONTENT="Hint">
+<TITLE>VirtualBox</TITLE>
+<META NAME="description" CONTENT="VirtualBox">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,89 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node148.html">
 <LINK REL="previous" HREF="node146.html">
-<LINK REL="up" HREF="node143.html">
+<LINK REL="up" HREF="node145.html">
 <LINK REL="next" HREF="node148.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2381"
+<A NAME="tex2html2398"
   HREF="node148.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2377"
-  HREF="node143.html">
+<A NAME="tex2html2394"
+  HREF="node145.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2371"
+<A NAME="tex2html2388"
   HREF="node146.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2379"
+<A NAME="tex2html2396"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2382"
-  HREF="node148.html">Hints about the VM</A>
-<B> Up:</B> <A NAME="tex2html2378"
-  HREF="node143.html">Create VM</A>
-<B> Previous:</B> <A NAME="tex2html2372"
-  HREF="node146.html">Apache CloudStack</A>
- &nbsp; <B>  <A NAME="tex2html2380"
+<B> Next:</B> <A NAME="tex2html2399"
+  HREF="node148.html">Apache CloudStack</A>
+<B> Up:</B> <A NAME="tex2html2395"
+  HREF="node145.html">Create VM</A>
+<B> Previous:</B> <A NAME="tex2html2389"
+  HREF="node146.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2397"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001014000000000000000">
-Hint</A>
+<H2><A NAME="SECTION001012000000000000000">
+VirtualBox</A>
 </H2>
-		If you would like to create <SPAN  CLASS="textbf">more than a single VM</SPAN>, you will have to replace the network identification number (<SPAN  CLASS="textit">''Network ID''</SPAN>) at  <SPAN  CLASS="textit">''Server''</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">''Server settings''</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">''Apache CloudStack<SUP></SUP>''</SPAN> by an unused identification number of a network available for your ''Apache CloudStack<SUP></SUP>'' user account after every creation of a virtual machine. 
+		There is shown status information about the m23 client/VM host if it is running. You need to specify the settings of your new virtual m23 clients after choosing the VM host:
 <BR>
-Into the field <SPAN  CLASS="textit">''VM name''</SPAN> enter the name for the VM you want to create and finally, click on <SPAN  CLASS="textit">''Create''</SPAN>.
-<BR>	
+<UL>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Host network card</SPAN>: Here you need to select the physical network card of your host if it has more than one network card. This must be the network card which is used to connect the host to your internal LAN. The VMs are connected via a software network bridge to the physical network.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">VM name</SPAN>: The name of the new virtual machine. This name is identical with the name of the according m23 client.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">MAC Address</SPAN>: The MAC address of the VM. This address will be generated at random so it's very unlikely that there is a collision with other MAC addresses, but you can edit the proposed MAC.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Memory</SPAN>: The size of the memory (RAM) of the VM. This value should not be too high to allow the running of other applications and possible other VMs.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Harddisk</SPAN>: The maximum size of the virtual harddisk.
+<BR></LI>
+</UL>
+		Click on <SPAN  CLASS="textit">''Create''</SPAN> to create the new VM.
+<BR>		
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2398"
+  HREF="node148.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2394"
+  HREF="node145.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2388"
+  HREF="node146.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2396"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-You <SPAN  CLASS="textbf">necessarily need</SPAN> to click on the link <SPAN  CLASS="textit">''<SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> Add client <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN>''</SPAN> after the successful creation of the VM. Otherwise there will be no m23 client and the VM would not be manageable via m23. Any error messages of the virtualisation software will be shown in a red box if there occurs an error while creating the VM.
-<BR>
-<BR><HR>
+<B> Next:</B> <A NAME="tex2html2399"
+  HREF="node148.html">Apache CloudStack</A>
+<B> Up:</B> <A NAME="tex2html2395"
+  HREF="node145.html">Create VM</A>
+<B> Previous:</B> <A NAME="tex2html2389"
+  HREF="node146.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2397"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

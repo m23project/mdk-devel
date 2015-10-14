@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zu RAIDs und Partitionen</TITLE>
-<META NAME="description" CONTENT="Hinweis zu RAIDs und Partitionen">
+<TITLE>Hinweis zu Dateisystemen</TITLE>
+<META NAME="description" CONTENT="Hinweis zu Dateisystemen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node127.html">
 <LINK REL="previous" HREF="node125.html">
-<LINK REL="up" HREF="node118.html">
+<LINK REL="up" HREF="node120.html">
 <LINK REL="next" HREF="node127.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2122"
+<A NAME="tex2html2127"
   HREF="node127.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2118"
-  HREF="node118.html">
+<A NAME="tex2html2123"
+  HREF="node120.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2112"
+<A NAME="tex2html2117"
   HREF="node125.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2120"
+<A NAME="tex2html2125"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2123"
-  HREF="node127.html">Hinweis zur Installation von</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2119"
-  HREF="node118.html">Clientpartitionierung und -formatierung</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2113"
-  HREF="node125.html">Schrittweises Vorgehen zum Anlegen</A>
- &nbsp; <B>  <A NAME="tex2html2121"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2128"
+  HREF="node127.html">Schrittweises Vorgehen zum Anlegen</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2124"
+  HREF="node120.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2118"
+  HREF="node125.html">Hinweis zu UEFI</A>
+ &nbsp; <B>  <A NAME="tex2html2126"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00938000000000000000">
-Hinweis zu RAIDs und Partitionen</A>
+<H2><A NAME="SECTION00936000000000000000">
+Hinweis zu Dateisystemen</A>
 </H2>
-Auf die RAIDs wird durch die <SPAN  CLASS="textit">''Multi device''</SPAN>-Funktion des Linux-Kernels zugegriffen. Die so gebildeten RAID-Laufwerke verhalten sie wie Partitionen und k&#246;nnen nicht weiter partitioniert werden. Die neue Software-RAID-Variante mit Partitionierungsm&#246;glichkeit wird nicht verwendet, um R&#252;ckw&#228;rtskompatibilit&#228;t zu &#228;lteren Kerneln zu gew&#228;hrleisten.
+Sollten Sie ein Dateisystem ausw&#228;hlen, das nicht von der (sp&#228;ter zu w&#228;hlenden) Client-Distribution unterst&#252;tzt wird, so wird das Dateisystem automatisch auf ein unterst&#252;tztes angepa&#223;t.
+<BR><SPAN  CLASS="textbf">''RAID-Laufwerke''</SPAN>
+In diesem Dialog k&#246;nnen Sie Partitionen oder ganze Laufwerke zu Software-RAIDs zusammenfassen. m23 bzw. das Programm mdadm unterst&#252;tzen die RAID-Level 0, 1, 4, 5, 6 und 10, die jeweils unterschiedliche Vor- und Nachteile im Bezug auf erzielten Geschwindigkeitszuwachs und Ausfallsicherheit bieten. F&#252;r weitere Informationen zu RAIDs lesen Sie bitte die Wikipedia-Seite http://de.wikipedia.org/wiki/RAID. Sie k&#246;nnen mehrere RAIDs pro Client anlegen und dann zur Installation des Betriebssystems, der Swap-Partition etc. benutzen. Lesen Sie bitte den Hinweis, wenn Sie das Betriebssystem auf einem RAID-Laufwerk installieren wollen.
 <BR>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

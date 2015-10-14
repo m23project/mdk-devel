@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PREF_getValue</TITLE>
-<META NAME="description" CONTENT="PREF_getValue">
+<TITLE>PREF_getClientPreferences</TITLE>
+<META NAME="description" CONTENT="PREF_getClientPreferences">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1064.html">
 <LINK REL="previous" HREF="node1062.html">
-<LINK REL="up" HREF="node1056.html">
+<LINK REL="up" HREF="node1057.html">
 <LINK REL="next" HREF="node1064.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17332"
+<A NAME="tex2html17345"
   HREF="node1064.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17328"
-  HREF="node1056.html">
+<A NAME="tex2html17341"
+  HREF="node1057.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17322"
+<A NAME="tex2html17335"
   HREF="node1062.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17330"
+<A NAME="tex2html17343"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17333"
-  HREF="node1064.html">PREF_putValue</A>
-<B> Up:</B> <A NAME="tex2html17329"
-  HREF="node1056.html">./inc/preferences.php</A>
-<B> Previous:</B> <A NAME="tex2html17323"
-  HREF="node1062.html">PREF_getClientPreferences</A>
- &nbsp; <B>  <A NAME="tex2html17331"
+<B> Next:</B> <A NAME="tex2html17346"
+  HREF="node1064.html">PREF_getValue</A>
+<B> Up:</B> <A NAME="tex2html17342"
+  HREF="node1057.html">./inc/preferences.php</A>
+<B> Previous:</B> <A NAME="tex2html17336"
+  HREF="node1062.html">PREF_loadAllPreferenceValues</A>
+ &nbsp; <B>  <A NAME="tex2html17344"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008327000000000000000">
-PREF_getValue</A>
+<H2><A NAME="SECTION008326000000000000000">
+PREF_getClientPreferences</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets a value from a selected preference. with preferences you can store variables and values for reuse.
+<SPAN  CLASS="textbf">Description:</SPAN> list all preferences
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>name: the name of the preference
+<LI>default: The name of the preference to list first
 </LI>
-<LI>var: variable of the preference
+<LI>directOutput: If enabled the preference names will be given out as a HTML option list. If disabled an array with the preference names as key and value will be returned.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>Array with the preference names or nothing on enabled directOutput.
 </LI>
 </UL>
 
@@ -70,7 +76,7 @@ PREF_getValue</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

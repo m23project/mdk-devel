@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Note about file systems</TITLE>
-<META NAME="description" CONTENT="Note about file systems">
+<TITLE>Note</TITLE>
+<META NAME="description" CONTENT="Note">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node125.html">
 <LINK REL="previous" HREF="node123.html">
-<LINK REL="up" HREF="node118.html">
+<LINK REL="up" HREF="node120.html">
 <LINK REL="next" HREF="node125.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2085"
+<A NAME="tex2html2102"
   HREF="node125.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2081"
-  HREF="node118.html">
+<A NAME="tex2html2098"
+  HREF="node120.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2075"
+<A NAME="tex2html2092"
   HREF="node123.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2083"
+<A NAME="tex2html2100"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2086"
-  HREF="node125.html">Step by step</A>
-<B> Up:</B> <A NAME="tex2html2082"
-  HREF="node118.html">Client partitioning and formating</A>
-<B> Previous:</B> <A NAME="tex2html2076"
-  HREF="node123.html">Note about UEFI</A>
- &nbsp; <B>  <A NAME="tex2html2084"
+<B> Next:</B> <A NAME="tex2html2103"
+  HREF="node125.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2099"
+  HREF="node120.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2093"
+  HREF="node123.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2101"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00936000000000000000">
-Note about file systems</A>
+<H2><A NAME="SECTION00934000000000000000">
+Note</A>
 </H2>
-If you choose a file system which is not supported by the distribution of the client (which you will select in a later step), the file system will automatically be set to one that is supported.
-<BR><SPAN  CLASS="textbf">''RAID drives''</SPAN>
-You can join partitions and/or complete drives to create software RAIDs in that space. m23 and accordingly the program mdadm support RAID levels 0, 1, 4, 5, 6 and 10. These RAID levels have advantages and disadvantages in relation to speed increase and data reliability. For additional information about RAIDs read the Wikipedia page http://en.wikipedia.org/wiki/RAID, please. You can create several RAIDs on a single client and use the RAIDs for operating system installation, the swap partition etc. Please read the hint if you want to install an operating system on a RAID.
+These templates for harddisks can be set up like real harddisks (partitioning, formatting, software RAIDS, partitions for installation and swap) The sizes you enter should be similar (or identical) to the real hardware in your clients, but the device names must be identical to the real device names. If the size of the template disk differs from the real size of the client's disk, the sizes of the respective partitions will be adjusted percentally.
+<BR><SPAN  CLASS="textbf">Partition scheme</SPAN>
+Predefined schemes for partitioning and formating the hard disk of the m23 client can be choosen here and executed by a click on <SPAN  CLASS="textit">''Execute scheme''</SPAN>.
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Automatic partitioning</SPAN>: This scheme deletes all data from the first hard disk and creates two new partitions. The first partition is used for the operating system and data and the second for swapping.
+<BR></LI>
+</UL>
+<SPAN  CLASS="textbf">Delete current partition</SPAN>
+A click on <SPAN  CLASS="textit">''Delete''</SPAN> removes the current (shown/selected at <SPAN  CLASS="textit">''Current partition''</SPAN>) partition.
+<BR><SPAN  CLASS="textbf">Create new partition</SPAN>
+You can create a new partition in the free space of a hard disk with this function. Choose the start and end point of the new partition by clicking into the white space of a drive (on activated JavaScript) or by entering the values for its bordes into <SPAN  CLASS="textit">''Start''</SPAN> and <SPAN  CLASS="textit">''End''</SPAN>. Of course it is possible to create a partition that is smaler than the whole free area. Choose the type of the partition at <SPAN  CLASS="textit">''Type''</SPAN> to select, if a primary, extended or logical partition should be created. Finally create it with a click to <SPAN  CLASS="textit">''Add''</SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2102"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2098"
+  HREF="node120.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2092"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2100"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2103"
+  HREF="node125.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2099"
+  HREF="node120.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2093"
+  HREF="node123.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2101"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

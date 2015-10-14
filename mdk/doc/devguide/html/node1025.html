@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_DBInstall</TITLE>
-<META NAME="description" CONTENT="PLG_DBInstall">
+<TITLE>PLG_checkOverwriting</TITLE>
+<META NAME="description" CONTENT="PLG_checkOverwriting">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1026.html">
 <LINK REL="previous" HREF="node1024.html">
-<LINK REL="up" HREF="node1012.html">
+<LINK REL="up" HREF="node1013.html">
 <LINK REL="next" HREF="node1026.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16849"
+<A NAME="tex2html16862"
   HREF="node1026.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16845"
-  HREF="node1012.html">
+<A NAME="tex2html16858"
+  HREF="node1013.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16839"
+<A NAME="tex2html16852"
   HREF="node1024.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16847"
+<A NAME="tex2html16860"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16850"
-  HREF="node1026.html">PLG_realInstall</A>
-<B> Up:</B> <A NAME="tex2html16846"
-  HREF="node1012.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html16840"
-  HREF="node1024.html">PLG_checkOverwriting</A>
- &nbsp; <B>  <A NAME="tex2html16848"
+<B> Next:</B> <A NAME="tex2html16863"
+  HREF="node1026.html">PLG_DBInstall</A>
+<B> Up:</B> <A NAME="tex2html16859"
+  HREF="node1013.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html16853"
+  HREF="node1024.html">PLG_showDownloadStatus</A>
+ &nbsp; <B>  <A NAME="tex2html16861"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083013000000000000000">
-PLG_DBInstall</A>
+<H2><A NAME="SECTION0083012000000000000000">
+PLG_checkOverwriting</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> stores information about the plugin in the data base.
+<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>tempDir: where to find the extracted files of the plugin
+<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
 </LI>
-<LI>files: all file names of the plugin file name
+<LI>tempDir: where to store the plugin file temporary
 </LI>
 </UL>
 
@@ -70,7 +70,7 @@ PLG_DBInstall</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

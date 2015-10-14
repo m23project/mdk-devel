@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_parseVBOXdisk</TITLE>
-<META NAME="description" CONTENT="VM_parseVBOXdisk">
+<TITLE>VM_startVM</TITLE>
+<META NAME="description" CONTENT="VM_startVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1241.html">
 <LINK REL="previous" HREF="node1239.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1241.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19611"
+<A NAME="tex2html19627"
   HREF="node1241.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19607"
-  HREF="node1175.html">
+<A NAME="tex2html19623"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19601"
+<A NAME="tex2html19617"
   HREF="node1239.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19609"
+<A NAME="tex2html19625"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19612"
-  HREF="node1241.html">VM_parseVBOXstate</A>
-<B> Up:</B> <A NAME="tex2html19608"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19602"
-  HREF="node1239.html">VM_status</A>
- &nbsp; <B>  <A NAME="tex2html19610"
+<B> Next:</B> <A NAME="tex2html19628"
+  HREF="node1241.html">VM_startVMCommandFile</A>
+<B> Up:</B> <A NAME="tex2html19624"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19618"
+  HREF="node1239.html">VM_startVMInExistingXSession</A>
+ &nbsp; <B>  <A NAME="tex2html19626"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083865000000000000000">
-VM_parseVBOXdisk</A>
+<H2><A NAME="SECTION0083861000000000000000">
+VM_startVM</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Parses a harddisk/DVD/floppy status line of VirtualBox.
+<SPAN  CLASS="textbf">Description:</SPAN> Starts a virtual machine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: Parameter line that may contain the complete path to the image file or "empty".
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
+<LI>vmName: Name of the VM.
+</LI>
+<LI>vnc: Set to true if the VM should be accessible since the booting via VNC.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Name of the assigned image or false of the medium is empty.
+<LI>BASH code to start a virtual machine.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ VM_parseVBOXdisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

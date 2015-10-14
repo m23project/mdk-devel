@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Der andere DHCP-Server kann NICHT deaktiviert werden</TITLE>
-<META NAME="description" CONTENT="Der andere DHCP-Server kann NICHT deaktiviert werden">
+<TITLE>m23 mit einem externen DHCP-Server benutzen</TITLE>
+<META NAME="description" CONTENT="m23 mit einem externen DHCP-Server benutzen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,9 +19,9 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node115.html">
-<LINK REL="previous" HREF="node113.html">
-<LINK REL="up" HREF="node112.html">
+<LINK REL="next" HREF="node120.html">
+<LINK REL="previous" HREF="node108.html">
+<LINK REL="up" HREF="node107.html">
 <LINK REL="next" HREF="node115.html">
 </HEAD>
 
@@ -32,7 +32,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
 <A NAME="tex2html1967"
-  HREF="node112.html">
+  HREF="node107.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html1961"
   HREF="node113.html">
@@ -42,26 +42,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> N&auml;chste Seite:</B> <A NAME="tex2html1972"
-  HREF="node115.html">ISC DHCP Server</A>
+  HREF="node115.html">Der andere DHCP-Server kann</A>
 <B> Aufw&auml;rts:</B> <A NAME="tex2html1968"
-  HREF="node112.html">m23 mit einem externen</A>
+  HREF="node107.html">Clients einrichten</A>
 <B> Vorherige Seite:</B> <A NAME="tex2html1962"
-  HREF="node113.html">Der andere DHCP-Server kann</A>
+  HREF="node113.html">Hinweis:</A>
  &nbsp; <B>  <A NAME="tex2html1970"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00922000000000000000">
-Der andere DHCP-Server kann NICHT deaktiviert werden</A>
-</H2>
-In diesem Falle m&#252;ssen Sie die Konfiguration des anderen DHCP-Servers per Hand anpassen und ggf. einen TFTP-Server einrichten. Wie die Konfiguration genau vorzunehmen ist, entnehmen Sie bitte der Dokumentation Ihres DHCP- und des TFTP-Servers.
+<H1><A NAME="SECTION00920000000000000000">
+m23 mit einem externen DHCP-Server benutzen</A>
+</H1>Szenario: Im lokalen Netzwerk gibt es einen DHCP-Server, der Netzwerkeinstellungen (IP, Netzwerkmaske etc.) an alle Rechner verteilt. Zus&#228;tzlich ist ein m23-Server vorhanden, mit dem Clients aufgesetzt werden sollen.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
 <BR>
+Problem: Die Installation der Clients funktioniert nicht, da der lokale DHCP die Netzwerkeinstellungen schneller als der m23-DHCP zuweist.
+<BR>
+Begr&#252;ndung: Der m23-Server mu&#223; dem Client bei der Installation des Betriebssystems die IP und weitere Netzwerkeinstellungen zuweisen. Werden diese Einstellungen von einem anderen DHCP-Server vorgenommen, so findet der Client den m23-Server nicht, das Netzwerkbootimage wird nicht gefunden und der Client kann nicht installiert werden. Grunds&#228;tzlich kann man an dem Vorgehen nichts &#228;ndern, wenn es um Netzwerkinstallationen geht, da dies von den Netzwerkprotokollen und -standards so vorgesehen ist.
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1973"
+  HREF="node115.html">Der andere DHCP-Server kann deaktiviert werden</A>
+<LI><A NAME="tex2html1974"
+  HREF="node116.html">Der andere DHCP-Server kann NICHT deaktiviert werden</A>
+<LI><A NAME="tex2html1975"
+  HREF="node117.html">ISC DHCP Server</A>
+<LI><A NAME="tex2html1976"
+  HREF="node118.html">Anderer DHCP-Server</A>
+<LI><A NAME="tex2html1977"
+  HREF="node119.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

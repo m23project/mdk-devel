@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_delAdmin</TITLE>
-<META NAME="description" CONTENT="SERVER_delAdmin">
+<TITLE>SERVER_insertLineNumber</TITLE>
+<META NAME="description" CONTENT="SERVER_insertLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1094.html">
 <LINK REL="previous" HREF="node1092.html">
-<LINK REL="up" HREF="node1082.html">
+<LINK REL="up" HREF="node1083.html">
 <LINK REL="next" HREF="node1094.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17746"
+<A NAME="tex2html17762"
   HREF="node1094.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17742"
-  HREF="node1082.html">
+<A NAME="tex2html17758"
+  HREF="node1083.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17736"
+<A NAME="tex2html17752"
   HREF="node1092.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17744"
+<A NAME="tex2html17760"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17747"
-  HREF="node1094.html">SERVER_fileExists</A>
-<B> Up:</B> <A NAME="tex2html17743"
-  HREF="node1082.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17737"
-  HREF="node1092.html">SERVER_addAdmin</A>
- &nbsp; <B>  <A NAME="tex2html17745"
+<B> Next:</B> <A NAME="tex2html17763"
+  HREF="node1094.html">SERVER_addAdmin</A>
+<B> Up:</B> <A NAME="tex2html17759"
+  HREF="node1083.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17753"
+  HREF="node1092.html">SERVER_killBackgroundJob</A>
+ &nbsp; <B>  <A NAME="tex2html17761"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083511000000000000000">
-SERVER_delAdmin</A>
+<H2><A NAME="SECTION0083510000000000000000">
+SERVER_insertLineNumber</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes an administrator with all access rights.
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a text AT or AFTER a line number or creates a new file with the given name, if it doesn't exists.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>name: Name of the admin to delete.
+<LI>file: the name of the file
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>: true, if the deletion was sucessfully otherwise false.
+<LI>lineNumber: reference line number for inserting
+</LI>
+<LI>insertText: text to insert
+</LI>
+<LI>mode: The access mode the newly created file should have.
+</LI>
+<LI>insertMode: "0" insert AT, "1" insert AFTER line number
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL>
 
@@ -74,7 +78,7 @@ SERVER_delAdmin</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

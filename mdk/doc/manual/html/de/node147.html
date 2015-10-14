@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis</TITLE>
-<META NAME="description" CONTENT="Hinweis">
+<TITLE>VirtualBox</TITLE>
+<META NAME="description" CONTENT="VirtualBox">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node148.html">
 <LINK REL="previous" HREF="node146.html">
-<LINK REL="up" HREF="node143.html">
+<LINK REL="up" HREF="node145.html">
 <LINK REL="next" HREF="node148.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2394"
+<A NAME="tex2html2399"
   HREF="node148.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2390"
-  HREF="node143.html">
+<A NAME="tex2html2395"
+  HREF="node145.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2384"
+<A NAME="tex2html2389"
   HREF="node146.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2392"
+<A NAME="tex2html2397"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2395"
-  HREF="node148.html">Hinweis zum VM-Gastgeberrechner (VirtualBox)</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2391"
-  HREF="node143.html">VM erstellen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2385"
-  HREF="node146.html">Apache CloudStack</A>
- &nbsp; <B>  <A NAME="tex2html2393"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2400"
+  HREF="node148.html">Apache CloudStack</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2396"
+  HREF="node145.html">VM erstellen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2390"
+  HREF="node146.html">Schrittweises Vorgehen</A>
+ &nbsp; <B>  <A NAME="tex2html2398"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001014000000000000000">
-Hinweis</A>
+<H2><A NAME="SECTION001012000000000000000">
+VirtualBox</A>
 </H2>
-		M&#246;chten Sie <SPAN  CLASS="textbf">mehr als eine VM</SPAN> anlegen, so m&#252;ssen Sie nach Erstellung der ersten VM jeweils die Netzwerk-Identifikationsnummer (<SPAN  CLASS="textit">''Netzwerk-ID''</SPAN>) unter <SPAN  CLASS="textit">''Server''</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">''Server-Einstellungen''</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">''Apache CloudStack<SUP></SUP>''</SPAN> durch eine Nummer eines unter Ihrem ''Apache CloudStack<SUP></SUP>''-Benutzerkonto verf&#252;gbaren und noch nicht benutzten Netzwerkes ersetzen.
+		L&#228;uft der VM-Gastgeberrechner, so werden Ihnen eine Vielzahl an Informationen &#252;ber dessen gegenw&#228;rtigen Status angezeigt. M&#246;chten Sie diesen VM-Gastgeberrechner verwenden, so w&#228;hlen Sie die Eigenschaften f&#252;r den virtuellen m23-Client aus:
 <BR>
-Geben Sie im Feld <SPAN  CLASS="textit">''Name der VM''</SPAN> den Namen f&#252;r die anzulegende VM an und klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Anlegen''</SPAN>.
-<BR>	
-<BR>
-Nach der erfolgreichen Erstellung der VM klicken Sie <SPAN  CLASS="textbf">unbedingt</SPAN> auf die Verkn&#252;pfung <SPAN  CLASS="textit">''<SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> Client hinzuf&#252;gen <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN> <SPAN CLASS="MATH"></SPAN>''</SPAN>, denn nur so wird die VM zu einem virtuellen m23-Client. Sollte beim Anlegen ein Fehler aufgetreten sein, so finden Sie die Fehlermeldung der Virtualisierungssoftware im roten Kasten.
-<BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Gastgeberrechner-Netzwerkkarte</SPAN>: Sollte der VM-Gastgeberrechner &#252;ber mehr als eine Netzwerkkarte verf&#252;gen, so w&#228;hlen Sie die Netzwerkkarte aus, mit der dieser mit Ihrem &#252;brigen Netzwerk kommuniziert. Virtuelle Maschinen werden mittels einer Software-Netzwerkbr&#252;cke an das physikalische Netzwerk angeschlossen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Name der VM</SPAN>: W&#228;hlen Sie hier den Namen f&#252;r die virtuelle Maschine. Dieser Name ist identisch mit dem Namen des m23-Clients.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">MAC-Adresse</SPAN>: Die MAC-Adresse des virtuellen Clients. Es wird eine zuf&#228;llige MAC-Adresse erstellt, die Sie beibehalten oder &#228;ndern k&#246;nnen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Arbeitsspeicher</SPAN>: Die Gr&#246;&#223;e des Arbeitsspeichers Ihres virtuellen m23-Clients. Diese sollte so gew&#228;hlt werden, da&#223; noch gen&#252;gend Speicher f&#252;r andere laufende Anwendungen und ggf. weitere virtuelle Maschinen verf&#252;gbar ist.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Festplatte</SPAN>: Die (maximale) Gr&#246;&#223;e der virtuellen Festplatte.
+<BR></LI>
+</UL>
+		Klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Anlegen''</SPAN>.
+<BR>		<BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_parseVBOXstate</TITLE>
-<META NAME="description" CONTENT="VM_parseVBOXstate">
+<TITLE>VM_startVMCommandFile</TITLE>
+<META NAME="description" CONTENT="VM_startVMCommandFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1242.html">
 <LINK REL="previous" HREF="node1240.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1242.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19623"
+<A NAME="tex2html19639"
   HREF="node1242.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19619"
-  HREF="node1175.html">
+<A NAME="tex2html19635"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19613"
+<A NAME="tex2html19629"
   HREF="node1240.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19621"
+<A NAME="tex2html19637"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19624"
-  HREF="node1242.html">VM_parseVBOXNic</A>
-<B> Up:</B> <A NAME="tex2html19620"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19614"
-  HREF="node1240.html">VM_parseVBOXdisk</A>
- &nbsp; <B>  <A NAME="tex2html19622"
+<B> Next:</B> <A NAME="tex2html19640"
+  HREF="node1242.html">VM_stopVMCommandFile</A>
+<B> Up:</B> <A NAME="tex2html19636"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19630"
+  HREF="node1240.html">VM_startVM</A>
+ &nbsp; <B>  <A NAME="tex2html19638"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083866000000000000000">
-VM_parseVBOXstate</A>
+<H2><A NAME="SECTION0083862000000000000000">
+VM_startVMCommandFile</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Parses the status (on, off, paused) line of VirtualBox.
+<SPAN  CLASS="textbf">Description:</SPAN> Writes a command file with the command(s) to start the VM.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>param: Parameter line that contains the status string of the VM.
+<LI>vmName: Name of the VM.
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>VM_STATE_OFF, VM_STATE_PAUSE, VM_STATE_ON or false if the line could not be parsed.
+<LI>cmd: Bash code to start the VM.
 </LI>
 </UL>
 
@@ -74,7 +70,7 @@ VM_parseVBOXstate</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

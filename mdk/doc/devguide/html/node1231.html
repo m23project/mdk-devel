@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_delVMCMD</TITLE>
-<META NAME="description" CONTENT="VM_delVMCMD">
+<TITLE>VM_setHostInDB</TITLE>
+<META NAME="description" CONTENT="VM_setHostInDB">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1232.html">
 <LINK REL="previous" HREF="node1230.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1232.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19503"
+<A NAME="tex2html19519"
   HREF="node1232.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19499"
-  HREF="node1175.html">
+<A NAME="tex2html19515"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19493"
+<A NAME="tex2html19509"
   HREF="node1230.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19501"
+<A NAME="tex2html19517"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19504"
-  HREF="node1232.html">VM_activateNetbootCMD</A>
-<B> Up:</B> <A NAME="tex2html19500"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19494"
-  HREF="node1230.html">VM_createDiskImage</A>
- &nbsp; <B>  <A NAME="tex2html19502"
+<B> Next:</B> <A NAME="tex2html19520"
+  HREF="node1232.html">VM_setGuestInDB</A>
+<B> Up:</B> <A NAME="tex2html19516"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19510"
+  HREF="node1230.html">VM_setVisualURL</A>
+ &nbsp; <B>  <A NAME="tex2html19518"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083856000000000000000">
-VM_delVMCMD</A>
+<H2><A NAME="SECTION0083852000000000000000">
+VM_setHostInDB</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a virtual machine.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the password for the login to the visual management console on the host for all guests, the host flag and the type of used virtualisation software.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
+<LI>VMhost: Name of the host with the virtualisation software.
 </LI>
-<LI>vmname: Name of the VM.
+<LI>password: Password to set.
+</LI>
+<LI>vmSoftware: Type of the virtualisation software.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>BASH code to delete a virtual machine.
+<LI>MySQL resource or false on error.
 </LI>
 </UL>
 
@@ -76,7 +78,7 @@ VM_delVMCMD</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

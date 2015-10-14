@@ -6449,6 +6449,14 @@ Description: basic package operations (search, add,...)\\
 \item The URL to the debootstrap cache file on the SourceForge server.
 \end{itemize}
 
+\subsection{PKG\_downloadBaseSysTom23Server}
+\textbf{Description:} Downloads the debootstrap cache file to the m23 server and checks its validity (by signature).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+
 \subsection{PKG\_getDebootstrapCacheServerURL}
 \textbf{Description:} Returns the URL to the debootstrap cache file on the m23 server.\\
 \textbf{Parameter:}
@@ -7754,6 +7762,9 @@ Description: basic package operations (search, add,...)\\
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for getting information from the server\\
 
+\subsection{SERVER\_importGPGPackageSignKey}
+\textbf{Description:} Imports the m23 GPG package sign key.\\
+
 \subsection{SERVER\_logLocalScreenSessionToFile}
 \textbf{Description:} Logs the output of a local screen session to a file.\\
 \textbf{Parameter:}
@@ -7985,6 +7996,17 @@ Description: basic package operations (search, add,...)\\
 \item : true on successfully execution otherwise false.
 \end{itemize}
 
+\subsection{SERVER\_getAptGetInstallCommand}
+\textbf{Description:} Returns the apt-get commands to install a tool on the server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item pkgName: name of the software package
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : apt-get commands to install a tool on the server.
+\end{itemize}
+
 \subsection{SERVER\_installTool}
 \textbf{Description:} installs a tool on the server\\
 \textbf{Parameter:}
@@ -7994,6 +8016,13 @@ Description: basic package operations (search, add,...)\\
 \textbf{Returns:}
 \begin{itemize}
 \item : true on successfully execution otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_installToolInBackground}
+\textbf{Description:} Installs a tool on the server in background.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item pkgName: name of the software package
 \end{itemize}
 
 \subsection{SERVER\_programmStatus}

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientsByPackages</TITLE>
-<META NAME="description" CONTENT="PKG_getClientsByPackages">
+<TITLE>PKG_getClientsWithWaitingJobs</TITLE>
+<META NAME="description" CONTENT="PKG_getClientsWithWaitingJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,51 +28,39 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16321"
+<A NAME="tex2html16334"
   HREF="node984.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16317"
+<A NAME="tex2html16330"
   HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16311"
+<A NAME="tex2html16324"
   HREF="node982.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16319"
+<A NAME="tex2html16332"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16322"
-  HREF="node984.html">PKG_countPackages</A>
-<B> Up:</B> <A NAME="tex2html16318"
+<B> Next:</B> <A NAME="tex2html16335"
+  HREF="node984.html">PKG_getClientsByPackages</A>
+<B> Up:</B> <A NAME="tex2html16331"
   HREF="node902.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16312"
-  HREF="node982.html">PKG_getClientsWithWaitingJobs</A>
- &nbsp; <B>  <A NAME="tex2html16320"
+<B> Previous:</B> <A NAME="tex2html16325"
+  HREF="node982.html">PKG_getClientsWithPackage</A>
+ &nbsp; <B>  <A NAME="tex2html16333"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082881000000000000000">
-PKG_getClientsByPackages</A>
+PKG_getClientsWithWaitingJobs</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have waiting jobs.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>packageNames: Array with the packages to check.
-</LI>
-<LI>status: Debian status code or true for "installed".
-</LI>
-<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
-</LI>
-<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
-</LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Array with all clients that have the specific package (not) installed (or with another given status).
+<LI>Array with all clients that have waiting jobs.
 </LI>
 </UL>
 
@@ -80,7 +68,7 @@ PKG_getClientsByPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

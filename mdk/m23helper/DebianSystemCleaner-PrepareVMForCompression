@@ -14,10 +14,11 @@ rm /tmp/z
 
 #Remove m23debs (test sources)
 grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
-cat /tmp/sources.list > /etc/apt/sources.list
 
 #Add the URL for server update if missing
 if [ `grep -c "http://vorboss.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
 then
 	echo "deb http://vorboss.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
 fi
+
+cat /tmp/sources.list > /etc/apt/sources.list

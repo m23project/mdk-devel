@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStack_available</TITLE>
-<META NAME="description" CONTENT="VM_CloudStack_available">
+<TITLE>VM_CloudStackNetBootActivate</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackNetBootActivate">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1195.html">
 <LINK REL="previous" HREF="node1193.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1195.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19059"
+<A NAME="tex2html19075"
   HREF="node1195.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19055"
-  HREF="node1175.html">
+<A NAME="tex2html19071"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19049"
+<A NAME="tex2html19065"
   HREF="node1193.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19057"
+<A NAME="tex2html19073"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19060"
-  HREF="node1195.html">VM_CloudStack_getObject</A>
-<B> Up:</B> <A NAME="tex2html19056"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19050"
-  HREF="node1193.html">VM_GUIstepCreateCloudStackVM</A>
- &nbsp; <B>  <A NAME="tex2html19058"
+<B> Next:</B> <A NAME="tex2html19076"
+  HREF="node1195.html">VM_CloudStackCreateVM</A>
+<B> Up:</B> <A NAME="tex2html19072"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19066"
+  HREF="node1193.html">VM_CloudStackClientName2ClientID</A>
+ &nbsp; <B>  <A NAME="tex2html19074"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083819000000000000000">
-VM_CloudStack_available</A>
+<H2><A NAME="SECTION0083815000000000000000">
+VM_CloudStackNetBootActivate</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the CloudStack configuration file is included and contains the needed constants.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> attaches/exchanges or removes (if any) a network boot ISO to or from the client
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>true, if the CloudStack are present.
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
+</LI>
+<LI>activate: TRUE for attaching ISO, FALSE for removing
+</LI>
+<LI>nBASuccess: is set to True if action succeeded, false otherwise
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>textmessage about result (errormessage or success message) and sets nBASuccess to True if action succeeded, false otherwise
 </LI>
 </UL>
 
@@ -68,7 +78,7 @@ VM_CloudStack_available</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

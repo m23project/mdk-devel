@@ -103,7 +103,7 @@ dialog --backtitle "MDK manual generator" --default-item "ja" --clear --title "S
 		"lang"  "select manual language" \
 		"screenshots"  "make screenshots for the manual" \
 		"optimisePNGs"  "optimise the manual screenshots" \
-		"text"  "generate text files" \
+		"tex"  "generate LaTeX files" \
 		"pdf-html" "generate the PDF and HTML manual(s)"\
 		"upload" "upload the PDF and HTML files"\
 		"help" "help" 2> $menuSelection
@@ -141,7 +141,7 @@ then
 fi
 
 
-if test $choice == "text"
+if test $choice == "tex"
 then
 	/mdk/doc/manual/bin/makeTexHelp.sh
 	/mdk/doc/manual/bin/menuManualStart.sh

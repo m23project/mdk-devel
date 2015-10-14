@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_getVBoxAddonDefaultVersion</TITLE>
-<META NAME="description" CONTENT="VM_getVBoxAddonDefaultVersion">
+<TITLE>VM_rebootChangeBootDevice</TITLE>
+<META NAME="description" CONTENT="VM_rebootChangeBootDevice">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1206.html">
 <LINK REL="previous" HREF="node1204.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1206.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19191"
+<A NAME="tex2html19207"
   HREF="node1206.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19187"
-  HREF="node1175.html">
+<A NAME="tex2html19203"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19181"
+<A NAME="tex2html19197"
   HREF="node1204.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19189"
+<A NAME="tex2html19205"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19192"
-  HREF="node1206.html">VM_generateVBOXaddonDownloadCMD</A>
-<B> Up:</B> <A NAME="tex2html19188"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19182"
-  HREF="node1204.html">VM_downloadedVBoxAddons</A>
- &nbsp; <B>  <A NAME="tex2html19190"
+<B> Next:</B> <A NAME="tex2html19208"
+  HREF="node1206.html">VM_getVBoxVersion</A>
+<B> Up:</B> <A NAME="tex2html19204"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19198"
+  HREF="node1204.html">VM_shutdownAndDisableNetboot</A>
+ &nbsp; <B>  <A NAME="tex2html19206"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083830000000000000000">
-VM_getVBoxAddonDefaultVersion</A>
+<H2><A NAME="SECTION0083826000000000000000">
+VM_rebootChangeBootDevice</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the version number of the VirtualBox addition package.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command to reboot an VM and to disable network booting.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>The default version of the VirtualBox addition package.
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
+<LI>vmname: Name of the VM.
+</LI>
+<LI>visual: If set to true, the VM should be run in visual mode otherwise in headless mode.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>BASH code to reboot an VM and to disable network booting.
 </LI>
 </UL>
 
@@ -68,7 +78,7 @@ VM_getVBoxAddonDefaultVersion</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

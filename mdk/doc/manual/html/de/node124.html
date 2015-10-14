@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zu Dateisystemen</TITLE>
-<META NAME="description" CONTENT="Hinweis zu Dateisystemen">
+<TITLE>Hinweis</TITLE>
+<META NAME="description" CONTENT="Hinweis">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node125.html">
 <LINK REL="previous" HREF="node123.html">
-<LINK REL="up" HREF="node118.html">
+<LINK REL="up" HREF="node120.html">
 <LINK REL="next" HREF="node125.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2098"
+<A NAME="tex2html2103"
   HREF="node125.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2094"
-  HREF="node118.html">
+<A NAME="tex2html2099"
+  HREF="node120.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2088"
+<A NAME="tex2html2093"
   HREF="node123.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2096"
+<A NAME="tex2html2101"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2099"
-  HREF="node125.html">Schrittweises Vorgehen zum Anlegen</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2095"
-  HREF="node118.html">Clientpartitionierung und -formatierung</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2089"
-  HREF="node123.html">Hinweis zu UEFI</A>
- &nbsp; <B>  <A NAME="tex2html2097"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2104"
+  HREF="node125.html">Hinweis zu UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2100"
+  HREF="node120.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2094"
+  HREF="node123.html">Menüpunkte im Überblick</A>
+ &nbsp; <B>  <A NAME="tex2html2102"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00936000000000000000">
-Hinweis zu Dateisystemen</A>
+<H2><A NAME="SECTION00934000000000000000">
+Hinweis</A>
 </H2>
-Sollten Sie ein Dateisystem ausw&#228;hlen, das nicht von der (sp&#228;ter zu w&#228;hlenden) Client-Distribution unterst&#252;tzt wird, so wird das Dateisystem automatisch auf ein unterst&#252;tztes angepa&#223;t.
-<BR><SPAN  CLASS="textbf">''RAID-Laufwerke''</SPAN>
-In diesem Dialog k&#246;nnen Sie Partitionen oder ganze Laufwerke zu Software-RAIDs zusammenfassen. m23 bzw. das Programm mdadm unterst&#252;tzen die RAID-Level 0, 1, 4, 5, 6 und 10, die jeweils unterschiedliche Vor- und Nachteile im Bezug auf erzielten Geschwindigkeitszuwachs und Ausfallsicherheit bieten. F&#252;r weitere Informationen zu RAIDs lesen Sie bitte die Wikipedia-Seite http://de.wikipedia.org/wiki/RAID. Sie k&#246;nnen mehrere RAIDs pro Client anlegen und dann zur Installation des Betriebssystems, der Swap-Partition etc. benutzen. Lesen Sie bitte den Hinweis, wenn Sie das Betriebssystem auf einem RAID-Laufwerk installieren wollen.
+Die so erstellten virtuellen Festplatten werden wie die realen Festplatten einen Clients eingerichtet (Partitionieren, Formatieren, Software-RAIDs, Installations- und Swappartition). Die Gr&#246;&#223;en sollten &#228;hnlich (oder identisch), die Laufwerksnamen m&#252;ssen hingegen identisch zu den in Ihren Clients verbauten realen Festplatten sein. Bei Abweichung der virtuellen von der realen Festplattengr&#246;&#223;e werden die Partitionsgr&#246;&#223;en prozentual angepasst.
+<BR><SPAN  CLASS="textbf">Partitionierungsschema</SPAN>
+Unter diesem Men&#252;punkt k&#246;nnen Sie ein vordefiniertes Schema zum Partitionieren und Formatieren der Festplatte des m23-Clients ausw&#228;hlen und durch einen Klick auf <SPAN  CLASS="textit">''Schema anwenden''</SPAN> anwenden.
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Automatische Partitionierung</SPAN>: Bei der automatischen Partitionierung werden alle Daten auf der ersten Festplatte gel&#246;scht und zwei neue Partitionen angelegt. Es wird eine Partition f&#252;r Daten und das Betriebssystem und die andere zum tempor&#228;ren Auslagern (Swappen) erstellt.
+<BR></LI>
+</UL>
+<SPAN  CLASS="textbf">Aktuelle Partition l&#246;schen</SPAN>
+Mit einem Klick auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN> entfernen Sie die aktuelle (unter <SPAN  CLASS="textit">''Aktuelle Partition''</SPAN> angegebene) Partition.
+<BR><SPAN  CLASS="textbf">Neue Partition anlegen</SPAN>
+Mit dieser Funktion k&#246;nnen Sie neue Partitionen innerhalb eines freien Bereiches auf der Festplatte anlegen. Zum W&#228;hlen von Start- und Endpunkt der neuen Partition klicken Sie (bei aktivertem JavaScript) auf einen wei&#223;en Bereich oder geben diese unter <SPAN  CLASS="textit">''Start''</SPAN> und <SPAN  CLASS="textit">''Ende''</SPAN> an. Sie k&#246;nnen nat&#252;rlich auch eine Partition anlegen, die nicht den ganzen freien Platz einnimmt. W&#228;hlen Sie zudem unter <SPAN  CLASS="textit">''Typ''</SPAN> aus, ob Sie eine prim&#228;re (primary), erweiterte (extended) oder logische (logical) Partition erstellen m&#246;chten. Klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2103"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2099"
+  HREF="node120.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2093"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2101"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2104"
+  HREF="node125.html">Hinweis zu UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2100"
+  HREF="node120.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2094"
+  HREF="node123.html">Menüpunkte im Überblick</A>
+ &nbsp; <B>  <A NAME="tex2html2102"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getArchitectures</TITLE>
-<META NAME="description" CONTENT="SRCLST_getArchitectures">
+<TITLE>SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</TITLE>
+<META NAME="description" CONTENT="SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1163.html">
 <LINK REL="previous" HREF="node1161.html">
-<LINK REL="up" HREF="node1132.html">
+<LINK REL="up" HREF="node1136.html">
 <LINK REL="next" HREF="node1163.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18609"
+<A NAME="tex2html18625"
   HREF="node1163.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18605"
-  HREF="node1132.html">
+<A NAME="tex2html18621"
+  HREF="node1136.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18599"
+<A NAME="tex2html18615"
   HREF="node1161.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18607"
+<A NAME="tex2html18623"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18610"
-  HREF="node1163.html">SRCLST_showEditor</A>
-<B> Up:</B> <A NAME="tex2html18606"
-  HREF="node1132.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18600"
-  HREF="node1161.html">SRCLST_isArchAvailable</A>
- &nbsp; <B>  <A NAME="tex2html18608"
+<B> Next:</B> <A NAME="tex2html18626"
+  HREF="node1163.html">SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
+<B> Up:</B> <A NAME="tex2html18622"
+  HREF="node1136.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html18616"
+  HREF="node1161.html">SRCLST_getListnamesWithEfiSupport</A>
+ &nbsp; <B>  <A NAME="tex2html18624"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083630000000000000000">
-SRCLST_getArchitectures</A>
+<H2><A NAME="SECTION0083626000000000000000">
+SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes a list of all CPU architectures supported by the sources list.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the client uses EFI and the choosen sources list doesn't.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
-<LI>sourceName: the name of the package source list
+<LI>client: Name of the client.
+</LI>
+<LI>sourceName: The name of the package source list.
 </LI>
 </UL>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 
 <UL>
-<LI>Associative array with the supported CPU architectures as variable AND key.
+<LI>: true, if the client uses EFI and the choosen sources list doesn't, otherwise false.
 </LI>
 </UL>
 
@@ -74,7 +76,7 @@ SRCLST_getArchitectures</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

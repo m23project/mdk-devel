@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Pool builder</TITLE>
-<META NAME="description" CONTENT="Pool builder">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,78 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node196.html">
-<LINK REL="previous" HREF="node160.html">
-<LINK REL="up" HREF="manual.html">
+<LINK REL="previous" HREF="node185.html">
+<LINK REL="up" HREF="node184.html">
 <LINK REL="next" HREF="node187.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2869"
+<A NAME="tex2html2896"
   HREF="node187.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2865"
-  HREF="manual.html">
+<A NAME="tex2html2892"
+  HREF="node184.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2859"
+<A NAME="tex2html2888"
   HREF="node185.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2867"
+<A NAME="tex2html2894"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2870"
-  HREF="node187.html">Architecte de sources de</A>
-<B> monter:</B> <A NAME="tex2html2866"
-  HREF="manual.html">Manuel de l'utilisateur pour</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2860"
+<B> suivant:</B> <A NAME="tex2html2897"
+  HREF="node187.html">Éditeur de scripts</A>
+<B> monter:</B> <A NAME="tex2html2893"
+  HREF="node184.html">Constructeur de paquets</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2889"
   HREF="node185.html">Notez</A>
- &nbsp; <B>  <A NAME="tex2html2868"
+ &nbsp; <B>  <A NAME="tex2html2895"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001400000000000000000">
-Pool builder</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2871"
-  HREF="node187.html">Architecte de sources de paquets (Cr&#233;er, modifier, effacer des sources de paquets)</A>
-<UL>
-<LI><A NAME="tex2html2872"
-  HREF="node188.html">Notez</A>
-</UL>
+<H2><A NAME="SECTION001362000000000000000">
+BitTorrent</A>
+</H2>
+Lorsque vous souhaitez distribuer des fichiers volumineux &#224; plusieurs ordinateurs clients tout en r&#233;duisant la charge induite sur le serveur, vous pouvez utiliser la fonctionnalit&#233; BitTorrent. BitTorrent rend possible le partage des fichiers d&#233;j&#224; t&#233;l&#233;charg&#233;s sur des clients m23 pour les autres clients, (dans le cas id&#233;al) le serveur m23 ne transf&#233;rera le fichier qu'une seule fois.
 <BR>
-<LI><A NAME="tex2html2873"
-  HREF="node189.html">Architecte de sources de paquets (Utiliser des paquets provenant d'un CD)</A>
-<LI><A NAME="tex2html2874"
-  HREF="node190.html">Architecte de sources de paquets (Cr&#233;er le fichier index des paquets)</A>
-<LI><A NAME="tex2html2875"
-  HREF="node191.html">Architecte de sources de paquets (S&#233;lectionner les sources de paquets et les paquets)</A>
-<UL>
-<LI><A NAME="tex2html2876"
-  HREF="node192.html">Notez</A>
-</UL>
+Pour utiliser Bittorrent, suivez ces &#233;tapes:
 <BR>
-<LI><A NAME="tex2html2877"
-  HREF="node193.html">Architecte de sources de paquets (Lancer le t&#233;l&#233;chargement)</A>
-<LI><A NAME="tex2html2878"
-  HREF="node194.html">Architecte de sources de paquets (T&#233;l&#233;chargement des paquets)</A>
-<LI><A NAME="tex2html2879"
-  HREF="node195.html">Sources de paquets</A>
-</UL>
-<!--End of Table of Child-Links-->
+<OL>
+<LI>Copiez le(s) fichier(s) &#224; transf&#233;rer sur les clients dans le r&#233;pertoire <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> de votre serveur m23.
+<BR></LI>
+<LI>Cliquez sur le bouton <SPAN  CLASS="textit">''Cr&#233;ation du .torrent''</SPAN> sous le fichier correspondant.
+<BR></LI>
+<LI>Dans vos propres scripts, utilisez la fonction m23 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2015-04-30
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

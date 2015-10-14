@@ -22,6 +22,8 @@ do
 	do
 		pure=`echo $file | sed 's/[.]hlp//g'`
 		scale=`grep "$pure:" /mdk/doc/manual/screenshots/scalingTable | cut -d' ' -f2`
+		# Make sure the encoding is correct
+		recode utf-8.. /m23/inc/help/$LANG/$file
 		/mdk/doc/manual/bin/html2tex.sh /m23/inc/help/$LANG/$file /mdk/doc/manual/screenshots/$LANG/$pure.png $file.tex $scale
 	done
 done

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_removeFromJobList</TITLE>
-<META NAME="description" CONTENT="PKG_removeFromJobList">
+<TITLE>PKG_executeOnClientJobs</TITLE>
+<META NAME="description" CONTENT="PKG_executeOnClientJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,38 +28,40 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16225"
+<A NAME="tex2html16238"
   HREF="node976.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16221"
+<A NAME="tex2html16234"
   HREF="node902.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16215"
+<A NAME="tex2html16228"
   HREF="node974.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16223"
+<A NAME="tex2html16236"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16226"
-  HREF="node976.html">PKG_changeClientJobsStatus</A>
-<B> Up:</B> <A NAME="tex2html16222"
+<B> Next:</B> <A NAME="tex2html16239"
+  HREF="node976.html">PKG_removeFromJobList</A>
+<B> Up:</B> <A NAME="tex2html16235"
   HREF="node902.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16216"
-  HREF="node974.html">PKG_executeOnClientJobs</A>
- &nbsp; <B>  <A NAME="tex2html16224"
+<B> Previous:</B> <A NAME="tex2html16229"
+  HREF="node974.html">PKG_updateSourcesListAtAllClients</A>
+ &nbsp; <B>  <A NAME="tex2html16237"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0082873000000000000000">
-PKG_removeFromJobList</A>
+PKG_executeOnClientJobs</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> removes all jobs identified by the IDs in packageIDList
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a sql statement on all package IDs.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>sql: initial SQL statement e.g. "DELETE FROM `clientjobs` WHERE "
+</LI>
 <LI>packageIDList: the list of IDs of jobs to be deleted
 </LI>
 </UL>
@@ -68,7 +70,7 @@ PKG_removeFromJobList</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>

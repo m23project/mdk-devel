@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_stopVMCommandFile</TITLE>
-<META NAME="description" CONTENT="VM_stopVMCommandFile">
+<TITLE>VM_insertBootISO</TITLE>
+<META NAME="description" CONTENT="VM_insertBootISO">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1239.html">
 <LINK REL="previous" HREF="node1237.html">
-<LINK REL="up" HREF="node1175.html">
+<LINK REL="up" HREF="node1179.html">
 <LINK REL="next" HREF="node1239.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19587"
+<A NAME="tex2html19603"
   HREF="node1239.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19583"
-  HREF="node1175.html">
+<A NAME="tex2html19599"
+  HREF="node1179.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19577"
+<A NAME="tex2html19593"
   HREF="node1237.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19585"
+<A NAME="tex2html19601"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19588"
-  HREF="node1239.html">VM_status</A>
-<B> Up:</B> <A NAME="tex2html19584"
-  HREF="node1175.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19578"
-  HREF="node1237.html">VM_startVMCommandFile</A>
- &nbsp; <B>  <A NAME="tex2html19586"
+<B> Next:</B> <A NAME="tex2html19604"
+  HREF="node1239.html">VM_startVMInExistingXSession</A>
+<B> Up:</B> <A NAME="tex2html19600"
+  HREF="node1179.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19594"
+  HREF="node1237.html">VM_createVM</A>
+ &nbsp; <B>  <A NAME="tex2html19602"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083863000000000000000">
-VM_stopVMCommandFile</A>
+<H2><A NAME="SECTION0083859000000000000000">
+VM_insertBootISO</A>
 </H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Removes automatical staring of a VM by removing the command file.
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a bootable ISO into a VM.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 
 <UL>
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
 <LI>vmName: Name of the VM.
+</LI>
+<LI>iso: ISO file with full path.
+</LI>
+</UL>
+<SPAN  CLASS="textbf">Returns:</SPAN>
+
+<UL>
+<LI>BASH code to insert a bootable ISO into a VM.
 </LI>
 </UL>
 
@@ -68,7 +78,7 @@ VM_stopVMCommandFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2015-08-25
+2015-09-06
 </ADDRESS>
 </BODY>
 </HTML>
