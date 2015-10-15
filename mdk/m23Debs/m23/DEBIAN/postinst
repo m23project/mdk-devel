@@ -3,6 +3,14 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
+# Returns 0, if run on UCS
+UCS_detect()
+{
+	[ -f '/usr/sbin/udm' ]
+	echo $?
+}
+
+
 
 #Create a symlinks to the System-V-Init directory to get the Bittorrent tracker and initial client, if there are .torrent files in the share directory
 ln -s /m23/vms/bin/restoreBTServer /etc/init.d/
@@ -287,7 +295,7 @@ fi
 
 
 db_get m23/configDHCP
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 	#Check if the file /etc/init.d/dhcp3-server does exist and DOESN'T contain the m23/dhcp value
 	[ -f /etc/init.d/dhcp3-server ] && [ `grep m23/dhcp /etc/init.d/dhcp3-server -c` -eq 0 ]
@@ -544,7 +552,7 @@ fi
 
 
 db_get m23/configureSSL
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 	if [ -c /dev/random ]
 	then
@@ -574,8 +582,23 @@ then
 fi
 
 
+# Make symlinks on UCS
+if [ $(UCS_detect) -eq 0 ]
+then
+	ln -s /m23/data+scripts/m23admin /var/www
+	ln -s /m23/data+scripts/gfx /var/www
+	ln -s /m23/data+scripts/cron.php /var/www
+	ln -s /m23/data+scripts/debugScreen.php /var/www
+	ln -s /m23/data+scripts/index.php /var/www
+	ln -s /m23/data+scripts/migrate.php /var/www
+	ln -s /m23/data+scripts/postMessage.php /var/www
+	ln -s /m23/data+scripts/work.php /var/www
+fi
+
+
+
 db_get m23/configureApache
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 	if [ -f /etc/default/apache2 ] && [ `grep "NO_START=1" /etc/default/apache2 -c` -eq 0 ]
 	then
@@ -720,7 +743,7 @@ fi
 
 
 db_get m23/configureBackupPC
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 	bpchome=`grep backuppc /etc/passwd | cut -d':' -f6`
 	

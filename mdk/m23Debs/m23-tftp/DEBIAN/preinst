@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+# Special settings for UCS otherwise the tftpd-hpa postinst will collide with openbsd-inetd
+if [ -f '/usr/sbin/udm' ]
+then
+	echo 'TFTP_OPTIONS="-l -s /m23/tftp"
+RUN_DAEMON="no"' > /etc/default/tftpd-hpa
+
+	sed 's/^tftp/# tftp/g' /etc/inetd.conf > /tmp/inetd.conf
+	echo "tftp dgram udp wait root /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /m23/tftp" >> /tmp/inetd.conf
+	cat /tmp/inetd.conf > /etc/inetd.conf
+	
+	rm /etc/init.d/tftpd-hpa
+
+	# /etc/init.d/openbsd-inetd restart
+
+	db_stop
+fi
+
+db_stop

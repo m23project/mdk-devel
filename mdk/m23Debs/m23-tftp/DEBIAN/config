@@ -3,5 +3,16 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
-db_input high m23-tftp/configureTFTP || true
+UCS_detect()
+{
+	[ -f '/usr/sbin/udm' ]
+	echo $?
+}
+
+if [ $(UCS_detect) -ne 0 ]
+then
+	db_input high m23-tftp/configureTFTP || true
+fi
+
 db_go
+
