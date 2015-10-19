@@ -262,7 +262,7 @@ fi
 rm /m23/etc/.htpasswd.orig
 
 db_get m23/configMySQL
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
 then
 	# Make sure, innoDB is enabled
 	sed -i 's/skip-innodb/#skip-innodb/' /etc/mysql/my.cnf
@@ -386,7 +386,7 @@ fi
 
 
 db_get m23/configureSquid
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
 then
 
 if [ -d /etc/squid3 ]
@@ -593,6 +593,14 @@ then
 	ln -s /m23/data+scripts/migrate.php /var/www
 	ln -s /m23/data+scripts/postMessage.php /var/www
 	ln -s /m23/data+scripts/work.php /var/www
+	ln -s /m23/data+scripts/devguide /var/www
+	ln -s /m23/data+scripts/extraDebs /var/www
+	ln -s /m23/data+scripts/iso /var/www
+	ln -s /m23/data+scripts/jQuery-gfx /var/www
+	ln -s /m23/data+scripts/java-vnc /var/www
+	ln -s /m23/data+scripts/js /var/www
+	ln -s /m23/data+scripts/packages /var/www
+	ln -s /m23/data+scripts/ace /var/www
 fi
 
 
@@ -732,7 +740,7 @@ echo "	<VirtualHost *:443>
 fi
 
 db_get m23/configureSudo
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
 then
 	if test `grep -c "^www-data          ALL=NOPASSWD:ALL" /etc/sudoers` -eq 0
 	then

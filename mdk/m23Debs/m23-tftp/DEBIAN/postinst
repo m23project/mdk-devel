@@ -3,8 +3,22 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
+# Returns 0, if run on UCS
+UCS_detect()
+{
+	[ -f '/usr/sbin/udm' ]
+	echo $?
+}
+
+if [ $(UCS_detect) -eq 0 ]
+then
+	rm /etc/init.d/tftpd-hpa
+	ln -s /bin/true /etc/init.d/tftpd-hpa
+	/etc/init.d/openbsd-inetd restart
+fi
+
 db_get m23-tftp/configureTFTP
-if [ "$RET" = "true" ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 	if [ -f /etc/inetd.conf ]
 	then

@@ -14,8 +14,7 @@ RUN_DAEMON="no"' > /etc/default/tftpd-hpa
 	cat /tmp/inetd.conf > /etc/inetd.conf
 	
 	rm /etc/init.d/tftpd-hpa
-
-	# /etc/init.d/openbsd-inetd restart
+	ln -s /bin/true /etc/init.d/tftpd-hpa
 
 	db_stop
 fi
