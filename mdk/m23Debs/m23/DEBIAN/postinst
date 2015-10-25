@@ -398,6 +398,13 @@ else
 	squidConf="/etc/squid/squid.conf"
 fi
 
+# Open port 2323 in the UCS firewall
+if [ $(UCS_detect) -eq 0 ]
+then
+	ucr set security/packetfilter/tcp/2323/all=ACCEPT
+	ucr set security/packetfilter/udp/2323/all=ACCEPT
+	/etc/init.d/univention-firewall restart
+fi
 
 rm $squidConf 2> /dev/null
 
@@ -578,11 +585,10 @@ then
 		rm /dev/random
 		mv /dev/random-blocks /dev/random
 	fi
-
 fi
 
 
-# Make symlinks on UCS
+# Make symlinks on UCS and copy SSL certificate
 if [ $(UCS_detect) -eq 0 ]
 then
 	ln -s /m23/data+scripts/m23admin /var/www
@@ -601,6 +607,14 @@ then
 	ln -s /m23/data+scripts/js /var/www
 	ln -s /m23/data+scripts/packages /var/www
 	ln -s /m23/data+scripts/ace /var/www
+	ln -s /m23/data+scripts/distr /var/www/
+	
+	ucsSSLDir="/etc/univention/ssl/`hostname`"
+	openssl x509 -in "$ucsSSLDir/cert.pem" -subject_hash_old -noout > /m23/data+scripts/packages/baseSys/ca.hash
+	cp "$ucsSSLDir/cert.pem" /m23/data+scripts/packages/baseSys/ca.crt
+	
+	chown www-data.www-data /m23/data+scripts/packages/baseSys/ca.crt /m23/data+scripts/packages/baseSys/ca.hash
+	chmod 644 /m23/data+scripts/packages/baseSys/ca.crt /m23/data+scripts/packages/baseSys/ca.hash
 fi
 
 

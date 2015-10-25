@@ -15,6 +15,7 @@ RUN_DAEMON="no"' > /etc/default/tftpd-hpa
 	
 	rm /etc/init.d/tftpd-hpa
 	ln -s /bin/true /etc/init.d/tftpd-hpa
+	killall -9 in.tftpd
 
 	db_stop
 fi

@@ -14,6 +14,7 @@ if [ $(UCS_detect) -eq 0 ]
 then
 	rm /etc/init.d/tftpd-hpa
 	ln -s /bin/true /etc/init.d/tftpd-hpa
+	killall -9 in.tftpd
 	/etc/init.d/openbsd-inetd restart
 fi
 
