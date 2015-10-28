@@ -3,6 +3,14 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
+# Returns 0, if run on UCS
+if [ -f '/usr/sbin/udm' ]
+then
+	db_stop
+	exit 0
+fi
+
+
 db_get slapd/password1
 if [ -z $RET ]
 then
