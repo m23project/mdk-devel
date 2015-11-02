@@ -3,14 +3,8 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
-# Returns 0, if run on UCS
-UCS_detect()
-{
-	[ -f '/usr/sbin/udm' ]
-	echo $?
-}
-
-if [ $(UCS_detect) -ne 0 ]
+# Only run, if not executed on UCS
+if [ ! -f '/usr/sbin/udm' ]
 then
 	db_input high m23/experimentalWarn || true
 	db_go
