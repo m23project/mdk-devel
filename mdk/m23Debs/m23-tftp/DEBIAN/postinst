@@ -16,6 +16,8 @@ then
 	ln -s /bin/true /etc/init.d/tftpd-hpa
 	killall -9 in.tftpd
 	/etc/init.d/openbsd-inetd restart
+	ucr set security/packetfilter/udp/69/all=ACCEPT
+	/etc/init.d/univention-firewall restart
 fi
 
 db_get m23-tftp/configureTFTP
