@@ -1036,6 +1036,11 @@ chmod 700 /m23/root-only
 
 rm -r /tmp/m23-install
 
+# Make sure the www-data user has a normal login (needed for sudo, e.g. package index creation)
+usermod -s /bin/bash www-data
+# Set a random password
+usermod -p $(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;) www-data
+
 #Make sure that there is no user test
 userdel -r -f test
 
