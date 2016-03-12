@@ -80,7 +80,7 @@ createRFScopyLib()
 		if [ `echo -n $lib | egrep -v ^not$ | grep -v linux-gate | grep -v '\t'` ] && [ $neededBy ]
 		then
 			echo "Error: Library $lib needed by \"$neededBy\" not found!"
-	echo "lib: $lib fnamelib: $fnamelib libsrc: $libsrc extractedDebsDir: $extractedDebsDir"
+			echo "lib: $lib fnamelib: $fnamelib libsrc: $libsrc extractedDebsDir: $extractedDebsDir"
 			read errkey
 			continue
 		else
@@ -185,12 +185,12 @@ createRFSBins()
 		#cp `find $extractedDebsDir -name $bin -xtype f | grep bin | head -1` bin
 
 		#try if the binary can be found as a normal file
-		binSource=`find $extractedDebsDir -name $bin -type f | grep bin | head -1`
+		binSource=`find $extractedDebsDir -name $bin -type f | grep bin | grep -v klibc | head -1`
 
 		#if not try to find a link
 		if [ -z $binSource ]
 		then
-			link=$(find $extractedDebsDir -name $bin -type l | grep bin | head -1)
+			link=$(find $extractedDebsDir -name $bin -type l | grep bin | grep -v klibc | head -1)
 
 			basenameLink=$( basename "$link" )
 
@@ -201,7 +201,7 @@ createRFSBins()
 
 			# Make sure, the found file is from the temp directory and not the local root filesystem
 			# e.g. /bin/modinfo => /bin/kmod => /mdk/client+server/tmpRoot/i386/bin/kmod
-			binSource=$( find $extractedDebsDir | grep $binSource$ | head -1 )
+			binSource=$( find $extractedDebsDir | grep "/$binSource$" | grep -v klibc | head -1 )
 		fi
 		
 		echo "+bin $binSource"

@@ -49,7 +49,7 @@
 	\end{itemize}
 \item VirtualBox appliance
 	\begin{itemize}
-		\item Create a new VM (Linux/Debian, 384 MB Ram, growing VDI 16GB HDD
+		\item Create a new VM (Linux/Debian, 512 MB Ram, growing VDI 16GB HDD
 		\item Change the Network card to Network bridge
 		\item Start the VM and "insert" the ISO into the virtual CD drive
 		\item Select "English".
@@ -57,7 +57,7 @@
 		\item Choose the automatic partitioning and formating.
 		\item Call /mdk/bin/prepareOSForCompression after reboot.
 		\item Shutdown the VM
-		\item Export it and compress the exported files.
+		\item Export it (m23server_xx.y_rock.ova) and compress (7zm / 7zr -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on a m23server_xx.y_rock.7z m23server_xx.y_rock.ova) the exported files.
 	\end{itemize}
 \item
 	\begin{itemize}
@@ -65,10 +65,11 @@
 		\item Configure /etc/network/interfaces to static IP for eth0.
 		\item Boot the Raspberry Pi.
 		\item Log into it via SSH (user: pi, password: raspberry)
-		\item Run "sudo rapi-config".
-		\item Call in the menu "Expand Filesystem", set "Memory split" to 16 MB, call "Update".
+		\item Run "sudo raspi-config".
+		\item Call in the menu "Expand Filesystem", set "Advanced Options" "Memory split" to 16 MB, call "Update".
 		\item Reboot.
 		\item Enable root access (set password to test): "sudo passwd"
+		\item Enable root login for SSH in /etc/ssh/sshd_config
 		\item Log out and log into it via SSH (user: root, password: test)
 		\item Remove the user pi: userdel -r -f pi
 		\item Add "192.168.1.77 m23debs" to /etc/hosts
@@ -95,5 +96,5 @@
 
 \subsection{Announcement}
 \begin{itemize}
-	\item Prepare the newsletter with /mdk/doc/newsletterGenerator2.sh and send it.
+	\item Prepare the newsletter with /mdk/doc/newsletterGenerator3.sh and send it.
 \end{itemize}

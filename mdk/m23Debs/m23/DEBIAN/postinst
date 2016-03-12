@@ -848,9 +848,14 @@ then
 
 	#Generate a random password for the GPG user
 	pw=`pwgen -s -c 16`
-	
+
 	#Create the user
-	useradd -m -p $pw grdmgpg
+	if [ $(UCS_detect) -eq 0 ]
+	then
+		useradd --uid 55001 --gid 55001 -m -p $pw grdmgpg
+	else
+		useradd -m -p $pw grdmgpg
+	fi
 
 	#Delete old GPG line
 	sed -i '/NOPASSWD:GPG/d' /etc/sudoers
@@ -993,9 +998,12 @@ updateSQLIfOlder $oldversionint 113100485 "ALTER TABLE clients CHANGE language l
 updateSQLIfOlder $oldversionint 123100598 "CREATE TABLE m23.lockedIPRanges (id BIGINT NOT NULL AUTO_INCREMENT , firstIPInt bigint(20) NOT NULL , lastIPInt bigint(20) NOT NULL , PRIMARY KEY ( id )) ENGINE = MYISAM ;"
 
 #Convert the old dhcpd.conf format to the new
-dhcpdBackup=$(date +'/m23/dhcp/dhcpd.conf.%Y-%m-%d_%H-%M.bak')
-cp /m23/dhcp/dhcpd.conf $dhcpdBackup
-sed -i -e 's/^ subnet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]* netmask [0-9]*\.[0-9]*\.[0-9]*\.0 { //g' -e 's/; } option/; option/g' -e 's/}}$/}/g' -e 's/^ host/host/g' /m23/dhcp/dhcpd.conf
+if [ -f /m23/dhcp/dhcpd.conf ]
+then
+	dhcpdBackup=$(date +'/m23/dhcp/dhcpd.conf.%Y-%m-%d_%H-%M.bak')
+	cp /m23/dhcp/dhcpd.conf $dhcpdBackup
+	sed -i -e 's/^ subnet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]* netmask [0-9]*\.[0-9]*\.[0-9]*\.0 { //g' -e 's/; } option/; option/g' -e 's/}}$/}/g' -e 's/^ host/host/g' /m23/dhcp/dhcpd.conf
+fi
 
 #Add new table for storing the PHP objects
 updateSQLIfOlder $oldversionint 131100629 "CREATE TABLE m23.PHPObjectStorage ( id BIGINT NOT NULL AUTO_INCREMENT , ident VARCHAR( 255 ) NOT NULL , class VARCHAR( 255 ) NOT NULL , object LONGTEXT NOT NULL, last_modified int(10) NOT NULL, PRIMARY KEY ( id ), UNIQUE KEY client (ident,class) ) ENGINE = MYISAM ;"
@@ -1026,15 +1034,18 @@ restartDHCPServer
 mkdir -p /m23/tmp /m23/log
 
 /m23/bin/fix-permissions
-chown www-data /m23/data+scripts/clientImages
-chmod 755 /m23/data+scripts/clientImages
+if [ -e /m23/data+scripts/clientImages ]
+then
+	chown www-data /m23/data+scripts/clientImages
+	chmod 755 /m23/data+scripts/clientImages
+fi
 
 touch /m23/dhcp/dhcpd.leases
 
 mkdir -p /m23/root-only
 chmod 700 /m23/root-only
 
-rm -r /tmp/m23-install
+rm -r /tmp/m23-install 2> /dev/null
 
 # Make sure the www-data user has a normal login (needed for sudo, e.g. package index creation)
 usermod -s /bin/bash www-data
@@ -1042,7 +1053,7 @@ usermod -s /bin/bash www-data
 usermod -p $(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;) www-data
 
 #Make sure that there is no user test
-userdel -r -f test
+userdel -r -f test 2> /dev/null
 
 #Import the key for the signed m23 packages
 wget -T1 -t1 -q http://m23.sourceforge.net/m23-Sign-Key.asc -O - | apt-key add -

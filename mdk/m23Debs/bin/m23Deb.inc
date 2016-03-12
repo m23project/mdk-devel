@@ -206,6 +206,12 @@ finishBuilding()
 
 	dpkg-deb --build . $debPath$debname
 
+	if [ $? -ne 0 ]
+	then
+		echo "Package build ERROR"
+		read lala
+	fi
+
 	rm -f "/tmp/$1""deb.list" 2> /dev/null
 	rm -f -r m23 mdk 2> /dev/null
 }

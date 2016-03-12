@@ -1,33 +1,9 @@
 #!/bin/sh
 
-if test $# -lt 1
-then
-	echo "Downloads and extracts the templates of all Debian packages of a release and distribution."
-	echo "usage $0 <release> [arch=i386] [mirror=ftp://ftp.de.debian.org/debian || http://de.archive.ubuntu.com/ubuntu]"
-	exit
-fi
-
-
+mirror="http://ftp2.de.debian.org/debian"
 tempDir="/tmp/getDebianTemplates$$"
-
-#Try to get the architecture
-if [ $2 ]
-then
-	arch=$2
-else
-	arch="i386"
-fi
-
-#Try to get the mirror
-if [ $3 ]
-then
-	mirror=$3
-else
-	mirror="ftp://ftp.de.debian.org/debian"
-fi
-
-
-release=$1
+arch="i386"
+release="jessie"
 templateDir="`pwd`/templates-$release-$arch"
 
 mkdir -p $tempDir $templateDir
@@ -42,8 +18,8 @@ getFileList()
 	rm getDebianTemplates.filelist 2> /dev/null
 	for branch in main contrib non-free
 	do
-		wget $mirror/dists/$release/$branch/binary-$arch/Packages.bz2 -O "$tempDir/Packages.bz2"
-		bzcat "$tempDir/Packages.bz2" | grep Filename | cut -d' ' -f2 >> getDebianTemplates.filelist
+		wget $mirror/dists/$release/$branch/binary-$arch/Packages.xz -O "$tempDir/Packages.xz"
+		xzcat -d "$tempDir/Packages.xz" | grep Filename | cut -d' ' -f2 >> getDebianTemplates.filelist
 	done
 }
 
@@ -73,7 +49,7 @@ getTemplates()
 			else
 				touch $templateFile
 			fi
-			rm control.tar.gz data.tar.* debian-binary
+			rm control.tar.gz data.tar.gz debian-binary
 		fi
 	done
 }
