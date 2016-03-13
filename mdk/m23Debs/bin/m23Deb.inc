@@ -208,7 +208,7 @@ finishBuilding()
 
 	if [ $? -ne 0 ]
 	then
-		echo "Package build ERROR"
+		echo "Package build ERROR ($debname)"
 		read lala
 	fi
 
