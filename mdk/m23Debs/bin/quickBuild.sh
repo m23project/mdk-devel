@@ -31,6 +31,10 @@ case $1 in
 		./mkm23sharedDeb
 		#updatePackages #is not in the normal pool
 		exit;;
+	"m23-ucs-extra")
+		finishBuilding m23-ucs-extra
+		updatePackages
+		exit;;
 esac
 
 #Make the MD5 sum file invalid

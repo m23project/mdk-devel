@@ -1,0 +1,95 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          m23-xorg-configurator
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     S
+# Default-Stop:
+# X-Interactive:     true
+# Short-Description: Configurates X11
+### END INIT INFO
+
+# /etc/init.d/m23-xorg-configurator
+# Configurates X11
+# (C) Hauke Goos-Habermann <hhabermann@pc-kiel.de>
+
+
+# # Required-Start:    $local_fs $syslog $remote_fs $network
+# # Required-Stop:     $local_fs $syslog $remote_fs $network
+# # Default-Start:     S
+# # Default-Stop:
+
+
+
+#Disable configuration on Ubuntu 12.04 LTS completely, because the X session will crash, when Return is pressed on auto login
+if [ $(grep -c 'Ubuntu 12.04' /etc/issue) -gt 0 ] && [ $(grep 'packages.linuxmint.com' /etc/apt/sources.list | grep -c maya) -eq 0 ]
+then
+	exit 0
+fi
+
+
+
+
+
+if [ $# -gt 0 ] && [ $1 = "stop" ]
+then
+	exit 0
+fi
+
+#Make sure, /etc/sysconfig2 exists
+mkdir -p /etc/sysconfig2
+
+#Store the current kernel version in the new sysconfig directory
+uname -r > /etc/sysconfig/kernel
+
+#Check if there is an old kernel sysconfig file and create it if not
+if [ ! -f /etc/sysconfig2/kernel ]
+then
+	cp /etc/sysconfig/kernel /etc/sysconfig2/kernel
+fi
+
+diffCheck()
+{
+	a=$( diff -N $1 $2 2> /dev/null | wc -l )
+	b=$( [ -f  $1 ] ; echo $? )
+	c=$( [ -f  $2 ] ; echo $? )
+	expr $a + $b + $c
+}
+
+#get changes in mouse, xserver and kernel
+mdiff=$(diffCheck /etc/sysconfig/mouse /etc/sysconfig2/mouse)
+xdiff=$(diffCheck /etc/sysconfig/xserver /etc/sysconfig2/xserver)
+kdiff=$(diffCheck /etc/sysconfig/kernel /etc/sysconfig2/kernel)
+vdiff=$(diffCheck /etc/sysconfig/vbox /etc/sysconfig2/vbox)
+
+#Accumulate the changed lines
+cha=`expr $mdiff \+ $xdiff \+ $kdiff \+ $vdiff`
+
+if [ $cha -gt 0 ] || [ ! -f /etc/X11/xorg.conf ] || [ $(wc -l /etc/X11/xorg.conf | cut -d' ' -f1) -eq 0 ]
+then
+	echo "System configuration was changed => Reconfigure video and mouse"
+	/sbin/m23-xorg.conf-generator.sh
+fi
+
+#Write a description file(s) with nonsense if not existing
+for conf in mouse xserver vbox
+do
+	if [ ! -f /etc/sysconfig/$conf ]
+	then
+		echo "m23empty=1" > /etc/sysconfig/$conf
+	fi
+done
+
+cp -r /etc/sysconfig/* /etc/sysconfig2
+
+#This may be created by m23-xorg.conf-generator.sh
+if [ -f /tmp/reboot ]
+then
+	rm /tmp/reboot
+	echo ">>>Rebooting..." >> /var/log/m23-xorg.conf-generator.log
+	reboot
+	reboot -f
+fi
+
+exit 0
