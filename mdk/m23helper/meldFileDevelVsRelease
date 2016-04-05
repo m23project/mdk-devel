@@ -1,0 +1,22 @@
+#!/bin/bash
+
+file1=$(realpath "$1")
+
+# Check, if the script is called for a file from MDK or m23
+if [ $(echo "$1" | egrep -c "(/mdk/|/mdk-devel/)" ) -gt 0 ]
+then
+	m23Ormdk='svn-mdk2'
+else
+	m23Ormdk='m23'
+fi
+
+
+# Replace release <=> devel
+if [ $(echo $file1 | grep -c "/$m23Ormdk-devel/") -gt 0 ]
+then
+	file2=$(echo $file1 | sed "s#/$m23Ormdk-devel/#/$m23Ormdk/#")
+else
+	file2=$(echo $file1 | sed "s#/$m23Ormdk/#/$m23Ormdk-devel/#")
+fi
+
+meld "$file1" "$file2"

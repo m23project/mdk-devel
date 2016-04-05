@@ -385,8 +385,6 @@ fi
 
 
 
-
-
 db_get m23/configureSquid
 if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
@@ -717,7 +715,7 @@ echo "	<VirtualHost *:443>
 	for phpFile in `find /etc/php?/apache* | grep php.ini` `find /etc/php?/cli | grep php.ini`
 	do
 		#PHP settings
-		sed -i -e 's/register_globals = Off/register_globals = On/g' -e 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
+		sed -i -e 's/register_globals = Off/register_globals = On/g' -e 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' -e 's/short_open_tag = Off/short_open_tag = On/g' -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 5/g' -e 's/^session.gc_divisor[ =0-9]*/session.gc_divisor = 100/g' $phpFile
 
 		chown root.root $phpFile
 		chmod 644 $phpFile

@@ -4,10 +4,10 @@ Default: true
 Description: Create a new MySQL database for m23, add DB user and tables?
  m23 needs a new MySQL database to store different informations, a database
  user to access it and some tables and entries to work properly.
-Description-de: Neue Datenbank für m23, DB-Benutzer und Tabellen anlegen?
- m23 benötigt eine neue MySQL-Datenbank um verschiedene Informationen zu
- speichern, einen neuen Datenbank-Benutzer und einige Tabellen sowie Einträge,
- um korrekt arbeiten zu können.
+Description-de: Neue Datenbank fÃ¼r m23, DB-Benutzer und Tabellen anlegen?
+ m23 benÃ¶tigt eine neue MySQL-Datenbank um verschiedene Informationen zu
+ speichern, einen neuen Datenbank-Benutzer und einige Tabellen sowie EintrÃ¤ge,
+ um korrekt arbeiten zu kÃ¶nnen.
 
 Template: m23/experimentalWarn
 Type: note
@@ -16,9 +16,9 @@ Description: This is an experimantal m23 installation package
  use this computer for any other purpose as for running the m23 software on it. This is
  especially meant for using it in addition as Apache, DHCP or MySQL server.
 Description-de: Dies ist ein experimentelles m23-Installations-Paket
- Die Installation dieses Paketes könnte die Lauffähigkeit Ihres Systems beeinträchtigen.
- Sie sollten diesen Rechner nicht für andere Aufgaben verwenden, da es sonst zu
- Schwierigkeiten mit der m23-Software führen kann. Insbesondere sollten Sie darauf
+ Die Installation dieses Paketes kÃ¶nnte die LauffÃ¤higkeit Ihres Systems beeintrÃ¤chtigen.
+ Sie sollten diesen Rechner nicht fÃ¼r andere Aufgaben verwenden, da es sonst zu
+ Schwierigkeiten mit der m23-Software fÃ¼hren kann. Insbesondere sollten Sie darauf
  verzichten, den Rechner als Apache-, DHCP- oder MySQL-Server zu verwenden.
 
 Template: m23/configDHCP
@@ -29,9 +29,9 @@ Description: Configure DHCPd server?
  configured to search the dhcpd.conf under /m23/dhcp. This is needed because m23 manages
  the entries in dhcpd.conf dynamically.
 Description-de: DHCPd-Server konfigurieren?
- m23 benötigt spezielle Einstellungen beim DHCP-Server, um das Netzwerkbooten zu
- erlauben. Der Server muß so konfiguriert werden, daß die dhcpd.conf im Verzeichnis
- /m23/dhcp gesucht wird. Dies ist erforderlich, da die Einträge in dieser Datei von m23
+ m23 benÃ¶tigt spezielle Einstellungen beim DHCP-Server, um das Netzwerkbooten zu
+ erlauben. Der Server muÃŸ so konfiguriert werden, daÃŸ die dhcpd.conf im Verzeichnis
+ /m23/dhcp gesucht wird. Dies ist erforderlich, da die EintrÃ¤ge in dieser Datei von m23
  dynamisch verwaltet werden.
 
 Template: m23/configureSSH
@@ -41,12 +41,12 @@ Description: Check and copy SSH key?
  m23 needs a SSH key to log into the clients without getting asked for a password.
  It is checked therefore if a public root SSH key exists and if not a new is generated.
  This key will be copied into the distribution directory.
-Description-de: SSH-Schlüssel überprüfen und kopieren?
- m23 benötigt einen SSH-Schlüssel, um ohne Paßwortabfrage in die Clients einloggen zu
- können. Deshalb wird geprüft, ob der root-Benutzer einen öffentlichen SSH-Schlüssel
- besitzt. Sollte dies nicht der Fall sein, so wird ein neuer generiert. Anschließend
- wird der Schlüssel in ein Verzeichnis kopiert, aus dem ihn die Clients herunterladen
- können.
+Description-de: SSH-SchlÃ¼ssel Ã¼berprÃ¼fen und kopieren?
+ m23 benÃ¶tigt einen SSH-SchlÃ¼ssel, um ohne PaÃŸwortabfrage in die Clients einloggen zu
+ kÃ¶nnen. Deshalb wird geprÃ¼ft, ob der root-Benutzer einen Ã¶ffentlichen SSH-SchlÃ¼ssel
+ besitzt. Sollte dies nicht der Fall sein, so wird ein neuer generiert. AnschlieÃŸend
+ wird der SchlÃ¼ssel in ein Verzeichnis kopiert, aus dem ihn die Clients herunterladen
+ kÃ¶nnen.
 
 Template: m23/configureSquid
 Type: boolean
@@ -56,11 +56,11 @@ Description: Configure Squid for distribution of packages?
  internet. This ensures that each package is downloaded only once. Software packages
  are much bigger that web pages and should remain longer in the cache. The standard Squid
  settings do not fit the needs for caching packages.
-Description-de: Squid für das Verteilen von Paketen einrichten?
+Description-de: Squid fÃ¼r das Verteilen von Paketen einrichten?
  m23 verwendet den Squid-Proxy zum Zwischenspeichern von Softwarepaketen, die aus dem
- Internet heruntergeladen werden. Hiermit wird sichergestellt, daß jedes Paket nur
- einmal heruntergeladen wird. Softwarepakete sind größer als Webseiten und wechseln
- weniger häufig ihren Inhalt. Die Squid-Standard-Einstellung ist nicht geeignet, um
+ Internet heruntergeladen werden. Hiermit wird sichergestellt, daÃŸ jedes Paket nur
+ einmal heruntergeladen wird. Softwarepakete sind grÃ¶ÃŸer als Webseiten und wechseln
+ weniger hÃ¤ufig ihren Inhalt. Die Squid-Standard-Einstellung ist nicht geeignet, um
  Softwarepakete zu Speichern.
 
 Template: m23/configureSSL
@@ -70,8 +70,8 @@ Description: Generate SSL certificate?
  The communication between server and client is encrypted via SSL. To make SSL
  work the Apache server needs a SSL certificate.
 Description-de: SSL-Zertifikat erstellen?
- Die Kommunikation zwischen Server und Clients wird durch SSL verschlüsselt.
- Für die SSL-Verschlüsselung benötigt Apache ein SSL-Zertifikat.
+ Die Kommunikation zwischen Server und Clients wird durch SSL verschlÃ¼sselt.
+ FÃ¼r die SSL-VerschlÃ¼sselung benÃ¶tigt Apache ein SSL-Zertifikat.
 
 Template: m23/configureApache
 Type: boolean
@@ -80,7 +80,7 @@ Description: Configure Apache?
  The Apache configuration must have an activated PHP extension and use the
  directory /m23/data+scripts as DocumentRoot.
 Description-de: Apache konfigurieren?
- In der Apache-Konfiguration muß die PHP-Erweiterung aktiv sein und das
+ In der Apache-Konfiguration muÃŸ die PHP-Erweiterung aktiv sein und das
  Verzeichnis /m23/data+scripts als DocumentRoot verwendet werden.
 
 Template: m23/configureSudo
@@ -90,8 +90,8 @@ Description: Configure sudo?
  Sudo must get configured to allow the Apache user applications with root
  privileges.
 Description-de: Sudo konfigurieren?
- Sudo muß so konfiguriert sein, daß der Apache-Benutzer Anwendungen mit
- root-Rechten ausführen kann.
+ Sudo muÃŸ so konfiguriert sein, daÃŸ der Apache-Benutzer Anwendungen mit
+ root-Rechten ausfÃ¼hren kann.
 
 Template: m23/warnDHCP
 Type: note
@@ -102,11 +102,11 @@ Description: No static IP
  will be used in the certificate. Not giving the the server a static IP
  may cause unpredictable errors.
 Description-de: Keine statische IP
- Sie müssen dem m23-Server eine feste IP-Adresse zuweisen. Diese IP wird
+ Sie mÃ¼ssen dem m23-Server eine feste IP-Adresse zuweisen. Diese IP wird
  auch in dem zu Erstellenden Zertifikat verwendet. In der Datei
  /etc/network/interfaces wurde keine statische IP gefunden, anstelle der
  IP wird der Hostname im Zertifikat verwendet. Das Nichtverwenden einer
- statischen IP kann zu unvorhersebaren Fehler führen.
+ statischen IP kann zu unvorhersebaren Fehler fÃ¼hren.
 
 Template: m23/configureBackupPC
 Type: boolean
@@ -115,5 +115,5 @@ Description: BackupPC configuration
  Every m23 client can be backed up with BackupPC. Should BackupPC get
  configured to support the backup of m23 clients?
 Description-de: BackupPC Konfiguration
- BackupPC kann so konfiguriert werden, daß jeder m23-Client durch
+ BackupPC kann so konfiguriert werden, daÃŸ jeder m23-Client durch
  BackupPC gesichert werden kann. Soll BackupPC so eingerichtet werden?
