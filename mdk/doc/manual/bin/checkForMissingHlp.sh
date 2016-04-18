@@ -1,7 +1,10 @@
 #!/bin/bash
 
+. /mdk/bin/forkFunctions.inc
+
 # Create a file with all .hlp and .inc files from /m23/inc/help
-find /m23/inc/help -type f -printf "%f\n" | grep -v "~$" |sort -u > /tmp/helpAllFiles
+find /m23/inc/help -type f -printf "%f\n" | grep -v "~$" | grep -v bafh.hlp | grep -v customerCenter.hlp | grep -v customerRegistration.hlp | grep -v m23SharedBootingYourClient.hlp | sort -u > /tmp/helpAllFiles
+
 
 # Log file to store the output messages
 logFile="/tmp/allMissingChangedm23Help.txt"
@@ -13,7 +16,11 @@ rm $tarList 2> /dev/null
 
 
 
-# Find .hlp/.inc files that have too lesse I18N_ symbols
+
+
+
+
+# Find .hlp/.inc files that have too less I18N_ symbols
 for helpFile in `cat /tmp/helpAllFiles`
 do
 	changed=0
@@ -67,44 +74,69 @@ done
 
 
 
-# Get a list of comments for each language
-for file in `cat /tmp/helpAllFiles`
-do
-	# Language directories (e.g. /m23/inc/help/de)
-	for dir in `find /m23/inc/help/* -type d`
-	do
-		# 2 char language (e.g. de)
-		lang=`basename $dir`
+devel=$(getm23DevelDir)
+if [ $? -ne 0 ]
+then
+	echo "ERROR: m23 development directory could not be found!"
+	exit 1
+fi
 
-		if [ -f "$dir/$file" ]
-		then
-			# Pull out the comments
-			sed 's/<!--/\n<!--/g' "$dir/$file" | sed 's/-->/-->\n/g' | grep "<\!--" | awk -v file=$file '{print(file":"$0)}' >> /tmp/$lang.m23Comments
-		else
-			echo "$file: missing" >> /tmp/$lang.m23Comments | tee -a $logFile
-		fi
+release=$(getm23ReleaseDir)
+if [ $? -ne 0 ]
+then
+	echo "ERROR: m23 release directory could not be found!"
+	exit 1
+fi
+
+
+# Check for changes between the German help files in the m23 development and release directories
+LC_ALL=C; diff -q -r $devel/inc/help/de/ $release/inc/help/de/ | grep -v '~' | grep differ$ | cut -d' ' -f2 | while read changedInGerman
+do
+	for lang in de en fr
+	do
+		echo -n "changed: "
+		basename $changedInGerman | awk -v dir="/m23/inc/help/$lang" '{print(dir"/"$0)}' | tee -a $logFile
 	done
 done
 
 
-
-
-
-# Check for missing comments
-for lang in en fr
-do
-	diffFile="/tmp/$lang.m23commentsMissing"
-
-	# Search comments that are missing in comparison to the German version
-	diff /tmp/$lang.m23Comments /tmp/de.m23Comments  | grep "> " | cut -d' ' -f2 | cut -d':' -f1 | sort -u > $diffFile
-
-	# Show the files with missing comments
-	if [ $(wc -l $diffFile | cut -d' ' -f1) -gt 0 ]
-	then
-		echo "Comments missing in:" | tee -a $logFile
-		awk -v dir="/m23/inc/help/$lang" '{print(dir"/"$0)}' $diffFile | tee -a $logFile
-	fi
-done
+# # Get a list of comments for each language
+# for file in `cat /tmp/helpAllFiles`
+# do
+# 	# Language directories (e.g. /m23/inc/help/de)
+# 	for dir in `find /m23/inc/help/* -type d`
+# 	do
+# 		# 2 char language (e.g. de)
+# 		lang=`basename $dir`
+# 
+# 		if [ -f "$dir/$file" ]
+# 		then
+# 			# Pull out the comments
+# 			sed 's/<!--/\n<!--/g' "$dir/$file" | sed 's/-->/-->\n/g' | grep "<\!--" | awk -v file=$file '{print(file":"$0)}' >> /tmp/$lang.m23Comments
+# 		else
+# 			echo "$file: missing" >> /tmp/$lang.m23Comments | tee -a $logFile
+# 		fi
+# 	done
+# done
+# 
+# 
+# 
+# 
+# # Check for missing comments
+# for lang in en fr
+# do
+# 	diffFile="/tmp/$lang.m23commentsMissing"
+# 
+# 	# Search comments that are missing in comparison to the German version
+# 	diff /tmp/$lang.m23Comments /tmp/de.m23Comments  | grep "> " | cut -d' ' -f2 | cut -d':' -f1 | sort -u > $diffFile
+# 
+# 	# Show the files with missing comments
+# 	if [ $(wc -l $diffFile | cut -d' ' -f1) -gt 0 ]
+# 	then
+# 		echo "Comments missing in:" | tee -a $logFile
+# 		awk -v dir="/m23/inc/help/$lang" '{print(dir"/"$0)}' $diffFile | tee -a $logFile
+# 	fi
+# done
 
 
 
@@ -124,7 +156,8 @@ echo $logFile > $tarList
 sort -u "$tarList.tmp" >> $tarList
 rm "$tarList.tmp"
 
-tar cfvz /tmp/allMissingChangedm23HelpFiles.tar.gz -T /tmp/allMissingChangedm23HelpFiles.txt
+tar cfz /tmp/allMissingChangedm23HelpFiles.tar.gz -T /tmp/allMissingChangedm23HelpFiles.txt
+echo "/tmp/allMissingChangedm23HelpFiles.tar.gz contains all files needed for translation"
 
 
-rm /tmp/helpAllFiles /tmp/??.m23Comments /tmp/??.m23commentsMissing /tmp/??.m23index /tmp/??.i18n 2> /dev/null
+#rm /tmp/helpAllFiles /tmp/??.m23Comments /tmp/??.m23commentsMissing /tmp/??.m23index /tmp/??.i18n 2> /dev/null

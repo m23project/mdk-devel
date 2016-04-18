@@ -24,7 +24,7 @@ else
 	fi
 fi
 
-if [ $(grep -c 'Xenial' /etc/issue) -gt 0 ]
+if [ $(lsb_release -c -s) = 'xenial' ]
 then
 	# Remove upstart files
 	rm /etc/init/m23*
