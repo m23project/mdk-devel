@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listSupportedFS</TITLE>
-<META NAME="description" CONTENT="FDISK_listSupportedFS">
+<TITLE>FDISK_raidJob</TITLE>
+<META NAME="description" CONTENT="FDISK_raidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node552.html">
 <LINK REL="previous" HREF="node550.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node552.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10769"
+<A NAME="tex2html10696"
   HREF="node552.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10765"
-  HREF="node480.html">
+<A NAME="tex2html10692"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10759"
+<A NAME="tex2html10686"
   HREF="node550.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10767"
+<A NAME="tex2html10694"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10770"
-  HREF="node552.html">FDISK_deletePartitionFromParam</A>
-<B> Up:</B> <A NAME="tex2html10766"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10760"
-  HREF="node550.html">FDISK_getSupportedFS</A>
- &nbsp; <B>  <A NAME="tex2html10768"
+<B> Next:</B> <A NAME="tex2html10697"
+  HREF="node552.html">FDISK_virtualDeleteDrive</A>
+<B> Up:</B> <A NAME="tex2html10693"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10687"
+  HREF="node550.html">FDISK_addRaidBeforeFormat</A>
+ &nbsp; <B>  <A NAME="tex2html10695"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081671000000000000000">
-FDISK_listSupportedFS</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> lists all supported fileSystems for the menu.
+<H2><A NAME="SECTION00916107000000000000000">
+FDISK_raidJob</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a job to create a RAID on given drives/partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>selName: name the selection list, used for the html form
+<LI>raidDev: RAID device (e.g. /dev/md0)
 </LI>
-<LI>showFirst: name of file system shown first
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>The currently choosen file system.
+<LI>partJobs: associative array with partition jobs
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

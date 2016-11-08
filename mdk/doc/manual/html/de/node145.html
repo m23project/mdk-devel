@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM erstellen</TITLE>
-<META NAME="description" CONTENT="VM erstellen">
+<TITLE>Manuelle Integration</TITLE>
+<META NAME="description" CONTENT="Manuelle Integration">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,71 +19,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node152.html">
+<LINK REL="next" HREF="node146.html">
 <LINK REL="previous" HREF="node144.html">
-<LINK REL="up" HREF="node144.html">
+<LINK REL="up" HREF="node143.html">
 <LINK REL="next" HREF="node146.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2369"
+<A NAME="tex2html2373"
   HREF="node146.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2365"
-  HREF="node144.html">
+<A NAME="tex2html2369"
+  HREF="node143.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2359"
+<A NAME="tex2html2363"
   HREF="node144.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2367"
+<A NAME="tex2html2371"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2370"
-  HREF="node146.html">Schrittweises Vorgehen</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2366"
-  HREF="node144.html">Virtualisierung</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2360"
-  HREF="node144.html">Virtualisierung</A>
- &nbsp; <B>  <A NAME="tex2html2368"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2374"
+  HREF="node146.html">Hinweis für die Integration</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2370"
+  HREF="node143.html">Client integrieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2364"
+  HREF="node144.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html2372"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001010000000000000000">
-VM erstellen</A>
-</H1>Auf dieser Seite k&#246;nnen Sie virtuelle m23-Clients (VMs) erstellen. VMs teilen sich die Ressourcen des Gastgeberrechners und verhalten sich im Netzwerk wie ''normale'' m23-Clients. Zum Anlegen einer virtuellen Maschine mu&#223; der VM-Gastgeberrechner angeschaltet und auf diesem das m23-Virtualisierungspaket (bei Nutzung der integrierten VirtualBox-Virtualisierung) installiert sein (Weiteres s.u.).
-<BR><IMG
-  WIDTH="710" HEIGHT="930" ALIGN="BOTTOM" BORDER="0"
- SRC="./createVM.png"
- ALT="Image createVM"> 
-<BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2371"
-  HREF="node146.html">Schrittweises Vorgehen</A>
-<LI><A NAME="tex2html2372"
-  HREF="node147.html">VirtualBox</A>
-<LI><A NAME="tex2html2373"
-  HREF="node148.html">Apache CloudStack<SUP></SUP></A>
-<LI><A NAME="tex2html2374"
-  HREF="node149.html">Hinweis</A>
-<LI><A NAME="tex2html2375"
-  HREF="node150.html">Hinweis zum VM-Gastgeberrechner (VirtualBox)</A>
-<LI><A NAME="tex2html2376"
-  HREF="node151.html">Arbeitsspeicher, Festplatte und CPU (VirtualBox)</A>
-</UL>
-<!--End of Table of Child-Links-->
+<H2><A NAME="SECTION00962000000000000000">
+Manuelle Integration</A>
+</H2>
+Sollte auf dem Client kein SSH-D&#228;mon laufen, so ist es auch m&#246;glich, den Integrationsproze&#223; auf dem Client per Hand anzusto&#223;en. F&#252;hren Sie dazu folgende Befehle als ''root'' in der Konsole des Clients aus (serverIP dabei durch die IP des m23-Servers ersetzen):
+<BR><PRE>
+cd /tmp; wget http://$\langle$serverIP$\rangle$/work.php -O work.php; sh work.php
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

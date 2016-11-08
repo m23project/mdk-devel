@@ -16,9 +16,9 @@ rm /tmp/z
 grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
 
 #Add the URL for server update if missing
-if [ `grep -c "http://vorboss.dl.sourceforge.net" /tmp/sources.list` -eq 0 ]
+if [ `grep -c "m23inst.goos-habermann.de" /tmp/sources.list` -eq 0 ]
 then
-	echo "deb http://vorboss.dl.sourceforge.net/project/m23/m23inst ./" >> /tmp/sources.list
+	echo "deb http://m23inst.goos-habermann.de ./" >> /tmp/sources.list
 fi
 
 cat /tmp/sources.list > /etc/apt/sources.list

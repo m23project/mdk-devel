@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>example for a mdoc comment</TITLE>
+<META NAME="description" CONTENT="example for a mdoc comment">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,68 +21,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node89.html">
 <LINK REL="previous" HREF="node87.html">
-<LINK REL="up" HREF="node87.html">
+<LINK REL="up" HREF="node84.html">
 <LINK REL="next" HREF="node89.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3670"
+<A NAME="tex2html3606"
   HREF="node89.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3666"
-  HREF="node87.html">
+<A NAME="tex2html3602"
+  HREF="node84.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3660"
+<A NAME="tex2html3596"
   HREF="node87.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3668"
+<A NAME="tex2html3604"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3671"
-  HREF="node89.html">creating a new bootimage</A>
-<B> Up:</B> <A NAME="tex2html3667"
-  HREF="node87.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html3661"
-  HREF="node87.html">How to make network</A>
- &nbsp; <B>  <A NAME="tex2html3669"
+<B> Next:</B> <A NAME="tex2html3607"
+  HREF="node89.html">using mdoc</A>
+<B> Up:</B> <A NAME="tex2html3603"
+  HREF="node84.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html3597"
+  HREF="node87.html">mdoc info block</A>
+ &nbsp; <B>  <A NAME="tex2html3605"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00681000000000000000">
-Introduction</A>
+<H2><A NAME="SECTION00714000000000000000">
+example for a mdoc comment</A>
 </H2>
-What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
-<BR>
-A client runs for first start up thru the following sequence:
-<BR>
-<UL>
-<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
-</LI>
-<LI>fetch the bootimage from the server with TFTP protocoll
-</LI>
-<LI>load and extract the image to the client memory
-</LI>
-<LI>start the contained kernel
-</LI>
-<LI>kernel loades the included initrd
-</LI>
-<LI>start up script fetches IP, netmask, etc. from the server again
-</LI>
-<LI>the script fetches the first job for the client and saves the job script file
-</LI>
-<LI>the script is executed and the next job will be fetched from the server
-</LI>
-</UL> 
-This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+<PRE>
+/**
+**n CLIENT_listPackages($client, $key)
+**d lists all packages on the client
+**p client: name of the client
+**p key: keyword for searching for packages
+**/
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

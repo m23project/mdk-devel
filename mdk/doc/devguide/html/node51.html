@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Example</TITLE>
-<META NAME="description" CONTENT="Example">
+<TITLE>How to create a bootable server installation CD?</TITLE>
+<META NAME="description" CONTENT="How to create a bootable server installation CD?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,101 +19,67 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node52.html">
-<LINK REL="previous" HREF="node47.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node52.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3200"
+<A NAME="tex2html3137"
   HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3196"
-  HREF="node38.html">
+<A NAME="tex2html3133"
+  HREF="node23.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3190"
+<A NAME="tex2html3127"
   HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3198"
+<A NAME="tex2html3135"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3201"
-  HREF="node52.html">The complete program</A>
-<B> Up:</B> <A NAME="tex2html3197"
-  HREF="node38.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html3191"
-  HREF="node50.html">Send SQL statements</A>
- &nbsp; <B>  <A NAME="tex2html3199"
+<B> Next:</B> <A NAME="tex2html3138"
+  HREF="node52.html">Introduction</A>
+<B> Up:</B> <A NAME="tex2html3134"
+  HREF="node23.html">HowTos</A>
+<B> Previous:</B> <A NAME="tex2html3128"
+  HREF="node50.html">booting your new system</A>
+ &nbsp; <B>  <A NAME="tex2html3136"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00646000000000000000">
-Example</A>
-</H2>
-<PRE>
-int main(int argc, char *argv[])
-{
-  MYSQL_RES *res;
-  unsigned int fields;
-  my_ulonglong rows;
-  MYSQL_ROW row;
+<H1><A NAME="SECTION00650000000000000000">
+How to create a bootable server installation CD?</A>
+</H1>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-  connect("127.0.0.1", "root", "");
-
-  res=query("SELECT * FROM `clients`");
-
-  fields=mysql_field_count(&amp;connection); //&lt;&lt;1
-
-  rows=mysql_num_rows(res); //&lt;&lt;2
-
-
-  for (int i=0; i &lt; rows; i++)
-    {
-        unsigned long *lengths;
-
-        row=mysql_fetch_row(res); //&lt;&lt;3
-
-        lengths = mysql_fetch_lengths(res); //&lt;&lt;4
-
-        for (int fnr=0; fnr &lt; fields; fnr++)
-            printf("[%i: %s] ", (int) lengths[fnr],
-                    row[fnr] ? row[fnr] : "NULL"); //&lt;&lt;5
-    }
-
-  mysql_free_result(res); //&lt;&lt;6
-
-  disconnect();
-
-  return EXIT_SUCCESS;
-}
-</PRE>
-
-<OL>
-<LI>Get the number of fields of the table.
-</LI>
-<LI>Get the amount of result rows.
-</LI>
-<LI>Fetch a row (one by one) and store the result in <SPAN  CLASS="textit">row</SPAN>.
-</LI>
-<LI>Store the lengths (in characters) of the result fields.
-</LI>
-<LI>Print the fields of one row.
-</LI>
-<LI>Free the memory by deleting the result data.
-</LI>
-</OL>
-
-<P>
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3139"
+  HREF="node52.html">Introduction</A>
+<LI><A NAME="tex2html3140"
+  HREF="node53.html">what does the makeCD script?</A>
+<UL>
+<LI><A NAME="tex2html3141"
+  HREF="node54.html">initrd</A>
+<LI><A NAME="tex2html3142"
+  HREF="node55.html">compress operating system</A>
+<LI><A NAME="tex2html3143"
+  HREF="node56.html">compresses the m23 files</A>
+<LI><A NAME="tex2html3144"
+  HREF="node57.html">generating the ISO image</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

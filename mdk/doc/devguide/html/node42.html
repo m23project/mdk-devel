@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Enable network access</TITLE>
-<META NAME="description" CONTENT="Enable network access">
+<TITLE>lilo.conf</TITLE>
+<META NAME="description" CONTENT="lilo.conf">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,59 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node43.html">
 <LINK REL="previous" HREF="node41.html">
-<LINK REL="up" HREF="node41.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node43.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3093"
+<A NAME="tex2html3034"
   HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3089"
-  HREF="node41.html">
+<A NAME="tex2html3030"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3083"
+<A NAME="tex2html3024"
   HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3091"
+<A NAME="tex2html3032"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3094"
-  HREF="node43.html">Adding a database user</A>
-<B> Up:</B> <A NAME="tex2html3090"
-  HREF="node41.html">Preparing the server</A>
-<B> Previous:</B> <A NAME="tex2html3084"
-  HREF="node41.html">Preparing the server</A>
- &nbsp; <B>  <A NAME="tex2html3092"
+<B> Next:</B> <A NAME="tex2html3035"
+  HREF="node43.html">sources.list</A>
+<B> Up:</B> <A NAME="tex2html3031"
+  HREF="node40.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html3025"
+  HREF="node41.html">fstab</A>
+ &nbsp; <B>  <A NAME="tex2html3033"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00643100000000000000">
-Enable network access</A>
+<H3><A NAME="SECTION00642200000000000000">
+lilo.conf</A>
 </H3>
-To get access to the server over the network you need to do a little adjustment:
-Open <SPAN  CLASS="textit">/etc/mysql/my.cnf</SPAN> and comment out the line <TT>skip-networking</TT> so that it looks like <TT>#skip-networking</TT>.
-Don't forget to save ;) Now you have to restart the mysql server.
-<BR>
-<BR>
-I do it this way:
-<BR><TT>
-killall -9 safe_mysqld
-<BR>
-killall -9 mysqld
-<BR>/etc/init.d/mysql start
-<BR></TT>
+You can use your current lilo.conf and edit some values like <SPAN  CLASS="textit">root</SPAN>. You may choose a different kernel than in your current system so you have to adjust the <SPAN  CLASS="textit">image</SPAN> parameter too. But first it is essetial to have a lilo.conf with the correct <SPAN  CLASS="textit">root</SPAN> value, <SPAN  CLASS="textit">image</SPAN> doesn't matter at the moment.
+<PRE>
+boot=/dev/hda
+map=/boot/map
+install=/boot/boot-menu.b
+compact
+prompt
+vga=normal
+delay=10
+timeout=20
+
+default=m23Server3
+
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        append="hdb=scsi-ide"
+        initrd=/initrd.img
+</PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

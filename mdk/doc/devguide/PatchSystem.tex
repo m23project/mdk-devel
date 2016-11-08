@@ -1,0 +1,72 @@
+\chapter{m23customPatch}
+\label{m23customPatch}
+The patch system "m23customPatch" makes it easy to change parts of m23 with user specific code. In the m23 source code are some m23customPatch range markers who define that this portion of code may be deleted or changes by a m23customPatch file.
+
+If you need additional patchable areas in m23 feel free to contact me via http://goos-habermann.de or http://m23.sf.net .
+
+Here is a short example of the file "/m23/data+scripts/m23admin/head/head.php" where the logo and link are replaced.
+
+
+
+
+
+\section{Indicating patchable areas in the source code}
+The start and end position of a patchable area are marked by comments (as used in the programming language the source file is written in). "m23customPatchBegin" is the keyword for the start of the patchable area, "m23customPatchEnd" for its end. Both keywords must be in different lines with "m23customPatchBegin" before "m23customPatchEnd". Patchable areas may not overlap.
+
+\subsection{Start position of a patchable area}
+
+\begin{itemize}
+	\item HTML notation: "<!$--$m23customPatchBegin type=change id=logo$--$>"
+	\item PHP notation: "/*m23customPatchBegin type=change id=logo*/"
+	\item PHP notation (alternativ): "//m23customPatchBegin type=change id=logo"
+	\item BASH notation: "#m23customPatchBegin type=change id=logo"
+\end{itemize}
+
+\subsection{End position of a patchable area}
+
+\begin{itemize}
+	\item HTML notation: "<!$--$m23customPatchEnd id=logo$--$>"
+	\item PHP notation: "/*m23customPatchEnd id=logo*/"
+	\item PHP notation (alternativ): "//m23customPatchEnd id=logo"
+	\item BASH notation: -Notation#m23customPatchEnd id=logo"
+\end{itemize}
+
+The parameter "type" defines how the contents between start and end position may be changed:
+
+\begin{itemize}
+	\item change: By running the m23customPatch file here, all code lines between the start and end position of a patchable area are replaced by the code lines of the m23customPatch file.
+	\item del: By running the m23customPatch file here, all code lines between the start and end position will be deleted.
+\end{itemize}
+
+The parameter "id" is a unique identifier to find the correct patchable area. The ID may be uses only once in each source file and is written in the m23customPatch file too. This way, the patchable area and m23customPatch file are "linked".
+
+\subsection{Example (/m23/data+scripts/m23admin/head/head.php)}
+
+\includeHTML{code/m23customPatch-logo.php.html}
+
+
+
+
+
+\section{m23customPatch file format}
+The m23customPatch defines the ID to find the correct patchable area in the source file. For each patchable area a distinct m23customPatch file is required. The first line of a m23customPatch file contains the string "!m23customPatch" only. Lines 2 and 3 are containing the name of the source file (with full path) and the unique identifier (paramter "id"). The following lines are copied to a patchable area if its type is "change". In case of a "del" type area all lines in a m23customPatch file from the 4th on are ignored.
+
+
+\subsection{Example (logo.php.m23customPatch)}
+\includeHTML{code/m23customPatch-logo.php.m23customPatch}
+
+
+
+
+
+\section{/m23/bin/m23customPatch}
+The script "m23customPatch" does the actual patching. The only command line parameter is the name of the m23customPatch file (with full path). If the patching worked well, a return code of 0 is given back. In case of an error a different return code is given back. Hint: The posting of your own Debian packages may be a good place to run "m23customPatch".
+
+\subsection{Return/error codes}
+
+\begin{itemize}
+	\item 1: Wrong parameter amount (!= 1)
+	\item 2: m23customPatch file invalid
+	\item 3: Source code file does not exist
+	\item 4: The unique ID could not be found
+\end{itemize}

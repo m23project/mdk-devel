@@ -1,0 +1,16 @@
+\section{genFStab/fstabnew}
+\subsection{Introduction}
+This tool generates the following files for you:\\
+\begin{itemize}
+\item /etc/fstab: this is the place, where the root and swap device are set and where cdrom/DVD drives and other partitions are made available for mounting.
+\item /etc/lilo.conf: this file is used for the bootloader, to make booting of the angelOne Linux system and other operating systems possible.
+\end{itemize}
+All information is fetched from the partition table, the files are written automatical and icons for partitions and CDRom/DVD drives are put on the KDE desktop. The only thing you have to do is to select the device number for the root device and a splitter character for the parted numbers. parted is used for fetching the partition data. In different LANG settings you have to adjust the splitter. In this version you can only install on the first harddisk (hda), if you want the root device on hda3 you have to use '3' for the rootDevice number.
+\subsection{usage}
+\begin{verbatim}
+genFstab <splitter> <rootDeviceNr>
+\end{verbatim} 
+\begin{itemize}
+\item splitter: is the splitter for the parted numbers . Select '.' for english and ',' for german version. You can find out the language setting very easy: the messages printed in the console have the same language that will used for the splitter.
+\item rootDeviceNr: the number of the root device, select '3' for hda3.
+\end{itemize} 

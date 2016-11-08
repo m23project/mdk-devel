@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>booting your new system</TITLE>
-<META NAME="description" CONTENT="booting your new system">
+<TITLE>Additional installation parameters for normal packages</TITLE>
+<META NAME="description" CONTENT="Additional installation parameters for normal packages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node78.html">
-<LINK REL="up" HREF="node67.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node23.html">
 <LINK REL="next" HREF="node80.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3551"
+<A NAME="tex2html3486"
   HREF="node80.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3547"
-  HREF="node67.html">
+<A NAME="tex2html3482"
+  HREF="node23.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3543"
+<A NAME="tex2html3478"
   HREF="node78.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3549"
+<A NAME="tex2html3484"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3552"
-  HREF="node80.html">How to create a</A>
-<B> Up:</B> <A NAME="tex2html3548"
-  HREF="node67.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html3544"
-  HREF="node78.html">system update and installation</A>
- &nbsp; <B>  <A NAME="tex2html3550"
+<B> Next:</B> <A NAME="tex2html3487"
+  HREF="node80.html">The *OptionPage.php</A>
+<B> Up:</B> <A NAME="tex2html3483"
+  HREF="node23.html">HowTos</A>
+<B> Previous:</B> <A NAME="tex2html3479"
+  HREF="node78.html">get the output of</A>
+ &nbsp; <B>  <A NAME="tex2html3485"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00667000000000000000">
-booting your new system</A>
-</H2>
-To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
-Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
-<PRE>
-image=/boot/vmlinuz-2.4.20-1-386-sec
-        root=/dev/hda3
-        label=m23Server3
-        initrd=/initrd.img
-</PRE>
-vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
+<H1><A NAME="SECTION006100000000000000000">
+Additional installation parameters for normal packages</A>
+</H1>
+There are some cases where you want to make it possible to enter some additional parameters for normal Debian packages. Maybe you want to set the DocumentRoot directory of your Apache webserver. Wouldn't it be much easier to enter this value in a dialog box in the m23 webinterface and automate the Apache installation job? m23 has a possibillity to make it easy for the administrator with a little work of the programmer.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3488"
+  HREF="node80.html">The *OptionPage.php</A>
+<LI><A NAME="tex2html3489"
+  HREF="node81.html">Filling the *OptionPage.php</A>
+<LI><A NAME="tex2html3490"
+  HREF="node82.html">Layoutoptions</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

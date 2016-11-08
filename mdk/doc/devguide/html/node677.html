@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getOutputBuffer</TITLE>
-<META NAME="description" CONTENT="HTML_getOutputBuffer">
+<TITLE>HTML_newStatusBar</TITLE>
+<META NAME="description" CONTENT="HTML_newStatusBar">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node678.html">
 <LINK REL="previous" HREF="node676.html">
-<LINK REL="up" HREF="node672.html">
+<LINK REL="up" HREF="node645.html">
 <LINK REL="next" HREF="node678.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12412"
+<A NAME="tex2html12348"
   HREF="node678.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12408"
-  HREF="node672.html">
+<A NAME="tex2html12344"
+  HREF="node645.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12402"
+<A NAME="tex2html12338"
   HREF="node676.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12410"
+<A NAME="tex2html12346"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12413"
-  HREF="node678.html">HTML_setOutputBuffer</A>
-<B> Up:</B> <A NAME="tex2html12409"
-  HREF="node672.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12403"
-  HREF="node676.html">HTML_sourceViewer</A>
- &nbsp; <B>  <A NAME="tex2html12411"
+<B> Next:</B> <A NAME="tex2html12349"
+  HREF="node678.html">HTML_showStatusBar</A>
+<B> Up:</B> <A NAME="tex2html12345"
+  HREF="node645.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12339"
+  HREF="node676.html">HTML_getStatusBarID</A>
+ &nbsp; <B>  <A NAME="tex2html12347"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008205000000000000000">
-HTML_getOutputBuffer</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the complete (previously rendered) HTML output buffer.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
-
+<H2><A NAME="SECTION0092032000000000000000">
+HTML_newStatusBar</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows the iframe for a status bar. This actually displays the status bar.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
 <UL>
-<LI>The complete contents of the (previously rendered) HTML output buffer.
+<LI>name: The name of the status bar.
 </LI>
-</UL>
-
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+</LI>
+<LI>type: The method of calculating/getting the percentage to display in the status bar.
+</LI>
+<LI>cmd: BASH command, if type is STATUSBAR_TYPE_bash.
+</LI>
+<LI>refreshtime: Time (in seconds) between refreshes of the status bar.
+</LI>
+<LI>statustext: A text message that should be shown under the status bar.
+</LI>
+<LI>percent: Percent value to write into the DB.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: The status bar ID of the just created status bar or false, if it could not be created.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

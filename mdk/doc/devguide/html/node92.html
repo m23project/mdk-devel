@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Build a new kernel</TITLE>
-<META NAME="description" CONTENT="Build a new kernel">
+<TITLE>Indicating patchable areas in the source code</TITLE>
+<META NAME="description" CONTENT="Indicating patchable areas in the source code">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,6 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node96.html">
 <LINK REL="previous" HREF="node91.html">
 <LINK REL="up" HREF="node91.html">
 <LINK REL="next" HREF="node93.html">
@@ -27,39 +28,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3714"
+<A NAME="tex2html3660"
   HREF="node93.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3710"
+<A NAME="tex2html3656"
   HREF="node91.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3706"
+<A NAME="tex2html3650"
   HREF="node91.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3712"
+<A NAME="tex2html3658"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3715"
-  HREF="node93.html">How to generate an</A>
-<B> Up:</B> <A NAME="tex2html3711"
-  HREF="node91.html">What can you do</A>
-<B> Previous:</B> <A NAME="tex2html3707"
-  HREF="node91.html">What can you do</A>
- &nbsp; <B>  <A NAME="tex2html3713"
+<B> Next:</B> <A NAME="tex2html3661"
+  HREF="node93.html">Start position of a</A>
+<B> Up:</B> <A NAME="tex2html3657"
+  HREF="node91.html">m23customPatch</A>
+<B> Previous:</B> <A NAME="tex2html3651"
+  HREF="node91.html">m23customPatch</A>
+ &nbsp; <B>  <A NAME="tex2html3659"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00683100000000000000">
-Build a new kernel</A>
-</H3>
-Copy your new kernel to bzImage in the SDK directory and don't forget to copy the modules to root2/lib/modules. In the m23client-Install*.conf file you get the configuration for the kernel we used.
+<H1><A NAME="SECTION00810000000000000000">
+Indicating patchable areas in the source code</A>
+</H1>
+The start and end position of a patchable area are marked by comments (as used in the programming language the source file is written in). "m23customPatchBegin" is the keyword for the start of the patchable area, "m23customPatchEnd" for its end. Both keywords must be in different lines with "m23customPatchBegin" before "m23customPatchEnd". Patchable areas may not overlap.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3662"
+  HREF="node93.html">Start position of a patchable area</A>
+<LI><A NAME="tex2html3663"
+  HREF="node94.html">End position of a patchable area</A>
+<LI><A NAME="tex2html3664"
+  HREF="node95.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

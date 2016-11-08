@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to generate an Etherboot bootimage for booting from harddisk?</TITLE>
-<META NAME="description" CONTENT="How to generate an Etherboot bootimage for booting from harddisk?">
+<TITLE>Start position of a patchable area</TITLE>
+<META NAME="description" CONTENT="Start position of a patchable area">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,59 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node96.html">
-<LINK REL="previous" HREF="node87.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node94.html">
+<LINK REL="previous" HREF="node92.html">
+<LINK REL="up" HREF="node92.html">
 <LINK REL="next" HREF="node94.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3726"
+<A NAME="tex2html3675"
   HREF="node94.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3722"
-  HREF="node23.html">
+<A NAME="tex2html3671"
+  HREF="node92.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3716"
+<A NAME="tex2html3665"
   HREF="node92.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3724"
+<A NAME="tex2html3673"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3727"
-  HREF="node94.html">exchange epic100.c with the</A>
-<B> Up:</B> <A NAME="tex2html3723"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html3717"
-  HREF="node92.html">Build a new kernel</A>
- &nbsp; <B>  <A NAME="tex2html3725"
+<B> Next:</B> <A NAME="tex2html3676"
+  HREF="node94.html">End position of a</A>
+<B> Up:</B> <A NAME="tex2html3672"
+  HREF="node92.html">Indicating patchable areas in</A>
+<B> Previous:</B> <A NAME="tex2html3666"
+  HREF="node92.html">Indicating patchable areas in</A>
+ &nbsp; <B>  <A NAME="tex2html3674"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00690000000000000000">
-How to generate an Etherboot bootimage for booting from harddisk?</A>
-</H1>
-If the clients is set up, we want to boot it from harddisk. To do so, we send a little bootimage that tells the client to boot from harddisk directly. This seems the easiest way right now.
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION00811000000000000000">
+Start position of a patchable area</A>
+</H2>
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3728"
-  HREF="node94.html">exchange epic100.c with the special boot code</A>
-<LI><A NAME="tex2html3729"
-  HREF="node95.html">Making the bootimage</A>
+<P>
+
+<UL>
+<LI>HTML notation: "&lt;!<SPAN CLASS="MATH"></SPAN>m23customPatchBegin type=change id=logo<SPAN CLASS="MATH"></SPAN>&gt;"
+</LI>
+<LI>PHP notation: "/*m23customPatchBegin type=change id=logo*/"
+</LI>
+<LI>PHP notation (alternativ): "//m23customPatchBegin type=change id=logo"
+</LI>
+<LI>BASH notation: "#m23customPatchBegin type=change id=logo"
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

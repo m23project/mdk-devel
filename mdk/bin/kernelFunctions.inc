@@ -60,6 +60,7 @@ checkKernelBranch()
 	else
 dialog --clear --title "Kernel version" \
         --menu "Please select the kernel version" 11 40 4 \
+"4.4" "Linux kernel v4.4" \
 "3.16" "Linux kernel v3.16" \
 "3.18" "Linux kernel v3.18" \
 "3.4" "Linux kernel v3.4" \
@@ -111,8 +112,8 @@ listKernelVersions()
 			echo "\"$kernelname\" \"\" \\"
 		done
 	else
-		# Kernels 3.x
-		wget -o /dev/null ftp://ftp.kernel.org/pub/linux/kernel/v3.x/
+		# Kernels 3/4.x
+		wget -o /dev/null ftp://ftp.kernel.org/pub/linux/kernel/v`echo $kernelBranch | cut -c 1-1`.x/
 		for kernelname in `grep "linux-" index.html | cut -d'"' -f2 | grep tar.xz | grep -v sign | tr -s ' ' | cut -d' ' -f9  | cut -d'/' -f8 | grep "linux-$kernelBranch" | sort -t'.' -k2,3 -n -r`
 		do
 			echo "\"$kernelname\" \"\" \\"
@@ -137,9 +138,9 @@ checkKernelBranch
 . /tmp/menuVars
 
 # Check, if the a Linux Kernel 3.x is used and adjust the download source directory
-if [ $(echo $kernelBranch | grep -c "^3") -eq 1 ]
+if [ $(echo $kernelBranch | grep -c "^[34]") -eq 1 ]
 then
-	kernelDownloadDir='3.x'
+	kernelDownloadDir="`echo $kernelBranch | cut -c 1-1`.x"
 else
 	kernelDownloadDir=$kernelBranch
 fi
@@ -301,7 +302,7 @@ compileKernel()
 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules
 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules_install
 	else
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc-4.4 dep
+		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc dep
 
 		EDIT_addIfNotExists .config "^CONFIG_IA32_EMULATION=y" "CONFIG_IA32_EMULATION=y"
 		EDIT_addIfNotExists .config "^CONFIG_IA32_AOUT=y" "CONFIG_IA32_AOUT=y"
@@ -322,7 +323,7 @@ compileKernel()
 		EDIT_addIfNotExists .config "^CONFIG_FB_NVIDIA=n" "CONFIG_FB_NVIDIA=n"
 		EDIT_addIfNotExists .config "^CONFIG_DRM_NOUVEAU=n" "CONFIG_DRM_NOUVEAU=n"
 		EDIT_addIfNotExists .config "^CONFIG_FB=y" "CONFIG_FB=y"
-		checkForx86_64Toolchain
+# 		checkForx86_64Toolchain
 
 		if [ $lastCompilationArch != "x86-64" ]
 		then
@@ -331,9 +332,9 @@ compileKernel()
 			cp  /tmp/.config .
 		fi
 
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc-4.4 bzImage
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc-4.4 modules
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc-4.4 modules_install
+		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc bzImage
+		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules
+		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules_install
 
 		backupKernelConfig
 	fi

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getUnusedMDs</TITLE>
-<META NAME="description" CONTENT="FDISK_getUnusedMDs">
+<TITLE>FDISK_addFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_addFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node491.html">
 <LINK REL="previous" HREF="node489.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node491.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10037"
+<A NAME="tex2html9964"
   HREF="node491.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10033"
-  HREF="node480.html">
+<A NAME="tex2html9960"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10027"
+<A NAME="tex2html9954"
   HREF="node489.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10035"
+<A NAME="tex2html9962"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10038"
-  HREF="node491.html">FDISK_listDrivesAndPartitions2</A>
-<B> Up:</B> <A NAME="tex2html10034"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10028"
-  HREF="node489.html">FDISK_installFilesystems</A>
- &nbsp; <B>  <A NAME="tex2html10036"
+<B> Next:</B> <A NAME="tex2html9965"
+  HREF="node491.html">FDISK_delFstab</A>
+<B> Up:</B> <A NAME="tex2html9961"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9955"
+  HREF="node489.html">FDISK_installExistingDialog</A>
+ &nbsp; <B>  <A NAME="tex2html9963"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081610000000000000000">
-FDISK_getUnusedMDs</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an associative array with the unused MDs (e.g. /dev/md0, /dev/md1, ...) as key and value.
+<H2><A NAME="SECTION0091646000000000000000">
+FDISK_addFstab</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new entry to the fstab that is stored in the param array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>fstab: Array that contains the fstab information. The changed fstab will be written to this parameter too.
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Associative array with the unused MDs (e.g. /dev/md0, /dev/md1, ...) as key and value.
+<LI>dev: Device to mount (e.g. /dev/hda1)
 </LI>
-</UL>
-
+<LI>mountpoint: Location where to mount the device (e.g. /mnt/hda1)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

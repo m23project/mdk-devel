@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>S&#233;lection de texte</TITLE>
-<META NAME="description" CONTENT="S&#233;lection de texte">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,70 +21,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node191.html">
 <LINK REL="previous" HREF="node189.html">
-<LINK REL="up" HREF="node187.html">
+<LINK REL="up" HREF="node188.html">
 <LINK REL="next" HREF="node191.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2948"
+<A NAME="tex2html2967"
   HREF="node191.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2944"
-  HREF="node187.html">
+<A NAME="tex2html2963"
+  HREF="node188.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2938"
+<A NAME="tex2html2957"
   HREF="node189.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2946"
+<A NAME="tex2html2965"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2949"
-  HREF="node191.html">Chercher et remplacer</A>
-<B> monter:</B> <A NAME="tex2html2945"
-  HREF="node187.html">Éditeur de scripts</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2939"
-  HREF="node189.html">Liste des raccourcis clavier</A>
- &nbsp; <B>  <A NAME="tex2html2947"
+<B> suivant:</B> <A NAME="tex2html2968"
+  HREF="node191.html">Clé GPG pour signer</A>
+<B> monter:</B> <A NAME="tex2html2964"
+  HREF="node188.html">Constructeur de paquets</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2958"
+  HREF="node189.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html2966"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001373000000000000000">
-S&#233;lection de texte</A>
+<H2><A NAME="SECTION001362000000000000000">
+BitTorrent</A>
 </H2>
-
-<UL>
-<LI>Supprime la ligne courante: <SPAN  CLASS="textit">Ctrl + D</SPAN> (PC), <SPAN  CLASS="textit">Command + D</SPAN> (Mac)
+Lorsque vous souhaitez distribuer des fichiers volumineux &#224; plusieurs ordinateurs clients tout en r&#233;duisant la charge induite sur le serveur, vous pouvez utiliser la fonctionnalit&#233; BitTorrent. BitTorrent rend possible le partage des fichiers d&#233;j&#224; t&#233;l&#233;charg&#233;s sur des clients m23 pour les autres clients, (dans le cas id&#233;al) le serveur m23 ne transf&#233;rera le fichier qu'une seule fois.
+<BR>
+Pour utiliser Bittorrent, suivez ces &#233;tapes:
+<BR>
+<OL>
+<LI>Copiez le(s) fichier(s) &#224; transf&#233;rer sur les clients dans le r&#233;pertoire <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> de votre serveur m23.
 <BR></LI>
-<LI>Tout s&#233;lectionner all: <SPAN  CLASS="textit">Ctrl + A</SPAN> (PC), <SPAN  CLASS="textit">Command + A</SPAN> (Mac)
+<LI>Cliquez sur le bouton <SPAN  CLASS="textit">''Cr&#233;ation du .torrent''</SPAN> sous le fichier correspondant.
 <BR></LI>
-<LI>Selectionnez le texte d&#233;butant au curseur: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + &amp;larr; or <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + &amp;larr; or <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (Mac)
+<LI>Dans vos propres scripts, utilisez la fonction m23 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
 <BR></LI>
-<LI>Selectionnez la ligne au dessus ou au dessous de la ligne courante: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + <SPAN CLASS="MATH"></SPAN> or <!-- MATH
- $\downarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + <SPAN CLASS="MATH"></SPAN> or <!-- MATH
- $\downarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN>
-</LI>
-<LI>Selectionnez le texte depuis le d&#233;but ou jusqu'&#224; la fin de la ligne d&#233;butant sous le curseur: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + Pos1 or End</SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + Home or End</SPAN>
-</LI>
-</UL>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

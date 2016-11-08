@@ -60,6 +60,7 @@ startLog()
 {
 	LOGFILE="/tmp/HSCommandExecutionStatus.message"
 	PIPEFILE="/tmp/HSCommandExecutionStatus.pipe"
+	rm ${LOGFILE}
 	mkfifo ${PIPEFILE}
 	tee ${LOGFILE} < ${PIPEFILE} &
 	TEEPID=$!
@@ -113,10 +114,19 @@ stopLog()
 #####
 gpgUpload()
 {
-	cat $1 | gpg --trust-model always --batch --no-tty --yes --digest-algo sha1 -e -r 68943878 --no-use-agent > $1.gpg
+	if [ $2 ]
+	then
+		gpgAdd="-r $2"
+	else
+		gpgAdd=''
+	fi
+
+	cat $1 | gpg --trust-model always --batch --no-tty --yes --digest-algo sha1 -e -r 2814BE38 $gpgAdd --no-use-agent > $1.gpg
 	resetRet
-	share-online.biz-uploader $1.gpg
-	freakshare-uploader $1.gpg
+	webdavbackup.sh backup $1.gpg
+
+#	share-online.biz-uploader $1.gpg
+#	freakshare-uploader $1.gpg
 #	fileSonic-uploader $1.gpg
 	resetRet
 	rm $1.gpg

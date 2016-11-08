@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>in case of an error</TITLE>
-<META NAME="description" CONTENT="in case of an error">
+<TITLE>Set script status</TITLE>
+<META NAME="description" CONTENT="Set script status">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,70 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node78.html">
 <LINK REL="previous" HREF="node76.html">
-<LINK REL="up" HREF="node76.html">
+<LINK REL="up" HREF="node73.html">
 <LINK REL="next" HREF="node78.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3529"
+<A NAME="tex2html3466"
   HREF="node78.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3525"
-  HREF="node76.html">
+<A NAME="tex2html3462"
+  HREF="node73.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3521"
+<A NAME="tex2html3456"
   HREF="node76.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3527"
+<A NAME="tex2html3464"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3530"
-  HREF="node78.html">system update and installation</A>
-<B> Up:</B> <A NAME="tex2html3526"
-  HREF="node76.html">installing a kernel</A>
-<B> Previous:</B> <A NAME="tex2html3522"
-  HREF="node76.html">installing a kernel</A>
- &nbsp; <B>  <A NAME="tex2html3528"
+<B> Next:</B> <A NAME="tex2html3467"
+  HREF="node78.html">get the output of</A>
+<B> Up:</B> <A NAME="tex2html3463"
+  HREF="node73.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3457"
+  HREF="node76.html">Turn off m23 script</A>
+ &nbsp; <B>  <A NAME="tex2html3465"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00665100000000000000">
-in case of an error</A>
-</H3>
-If you get an error with the <SPAN  CLASS="textit">mkinitrd</SPAN> command try it manualy. Adjust <SPAN  CLASS="textit">/boot/initrd.img-2.4.20-1-386-sec</SPAN> to the filename you entered in the <SPAN  CLASS="textit">lilo.conf</SPAN>. You have to adjust the <SPAN  CLASS="textit">/lib/modules/...</SPAN> and the root device after <SPAN  CLASS="textit">-r</SPAN> also.
-<PRE>
-mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
-</PRE>
+<H2><A NAME="SECTION00694000000000000000">
+Set script status</A>
+</H2>
+After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
+
+<UL>
+<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+</LI>
+<LI>select the database "m23"
+</LI>
+<LI>select the table "clientjobs"
+</LI>
+<LI>click on "Browse"
+</LI>
+<LI>search for your job script
+</LI>
+<LI>click on "Edit"
+</LI>
+<LI>enter "waiting" at the "status" field
+</LI>
+<LI>click on "Go" to save your changes
+</LI>
+</UL>
+This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

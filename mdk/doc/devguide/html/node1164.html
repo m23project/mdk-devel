@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_showAlternativeArchitectureSelection</TITLE>
-<META NAME="description" CONTENT="SRCLST_showAlternativeArchitectureSelection">
+<TITLE>VM_CloudStackEnablePortForwarding</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackEnablePortForwarding">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1165.html">
 <LINK REL="previous" HREF="node1163.html">
-<LINK REL="up" HREF="node1136.html">
+<LINK REL="up" HREF="node1156.html">
 <LINK REL="next" HREF="node1165.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18649"
+<A NAME="tex2html18655"
   HREF="node1165.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18645"
-  HREF="node1136.html">
+<A NAME="tex2html18651"
+  HREF="node1156.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18639"
+<A NAME="tex2html18645"
   HREF="node1163.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18647"
+<A NAME="tex2html18653"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18650"
-  HREF="node1165.html">SRCLST_isArchAvailable</A>
-<B> Up:</B> <A NAME="tex2html18646"
-  HREF="node1136.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18640"
-  HREF="node1163.html">SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
- &nbsp; <B>  <A NAME="tex2html18648"
+<B> Next:</B> <A NAME="tex2html18656"
+  HREF="node1165.html">VM_CloudStackDisablePortForwarding</A>
+<B> Up:</B> <A NAME="tex2html18652"
+  HREF="node1156.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18646"
+  HREF="node1163.html">VM_CloudStackUploadIso</A>
+ &nbsp; <B>  <A NAME="tex2html18654"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083628000000000000000">
-SRCLST_showAlternativeArchitectureSelection</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a list with available CPU architectures of the sources list, in case that the wanted architecture is not available in the sources list. The alternative architecture will be written to the arch option of the client.
+<H2><A NAME="SECTION009388000000000000000">
+VM_CloudStackEnablePortForwarding</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> creates a port forwarding rule for a virtual machine, with private port and public port being the same
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>sourceName: The name of the package source list.
+<LI>virtualMachineId: the cloudstack ID of the virtual machine to which the rule shall apply
 </LI>
-<LI>wantedArch: The CPU architecture of the m23 client.
+<LI>pFSuccess: is set to true, if the rule was created
 </LI>
-<LI>client: Name of the client.
-</LI>
-</UL>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>: A CPU architecture supported by the package source list.
+<LI>textmessage about result (errormessage or success message) and sets pFSuccess to True if action succeeded, false otherwise
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -5,7 +5,7 @@ listBusyBoxVersions()
 
 	wget -o /dev/null http://www.busybox.net/downloads/
 
-	for link in `grep "busybox-" index.html | cut -d'"' -f6 | grep tar.bz2 | grep -v sign | tr -s ' ' | cut -d' ' -f9 | sort -t'.' -n -k2,3 -r`
+	for link in `grep "busybox-" index.html | cut -d'"' -f6 | grep tar.bz2 | grep -v sign | tr -s ' ' | cut -d' ' -f9 | sort -t'.' -n -k2,3 -r | grep -v busybox-0`
 	do
 		busyboxName=`echo $link | cut -d'/' -f8`
 		echo "\"$busyboxName\" \"\" \\"

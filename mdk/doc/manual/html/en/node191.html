@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>List of keyboard shortcuts</TITLE>
-<META NAME="description" CONTENT="List of keyboard shortcuts">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node192.html">
 <LINK REL="previous" HREF="node190.html">
 <LINK REL="up" HREF="node189.html">
 <LINK REL="next" HREF="node192.html">
@@ -28,38 +27,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2965"
+<A NAME="tex2html2974"
   HREF="node192.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2961"
+<A NAME="tex2html2970"
   HREF="node189.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2955"
+<A NAME="tex2html2966"
   HREF="node190.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2963"
+<A NAME="tex2html2972"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2966"
-  HREF="node192.html">Text selection</A>
-<B> Up:</B> <A NAME="tex2html2962"
-  HREF="node189.html">Script editor</A>
-<B> Previous:</B> <A NAME="tex2html2956"
-  HREF="node190.html">Hints</A>
- &nbsp; <B>  <A NAME="tex2html2964"
+<B> Next:</B> <A NAME="tex2html2975"
+  HREF="node192.html">Script editor</A>
+<B> Up:</B> <A NAME="tex2html2971"
+  HREF="node189.html">Package builder</A>
+<B> Previous:</B> <A NAME="tex2html2967"
+  HREF="node190.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html2973"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001272000000000000000">
-List of keyboard shortcuts</A>
+<H2><A NAME="SECTION001262000000000000000">
+BitTorrent</A>
 </H2>
+If you would like to distribute large files to many client computers, and would like to reduce the strain this puts on the server, you can use the BitTorrent functionality. BitTorrent makes it possible that the m23 clients share parts of already downloaded files among each other, which (in the ideal case) will result in the m23 server only transferring this file a single time.
+<BR>
+To use Bittorrent, follow these steps:
+<BR>
+<OL>
+<LI>Copy the file(s) you would like to transfer to the clients into the directory <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> on your m23 server.
+<BR></LI>
+<LI>Click on the button labelled <SPAN  CLASS="textit">''Create .torrent''</SPAN> behind the corresponding file name.
+<BR></LI>
+<LI>In your own scripts, use the m23 function 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

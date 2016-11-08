@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_checkFreeSpace</TITLE>
-<META NAME="description" CONTENT="FDISK_checkFreeSpace">
+<TITLE>FDISK_addJob</TITLE>
+<META NAME="description" CONTENT="FDISK_addJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node525.html">
 <LINK REL="previous" HREF="node523.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node525.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10445"
+<A NAME="tex2html10372"
   HREF="node525.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10441"
-  HREF="node480.html">
+<A NAME="tex2html10368"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10435"
+<A NAME="tex2html10362"
   HREF="node523.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10443"
+<A NAME="tex2html10370"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10446"
-  HREF="node525.html">FDISK_installExistingDialog</A>
-<B> Up:</B> <A NAME="tex2html10442"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10436"
-  HREF="node523.html">FDISK_canPartTypeBeCreated</A>
- &nbsp; <B>  <A NAME="tex2html10444"
+<B> Next:</B> <A NAME="tex2html10373"
+  HREF="node525.html">FDISK_bootflagJob</A>
+<B> Up:</B> <A NAME="tex2html10369"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10363"
+  HREF="node523.html">FDISK_rmJob</A>
+ &nbsp; <B>  <A NAME="tex2html10371"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081644000000000000000">
-FDISK_checkFreeSpace</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> checks if there is a free space between $start and $end
+<H2><A NAME="SECTION0091680000000000000000">
+FDISK_addJob</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition add job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>path: selected device (e.g. /dev/hda)
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>start: start point fo the partition
 </LI>
-<LI>type: type of the partition (primary, extended, logical)
+<LI>end: end point fo the partition
 </LI>
-<LI>start: start position for the search
+<LI>type: type of the partition (primary, logical)
 </LI>
-<LI>end: end position for the search
+<LI>partJobs: associative array with partition jobs
 </LI>
-<LI>freeSpaces: array of the free space information
+<LI>fullPath: full path for the partition
 </LI>
-</UL>
-
+<LI>devNr: number of the device (e.g. 1 with /dev/hda1)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

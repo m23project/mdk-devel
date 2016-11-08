@@ -14,6 +14,12 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[pdftex]{graphics}
 
+\input{texStyleCommand/commands}
+\usepackage{minted}
+\newminted{php}{linenos, numbersep=5pt, frame=lines, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize}
+\newmint{php}{linenos, numbersep=5pt, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize}
+
+
 \author{Hauke Goos-Habermann}
 \title{\includegraphics[scale=1]{/mdk/doc/devguide/m23biglogo.png}\\m23 Development Guide\\for \input{version}}
 
@@ -37,8 +43,6 @@
 \input{debian-update-howto}
 \input{m23-release-howto}
 \input{translate}
-\input{mysqlc++}
-\input{create_plugins}
 \input{generate_a_new_base_system}
 \input{serverinstallcd}
 \input{bootimage}
@@ -49,12 +53,8 @@
 
 \chapter{m23 helpers}
 \input{mdoc}
-\input{log2db}
-\input{genFstab}
-\input{partinfodb}
-\input{screen}
-\input{script}
-\input{patchedParted}
+\input{PatchSystem}
+
 
 \chapter{m23 API reference}
 In this chapter you will get an introduction to all m23 functions used in the m23admin user interface and for packages. If you want to write addons or plugins you should use the existing functions for faster programming. All functions are described with information about usage and parameters. This refernce is created by the mdoc tool that strips comments out of the source files and creates a documentation file. If you make changes to existing code please comment it in the mdoc way. So it is easy to generate documentation automatical. For introduction to mdoc see the chapter in this guide.

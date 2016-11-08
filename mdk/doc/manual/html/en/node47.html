@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>share-online.biz</TITLE>
-<META NAME="description" CONTENT="share-online.biz">
+<TITLE>Hint</TITLE>
+<META NAME="description" CONTENT="Hint">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,57 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node48.html">
 <LINK REL="previous" HREF="node46.html">
-<LINK REL="up" HREF="node42.html">
+<LINK REL="up" HREF="node43.html">
 <LINK REL="next" HREF="node48.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1087"
+<A NAME="tex2html1098"
   HREF="node48.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1083"
-  HREF="node42.html">
+<A NAME="tex2html1094"
+  HREF="node43.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1077"
+<A NAME="tex2html1088"
   HREF="node46.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1085"
+<A NAME="tex2html1096"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1088"
-  HREF="node48.html">Hint:</A>
-<B> Up:</B> <A NAME="tex2html1084"
-  HREF="node42.html">Server backup</A>
-<B> Previous:</B> <A NAME="tex2html1078"
-  HREF="node46.html">Hint</A>
- &nbsp; <B>  <A NAME="tex2html1086"
+<B> Next:</B> <A NAME="tex2html1099"
+  HREF="node48.html">share-online.biz</A>
+<B> Up:</B> <A NAME="tex2html1095"
+  HREF="node43.html">Server backup</A>
+<B> Previous:</B> <A NAME="tex2html1089"
+  HREF="node46.html">scp</A>
+ &nbsp; <B>  <A NAME="tex2html1097"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00685000000000000000">
-share-online.biz</A>
+<H2><A NAME="SECTION00684000000000000000">
+Hint</A>
 </H2>
-			You need to enter the following values if you prefer the ''share-online.biz'' variant:
-<BR>
-<UL>
-<LI><SPAN  CLASS="textbf">User</SPAN>: This is the user name you used during the registration process on share-online.biz.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Password</SPAN>: Enter the according password here.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Password (repeated)</SPAN>: Repeat it here, to avoid mistyping.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">GPG key</SPAN>: Choose the GPG key for encrypting the backups before copying.
-<BR></LI>
-</UL>
-<BR><HR>
+			You need to make sure that the SCP server can be reached by the root account of the m23 server. Add the contents of the file 
+<BR><PRE>
+/root/.ssh/id\_dsa.pub
+</PRE>
+ on the m23 server to the file 
+<BR><PRE>
+~/.ssh/authorized\_keys
+</PRE>
+ on the SCP server owned by the user given above to ensure this. You can use the tool 
+<BR><PRE>
+ssh-copy-id
+</PRE>
+ for the key exchange too: 
+<BR><PRE>
+ssh-copy-id -i /root/.ssh/id\_dsa.pub benutzer@SCP-Server
+</PRE>
+.
+<BR>			<BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

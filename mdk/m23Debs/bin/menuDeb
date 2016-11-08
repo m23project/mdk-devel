@@ -267,9 +267,20 @@ fi
 
 if test $choice == "emptysquid"
 then
-	/etc/init.d/squid stop
+	if [ -f /etc/init.d/squid3 ]
+	then
+		/etc/init.d/squid3 stop
+	else
+		/etc/init.d/squid stop
+	fi
+	
 	rm /var/spool/squid/* -r
 	squid -z
-	/etc/init.d/squid start
+	if [ -f /etc/init.d/squid3 ]
+	then
+		/etc/init.d/squid3 start
+	else
+		/etc/init.d/squid start
+	fi
 	/mdk/m23Debs/bin/menuDeb
 fi

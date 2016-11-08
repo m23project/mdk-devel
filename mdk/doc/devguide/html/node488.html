@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_finalChecksAndRealPartitionAndFormatStart</TITLE>
-<META NAME="description" CONTENT="FDISK_finalChecksAndRealPartitionAndFormatStart">
+<TITLE>FDISK_checkFreeSpace</TITLE>
+<META NAME="description" CONTENT="FDISK_checkFreeSpace">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node489.html">
 <LINK REL="previous" HREF="node487.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node489.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10013"
+<A NAME="tex2html9940"
   HREF="node489.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10009"
-  HREF="node480.html">
+<A NAME="tex2html9936"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10003"
+<A NAME="tex2html9930"
   HREF="node487.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10011"
+<A NAME="tex2html9938"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10014"
-  HREF="node489.html">FDISK_installFilesystems</A>
-<B> Up:</B> <A NAME="tex2html10010"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10004"
-  HREF="node487.html">FDISK_formatInstallAndSwappart</A>
- &nbsp; <B>  <A NAME="tex2html10012"
+<B> Next:</B> <A NAME="tex2html9941"
+  HREF="node489.html">FDISK_installExistingDialog</A>
+<B> Up:</B> <A NAME="tex2html9937"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9931"
+  HREF="node487.html">FDISK_canPartTypeBeCreated</A>
+ &nbsp; <B>  <A NAME="tex2html9939"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008168000000000000000">
-FDISK_finalChecksAndRealPartitionAndFormatStart</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Does some final checks, starts the partitioning and formating and switches to the distribution selection page.
-<BR>
+<H2><A NAME="SECTION0091644000000000000000">
+FDISK_checkFreeSpace</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> checks if there is a free space between $start and $end
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>start: start position for the search
+</LI>
+<LI>end: end position for the search
+</LI>
+<LI>freeSpaces: array of the free space information
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

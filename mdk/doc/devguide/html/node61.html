@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>deinstall.sh</TITLE>
-<META NAME="description" CONTENT="deinstall.sh">
+<TITLE>How it works?</TITLE>
+<META NAME="description" CONTENT="How it works?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,50 +27,89 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3327"
+<A NAME="tex2html3267"
   HREF="node62.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3323"
+<A NAME="tex2html3263"
   HREF="node60.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3319"
+<A NAME="tex2html3259"
   HREF="node60.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3325"
+<A NAME="tex2html3265"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3328"
-  HREF="node62.html">Update information files</A>
-<B> Up:</B> <A NAME="tex2html3324"
-  HREF="node60.html">Deinstallation</A>
-<B> Previous:</B> <A NAME="tex2html3320"
-  HREF="node60.html">Deinstallation</A>
- &nbsp; <B>  <A NAME="tex2html3326"
+<B> Next:</B> <A NAME="tex2html3268"
+  HREF="node62.html">What can you do</A>
+<B> Up:</B> <A NAME="tex2html3264"
+  HREF="node60.html">creating a new bootimage</A>
+<B> Previous:</B> <A NAME="tex2html3260"
+  HREF="node60.html">creating a new bootimage</A>
+ &nbsp; <B>  <A NAME="tex2html3266"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00654100000000000000">
-deinstall.sh</A>
+<H3><A NAME="SECTION00662100000000000000">
+How it works?</A>
 </H3>
-This is the place to add your deinstallation script. It is similar to the install.sh, you can remove packages and do other things, but be again careful not to crash the server.
-<BR>
-<BR>
-Your deinstall.sh may look like:
-<BR><TT>
-#!/bin/bash 
-<BR>
-apt-get update
-<BR>
-apt-get remove desiredPackage</TT>
+it creates a blank file of 17MB size
+<PRE>
+&gt; dd if=/dev/zero of=initrd bs=1k count=23000
+</PRE>
+sets up a loop device
+<PRE>
+&gt; losetup /dev/loop1 initrd
+</PRE>
+the 23MB file will be formated with EXT2
+<PRE>
+&gt; mke2fs -m 0 -N 10000 /dev/loop1
+</PRE>
+mount the file
+<PRE>
+&gt; mount /dev/loop1 mnt
+</PRE>
+copy needed files from root2 and hardware informations to the mounted image
+<PRE>
+&gt; cp -rdpR root2/* mnt/
+&gt; cp -rdpR /usr/share/hwdata/*  root2/usr/share/hwdata/
+</PRE>
+umnount the image
+<PRE>
+&gt; umount mnt
+</PRE>
+set "down" the loop device
+<PRE>
+&gt; losetup -d /dev/loop1
+</PRE>
+set correct file permissions
+<PRE>
+&gt; chmod 0555 bzImage
+&gt; chown root:root bzImage
+</PRE>
+set boot device in kernel
+<PRE>
+&gt; rdev bzImage /dev/ram0
+</PRE>
+generate bootimage for Etherboot
+<PRE>
+&gt; mknbi-linux bzImage --first32pm --output=/m23/tftp/m23install --ip=dhcp
+	--rootdir=/dev/ram0 initrd
+</PRE>
+generate files for PXE
+<PRE>
+&gt; cp bzImage /m23/tftp/m23pxeinstall
+&gt; gzip initrd
+&gt; mv initrd.gz /m23/tftp/initrd.gz
+</PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

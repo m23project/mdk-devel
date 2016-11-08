@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>screen 4.0.3</TITLE>
-<META NAME="description" CONTENT="screen 4.0.3">
+<TITLE>BURN_burn</TITLE>
+<META NAME="description" CONTENT="BURN_burn">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,153 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node133.html">
 <LINK REL="previous" HREF="node131.html">
-<LINK REL="up" HREF="node131.html">
+<LINK REL="up" HREF="node128.html">
 <LINK REL="next" HREF="node133.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html4240"
+<A NAME="tex2html5287"
   HREF="node133.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html4236"
-  HREF="node131.html">
+<A NAME="tex2html5283"
+  HREF="node128.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html4230"
+<A NAME="tex2html5277"
   HREF="node131.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html4238"
+<A NAME="tex2html5285"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html4241"
-  HREF="node133.html">For old screen 4.0.2</A>
-<B> Up:</B> <A NAME="tex2html4237"
-  HREF="node131.html">Patching</A>
-<B> Previous:</B> <A NAME="tex2html4231"
-  HREF="node131.html">Patching</A>
- &nbsp; <B>  <A NAME="tex2html4239"
+<B> Next:</B> <A NAME="tex2html5288"
+  HREF="node133.html">BURN_getStatus</A>
+<B> Up:</B> <A NAME="tex2html5284"
+  HREF="node128.html">./inc/burn.php</A>
+<B> Previous:</B> <A NAME="tex2html5278"
+  HREF="node131.html">BURN_blank</A>
+ &nbsp; <B>  <A NAME="tex2html5286"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00762100000000000000">
-screen 4.0.3</A>
-</H3>
-<PRE>
-272a273,299
-&gt; //fetch records not from utmp but returns a pointer to hard coded values
-&gt; static struct passwd *fakePPP()
-&gt; {
-&gt;       struct passwd *ppp;
-&gt;       ppp = malloc(sizeof(struct passwd));
-&gt;
-&gt;       ppp-&gt;pw_name = malloc(5);
-&gt;       strcpy(ppp-&gt;pw_name,"root");
-&gt;
-&gt;       ppp-&gt;pw_passwd = malloc(5);
-&gt;       strcpy(ppp-&gt;pw_passwd,"root");
-&gt;
-&gt;       ppp-&gt;pw_uid = 0;
-&gt;       ppp-&gt;pw_gid = 0;
-&gt;
-&gt;       ppp-&gt;pw_gecos = malloc(5);
-&gt;       strcpy(ppp-&gt;pw_gecos,"root");
-&gt;
-&gt;       ppp-&gt;pw_dir = malloc(2);
-&gt;       strcpy(ppp-&gt;pw_dir,"/");
-&gt;
-&gt;       ppp-&gt;pw_shell = malloc(8);
-&gt;       strcpy(ppp-&gt;pw_shell,"/bin/sh");
-&gt;
-&gt;       return(ppp);
-&gt; }
-&gt;
-279,328d305
-&lt;   int n;
-&lt; #ifdef SHADOWPW
-&lt;   struct spwd *sss = NULL;
-&lt;   static char *spw = NULL;
-&lt; #endif
-&lt;
-&lt;   if (!ppp &amp;&amp; !(ppp = getpwnam(name)))
-&lt;     return NULL;
-&lt;
-&lt;   /* Do password sanity check..., allow ##user for SUN_C2 security */
-&lt; #ifdef SHADOWPW
-&lt; pw_try_again:
-&lt; #endif
-&lt;   n = 0;
-&lt;   if (ppp-&gt;pw_passwd[0] == '#' &amp;&amp; ppp-&gt;pw_passwd[1] == '#' &amp;&amp;
-&lt;       strcmp(ppp-&gt;pw_passwd + 2, ppp-&gt;pw_name) == 0)
-&lt;     n = 13;
-&lt;   for (; n &lt; 13; n++)
-&lt;     {
-&lt;       char c = ppp-&gt;pw_passwd[n];
-&lt;       if (!(c == '.' || c == '/' || c == '$' ||
-&lt;           (c &gt;= '0' &amp;&amp; c &lt;= '9') ||
-&lt;           (c &gt;= 'a' &amp;&amp; c &lt;= 'z') ||
-&lt;           (c &gt;= 'A' &amp;&amp; c &lt;= 'Z')))
-&lt;       break;
-&lt;     }
-&lt;
-&lt; #ifdef SHADOWPW
-&lt;   /* try to determine real password */
-&lt;   if (n &lt; 13 &amp;&amp; sss == 0)
-&lt;     {
-&lt;       sss = getspnam(ppp-&gt;pw_name);
-&lt;       if (sss)
-&lt;       {
-&lt;         if (spw)
-&lt;           free(spw);
-&lt;         ppp-&gt;pw_passwd = spw = SaveStr(sss-&gt;sp_pwdp);
-&lt;         endspent();   /* this should delete all buffers ... */
-&lt;         goto pw_try_again;
-&lt;       }
-&lt;       endspent();     /* this should delete all buffers ... */
-&lt;     }
-&lt; #endif
-&lt;   if (n &lt; 13)
-&lt;     ppp-&gt;pw_passwd = 0;
-&lt; #ifdef linux
-&lt;   if (ppp-&gt;pw_passwd &amp;&amp; strlen(ppp-&gt;pw_passwd) == 13 + 11)
-&lt;     ppp-&gt;pw_passwd[13] = 0;   /* beware of linux's long passwords */
-&lt; #endif
-&lt;
-851,868c828,832
-&lt;   if ((LoginName = getlogin()) &amp;&amp; LoginName[0] != '\0')
-&lt;     {
-&lt;       if ((ppp = getpwnam(LoginName)) != (struct passwd *) 0)
-&lt;       if ((int)ppp-&gt;pw_uid != real_uid)
-&lt;         ppp = (struct passwd *) 0;
-&lt;     }
-&lt;   if (ppp == 0)
-&lt;     {
-&lt;       if ((ppp = getpwuid(real_uid)) == 0)
-&lt;         {
-&lt;         Panic(0, "getpwuid() can't identify your account!");
-&lt;         exit(1);
-&lt;         }
-&lt;       LoginName = ppp-&gt;pw_name;
-&lt;     }
-&lt;   LoginName = SaveStr(LoginName);
-&lt;
-&lt;   ppp = getpwbyname(LoginName, ppp);
----
-&gt; //fetch records not from utmp but hard coded values from the fakePPP
-&gt;   ppp = fakePPP();
-&gt; //make LoginName statically
-&gt;   LoginName = malloc(5);
-&gt;   strcpy(LoginName,"root");
-</PRE>
-
+<H2><A NAME="SECTION00944000000000000000">
+BURN_burn</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> burns an ISO
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: device name of the burner
+</LI>
+<LI>iso: name of the ISO file
+</LI>
+<LI>speed: the write speed
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_programmStatus</TITLE>
-<META NAME="description" CONTENT="SERVER_programmStatus">
+<TITLE>./inc/sourceslist.php</TITLE>
+<META NAME="description" CONTENT="./inc/sourceslist.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,60 +19,136 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1113.html">
-<LINK REL="previous" HREF="node1111.html">
-<LINK REL="up" HREF="node1083.html">
+<LINK REL="next" HREF="node1151.html">
+<LINK REL="previous" HREF="node1059.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node1113.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17990"
+<A NAME="tex2html17927"
   HREF="node1113.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17986"
-  HREF="node1083.html">
+<A NAME="tex2html17923"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17980"
+<A NAME="tex2html17917"
   HREF="node1111.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17988"
+<A NAME="tex2html17925"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17991"
-  HREF="node1113.html">SERVER_apacheInfo</A>
-<B> Up:</B> <A NAME="tex2html17987"
-  HREF="node1083.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17981"
-  HREF="node1111.html">SERVER_installToolInBackground</A>
- &nbsp; <B>  <A NAME="tex2html17989"
+<B> Next:</B> <A NAME="tex2html17928"
+  HREF="node1113.html">SRCLST_getAddToFile</A>
+<B> Up:</B> <A NAME="tex2html17924"
+  HREF="node100.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html17918"
+  HREF="node1111.html">SERVER_commandAvailable</A>
+ &nbsp; <B>  <A NAME="tex2html17926"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083529000000000000000">
-SERVER_programmStatus</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
-</LI>
-<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
-</LI>
-<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
-</LI>
-</UL>
-
+<H1><A NAME="SECTION009360000000000000000">
+./inc/sourceslist.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: function to generate the sources.list for the client
+<BR></SMALL></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html17929"
+  HREF="node1113.html">SRCLST_getAddToFile</A>
+<LI><A NAME="tex2html17930"
+  HREF="node1114.html">SRCLST_getRelease</A>
+<LI><A NAME="tex2html17931"
+  HREF="node1115.html">SRCLST_genList</A>
+<LI><A NAME="tex2html17932"
+  HREF="node1116.html">SRCLST_saveArchitectures</A>
+<LI><A NAME="tex2html17933"
+  HREF="node1117.html">SRCLST_saveList</A>
+<LI><A NAME="tex2html17934"
+  HREF="node1118.html">SRCLST_querySourceslists</A>
+<LI><A NAME="tex2html17935"
+  HREF="node1119.html">SRCLST_genSelection</A>
+<LI><A NAME="tex2html17936"
+  HREF="node1120.html">SRCLST_getValue</A>
+<LI><A NAME="tex2html17937"
+  HREF="node1121.html">SRCLST_loadSourceListFromDB</A>
+<LI><A NAME="tex2html17938"
+  HREF="node1122.html">SRCLST_sourceListExists</A>
+<LI><A NAME="tex2html17939"
+  HREF="node1123.html">SRCLST_loadSourceList</A>
+<LI><A NAME="tex2html17940"
+  HREF="node1124.html">SRCLST_getDescription</A>
+<LI><A NAME="tex2html17941"
+  HREF="node1125.html">SRCLST_delete</A>
+<LI><A NAME="tex2html17942"
+  HREF="node1126.html">SRCLST_checkList</A>
+<LI><A NAME="tex2html17943"
+  HREF="node1127.html">SRCLST_packageInformationChangeInformationHumanReadable</A>
+<LI><A NAME="tex2html17944"
+  HREF="node1128.html">SRCLST_packageInformationChangeTime</A>
+<LI><A NAME="tex2html17945"
+  HREF="node1129.html">SRCLST_packageInformationOlderThan</A>
+<LI><A NAME="tex2html17946"
+  HREF="node1130.html">SRCLST_getStorageFS</A>
+<LI><A NAME="tex2html17947"
+  HREF="node1131.html">SRCLST_supportedFS</A>
+<LI><A NAME="tex2html17948"
+  HREF="node1132.html">SRCLST_alternativeFS</A>
+<LI><A NAME="tex2html17949"
+  HREF="node1133.html">SRCLST_getParameter</A>
+<LI><A NAME="tex2html17950"
+  HREF="node1134.html">SRCLST_getMirror</A>
+<LI><A NAME="tex2html17951"
+  HREF="node1135.html">SRCLST_getDesktopList</A>
+<LI><A NAME="tex2html17952"
+  HREF="node1136.html">SRCLST_showDesktopsSel</A>
+<LI><A NAME="tex2html17953"
+  HREF="node1137.html">SRCLST_doesDistrSupportEFI</A>
+<LI><A NAME="tex2html17954"
+  HREF="node1138.html">SRCLST_getListnamesWithEfiSupport</A>
+<LI><A NAME="tex2html17955"
+  HREF="node1139.html">SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
+<LI><A NAME="tex2html17956"
+  HREF="node1140.html">SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
+<LI><A NAME="tex2html17957"
+  HREF="node1141.html">SRCLST_showAlternativeArchitectureSelection</A>
+<LI><A NAME="tex2html17958"
+  HREF="node1142.html">SRCLST_isArchAvailable</A>
+<LI><A NAME="tex2html17959"
+  HREF="node1143.html">SRCLST_getArchitectures</A>
+<LI><A NAME="tex2html17960"
+  HREF="node1144.html">SRCLST_showEditor</A>
+<LI><A NAME="tex2html17961"
+  HREF="node1145.html">SRCLST_getListnames</A>
+<LI><A NAME="tex2html17962"
+  HREF="node1146.html">SRCLST_cleanList</A>
+<LI><A NAME="tex2html17963"
+  HREF="node1147.html">SRCLST_matchList</A>
+<LI><A NAME="tex2html17964"
+  HREF="node1148.html">SRCLST_possiblem23debsMirrors</A>
+<LI><A NAME="tex2html17965"
+  HREF="node1149.html">SRCLST_checkm23debsMirror</A>
+<LI><A NAME="tex2html17966"
+  HREF="node1150.html">SRCLST_getWorkingm23debsMirror</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoTest::setTriggered</TITLE>
-<META NAME="description" CONTENT="CAutoTest::setTriggered">
+<TITLE>FDISK_defineDrive</TITLE>
+<META NAME="description" CONTENT="FDISK_defineDrive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,53 +28,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6327"
+<A NAME="tex2html6268"
   HREF="node209.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6323"
+<A NAME="tex2html6264"
   HREF="node192.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6317"
+<A NAME="tex2html6258"
   HREF="node207.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6325"
+<A NAME="tex2html6266"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6328"
-  HREF="node209.html">CAutoTest::isTriggered</A>
-<B> Up:</B> <A NAME="tex2html6324"
-  HREF="node192.html">./inc/CAutoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html6318"
-  HREF="node207.html">CAutoTest::getTimestampString</A>
- &nbsp; <B>  <A NAME="tex2html6326"
+<B> Next:</B> <A NAME="tex2html6269"
+  HREF="node209.html">FDISK_getDiskType</A>
+<B> Up:</B> <A NAME="tex2html6265"
+  HREF="node192.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6259"
+  HREF="node207.html">FDISK_listInstPartSelector</A>
+ &nbsp; <B>  <A NAME="tex2html6267"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008616000000000000000">
-CAutoTest::setTriggered</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the trigger state ofthe current sequence event.
+<H2><A NAME="SECTION009716000000000000000">
+FDISK_defineDrive</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>triggered: true, when the current sequence event was triggered, otherwise false.
+<LI>client: client name
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>true, when the current sequence event was triggered.
+<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
 </LI>
-</UL>
-
+<LI>size: size of the drive in MB
+</LI>
+<LI>upperI: upper tolerance border for disks with identical type
+</LI>
+<LI>lowerI: lower tolerance border for disks with identical type
+</LI>
+<LI>upperO: upper tolerance border for disks with other type
+</LI>
+<LI>lowerO: lower tolerance border for disks with other type
+</LI>
+<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
+</LI>
+<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

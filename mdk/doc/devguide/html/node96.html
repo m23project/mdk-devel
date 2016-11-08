@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to create the server update files?</TITLE>
-<META NAME="description" CONTENT="How to create the server update files?">
+<TITLE>m23customPatch file format</TITLE>
+<META NAME="description" CONTENT="m23customPatch file format">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,59 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node102.html">
-<LINK REL="previous" HREF="node93.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node98.html">
+<LINK REL="previous" HREF="node92.html">
+<LINK REL="up" HREF="node91.html">
 <LINK REL="next" HREF="node97.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3762"
+<A NAME="tex2html3709"
   HREF="node97.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3758"
-  HREF="node23.html">
+<A NAME="tex2html3705"
+  HREF="node91.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3752"
+<A NAME="tex2html3699"
   HREF="node95.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3760"
+<A NAME="tex2html3707"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3763"
-  HREF="node97.html">The files</A>
-<B> Up:</B> <A NAME="tex2html3759"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html3753"
-  HREF="node95.html">Making the bootimage</A>
- &nbsp; <B>  <A NAME="tex2html3761"
+<B> Next:</B> <A NAME="tex2html3710"
+  HREF="node97.html">Example (logo.php.m23customPatch)</A>
+<B> Up:</B> <A NAME="tex2html3706"
+  HREF="node91.html">m23customPatch</A>
+<B> Previous:</B> <A NAME="tex2html3700"
+  HREF="node95.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
+ &nbsp; <B>  <A NAME="tex2html3708"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006100000000000000000">
-How to create the server update files?</A>
-</H1>
-m23 has a mechnism that makes it easy for the user to update the m23 server. The information for the update is fetched from the internet. There is a php script that generates the needed update information from single files. This files contain information about the new codename, the new version number, a describing text, a script that is exectued at the beginning and at the end of the update.
+<H1><A NAME="SECTION00820000000000000000">
+m23customPatch file format</A>
+</H1><SMALL CLASS="FOOTNOTESIZE">
+The m23customPatch defines the ID to find the correct patchable area in the source file. For each patchable area a distinct m23customPatch file is required. The first line of a m23customPatch file contains the string "!m23customPatch" only. Lines 2 and 3 are containing the name of the source file (with full path) and the unique identifier (paramter "id"). The following lines are copied to a patchable area if its type is "change". In case of a "del" type area all lines in a m23customPatch file from the 4th on are ignored.
+</SMALL>
+<P>
 <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3764"
-  HREF="node97.html">The files</A>
-<UL>
-<LI><A NAME="tex2html3765"
-  HREF="node98.html">xxx.begin</A>
-<LI><A NAME="tex2html3766"
-  HREF="node99.html">xxx.end</A>
-<LI><A NAME="tex2html3767"
-  HREF="node100.html">xxx.info</A>
-<LI><A NAME="tex2html3768"
-  HREF="node101.html">xxx.text</A>
-</UL></UL>
+<LI><A NAME="tex2html3711"
+  HREF="node97.html">Example (logo.php.m23customPatch)</A>
+</UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

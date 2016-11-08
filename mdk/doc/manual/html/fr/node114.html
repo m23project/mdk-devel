@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</TITLE>
-<META NAME="description" CONTENT="Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:">
+<TITLE>Utiliser m23 conjointement avec un serveur DHCP externe</TITLE>
+<META NAME="description" CONTENT="Utiliser m23 conjointement avec un serveur DHCP externe">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,99 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node115.html">
-<LINK REL="previous" HREF="node113.html">
-<LINK REL="up" HREF="node113.html">
+<LINK REL="next" HREF="node121.html">
+<LINK REL="previous" HREF="node108.html">
+<LINK REL="up" HREF="node107.html">
 <LINK REL="next" HREF="node115.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1970"
+<A NAME="tex2html1979"
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1966"
-  HREF="node113.html">
+<A NAME="tex2html1975"
+  HREF="node107.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1960"
+<A NAME="tex2html1969"
   HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1968"
+<A NAME="tex2html1977"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1971"
-  HREF="node115.html">Si l'autre serveur DHCP</A>
-<B> monter:</B> <A NAME="tex2html1967"
-  HREF="node113.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1961"
-  HREF="node113.html">Utiliser m23 conjointement avec</A>
- &nbsp; <B>  <A NAME="tex2html1969"
+<B> suivant:</B> <A NAME="tex2html1980"
+  HREF="node115.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1976"
+  HREF="node107.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1970"
+  HREF="node113.html">Information suppl&#233;mentaire:</A>
+ &nbsp; <B>  <A NAME="tex2html1978"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001021000000000000000">
-Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</A>
-</H2>
-Solutions:
+<H1><A NAME="SECTION001020000000000000000">
+Utiliser m23 conjointement avec un serveur DHCP externe</A>
+</H1>Supposons qu'un serveur DHCP diffuse, sur votre r&#233;seau local, les param&#232;tres du r&#233;seau (IP, masque de r&#233;seau, etc ...) pour tous les ordinateurs et qu'il existe un serveur m23 h&#233;bergeant &#233;galement un serveur DHCP, &#224; partir duquel les postes client doivent &#234;tre install&#233;s.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
 <BR>
-<UL>
-<LI>D&#233;sactivez la r&#233;ponse du serveur DHCP externe pour les adresses MAC des postes client &#224; installer (au moins) pendant la dur&#233;e de l'installation.
-<BR></LI>
-<LI>Alternative: Reconfigurez le serveur DHCP externe de sorte qu'il diffuse les param&#232;tres du r&#233;seau 2 secondes plus tard, afin que le serveur DHCP m23 r&#233;ponde toujours plus rapidement.
-<BR></LI>
-<LI>Alternative: D&#233;sactivez le serveur DHCP externe pour la dur&#233;e de l'installation du syst&#232;me d'exploitation des postes m23.
-<BR></LI>
-</UL>
+Probl&#232;me: L'installation des postes client m23 ne fonctionnera pas, parce que le serveur DHCP externe diffuse les param&#232;tres du r&#233;seau plus vite que le serveur DHCP m23.
+<BR>
+La raison: Le serveur m23 doit assigner l'adresse IP et les autres param&#232;tres du r&#233;seau au poste client lors de l'installation du syst&#232;me d'exploitation. Si un autre serveur DHCP fixe ces param&#232;tres &#224; la place du serveur DHCP m23, le poste client ne trouvera pas le serveur m23, en cons&#233;quence de quoi, l'image d'amor&#231;age du r&#233;seau ne sera pas accessible et le poste client ne pourra pas &#234;tre install&#233;. Il n'est en principe pas possible de modifier ce comportement, parce que les standards r&#233;seaux et les protocoles d'amor&#231;age par le r&#233;seau (netboot) suivent une proc&#233;dure standardis&#233;.
+<BR>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1981"
+  HREF="node115.html">Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1982"
+  HREF="node116.html">Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
+<LI><A NAME="tex2html1983"
+  HREF="node117.html">Configuration dynamique du serveur DHCP</A>
+<LI><A NAME="tex2html1984"
+  HREF="node118.html">Serveur DHCP ISC</A>
+<LI><A NAME="tex2html1985"
+  HREF="node119.html">Autre serveur DHCP</A>
+<LI><A NAME="tex2html1986"
+  HREF="node120.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1979"
+  HREF="node115.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1975"
+  HREF="node107.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1969"
+  HREF="node113.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1977"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> suivant:</B> <A NAME="tex2html1980"
+  HREF="node115.html">Si le serveur DHCP</A>
+<B> monter:</B> <A NAME="tex2html1976"
+  HREF="node107.html">Ajuster des clients</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1970"
+  HREF="node113.html">Information suppl&#233;mentaire:</A>
+ &nbsp; <B>  <A NAME="tex2html1978"
+  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

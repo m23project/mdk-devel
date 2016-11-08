@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint</TITLE>
-<META NAME="description" CONTENT="Hint">
+<TITLE>Firewall settings</TITLE>
+<META NAME="description" CONTENT="Firewall settings">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,73 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node59.html">
-<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node61.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1240"
+<A NAME="tex2html1252"
   HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1236"
-  HREF="node59.html">
+<A NAME="tex2html1248"
+  HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1232"
+<A NAME="tex2html1242"
   HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1238"
+<A NAME="tex2html1250"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html1241"
-  HREF="node61.html">Select theme</A>
-<B> Up:</B> <A NAME="tex2html1237"
-  HREF="node59.html">Firewall settings</A>
-<B> Previous:</B> <A NAME="tex2html1233"
-  HREF="node59.html">Firewall settings</A>
- &nbsp; <B>  <A NAME="tex2html1239"
+<B> Next:</B> <A NAME="tex2html1253"
+  HREF="node61.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html1249"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html1243"
+  HREF="node59.html">Adress tables</A>
+ &nbsp; <B>  <A NAME="tex2html1251"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006121000000000000000">
-Hint</A>
-</H2>
-During activation of the firewall, the file 
-<BR><PRE>
-/etc/network/interfaces
-</PRE>
- is modified to enable automatic loading of the rules. The modification is removed again when the firewall is being deactivated.
+<H1><A NAME="SECTION006120000000000000000">
+Firewall settings</A>
+</H1>
+<IMG
+  WIDTH="750" HEIGHT="500" ALIGN="BOTTOM" BORDER="0"
+ SRC="./firewall.png"
+ ALT="Image firewall"> 
 <BR>
+This dialog allows you to create and edit firewall rules for your m23 server. When you open this page for the first time, a set of simple firewall rules will be created, which block all access to the m23 from outside your network (except for SSH).
+<BR>
+If your situation requires a different set of rules, you can create those using iptables and paste them into the editor.
+<BR>
+To accept the settings displayed in the editor, click on <SPAN  CLASS="textit">''Save''</SPAN> or <SPAN  CLASS="textit">''Save and activate''</SPAN>, respectively. If the firewall is deactivated, the rules you set will only be saved to the file 
+<BR><PRE>
+/m23/bin/firewall.sh
+</PRE>
+. If activated, the rules will be saved and used.
+<BR>
+The buttons <SPAN  CLASS="textit">''activate''</SPAN> and <SPAN  CLASS="textit">''deactivate''</SPAN> activate and deactivate the Firewall.
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1254"
+  HREF="node61.html">Hint</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

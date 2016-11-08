@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Autre serveur DHCP</TITLE>
-<META NAME="description" CONTENT="Autre serveur DHCP">
+<TITLE>Configuration dynamique du serveur DHCP</TITLE>
+<META NAME="description" CONTENT="Configuration dynamique du serveur DHCP">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,47 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node118.html">
 <LINK REL="previous" HREF="node116.html">
-<LINK REL="up" HREF="node113.html">
+<LINK REL="up" HREF="node114.html">
 <LINK REL="next" HREF="node118.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2006"
+<A NAME="tex2html2021"
   HREF="node118.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2002"
-  HREF="node113.html">
+<A NAME="tex2html2017"
+  HREF="node114.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1996"
+<A NAME="tex2html2011"
   HREF="node116.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2004"
+<A NAME="tex2html2019"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2007"
-  HREF="node118.html">Proxy DHCP</A>
-<B> monter:</B> <A NAME="tex2html2003"
-  HREF="node113.html">Utiliser m23 conjointement avec</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1997"
-  HREF="node116.html">Serveur DHCP ISC</A>
- &nbsp; <B>  <A NAME="tex2html2005"
+<B> suivant:</B> <A NAME="tex2html2022"
+  HREF="node118.html">Serveur DHCP ISC</A>
+<B> monter:</B> <A NAME="tex2html2018"
+  HREF="node114.html">Utiliser m23 conjointement avec</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2012"
+  HREF="node116.html">Si l'autre serveur DHCP</A>
+ &nbsp; <B>  <A NAME="tex2html2020"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001024000000000000000">
-Autre serveur DHCP</A>
+<H2><A NAME="SECTION001023000000000000000">
+Configuration dynamique du serveur DHCP</A>
 </H2>
-
-<OL>
-<LI>Choisissez <SPAN  CLASS="textit">''PXE''</SPAN> dans <SPAN  CLASS="textit">''Type de boot''</SPAN> lorsque vous ajoutez un nouveau client m23 par l'interface web. Saisissez le nom de l'ordinateur &#224; assigner au client m23 par le serveur DHCP dans <SPAN  CLASS="textit">''Nom du poste client''</SPAN>.
-<BR></LI>
-<LI>Ajustez votre serveur DHCP de sorte qu'il assigne le nom du poste client indiqu&#233; dans l'interface web m23 au poste client m23.
-<BR></LI>
-<LI>Le nom du noyau PXE, transmis par votre serveur DHCP au poste client, doit &#234;tre <SPAN  CLASS="textbf">pxelinux.0</SPAN>. Le serveur TFTP est le serveur m23.
-<BR></LI>
-<LI>Configurez le serveur DHCP de mani&#232;re &#224; ce qu'il fournisse l'adresse IP du serveur m23 comme adresse d'origine pour les clients m23.
-<BR></LI>
-<LI>Si malgr&#233; cela, votre serveur DHCP ne fonctionne toujours pas apr&#232;s l'ajustement des param&#232;tres, vous devez installer un serveur TFTP sur l'ordinateur h&#233;bergeant votre serveur DHCP. La configuration de base du serveur TFTP peut s'inspirer des fichiers de configuration du r&#233;pertoire /m23/tftp/.
-<BR></LI>
-</OL>
+Chaque fois l'&#233;tat de d&#233;marrage par r&#233;seau d'un poste client est chang&#233; (activ&#233; / d&#233;sactiv&#233;), le script <SPAN  CLASS="textit">''/m23/bin/externalDHCPControl.sh''</SPAN> sera ex&#233;cut&#233;. Vous pouvez adapter le script selon vos besoins afin de configurer dynamiquement un serveur DHCP existant. Trouvez plus d'information dans les commentaired dans le fichier script.
+<BR>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

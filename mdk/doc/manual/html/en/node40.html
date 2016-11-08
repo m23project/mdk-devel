@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Manage GPG keys</TITLE>
-<META NAME="description" CONTENT="Manage GPG keys">
+<TITLE>Manage LDAP servers</TITLE>
+<META NAME="description" CONTENT="Manage LDAP servers">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,7 +20,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="manual.css">
 
 <LINK REL="next" HREF="node41.html">
-<LINK REL="previous" HREF="node39.html">
+<LINK REL="previous" HREF="node36.html">
 <LINK REL="up" HREF="node26.html">
 <LINK REL="next" HREF="node41.html">
 </HEAD>
@@ -28,65 +28,79 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html994"
+<A NAME="tex2html1005"
   HREF="node41.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html990"
+<A NAME="tex2html1001"
   HREF="node26.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html984"
+<A NAME="tex2html995"
   HREF="node39.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html992"
+<A NAME="tex2html1003"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html995"
-  HREF="node41.html">Manage image files</A>
-<B> Up:</B> <A NAME="tex2html991"
+<B> Next:</B> <A NAME="tex2html1006"
+  HREF="node41.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html1002"
   HREF="node26.html">Server</A>
-<B> Previous:</B> <A NAME="tex2html985"
-  HREF="node39.html">Manage LDAP servers</A>
- &nbsp; <B>  <A NAME="tex2html993"
+<B> Previous:</B> <A NAME="tex2html996"
+  HREF="node39.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html1004"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00660000000000000000">
-Manage GPG keys</A>
-</H1>You can add new GPG keys or remove existing GPG keys to and from the m23 server with the dialog <SPAN  CLASS="textit">''Manage GPG keys''</SPAN>.
-<BR><IMG
-  WIDTH="1111" HEIGHT="504" ALIGN="BOTTOM" BORDER="0"
- SRC="./manageGPGKeysDialog.png"
- ALT="Image manageGPGKeysDialog"> 
+<H1><A NAME="SECTION00650000000000000000">
+Manage LDAP servers</A>
+</H1>
+<IMG
+  WIDTH="1007" HEIGHT="552" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ldapSettings.png"
+ ALT="Image ldapSettings"> 
+<BR>
+You can manage different LDAP servers in this dialog that can be used for user authentification on the clients. An OpenLDAP server can be installed and configured in addition.
 <BR>
 <UL>
-<LI><SPAN  CLASS="textbf">Adding a new key:</SPAN>
-
-<OL>
-<LI>Copy the desire public GPG/PGP key with your preferred key management application to the clipboard.
+<LI><SPAN  CLASS="textbf">Add a new LDAP server</SPAN>: Please enter the needed information in the edit lines. The name of the server is ''free form'' and is entered under <SPAN  CLASS="textit">''LDAP server name''</SPAN>. It is not required to be the same as the hostname of the LDAP server.<SPAN  CLASS="textit">''LDAP server host''</SPAN> has to be the IP or hostname of the LDAP server and must be resolvable from all clients. The preselected port can be cachanged under <SPAN  CLASS="textit">''LDAP server port''</SPAN>. If you enter a valid administrator password under <SPAN  CLASS="textit">''Password''</SPAN> and <SPAN  CLASS="textit">''Password (repeated)''</SPAN> the LDAP server can be used for storing new usr accounts. If you leave empty both passwords the server is assumed as read only. Click on <SPAN  CLASS="textit">''Add''</SPAN> after entering all required data.
 <BR></LI>
-<LI>Paste the key into the input box on the left of <SPAN  CLASS="textit">''Import GPG key''</SPAN>.
+<LI><SPAN  CLASS="textbf">Change an existing LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">''Load''</SPAN>. Now you can see all server data in the edit lines. Modify any values you want and click on <SPAN  CLASS="textit">''Save changes''</SPAN> afterwards.
 <BR></LI>
-<LI>Click on <SPAN  CLASS="textit">''Import GPG key''</SPAN> to complete the procedure.
+<LI><SPAN  CLASS="textbf">Delete a LDAP server</SPAN>: Choose a LDAP server from the drop down list and click on <SPAN  CLASS="textit">''Delete''</SPAN>.
 <BR></LI>
-</OL>
-</LI>
-<LI><SPAN  CLASS="textbf">Deleting of an existing key:</SPAN>
-
-<OL>
-<LI>Choose the key from the list you want to delete
+<LI><SPAN  CLASS="textbf">Edit entries of the LDAP servers</SPAN>: m23 uses the frontend phpLDAPadmin for editing entries. phpLDAPadmin can be started with a click on the phpLDAPadmin logo.
 <BR></LI>
-<LI>Click on <SPAN  CLASS="textit">''Delete''</SPAN> afterwards.
-<BR></LI>
-</OL>
-</LI>
 </UL>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1005"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1001"
+  HREF="node26.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html995"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1003"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1006"
+  HREF="node41.html">Manage GPG keys</A>
+<B> Up:</B> <A NAME="tex2html1002"
+  HREF="node26.html">Server</A>
+<B> Previous:</B> <A NAME="tex2html996"
+  HREF="node39.html">Description of daemons</A>
+ &nbsp; <B>  <A NAME="tex2html1004"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

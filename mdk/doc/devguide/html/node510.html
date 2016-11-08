@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDrivesAndPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_getDrivesAndPartitions">
+<TITLE>FDISK_getDriveInfoString</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveInfoString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node511.html">
 <LINK REL="previous" HREF="node509.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node511.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10277"
+<A NAME="tex2html10204"
   HREF="node511.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10273"
-  HREF="node480.html">
+<A NAME="tex2html10200"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10267"
+<A NAME="tex2html10194"
   HREF="node509.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10275"
+<A NAME="tex2html10202"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10278"
-  HREF="node511.html">FDISK_listDrivesAndPartitions</A>
-<B> Up:</B> <A NAME="tex2html10274"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10268"
-  HREF="node509.html">FDISK_getPartitionByType</A>
- &nbsp; <B>  <A NAME="tex2html10276"
+<B> Next:</B> <A NAME="tex2html10205"
+  HREF="node511.html">FDISK_getDriveInfoIcon</A>
+<B> Up:</B> <A NAME="tex2html10201"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10195"
+  HREF="node509.html">FDISK_getPartInfoString</A>
+ &nbsp; <B>  <A NAME="tex2html10203"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081630000000000000000">
-FDISK_getDrivesAndPartitions</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an array that contains all drives and partitions of a given client.
+<H2><A NAME="SECTION0091666000000000000000">
+FDISK_getDriveInfoString</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an info string, that shows information about the device name of the drive and bolonging to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it. If you add an "!" the beginning all is given out that doesn't contains the filter string (without the "!").
+<LI>fstabA: Associative array with fstab information.
 </LI>
-<LI>addSizesAndTypes: If set to true, the array will contain the sizes, filesystems and types of the partitions and drives.
-</LI>
-<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
-</LI>
-</UL>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>Array with drives and partitions and (optionally) their sizes, filesystems and types.
+<LI>Info string.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

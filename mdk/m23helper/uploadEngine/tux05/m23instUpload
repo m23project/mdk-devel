@@ -163,7 +163,7 @@ sleep 1800
 cd /m23test/
 rm archives/m23*
 local-apt-update -o=Dir::Etc::sourceparts="/does/not/exist"
-local-apt-download -y m23 m23-mb2009 m23-vbox 2>&1 | tee /tmp/poolCheck.log
+local-apt-download --force-yes -y m23 m23-mb2009 m23-vbox 2>&1 | tee /tmp/poolCheck.log
 php -r '
 $f=fopen("/tmp/poolCheck.log","r");
 
@@ -186,3 +186,28 @@ then
 	echo "MD5-Fehler."
 	exit 1
 fi
+
+
+
+cd /var/www/ucs/
+rm m23-Pakete-fuer-ucs.tar 2> /dev/null
+(tar cfv m23-Pakete-fuer-ucs.tar /m23inst/m23*.deb m23-ucs-extra*.deb 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Erstellen von m23-Pakete-fuer-ucs.tar", "m23-Pakete-fuer-ucs.tar-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "m23-Pakete-fuer-ucs.tar-Fehler."
+	exit 1
+fi
+chown www-data.www-data m23-Pakete-fuer-ucs.tar
+
+
+(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "Kopieren-nach-/var/www/m23inst-Fehler"
+	exit 1
+fi
+chown -R www-data.www-data /var/www/m23inst

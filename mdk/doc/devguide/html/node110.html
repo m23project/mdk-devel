@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Filling the *OptionPage.php</TITLE>
-<META NAME="description" CONTENT="Filling the *OptionPage.php">
+<TITLE>AUTOTEST_VM_create</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_VM_create">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,71 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node111.html">
 <LINK REL="previous" HREF="node109.html">
-<LINK REL="up" HREF="node108.html">
+<LINK REL="up" HREF="node106.html">
 <LINK REL="next" HREF="node111.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3939"
+<A NAME="tex2html5013"
   HREF="node111.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3935"
-  HREF="node108.html">
+<A NAME="tex2html5009"
+  HREF="node106.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3929"
+<A NAME="tex2html5003"
   HREF="node109.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3937"
+<A NAME="tex2html5011"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3940"
-  HREF="node111.html">Layoutoptions</A>
-<B> Up:</B> <A NAME="tex2html3936"
-  HREF="node108.html">Additional installation parameters for</A>
-<B> Previous:</B> <A NAME="tex2html3930"
-  HREF="node109.html">The *OptionPage.php</A>
- &nbsp; <B>  <A NAME="tex2html3938"
+<B> Next:</B> <A NAME="tex2html5014"
+  HREF="node111.html">AUTOTEST_VM_enableCapture</A>
+<B> Up:</B> <A NAME="tex2html5010"
+  HREF="node106.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html5004"
+  HREF="node109.html">AUTOTEST_keyAndRelease</A>
+ &nbsp; <B>  <A NAME="tex2html5012"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006122000000000000000">
-Filling the *OptionPage.php</A>
-</H2>
-To make it easier for you there are two functions that help you to generate your option page. To use these function you have to include <SPAN  CLASS="textit">/m23/inc/packages.php</SPAN>
-
+<H2><A NAME="SECTION00924000000000000000">
+AUTOTEST_VM_create</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new VM with virtual hard drive in VirtualBox.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
 <UL>
-<LI><SPAN  CLASS="textit">PKG_OptionPageHeader($title)</SPAN>: For starting the page. It generates all necessary HTML code (colors, styles, tables, form) and expects a title for your option page. This title is shown in the window label of your webbrowser and in the window itself. It returnes an associative array with all parameters of the selected package. These values are used to initalise the OptionPage if it is opened for the first time.
-
-<P>
+<LI>vmName: Name of the VM.
 </LI>
-<LI><SPAN  CLASS="textit">PKG_OptionPageTail($layout)</SPAN>: Renderes the layout of the page, adds a save button and closes the HTML page.
-
-<P>
+<LI>diskSize: Size of the virtual HD in MB.
 </LI>
-<LI><SPAN  CLASS="textit">PKG_OptionPageGetValue($variable,$params)</SPAN>: gets a value from the $_GET array or falls back to the params values. This is used if there havn't been entered values in the OptionPage.
+<LI>ramSize: Size of RAM in MB.
 </LI>
-</UL>
-Your OptionPage needs to have the following elements:
-<PRE>
-include ('/m23/inc/packages.php');
-
-$params = PKG_OptionPageHeader("My OptionPage title");
-
-$layout[0]...
-
-PKG_OptionPageTail($layout);
-</PRE>
-
+<LI>VMCreationMessage: Variable where the VirtualBox (error) messages will be written to.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, when the creation was successfully, otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

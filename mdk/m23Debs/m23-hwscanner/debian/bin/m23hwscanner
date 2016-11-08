@@ -238,10 +238,10 @@ InitLiloFstab()
 proc /proc proc defaults 0 0' > /etc/fstab
 
 	#Add CD/DVD drives to fstab and create eject icons
-	for drive in `getCDRoms`
-	do
-		addCdrom "$drive"
-	done
+# 	for drive in `getCDRoms`
+# 	do
+# 		addCdrom "$drive"
+# 	done
 
 	#Check, if IDE/SCSI emulation should be added
 	append=`getIDE_SCSIEmulation`

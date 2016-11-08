@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientPackages</TITLE>
-<META NAME="description" CONTENT="PKG_getClientPackages">
+<TITLE>PLG_checkOverwriting</TITLE>
+<META NAME="description" CONTENT="PLG_checkOverwriting">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1002.html">
 <LINK REL="previous" HREF="node1000.html">
-<LINK REL="up" HREF="node902.html">
+<LINK REL="up" HREF="node989.html">
 <LINK REL="next" HREF="node1002.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16550"
+<A NAME="tex2html16513"
   HREF="node1002.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16546"
-  HREF="node902.html">
+<A NAME="tex2html16509"
+  HREF="node989.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16540"
+<A NAME="tex2html16503"
   HREF="node1000.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16548"
+<A NAME="tex2html16511"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16551"
-  HREF="node1002.html">PKG_getPackagesListMarker</A>
-<B> Up:</B> <A NAME="tex2html16547"
-  HREF="node902.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16541"
-  HREF="node1000.html">PKG_getPackageIDsByName</A>
- &nbsp; <B>  <A NAME="tex2html16549"
+<B> Next:</B> <A NAME="tex2html16514"
+  HREF="node1002.html">PLG_DBInstall</A>
+<B> Up:</B> <A NAME="tex2html16510"
+  HREF="node989.html">./inc/plugin.php</A>
+<B> Previous:</B> <A NAME="tex2html16504"
+  HREF="node1000.html">PLG_showDownloadStatus</A>
+ &nbsp; <B>  <A NAME="tex2html16512"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082899000000000000000">
-PKG_getClientPackages</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array or a space separated list of all packages installed on a client
+<H2><A NAME="SECTION0093012000000000000000">
+PLG_checkOverwriting</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>client: the name of the client
+<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
 </LI>
-<LI>key: if it is not empty only packages that contain the key are returned
+<LI>tempDir: where to store the plugin file temporary
 </LI>
-<LI>arr: set to true if the result should be an array otherwise it's a string
-</LI>
-<LI>status: If set only returns packages of the given status
-</LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Utiliser m23 conjointement avec un serveur DHCP externe</TITLE>
-<META NAME="description" CONTENT="Utiliser m23 conjointement avec un serveur DHCP externe">
+<TITLE>Information suppl&#233;mentaire:</TITLE>
+<META NAME="description" CONTENT="Information suppl&#233;mentaire:">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,97 +19,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node119.html">
-<LINK REL="previous" HREF="node107.html">
-<LINK REL="up" HREF="node106.html">
+<LINK REL="previous" HREF="node112.html">
+<LINK REL="up" HREF="node108.html">
 <LINK REL="next" HREF="node114.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1953"
+<A NAME="tex2html1967"
   HREF="node114.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1949"
-  HREF="node106.html">
+<A NAME="tex2html1963"
+  HREF="node108.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1943"
+<A NAME="tex2html1959"
   HREF="node112.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1951"
+<A NAME="tex2html1965"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1954"
-  HREF="node114.html">Si le serveur DHCP</A>
-<B> monter:</B> <A NAME="tex2html1950"
-  HREF="node106.html">Ajuster des clients</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1944"
-  HREF="node112.html">Information suppl&#233;mentaire:</A>
- &nbsp; <B>  <A NAME="tex2html1952"
+<B> suivant:</B> <A NAME="tex2html1968"
+  HREF="node114.html">Utiliser m23 conjointement avec</A>
+<B> monter:</B> <A NAME="tex2html1964"
+  HREF="node108.html">Ajouter un poste client</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1960"
+  HREF="node112.html">Renseignement concernant l'architecture du</A>
+ &nbsp; <B>  <A NAME="tex2html1966"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001020000000000000000">
-Utiliser m23 conjointement avec un serveur DHCP externe</A>
-</H1>Supposons qu'un serveur DHCP diffuse, sur votre r&#233;seau local, les param&#232;tres du r&#233;seau (IP, masque de r&#233;seau, etc ...) pour tous les ordinateurs et qu'il existe un serveur m23 h&#233;bergeant &#233;galement un serveur DHCP, &#224; partir duquel les postes client doivent &#234;tre install&#233;s.
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./externalDHCP.png"
- ALT="Image externalDHCP"> 
+<H2><A NAME="SECTION001015000000000000000">
+Information suppl&#233;mentaire:</A>
+</H2>
+Apr&#232;s l'ajout du nouveau client, ce dernier d&#233;marrera sur le r&#233;seau (netboot) pour effectuer une s&#233;quence de d&#233;tection du mat&#233;riel, durant laquelle les informations collect&#233;es, comme par ex. la taille du disque dur utilis&#233;, seront envoy&#233;es au serveur.
 <BR>
-Probl&#232;me: L'installation des postes client m23 ne fonctionnera pas, parce que le serveur DHCP externe diffuse les param&#232;tres du r&#233;seau plus vite que le serveur DHCP m23.
-<BR>
-La raison: Le serveur m23 doit assigner l'adresse IP et les autres param&#232;tres du r&#233;seau au poste client lors de l'installation du syst&#232;me d'exploitation. Si un autre serveur DHCP fixe ces param&#232;tres &#224; la place du serveur DHCP m23, le poste client ne trouvera pas le serveur m23, en cons&#233;quence de quoi, l'image d'amor&#231;age du r&#233;seau ne sera pas accessible et le poste client ne pourra pas &#234;tre install&#233;. Il n'est en principe pas possible de modifier ce comportement, parce que les standards r&#233;seaux et les protocoles d'amor&#231;age par le r&#233;seau (netboot) suivent une proc&#233;dure standardis&#233;.
-<BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1955"
-  HREF="node114.html">Si le serveur DHCP externe peut &#234;tre d&#233;sactiv&#233;:</A>
-<LI><A NAME="tex2html1956"
-  HREF="node115.html">Si l'autre serveur DHCP NE PEUT PAS &#234;tre d&#233;sactiv&#233;:</A>
-<LI><A NAME="tex2html1957"
-  HREF="node116.html">Serveur DHCP ISC</A>
-<LI><A NAME="tex2html1958"
-  HREF="node117.html">Autre serveur DHCP</A>
-<LI><A NAME="tex2html1959"
-  HREF="node118.html">Proxy DHCP</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1953"
-  HREF="node114.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1949"
-  HREF="node106.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1943"
-  HREF="node112.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1951"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html1954"
-  HREF="node114.html">Si le serveur DHCP</A>
-<B> monter:</B> <A NAME="tex2html1950"
-  HREF="node106.html">Ajuster des clients</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1944"
-  HREF="node112.html">Information suppl&#233;mentaire:</A>
- &nbsp; <B>  <A NAME="tex2html1952"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
+Apr&#232;s l'ach&#232;vement du transfert des donn&#233;es l'&#233;tat du client passera &#224; <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>jaune<SPAN CLASS="MATH"></SPAN></SPAN> vous pourrez d&#232;s lors ajuster les param&#232;tres du client. Pour cela, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Postes client<SPAN CLASS="MATH"></SPAN></SPAN> puis sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Configuration<SPAN CLASS="MATH"></SPAN></SPAN> dans le menu.
+<BR>	<BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

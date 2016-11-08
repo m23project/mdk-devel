@@ -2,6 +2,10 @@
 # Associate labels original text with physical files.
 
 
+$key = q/m23customPatch/;
+$external_labels{$key} = "$URL/" . q|node91.html|; 
+$noresave{$key} = "$nosave";
+
 1;
 
 

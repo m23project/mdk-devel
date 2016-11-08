@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_convertSwitchStatusInfo</TITLE>
-<META NAME="description" CONTENT="VM_convertSwitchStatusInfo">
+<TITLE>VM_parseVBOXNic</TITLE>
+<META NAME="description" CONTENT="VM_parseVBOXNic">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1224.html">
 <LINK REL="previous" HREF="node1222.html">
-<LINK REL="up" HREF="node1179.html">
+<LINK REL="up" HREF="node1156.html">
 <LINK REL="next" HREF="node1224.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19423"
+<A NAME="tex2html19363"
   HREF="node1224.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19419"
-  HREF="node1179.html">
+<A NAME="tex2html19359"
+  HREF="node1156.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19413"
+<A NAME="tex2html19353"
   HREF="node1222.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19421"
+<A NAME="tex2html19361"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19424"
-  HREF="node1224.html">VM_getSWandHost</A>
-<B> Up:</B> <A NAME="tex2html19420"
-  HREF="node1179.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19414"
-  HREF="node1222.html">VM_activateNetboot</A>
- &nbsp; <B>  <A NAME="tex2html19422"
+<B> Next:</B> <A NAME="tex2html19364"
+  HREF="node1224.html">VM_parseStatus</A>
+<B> Up:</B> <A NAME="tex2html19360"
+  HREF="node1156.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19354"
+  HREF="node1222.html">VM_parseVBOXstate</A>
+ &nbsp; <B>  <A NAME="tex2html19362"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083844000000000000000">
-VM_convertSwitchStatusInfo</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the status of a VM guest in several ways.
+<H2><A NAME="SECTION0093867000000000000000">
+VM_parseVBOXNic</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Parses the status line of a virtual network card.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>status: Status of the VM guest (one of VM_STATE_*)
+<LI>param: Parameter line that contains the status string of the VM.
 </LI>
-</UL>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>Associative array with: $out['text']: The status as text in the current language. $out['icon']: The icon of the given status (as traffic lights). $out['imgTag']: The status as traffic light in an HTML img tag with the written status as title.
+<LI>Array with the current state of the network device.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

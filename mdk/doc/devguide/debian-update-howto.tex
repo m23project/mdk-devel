@@ -17,6 +17,8 @@ To fully support a new Debian/Ubuntu release a few steps are needed. The followi
 
 \item Make a base client install, see errors and fix them ;-)
 
+\item Run "debootstrap --print-debs <distribution> /tmp/debootstrap.tmp" on the installed client and place the found packages on the m23 server under /m23/inc/distr/baseSysFileLists/<distribution>.
+
 \item Develop missing desktop installation scripts under /m23/inc/distr/<distribution>/packages/m23<desktop>Install.php.
 
 \item Then make an installation/test/fix run with all desktop envirtonments that should be supported by the release.

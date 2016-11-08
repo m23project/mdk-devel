@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Löschen eines Auftrages</TITLE>
-<META NAME="description" CONTENT="Löschen eines Auftrages">
+<TITLE>Schrittweises Vorgehen zum Hinzufügen neuer Aufträge</TITLE>
+<META NAME="description" CONTENT="Schrittweises Vorgehen zum Hinzufügen neuer Aufträge">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,113 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node52.html">
 <LINK REL="previous" HREF="node50.html">
-<LINK REL="up" HREF="node42.html">
+<LINK REL="up" HREF="node43.html">
 <LINK REL="next" HREF="node52.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1134"
+<A NAME="tex2html1149"
   HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1130"
-  HREF="node42.html">
+<A NAME="tex2html1145"
+  HREF="node43.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1126"
+<A NAME="tex2html1139"
   HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1132"
+<A NAME="tex2html1147"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1135"
-  HREF="node52.html">Backupliste</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1131"
-  HREF="node42.html">Server-Backup</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1127"
-  HREF="node50.html">Schrittweises Vorgehen zum Hinzufügen</A>
- &nbsp; <B>  <A NAME="tex2html1133"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1150"
+  HREF="node52.html">Löschen eines Auftrages</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1146"
+  HREF="node43.html">Server-Backup</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1140"
+  HREF="node50.html">cron-Einstellungen</A>
+ &nbsp; <B>  <A NAME="tex2html1148"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00689000000000000000">
-L&#246;schen eines Auftrages</A>
+<H2><A NAME="SECTION00688000000000000000">
+Schrittweises Vorgehen zum Hinzuf&#252;gen neuer Auftr&#228;ge</A>
 </H2>
-Sie l&#246;schen einen Auftrag aus der Liste <SPAN  CLASS="textit">''cron-Eintr&#228;ge''</SPAN>, indem Sie hinter dem betreffenden Eintrag in der Tabelle auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN> klicken.
-<BR>	<BR><HR>
+
+<OL>
+<LI>W&#228;hlen Sie unter <SPAN  CLASS="textit">''cron Zeitbasis''</SPAN> zuerst die Zeitbasis aus, f&#252;r die Sie die Aufgabe planen m&#246;chten.
+<BR></LI>
+<LI>Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''&#196;ndern''</SPAN>, um das n&#228;chste Dialogelement anzupassen.
+<BR></LI>
+<LI>Machen Sie abh&#228;ngig von der Zeitbasis die n&#246;tigen Angaben:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Stunde</SPAN>: Der Auftrag wird jede Stunde oder alle N Stunden zu der angegebenen Minute gestartet.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Startminute</SPAN>: Die Minute, zu der der Auftrag gestartet werden soll.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Wiederholung alle N Stunden</SPAN>: Der Stundenabstand zwischen den Ausf&#252;hrungen. (Z.B. 2 f&#252;r alle zwei Stunden).
+<BR></LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textbf">Tag</SPAN>: Jeden Tag zu der angegebenen Zeit wird der Auftrag gestartet.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Startminute</SPAN>: Die Minute, zu der der Auftrag gestartet werden soll.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Startstunde</SPAN>: Die Stunde, zu der der Auftrag gestartet werden soll.
+<BR></LI>
+</UL>
+</LI>
+<LI><SPAN  CLASS="textbf">Woche</SPAN>: Einmal w&#246;chentlich wird der Auftrag zu einer bestimmten Stunde ausgef&#252;hrt.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Startminute</SPAN>: Die Minute, zu der der Auftrag gestartet werden soll.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Startstunde</SPAN>: Die Stunde, zu der der Auftrag gestartet werden soll.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Wochentag</SPAN>: Der Wochentag, an dem der Auftrag gestartet werden soll.
+<BR></LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>Klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>, um den Auftrag hinzuzuf&#252;gen.
+<BR></LI>
+</OL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1149"
+  HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1145"
+  HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1139"
+  HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1147"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1150"
+  HREF="node52.html">Löschen eines Auftrages</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1146"
+  HREF="node43.html">Server-Backup</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1140"
+  HREF="node50.html">cron-Einstellungen</A>
+ &nbsp; <B>  <A NAME="tex2html1148"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

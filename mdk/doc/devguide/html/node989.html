@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_addRemovePackagesToWait4Aac</TITLE>
-<META NAME="description" CONTENT="PKG_addRemovePackagesToWait4Aac">
+<TITLE>./inc/plugin.php</TITLE>
+<META NAME="description" CONTENT="./inc/plugin.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,60 +19,106 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node990.html">
-<LINK REL="previous" HREF="node988.html">
-<LINK REL="up" HREF="node902.html">
+<LINK REL="next" HREF="node1013.html">
+<LINK REL="previous" HREF="node983.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node990.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16406"
+<A NAME="tex2html16346"
   HREF="node990.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16402"
-  HREF="node902.html">
+<A NAME="tex2html16342"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16396"
+<A NAME="tex2html16336"
   HREF="node988.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16404"
+<A NAME="tex2html16344"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16407"
-  HREF="node990.html">PKG_discardRemoveJob</A>
-<B> Up:</B> <A NAME="tex2html16403"
-  HREF="node902.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16397"
-  HREF="node988.html">PKG_remNormalPackages</A>
- &nbsp; <B>  <A NAME="tex2html16405"
+<B> Next:</B> <A NAME="tex2html16347"
+  HREF="node990.html">PLG_listMenuPlugins</A>
+<B> Up:</B> <A NAME="tex2html16343"
+  HREF="node100.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html16337"
+  HREF="node988.html">PDF_output</A>
+ &nbsp; <B>  <A NAME="tex2html16345"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0082887000000000000000">
-PKG_addRemovePackagesToWait4Aac</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a remove job to waiting 4 accept status
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>client: name of client to frinstall packages from
-</LI>
-<LI>priority: priority of the package
-</LI>
-<LI>params: parameter for deinstalling the package
-</LI>
-</UL>
-
+<H1><A NAME="SECTION009300000000000000000">
+./inc/plugin.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions dealing with (de)installation of plugins and status information.
+<BR></SMALL></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html16348"
+  HREF="node990.html">PLG_listMenuPlugins</A>
+<LI><A NAME="tex2html16349"
+  HREF="node991.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html16350"
+  HREF="node992.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html16351"
+  HREF="node993.html">PLG_getPLGName</A>
+<LI><A NAME="tex2html16352"
+  HREF="node994.html">PLG_getPLGPage</A>
+<LI><A NAME="tex2html16353"
+  HREF="node995.html">PLG_getPLGAuthor</A>
+<LI><A NAME="tex2html16354"
+  HREF="node996.html">PLG_getPLGUpdateURL</A>
+<LI><A NAME="tex2html16355"
+  HREF="node997.html">PLG_getPLGClientRequires</A>
+<LI><A NAME="tex2html16356"
+  HREF="node998.html">PLG_getPLGVersion</A>
+<LI><A NAME="tex2html16357"
+  HREF="node999.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html16358"
+  HREF="node1000.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html16359"
+  HREF="node1001.html">PLG_checkOverwriting</A>
+<LI><A NAME="tex2html16360"
+  HREF="node1002.html">PLG_DBInstall</A>
+<LI><A NAME="tex2html16361"
+  HREF="node1003.html">PLG_realInstall</A>
+<LI><A NAME="tex2html16362"
+  HREF="node1004.html">PLG_getTempDir</A>
+<LI><A NAME="tex2html16363"
+  HREF="node1005.html">PLG_getFilename</A>
+<LI><A NAME="tex2html16364"
+  HREF="node1006.html">PLG_install</A>
+<LI><A NAME="tex2html16365"
+  HREF="node1007.html">PLG_showPluginOverview</A>
+<LI><A NAME="tex2html16366"
+  HREF="node1008.html">PLG_install</A>
+<LI><A NAME="tex2html16367"
+  HREF="node1009.html">PLG_getUpdateFile</A>
+<LI><A NAME="tex2html16368"
+  HREF="node1010.html">PLG_update</A>
+<LI><A NAME="tex2html16369"
+  HREF="node1011.html">PLG_listInfofile</A>
+<LI><A NAME="tex2html16370"
+  HREF="node1012.html">PLG_realUpdate</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

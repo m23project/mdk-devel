@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_prepareStr</TITLE>
-<META NAME="description" CONTENT="EDIT_prepareStr">
+<TITLE>FDISK_getPartitionByType</TITLE>
+<META NAME="description" CONTENT="FDISK_getPartitionByType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node474.html">
 <LINK REL="previous" HREF="node472.html">
-<LINK REL="up" HREF="node457.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node474.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9726"
+<A NAME="tex2html9760"
   HREF="node474.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9722"
-  HREF="node457.html">
+<A NAME="tex2html9756"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9716"
+<A NAME="tex2html9750"
   HREF="node472.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9724"
+<A NAME="tex2html9758"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9727"
-  HREF="node474.html">EDIT_savePerms</A>
-<B> Up:</B> <A NAME="tex2html9723"
-  HREF="node457.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9717"
-  HREF="node472.html">EDIT_replace</A>
- &nbsp; <B>  <A NAME="tex2html9725"
+<B> Next:</B> <A NAME="tex2html9761"
+  HREF="node474.html">FDISK_getDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html9757"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9751"
+  HREF="node472.html">FDISK_fdiskSessionFstab</A>
+ &nbsp; <B>  <A NAME="tex2html9759"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081516000000000000000">
-EDIT_prepareStr</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> changes the string to make it compatible with sed
+<H2><A NAME="SECTION0091629000000000000000">
+FDISK_getPartitionByType</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the FIRST partition matching a partition type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>str: string that should be changed. the string is read and written from/to this variable
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>forSearch: set to true, if the string should be used as a search string
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-</UL>
-
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Virtual partition number of the FIRST partition matching a partition type or false, if no partition was found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

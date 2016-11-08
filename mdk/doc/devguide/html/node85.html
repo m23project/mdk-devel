@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compresses the m23 files</TITLE>
-<META NAME="description" CONTENT="compresses the m23 files">
+<TITLE>what is mdoc?</TITLE>
+<META NAME="description" CONTENT="what is mdoc?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node86.html">
 <LINK REL="previous" HREF="node84.html">
-<LINK REL="up" HREF="node82.html">
+<LINK REL="up" HREF="node84.html">
 <LINK REL="next" HREF="node86.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3631"
+<A NAME="tex2html3570"
   HREF="node86.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3627"
-  HREF="node82.html">
+<A NAME="tex2html3566"
+  HREF="node84.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3621"
+<A NAME="tex2html3560"
   HREF="node84.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3629"
+<A NAME="tex2html3568"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3632"
-  HREF="node86.html">generating the ISO image</A>
-<B> Up:</B> <A NAME="tex2html3628"
-  HREF="node82.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html3622"
-  HREF="node84.html">compress operating system</A>
- &nbsp; <B>  <A NAME="tex2html3630"
+<B> Next:</B> <A NAME="tex2html3571"
+  HREF="node86.html">how to make your</A>
+<B> Up:</B> <A NAME="tex2html3567"
+  HREF="node84.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html3561"
+  HREF="node84.html">mdoc</A>
+ &nbsp; <B>  <A NAME="tex2html3569"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00672300000000000000">
-compresses the m23 files</A>
-</H3>
-The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
-<BR>
-For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
+<H2><A NAME="SECTION00711000000000000000">
+what is mdoc?</A>
+</H2>
+mdoc creates documentation in latex format out of comments in your source files. Special marked lines in the source code are extracted and converted to a documentation file. For an example of the generated documentation see the "m23 API reference" included in this document. mdoc can scan PHP and C/C++ files and other files that allow "/**" and "**/" for begin and end of comments or don't care about these kind of strings. If you want to use mdoc for files that don't allow these strings, put the comment sequence used for the file type before the mdoc lines. e.g. for BASH scripts you will put a '#' in front of each mdoc line:
+<PRE>
+#/**
+#**name helloworld.sh
+#**description shows a hello world
+#**parameter none
+#**/
+echo hello world
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

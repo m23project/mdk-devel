@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Set script status</TITLE>
-<META NAME="description" CONTENT="Set script status">
+<TITLE>./inc/autoTest.php</TITLE>
+<META NAME="description" CONTENT="./inc/autoTest.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,70 +19,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node107.html">
-<LINK REL="previous" HREF="node105.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node121.html">
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3892"
+<A NAME="tex2html4951"
   HREF="node107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3888"
-  HREF="node102.html">
+<A NAME="tex2html4947"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3882"
+<A NAME="tex2html4941"
   HREF="node105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3890"
+<A NAME="tex2html4949"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3893"
-  HREF="node107.html">get the output of</A>
-<B> Up:</B> <A NAME="tex2html3889"
-  HREF="node102.html">debugging m23 scripts</A>
-<B> Previous:</B> <A NAME="tex2html3883"
-  HREF="node105.html">Turn off m23 script</A>
- &nbsp; <B>  <A NAME="tex2html3891"
+<B> Next:</B> <A NAME="tex2html4952"
+  HREF="node107.html">AUTOTEST_getKey</A>
+<B> Up:</B> <A NAME="tex2html4948"
+  HREF="node100.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html4942"
+  HREF="node105.html">ASSI_prepareClient</A>
+ &nbsp; <B>  <A NAME="tex2html4950"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006114000000000000000">
-Set script status</A>
-</H2>
-After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
-
-<UL>
-<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
-</LI>
-<LI>select the database "m23"
-</LI>
-<LI>select the table "clientjobs"
-</LI>
-<LI>click on "Browse"
-</LI>
-<LI>search for your job script
-</LI>
-<LI>click on "Edit"
-</LI>
-<LI>enter "waiting" at the "status" field
-</LI>
-<LI>click on "Go" to save your changes
-</LI>
-</UL>
-This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
-
+<H1><A NAME="SECTION00920000000000000000">
+./inc/autoTest.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for test automation.
+<BR></SMALL></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4953"
+  HREF="node107.html">AUTOTEST_getKey</A>
+<LI><A NAME="tex2html4954"
+  HREF="node108.html">AUTOTEST_calcScancodes</A>
+<LI><A NAME="tex2html4955"
+  HREF="node109.html">AUTOTEST_keyAndRelease</A>
+<LI><A NAME="tex2html4956"
+  HREF="node110.html">AUTOTEST_VM_create</A>
+<LI><A NAME="tex2html4957"
+  HREF="node111.html">AUTOTEST_VM_enableCapture</A>
+<LI><A NAME="tex2html4958"
+  HREF="node112.html">AUTOTEST_VM_delete</A>
+<LI><A NAME="tex2html4959"
+  HREF="node113.html">AUTOTEST_VM_start</A>
+<LI><A NAME="tex2html4960"
+  HREF="node114.html">AUTOTEST_VM_insertBootISO</A>
+<LI><A NAME="tex2html4961"
+  HREF="node115.html">AUTOTEST_VM_rebootFromHD</A>
+<LI><A NAME="tex2html4962"
+  HREF="node116.html">AUTOTEST_executePHPFunction</A>
+<LI><A NAME="tex2html4963"
+  HREF="node117.html">AUTOTEST_VM_keyboardWrite</A>
+<LI><A NAME="tex2html4964"
+  HREF="node118.html">AUTOTEST_VM_ocrScreen</A>
+<LI><A NAME="tex2html4965"
+  HREF="node119.html">AUTOTEST_VM_getStatus</A>
+<LI><A NAME="tex2html4966"
+  HREF="node120.html">AUTOTEST_VM_isRunning</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

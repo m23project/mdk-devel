@@ -164,10 +164,10 @@ createRFSBins()
 
 
 
-
+	#not needed?: grub grub-install grub-md5-crypt
 
 	#halt: Now in BusyBox
-	for bin in ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find grub grub-install grub-md5-crypt hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar wget MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs sgdisk #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
+	for bin in ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar wget MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs sgdisk #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
 	do
 		foundBins=$[ $(find $extractedDebsDir -name $bin -xtype f | grep bin -c) + $(find $extractedDebsDir -name $bin -type l | grep bin -c) ]
 
@@ -345,7 +345,8 @@ createRFSCopyExtraFilesAndDirs()
 
 	tar --same-owner -C $rootFSExtraDir -c . | tar x
 	tar --same-owner -C `getRootFSDownloadDirWithArch`/completeExtracted -c . | tar x
-	cp -n -a `getCompiledDirWithArch`/* .
+	cp -u -a `getCompiledDirWithArch`/* .
+#	cp -n -a `getCompiledDirWithArch`/* .
 
 	#Copy the current version of m23hwscanner
 	cp -v /mdk/m23Debs/m23-hwscanner/debian/bin/m23hwscanner bin
@@ -602,15 +603,9 @@ echo " done"
 mkdir -p $rootTempDir
 cd $rootTempDir
 
-# echo "deb http://ftp.de.debian.org/debian/ squeeze main non-free contrib
-# deb http://security.debian.org/ squeeze/updates main contrib non-free
-# deb http://archive.debian.org/debian-archive/debian/ lenny main non-free contrib
-# deb http://archive.debian.org/debian-archive/debian/ etch main contrib non-free
-# deb http://dodger-tools.sourceforge.net/debs ./
-# deb http://m23.sourceforge.net/m23NetBootImageExtraDebs/ ./
-# " > ./sources.list
-
-echo "deb http://ftp.de.debian.org/debian/ wheezy main non-free contrib
+echo "deb http://ftp.de.debian.org/debian/ jessie main non-free contrib
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb http://ftp.de.debian.org/debian/ wheezy main non-free contrib
 deb http://security.debian.org/ wheezy/updates main contrib non-free
 deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 

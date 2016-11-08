@@ -14,6 +14,7 @@
 \item ip: IP of the client
 \item password: root password on Debian systems or combines user/root password on Ubuntu systems
 \item ubuntuuser: name of the Ubuntu user or empty if a Debian system is meant.
+\item clientUsesDynamicIP: if set to true, the client uses a dynamic IP address
 \end{itemize}
 
 \subsection{ASSI\_addUbuntuRoot}
@@ -1555,6 +1556,13 @@
 \item addShutdownOrRebootPackage: If set to true, a shutdown or reboot package will be added.
 \end{itemize}
 
+\subsection{CLIENT\_recoverClientCombineJobs}
+\textbf{Description:} Recover a client: all client jobs are done again, status is set to 0, all identical jobs are combines.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+
 \subsection{CLIENT\_wol}
 \textbf{Description:} wakes a client over the network\\
 \textbf{Parameter:}
@@ -1834,6 +1842,17 @@
 \item password: Password for root on the client
 \item jobName: name of the screen job on the server
 \item ubuntuUser: name of the Ubuntu user or empty if a Debian system is meant.
+\end{itemize}
+
+\subsection{CLIENT\_isAssimilated}
+\textbf{Description:} Checks, if a client was assimilated.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the client was assimilated. false, if the client was normaly installed.
 \end{itemize}
 
 \newpage\section{./inc/CScredit.php}
@@ -2201,6 +2220,17 @@
 \item associative array that contains all fields of a table that can be searched by LIKE.
 \end{itemize}
 
+\subsection{DB\_getArrayAssoc}
+\textbf{Description:} Fetches all results from a query.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item result: MySQLi result.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with continuous numbers as keys and associative arrays with the result rows as value.
+\end{itemize}
+
 \newpage\section{./inc/dhcp.php}
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions to add and remove a client to/from the dhcp server list.\\
@@ -2284,6 +2314,19 @@
 \textbf{Returns:}
 \begin{itemize}
 \item String format (e.g. "pxe") boot type.
+\end{itemize}
+
+\subsection{DHCP\_runScript}
+\textbf{Description:} Runs the script for controlling an external DHCP server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item command: 'add' for adding an entry to the DHCP server or 'remove' for removing.
+\item clientName: name of the client
+\item ip: ip address of the client
+\item netmask: netmask for the ip
+\item mac: mac addresse of the network card
+\item bootType: Parameter can a string: pxe, etherboot, gpxe, none
+\item gateway: The gateway for the client.
 \end{itemize}
 
 \subsection{DHCP\_addClient}
@@ -2450,6 +2493,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/edit.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: routines for editing files with sed\\
+
+\subsection{EDIT\_sedSearchAddInsert}
+\textbf{Description:} Generates a sed command line to insert text before (SED\_insertBefore) or after (SED\_insertAfter) a searched line.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item file: Name of the file to edit.
+\item search: Search pattern to find the line for inserting before or after.
+\item text: The text to insert.
+\item insertBeforeOrAfter: Parameter to select, if the new text should inserted before (SED\_insertBefore) or after (SED\_insertAfter) the found line
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item sed code for inserting text before (SED\_insertBefore) or after (SED\_insertAfter) a searched line.
+\end{itemize}
 
 \subsection{EDIT\_writeToFile}
 \textbf{Description:} Writes a text to a file on a client.\\
@@ -2644,6 +2701,15 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item file: the name to the file
 \item search: regular expression to search
+\end{itemize}
+
+\subsection{EDIT\_replaceLineElseAdd}
+\textbf{Description:} Deletes all lines, that match regular expression, afterwards adds a given line\\
+\textbf{Parameter:}
+\begin{itemize}
+\item file: the name to the file
+\item search: regular expression to search
+\item replace: line to add
 \end{itemize}
 
 \newpage\section{./inc/fdisk.php}
@@ -3724,10 +3790,11 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{GRP\_add}
-\textbf{Description:} adds a group\\
+\textbf{Description:} Adds a group with description.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item groupName: name of the group to add
+\item groupDescription: description of the group to add
 \end{itemize}
 
 \subsection{GRP\_getIdByName}
@@ -3739,6 +3806,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item Group number or false, if no matching group is found.
+\end{itemize}
+
+\subsection{GRP\_getNameById}
+\textbf{Description:} gets the groupname of an Id\\
+\textbf{Parameter:}
+\begin{itemize}
+\item groupId: Index of the group
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Group name or false, if no matching group is found.
 \end{itemize}
 
 \subsection{GRP\_del}
@@ -3770,6 +3848,21 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item clientName: name of the client 
 \item groupName: name of the group
+\end{itemize}
+
+\subsection{GRP\_setDescrGroup}
+\textbf{Description:} Sets the description of a client group.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item groupName: Name of the group
+\item groupDescription: New description of the group
+\end{itemize}
+
+\subsection{GRP\_getDescrGroup}
+\textbf{Description:} Gets the description of a client group.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Description of the group.
 \end{itemize}
 
 \subsection{GRP\_listGroupsAndCount}
@@ -3810,6 +3903,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 
 \subsection{GRP\_showRenDialog}
 \textbf{Description:} shows a dialog to rename a group\\
+\textbf{Parameter:}
+\begin{itemize}
+\item groupName: name of the group
+\end{itemize}
+
+\subsection{GRP\_showChangeDescriptionDialog}
+\textbf{Description:} shows a dialog to change the group description\\
+\textbf{Parameter:}
+\begin{itemize}
+\item groupName: name of the group
+\end{itemize}
 
 \subsection{GRP\_moveClientToGroup}
 \textbf{Description:} moves a client from one group to another\\
@@ -3920,6 +4024,22 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Helper functions that did not fit into another include file.\\
 
+\subsection{HELPER\_showScriptHeader}
+\textbf{Description:} Shows a header for own scripts, that creates a log file with the package name and the start time. Sends the log file to the m23 server and shows an installation dialog on the client's screen.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item id: Job ID of the script
+\item packName: Name of the package
+\end{itemize}
+
+\subsection{HELPER\_showScriptFooter}
+\textbf{Description:} Shows a header for own scripts, that saves the script end time to a log file and sends it to the m23 server. Sets status bar to 100% and marks the job as done. Afterwards executes the next job.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item id: Job ID of the script.
+\item packName: Name of the package.
+\end{itemize}
+
 \subsection{HELPER\_URIencode}
 \textbf{Description:} Encodes a string like the JavaScript function URIencode would do it.\\
 \textbf{Parameter:}
@@ -3960,6 +4080,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item True, when run in CLI otherwise false.
 \end{itemize}
 
+\subsection{HELPER\_isExecutedOnUCS}
+\textbf{Description:} Checks, if it is run on UCS.\\
+\textbf{Returns:}
+\begin{itemize}
+\item True, when run on UCS otherwise false.
+\end{itemize}
+
 \subsection{HELPER\_getContentFromURL}
 \textbf{Description:} Downloads an URL via curl and gives back the site code.\\
 \textbf{Parameter:}
@@ -3990,6 +4117,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item Recursive calls of the BASH command with error checking.
+\end{itemize}
+
+\subsection{HELPER\_resetNewLogLines}
+\textbf{Description:} Resets the line number of the last read line.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item sessionPrefix: Prefix for storing the last read line number in the session.
 \end{itemize}
 
 \subsection{HELPER\_getNewLogLines}
@@ -4374,6 +4508,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item \$array: The array you want to sort by length
+\end{itemize}
+
+\subsection{HELPER\_hostname2IP}
+\textbf{Description:} Gets the IP of a known host.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item host: Name of the host, IP or FQDN.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item IP of the host or false, if no IP could be found.
 \end{itemize}
 
 \newpage\section{./inc/help.php}
@@ -6449,12 +6594,28 @@ Description: basic package operations (search, add,...)\\
 \item The URL to the debootstrap cache file on the SourceForge server.
 \end{itemize}
 
+\subsection{PKG\_baseSysDownloadedCompletelyTom23Server}
+\textbf{Description:} Checks, if the debootstrap cache file was downloaded completely to the m23 server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+\item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, on complete download otherwise false.
+\end{itemize}
+
 \subsection{PKG\_downloadBaseSysTom23Server}
 \textbf{Description:} Downloads the debootstrap cache file to the m23 server and checks its validity (by signature).\\
 \textbf{Parameter:}
 \begin{itemize}
 \item release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 \item arch: the computer architecture of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the download is completed, otherwise false.
 \end{itemize}
 
 \subsection{PKG\_getDebootstrapCacheServerURL}
@@ -6890,7 +7051,7 @@ Description: basic package operations (search, add,...)\\
 \end{itemize}
 
 \subsection{PKG\_addShutdownPackage}
-\textbf{Description:} adds a shutdown package, but only if the client is NOT running. returns true, if a schutdown package is added\\
+\textbf{Description:} adds a shutdown package, but only if the client is NOT running. returns true, if a shutdown package is added\\
 \textbf{Parameter:}
 \begin{itemize}
 \item client: name of the client
@@ -7226,6 +7387,25 @@ Description: basic package operations (search, add,...)\\
 \begin{itemize}
 \item listName: name of the list to store the packages 
 \item packages: array or blank seperated list of packages
+\end{itemize}
+
+\subsection{PKG\_getDuplicatedIdenticalJobs}
+\textbf{Description:} Returns an array with a list of all jobs that are identical by package, priority, status and params.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: Name of the client.
+\item omitFirstID: Set to true if the first ID of each duplicate jobs block should be omitted.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Array with a list of all jobs that are identical by package, priority, status and params.
+\end{itemize}
+
+\subsection{PKG\_removeDuplicatedIdenticalJobs}
+\textbf{Description:} Removes all jobs that are identical by package, priority, status and params omitting the first job.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: Name of the client.
 \end{itemize}
 
 \subsection{PKG\_loadPackagesList}
@@ -8299,6 +8479,17 @@ Description: basic package operations (search, add,...)\\
 \item name: the name of the package source list
 \end{itemize}
 
+\subsection{SRCLST\_sourceListExists}
+\textbf{Description:} Checks, if a named sources list exists.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: the name of the package source list
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the package source list exists, otherwise false.
+\end{itemize}
+
 \subsection{SRCLST\_loadSourceList}
 \textbf{Description:} Loads and returnes the package source list and tries to find a valid mirror for m23debs.\\
 \textbf{Parameter:}
@@ -8525,6 +8716,7 @@ Description: basic package operations (search, add,...)\\
 \textbf{Parameter:}
 \begin{itemize}
 \item poolName: if it is set, the editor shows a package download dialog for the selected pool
+\item showSupportedUserInterfacesList: if it is set, the list with the supported GUIs will be shown.
 \end{itemize}
 
 \subsection{SRCLST\_getListnames}

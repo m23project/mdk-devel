@@ -45,7 +45,7 @@ localArchAptUpdate()
 	touch ./lists/lock
 	touch ./status
 
-	apt-get update -o=Dir::Cache=./cache -o=Dir::Cache::archives=./archivs -o=Dir::State::status=./status -o=Dir::State=. -o=Dir::Etc::sourcelist=./sources.list -o=APT::Architecture=$arch
+	apt-get update -o=Dir::Cache=./cache -o=Dir::Cache::archives=./archivs -o=Dir::State::status=./status -o=Dir::State=. -o=Dir::Etc::sourcelist=./sources.list -o=Dir::Etc::sourceparts=./cache -o=APT::Architecture=$arch
 }
 
 

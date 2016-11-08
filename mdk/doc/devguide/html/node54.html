@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>initrd</TITLE>
+<META NAME="description" CONTENT="initrd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node56.html">
+<LINK REL="next" HREF="node55.html">
 <LINK REL="previous" HREF="node53.html">
 <LINK REL="up" HREF="node53.html">
 <LINK REL="next" HREF="node55.html">
@@ -28,50 +28,41 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3247"
+<A NAME="tex2html3181"
   HREF="node55.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3243"
+<A NAME="tex2html3177"
   HREF="node53.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3237"
+<A NAME="tex2html3171"
   HREF="node53.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3245"
+<A NAME="tex2html3179"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3248"
-  HREF="node55.html">What is this document</A>
-<B> Up:</B> <A NAME="tex2html3244"
-  HREF="node53.html">How to develop plugins</A>
-<B> Previous:</B> <A NAME="tex2html3238"
-  HREF="node53.html">How to develop plugins</A>
- &nbsp; <B>  <A NAME="tex2html3246"
+<B> Next:</B> <A NAME="tex2html3182"
+  HREF="node55.html">compress operating system</A>
+<B> Up:</B> <A NAME="tex2html3178"
+  HREF="node53.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html3172"
+  HREF="node53.html">what does the makeCD</A>
+ &nbsp; <B>  <A NAME="tex2html3180"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00651000000000000000">
-Introduction</A>
-</H2>
-m23 gives you a plugin interface, that enables you to create your own plugins easily. A plugin can be everything that can be written in PHP and bash script. The plugins are packaged in an archive, that contains installation and deinstallation routines and of course the data for the plugin.
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3249"
-  HREF="node55.html">What is this document about?</A>
-</UL>
-<!--End of Table of Child-Links-->
+<H3><A NAME="SECTION00652100000000000000">
+initrd</A>
+</H3>
+While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.
+<BR>
+In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

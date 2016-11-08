@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Preparing the server</TITLE>
-<META NAME="description" CONTENT="Preparing the server">
+<TITLE>fstab</TITLE>
+<META NAME="description" CONTENT="fstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node44.html">
+<LINK REL="next" HREF="node42.html">
 <LINK REL="previous" HREF="node40.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node42.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3079"
+<A NAME="tex2html3022"
   HREF="node42.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3075"
-  HREF="node38.html">
+<A NAME="tex2html3018"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3069"
+<A NAME="tex2html3012"
   HREF="node40.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3077"
+<A NAME="tex2html3020"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3080"
-  HREF="node42.html">Enable network access</A>
-<B> Up:</B> <A NAME="tex2html3076"
-  HREF="node38.html">how to access mysql</A>
-<B> Previous:</B> <A NAME="tex2html3070"
-  HREF="node40.html">What do you need?</A>
- &nbsp; <B>  <A NAME="tex2html3078"
+<B> Next:</B> <A NAME="tex2html3023"
+  HREF="node42.html">lilo.conf</A>
+<B> Up:</B> <A NAME="tex2html3019"
+  HREF="node40.html">editing files</A>
+<B> Previous:</B> <A NAME="tex2html3013"
+  HREF="node40.html">editing files</A>
+ &nbsp; <B>  <A NAME="tex2html3021"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00643000000000000000">
-Preparing the server</A>
-</H2>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H3><A NAME="SECTION00642100000000000000">
+fstab</A>
+</H3>
+Copy your existing /etc/fstab to the new /etc/ directory. Adjust the line for your boot device, e.g. your new boot device is hda3 so you have to change <SPAN  CLASS="textit">/dev/hda2       /               ext3   defaults           0       0</SPAN> to <SPAN  CLASS="textit">/dev/hda1       /               ext3   defaults           0       0</SPAN> .
+Your new fstab may look like this:
+<PRE>
+# /etc/fstab file system info, created by the m23 project
+#  &lt;file system&gt; &lt;mount point&gt;  &lt;type&gt; &lt;options&gt;     &lt;dump&gt;  &lt;pass&gt;
+proc             /proc          proc   defaults      0       0
+/dev/hda1        none           swap    sw           0       0
+/dev/hda3       /               ext3   defaults           0       0
+/dev/cdrom      /mnt/cdrom      auto    ro,noauto,user,exec     0 0
+/dev/fd0        /mnt/floppy     auto    user,noauto             0 0
+</PRE> 
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3081"
-  HREF="node42.html">Enable network access</A>
-<LI><A NAME="tex2html3082"
-  HREF="node43.html">Adding a database user</A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

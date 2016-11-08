@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CFDiskAlles.php</TITLE>
-<META NAME="description" CONTENT="./inc/CFDiskAlles.php">
+<TITLE>checkNormalKeys</TITLE>
+<META NAME="description" CONTENT="checkNormalKeys">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,103 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node257.html">
-<LINK REL="previous" HREF="node192.html">
-<LINK REL="up" HREF="node142.html">
+<LINK REL="previous" HREF="node233.html">
+<LINK REL="up" HREF="node215.html">
 <LINK REL="next" HREF="node235.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6637"
+<A NAME="tex2html6595"
   HREF="node235.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6633"
-  HREF="node142.html">
+<A NAME="tex2html6591"
+  HREF="node215.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6627"
+<A NAME="tex2html6587"
   HREF="node233.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6635"
+<A NAME="tex2html6593"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6638"
-  HREF="node235.html">FDISK_mdToEndOfArray</A>
-<B> Up:</B> <A NAME="tex2html6634"
-  HREF="node142.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html6628"
-  HREF="node233.html">CAutoTest::parseXML</A>
- &nbsp; <B>  <A NAME="tex2html6636"
+<B> Next:</B> <A NAME="tex2html6596"
+  HREF="node235.html">./inc/client_details.php</A>
+<B> Up:</B> <A NAME="tex2html6592"
+  HREF="node215.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html6588"
+  HREF="node233.html">checkFQDN</A>
+ &nbsp; <B>  <A NAME="tex2html6594"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00870000000000000000">
-./inc/CFDiskAlles.php</A>
-</H1>
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions for partition and format of the client. print partition information and do the format itself.
-<BR>
+<H2><A NAME="SECTION009819000000000000000">
+checkNormalKeys</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> checks if a string doesn't contain any special letters, returns 1 if it doesn't contain special characters otherwise 0
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>string: string to check for special characters
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html6639"
-  HREF="node235.html">FDISK_mdToEndOfArray</A>
-<LI><A NAME="tex2html6640"
-  HREF="node236.html">FDISK_fdiskSessionReset</A>
-<LI><A NAME="tex2html6641"
-  HREF="node237.html">FDISK_fdiskSessionPartMethod</A>
-<LI><A NAME="tex2html6642"
-  HREF="node238.html">FDISK_fdiskSessionTitle</A>
-<LI><A NAME="tex2html6643"
-  HREF="node239.html">FDISK_getPartitionByType</A>
-<LI><A NAME="tex2html6644"
-  HREF="node240.html">FDISK_listDrivesAndPartitions</A>
-<LI><A NAME="tex2html6645"
-  HREF="node241.html">FDISK_selectDrives</A>
-<LI><A NAME="tex2html6646"
-  HREF="node242.html">FDISK_getFirstDrive</A>
-<LI><A NAME="tex2html6647"
-  HREF="node243.html">FDISK_delFstab</A>
-<LI><A NAME="tex2html6648"
-  HREF="node244.html">FDISK_fstabAddDialog2</A>
-<LI><A NAME="tex2html6649"
-  HREF="node245.html">FDISK_adjustFstabParam</A>
-<LI><A NAME="tex2html6650"
-  HREF="node246.html">FDISK_genManualFstab</A>
-<LI><A NAME="tex2html6651"
-  HREF="node247.html">FDISK_getAllDrives</A>
-<LI><A NAME="tex2html6652"
-  HREF="node248.html">FDISK_listSupportedFS</A>
-<LI><A NAME="tex2html6653"
-  HREF="node249.html">FDISK_listInstPartSelector</A>
-<LI><A NAME="tex2html6654"
-  HREF="node250.html">FDISK_defineDrive</A>
-<LI><A NAME="tex2html6655"
-  HREF="node251.html">FDISK_getDiskType</A>
-<LI><A NAME="tex2html6656"
-  HREF="node252.html">FDISK_getDrivePartitionSize</A>
-<LI><A NAME="tex2html6657"
-  HREF="node253.html">FDISK_deleteDriveFromParam</A>
-<LI><A NAME="tex2html6658"
-  HREF="node254.html">CFDiskIO::setClientName</A>
-<LI><A NAME="tex2html6659"
-  HREF="node255.html">CFDiskIO::getClientName</A>
-<LI><A NAME="tex2html6660"
-  HREF="node256.html">CFDiskIO::getClientObject</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

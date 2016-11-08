@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDriveInfoIcon</TITLE>
-<META NAME="description" CONTENT="FDISK_getDriveInfoIcon">
+<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
+<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node548.html">
 <LINK REL="previous" HREF="node546.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node548.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10721"
+<A NAME="tex2html10648"
   HREF="node548.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10717"
-  HREF="node480.html">
+<A NAME="tex2html10644"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10711"
+<A NAME="tex2html10638"
   HREF="node546.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10719"
+<A NAME="tex2html10646"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10722"
-  HREF="node548.html">FDISK_getPartInfoIcon</A>
-<B> Up:</B> <A NAME="tex2html10718"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10712"
-  HREF="node546.html">FDISK_getDriveInfoString</A>
- &nbsp; <B>  <A NAME="tex2html10720"
+<B> Next:</B> <A NAME="tex2html10649"
+  HREF="node548.html">FDISK_buildRaidDialog</A>
+<B> Up:</B> <A NAME="tex2html10645"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10639"
+  HREF="node546.html">FDISK_listRaidTable</A>
+ &nbsp; <B>  <A NAME="tex2html10647"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081667000000000000000">
-FDISK_getDriveInfoIcon</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive.
+<H2><A NAME="SECTION00916103000000000000000">
+FDISK_addDrivePartitionToRaid</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
 </LI>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
 </LI>
-<LI>fstabA: Associative array with fstab information.
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
 </LI>
-</UL>
+<LI>param: parameter string containing status information about the harddisks
+</LI>
+<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>HTML code for showing an icon with status information about the drive.
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hints about the VM host (VirtualBox)</TITLE>
-<META NAME="description" CONTENT="Hints about the VM host (VirtualBox)">
+<TITLE>VirtualBox</TITLE>
+<META NAME="description" CONTENT="VirtualBox">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,89 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node151.html">
 <LINK REL="previous" HREF="node149.html">
-<LINK REL="up" HREF="node145.html">
+<LINK REL="up" HREF="node148.html">
 <LINK REL="next" HREF="node151.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2434"
+<A NAME="tex2html2447"
   HREF="node151.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2430"
-  HREF="node145.html">
+<A NAME="tex2html2443"
+  HREF="node148.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2424"
+<A NAME="tex2html2437"
   HREF="node149.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2432"
+<A NAME="tex2html2445"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2435"
-  HREF="node151.html">Memory, harddisk and CPU</A>
-<B> Up:</B> <A NAME="tex2html2431"
-  HREF="node145.html">Create VM</A>
-<B> Previous:</B> <A NAME="tex2html2425"
-  HREF="node149.html">Hint</A>
- &nbsp; <B>  <A NAME="tex2html2433"
+<B> Next:</B> <A NAME="tex2html2448"
+  HREF="node151.html">Apache CloudStack</A>
+<B> Up:</B> <A NAME="tex2html2444"
+  HREF="node148.html">Create VM</A>
+<B> Previous:</B> <A NAME="tex2html2438"
+  HREF="node149.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2446"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001015000000000000000">
-Hints about the VM host (VirtualBox)</A>
+<H2><A NAME="SECTION001012000000000000000">
+VirtualBox</A>
 </H2>
-The m23 client needs to have installed the m23 virtualisation package <SPAN  CLASS="textit">''m23VirtualBox''</SPAN> to be capable of creating and running virtual m23 clients. The package can be found under <SPAN  CLASS="textit">''Special packages (for skilled users only)''</SPAN> in the package installation dialogue (<SPAN  CLASS="textit">Packages</SPAN> <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN> <SPAN  CLASS="textit">Install</SPAN>) in the m23 administration interface and can be installed on any m23 client.
+		There is shown status information about the m23 client/VM host if it is running. You need to specify the settings of your new virtual m23 clients after choosing the VM host:
 <BR>
-Remember that the VM host needs enough free disk space and free memory and adequate CPU power, because all virtual machines share the resources of the host's physical hardware.
+<UL>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Host network card</SPAN>: Here you need to select the physical network card of your host if it has more than one network card. This must be the network card which is used to connect the host to your internal LAN. The VMs are connected via a software network bridge to the physical network.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">VM name</SPAN>: The name of the new virtual machine. This name is identical with the name of the according m23 client.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">MAC Address</SPAN>: The MAC address of the VM. This address will be generated at random so it's very unlikely that there is a collision with other MAC addresses, but you can edit the proposed MAC.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Memory</SPAN>: The size of the memory (RAM) of the VM. This value should not be too high to allow the running of other applications and possible other VMs.
+<BR></LI>
+<LI>
+<BR>				<SPAN  CLASS="textbf">Harddisk</SPAN>: The maximum size of the virtual harddisk.
+<BR></LI>
+</UL>
+		Click on <SPAN  CLASS="textit">''Create''</SPAN> to create the new VM.
+<BR>		
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2447"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2443"
+  HREF="node148.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2437"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2445"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<BR><HR>
+<B> Next:</B> <A NAME="tex2html2448"
+  HREF="node151.html">Apache CloudStack</A>
+<B> Up:</B> <A NAME="tex2html2444"
+  HREF="node148.html">Create VM</A>
+<B> Previous:</B> <A NAME="tex2html2438"
+  HREF="node149.html">Step by step</A>
+ &nbsp; <B>  <A NAME="tex2html2446"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

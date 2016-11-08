@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualAddPartition</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualAddPartition">
+<TITLE>./inc/groups.php</TITLE>
+<META NAME="description" CONTENT="./inc/groups.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,124 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node555.html">
-<LINK REL="previous" HREF="node553.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="next" HREF="node587.html">
+<LINK REL="previous" HREF="node444.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node555.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10805"
+<A NAME="tex2html10730"
   HREF="node555.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10801"
-  HREF="node480.html">
+<A NAME="tex2html10726"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10795"
+<A NAME="tex2html10720"
   HREF="node553.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10803"
+<A NAME="tex2html10728"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10806"
-  HREF="node555.html">FDISK_listPartTable</A>
-<B> Up:</B> <A NAME="tex2html10802"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10796"
-  HREF="node553.html">FDISK_virtualDeletePartition</A>
- &nbsp; <B>  <A NAME="tex2html10804"
+<B> Next:</B> <A NAME="tex2html10731"
+  HREF="node555.html">GRP_exists</A>
+<B> Up:</B> <A NAME="tex2html10727"
+  HREF="node100.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html10721"
+  HREF="node553.html">FDISK_deleteDriveFromParam</A>
+ &nbsp; <B>  <A NAME="tex2html10729"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081674000000000000000">
-FDISK_virtualAddPartition</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param param
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
-<UL>
-<LI>vDev: virtuell internal used device number.
-</LI>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>start: start MB of the new partition
-</LI>
-<LI>end: end MB of the new partition
-</LI>
-<LI>type: type of the partition (primary, extended, logical)
-</LI>
-<LI>devNr: returnes the device number
-</LI>
-</UL>
-
+<H1><A NAME="SECTION009170000000000000000">
+./inc/groups.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: group management funtions
+<BR></SMALL></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html10732"
+  HREF="node555.html">GRP_exists</A>
+<LI><A NAME="tex2html10733"
+  HREF="node556.html">GRP_add</A>
+<LI><A NAME="tex2html10734"
+  HREF="node557.html">GRP_getIdByName</A>
+<LI><A NAME="tex2html10735"
+  HREF="node558.html">GRP_getNameById</A>
+<LI><A NAME="tex2html10736"
+  HREF="node559.html">GRP_del</A>
+<LI><A NAME="tex2html10737"
+  HREF="node560.html">GRP_isClientInGroup</A>
+<LI><A NAME="tex2html10738"
+  HREF="node561.html">GRP_addClientToGroup</A>
+<LI><A NAME="tex2html10739"
+  HREF="node562.html">GRP_delClientFromGroup</A>
+<LI><A NAME="tex2html10740"
+  HREF="node563.html">GRP_setDescrGroup</A>
+<LI><A NAME="tex2html10741"
+  HREF="node564.html">GRP_getDescrGroup</A>
+<LI><A NAME="tex2html10742"
+  HREF="node565.html">GRP_listGroupsAndCount</A>
+<LI><A NAME="tex2html10743"
+  HREF="node566.html">GRP_showGroupsAndCount</A>
+<LI><A NAME="tex2html10744"
+  HREF="node567.html">GRP_ren</A>
+<LI><A NAME="tex2html10745"
+  HREF="node568.html">GRP_HTMLBackToDetails</A>
+<LI><A NAME="tex2html10746"
+  HREF="node569.html">GRP_countClients</A>
+<LI><A NAME="tex2html10747"
+  HREF="node570.html">GRP_showGeneralInfo</A>
+<LI><A NAME="tex2html10748"
+  HREF="node571.html">GRP_showRenDialog</A>
+<LI><A NAME="tex2html10749"
+  HREF="node572.html">GRP_showChangeDescriptionDialog</A>
+<LI><A NAME="tex2html10750"
+  HREF="node573.html">GRP_moveClientToGroup</A>
+<LI><A NAME="tex2html10751"
+  HREF="node574.html">GRP_listGroups</A>
+<LI><A NAME="tex2html10752"
+  HREF="node575.html">GRP_groupSelection</A>
+<LI><A NAME="tex2html10753"
+  HREF="node576.html">GRP_showDelDialog</A>
+<LI><A NAME="tex2html10754"
+  HREF="node577.html">GRP_doClientMoreGroups</A>
+<LI><A NAME="tex2html10755"
+  HREF="node578.html">GRP_listClientGroups</A>
+<LI><A NAME="tex2html10756"
+  HREF="node579.html">GRP_showClientGroups</A>
+<LI><A NAME="tex2html10757"
+  HREF="node580.html">GRP_listAllClientsInGroup</A>
+<LI><A NAME="tex2html10758"
+  HREF="node581.html">GRP_getDistrsAndSourcesLists</A>
+<LI><A NAME="tex2html10759"
+  HREF="node582.html">GRP_showSelDistrSources</A>
+<LI><A NAME="tex2html10760"
+  HREF="node583.html">GRP_listAllClientsInGroups</A>
+<LI><A NAME="tex2html10761"
+  HREF="node584.html">GRP_HTMLBackToOverview</A>
+<LI><A NAME="tex2html10762"
+  HREF="node585.html">GRP_getAllPackages</A>
+<LI><A NAME="tex2html10763"
+  HREF="node586.html">GRP_desasterRecovery</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,0 +1,266 @@
+\section{how to access mysql databases with C++?}
+\subsection{Introduction}
+In this little howto you wil learn how to set up KDevelop to write a simple application that is able to connect to a mysql server and execute sql-statements on it. I will only discuss how to write to and not to read from a database. If you want to read something, look at the mysql C-API that can be found at: \textbf{http://www.mysql.com/doc/en/C.html}
+
+\subsection{What do you need?}
+You should have installed the following applications and libraries:
+
+\begin{itemize}
+\item kdevelop
+\item libmysqlclient10-dev, libmysqlclient10
+\item libc6-dev
+\end{itemize} 
+
+\subsection{Preparing the server}
+\subsubsection{Enable network access}
+To get access to the server over the network you need to do a little adjustment:
+Open \textit{/etc/mysql/my.cnf} and comment out the line \texttt{skip-networking} so that it looks like \texttt{\#skip-networking}.
+Don't forget to save ;) Now you have to restart the mysql server.\\\\
+I do it this way:\\
+\texttt{
+killall -9 safe\_mysqld\\
+killall -9 mysqld\\
+/etc/init.d/mysql start\\
+}
+
+\subsubsection{Adding a database user}
+You have enabled network access, now you need a database user. The new user should be able to do some changes to tables (insert, delete and update). For creating the user I use phpMyAdmin, a very powerful tool for all ways of modifying mysql databases. If you don't allready know that tool, have a look at: \textbf{http://www.phpmyadmin.net/}.
+\begin{itemize}
+\item log in to your m23 server: open \textbf{http://<serverIP>/m23admin/phpMyAdmin/index.php} in a webbrowser and adjust <serverIP>  to the ip address of your m23 server.
+\item select "home" on the left
+\item click on "Privileges" in the main window
+\item click "Add a new User"
+\item think about a good user name and insert it at: "User name:"
+\item for "Host:" you can leave it on "any host" and select "\%" for the host name. If you want only selected hosts to log in, you can enter the ip or hostname.
+\item select a password and retype it in the text field below
+\item in "Global privileges" -> "Data" select at least: INSERT, UPDATE and DELETE
+\item click the "GO" button to accept your changes
+\item select "home" on the left
+\item click on "Reload MySQL" in the main window
+\end{itemize}
+After this adjustments you should be able to log in to the m23 server with your new account.
+
+\subsection{Preparing KDevelop}
+\subsubsection{Creating a project}
+In the KDevelop GUI select "Project" -> "New" select from the list "C++" under "Terminal". You have to select "C++", "C" will not work!
+\begin{itemize}
+\item select "Next"
+\item select what you want in the next dialog pages
+\end{itemize}
+
+\subsubsection{Adjusting project properties}
+Select "Project" -> "Options" -> "Compiler options" -> "Linker (tab)".
+Now add \textbf{-lmysqlclient -lcrypt -lnsl} to the input line. Close the window with a click on the "OK" button. These settings are required to build applications with mysql support.
+
+\subsection{Filling main.cpp}
+After all preparations we step forward to the source code. You need to include \textbf{include <mysql/mysql.h>} and create a global variable called mysql from the type MYSQL.
+
+\subsubsection{Connecting to the server}
+\begin{verbatim}
+#include <mysql/mysql.h>
+
+MYSQL connection;
+
+void connect(char *server, char *dbuser, char *passw)
+{
+  if (!mysql_connect(&connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&connection));
+      exit(2);
+  }
+  mysql_select_db(&connection,"m23");
+};
+\end{verbatim}
+\begin{enumerate}
+\item First of all we have to include the necessary header file: \textit{\#include <mysql/mysql.h>}
+\item The mysql\_connect function requires a \textbf{MYSQL} variable (here called
+\textit{connection}) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql\_connect will return 0, otherwise we get an error, print an error message and quit.
+
+\item mysql\_error will generate a human readable error message.
+
+\item At least we should choose our database, this is done with mysql\_select\_db. Now the connection should be established.
+
+\end{enumerate}
+
+
+
+
+
+\subsubsection{Disconnecting from the server}
+\begin{verbatim}
+void disconnect()
+{
+ mysql_close(&connection);
+};
+\end{verbatim}
+This function disconnects from the server. The global variable \textit{connection} is used to identify the right connection to the server.
+
+
+
+
+
+\subsubsection{Send SQL statements}
+\begin{verbatim}
+MYSQL_RES *query(char *sql)
+{
+ MYSQL_RES *res;
+
+ if (mysql_query(&connection, sql) != 0)
+    {
+     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
+     mysql_error(&connection),sql);
+     exit(2);
+    };
+
+ res = mysql_store_result(&connection);
+
+ return(res);
+};
+\end{verbatim}
+\begin{enumerate}
+\item We declare a variable (\textit{res})that will held the result of our query
+\item mysql\_query requires a established connection to a mysql server and a valid sql statement. If the statement gets executed corretly, it returns 0, otherwise you can use the mysql\_error function to get the error message.
+\item And at last mysql\_store\_result stores the result of our query or \textbf{NULL} if there was an error.
+\end{enumerate}
+
+
+
+
+
+\subsection{Example}
+\begin{verbatim}
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
+
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&connection); //<<1
+
+  rows=mysql_num_rows(res); //<<2
+
+
+  for (int i=0; i < rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //<<3
+
+        lengths = mysql_fetch_lengths(res); //<<4
+
+        for (int fnr=0; fnr < fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //<<5
+    }
+
+  mysql_free_result(res); //<<6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+\end{verbatim}
+\begin{enumerate}
+\item Get the number of fields of the table.
+\item Get the amount of result rows.
+\item Fetch a row (one by one) and store the result in \textit{row}.
+\item Store the lengths (in characters) of the result fields.
+\item Print the fields of one row.
+\item Free the memory by deleting the result data.
+\end{enumerate}
+
+
+\subsection{The complete program}
+\begin{verbatim}
+#include <mysql/mysql.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+MYSQL connection;
+
+void connect(char *server, char *dbuser, char *passw)
+{
+  if (!mysql_connect(&connection,server,dbuser,passw))
+  {
+      fprintf(stderr, "Failed to connect to database:\
+              Error: %s\n",mysql_error(&connection));
+      exit(2);
+  }
+  mysql_select_db(&connection,"m23");
+};
+
+
+
+
+
+void disconnect()
+{
+ mysql_close(&connection);
+};
+
+
+
+
+     
+MYSQL_RES *query(char *sql)
+{
+ MYSQL_RES *res;
+
+ if (mysql_query(&connection, sql) != 0)
+    {
+     fprintf(stderr, "Failed to send query: Error: %s\nsqlstatement:%s\n",\
+     mysql_error(&connection),sql);
+     exit(2);
+    };
+
+ res = mysql_store_result(&connection);
+
+ return(res);
+};
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+  MYSQL_RES *res;
+  unsigned int fields;
+  my_ulonglong rows;
+  MYSQL_ROW row;
+
+  connect("127.0.0.1", "root", "");
+
+  res=query("SELECT * FROM `clients`");
+
+  fields=mysql_field_count(&connection); //<<1
+
+  rows=mysql_num_rows(res); //<<2
+
+
+  for (int i=0; i < rows; i++)
+    {
+        unsigned long *lengths;
+
+        row=mysql_fetch_row(res); //<<3
+
+        lengths = mysql_fetch_lengths(res); //<<4
+
+        for (int fnr=0; fnr < fields; fnr++)
+            printf("[%i: %s] ", (int) lengths[fnr],
+                    row[fnr] ? row[fnr] : "NULL"); //<<5
+    }
+
+  mysql_free_result(res); //<<6
+
+  disconnect();
+
+  return EXIT_SUCCESS;
+}
+\end{verbatim}

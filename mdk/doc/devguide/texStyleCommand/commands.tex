@@ -1,0 +1,180 @@
+\newcommand{\bildrechts}[1]{ %#1: Bild, das nach rechts flieﬂen soll
+\begin{wrapfigure}{r}{0.2\textwidth}
+		\includegraphics[width=0.19\textwidth]{#1}
+\end{wrapfigure}
+}
+
+\newcommand{\code}[1]{ %#1 kurzer Quelltext
+	\ausgabe{#1}
+}
+
+
+
+\newcommand{\beschreibung}[1]{ %#1 Beschreibungstext
+	\\ {\bf Beschreibung:} \textit{#1} \\
+}
+
+
+
+\newcommand{\hinweis}[1]{ %#1 Hinweistext
+	\blaukasten{Hinweis}{#1}
+}
+
+
+
+\newcommand{\portierung}[1]{ %#1 Portierungstext
+	\\ \blaukasten{Portierung}{#1} \\
+}
+
+
+
+\newcommand{\fragen}[1]{ %#1 Fragentext
+	\\ \gelbkasten{Fragen}{#1} \\
+}
+
+
+
+\newcommand{\problem}[1]{ %#1 Problemtext
+	\\ \rotkasten{Problematisch}{#1} \\
+}
+
+
+
+\newcommand{\rotkasten}[2]{ %#1:‹berschrift #2:Text
+	\smallskip
+	\begin{tabularx}{17cm}{X}\hline
+	\rowcolor[cmyk]{0.0,0.92,1.0,0.34}
+	\bf \sffamily \normalsize \textcolor{psrotfnt}{#1} \\ \hline
+	\rowcolor[cmyk]{0.0,0.02,0.10,0.0}
+	\normalsize \sffamily #2 \\ \hline
+	\end{tabularx}
+	\smallskip
+}
+
+\newcommand{\blaukasten}[2]{ %#1:‹berschrift #2:Text
+	\smallskip
+	\begin{tabularx}{17cm}{X}\hline
+	\rowcolor[cmyk]{0.44,0.16,0.0,0.10}
+	\bf \sffamily \normalsize \textcolor{psrotfnt}{#1} \\ \hline
+	\rowcolor[cmyk]{0.0,0.02,0.10,0.0}
+	\normalsize \sffamily #2 \\ \hline
+	\end{tabularx}
+	\smallskip
+}
+
+\newcommand{\gelbkasten}[3]{ %#1: width #2: Rand #3: Text
+	\smallskip
+	\begin{tabularx}{17cm}{X}\hline
+	\rowcolor[cmyk]{0.0,0.01,0.63,0.18}
+	\bf \sffamily \normalsize \textcolor{psrotfnt}{#1} \\ \hline
+	\rowcolor[cmyk]{0.0,0.02,0.10,0.0}
+	\normalsize \sffamily #2 \\ \hline
+	\end{tabularx}
+	\smallskip
+}
+
+\newcommand{\ausgabe}[1]{ %#1: code
+	\ \\
+	\medskip
+	\begin{tabularx}{17cm}{X}\hline
+	\rowcolor[rgb]{0.8,0.8,0.8}
+	\bf \sffamily \normalsize \textcolor{psrotfnt}{Ausgabe} \\ \hline
+	\rowcolor[rgb]{0.9,0.9,0.9}
+	\normalsize \sffamily \verb∞#1∞ \\ \hline
+	\end{tabularx}
+	\smallskip
+}
+
+\newcommand{\entspr}[0]{
+$\mathop{\hat{=}}$
+}
+
+
+\newcommand{\paket}[1]{ %#1: code
+	"\emph{#1}"
+}
+
+
+
+%Marks a command (without return key) into the text
+\newcommand{\kommandoOR}[1]{ %#1: code
+	\fboxsep0.6mm
+	\colorbox{bgGray}{\fbox{\textbf{\tt{#1}}}}
+}
+
+
+
+%Marks a command into the text
+\newcommand{\kommando}[1]{ %#1: code
+	\fboxsep0.6mm
+	\colorbox{bgGray}{\fbox{\textbf{\tt{#1} \keys{\return}}}}
+}
+
+
+
+
+
+%Includes a short DIFF file with syntax highlighting
+\newcommand{\includeDIFF}[1]{ %#1: codefile
+	\ \\
+	\\
+	\inputminted[linenos, numbersep=5pt, frame=lines, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize]{diff}{#1}
+	\smallskip
+}
+
+
+
+
+
+%Includes a short BASH file with syntax highlighting
+\newcommand{\includeBASH}[1]{ %#1: codefile
+	\ \\
+	\\
+	\inputminted[linenos, numbersep=5pt, frame=lines, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize]{bash}{#1}
+	\smallskip
+}
+
+
+
+
+
+%Includes a short HTML file with syntax highlighting
+\newcommand{\includeHTML}[1]{ %#1: codefile
+	\ \\
+	\\
+	\inputminted[linenos, numbersep=5pt, frame=lines, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize]{html}{#1}
+	\smallskip
+}
+
+
+
+
+
+%Includes a short PHP file with syntax highlighting
+\newcommand{\includePHP}[1]{ %#1: codefile
+	\ \\
+	\\
+	\inputminted[linenos, numbersep=5pt, frame=lines, framesep=2mm, bgcolor=bgGray, fontseries=sffamily, funcnamehighlighting=true, obeytabs=true, fontsize=\footnotesize]{php}{#1}
+	\caption{#1}\\
+	\smallskip
+}
+
+
+
+
+
+%Marks a command into the text
+\newcommand{\datei}[1]{ %#1: code
+	\textbf{\tt{#1}}}
+
+
+\newcommand{\sieheSeite}[1]{ %#1: Sprungmarke zu einem label
+	(siehe Seite \pageref{#1})}
+
+
+\newcommand{\siehe}[1]{ %#1: Sprungmarke zu einem label
+	(siehe \ref{#1})}
+
+
+\newcommand{\link}[1]{ %#1: Linkadresse
+\footnote{\url{#1}}}

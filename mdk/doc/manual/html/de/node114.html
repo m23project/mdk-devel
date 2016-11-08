@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23 mit einem externen DHCP-Server benutzen</TITLE>
-<META NAME="description" CONTENT="m23 mit einem externen DHCP-Server benutzen">
+<TITLE>Hinweis zur Rechnerarchitektur</TITLE>
+<META NAME="description" CONTENT="Hinweis zur Rechnerarchitektur">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,73 +19,98 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node120.html">
-<LINK REL="previous" HREF="node108.html">
-<LINK REL="up" HREF="node107.html">
+<LINK REL="next" HREF="node115.html">
+<LINK REL="previous" HREF="node113.html">
+<LINK REL="up" HREF="node110.html">
 <LINK REL="next" HREF="node115.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1971"
+<A NAME="tex2html1987"
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1967"
-  HREF="node107.html">
+<A NAME="tex2html1983"
+  HREF="node110.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1961"
+<A NAME="tex2html1977"
   HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1969"
+<A NAME="tex2html1985"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1972"
-  HREF="node115.html">Der andere DHCP-Server kann</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1968"
-  HREF="node107.html">Clients einrichten</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1962"
-  HREF="node113.html">Hinweis:</A>
- &nbsp; <B>  <A NAME="tex2html1970"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1988"
+  HREF="node115.html">Hinweis:</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1984"
+  HREF="node110.html">Client hinzufügen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1978"
+  HREF="node113.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html1986"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00920000000000000000">
-m23 mit einem externen DHCP-Server benutzen</A>
-</H1>Szenario: Im lokalen Netzwerk gibt es einen DHCP-Server, der Netzwerkeinstellungen (IP, Netzwerkmaske etc.) an alle Rechner verteilt. Zus&#228;tzlich ist ein m23-Server vorhanden, mit dem Clients aufgesetzt werden sollen.
-<BR><IMG
-  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
- SRC="./externalDHCP.png"
- ALT="Image externalDHCP"> 
+<H2><A NAME="SECTION00914000000000000000">
+Hinweis zur Rechnerarchitektur</A>
+</H2>
+m23 unterst&#252;tzt nativ 32- und 64-bittige Rechner. Eine 32-Bit Distribution kann auch auf einem 64-Bit Rechner installiert werden. Umgekehrt ist dies allerdings nicht m&#246;glich. Um das volle Potential einer vorhandenen 64-Bit-CPU auszunutzen, sollten Sie <SPAN  CLASS="textit">''amd64''</SPAN> ausw&#228;hlen. Unter <SPAN  CLASS="textit">''amd64''</SPAN> fallen nicht nur die CPUs von AMD sondern auch die von Intel. Beispielhaft seien hier die Intel-CPUs Pentium D, Pentium Extreme Edition, Celeron D und Core 2 sowie die AMD-CPUs AMD Sempron, Athlon 64, Athlon X2 und Phenom genannt.
+<BR><SPAN  CLASS="textbf">MAC-Adresse:</SPAN> MAC-Adresse der Client-Netzwerkkarte (z.B. 00D0B723865C)
+<BR><SPAN  CLASS="textbf">IP-Adresse:</SPAN> gew&#252;nschte IP-Adresse des Clients (z.B. 192.168.1.23)
+<BR><SPAN  CLASS="textbf">Netzwerkmaske:</SPAN> Netzwerkmaske des Netzwerkes (z.B. 255.255.255.0)
+<BR><SPAN  CLASS="textbf">Gateway:</SPAN> Gateway-IP f&#252;r Internet- oder andere Verbindungen au&#223;erhalb des Netzwerkes
+<BR><SPAN  CLASS="textbf">DNS1:</SPAN> IP-Adresse des DNS-Servers zum Aufl&#246;sen der Internetnamen
+<BR><SPAN  CLASS="textbf">DNS2 (optional):</SPAN> IP des Backup-DNS-Servers
+<BR><SPAN  CLASS="textbf">Paket-Proxy:</SPAN> Der Client versucht die Softwarepakete von der angegebenen Proxy-Server-IP zu beziehen. Im Standardfall ist dies die IP des m23-Servers, alternativ kann auch ein anderer Proxy-Server angegeben werden. Wenn das Feld leer gelassen wird, so l&#228;dt der Client die Softwarepakete aus dem Internet herunter. Geben Sie bitte auch die Port-Addresse der Proxy-Servers an. Beim m23-Server ist dies der Port 2323. Wird der <SPAN  CLASS="textit">''Client hinzuf&#252;gen''</SPAN>-Dialog ge&#246;ffnet, so ist der m23-Server als Proxy voreingestellt.
+<BR><SPAN  CLASS="textbf">Gruppe (optional):</SPAN> Angabe der Clientgruppe f&#252;r den Client
+<BR><SPAN  CLASS="textbf">Benutzer-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 6-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den ersten Login auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
+<BR><SPAN  CLASS="textbf">Root-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 8-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den Root-Zugang auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
+<BR><SPAN  CLASS="textbf">Zeitzone:</SPAN> Hier k&#246;nnen Sie die Zeitzone festlegen, die von Client benutzt werden soll.
+<BR><SPAN  CLASS="textbf">Systemzeit per NTP ermitteln:</SPAN> Setzen Sie diese Option, wenn Sie w&#252;nschen, da&#223; die Uhrzeit des Clients beim Systemstart &#252;ber das Internet abgeglichen werden soll.
+<BR><SPAN  CLASS="textbf">Druckertreiber installieren und angeschlossene Drucker erkennen:</SPAN> Wenn Sie diese Option w&#228;hlen, werden Druckertreiber auf dem Client installiert sowie angeschlossene Drucker erkannt.
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten lokal auf dem Client speichern.:</SPAN>Setzen Sie hier einen Haken, um die lokale Benutzeranmeldung des Clients zu verwenden.
+<BR><SPAN  CLASS="textbf">LDAP nicht benutzen</SPAN>: Um nur die lokale Benutzeranmeldung des Clients zu verwenden, w&#228;hlen Sie <SPAN  CLASS="textit">''LDAP nicht benutzen''</SPAN>. 
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen. / Anmeldungsdaten vom UCS lesen.</SPAN>: W&#252;nschen Sie hingegen, die bereits in einen LDAP-Server  oder UCS-Server eingetragene Benutzerauthentifizierungsdaten zu nutzen, klicken Sie auf <SPAN  CLASS="textit">''Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten vom UCS lesen.''</SPAN>.
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten in den LDAP-Server speichern. / Anmeldungsdaten auf UCS speichern.</SPAN>: Wollen Sie hingegen die oben angegebenen Benutzerdaten in die LDAP-Datenbank des m23-Servers  oder UCS-Servers eintragen und f&#252;r Clientlogins nutzen, so w&#228;hlen Sie <SPAN  CLASS="textit">''Anmeldungsdaten in den LDAP-Server speichern.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten auf UCS speichern.''</SPAN>. Bei Auswahl dieser Option ist ein LDAP-Server mit Vollzugriff erforderlich, da die oben angegebenen Benutzerdaten auf dem LDAP geschrieben werden.
+<BR><SPAN  CLASS="textbf">Benutzer-ID, Gruppen-ID</SPAN>: Zus&#228;tzlich m&#252;ssen Sie die <SPAN  CLASS="textit">''Benutzer-ID''</SPAN> und <SPAN  CLASS="textit">''Gruppen-ID''</SPAN> f&#252;r den Benutzer ausw&#228;hlen. Dies ist insbesondere wichtig, wenn Sie NFS f&#252;r das Speichern der Heimatverzeichnisse verwenden wollen.
+<BR><SPAN  CLASS="textbf">LDAP-Servername</SPAN>: Zuletzt m&#252;ssen Sie einen LDAP-Server aus der Auswahlliste bei <SPAN  CLASS="textit">''LDAP-Servername''</SPAN> ausw&#228;hlen. Sollte der gew&#252;nschte LDAP-Server nicht vorhanden sein, so k&#246;nnen Sie ihn durch einen Klick auf <SPAN  CLASS="textit">''LDAP-Server verwalten''</SPAN> hinzuf&#252;gen. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option. Es wird stattdessen der UCS-eigene LDAP-Server verwendet.
+<BR><SPAN  CLASS="textbf">Heimatverzeichnis auf NFS:</SPAN> Diese Option sorgt daf&#252;r, da&#223; die Benutzerdateien auf einem zentralen NFS-Server gespeichert werden, soda&#223; auf diese (in Kombination mit LDAP) von jedem Client aus zugegriffen werden kann. Um NFS zu aktivieren, geben Sie den Rechnernamen bzw. die IP-Adresse und den Pfad zum Speichern der Heimatverzeichnisse an z.B. 
+<BR><PRE>
+192.168.1.23:/nfs-homes
+</PRE>
+. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option.
 <BR>
-Problem: Die Installation der Clients funktioniert nicht, da der lokale DHCP die Netzwerkeinstellungen schneller als der m23-DHCP zuweist.
+Klicken Sie, nachdem Sie Ihre Eingaben &#252;berpr&#252;ft haben, auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>.
 <BR>
-Begr&#252;ndung: Der m23-Server mu&#223; dem Client bei der Installation des Betriebssystems die IP und weitere Netzwerkeinstellungen zuweisen. Werden diese Einstellungen von einem anderen DHCP-Server vorgenommen, so findet der Client den m23-Server nicht, das Netzwerkbootimage wird nicht gefunden und der Client kann nicht installiert werden. Grunds&#228;tzlich kann man an dem Vorgehen nichts &#228;ndern, wenn es um Netzwerkinstallationen geht, da dies von den Netzwerkprotokollen und -standards so vorgesehen ist.
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1987"
+  HREF="node115.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1983"
+  HREF="node110.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1977"
+  HREF="node113.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1985"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1973"
-  HREF="node115.html">Der andere DHCP-Server kann deaktiviert werden</A>
-<LI><A NAME="tex2html1974"
-  HREF="node116.html">Der andere DHCP-Server kann NICHT deaktiviert werden</A>
-<LI><A NAME="tex2html1975"
-  HREF="node117.html">ISC DHCP Server</A>
-<LI><A NAME="tex2html1976"
-  HREF="node118.html">Anderer DHCP-Server</A>
-<LI><A NAME="tex2html1977"
-  HREF="node119.html">Proxy DHCP</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1988"
+  HREF="node115.html">Hinweis:</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1984"
+  HREF="node110.html">Client hinzufügen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1978"
+  HREF="node113.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html1986"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_nextLogicalDevNr</TITLE>
-<META NAME="description" CONTENT="FDISK_nextLogicalDevNr">
+<TITLE>FDISK_virtualAddPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_virtualAddPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node519.html">
 <LINK REL="previous" HREF="node517.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node519.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10373"
+<A NAME="tex2html10300"
   HREF="node519.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10369"
-  HREF="node480.html">
+<A NAME="tex2html10296"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10363"
+<A NAME="tex2html10290"
   HREF="node517.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10371"
+<A NAME="tex2html10298"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10374"
-  HREF="node519.html">FDISK_nextPrimaryDevNr</A>
-<B> Up:</B> <A NAME="tex2html10370"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10364"
-  HREF="node517.html">FDISK_devNrExists</A>
- &nbsp; <B>  <A NAME="tex2html10372"
+<B> Next:</B> <A NAME="tex2html10301"
+  HREF="node519.html">FDISK_listPartTable</A>
+<B> Up:</B> <A NAME="tex2html10297"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10291"
+  HREF="node517.html">FDISK_virtualDeletePartition</A>
+ &nbsp; <B>  <A NAME="tex2html10299"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081638000000000000000">
-FDISK_nextLogicalDevNr</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> gets the next free logical device number
+<H2><A NAME="SECTION0091674000000000000000">
+FDISK_virtualAddPartition</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param param
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
+<LI>vDev: virtuell internal used device number.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>start: start MB of the new partition
 </LI>
-</UL>
-
+<LI>end: end MB of the new partition
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>devNr: returnes the device number
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

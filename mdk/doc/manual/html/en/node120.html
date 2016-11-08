@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Client partitioning and formating</TITLE>
-<META NAME="description" CONTENT="Client partitioning and formating">
+<TITLE>ISC DHCP server</TITLE>
+<META NAME="description" CONTENT="ISC DHCP server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,103 +19,88 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node130.html">
-<LINK REL="previous" HREF="node114.html">
-<LINK REL="up" HREF="node107.html">
+<LINK REL="next" HREF="node121.html">
+<LINK REL="previous" HREF="node119.html">
+<LINK REL="up" HREF="node116.html">
 <LINK REL="next" HREF="node121.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2045"
+<A NAME="tex2html2060"
   HREF="node121.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2041"
-  HREF="node107.html">
+<A NAME="tex2html2056"
+  HREF="node116.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2035"
+<A NAME="tex2html2050"
   HREF="node119.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2043"
+<A NAME="tex2html2058"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2046"
-  HREF="node121.html">Hint: Undoing your changes</A>
-<B> Up:</B> <A NAME="tex2html2042"
-  HREF="node107.html">Control clients</A>
-<B> Previous:</B> <A NAME="tex2html2036"
-  HREF="node119.html">Proxy DHCP</A>
- &nbsp; <B>  <A NAME="tex2html2044"
+<B> Next:</B> <A NAME="tex2html2061"
+  HREF="node121.html">Other DHCP server</A>
+<B> Up:</B> <A NAME="tex2html2057"
+  HREF="node116.html">Using m23 with an</A>
+<B> Previous:</B> <A NAME="tex2html2051"
+  HREF="node119.html">Configuring DHCP servers dynamically</A>
+ &nbsp; <B>  <A NAME="tex2html2059"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00930000000000000000">
-Client partitioning and formating</A>
-</H1>This dialog is designed for partitioning and formating your m23 client and the management and creation of software RAIDs. Click on <SPAN  CLASS="textit">''Finalise the partitioning and formating and choose the distribution''</SPAN> after you did all changes.
-<BR><IMG
-  WIDTH="1094" HEIGHT="1983" ALIGN="BOTTOM" BORDER="0"
- SRC="./clientPartitionFormat.png"
- ALT="Image clientPartitionFormat"> 
-<BR><SPAN  CLASS="textbf">Overview</SPAN>
-The tools and functions for editing the drives and partitions are shown in the menu on the left side. You can point to the desired function with the mouse cursor to open the menu block. Adjacent (and right) to the menu, the current partition and formating of all drives and RAIDs is displayed. Under <SPAN  CLASS="textit">''Waiting partitioning and formating jobs''</SPAN> the tasks are shown, that are needed to get the client into the displayed state. Adjacent (and right) to it detailed information are shown (if JavaScript is activated or the information about all drives are shown if deactivated) about the drive, the mouse cursor points to. In the caption under <SPAN  CLASS="textit">''Supported file systems''</SPAN> all file systems that can be created and managed with m23 are listed.
+<H2><A NAME="SECTION00924000000000000000">
+ISC DHCP server</A>
+</H2>
+If the other DHCP server is the ISC DHCP server, you can use it in place of the m23 DHCP server.
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2047"
-  HREF="node121.html">Hint: Undoing your changes</A>
-<LI><A NAME="tex2html2048"
-  HREF="node122.html">Hint: Usage of JavaScript</A>
-<LI><A NAME="tex2html2049"
-  HREF="node123.html">Overview of the menu entries</A>
-<LI><A NAME="tex2html2050"
-  HREF="node124.html">Note</A>
-<LI><A NAME="tex2html2051"
-  HREF="node125.html">Note about UEFI</A>
-<LI><A NAME="tex2html2052"
-  HREF="node126.html">Note about file systems</A>
-<LI><A NAME="tex2html2053"
-  HREF="node127.html">Step by step</A>
-<LI><A NAME="tex2html2054"
-  HREF="node128.html">Hint for RAIDs and partitions</A>
-<LI><A NAME="tex2html2055"
-  HREF="node129.html">Hint for the installation of operating systems on a RAID</A>
-</UL>
-<!--End of Table of Child-Links-->
-
+<OL>
+<LI>Choose <SPAN  CLASS="textit">''PXE''</SPAN> at <SPAN  CLASS="textit">''Boottype''</SPAN> when adding a new client in the m23 webinterface. Assign the computer name the DHCP server will give to the client at <SPAN  CLASS="textit">''Client name''</SPAN>.	
+<BR></LI>
+<LI>Deactivate the DHCP server on your m23 server: Edit the file /etc/default/isc-dhcp-server at the m23 server, comment out the line INTERFACES=... by putting a ''#'' in front and add the new line INTERFACES='''' below. Afterwards, restart the DHCP server with /etc/init.d/isc-dhcp-server restart. It will still be running, but will not answer any requests any longer.
+<BR></LI>
+<LI>In the configuration for your DHCP server, set the option use-host-decl-names on for the group which will contain the m23 clients.
+<BR></LI>
+<LI>Regularly update the m23 group in the configuration of your DHCP server (e.g. using a cron job or another automated method) using the data of your m23 from the URL  http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php. This URL provides the configuration in ''ISC DHCP server'' notation for m23 clients which are to boot via network. The group with the m23 clients could, for example, look like this:
+<BR><PRE>
+group {
+use-host-decl-names on;
+$\langle$data imported from exportDHCPSettings.php$\rangle$
+}
+</PRE>
+</LI>
+</OL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2045"
+<A NAME="tex2html2060"
   HREF="node121.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2041"
-  HREF="node107.html">
+<A NAME="tex2html2056"
+  HREF="node116.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2035"
+<A NAME="tex2html2050"
   HREF="node119.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2043"
+<A NAME="tex2html2058"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2046"
-  HREF="node121.html">Hint: Undoing your changes</A>
-<B> Up:</B> <A NAME="tex2html2042"
-  HREF="node107.html">Control clients</A>
-<B> Previous:</B> <A NAME="tex2html2036"
-  HREF="node119.html">Proxy DHCP</A>
- &nbsp; <B>  <A NAME="tex2html2044"
+<B> Next:</B> <A NAME="tex2html2061"
+  HREF="node121.html">Other DHCP server</A>
+<B> Up:</B> <A NAME="tex2html2057"
+  HREF="node116.html">Using m23 with an</A>
+<B> Previous:</B> <A NAME="tex2html2051"
+  HREF="node119.html">Configuring DHCP servers dynamically</A>
+ &nbsp; <B>  <A NAME="tex2html2059"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

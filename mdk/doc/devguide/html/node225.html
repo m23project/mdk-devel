@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoTest::elemOk</TITLE>
-<META NAME="description" CONTENT="CAutoTest::elemOk">
+<TITLE>CHECK_strAlphaNum</TITLE>
+<META NAME="description" CONTENT="CHECK_strAlphaNum">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node226.html">
 <LINK REL="previous" HREF="node224.html">
-<LINK REL="up" HREF="node192.html">
+<LINK REL="up" HREF="node215.html">
 <LINK REL="next" HREF="node226.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6531"
+<A NAME="tex2html6489"
   HREF="node226.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6527"
-  HREF="node192.html">
+<A NAME="tex2html6485"
+  HREF="node215.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6521"
+<A NAME="tex2html6479"
   HREF="node224.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6529"
+<A NAME="tex2html6487"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6532"
-  HREF="node226.html">CAutoTest::elemWarn</A>
-<B> Up:</B> <A NAME="tex2html6528"
-  HREF="node192.html">./inc/CAutoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html6522"
-  HREF="node224.html">CAutoTest::showAndLogMessage</A>
- &nbsp; <B>  <A NAME="tex2html6530"
+<B> Next:</B> <A NAME="tex2html6490"
+  HREF="node226.html">CHECK_letFWDie</A>
+<B> Up:</B> <A NAME="tex2html6486"
+  HREF="node215.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html6480"
+  HREF="node224.html">CHECK_strAlpha</A>
+ &nbsp; <B>  <A NAME="tex2html6488"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008633000000000000000">
-CAutoTest::elemOk</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> The current sequence elements was finished sucessfully.
+<H2><A NAME="SECTION009810000000000000000">
+CHECK_strAlphaNum</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and digits and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>msg: Message to show in the console and the log file.
+<LI>val: Input value to check.
 </LI>
-</UL>
-
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The input value if it contains only characters and digits or stops (or false, if $returnNoDie is true) the program on an error.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

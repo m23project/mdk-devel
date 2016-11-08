@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis: UEFI</TITLE>
-<META NAME="description" CONTENT="Hinweis: UEFI">
+<TITLE>Client definieren</TITLE>
+<META NAME="description" CONTENT="Client definieren">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,118 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node218.html">
 <LINK REL="previous" HREF="node211.html">
-<LINK REL="up" HREF="node207.html">
+<LINK REL="up" HREF="node211.html">
 <LINK REL="next" HREF="node213.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3245"
+<A NAME="tex2html3261"
   HREF="node213.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3241"
-  HREF="node207.html">
+<A NAME="tex2html3257"
+  HREF="node211.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3237"
+<A NAME="tex2html3251"
   HREF="node211.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3243"
+<A NAME="tex2html3259"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3246"
-  HREF="node213.html">Festplattentyp und Größe definieren</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3242"
-  HREF="node207.html">Client definieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3238"
-  HREF="node211.html">Hinweis zur Rechnerarchitektur</A>
- &nbsp; <B>  <A NAME="tex2html3244"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3262"
+  HREF="node213.html">Hinweis: Externer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3258"
+  HREF="node211.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3252"
+  HREF="node211.html">Masseninstallation</A>
+ &nbsp; <B>  <A NAME="tex2html3260"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001415000000000000000">
-Hinweis: UEFI</A>
-</H2>
-Wenn Sie als Boottyp <SPAN  CLASS="textit">''UEFI x86_64''</SPAN> ausgew&#228;hlt haben, so werden alle von diesem Musterclient abgeleiteten Rechner im 64-Bit-UEFI-Modus installiert.
+<H1><A NAME="SECTION001410000000000000000">
+Client definieren</A>
+</H1>
+<IMG
+  WIDTH="826" HEIGHT="1343" ALIGN="BOTTOM" BORDER="0"
+ SRC="./clientBuilder.png"
+ ALT="Image clientBuilder"> 
 <BR>
-Klicken Sie nach der &#220;berpr&#252;fung Ihrer Eingaben auf <SPAN  CLASS="textit">''Definieren''</SPAN>.
+Die hier gemachten Voreinstellungen werden f&#252;r alle Massen-Clients benutzt, die von diesem Musterclient abgeleitet werden.
 <BR>
+Einige dieser Einstellungen k&#246;nnen von Client zu Client variieren, diese k&#246;nnen aus einer Datei eingelesen, per Hand eingegeben, automatisch generiert oder f&#252;r alle beibehalten werden. Eine genaue Auswahl &#252;ber die Art der Erstellung treffen Sie bei beim Durchf&#252;hren einer ''Massen-Installation''.
+<BR>(mit * gekennzeichnete Felder m&#252;ssen auf jeden Fall korrekt ausgef&#252;llt werden)
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Voreinstellung:</SPAN> Sie k&#246;nnen bereits gespeicherte Konfigurationen ausw&#228;hlen und anschlie&#223;end laden oder l&#246;schen. M&#246;chten Sie die aktuelle Konfiguration speichern, geben Sie einen aussagekr&#228;ftigen Namen ein und klicken auf <SPAN  CLASS="textit">''Speichern''</SPAN>.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Sprache:</SPAN>Hier k&#246;nnen Sie die Sprache f&#252;r Ihren m23-Client ausw&#228;hlen. Diese Sprache wird f&#252;r die Tastatur-, Desktop- und Konsolen-Einstellung verwendet.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Anmeldungsname:</SPAN> Der Name mit dem sich der Benutzer beim Client anmeldet.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Clientname:</SPAN> Ist der einmalige Name Ihres Clients, dieser sollte nicht mehrfach verwendet werden.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Abteilung:</SPAN> Diese Angabe ist freiwillig, hier k&#246;nnen Sie eintragen, wo sich der Rechner befindet (z.B. Raumnummer etc.).
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Vorname:</SPAN> Vorname des Benutzers, entspricht dem Loginnamen
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Nachname:</SPAN> Nachname des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">eMail:</SPAN> eMail-Adresse des Benutzers
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Boottyp:</SPAN> Bootstandard f&#252;r das Booten der Clients &#252;ber das Netzwerk 
+<BR></LI>
+</UL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3263"
+  HREF="node213.html">Hinweis: Externer DHCP-Server</A>
+<LI><A NAME="tex2html3264"
+  HREF="node214.html">Hinweis: UEFI</A>
+<LI><A NAME="tex2html3265"
+  HREF="node215.html">Hinweis</A>
+<LI><A NAME="tex2html3266"
+  HREF="node216.html">Hinweis zur Rechnerarchitektur</A>
+<LI><A NAME="tex2html3267"
+  HREF="node217.html">Hinweis: UEFI</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3261"
+  HREF="node213.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3257"
+  HREF="node211.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3251"
+  HREF="node211.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3262"
+  HREF="node213.html">Hinweis: Externer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3258"
+  HREF="node211.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3252"
+  HREF="node211.html">Masseninstallation</A>
+ &nbsp; <B>  <A NAME="tex2html3260"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

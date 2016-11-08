@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</TITLE>
-<META NAME="description" CONTENT="SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi">
+<TITLE>VM_CloudStackUploadIso</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackUploadIso">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1164.html">
 <LINK REL="previous" HREF="node1162.html">
-<LINK REL="up" HREF="node1136.html">
+<LINK REL="up" HREF="node1156.html">
 <LINK REL="next" HREF="node1164.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18637"
+<A NAME="tex2html18643"
   HREF="node1164.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18633"
-  HREF="node1136.html">
+<A NAME="tex2html18639"
+  HREF="node1156.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18627"
+<A NAME="tex2html18633"
   HREF="node1162.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18635"
+<A NAME="tex2html18641"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18638"
-  HREF="node1164.html">SRCLST_showAlternativeArchitectureSelection</A>
-<B> Up:</B> <A NAME="tex2html18634"
-  HREF="node1136.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html18628"
-  HREF="node1162.html">SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
- &nbsp; <B>  <A NAME="tex2html18636"
+<B> Next:</B> <A NAME="tex2html18644"
+  HREF="node1164.html">VM_CloudStackEnablePortForwarding</A>
+<B> Up:</B> <A NAME="tex2html18640"
+  HREF="node1156.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18634"
+  HREF="node1162.html">VM_CloudStackWriteConfFile</A>
+ &nbsp; <B>  <A NAME="tex2html18642"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083627000000000000000">
-SRCLST_showErrorIfClientUsesEfiButSourcesListDoesntSupportEfi</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Shows an error message, if the client uses EFI and the choosen sources list doesn't.
+<H2><A NAME="SECTION009387000000000000000">
+VM_CloudStackUploadIso</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Uploads and registers a new bootable ISO file into cloudstack from a given website
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>client: Name of the client.
+<LI>isoName: the name you choose for the ISO file 
 </LI>
-<LI>sourceName: The name of the package source list.
+<LI>isoUrl: the url from where you want cloudstack to download the ISO file
 </LI>
-</UL>
+<LI>zoneID: The ID of the CloudStack zone.
+</LI>
+<LI>isoUploadSuccess: is set to True if action succeeded, false otherwise
+</LI>
+<LI>isoID: is set to Cloudstack-Iso-ID if action succeeded, otherwise not set
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>: false, if the client uses EFI and the choosen sources list doesn't, otherwise true.
+<LI>textmessage about result (errormessage or success message) and sets isoUploadSuccess to True if action succeeded, false otherwise, sets isoID to Iso-ID
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

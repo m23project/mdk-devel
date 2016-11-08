@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>installing a kernel</TITLE>
-<META NAME="description" CONTENT="installing a kernel">
+<TITLE>Turn off m23 script debugging</TITLE>
+<META NAME="description" CONTENT="Turn off m23 script debugging">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node78.html">
+<LINK REL="next" HREF="node77.html">
 <LINK REL="previous" HREF="node75.html">
-<LINK REL="up" HREF="node67.html">
+<LINK REL="up" HREF="node73.html">
 <LINK REL="next" HREF="node77.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3518"
+<A NAME="tex2html3454"
   HREF="node77.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3514"
-  HREF="node67.html">
+<A NAME="tex2html3450"
+  HREF="node73.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3508"
+<A NAME="tex2html3444"
   HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3516"
+<A NAME="tex2html3452"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3519"
-  HREF="node77.html">in case of an</A>
-<B> Up:</B> <A NAME="tex2html3515"
-  HREF="node67.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html3509"
-  HREF="node75.html">source update and cleanup</A>
- &nbsp; <B>  <A NAME="tex2html3517"
+<B> Next:</B> <A NAME="tex2html3455"
+  HREF="node77.html">Set script status</A>
+<B> Up:</B> <A NAME="tex2html3451"
+  HREF="node73.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html3445"
+  HREF="node75.html">Turn on m23 script</A>
+ &nbsp; <B>  <A NAME="tex2html3453"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00665000000000000000">
-installing a kernel</A>
+<H2><A NAME="SECTION00693000000000000000">
+Turn off m23 script debugging</A>
 </H2>
-You can list all available kernels with the following command:
-<PRE>
-apt-cache search kernel | grep kernel-image
-</PRE>
-Pick one out adjust the <SPAN  CLASS="textit">image</SPAN> value in your new <SPAN  CLASS="textit">lilo.conf</SPAN>. To install your new kernel type the following:
-<PRE>
-apt-get install myChosenKernel-Image
-</PRE>
+You have two possibillities to deactivate the script debugging: the first solution is temporary the second is usefuly to stop debugging for a longer time.
+
+<OL>
+<LI>Edit the row for your client in the "remotevar" table. Set the value from the "value" field to "0".
+</LI>
+<LI>Delete the row of your client in the "remotevar" table.
+</LI>
+</OL> 
 
 <P>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3520"
-  HREF="node77.html">in case of an error</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

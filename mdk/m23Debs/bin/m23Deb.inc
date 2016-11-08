@@ -137,6 +137,9 @@ END {
 }
 
 
+
+
+
 #get the version information string from the currently installed m23 software
 getm23VersionString()
 {
@@ -145,6 +148,8 @@ getm23VersionString()
 	
 	echo "$ver-$patch"
 }
+
+
 
 
 
@@ -170,6 +175,10 @@ adjustControl()
 
 	echo $pkg"_"$ver"_"$arch".deb"
 }
+
+
+
+
 
 #check if building is needed and create index
 prepareBuilding()
@@ -197,6 +206,9 @@ prepareBuilding()
 }
 
 
+
+
+
 finishBuilding()
 {
 	#$1: package name to build
@@ -215,6 +227,9 @@ finishBuilding()
 	rm -f "/tmp/$1""deb.list" 2> /dev/null
 	rm -f -r m23 mdk 2> /dev/null
 }
+
+
+
 
 
 simpleBuild()
@@ -243,6 +258,10 @@ simpleBuild()
 #build package
 	finishBuilding "$1"
 }
+
+
+
+
 
 updatePackages()
 {
@@ -467,16 +486,23 @@ mkRelease()
 {
 	apt-ftparchive release -o APT::FTPArchive::Release::Origin=m23 -o APT::FTPArchive::Release::Suite=stable .  > Release
 	
+	if [ $(whoami) = 'dodger' ]
+	then
+		useSudo=''
+	else
+		useSudo='sudo -u dodger'
+	fi
+	
 	id dodger 2> /dev/null > /dev/null
 	if [ $? -eq 0 ]
 	then
-		cat Release | sudo -u dodger gpg --default-key 0x3305E63A --no-options --detach-sign --armor --textmode > Release.gpg
+		cat Release | $useSudo gpg --default-key 0x3305E63A --no-options --detach-sign --armor --textmode > Release.gpg
 		if [ $(find Release.gpg -printf "%s") -eq 0 ]
 		then
 			rm Release.gpg
 		fi
 
-		cat Release | sudo -u dodger gpg --default-key 0x3305E63A -a -s --clearsign > InRelease
+		cat Release | $useSudo gpg --default-key 0x3305E63A -a -s --clearsign > InRelease
 		if [ $(find InRelease -printf "%s") -eq 0 ]
 		then
 			rm InRelease

@@ -79,7 +79,7 @@ $start
 
 #Remove old m23 entries in sources list
 sed -i '/m23/d' /etc/apt/sources.list
-echo 'deb http://kent.dl.sourceforge.net/project/m23/m23inst/ ./' >> /etc/apt/sources.list
+echo 'deb http://m23inst.goos-habermann.de ./' >> /etc/apt/sources.list
 
 if [ `grep \"Acquire::http::Proxy\" /etc/apt/apt.conf -c` -gt 0 ]
 then

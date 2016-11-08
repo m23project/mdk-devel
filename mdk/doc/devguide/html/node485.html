@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_findFstabMountPointByDev</TITLE>
-<META NAME="description" CONTENT="FDISK_findFstabMountPointByDev">
+<TITLE>FDISK_findDevNrPosition</TITLE>
+<META NAME="description" CONTENT="FDISK_findDevNrPosition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node486.html">
 <LINK REL="previous" HREF="node484.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node486.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9977"
+<A NAME="tex2html9904"
   HREF="node486.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9973"
-  HREF="node480.html">
+<A NAME="tex2html9900"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9967"
+<A NAME="tex2html9894"
   HREF="node484.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9975"
+<A NAME="tex2html9902"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9978"
-  HREF="node486.html">FDISK_swapFilesystems</A>
-<B> Up:</B> <A NAME="tex2html9974"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9968"
-  HREF="node484.html">FDISK_getFstabArray</A>
- &nbsp; <B>  <A NAME="tex2html9976"
+<B> Next:</B> <A NAME="tex2html9905"
+  HREF="node486.html">FDISK_partCreationSelect</A>
+<B> Up:</B> <A NAME="tex2html9901"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9895"
+  HREF="node484.html">FDISK_correctLogical</A>
+ &nbsp; <B>  <A NAME="tex2html9903"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION008165000000000000000">
-FDISK_findFstabMountPointByDev</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Searches a client's fstab for a device and figures out the according mount point.
+<H2><A NAME="SECTION0091641000000000000000">
+FDISK_findDevNrPosition</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> returns the device position for the new device
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>fstabA: The fstab as array.
+<LI>start: start position for the search
 </LI>
-<LI>dev: The device.
+<LI>end: end position for the search
 </LI>
-</UL>
-<SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Mount point for the device.
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-</UL>
-
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>newPartNr: stores the new device number
+</LI>
+<LI>type: type of the new partition
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

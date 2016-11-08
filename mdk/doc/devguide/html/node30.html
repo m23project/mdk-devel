@@ -28,26 +28,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2933"
+<A NAME="tex2html2874"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2929"
+<A NAME="tex2html2870"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2923"
+<A NAME="tex2html2864"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2931"
+<A NAME="tex2html2872"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2934"
+<B> Next:</B> <A NAME="tex2html2875"
   HREF="node31.html">CMS</A>
-<B> Up:</B> <A NAME="tex2html2930"
+<B> Up:</B> <A NAME="tex2html2871"
   HREF="node27.html">Releasing a new m23</A>
-<B> Previous:</B> <A NAME="tex2html2924"
+<B> Previous:</B> <A NAME="tex2html2865"
   HREF="node29.html">Documentation</A>
- &nbsp; <B>  <A NAME="tex2html2932"
+ &nbsp; <B>  <A NAME="tex2html2873"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -81,7 +81,7 @@ Building the files</A>
 <LI>VirtualBox appliance
 	
 <UL>
-<LI>Create a new VM (Linux/Debian, 384 MB Ram, growing VDI 16GB HDD
+<LI>Create a new VM (Linux/Debian, 512 MB Ram, growing VDI 16GB HDD
 </LI>
 <LI>Change the Network card to Network bridge
 </LI>
@@ -97,7 +97,7 @@ Building the files</A>
 </LI>
 <LI>Shutdown the VM
 </LI>
-<LI>Export it and compress the exported files.
+<LI>Export it (m23server_xx.y_rock.ova) and compress (7zm / 7zr -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on a m23server_xx.y_rock.7z m23server_xx.y_rock.ova) the exported files.
 	
 </LI>
 </UL>
@@ -111,13 +111,15 @@ Building the files</A>
 </LI>
 <LI>Log into it via SSH (user: pi, password: raspberry)
 </LI>
-<LI>Run "sudo rapi-config".
+<LI>Run "sudo raspi-config".
 </LI>
-<LI>Call in the menu "Expand Filesystem", set "Memory split" to 16 MB, call "Update".
+<LI>Call in the menu "Expand Filesystem", set "Advanced Options" "Memory split" to 16 MB, call "Update".
 </LI>
 <LI>Reboot.
 </LI>
 <LI>Enable root access (set password to test): "sudo passwd"
+</LI>
+<LI>Enable root login for SSH in /etc/ssh/sshd_config
 </LI>
 <LI>Log out and log into it via SSH (user: root, password: test)
 </LI>
@@ -150,31 +152,31 @@ Building the files</A>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html2933"
+<A NAME="tex2html2874"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2929"
+<A NAME="tex2html2870"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2923"
+<A NAME="tex2html2864"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2931"
+<A NAME="tex2html2872"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2934"
+<B> Next:</B> <A NAME="tex2html2875"
   HREF="node31.html">CMS</A>
-<B> Up:</B> <A NAME="tex2html2930"
+<B> Up:</B> <A NAME="tex2html2871"
   HREF="node27.html">Releasing a new m23</A>
-<B> Previous:</B> <A NAME="tex2html2924"
+<B> Previous:</B> <A NAME="tex2html2865"
   HREF="node29.html">Documentation</A>
- &nbsp; <B>  <A NAME="tex2html2932"
+ &nbsp; <B>  <A NAME="tex2html2873"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

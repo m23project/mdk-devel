@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitionPercent</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitionPercent">
+<TITLE>FDISK_AFPlinearScale</TITLE>
+<META NAME="description" CONTENT="FDISK_AFPlinearScale">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node542.html">
 <LINK REL="previous" HREF="node540.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node542.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10649"
+<A NAME="tex2html10576"
   HREF="node542.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10645"
-  HREF="node480.html">
+<A NAME="tex2html10572"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10639"
+<A NAME="tex2html10566"
   HREF="node540.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10647"
+<A NAME="tex2html10574"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10650"
-  HREF="node542.html">FDISK_getAfterPartition</A>
-<B> Up:</B> <A NAME="tex2html10646"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10640"
-  HREF="node540.html">FDISK_colorFS</A>
- &nbsp; <B>  <A NAME="tex2html10648"
+<B> Next:</B> <A NAME="tex2html10577"
+  HREF="node542.html">FDISK_AFPgetPartSizes</A>
+<B> Up:</B> <A NAME="tex2html10573"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10567"
+  HREF="node540.html">FDISK_AFPselectDrive</A>
+ &nbsp; <B>  <A NAME="tex2html10575"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081661000000000000000">
-FDISK_getPartitionPercent</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> calculates the percent of a selected partition
+<H2><A NAME="SECTION0091697000000000000000">
+FDISK_AFPlinearScale</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> scales all partitions sizes to match the full disk size.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>driveToUse: device to use (e.g. /dev/hda)
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>driveToUseSize: Size of the real drive to use.
 </LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
+<LI>options: options array of the client
 </LI>
-</UL>
-
+<LI>command: array that stores the modificated format parameters
+</LI>
+<LI>formatarr: array that contains the original format parameters
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CScredit::getViewScriptOutputDialog</TITLE>
-<META NAME="description" CONTENT="CScredit::getViewScriptOutputDialog">
+<TITLE>./inc/dhcp.php</TITLE>
+<META NAME="description" CONTENT="./inc/dhcp.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,100 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node391.html">
-<LINK REL="previous" HREF="node389.html">
-<LINK REL="up" HREF="node373.html">
+<LINK REL="next" HREF="node411.html">
+<LINK REL="previous" HREF="node353.html">
+<LINK REL="up" HREF="node100.html">
 <LINK REL="next" HREF="node391.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8655"
+<A NAME="tex2html8610"
   HREF="node391.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8651"
-  HREF="node373.html">
+<A NAME="tex2html8606"
+  HREF="node100.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8645"
+<A NAME="tex2html8600"
   HREF="node389.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8653"
+<A NAME="tex2html8608"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8656"
-  HREF="node391.html">CScredit::saveScript</A>
-<B> Up:</B> <A NAME="tex2html8652"
-  HREF="node373.html">./inc/CScredit.php</A>
-<B> Previous:</B> <A NAME="tex2html8646"
-  HREF="node389.html">CScredit::deleteCurrentScript</A>
- &nbsp; <B>  <A NAME="tex2html8654"
+<B> Next:</B> <A NAME="tex2html8611"
+  HREF="node391.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<B> Up:</B> <A NAME="tex2html8607"
+  HREF="node100.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html8601"
+  HREF="node389.html">DB_getArrayAssoc</A>
+ &nbsp; <B>  <A NAME="tex2html8609"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081117000000000000000">
-CScredit::getViewScriptOutputDialog</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a dialog with JavaScript to choose a client and to open the script output viewer for the currentry saved script.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
-
-<UL>
-<LI>Dialog (HTML) with JavaScript to choose a client and to open the script output viewer for the currentry saved script.
-</LI>
-</UL>
-
+<H1><A NAME="SECTION009130000000000000000">
+./inc/dhcp.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions to add and remove a client to/from the dhcp server list.
+<BR></SMALL></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html8612"
+  HREF="node391.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<LI><A NAME="tex2html8613"
+  HREF="node392.html">DHCP_lineNumberAffterLastClient</A>
+<LI><A NAME="tex2html8614"
+  HREF="node393.html">DHCP_addSubnetDefinition</A>
+<LI><A NAME="tex2html8615"
+  HREF="node394.html">DHCP_delSubnetDefinition</A>
+<LI><A NAME="tex2html8616"
+  HREF="node395.html">DHCP_addDynamicRange</A>
+<LI><A NAME="tex2html8617"
+  HREF="node396.html">DHCP_getDynamicRanges</A>
+<LI><A NAME="tex2html8618"
+  HREF="node397.html">DHCP_getNetmaskOfDynamicRanges</A>
+<LI><A NAME="tex2html8619"
+  HREF="node398.html">DHCP_delDynamicRange</A>
+<LI><A NAME="tex2html8620"
+  HREF="node399.html">DHCP_bootTypeToNewFormat</A>
+<LI><A NAME="tex2html8621"
+  HREF="node400.html">DHCP_runScript</A>
+<LI><A NAME="tex2html8622"
+  HREF="node401.html">DHCP_addClient</A>
+<LI><A NAME="tex2html8623"
+  HREF="node402.html">DHCP_addLineToDHCPDConf</A>
+<LI><A NAME="tex2html8624"
+  HREF="node403.html">DHCP_restartDHCPserver</A>
+<LI><A NAME="tex2html8625"
+  HREF="node404.html">DHCP_rmClient</A>
+<LI><A NAME="tex2html8626"
+  HREF="node405.html">DHCP_setBootimage</A>
+<LI><A NAME="tex2html8627"
+  HREF="node406.html">DHCP_activateBoot</A>
+<LI><A NAME="tex2html8628"
+  HREF="node407.html">DHCP_calcPXEIP</A>
+<LI><A NAME="tex2html8629"
+  HREF="node408.html">DHCP_writePXEcfg</A>
+<LI><A NAME="tex2html8630"
+  HREF="node409.html">DHCP_removePXEcfg</A>
+<LI><A NAME="tex2html8631"
+  HREF="node410.html">DHCP_isNetworkBootingActive</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_activateNetboot</TITLE>
-<META NAME="description" CONTENT="VM_activateNetboot">
+<TITLE>VM_parseVBOXstate</TITLE>
+<META NAME="description" CONTENT="VM_parseVBOXstate">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1223.html">
 <LINK REL="previous" HREF="node1221.html">
-<LINK REL="up" HREF="node1179.html">
+<LINK REL="up" HREF="node1156.html">
 <LINK REL="next" HREF="node1223.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19411"
+<A NAME="tex2html19351"
   HREF="node1223.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19407"
-  HREF="node1179.html">
+<A NAME="tex2html19347"
+  HREF="node1156.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19401"
+<A NAME="tex2html19341"
   HREF="node1221.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19409"
+<A NAME="tex2html19349"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19412"
-  HREF="node1223.html">VM_convertSwitchStatusInfo</A>
-<B> Up:</B> <A NAME="tex2html19408"
-  HREF="node1179.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19402"
-  HREF="node1221.html">VM_getHTMLStatusBlock</A>
- &nbsp; <B>  <A NAME="tex2html19410"
+<B> Next:</B> <A NAME="tex2html19352"
+  HREF="node1223.html">VM_parseVBOXNic</A>
+<B> Up:</B> <A NAME="tex2html19348"
+  HREF="node1156.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19342"
+  HREF="node1221.html">VM_parseVBOXdisk</A>
+ &nbsp; <B>  <A NAME="tex2html19350"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083843000000000000000">
-VM_activateNetboot</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> (De)Activates network booting of a VM.
+<H2><A NAME="SECTION0093866000000000000000">
+VM_parseVBOXstate</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Parses the status (on, off, paused) line of VirtualBox.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>vmName: Name of the VM.
+<LI>param: Parameter line that contains the status string of the VM.
 </LI>
-<LI>activate: true for booting from network, false for booting from the HD.
-</LI>
-</UL>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>The message of the VM management tool or false if it's not a VM.
+<LI>VM_STATE_OFF, VM_STATE_PAUSE, VM_STATE_ON or false if the line could not be parsed.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

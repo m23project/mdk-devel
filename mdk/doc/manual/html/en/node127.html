@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Step by step</TITLE>
-<META NAME="description" CONTENT="Step by step">
+<TITLE>Note</TITLE>
+<META NAME="description" CONTENT="Note">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node128.html">
 <LINK REL="previous" HREF="node126.html">
-<LINK REL="up" HREF="node120.html">
+<LINK REL="up" HREF="node123.html">
 <LINK REL="next" HREF="node128.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2138"
+<A NAME="tex2html2151"
   HREF="node128.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2134"
-  HREF="node120.html">
+<A NAME="tex2html2147"
+  HREF="node123.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2128"
+<A NAME="tex2html2141"
   HREF="node126.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2136"
+<A NAME="tex2html2149"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2139"
-  HREF="node128.html">Hint for RAIDs and</A>
-<B> Up:</B> <A NAME="tex2html2135"
-  HREF="node120.html">Client partitioning and formating</A>
-<B> Previous:</B> <A NAME="tex2html2129"
-  HREF="node126.html">Note about file systems</A>
- &nbsp; <B>  <A NAME="tex2html2137"
+<B> Next:</B> <A NAME="tex2html2152"
+  HREF="node128.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2148"
+  HREF="node123.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2142"
+  HREF="node126.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2150"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00937000000000000000">
-Step by step</A>
+<H2><A NAME="SECTION00934000000000000000">
+Note</A>
 </H2>
-
-<OL>
-<LI><SPAN  CLASS="textbf">Create a RAID drive:</SPAN>At  <SPAN  CLASS="textit">''Create RAID drive''</SPAN> choose a device name from the list <SPAN  CLASS="textit">''RAID drive name''</SPAN>, then at <SPAN  CLASS="textit">''RAID level''</SPAN> select the RAID level and click on <SPAN  CLASS="textit">''Create RAID drive''</SPAN>. This device is a virtual multi device.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Add partitions and drives:</SPAN> You can find all necessary functions for assigning partitions and drives to a RAID in the box <SPAN  CLASS="textit">''Add drives and partitions to the RAID''</SPAN>. 
+These templates for harddisks can be set up like real harddisks (partitioning, formatting, software RAIDS, partitions for installation and swap) The sizes you enter should be similar (or identical) to the real hardware in your clients, but the device names must be identical to the real device names. If the size of the template disk differs from the real size of the client's disk, the sizes of the respective partitions will be adjusted percentally.
+<BR><SPAN  CLASS="textbf">Partition scheme</SPAN>
+Predefined schemes for partitioning and formating the hard disk of the m23 client can be choosen here and executed by a click on <SPAN  CLASS="textit">''Execute scheme''</SPAN>.
 <BR>
-At <SPAN  CLASS="textit">''RAID drive''</SPAN>, select the RAID drive and confirm by clicking on <SPAN  CLASS="textit">''Select''</SPAN>. Assign a partition from the list below or the drive from the list <SPAN  CLASS="textit">''Real drive or partition''</SPAN> to the RAID by clicking on <SPAN  CLASS="textit">''Add to RAID''</SPAN>. The table <SPAN  CLASS="textit">''Assigned drives and partitions''</SPAN> displays the drives and partitions which are already assigned. It also allows you to remove partitions and drives from the RAID.
+<UL>
+<LI><SPAN  CLASS="textbf">Automatic partitioning</SPAN>: This scheme deletes all data from the first hard disk and creates two new partitions. The first partition is used for the operating system and data and the second for swapping.
 <BR></LI>
-</OL>
-<BR><HR>
+</UL>
+<SPAN  CLASS="textbf">Delete current partition</SPAN>
+A click on <SPAN  CLASS="textit">''Delete''</SPAN> removes the current (shown/selected at <SPAN  CLASS="textit">''Current partition''</SPAN>) partition.
+<BR><SPAN  CLASS="textbf">Create new partition</SPAN>
+You can create a new partition in the free space of a hard disk with this function. Choose the start and end point of the new partition by clicking into the white space of a drive (on activated JavaScript) or by entering the values for its bordes into <SPAN  CLASS="textit">''Start''</SPAN> and <SPAN  CLASS="textit">''End''</SPAN>. Of course it is possible to create a partition that is smaler than the whole free area. Choose the type of the partition at <SPAN  CLASS="textit">''Type''</SPAN> to select, if a primary, extended or logical partition should be created. Finally create it with a click to <SPAN  CLASS="textit">''Add''</SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2151"
+  HREF="node128.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2147"
+  HREF="node123.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2141"
+  HREF="node126.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2149"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2152"
+  HREF="node128.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2148"
+  HREF="node123.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2142"
+  HREF="node126.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2150"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2015-09-06
+2016-10-07
 </ADDRESS>
 </BODY>
 </HTML>

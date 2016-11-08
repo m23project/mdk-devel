@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Better naming for your files</TITLE>
-<META NAME="description" CONTENT="Better naming for your files">
+<TITLE>Making the bootimage</TITLE>
+<META NAME="description" CONTENT="Making the bootimage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,59 +20,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
 <LINK REL="previous" HREF="node65.html">
-<LINK REL="up" HREF="node65.html">
+<LINK REL="up" HREF="node64.html">
 <LINK REL="next" HREF="node67.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3384"
+<A NAME="tex2html3324"
   HREF="node67.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3380"
-  HREF="node65.html">
+<A NAME="tex2html3320"
+  HREF="node64.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3376"
+<A NAME="tex2html3316"
   HREF="node65.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3382"
+<A NAME="tex2html3322"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3385"
-  HREF="node67.html">How to generate a</A>
-<B> Up:</B> <A NAME="tex2html3381"
-  HREF="node65.html">Hints</A>
-<B> Previous:</B> <A NAME="tex2html3377"
-  HREF="node65.html">Hints</A>
- &nbsp; <B>  <A NAME="tex2html3383"
+<B> Next:</B> <A NAME="tex2html3325"
+  HREF="node67.html">How to create the</A>
+<B> Up:</B> <A NAME="tex2html3321"
+  HREF="node64.html">How to generate an</A>
+<B> Previous:</B> <A NAME="tex2html3317"
+  HREF="node65.html">exchange epic100.c with the</A>
+ &nbsp; <B>  <A NAME="tex2html3323"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00656100000000000000">
-Better naming for your files</A>
-</H3>
-You normally will develop your application in the /m23 directory. To make finding your files easier you should name your files like <SPAN  CLASS="textit">BACKUP_startpage.php</SPAN>. Your files should always begin with your selected prefix.
-Now you can find your files with:
-<PRE>
-find /m23/ -name BACKUP*
-</PRE> 
-To make a package with the found files, simply use the following script:
-<PRE>
-for file in `find . -name BACKUP_*`
-do
- files=$files" "$file
-done
-tar cvj -f myPackage.tb2 $files
+<H2><A NAME="SECTION00672000000000000000">
+Making the bootimage</A>
+</H2>
+You should find the epic100.rom file in the <SPAN  CLASS="textbf">src/bin32</SPAN>. With the help of the <SPAN  CLASS="textit">mknbi-rom</SPAN> program you can convert this from file to an Etherboot bootimage. To convert and save the bootimage as new "harddisk boot image" for m23 execute the following command:
+<BR><PRE>
+mknbi-rom epic100.rom &gt; /m23/tftp/hdboot
 </PRE>
-Where you replace <SPAN  CLASS="textit">BACKUP_</SPAN> with your package prefix and <SPAN  CLASS="textit">myPackage</SPAN> with your package name.
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

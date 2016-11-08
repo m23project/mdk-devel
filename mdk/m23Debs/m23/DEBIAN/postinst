@@ -364,21 +364,25 @@ fi
 db_get m23/configureSSH
 if [ "$RET" = "true" ] || [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ]
 then
-	if test -e /root/.ssh/id_dsa.pub
+#	if test -e /root/.ssh/id_dsa.pub
+	if test -e /root/.ssh/id_rsa.pub
 	then
 		nop=x
 	else
-		ssh-keygen -t dsa -N '' -P '' -f /root/.ssh/id_dsa
+#		ssh-keygen -t dsa -N '' -P '' -f /root/.ssh/id_dsa
+		ssh-keygen -t rsa -b 8192 -N '' -P '' -f /root/.ssh/id_rsa
 		ssh-agent sh -c 'ssh-add < /dev/null'
 	fi
 
 	#copy the public key to the m23 directory
-	cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+#	cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+	cp /root/.ssh/id_rsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
 	chown www-data.www-data /m23/data+scripts/packages/baseSys/authorized_keys
 else
 	if [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ]
 	then
-		cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+#		cp /root/.ssh/id_dsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
+		cp /root/.ssh/id_rsa.pub /m23/data+scripts/packages/baseSys/authorized_keys
 		chown www-data.www-data /m23/data+scripts/packages/baseSys/authorized_keys
 	fi
 fi
@@ -495,6 +499,7 @@ acl Safe_ports port 488         # gss-http
 acl Safe_ports port 591         # filemaker
 acl Safe_ports port 777         # multiling http
 acl CONNECT method CONNECT
+acl m23server dstdomain 192.168.1.6
 
 http_access deny !Safe_ports
 http_access deny CONNECT !SSL_ports
@@ -510,8 +515,9 @@ access_log /var/log/squid3/access.log squid
 
 coredump_dir /var/spool/squid3
 
-acl NOCACHE url_regex -i 192.168.1.6
-no_cache deny NOCACHE
+#acl NOCACHE url_regex -i 192.168.1.6
+#no_cache deny NOCACHE
+always_direct allow m23server
 
 visible_hostname m23iso
 
@@ -539,6 +545,7 @@ fi
 	#Adjust the config file
 	sed -i "s#X_CACHESIZE_X#$free#g" $squidConf
 	sed -i "s#acl NOCACHE url_regex -i .*#acl NOCACHE url_regex -i $IPINT#g" $squidConf
+	sed -i "s#acl m23server dstdomain .*#acl m23server dstdomain $IPINT#g" $squidConf
 	sed -i "s#visible_hostname .*#visible_hostname $hname#g" $squidConf
 
 	chown root.root $squidConf
@@ -1009,6 +1016,10 @@ updateSQLIfOlder $oldversionint 131100669 "ALTER TABLE recommendpackages CHANGE 
 
 updateSQLIfOlder $oldversionint 143100752 "ALTER TABLE clients ADD CFDiskTemp LONGBLOB NOT NULL AFTER partitions"
 
+# Add description field to the groups table
+updateSQLIfOlder $oldversionint 162100899 "ALTER TABLE groups ADD description LONGTEXT; ALTER TABLE clients ADD keyValueStore LONGTEXT"
+
+
 
 ######################
 # DB adjustments END #
@@ -1064,10 +1075,12 @@ then
 	chmod 777 -R /m23/data+scripts/extraDebs
 fi
 
-grep "`cat ~/.ssh/id_dsa.pub 2> /dev/null`" ~/.ssh/authorized_keys -c 2> /dev/null
+#grep "`cat ~/.ssh/id_dsa.pub 2> /dev/null`" ~/.ssh/authorized_keys -c 2> /dev/null
+grep "`cat ~/.ssh/id_rsa.pub 2> /dev/null`" ~/.ssh/authorized_keys -c 2> /dev/null
 if [ $? -ne 0 ]
 then
-	cat ~/.ssh/id_dsa.pub 2> /dev/null >> ~/.ssh/authorized_keys
+#	cat ~/.ssh/id_dsa.pub 2> /dev/null >> ~/.ssh/authorized_keys
+	cat ~/.ssh/id_rsa.pub 2> /dev/null >> ~/.ssh/authorized_keys
 fi
 
 

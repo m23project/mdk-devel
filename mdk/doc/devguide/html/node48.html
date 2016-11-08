@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Connecting to the server</TITLE>
-<META NAME="description" CONTENT="Connecting to the server">
+<TITLE>in case of an error</TITLE>
+<META NAME="description" CONTENT="in case of an error">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,7 +19,6 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node49.html">
 <LINK REL="previous" HREF="node47.html">
 <LINK REL="up" HREF="node47.html">
 <LINK REL="next" HREF="node49.html">
@@ -28,74 +27,44 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3166"
+<A NAME="tex2html3103"
   HREF="node49.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3162"
+<A NAME="tex2html3099"
   HREF="node47.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3156"
+<A NAME="tex2html3095"
   HREF="node47.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3164"
+<A NAME="tex2html3101"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3167"
-  HREF="node49.html">Disconnecting from the server</A>
-<B> Up:</B> <A NAME="tex2html3163"
-  HREF="node47.html">Filling main.cpp</A>
-<B> Previous:</B> <A NAME="tex2html3157"
-  HREF="node47.html">Filling main.cpp</A>
- &nbsp; <B>  <A NAME="tex2html3165"
+<B> Next:</B> <A NAME="tex2html3104"
+  HREF="node49.html">system update and installation</A>
+<B> Up:</B> <A NAME="tex2html3100"
+  HREF="node47.html">installing a kernel</A>
+<B> Previous:</B> <A NAME="tex2html3096"
+  HREF="node47.html">installing a kernel</A>
+ &nbsp; <B>  <A NAME="tex2html3102"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H3><A NAME="SECTION00645100000000000000">
-Connecting to the server</A>
+in case of an error</A>
 </H3>
+If you get an error with the <SPAN  CLASS="textit">mkinitrd</SPAN> command try it manualy. Adjust <SPAN  CLASS="textit">/boot/initrd.img-2.4.20-1-386-sec</SPAN> to the filename you entered in the <SPAN  CLASS="textit">lilo.conf</SPAN>. You have to adjust the <SPAN  CLASS="textit">/lib/modules/...</SPAN> and the root device after <SPAN  CLASS="textit">-r</SPAN> also.
 <PRE>
-#include &lt;mysql/mysql.h&gt;
-
-MYSQL connection;
-
-void connect(char *server, char *dbuser, char *passw)
-{
-  if (!mysql_connect(&amp;connection,server,dbuser,passw))
-  {
-      fprintf(stderr, "Failed to connect to database:\
-              Error: %s\n",mysql_error(&amp;connection));
-      exit(2);
-  }
-  mysql_select_db(&amp;connection,"m23");
-};
+mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
 </PRE>
-
-<OL>
-<LI>First of all we have to include the necessary header file: <SPAN  CLASS="textit">#include &lt;mysql/mysql.h&gt;</SPAN>
-</LI>
-<LI>The mysql_connect function requires a <SPAN  CLASS="textbf">MYSQL</SPAN> variable (here called
-<SPAN  CLASS="textit">connection</SPAN>) to store the connection data, a server name or ip, a valid mysql user and proper password. If all works correctly, mysql_connect will return 0, otherwise we get an error, print an error message and quit.
-
-<P>
-</LI>
-<LI>mysql_error will generate a human readable error message.
-
-<P>
-</LI>
-<LI>At least we should choose our database, this is done with mysql_select_db. Now the connection should be established.
-
-<P>
-</LI>
-</OL>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

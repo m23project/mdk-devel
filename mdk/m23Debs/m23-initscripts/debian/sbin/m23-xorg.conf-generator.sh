@@ -532,6 +532,8 @@ configXOrgVMware()
 		apt-get --force-yes -y -q install xserver-xorg-video-vmware
 		waitForFreeLock
 		apt-get --force-yes -y -q install xserver-xorg-input-vmmouse
+		waitForFreeLock
+		apt-get --force-yes -y -q install open-vm-tools
 		configXOrgBasicConfig vmware vmmouse
 	fi
 }

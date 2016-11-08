@@ -2,6 +2,14 @@
 
 . /mdk/bin/forkFunctions.inc
 
+isDevelReturn
+if [ $? -ne 0 ]
+then
+	echo "ERROR: Can only be run, if the development version is active"
+	exit 23
+fi
+
+
 # Create a file with all .hlp and .inc files from /m23/inc/help
 find /m23/inc/help -type f -printf "%f\n" | grep -v "~$" | grep -v bafh.hlp | grep -v customerCenter.hlp | grep -v customerRegistration.hlp | grep -v m23SharedBootingYourClient.hlp | sort -u > /tmp/helpAllFiles
 
@@ -94,8 +102,10 @@ LC_ALL=C; diff -q -r $devel/inc/help/de/ $release/inc/help/de/ | grep -v '~' | g
 do
 	for lang in de en fr
 	do
-		echo -n "changed: "
-		basename $changedInGerman | awk -v dir="/m23/inc/help/$lang" '{print(dir"/"$0)}' | tee -a $logFile
+		echo -n "Changed: "
+		basename $changedInGerman | awk -v dir="$devel/inc/help/$lang" '{print(dir"/"$0)}' | tee -a $logFile
+		echo -n "Old version: "
+		basename $changedInGerman | awk -v dir="$release/inc/help/$lang" '{print(dir"/"$0)}' | tee -a $logFile
 	done
 done
 

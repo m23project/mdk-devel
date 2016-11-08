@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_addToHtpasswd</TITLE>
-<META NAME="description" CONTENT="SERVER_addToHtpasswd">
+<TITLE>SERVER_putFileContents</TITLE>
+<META NAME="description" CONTENT="SERVER_putFileContents">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1101.html">
 <LINK REL="previous" HREF="node1099.html">
-<LINK REL="up" HREF="node1083.html">
+<LINK REL="up" HREF="node1059.html">
 <LINK REL="next" HREF="node1101.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17846"
+<A NAME="tex2html17785"
   HREF="node1101.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17842"
-  HREF="node1083.html">
+<A NAME="tex2html17781"
+  HREF="node1059.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17836"
+<A NAME="tex2html17775"
   HREF="node1099.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17844"
+<A NAME="tex2html17783"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17847"
-  HREF="node1101.html">SERVER_dhcpServerInNetWarn</A>
-<B> Up:</B> <A NAME="tex2html17843"
-  HREF="node1083.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17837"
-  HREF="node1099.html">SERVER_delFromHtpasswd</A>
- &nbsp; <B>  <A NAME="tex2html17845"
+<B> Next:</B> <A NAME="tex2html17786"
+  HREF="node1101.html">SERVER_delLineFromFile</A>
+<B> Up:</B> <A NAME="tex2html17782"
+  HREF="node1059.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17776"
+  HREF="node1099.html">SERVER_getFileContents</A>
+ &nbsp; <B>  <A NAME="tex2html17784"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0083517000000000000000">
-SERVER_addToHtpasswd</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new user with password to a htpasswd file.
+<H2><A NAME="SECTION0093541000000000000000">
+SERVER_putFileContents</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Stores a text to a file and changes it's mode, user and group.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+<LI>fileName: Name of the file to put the text to.
 </LI>
-<LI>: username: Name of the new user to add
+<LI>text: The contents the file should have.
 </LI>
-<LI>: password: The according password for the new user
+<LI>mode: The access mode the file should have.
 </LI>
-</UL>
+<LI>user: The owner of the file.
+</LI>
+<LI>group: The owning group of the file.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>: True if the new user was added sucessfully.
+<LI>true on success and false otherwise.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

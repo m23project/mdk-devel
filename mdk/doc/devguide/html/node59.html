@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>install.sh</TITLE>
-<META NAME="description" CONTENT="install.sh">
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,6 +19,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node60.html">
 <LINK REL="previous" HREF="node58.html">
 <LINK REL="up" HREF="node58.html">
 <LINK REL="next" HREF="node60.html">
@@ -27,52 +28,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3304"
+<A NAME="tex2html3244"
   HREF="node60.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3300"
+<A NAME="tex2html3240"
   HREF="node58.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3296"
+<A NAME="tex2html3234"
   HREF="node58.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3302"
+<A NAME="tex2html3242"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3305"
-  HREF="node60.html">Deinstallation</A>
-<B> Up:</B> <A NAME="tex2html3301"
-  HREF="node58.html">Installation</A>
-<B> Previous:</B> <A NAME="tex2html3297"
-  HREF="node58.html">Installation</A>
- &nbsp; <B>  <A NAME="tex2html3303"
+<B> Next:</B> <A NAME="tex2html3245"
+  HREF="node60.html">creating a new bootimage</A>
+<B> Up:</B> <A NAME="tex2html3241"
+  HREF="node58.html">How to make network</A>
+<B> Previous:</B> <A NAME="tex2html3235"
+  HREF="node58.html">How to make network</A>
+ &nbsp; <B>  <A NAME="tex2html3243"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00653100000000000000">
-install.sh</A>
-</H3>
-If you want to do some additional installation e.g. install an extra <SPAN  CLASS="textit">deb package</SPAN> on the server machine, this is the right place. In this file you can do whatever you want, but you shouldn't do something that will eventually crash the server.
+<H2><A NAME="SECTION00661000000000000000">
+Introduction</A>
+</H2>
+What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
 <BR>
-During installation your plugin package will be extracted and afterwards install.sh will be executed. When execution is done, install.sh will be deleted.
+A client runs for first start up thru the following sequence:
 <BR>
-<BR>
-Your install.sh may look like:
-<BR><TT>
-#!/bin/bash 
-<BR>
-apt-get update
-<BR>
-apt-get install desiredPackage</TT>
-
-<P>
+<UL>
+<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
+</LI>
+<LI>fetch the bootimage from the server with TFTP protocoll
+</LI>
+<LI>load and extract the image to the client memory
+</LI>
+<LI>start the contained kernel
+</LI>
+<LI>kernel loades the included initrd
+</LI>
+<LI>start up script fetches IP, netmask, etc. from the server again
+</LI>
+<LI>the script fetches the first job for the client and saves the job script file
+</LI>
+<LI>the script is executed and the next job will be fetched from the server
+</LI>
+</UL> 
+This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>

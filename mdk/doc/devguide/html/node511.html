@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listDrivesAndPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
+<TITLE>FDISK_getDriveInfoIcon</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveInfoIcon">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node512.html">
 <LINK REL="previous" HREF="node510.html">
-<LINK REL="up" HREF="node480.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10289"
+<A NAME="tex2html10216"
   HREF="node512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10285"
-  HREF="node480.html">
+<A NAME="tex2html10212"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10279"
+<A NAME="tex2html10206"
   HREF="node510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10287"
+<A NAME="tex2html10214"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10290"
-  HREF="node512.html">FDISK_selectDrives</A>
-<B> Up:</B> <A NAME="tex2html10286"
-  HREF="node480.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10280"
-  HREF="node510.html">FDISK_getDrivesAndPartitions</A>
- &nbsp; <B>  <A NAME="tex2html10288"
+<B> Next:</B> <A NAME="tex2html10217"
+  HREF="node512.html">FDISK_getPartInfoIcon</A>
+<B> Up:</B> <A NAME="tex2html10213"
+  HREF="node444.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10207"
+  HREF="node510.html">FDISK_getDriveInfoString</A>
+ &nbsp; <B>  <A NAME="tex2html10215"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0081631000000000000000">
-FDISK_listDrivesAndPartitions</A>
-</H2>
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
+<H2><A NAME="SECTION0091667000000000000000">
+FDISK_getDriveInfoIcon</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-
+</SMALL></SMALL>
 <UL>
+<LI>vDev: Virtual (internally used) device number.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>default: the drive to show first
+<LI>fstabA: Associative array with fstab information.
 </LI>
-<LI>selName: the name the selection is called in PHP and HTML
-</LI>
-<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
-</LI>
-</UL>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
-
+</SMALL></SMALL>
 <UL>
-<LI>String with the HTML selection.
+<LI>HTML code for showing an icon with status information about the drive.
 </LI>
-</UL>
-
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2015-09-06
+2016-10-17
 </ADDRESS>
 </BODY>
 </HTML>
