@@ -16,7 +16,7 @@ if ($argc > 1)
 else
 {
 	//names of sourceslists that should get exported
-	$allowedNames = array("imaging", "Linux Mint 9 KDE", "HS-Fedora14", "HS-opensuse11.4", "squeeze", "squeeze+libreoffice", "HS-centos62", "precise", "precise+Xorg-updates", "Linux Mint 13 Maya", "wheezy", "trusty", "Linux Mint 17 Qiana", "elementary os", "jessie", "Linux Mint 17.1 Rebecca", "Linux Mint 17.2 Rafaela", "Linux Mint 17.3 Rosa", "Ubuntu-Xenial");
+	$allowedNames = array("imaging", "Linux Mint 9 KDE", "HS-Fedora14", "HS-opensuse11.4", "squeeze", "squeeze+libreoffice", "HS-centos62", "precise", "precise+Xorg-updates", "Linux Mint 13 Maya", "wheezy", "trusty", "Linux Mint 17 Qiana", "elementary os", "jessie", "Linux Mint 17.1 Rebecca", "Linux Mint 17.2 Rafaela", "Linux Mint 17.3 Rosa", "Ubuntu-Xenial", "LinuxMint 18 Sarah");
 }
 
 $exportSql = $fieldSql = "";
