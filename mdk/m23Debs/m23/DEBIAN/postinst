@@ -1102,4 +1102,10 @@ fi
 # Needed on Debian 8
 /etc/init.d/mysql restart
 
+postinstHook='/m23/bin/postinstHook.sh'
+if [ -f $postinstHook ]
+then
+	bash $postinstHook
+fi
+
 db_stop

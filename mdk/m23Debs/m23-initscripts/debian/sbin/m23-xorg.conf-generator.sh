@@ -504,6 +504,12 @@ then
 	cat /tmp/dpkg.cfg > /etc/dpkg/dpkg.cfg
 	rm /tmp/dpkg.cfg
 
+	#Disable writing of xorg.conf on LinuxMint 18, because X will report "no screens found"
+	if [ $(grep xenial -c /etc/apt/sources.list) -gt 0 ] && [ $(lsb_release -i -s) = 'LinuxMint' ]
+	then
+		exit 0
+	fi
+
 	if [ -e /usr/lib/dri/vboxvideo_dri.so ] || [ -e /usr/lib/xorg/modules/drivers/vboxvideo_drv.so ]
 	then
 		echo "VirtualBox addons were installed => X11 is now optimised for VirtualBox" | tee -a /var/log/m23-VBox-Addon-Install.log

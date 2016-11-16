@@ -611,7 +611,7 @@ deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 
 localArchAptUpdate
 
-localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup dhcp3-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk module-init-tools dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk
+localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk module-init-tools dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk
 
 #hwdata-knoppix ddcxinfo-knoppix hwsetup m23hwscanner  #directly extracted from the MDK deb directory
 # Not in Wheezy: ms-sys libntfs-3g31 
