@@ -280,7 +280,10 @@ createRFSBins()
 	createRFScopyLib libtasn1.so.3
 	createRFScopyLib libncurses.so.5
 	createRFScopyLib libp11-kit.so.0
-	createRFScopyLib libnsl.so.1		#for dropbear
+	createRFScopyLib libnsl.so.1				# for dropbear
+	createRFScopyLib libdevmapper.so.1.02.1 	# for parted
+	createRFScopyLib libudev.so.1				# for parted
+	createRFScopyLib libx86emu.so.1				# for hwinfo
 	echo "done"
 }
 

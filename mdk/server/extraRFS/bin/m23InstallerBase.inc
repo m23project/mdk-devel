@@ -564,11 +564,12 @@ normalPartition()
 	showDialog "$I18N_windowheader" "$I18N_formatinghdtext" infobox 12 70 "$I18N_creatingbootpartition"
 	parted -s /dev/$installdrive mkpart primary 2 $rootsize > /dev/null
 	modprobe ext4
-	mkfs.ext4 /dev/$installdrive"1" > /dev/null
+	mkfs.ext4 -F /dev/$installdrive"1" > /dev/null
 
 	#create the swap partition
 	showDialog "$I18N_windowheader" "$I18N_formatinghdtext" infobox 12 70 "$I18N_creatingswappartition"
-	parted -s /dev/$installdrive mkpartfs primary linux-swap $swapbegin $hdsize > /dev/null
+	parted -s /dev/$installdrive mkpart primary linux-swap $swapbegin $hdsize > /dev/null
+	mkswap /dev/$installdrive"2" > /dev/null
 
 	showDialog "$I18N_windowheader" "$I18N_formatinghdtext" infobox 12 70 "$I18N_normalformatfinishedtext"
 
