@@ -70,3 +70,10 @@ The script "m23customPatch" does the actual patching. The only command line para
 	\item 3: Source code file does not exist
 	\item 4: The unique ID could not be found
 \end{itemize}
+
+
+
+
+
+\section{Applying patches on m23 update}
+After an update of the m23 software, the patches need to be re-applied again. To automatise this step, you can place a BASH script with the needed calls to m23cutomPatch under /m23/bin/postinstHook.sh. This script will be called when the m23 package is configured. This happens during installation or during update.

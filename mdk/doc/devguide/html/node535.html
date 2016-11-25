@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_genPartedCommands</TITLE>
-<META NAME="description" CONTENT="FDISK_genPartedCommands">
+<TITLE>FDISK_dev2LDevLPart</TITLE>
+<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node536.html">
 <LINK REL="previous" HREF="node534.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node536.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10504"
+<A NAME="tex2html10511"
   HREF="node536.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10500"
-  HREF="node444.html">
+<A NAME="tex2html10507"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10494"
+<A NAME="tex2html10501"
   HREF="node534.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10502"
+<A NAME="tex2html10509"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10505"
-  HREF="node536.html">FDISK_listPartJobs</A>
-<B> Up:</B> <A NAME="tex2html10501"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10495"
-  HREF="node534.html">FDISK_rereadPartTable</A>
- &nbsp; <B>  <A NAME="tex2html10503"
+<B> Next:</B> <A NAME="tex2html10512"
+  HREF="node536.html">FDISK_rereadPartTable</A>
+<B> Up:</B> <A NAME="tex2html10508"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10502"
+  HREF="node534.html">FDISK_defineDrive</A>
+ &nbsp; <B>  <A NAME="tex2html10510"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091691000000000000000">
-FDISK_genPartedCommands</A>
+<H2><A NAME="SECTION0091689000000000000000">
+FDISK_dev2LDevLPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the partition and formation commands that are generated from partJobs.
+<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>partJobs: string with information about all created partition jobs
+<LI>param: the associative array containing all values describing the drives of the client
 </LI>
-<LI>mkfsextOptions: Extra parameter for mkfs.extX .
+<LI>dev: the device (e.g. /dev/hda2)
+</LI>
+<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
+</LI>
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the search worked otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +80,7 @@ FDISK_genPartedCommands</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

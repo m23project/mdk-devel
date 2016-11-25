@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>sendClientLogStatus</TITLE>
-<META NAME="description" CONTENT="sendClientLogStatus">
+<TITLE>returnClientStageStatus</TITLE>
+<META NAME="description" CONTENT="returnClientStageStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node374.html">
 <LINK REL="previous" HREF="node372.html">
-<LINK REL="up" HREF="node353.html">
+<LINK REL="up" HREF="node354.html">
 <LINK REL="next" HREF="node374.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8408"
+<A NAME="tex2html8414"
   HREF="node374.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8404"
-  HREF="node353.html">
+<A NAME="tex2html8410"
+  HREF="node354.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8398"
+<A NAME="tex2html8404"
   HREF="node372.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8406"
+<A NAME="tex2html8412"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8409"
-  HREF="node374.html">deleteClientLogs</A>
-<B> Up:</B> <A NAME="tex2html8405"
-  HREF="node353.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html8399"
-  HREF="node372.html">returnClientStageStatus</A>
- &nbsp; <B>  <A NAME="tex2html8407"
+<B> Next:</B> <A NAME="tex2html8415"
+  HREF="node374.html">sendClientLogStatus</A>
+<B> Up:</B> <A NAME="tex2html8411"
+  HREF="node354.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html8405"
+  HREF="node372.html">sendClientStageStatus</A>
+ &nbsp; <B>  <A NAME="tex2html8413"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091220000000000000000">
-sendClientLogStatus</A>
+<H2><A NAME="SECTION0091219000000000000000">
+returnClientStageStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send log status to the server
+<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send a stage status to the server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>status: how the line should be named, that is logged to the server
-</LI>
-<LI>ok: true: operation sucessful, false: failure
-</LI>
-<LI>critical: if it is set to "true" the execution of the script is stopped and a local rescue console is opened
+<LI>status: 0: client waiting for hardware detection, 1 hardware detection done, 2 partitionated and formated, base system is installed
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +68,7 @@ sendClientLogStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

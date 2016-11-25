@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_checkRunInVM</TITLE>
-<META NAME="description" CONTENT="SERVER_checkRunInVM">
+<TITLE>SERVER_checkDownload</TITLE>
+<META NAME="description" CONTENT="SERVER_checkDownload">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1109.html">
 <LINK REL="previous" HREF="node1107.html">
-<LINK REL="up" HREF="node1059.html">
+<LINK REL="up" HREF="node1061.html">
 <LINK REL="next" HREF="node1109.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17881"
+<A NAME="tex2html17888"
   HREF="node1109.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17877"
-  HREF="node1059.html">
+<A NAME="tex2html17884"
+  HREF="node1061.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17871"
+<A NAME="tex2html17878"
   HREF="node1107.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17879"
+<A NAME="tex2html17886"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17882"
-  HREF="node1109.html">SERVER_checkKernel</A>
-<B> Up:</B> <A NAME="tex2html17878"
-  HREF="node1059.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17872"
-  HREF="node1107.html">SERVER_checkDiskFree</A>
- &nbsp; <B>  <A NAME="tex2html17880"
+<B> Next:</B> <A NAME="tex2html17889"
+  HREF="node1109.html">SERVER_checkDiskFree</A>
+<B> Up:</B> <A NAME="tex2html17885"
+  HREF="node1061.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17879"
+  HREF="node1107.html">SERVER_getOS</A>
+ &nbsp; <B>  <A NAME="tex2html17887"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093549000000000000000">
-SERVER_checkRunInVM</A>
+<H2><A NAME="SECTION0093547000000000000000">
+SERVER_checkDownload</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the m23 server is executed in a virtual machine or on native hardware.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads a special file from m23.sf.net and checks if the size and md5 sum are matching.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: VMWare, VirtualBox or native.
+<LI>: useProxy: Set to true if the local proxy should be used.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Status information if file size and md5 sum are matching.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ SERVER_checkRunInVM</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

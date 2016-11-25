@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_adjustFdiskParams</TITLE>
-<META NAME="description" CONTENT="FDISK_adjustFdiskParams">
+<TITLE>FDISK_AFPlinearScale</TITLE>
+<META NAME="description" CONTENT="FDISK_AFPlinearScale">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node544.html">
 <LINK REL="previous" HREF="node542.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node544.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10600"
+<A NAME="tex2html10607"
   HREF="node544.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10596"
-  HREF="node444.html">
+<A NAME="tex2html10603"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10590"
+<A NAME="tex2html10597"
   HREF="node542.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10598"
+<A NAME="tex2html10605"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10601"
-  HREF="node544.html">FDISK_virtualAddDrive</A>
-<B> Up:</B> <A NAME="tex2html10597"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10591"
-  HREF="node542.html">FDISK_AFPgetPartSizes</A>
- &nbsp; <B>  <A NAME="tex2html10599"
+<B> Next:</B> <A NAME="tex2html10608"
+  HREF="node544.html">FDISK_AFPgetPartSizes</A>
+<B> Up:</B> <A NAME="tex2html10604"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10598"
+  HREF="node542.html">FDISK_AFPselectDrive</A>
+ &nbsp; <B>  <A NAME="tex2html10606"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091699000000000000000">
-FDISK_adjustFdiskParams</A>
+<H2><A NAME="SECTION0091697000000000000000">
+FDISK_AFPlinearScale</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> adjusts the installation and swap drive for a derived client, based on the defined client settings
+<SPAN  CLASS="textbf">Description:</SPAN> scales all partitions sizes to match the full disk size.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>path: the path to the device (e.g. /dev/hde)
+<LI>driveToUse: device to use (e.g. /dev/hda)
+</LI>
+<LI>driveToUseSize: Size of the real drive to use.
+</LI>
+<LI>options: options array of the client
+</LI>
+<LI>command: array that stores the modificated format parameters
+</LI>
+<LI>formatarr: array that contains the original format parameters
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ FDISK_adjustFdiskParams</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

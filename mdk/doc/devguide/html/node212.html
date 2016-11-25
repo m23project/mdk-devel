@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::setClientName</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::setClientName">
+<TITLE>FDISK_deleteDriveFromParam</TITLE>
+<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node213.html">
 <LINK REL="previous" HREF="node211.html">
-<LINK REL="up" HREF="node192.html">
+<LINK REL="up" HREF="node193.html">
 <LINK REL="next" HREF="node213.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6316"
+<A NAME="tex2html6322"
   HREF="node213.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6312"
-  HREF="node192.html">
+<A NAME="tex2html6318"
+  HREF="node193.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6306"
+<A NAME="tex2html6312"
   HREF="node211.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6314"
+<A NAME="tex2html6320"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6317"
-  HREF="node213.html">CFDiskIO::getClientName</A>
-<B> Up:</B> <A NAME="tex2html6313"
-  HREF="node192.html">./inc/CFDiskAlles.php</A>
-<B> Previous:</B> <A NAME="tex2html6307"
-  HREF="node211.html">FDISK_deleteDriveFromParam</A>
- &nbsp; <B>  <A NAME="tex2html6315"
+<B> Next:</B> <A NAME="tex2html6323"
+  HREF="node213.html">CFDiskIO::setClientName</A>
+<B> Up:</B> <A NAME="tex2html6319"
+  HREF="node193.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6313"
+  HREF="node211.html">FDISK_getDrivePartitionSize</A>
+ &nbsp; <B>  <A NAME="tex2html6321"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009720000000000000000">
-CFDiskIO::setClientName</A>
+<H2><A NAME="SECTION009719000000000000000">
+FDISK_deleteDriveFromParam</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the client name, if given via constructor.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: String to check, if it is a valid client name.
+<LI>vDev: Virtual (internally used) device number of the drive to delete.
+</LI>
+<LI>param: parameter string containing status informations about the harddisks.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: true, if it is a valid client name, otherwise false.
+<LI>Changed param without the drive.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CFDiskIO::setClientName</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

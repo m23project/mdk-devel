@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_writeToFile</TITLE>
-<META NAME="description" CONTENT="EDIT_writeToFile">
+<TITLE>EDIT_sedSearchAddInsert</TITLE>
+<META NAME="description" CONTENT="EDIT_sedSearchAddInsert">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node422.html">
 <LINK REL="previous" HREF="node420.html">
-<LINK REL="up" HREF="node419.html">
+<LINK REL="up" HREF="node420.html">
 <LINK REL="next" HREF="node422.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9029"
+<A NAME="tex2html9036"
   HREF="node422.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9025"
-  HREF="node419.html">
+<A NAME="tex2html9032"
+  HREF="node420.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9019"
+<A NAME="tex2html9026"
   HREF="node420.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9027"
+<A NAME="tex2html9034"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9030"
-  HREF="node422.html">EDIT_setOption</A>
-<B> Up:</B> <A NAME="tex2html9026"
-  HREF="node419.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9020"
-  HREF="node420.html">EDIT_sedSearchAddInsert</A>
- &nbsp; <B>  <A NAME="tex2html9028"
+<B> Next:</B> <A NAME="tex2html9037"
+  HREF="node422.html">EDIT_writeToFile</A>
+<B> Up:</B> <A NAME="tex2html9033"
+  HREF="node420.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9027"
+  HREF="node420.html">./inc/edit.php</A>
+ &nbsp; <B>  <A NAME="tex2html9035"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009152000000000000000">
-EDIT_writeToFile</A>
+<H2><A NAME="SECTION009151000000000000000">
+EDIT_sedSearchAddInsert</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Writes a text to a file on a client.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a sed command line to insert text before (SED_insertBefore) or after (SED_insertAfter) a searched line.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: Name of the file.
+<LI>file: Name of the file to edit.
+</LI>
+<LI>search: Search pattern to find the line for inserting before or after.
 </LI>
 <LI>text: The text to insert.
+</LI>
+<LI>insertBeforeOrAfter: Parameter to select, if the new text should inserted before (SED_insertBefore) or after (SED_insertAfter) the found line
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Code for writing a text to a file on a client.
+<LI>sed code for inserting text before (SED_insertBefore) or after (SED_insertAfter) a searched line.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +80,7 @@ EDIT_writeToFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

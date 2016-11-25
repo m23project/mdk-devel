@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_autoPart</TITLE>
-<META NAME="description" CONTENT="FDISK_autoPart">
+<TITLE>FDISK_countPartitions</TITLE>
+<META NAME="description" CONTENT="FDISK_countPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node530.html">
 <LINK REL="previous" HREF="node528.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node530.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10432"
+<A NAME="tex2html10439"
   HREF="node530.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10428"
-  HREF="node444.html">
+<A NAME="tex2html10435"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10422"
+<A NAME="tex2html10429"
   HREF="node528.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10430"
+<A NAME="tex2html10437"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10433"
-  HREF="node530.html">FDISK_printColorDefinitions</A>
-<B> Up:</B> <A NAME="tex2html10429"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10423"
-  HREF="node528.html">FDISK_getFreeSpaces</A>
- &nbsp; <B>  <A NAME="tex2html10431"
+<B> Next:</B> <A NAME="tex2html10440"
+  HREF="node530.html">FDISK_getFreeSpaces</A>
+<B> Up:</B> <A NAME="tex2html10436"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10430"
+  HREF="node528.html">FDISK_formatJob</A>
+ &nbsp; <B>  <A NAME="tex2html10438"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091685000000000000000">
-FDISK_autoPart</A>
+<H2><A NAME="SECTION0091683000000000000000">
+FDISK_countPartitions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generation of param string and command list for automatic partition
+<SPAN  CLASS="textbf">Description:</SPAN> count all partitions of a selected type
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
-</LI>
-<LI>command: parted commands are written to $command
-</LI>
-<LI>dev: selected device (e.g. /dev/hda)
-</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>instPart: the variable the installation device name is written to
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>swapPart: the variable the swap device name is written to
-</LI>
-<LI>minSwap: Minimal size of the swap partition in MB.
-</LI>
-<LI>maxSwap: Maximal size of the swap partition in MB.
+<LI>type: type of the partition (primary, extended, logical)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +72,7 @@ FDISK_autoPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

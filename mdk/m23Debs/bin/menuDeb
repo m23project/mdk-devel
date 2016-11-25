@@ -13,6 +13,39 @@ fi
 . /tmp/menuVars
 . /mdk/bin/forkFunctions.inc
 
+
+
+
+
+# Stops Squid (3)
+squidStop()
+{
+	if [ -f /etc/init.d/squid3 ]
+	then
+		/etc/init.d/squid3 stop
+	else
+		/etc/init.d/squid stop
+	fi
+}
+
+
+
+
+# Starts Squid (3)
+squidStart()
+{
+	if [ -f /etc/init.d/squid3 ]
+	then
+		/etc/init.d/squid3 start
+	else
+		/etc/init.d/squid start
+	fi
+}
+
+
+
+
+
 #deletes package doubles and recreate the package index
 deleteDoublesmakeIndexAndReturn()
 {
@@ -257,7 +290,9 @@ fi
 
 if test $choice == "squidcl"
 then
+	squidStop
 	grep -l -r Packages /var/spool/squid/ | xargs rm
+	squidStart
 	/mdk/m23Debs/bin/menuDeb
 fi
 
@@ -267,20 +302,9 @@ fi
 
 if test $choice == "emptysquid"
 then
-	if [ -f /etc/init.d/squid3 ]
-	then
-		/etc/init.d/squid3 stop
-	else
-		/etc/init.d/squid stop
-	fi
-	
+	squidStop
 	rm /var/spool/squid/* -r
 	squid -z
-	if [ -f /etc/init.d/squid3 ]
-	then
-		/etc/init.d/squid3 start
-	else
-		/etc/init.d/squid start
-	fi
+	squidStart
 	/mdk/m23Debs/bin/menuDeb
 fi

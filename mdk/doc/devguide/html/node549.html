@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_addRaidJobs</TITLE>
-<META NAME="description" CONTENT="FDISK_addRaidJobs">
+<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
+<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node550.html">
 <LINK REL="previous" HREF="node548.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node550.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10672"
+<A NAME="tex2html10679"
   HREF="node550.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10668"
-  HREF="node444.html">
+<A NAME="tex2html10675"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10662"
+<A NAME="tex2html10669"
   HREF="node548.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10670"
+<A NAME="tex2html10677"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10673"
-  HREF="node550.html">FDISK_addRaidBeforeFormat</A>
-<B> Up:</B> <A NAME="tex2html10669"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10663"
-  HREF="node548.html">FDISK_buildRaidDialog</A>
- &nbsp; <B>  <A NAME="tex2html10671"
+<B> Next:</B> <A NAME="tex2html10680"
+  HREF="node550.html">FDISK_buildRaidDialog</A>
+<B> Up:</B> <A NAME="tex2html10676"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10670"
+  HREF="node548.html">FDISK_listRaidTable</A>
+ &nbsp; <B>  <A NAME="tex2html10678"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00916105000000000000000">
-FDISK_addRaidJobs</A>
+<H2><A NAME="SECTION00916103000000000000000">
+FDISK_addDrivePartitionToRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates jobs to create all RAIDs
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>partJobs: associative array with partition jobs
+<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
+</LI>
+<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
+</LI>
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
 </LI>
 <LI>param: parameter string containing status information about the harddisks
+</LI>
+<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +82,7 @@ FDISK_addRaidJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

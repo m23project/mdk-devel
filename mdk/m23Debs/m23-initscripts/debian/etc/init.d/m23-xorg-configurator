@@ -15,12 +15,17 @@
 # (C) Hauke Goos-Habermann <hhabermann@pc-kiel.de>
 
 
+# If the file is present, the furter configuration is disabled
+if [ -f /etc/sysconfig/disableConfig ]
+then
+	exit 0
+fi
+
 #Disable configuration on Ubuntu 12.04 LTS completely, because the X session will crash, when Return is pressed on auto login
 if [ $(grep -c 'Ubuntu 12.04' /etc/issue) -gt 0 ] && [ $(grep 'packages.linuxmint.com' /etc/apt/sources.list | grep -c maya) -eq 0 ]
 then
 	exit 0
 fi
-
 
 if [ $# -gt 0 ] && [ $1 = "stop" ]
 then

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_uploadFile</TITLE>
-<META NAME="description" CONTENT="HTML_uploadFile">
+<TITLE>./inc/html.php</TITLE>
+<META NAME="description" CONTENT="./inc/html.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,180 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node648.html">
-<LINK REL="previous" HREF="node646.html">
-<LINK REL="up" HREF="node645.html">
+<LINK REL="next" HREF="node708.html">
+<LINK REL="previous" HREF="node642.html">
+<LINK REL="up" HREF="node101.html">
 <LINK REL="next" HREF="node648.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11988"
+<A NAME="tex2html11935"
   HREF="node648.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11984"
-  HREF="node645.html">
+<A NAME="tex2html11931"
+  HREF="node101.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11978"
+<A NAME="tex2html11925"
   HREF="node646.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11986"
+<A NAME="tex2html11933"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11989"
-  HREF="node648.html">HTML_urlButton</A>
-<B> Up:</B> <A NAME="tex2html11985"
-  HREF="node645.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html11979"
-  HREF="node646.html">HTML_imgSwitch</A>
- &nbsp; <B>  <A NAME="tex2html11987"
+<B> Next:</B> <A NAME="tex2html11936"
+  HREF="node648.html">HTML_imgSwitch</A>
+<B> Up:</B> <A NAME="tex2html11932"
+  HREF="node101.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11926"
+  HREF="node646.html">HELP_showHelpTex</A>
+ &nbsp; <B>  <A NAME="tex2html11934"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009202000000000000000">
-HTML_uploadFile</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for uploading image files.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>htmlName: Name of the HTML element
-</LI>
-<LI>label: The visual naming of the HTML element.
-</LI>
-<LI>maxFileSize: The maximum allowed filesize in bytes.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The full path to the uploaded file or false in case of an error.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009200000000000000000">
+./inc/html.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions for generating often used HTML code
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11937"
+  HREF="node648.html">HTML_imgSwitch</A>
+<LI><A NAME="tex2html11938"
+  HREF="node649.html">HTML_uploadFile</A>
+<LI><A NAME="tex2html11939"
+  HREF="node650.html">HTML_urlButton</A>
+<LI><A NAME="tex2html11940"
+  HREF="node651.html">HTML_sourceViewer</A>
+<LI><A NAME="tex2html11941"
+  HREF="node652.html">HTML_getOutputBuffer</A>
+<LI><A NAME="tex2html11942"
+  HREF="node653.html">HTML_setOutputBuffer</A>
+<LI><A NAME="tex2html11943"
+  HREF="node654.html">HTML_AJAXAutoSubmit</A>
+<LI><A NAME="tex2html11944"
+  HREF="node655.html">HTML_liveSpan</A>
+<LI><A NAME="tex2html11945"
+  HREF="node656.html">HTML_manipulateOutputBuffer</A>
+<LI><A NAME="tex2html11946"
+  HREF="node657.html">HTML_showTitle</A>
+<LI><A NAME="tex2html11947"
+  HREF="node658.html">HTML_showSmallTitle</A>
+<LI><A NAME="tex2html11948"
+  HREF="node659.html">HTML_hiddenVar</A>
+<LI><A NAME="tex2html11949"
+  HREF="node660.html">HTML_liveLogArea</A>
+<LI><A NAME="tex2html11950"
+  HREF="node661.html">HTML_checkboxChangerButtons</A>
+<LI><A NAME="tex2html11951"
+  HREF="node662.html">HTML_jsCheckboxChanger</A>
+<LI><A NAME="tex2html11952"
+  HREF="node663.html">HTML_logArea</A>
+<LI><A NAME="tex2html11953"
+  HREF="node664.html">HTML_getQuestionnaireURL</A>
+<LI><A NAME="tex2html11954"
+  HREF="node665.html">HTML_questionnaire</A>
+<LI><A NAME="tex2html11955"
+  HREF="node666.html">HTML_esel</A>
+<LI><A NAME="tex2html11956"
+  HREF="node667.html">HTML_JSMenuCloseAllEntries</A>
+<LI><A NAME="tex2html11957"
+  HREF="node668.html">HTML_JSMenuOpener</A>
+<LI><A NAME="tex2html11958"
+  HREF="node669.html">HTML_jQueryMenu</A>
+<LI><A NAME="tex2html11959"
+  HREF="node670.html">HTML_jQueryMenuHeader</A>
+<LI><A NAME="tex2html11960"
+  HREF="node671.html">HTML_jQueryReStoreYWindowPosition</A>
+<LI><A NAME="tex2html11961"
+  HREF="node672.html">HTML_jQueryMenuEnd</A>
+<LI><A NAME="tex2html11962"
+  HREF="node673.html">HTML_incStatusBarPercentByName</A>
+<LI><A NAME="tex2html11963"
+  HREF="node674.html">HTML_setStatusBarPercentPointByName</A>
+<LI><A NAME="tex2html11964"
+  HREF="node675.html">HTML_setStatusBarStatusByName</A>
+<LI><A NAME="tex2html11965"
+  HREF="node676.html">HTML_setStatusBarStatusByID</A>
+<LI><A NAME="tex2html11966"
+  HREF="node677.html">HTML_setStatusBarStatus</A>
+<LI><A NAME="tex2html11967"
+  HREF="node678.html">HTML_getStatusBarID</A>
+<LI><A NAME="tex2html11968"
+  HREF="node679.html">HTML_newStatusBar</A>
+<LI><A NAME="tex2html11969"
+  HREF="node680.html">HTML_showStatusBar</A>
+<LI><A NAME="tex2html11970"
+  HREF="node681.html">HTML_showStatusBarHTML</A>
+<LI><A NAME="tex2html11971"
+  HREF="node682.html">HTML_multiCheckBox</A>
+<LI><A NAME="tex2html11972"
+  HREF="node683.html">HTML_multiCheckBoxShow</A>
+<LI><A NAME="tex2html11973"
+  HREF="node684.html">HTML_setPage</A>
+<LI><A NAME="tex2html11974"
+  HREF="node685.html">HTML_storableInput</A>
+<LI><A NAME="tex2html11975"
+  HREF="node686.html">HTML_storableSelection</A>
+<LI><A NAME="tex2html11976"
+  HREF="node687.html">HTML_storableCheckBox</A>
+<LI><A NAME="tex2html11977"
+  HREF="node688.html">HTML_getElementValue</A>
+<LI><A NAME="tex2html11978"
+  HREF="node689.html">HTML_listSelection</A>
+<LI><A NAME="tex2html11979"
+  HREF="node690.html">HTML_showTableHeader</A>
+<LI><A NAME="tex2html11980"
+  HREF="node691.html">HTML_showTableEnd</A>
+<LI><A NAME="tex2html11981"
+  HREF="node692.html">HTML_showFormHeader</A>
+<LI><A NAME="tex2html11982"
+  HREF="node693.html">HTML_showFormEnd</A>
+<LI><A NAME="tex2html11983"
+  HREF="node694.html">HTML_submit</A>
+<LI><A NAME="tex2html11984"
+  HREF="node695.html">HTML_submitImg</A>
+<LI><A NAME="tex2html11985"
+  HREF="node696.html">HTML_input</A>
+<LI><A NAME="tex2html11986"
+  HREF="node697.html">array_makeFirst</A>
+<LI><A NAME="tex2html11987"
+  HREF="node698.html">HTML_getValidSelected</A>
+<LI><A NAME="tex2html11988"
+  HREF="node699.html">HTML_selection</A>
+<LI><A NAME="tex2html11989"
+  HREF="node700.html">HTML_checkBox</A>
+<LI><A NAME="tex2html11990"
+  HREF="node701.html">HTML_checkBoxCheckAll</A>
+<LI><A NAME="tex2html11991"
+  HREF="node702.html">HTML_submitDefine</A>
+<LI><A NAME="tex2html11992"
+  HREF="node703.html">HTML_submitCheck</A>
+<LI><A NAME="tex2html11993"
+  HREF="node704.html">HTML_showTableRow</A>
+<LI><A NAME="tex2html11994"
+  HREF="node705.html">HTML_showTableHeading</A>
+<LI><A NAME="tex2html11995"
+  HREF="node706.html">HTML_textArea</A>
+<LI><A NAME="tex2html11996"
+  HREF="node707.html">HTML_showPagePrintButton</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

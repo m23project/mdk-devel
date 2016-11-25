@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDrivePartitionSize</TITLE>
-<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
+<TITLE>FDISK_getDiskType</TITLE>
+<META NAME="description" CONTENT="FDISK_getDiskType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node211.html">
 <LINK REL="previous" HREF="node209.html">
-<LINK REL="up" HREF="node192.html">
+<LINK REL="up" HREF="node193.html">
 <LINK REL="next" HREF="node211.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6292"
+<A NAME="tex2html6298"
   HREF="node211.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6288"
-  HREF="node192.html">
+<A NAME="tex2html6294"
+  HREF="node193.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6282"
+<A NAME="tex2html6288"
   HREF="node209.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6290"
+<A NAME="tex2html6296"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6293"
-  HREF="node211.html">FDISK_deleteDriveFromParam</A>
-<B> Up:</B> <A NAME="tex2html6289"
-  HREF="node192.html">./inc/CFDiskAlles.php</A>
-<B> Previous:</B> <A NAME="tex2html6283"
-  HREF="node209.html">FDISK_getDiskType</A>
- &nbsp; <B>  <A NAME="tex2html6291"
+<B> Next:</B> <A NAME="tex2html6299"
+  HREF="node211.html">FDISK_getDrivePartitionSize</A>
+<B> Up:</B> <A NAME="tex2html6295"
+  HREF="node193.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6289"
+  HREF="node209.html">FDISK_defineDrive</A>
+ &nbsp; <B>  <A NAME="tex2html6297"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009718000000000000000">
-FDISK_getDrivePartitionSize</A>
+<H2><A NAME="SECTION009717000000000000000">
+FDISK_getDiskType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (CFDiskBasic::DISK_TYPE_IDE, CFDiskBasic::DISK_TYPE_SCSI)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
-</LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Size of the drive or partition in MB.
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +68,7 @@ FDISK_getDrivePartitionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

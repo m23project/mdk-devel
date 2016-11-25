@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_closeDBFile</TITLE>
-<META NAME="description" CONTENT="MASS_closeDBFile">
+<TITLE>MASS_readDBFile</TITLE>
+<META NAME="description" CONTENT="MASS_readDBFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node841.html">
 <LINK REL="previous" HREF="node839.html">
-<LINK REL="up" HREF="node827.html">
+<LINK REL="up" HREF="node829.html">
 <LINK REL="next" HREF="node841.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14437"
+<A NAME="tex2html14444"
   HREF="node841.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14433"
-  HREF="node827.html">
+<A NAME="tex2html14440"
+  HREF="node829.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14427"
+<A NAME="tex2html14434"
   HREF="node839.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14435"
+<A NAME="tex2html14442"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14438"
-  HREF="node841.html">MASS_getXProperties</A>
-<B> Up:</B> <A NAME="tex2html14434"
-  HREF="node827.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html14428"
-  HREF="node839.html">MASS_readDBFileRaw</A>
- &nbsp; <B>  <A NAME="tex2html14436"
+<B> Next:</B> <A NAME="tex2html14445"
+  HREF="node841.html">MASS_readDBFileRaw</A>
+<B> Up:</B> <A NAME="tex2html14441"
+  HREF="node829.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html14435"
+  HREF="node839.html">MASS_openDBFile</A>
+ &nbsp; <B>  <A NAME="tex2html14443"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092513000000000000000">
-MASS_closeDBFile</A>
+<H2><A NAME="SECTION0092511000000000000000">
+MASS_readDBFile</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> closes the DB file.
+<SPAN  CLASS="textbf">Description:</SPAN> reads a line from the DB file and returnes an associated array with the properties as key and the fields of the file as values.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: file pointer
+<LI>fileName: name of the DB file
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the values of the DB line or false, if the line was empty.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ MASS_closeDBFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

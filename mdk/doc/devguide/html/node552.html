@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualDeleteDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualDeleteDrive">
+<TITLE>FDISK_addRaidBeforeFormat</TITLE>
+<META NAME="description" CONTENT="FDISK_addRaidBeforeFormat">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node553.html">
 <LINK REL="previous" HREF="node551.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node553.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10708"
+<A NAME="tex2html10715"
   HREF="node553.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10704"
-  HREF="node444.html">
+<A NAME="tex2html10711"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10698"
+<A NAME="tex2html10705"
   HREF="node551.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10706"
+<A NAME="tex2html10713"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10709"
-  HREF="node553.html">FDISK_deleteDriveFromParam</A>
-<B> Up:</B> <A NAME="tex2html10705"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10699"
-  HREF="node551.html">FDISK_raidJob</A>
- &nbsp; <B>  <A NAME="tex2html10707"
+<B> Next:</B> <A NAME="tex2html10716"
+  HREF="node553.html">FDISK_raidJob</A>
+<B> Up:</B> <A NAME="tex2html10712"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10706"
+  HREF="node551.html">FDISK_addRaidJobs</A>
+ &nbsp; <B>  <A NAME="tex2html10714"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00916108000000000000000">
-FDISK_virtualDeleteDrive</A>
+<H2><A NAME="SECTION00916106000000000000000">
+FDISK_addRaidBeforeFormat</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a (RAID) drive from param assigned thru $vDev.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates and places a job to create a RAID on given drives/partitions before the formating of the RAID device.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>raidDev: RAID device (e.g. /dev/md0)
 </LI>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+</LI>
+<LI>partJobs: associative array with partition jobs.
+</LI>
+<LI>raidMode: The type of the RAID (0,1,5, ...)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ FDISK_virtualDeleteDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_defineDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_defineDrive">
+<TITLE>FDISK_listInstPartSelector</TITLE>
+<META NAME="description" CONTENT="FDISK_listInstPartSelector">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node209.html">
 <LINK REL="previous" HREF="node207.html">
-<LINK REL="up" HREF="node192.html">
+<LINK REL="up" HREF="node193.html">
 <LINK REL="next" HREF="node209.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6268"
+<A NAME="tex2html6274"
   HREF="node209.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6264"
-  HREF="node192.html">
+<A NAME="tex2html6270"
+  HREF="node193.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6258"
+<A NAME="tex2html6264"
   HREF="node207.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6266"
+<A NAME="tex2html6272"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6269"
-  HREF="node209.html">FDISK_getDiskType</A>
-<B> Up:</B> <A NAME="tex2html6265"
-  HREF="node192.html">./inc/CFDiskAlles.php</A>
-<B> Previous:</B> <A NAME="tex2html6259"
-  HREF="node207.html">FDISK_listInstPartSelector</A>
- &nbsp; <B>  <A NAME="tex2html6267"
+<B> Next:</B> <A NAME="tex2html6275"
+  HREF="node209.html">FDISK_defineDrive</A>
+<B> Up:</B> <A NAME="tex2html6271"
+  HREF="node193.html">./inc/CFDiskAlles.php</A>
+<B> Previous:</B> <A NAME="tex2html6265"
+  HREF="node207.html">FDISK_listSupportedFS</A>
+ &nbsp; <B>  <A NAME="tex2html6273"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009716000000000000000">
-FDISK_defineDrive</A>
+<H2><A NAME="SECTION009715000000000000000">
+FDISK_listInstPartSelector</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
+<SPAN  CLASS="textbf">Description:</SPAN> lists all partitions to select for swap and install partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: client name
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
+<LI>default: partition that should be shown as selected
 </LI>
-<LI>size: size of the drive in MB
+<LI>type: array with filesystems that are possible for installation or swap
 </LI>
-<LI>upperI: upper tolerance border for disks with identical type
-</LI>
-<LI>lowerI: lower tolerance border for disks with identical type
-</LI>
-<LI>upperO: upper tolerance border for disks with other type
-</LI>
-<LI>lowerO: lower tolerance border for disks with other type
-</LI>
-<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
-</LI>
-<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
+<LI>selName: name of the selection
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -84,7 +74,7 @@ FDISK_defineDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

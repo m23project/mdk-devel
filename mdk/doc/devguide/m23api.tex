@@ -2550,6 +2550,15 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item commentStr: string to comment out (e.g. "\#" for BASH or "//" for C/C++ style)
 \end{itemize}
 
+\subsection{EDIT\_commentoutAll}
+\textbf{Description:} Comments out all matching lines.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item file: the name of the file
+\item search: Search string to match the line to comment out.
+\item commentStr: string to comment out (e.g. "\#" for BASH or "//" for C/C++ style)
+\end{itemize}
+
 \subsection{EDIT\_countMatches}
 \textbf{Description:} Generates BASH code that counts how many times the search string can be found in the file. This can be used in ` `.\\
 \textbf{Parameter:}
@@ -4313,6 +4322,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item storeFile: The file name to store the download in.
 \item refreshTime: The time in minutes the file is downloaded again.
 \item forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
+\item noProxy: Set to true, if the system proxy should not be used.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}

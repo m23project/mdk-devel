@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_recoverClientCombineJobs</TITLE>
-<META NAME="description" CONTENT="CLIENT_recoverClientCombineJobs">
+<TITLE>CLIENT_desasterRecovery</TITLE>
+<META NAME="description" CONTENT="CLIENT_desasterRecovery">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node292.html">
 <LINK REL="previous" HREF="node290.html">
-<LINK REL="up" HREF="node240.html">
+<LINK REL="up" HREF="node241.html">
 <LINK REL="next" HREF="node292.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7373"
+<A NAME="tex2html7379"
   HREF="node292.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7369"
-  HREF="node240.html">
+<A NAME="tex2html7375"
+  HREF="node241.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7363"
+<A NAME="tex2html7369"
   HREF="node290.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7371"
+<A NAME="tex2html7377"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7374"
-  HREF="node292.html">CLIENT_wol</A>
-<B> Up:</B> <A NAME="tex2html7370"
-  HREF="node240.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html7364"
-  HREF="node290.html">CLIENT_desasterRecovery</A>
- &nbsp; <B>  <A NAME="tex2html7372"
+<B> Next:</B> <A NAME="tex2html7380"
+  HREF="node292.html">CLIENT_recoverClientCombineJobs</A>
+<B> Up:</B> <A NAME="tex2html7376"
+  HREF="node241.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html7370"
+  HREF="node290.html">CLIENT_backToRed</A>
+ &nbsp; <B>  <A NAME="tex2html7378"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091051000000000000000">
-CLIENT_recoverClientCombineJobs</A>
+<H2><A NAME="SECTION0091050000000000000000">
+CLIENT_desasterRecovery</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Recover a client: all client jobs are done again, status is set to 0, all identical jobs are combines.
+<SPAN  CLASS="textbf">Description:</SPAN> recover a client: all client jobs are done again, status is set to 0
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>clientName: name of the client
+</LI>
+<LI>addInstallRemovalJobs: If set to true, the names of all installed packages will be combined to a m23normal and all revomed to a m23normalRemove job.
+</LI>
+<LI>addShutdownOrRebootPackage: If set to true, a shutdown or reboot package will be added.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CLIENT_recoverClientCombineJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

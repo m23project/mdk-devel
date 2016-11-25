@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_startVMCommandFile</TITLE>
-<META NAME="description" CONTENT="VM_startVMCommandFile">
+<TITLE>VM_startVMInExistingXSession</TITLE>
+<META NAME="description" CONTENT="VM_startVMInExistingXSession">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1219.html">
 <LINK REL="previous" HREF="node1217.html">
-<LINK REL="up" HREF="node1156.html">
+<LINK REL="up" HREF="node1158.html">
 <LINK REL="next" HREF="node1219.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19303"
+<A NAME="tex2html19310"
   HREF="node1219.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19299"
-  HREF="node1156.html">
+<A NAME="tex2html19306"
+  HREF="node1158.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19293"
+<A NAME="tex2html19300"
   HREF="node1217.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19301"
+<A NAME="tex2html19308"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19304"
-  HREF="node1219.html">VM_stopVMCommandFile</A>
-<B> Up:</B> <A NAME="tex2html19300"
-  HREF="node1156.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19294"
-  HREF="node1217.html">VM_startVM</A>
- &nbsp; <B>  <A NAME="tex2html19302"
+<B> Next:</B> <A NAME="tex2html19311"
+  HREF="node1219.html">VM_startVM</A>
+<B> Up:</B> <A NAME="tex2html19307"
+  HREF="node1158.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19301"
+  HREF="node1217.html">VM_insertBootISO</A>
+ &nbsp; <B>  <A NAME="tex2html19309"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093862000000000000000">
-VM_startVMCommandFile</A>
+<H2><A NAME="SECTION0093860000000000000000">
+VM_startVMInExistingXSession</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Writes a command file with the command(s) to start the VM.
+<SPAN  CLASS="textbf">Description:</SPAN> Starts a virtual machine in an existing X session.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
 <LI>vmName: Name of the VM.
 </LI>
-<LI>cmd: Bash code to start the VM.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>BASH code to start a virtual machine and finding the DISPLAY number of the user who runs this script.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ VM_startVMCommandFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

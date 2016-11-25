@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_countMatches</TITLE>
-<META NAME="description" CONTENT="EDIT_countMatches">
+<TITLE>EDIT_commentoutInsert</TITLE>
+<META NAME="description" CONTENT="EDIT_commentoutInsert">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node426.html">
 <LINK REL="previous" HREF="node424.html">
-<LINK REL="up" HREF="node419.html">
+<LINK REL="up" HREF="node420.html">
 <LINK REL="next" HREF="node426.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9077"
+<A NAME="tex2html9084"
   HREF="node426.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9073"
-  HREF="node419.html">
+<A NAME="tex2html9080"
+  HREF="node420.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9067"
+<A NAME="tex2html9074"
   HREF="node424.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9075"
+<A NAME="tex2html9082"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9078"
-  HREF="node426.html">EDIT_calc</A>
-<B> Up:</B> <A NAME="tex2html9074"
-  HREF="node419.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html9068"
-  HREF="node424.html">EDIT_commentoutInsert</A>
- &nbsp; <B>  <A NAME="tex2html9076"
+<B> Next:</B> <A NAME="tex2html9085"
+  HREF="node426.html">EDIT_commentoutAll</A>
+<B> Up:</B> <A NAME="tex2html9081"
+  HREF="node420.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html9075"
+  HREF="node424.html">EDIT_genClientm23Random</A>
+ &nbsp; <B>  <A NAME="tex2html9083"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009156000000000000000">
-EDIT_countMatches</A>
+<H2><A NAME="SECTION009155000000000000000">
+EDIT_commentoutInsert</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH code that counts how many times the search string can be found in the file. This can be used in ` `.
+<SPAN  CLASS="textbf">Description:</SPAN> Comments out a matched line and inserts a new line after it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: file name
+<LI>file: the name of the file
 </LI>
-<LI>search: search text
+<LI>search: Search string to match the line to comment out.
+</LI>
+<LI>lineToInsert: The text of the line to insert.
+</LI>
+<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ EDIT_countMatches</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

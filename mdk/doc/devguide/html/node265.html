@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_executeOnClientOrIP</TITLE>
-<META NAME="description" CONTENT="CLIENT_executeOnClientOrIP">
+<TITLE>CLIENT_getActiveNetDevices</TITLE>
+<META NAME="description" CONTENT="CLIENT_getActiveNetDevices">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node266.html">
 <LINK REL="previous" HREF="node264.html">
-<LINK REL="up" HREF="node240.html">
+<LINK REL="up" HREF="node241.html">
 <LINK REL="next" HREF="node266.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7061"
+<A NAME="tex2html7067"
   HREF="node266.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7057"
-  HREF="node240.html">
+<A NAME="tex2html7063"
+  HREF="node241.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7051"
+<A NAME="tex2html7057"
   HREF="node264.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7059"
+<A NAME="tex2html7065"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7062"
-  HREF="node266.html">CLIENT_isBasesystemInstalledFromImage</A>
-<B> Up:</B> <A NAME="tex2html7058"
-  HREF="node240.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html7052"
-  HREF="node264.html">CLIENT_getActiveNetDevices</A>
- &nbsp; <B>  <A NAME="tex2html7060"
+<B> Next:</B> <A NAME="tex2html7068"
+  HREF="node266.html">CLIENT_executeOnClientOrIP</A>
+<B> Up:</B> <A NAME="tex2html7064"
+  HREF="node241.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html7058"
+  HREF="node264.html">CLIENT_getClientID</A>
+ &nbsp; <B>  <A NAME="tex2html7066"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091025000000000000000">
-CLIENT_executeOnClientOrIP</A>
+<H2><A NAME="SECTION0091024000000000000000">
+CLIENT_getActiveNetDevices</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background or under a plain BASH under a given user. The script can be executed on the local machine "localhost" or a remote client that is accessible via SSH with a public key and without a password.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks for active network devices on a client or localhost.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>clientNameOrIP: The name of the client or localhost or an IP.
 </LI>
-<LI>jobName: name of the job screen should show
-</LI>
-<LI>cmds: the commands of the script 
-</LI>
-<LI>user: user the script should be run under
-</LI>
-<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
-</LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The output of the screen (only available on direct output if $runInScreen is false.
+<LI>Associtative array with active network cards (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> eth0 [type] =<SPAN CLASS="MATH"></SPAN> encap:Ethernet [mac] =<SPAN CLASS="MATH"></SPAN> 00:52:66:23:00:23 ) [1] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> venet0 [type] =<SPAN CLASS="MATH"></SPAN> encap:UNSPEC [mac] =<SPAN CLASS="MATH"></SPAN> 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 ) )
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +74,7 @@ CLIENT_executeOnClientOrIP</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

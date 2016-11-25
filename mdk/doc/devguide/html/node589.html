@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_showScriptFooter</TITLE>
-<META NAME="description" CONTENT="HELPER_showScriptFooter">
+<TITLE>./inc/helper.php</TITLE>
+<META NAME="description" CONTENT="./inc/helper.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,164 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node590.html">
-<LINK REL="previous" HREF="node588.html">
-<LINK REL="up" HREF="node587.html">
+<LINK REL="next" HREF="node642.html">
+<LINK REL="previous" HREF="node556.html">
+<LINK REL="up" HREF="node101.html">
 <LINK REL="next" HREF="node590.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11232"
+<A NAME="tex2html11187"
   HREF="node590.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11228"
-  HREF="node587.html">
+<A NAME="tex2html11183"
+  HREF="node101.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11222"
+<A NAME="tex2html11177"
   HREF="node588.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11230"
+<A NAME="tex2html11185"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11233"
-  HREF="node590.html">HELPER_URIencode</A>
-<B> Up:</B> <A NAME="tex2html11229"
-  HREF="node587.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11223"
-  HREF="node588.html">HELPER_showScriptHeader</A>
- &nbsp; <B>  <A NAME="tex2html11231"
+<B> Next:</B> <A NAME="tex2html11188"
+  HREF="node590.html">HELPER_showScriptHeader</A>
+<B> Up:</B> <A NAME="tex2html11184"
+  HREF="node101.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html11178"
+  HREF="node588.html">GRP_desasterRecovery</A>
+ &nbsp; <B>  <A NAME="tex2html11186"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009182000000000000000">
-HELPER_showScriptFooter</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a header for own scripts, that saves the script end time to a log file and sends it to the m23 server. Sets status bar to 100<SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>id: Job ID of the script.
-</LI>
-<LI>packName: Name of the package.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009180000000000000000">
+./inc/helper.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Helper functions that did not fit into another include file.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html11189"
+  HREF="node590.html">HELPER_showScriptHeader</A>
+<LI><A NAME="tex2html11190"
+  HREF="node591.html">HELPER_showScriptFooter</A>
+<LI><A NAME="tex2html11191"
+  HREF="node592.html">HELPER_URIencode</A>
+<LI><A NAME="tex2html11192"
+  HREF="node593.html">HELPER_isUpper</A>
+<LI><A NAME="tex2html11193"
+  HREF="node594.html">HELPER_filesize</A>
+<LI><A NAME="tex2html11194"
+  HREF="node595.html">HELPER_isExecutedInCLI</A>
+<LI><A NAME="tex2html11195"
+  HREF="node596.html">HELPER_isExecutedOnUCS</A>
+<LI><A NAME="tex2html11196"
+  HREF="node597.html">HELPER_getContentFromURL</A>
+<LI><A NAME="tex2html11197"
+  HREF="node598.html">HELPER_trimValue</A>
+<LI><A NAME="tex2html11198"
+  HREF="node599.html">HELPER_xargsRecursive</A>
+<LI><A NAME="tex2html11199"
+  HREF="node600.html">HELPER_resetNewLogLines</A>
+<LI><A NAME="tex2html11200"
+  HREF="node601.html">HELPER_getNewLogLines</A>
+<LI><A NAME="tex2html11201"
+  HREF="node602.html">HELPER_rmRecursive</A>
+<LI><A NAME="tex2html11202"
+  HREF="node603.html">HELPER_showBAfH</A>
+<LI><A NAME="tex2html11203"
+  HREF="node604.html">HELPER_ucrc32</A>
+<LI><A NAME="tex2html11204"
+  HREF="node605.html">HELPER_md5x5</A>
+<LI><A NAME="tex2html11205"
+  HREF="node606.html">HELPER_netmaskAmountOfSetBits</A>
+<LI><A NAME="tex2html11206"
+  HREF="node607.html">HELPER_networkCalculator</A>
+<LI><A NAME="tex2html11207"
+  HREF="node608.html">HELPER_netmaskCalculator</A>
+<LI><A NAME="tex2html11208"
+  HREF="node609.html">HELPER_importAllIntoPOST</A>
+<LI><A NAME="tex2html11209"
+  HREF="node610.html">HELPER_randomUsername</A>
+<LI><A NAME="tex2html11210"
+  HREF="node611.html">HELPER_createSelfSignedCAAndServerCertificate</A>
+<LI><A NAME="tex2html11211"
+  HREF="node612.html">HELPER_arrayReOrderKeynumbers</A>
+<LI><A NAME="tex2html11212"
+  HREF="node613.html">HELPER_arrayInsertBeforeKeynumber</A>
+<LI><A NAME="tex2html11213"
+  HREF="node614.html">HELPER_arrayInsertAfterKeynumber</A>
+<LI><A NAME="tex2html11214"
+  HREF="node615.html">HELPER_m23Array2Array</A>
+<LI><A NAME="tex2html11215"
+  HREF="node616.html">HELPER_array2m23Array</A>
+<LI><A NAME="tex2html11216"
+  HREF="node617.html">print_r2</A>
+<LI><A NAME="tex2html11217"
+  HREF="node618.html">HELPER_debugBacktraceToFile</A>
+<LI><A NAME="tex2html11218"
+  HREF="node619.html">HELPER_getRemoteFileContents</A>
+<LI><A NAME="tex2html11219"
+  HREF="node620.html">HELPER_passGenerator</A>
+<LI><A NAME="tex2html11220"
+  HREF="node621.html">HELPER_array2AssociativeArray</A>
+<LI><A NAME="tex2html11221"
+  HREF="node622.html">HELPER_randomMAC</A>
+<LI><A NAME="tex2html11222"
+  HREF="node623.html">HELPER_generateSalt</A>
+<LI><A NAME="tex2html11223"
+  HREF="node624.html">HELPER_grubMd5Crypt</A>
+<LI><A NAME="tex2html11224"
+  HREF="node625.html">HELPER_listFilesInDir</A>
+<LI><A NAME="tex2html11225"
+  HREF="node626.html">HELPER_getBootLoaders</A>
+<LI><A NAME="tex2html11226"
+  HREF="node627.html">HELPER_getTimeZones</A>
+<LI><A NAME="tex2html11227"
+  HREF="node628.html">HELPER_calcMBSize</A>
+<LI><A NAME="tex2html11228"
+  HREF="node629.html">HELPER_grep</A>
+<LI><A NAME="tex2html11229"
+  HREF="node630.html">HELPER_grepNot</A>
+<LI><A NAME="tex2html11230"
+  HREF="node631.html">HELPER_grepCount</A>
+<LI><A NAME="tex2html11231"
+  HREF="node632.html">HELPER_getFdiskMountPoints</A>
+<LI><A NAME="tex2html11232"
+  HREF="node633.html">HELPER_getApacheUser</A>
+<LI><A NAME="tex2html11233"
+  HREF="node634.html">HELPER_getApacheGroup</A>
+<LI><A NAME="tex2html11234"
+  HREF="node635.html">HELPER_putFileContents</A>
+<LI><A NAME="tex2html11235"
+  HREF="node636.html">HELPER_getFileContents</A>
+<LI><A NAME="tex2html11236"
+  HREF="node637.html">HELPER_showFileContents</A>
+<LI><A NAME="tex2html11237"
+  HREF="node638.html">HELPER_maxPhpUploadSize</A>
+<LI><A NAME="tex2html11238"
+  HREF="node639.html">HELPER_compareLengthAbc</A>
+<LI><A NAME="tex2html11239"
+  HREF="node640.html">HELPER_sortByLength</A>
+<LI><A NAME="tex2html11240"
+  HREF="node641.html">HELPER_hostname2IP</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

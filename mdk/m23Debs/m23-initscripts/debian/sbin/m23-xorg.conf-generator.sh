@@ -507,6 +507,7 @@ then
 	#Disable writing of xorg.conf on LinuxMint 18, because X will report "no screens found"
 	if [ $(grep xenial -c /etc/apt/sources.list) -gt 0 ] && [ $(lsb_release -i -s) = 'LinuxMint' ]
 	then
+		touch /etc/sysconfig/disableConfig
 		exit 0
 	fi
 

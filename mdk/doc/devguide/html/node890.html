@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_isReconfiguredWithExtraDistr</TITLE>
-<META NAME="description" CONTENT="PKG_isReconfiguredWithExtraDistr">
+<TITLE>PKG_getDebootstrapCacheServerURL</TITLE>
+<META NAME="description" CONTENT="PKG_getDebootstrapCacheServerURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node891.html">
 <LINK REL="previous" HREF="node889.html">
-<LINK REL="up" HREF="node875.html">
+<LINK REL="up" HREF="node877.html">
 <LINK REL="next" HREF="node891.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15157"
+<A NAME="tex2html15164"
   HREF="node891.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15153"
-  HREF="node875.html">
+<A NAME="tex2html15160"
+  HREF="node877.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15147"
+<A NAME="tex2html15154"
   HREF="node889.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15155"
+<A NAME="tex2html15162"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15158"
-  HREF="node891.html">PKG_translateClientjobsStatus</A>
-<B> Up:</B> <A NAME="tex2html15154"
-  HREF="node875.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15148"
-  HREF="node889.html">PKG_getDebootstrapCacheServerFile</A>
- &nbsp; <B>  <A NAME="tex2html15156"
+<B> Next:</B> <A NAME="tex2html15165"
+  HREF="node891.html">PKG_getDebootstrapCacheServerFile</A>
+<B> Up:</B> <A NAME="tex2html15161"
+  HREF="node877.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15155"
+  HREF="node889.html">PKG_downloadBaseSysTom23Server</A>
+ &nbsp; <B>  <A NAME="tex2html15163"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092815000000000000000">
-PKG_isReconfiguredWithExtraDistr</A>
+<H2><A NAME="SECTION0092813000000000000000">
+PKG_getDebootstrapCacheServerURL</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the distribution is used for configuring a system that was installed via image.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the URL to the debootstrap cache file on the m23 server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>pkgID: The ID of the base installation package.
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+</LI>
+<LI>arch: the computer architecture of the client
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>True, if the distribution is used for configuring, otherwise false.
+<LI>The URL to the debootstrap cache file on the m23 server.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ PKG_isReconfiguredWithExtraDistr</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

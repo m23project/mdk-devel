@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CScredit::getNextOnlineScriptInfo</TITLE>
-<META NAME="description" CONTENT="CScredit::getNextOnlineScriptInfo">
+<TITLE>CScredit::updateOnlineScriptInfo</TITLE>
+<META NAME="description" CONTENT="CScredit::updateOnlineScriptInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node342.html">
 <LINK REL="previous" HREF="node340.html">
-<LINK REL="up" HREF="node333.html">
+<LINK REL="up" HREF="node334.html">
 <LINK REL="next" HREF="node342.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7990"
+<A NAME="tex2html7996"
   HREF="node342.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7986"
-  HREF="node333.html">
+<A NAME="tex2html7992"
+  HREF="node334.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7980"
+<A NAME="tex2html7986"
   HREF="node340.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7988"
+<A NAME="tex2html7994"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7991"
-  HREF="node342.html">CScredit::loadOnlineScript</A>
-<B> Up:</B> <A NAME="tex2html7987"
-  HREF="node333.html">./inc/CScredit.php</A>
-<B> Previous:</B> <A NAME="tex2html7981"
-  HREF="node340.html">CScredit::updateOnlineScriptInfo</A>
- &nbsp; <B>  <A NAME="tex2html7989"
+<B> Next:</B> <A NAME="tex2html7997"
+  HREF="node342.html">CScredit::getNextOnlineScriptInfo</A>
+<B> Up:</B> <A NAME="tex2html7993"
+  HREF="node334.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html7987"
+  HREF="node340.html">CScredit::getLocalScriptFilenames</A>
+ &nbsp; <B>  <A NAME="tex2html7995"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009118000000000000000">
-CScredit::getNextOnlineScriptInfo</A>
+<H2><A NAME="SECTION009117000000000000000">
+CScredit::updateOnlineScriptInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets an information about all scripts that are available online. Every call of the function fetches the information about one script.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads the information about online available scripts.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ts: Timestamp, when the script was uploaded.
-</LI>
-<LI>scriptId: Id of the script (needed for download).
-</LI>
-<LI>scriptName: Name of the script.
-</LI>
-<LI>author: Name of the author.
-</LI>
-<LI>description: Description for the script.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if an entry could be read otherwise (e.g. if all entries were read) false.
+<LI>true, if the information could be fetched, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +68,7 @@ CScredit::getNextOnlineScriptInfo</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

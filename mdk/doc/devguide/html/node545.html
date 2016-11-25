@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDrivePartitionSize</TITLE>
-<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
+<TITLE>FDISK_adjustFdiskParams</TITLE>
+<META NAME="description" CONTENT="FDISK_adjustFdiskParams">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node546.html">
 <LINK REL="previous" HREF="node544.html">
-<LINK REL="up" HREF="node444.html">
+<LINK REL="up" HREF="node446.html">
 <LINK REL="next" HREF="node546.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10624"
+<A NAME="tex2html10631"
   HREF="node546.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10620"
-  HREF="node444.html">
+<A NAME="tex2html10627"
+  HREF="node446.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10614"
+<A NAME="tex2html10621"
   HREF="node544.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10622"
+<A NAME="tex2html10629"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10625"
-  HREF="node546.html">FDISK_listRaidTable</A>
-<B> Up:</B> <A NAME="tex2html10621"
-  HREF="node444.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10615"
-  HREF="node544.html">FDISK_virtualAddDrive</A>
- &nbsp; <B>  <A NAME="tex2html10623"
+<B> Next:</B> <A NAME="tex2html10632"
+  HREF="node546.html">FDISK_virtualAddDrive</A>
+<B> Up:</B> <A NAME="tex2html10628"
+  HREF="node446.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10622"
+  HREF="node544.html">FDISK_AFPgetPartSizes</A>
+ &nbsp; <B>  <A NAME="tex2html10630"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00916101000000000000000">
-FDISK_getDrivePartitionSize</A>
+<H2><A NAME="SECTION0091699000000000000000">
+FDISK_adjustFdiskParams</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> adjusts the installation and swap drive for a derived client, based on the defined client settings
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
-</LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Size of the drive or partition in MB.
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +68,7 @@ FDISK_getDrivePartitionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

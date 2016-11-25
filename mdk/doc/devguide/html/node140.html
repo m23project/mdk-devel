@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAPTURE_load</TITLE>
-<META NAME="description" CONTENT="CAPTURE_load">
+<TITLE>CAPTURE_captureAll</TITLE>
+<META NAME="description" CONTENT="CAPTURE_captureAll">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node141.html">
 <LINK REL="previous" HREF="node139.html">
-<LINK REL="up" HREF="node137.html">
+<LINK REL="up" HREF="node138.html">
 <LINK REL="next" HREF="node141.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5393"
+<A NAME="tex2html5399"
   HREF="node141.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5389"
-  HREF="node137.html">
+<A NAME="tex2html5395"
+  HREF="node138.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5383"
+<A NAME="tex2html5389"
   HREF="node139.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5391"
+<A NAME="tex2html5397"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5394"
-  HREF="node141.html">CAPTURE_deActivate</A>
-<B> Up:</B> <A NAME="tex2html5390"
-  HREF="node137.html">./inc/capture.php</A>
-<B> Previous:</B> <A NAME="tex2html5384"
-  HREF="node139.html">CAPTURE_captureAll</A>
- &nbsp; <B>  <A NAME="tex2html5392"
+<B> Next:</B> <A NAME="tex2html5400"
+  HREF="node141.html">CAPTURE_load</A>
+<B> Up:</B> <A NAME="tex2html5396"
+  HREF="node138.html">./inc/capture.php</A>
+<B> Previous:</B> <A NAME="tex2html5390"
+  HREF="node139.html">CAPTURE_getKeys</A>
+ &nbsp; <B>  <A NAME="tex2html5398"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00953000000000000000">
-CAPTURE_load</A>
+<H2><A NAME="SECTION00952000000000000000">
+CAPTURE_captureAll</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> loads all POST and GET variables for a special page from the DB to emulate the user input while makeing a screenshot
+<SPAN  CLASS="textbf">Description:</SPAN> stores all POST and GET variables to the DB
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>GET[page]: has to be set to the name of the page
+<LI>step: number of the step, this is used, if there are "subpages" of a page e.g. clientcdistr.php
 </LI>
-<LI>GET[captureLoad]: has to be set to "1" to activate loading of the saved values
+<LI>comment: comment to add to the entry
+</LI>
+<LI>allowBut: set to true, if button should be captured too
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +72,7 @@ CAPTURE_load</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

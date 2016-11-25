@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_runningInScreen</TITLE>
-<META NAME="description" CONTENT="SERVER_runningInScreen">
+<TITLE>SERVER_runInBackground</TITLE>
+<META NAME="description" CONTENT="SERVER_runInBackground">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1097.html">
 <LINK REL="previous" HREF="node1095.html">
-<LINK REL="up" HREF="node1059.html">
+<LINK REL="up" HREF="node1061.html">
 <LINK REL="next" HREF="node1097.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17737"
+<A NAME="tex2html17744"
   HREF="node1097.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17733"
-  HREF="node1059.html">
+<A NAME="tex2html17740"
+  HREF="node1061.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17727"
+<A NAME="tex2html17734"
   HREF="node1095.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17735"
+<A NAME="tex2html17742"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17738"
-  HREF="node1097.html">SERVER_addLineToFile</A>
-<B> Up:</B> <A NAME="tex2html17734"
-  HREF="node1059.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17728"
-  HREF="node1095.html">SERVER_runningInBackground</A>
- &nbsp; <B>  <A NAME="tex2html17736"
+<B> Next:</B> <A NAME="tex2html17745"
+  HREF="node1097.html">SERVER_runningInBackground</A>
+<B> Up:</B> <A NAME="tex2html17741"
+  HREF="node1061.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17735"
+  HREF="node1095.html">SERVER_programmStatusTableHeader</A>
+ &nbsp; <B>  <A NAME="tex2html17743"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093537000000000000000">
-SERVER_runningInScreen</A>
+<H2><A NAME="SECTION0093535000000000000000">
+SERVER_runInBackground</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns "true" if a screen session with a given name exists for a given user.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background under a given user
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>jobName: name of the job.
+<LI>jobName: name of the job screen should show
 </LI>
-<LI>user: User the screen session is run under.
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ SERVER_runningInScreen</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_delServerFromphpLdapAdmin</TITLE>
-<META NAME="description" CONTENT="LDAP_delServerFromphpLdapAdmin">
+<TITLE>LDAP_installServer</TITLE>
+<META NAME="description" CONTENT="LDAP_installServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node741.html">
 <LINK REL="previous" HREF="node739.html">
-<LINK REL="up" HREF="node730.html">
+<LINK REL="up" HREF="node732.html">
 <LINK REL="next" HREF="node741.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13144"
+<A NAME="tex2html13151"
   HREF="node741.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13140"
-  HREF="node730.html">
+<A NAME="tex2html13147"
+  HREF="node732.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13134"
+<A NAME="tex2html13141"
   HREF="node739.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13142"
+<A NAME="tex2html13149"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13145"
-  HREF="node741.html">LDAP_checkphpLdapAdminConfiguration</A>
-<B> Up:</B> <A NAME="tex2html13141"
-  HREF="node730.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html13135"
-  HREF="node739.html">LDAP_addServerTophpLdapAdmin</A>
- &nbsp; <B>  <A NAME="tex2html13143"
+<B> Next:</B> <A NAME="tex2html13152"
+  HREF="node741.html">LDAP_addServerTophpLdapAdmin</A>
+<B> Up:</B> <A NAME="tex2html13148"
+  HREF="node732.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html13142"
+  HREF="node739.html">LDAP_fqdn2dn</A>
+ &nbsp; <B>  <A NAME="tex2html13150"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092310000000000000000">
-LDAP_delServerFromphpLdapAdmin</A>
+<H2><A NAME="SECTION009238000000000000000">
+LDAP_installServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a LDAP server from the phpLDAPadmin configuration file.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a script that installs and configures an openLDAP server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>name: the name of the LDAP server that should be deleted
+<LI>host: the IP or hostname of the LDAP server
+</LI>
+<LI>org: name of the organisation
+</LI>
+<LI>domain: the DN (e.g. foo.m23.de)
+</LI>
+<LI>pwd: the unencrypted password for the admin
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ LDAP_delServerFromphpLdapAdmin</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>

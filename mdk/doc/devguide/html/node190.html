@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoTest::parseAnswersFromXML</TITLE>
-<META NAME="description" CONTENT="CAutoTest::parseAnswersFromXML">
+<TITLE>CAutoTest::parseActionFromXML</TITLE>
+<META NAME="description" CONTENT="CAutoTest::parseActionFromXML">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node191.html">
 <LINK REL="previous" HREF="node189.html">
-<LINK REL="up" HREF="node150.html">
+<LINK REL="up" HREF="node151.html">
 <LINK REL="next" HREF="node191.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6032"
+<A NAME="tex2html6038"
   HREF="node191.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6028"
-  HREF="node150.html">
+<A NAME="tex2html6034"
+  HREF="node151.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6022"
+<A NAME="tex2html6028"
   HREF="node189.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6030"
+<A NAME="tex2html6036"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6033"
-  HREF="node191.html">CAutoTest::parseXML</A>
-<B> Up:</B> <A NAME="tex2html6029"
-  HREF="node150.html">./inc/CAutoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html6023"
-  HREF="node189.html">CAutoTest::parseActionFromXML</A>
- &nbsp; <B>  <A NAME="tex2html6031"
+<B> Next:</B> <A NAME="tex2html6039"
+  HREF="node191.html">CAutoTest::parseAnswersFromXML</A>
+<B> Up:</B> <A NAME="tex2html6035"
+  HREF="node151.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html6029"
+  HREF="node189.html">CAutoTest::parseTriggerFromXML</A>
+ &nbsp; <B>  <A NAME="tex2html6037"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009640000000000000000">
-CAutoTest::parseAnswersFromXML</A>
+<H2><A NAME="SECTION009639000000000000000">
+CAutoTest::parseActionFromXML</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Parses an (good, warn, bad) array from the XML.
+<SPAN  CLASS="textbf">Description:</SPAN> Parses the action and its type from the XML.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>xmlO: Prased XML structure pointing to the array.
+<LI>xmlO: Prased XML structure pointing to the action.
 </LI>
-<LI>goodWarnBad: Answer type (CAutoTest::GWB_GOOD, GWB_WARN or GWB_BAD).
+<LI>testDescription: Description of the test.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Associative array with the good, warn or bad answers, how to fetch the answer from the client/webbrowser/etc. and the answer type (GWB_GOOD, GWB_WARN or GWB_BAD).
+<LI>testAction: Action parameter. (Result is written to this pointer)
+</LI>
+<LI>testActionType: Action type. (Result is written to this pointer)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CAutoTest::parseAnswersFromXML</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-10-17
+2016-11-23
 </ADDRESS>
 </BODY>
 </HTML>
