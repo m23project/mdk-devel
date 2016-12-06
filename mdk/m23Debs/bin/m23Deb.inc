@@ -484,6 +484,9 @@ EOF
 #Makes the Release file and signs it
 mkRelease()
 {
+	#keyID='0x4FF08199' 2016
+	keyID='0x3305E63A'
+
 	apt-ftparchive release -o APT::FTPArchive::Release::Origin=m23 -o APT::FTPArchive::Release::Suite=stable .  > Release
 	
 	if [ $(whoami) = 'dodger' ]
@@ -496,13 +499,13 @@ mkRelease()
 	id dodger 2> /dev/null > /dev/null
 	if [ $? -eq 0 ]
 	then
-		cat Release | $useSudo gpg --default-key 0x3305E63A --no-options --detach-sign --armor --textmode > Release.gpg
+		cat Release | $useSudo gpg --default-key $keyID --no-options --detach-sign --armor --textmode --digest-algo SHA256 > Release.gpg
 		if [ $(find Release.gpg -printf "%s") -eq 0 ]
 		then
 			rm Release.gpg
 		fi
 
-		cat Release | $useSudo gpg --default-key 0x3305E63A -a -s --clearsign > InRelease
+		cat Release | $useSudo gpg --default-key $keyID -a -s --clearsign  --digest-algo SHA256 > InRelease
 		if [ $(find InRelease -printf "%s") -eq 0 ]
 		then
 			rm InRelease
