@@ -852,6 +852,7 @@ then
 	#Create the user
 	if [ $(UCS_detect) -eq 0 ]
 	then
+		addgroup --gid 55001 grdmgpg
 		useradd --uid 55001 --gid 55001 -m -p $pw grdmgpg
 	else
 		useradd -m -p $pw grdmgpg
