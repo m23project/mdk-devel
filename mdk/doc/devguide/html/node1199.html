@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_vmSwNr2Name</TITLE>
-<META NAME="description" CONTENT="VM_vmSwNr2Name">
+<TITLE>VM_resumeVM</TITLE>
+<META NAME="description" CONTENT="VM_resumeVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1200.html">
 <LINK REL="previous" HREF="node1198.html">
-<LINK REL="up" HREF="node1158.html">
+<LINK REL="up" HREF="node1161.html">
 <LINK REL="next" HREF="node1200.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19082"
+<A NAME="tex2html19094"
   HREF="node1200.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19078"
-  HREF="node1158.html">
+<A NAME="tex2html19090"
+  HREF="node1161.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19072"
+<A NAME="tex2html19084"
   HREF="node1198.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19080"
+<A NAME="tex2html19092"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19083"
-  HREF="node1200.html">VM_getHTMLStatusBlock</A>
-<B> Up:</B> <A NAME="tex2html19079"
-  HREF="node1158.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html19073"
-  HREF="node1198.html">VM_delete</A>
- &nbsp; <B>  <A NAME="tex2html19081"
+<B> Next:</B> <A NAME="tex2html19095"
+  HREF="node1200.html">VM_webAction</A>
+<B> Up:</B> <A NAME="tex2html19091"
+  HREF="node1161.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html19085"
+  HREF="node1198.html">VM_pauseVM</A>
+ &nbsp; <B>  <A NAME="tex2html19093"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093841000000000000000">
-VM_vmSwNr2Name</A>
+<H2><A NAME="SECTION0093838000000000000000">
+VM_resumeVM</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Converts the VM software constant (VM_SW_*) to the human readable name.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command to resume a virtual machine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vmType: Code number of the virtualisation software.
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
+<LI>vmname: Name of the VM.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Human readable name of the VM software.
+<LI>BASH code to resume a virtual machine.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ VM_vmSwNr2Name</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

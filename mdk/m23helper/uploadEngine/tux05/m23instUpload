@@ -190,16 +190,16 @@ fi
 
 
 cd /var/www/ucs/
-rm m23-Pakete-fuer-ucs.tar 2> /dev/null
-(tar cfv m23-Pakete-fuer-ucs.tar /m23inst/m23*.deb m23-ucs-extra*.deb 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+rm m23-Pakete-fuer-ucs.tar.gz 2> /dev/null
+(tar cfvz m23-Pakete-fuer-ucs.tar.gz /m23inst/m23*.deb m23-ucs-extra*.deb 2>&1; echo $? > /tmp/ret) | tee /tmp/err
 if [ $(cat /tmp/ret) -ne 0 ]
 then
-	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Erstellen von m23-Pakete-fuer-ucs.tar", "m23-Pakete-fuer-ucs.tar-Fehler:
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Erstellen von m23-Pakete-fuer-ucs.tar.gz", "m23-Pakete-fuer-ucs.tar.gz-Fehler:
 	".file_get_contents("/tmp/err"));'
-	echo "m23-Pakete-fuer-ucs.tar-Fehler."
+	echo "m23-Pakete-fuer-ucs.tar.gz-Fehler."
 	exit 1
 fi
-chown www-data.www-data m23-Pakete-fuer-ucs.tar
+chown www-data.www-data m23-Pakete-fuer-ucs.tar.gz
 
 
 (cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err

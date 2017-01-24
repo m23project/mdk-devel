@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Anpassungskriterien</TITLE>
-<META NAME="description" CONTENT="Anpassungskriterien">
+<TITLE>Festplattentyp und Größe definieren</TITLE>
+<META NAME="description" CONTENT="Festplattentyp und Größe definieren">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,83 +19,67 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node221.html">
-<LINK REL="previous" HREF="node219.html">
-<LINK REL="up" HREF="node218.html">
+<LINK REL="next" HREF="node224.html">
+<LINK REL="previous" HREF="node214.html">
+<LINK REL="up" HREF="node213.html">
 <LINK REL="next" HREF="node221.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3363"
+<A NAME="tex2html3368"
   HREF="node221.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3359"
-  HREF="node218.html">
+<A NAME="tex2html3364"
+  HREF="node213.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3353"
+<A NAME="tex2html3358"
   HREF="node219.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3361"
+<A NAME="tex2html3366"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3364"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3369"
   HREF="node221.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3360"
-  HREF="node218.html">Festplattentyp und Größe definieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3354"
-  HREF="node219.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html3362"
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3365"
+  HREF="node213.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3359"
+  HREF="node219.html">Hinweis: UEFI</A>
+ &nbsp; <B>  <A NAME="tex2html3367"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001422000000000000000">
-Anpassungskriterien</A>
-</H2>
-Da davon auszugehen ist, da&#223; die hier definierten Festplatten-Parameter nicht f&#252;r alle Ihre Clients zutreffen, gibt es verschiedene Methoden, wie m23 die Partitionen individuell f&#252;r die einzelnen Clients anpassen kann.
+<H1><A NAME="SECTION001420000000000000000">
+Festplattentyp und Gr&#246;&#223;e definieren</A>
+</H1>
+<IMG
+  WIDTH="509" HEIGHT="615" ALIGN="BOTTOM" BORDER="0"
+ SRC="./diskDefine.png"
+ ALT="Image diskDefine"> 
 <BR>
-<UL>
-<LI>Das <SPAN  CLASS="textit">''Festplattenauswahl-Kriterium''</SPAN> legt fest, nach welchem Schema die Festplatte im Zielrechner ausgew&#228;hlt werden soll, falls mehrere Festplatten vorhanden sind.
+Geben Sie hier die Eigenschaften der Festplatte des definierten Clients an. Da keine Hardwareinformationen &#252;ber diesen Client ermittelt werden k&#246;nnen, m&#252;ssen Sie definieren, um welchen Festplattentyp (IDE, SCSI) es sich handeln und wie gro&#223; das Laufwerk sein soll. Die hier definierte Gr&#246;&#223;e sollte ungef&#228;hr mit den Festplattengr&#246;&#223;en der abgeleiteten Clients &#252;bereinstimmen, die Sie &#252;ber diesen definierten Client installieren m&#246;chten.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textit">''Wie angegeben''</SPAN> benutzt die oben angegebene Festplatte auch, wenn im Client Festplatten vorhanden sind, die in ihrer Gr&#246;&#223;e &#228;hnlicher sind. Existiert diese Festplatte nicht (z.B. kein Laufwerk /dev/hda in einem reinen SCSI-System), so wird eine andere Festplatte ausgew&#228;hlt. Wird diese Funktion nicht aktiviert, so wird automatisch die beste Festplatte nach den folgenden Kriterien ausgew&#228;hlt.
-<BR></LI>
-<LI>Die Toleranzangaben bei <SPAN  CLASS="textit">''Gleicher Typ''</SPAN> und <SPAN  CLASS="textit">''Anderer Typ''</SPAN> geben an, wie gro&#223; die Toleranz nach oben (Client-Festplatte ist gr&#246;&#223;er als die definierte) und unten (Client-Festplatte ist kleiner) von der definierten Gr&#246;&#223;e sein soll. Festplatten, die innerhalb der Toleranz liegen, werden als &#220;bereinstimmung mit der Definition gewertet. Wenn Festplatten gleichen Typs (z.B. vom Typ IDE) bevorzugt werden sollen, so w&#228;hlen Sie bei <SPAN  CLASS="textit">Anderer Typ</SPAN> einen kleineren oder keinen (obere und untere Toleranzgrenze auf 0 setzen) Toleranzbereich.
-<BR></LI>
-</UL>
-</LI>
-</UL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html3363"
-  HREF="node221.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3359"
-  HREF="node218.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3353"
-  HREF="node219.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3361"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3364"
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3370"
   HREF="node221.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3360"
-  HREF="node218.html">Festplattentyp und Größe definieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3354"
-  HREF="node219.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html3362"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<LI><A NAME="tex2html3371"
+  HREF="node222.html">Anpassungskriterien</A>
+<LI><A NAME="tex2html3372"
+  HREF="node223.html">Hinweis</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2016-10-07
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

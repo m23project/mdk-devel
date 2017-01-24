@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Festplattentyp und Größe definieren</TITLE>
-<META NAME="description" CONTENT="Festplattentyp und Größe definieren">
+<TITLE>Hinweis zur Rechnerarchitektur</TITLE>
+<META NAME="description" CONTENT="Hinweis zur Rechnerarchitektur">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,67 +19,96 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node222.html">
-<LINK REL="previous" HREF="node212.html">
-<LINK REL="up" HREF="node211.html">
+<LINK REL="next" HREF="node219.html">
+<LINK REL="previous" HREF="node217.html">
+<LINK REL="up" HREF="node214.html">
 <LINK REL="next" HREF="node219.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3336"
+<A NAME="tex2html3346"
   HREF="node219.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3332"
-  HREF="node211.html">
+<A NAME="tex2html3342"
+  HREF="node214.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3326"
+<A NAME="tex2html3336"
   HREF="node217.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3334"
+<A NAME="tex2html3344"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3337"
-  HREF="node219.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3333"
-  HREF="node211.html">Masseninstallation</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3327"
-  HREF="node217.html">Hinweis: UEFI</A>
- &nbsp; <B>  <A NAME="tex2html3335"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3347"
+  HREF="node219.html">Hinweis: UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3343"
+  HREF="node214.html">Client definieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3337"
+  HREF="node217.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3345"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001420000000000000000">
-Festplattentyp und Gr&#246;&#223;e definieren</A>
-</H1>
-<IMG
-  WIDTH="509" HEIGHT="615" ALIGN="BOTTOM" BORDER="0"
- SRC="./diskDefine.png"
- ALT="Image diskDefine"> 
+<H2><A NAME="SECTION001414000000000000000">
+Hinweis zur Rechnerarchitektur</A>
+</H2>
+m23 unterst&#252;tzt nativ 32- und 64-bittige Rechner. Eine 32-Bit Distribution kann auch auf einem 64-Bit Rechner installiert werden. Umgekehrt ist dies allerdings nicht m&#246;glich. Um das volle Potential einer vorhandenen 64-Bit-CPU auszunutzen, sollten Sie <SPAN  CLASS="textit">''amd64''</SPAN> ausw&#228;hlen. Unter <SPAN  CLASS="textit">''amd64''</SPAN> fallen nicht nur die CPUs von AMD sondern auch die von Intel. Beispielhaft seien hier die Intel-CPUs Pentium D, Pentium Extreme Edition, Celeron D und Core 2 sowie die AMD-CPUs AMD Sempron, Athlon 64, Athlon X2 und Phenom genannt.
+<BR><SPAN  CLASS="textbf">MAC-Adresse:</SPAN> MAC-Adresse der Client-Netzwerkkarte (z.B. 00D0B723865C)
+<BR><SPAN  CLASS="textbf">IP-Adresse:</SPAN> gew&#252;nschte IP-Adresse des Clients (z.B. 192.168.1.23)
+<BR><SPAN  CLASS="textbf">Netzwerkmaske:</SPAN> Netzwerkmaske des Netzwerkes (z.B. 255.255.255.0)
+<BR><SPAN  CLASS="textbf">Gateway:</SPAN> Gateway-IP f&#252;r Internet- oder andere Verbindungen au&#223;erhalb des Netzwerkes
+<BR><SPAN  CLASS="textbf">DNS1:</SPAN> IP-Adresse des DNS-Servers zum Aufl&#246;sen der Internetnamen
+<BR><SPAN  CLASS="textbf">DNS2 (optional):</SPAN> IP des Backup-DNS-Servers
+<BR><SPAN  CLASS="textbf">Paket-Proxy:</SPAN> Der Client versucht die Softwarepakete von der angegebenen Proxy-Server-IP zu beziehen. Im Standardfall ist dies die IP des m23-Servers, alternativ kann auch ein anderer Proxy-Server angegeben werden. Wenn das Feld leer gelassen wird, so l&#228;dt der Client die Softwarepakete aus dem Internet herunter. Geben Sie bitte auch die Port-Addresse der Proxy-Servers an. Beim m23-Server ist dies der Port 2323. Wird der <SPAN  CLASS="textit">''Client hinzuf&#252;gen''</SPAN>-Dialog ge&#246;ffnet, so ist der m23-Server als Proxy voreingestellt.
+<BR><SPAN  CLASS="textbf">Gruppe (optional):</SPAN> Angabe der Clientgruppe f&#252;r den Client
+<BR><SPAN  CLASS="textbf">Benutzer-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 6-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den ersten Login auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
+<BR><SPAN  CLASS="textbf">Root-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 8-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den Root-Zugang auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
+<BR><SPAN  CLASS="textbf">Zeitzone:</SPAN> Hier k&#246;nnen Sie die Zeitzone festlegen, die von Client benutzt werden soll.
+<BR><SPAN  CLASS="textbf">Systemzeit per NTP ermitteln:</SPAN> Setzen Sie diese Option, wenn Sie w&#252;nschen, da&#223; die Uhrzeit des Clients beim Systemstart &#252;ber das Internet abgeglichen werden soll.
+<BR><SPAN  CLASS="textbf">Druckertreiber installieren und angeschlossene Drucker erkennen:</SPAN> Wenn Sie diese Option w&#228;hlen, werden Druckertreiber auf dem Client installiert sowie angeschlossene Drucker erkannt.
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten lokal auf dem Client speichern.:</SPAN>Setzen Sie hier einen Haken, um die lokale Benutzeranmeldung des Clients zu verwenden.
+<BR><SPAN  CLASS="textbf">LDAP nicht benutzen</SPAN>: Um nur die lokale Benutzeranmeldung des Clients zu verwenden, w&#228;hlen Sie <SPAN  CLASS="textit">''LDAP nicht benutzen''</SPAN>. 
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen. / Anmeldungsdaten vom UCS lesen.</SPAN>: W&#252;nschen Sie hingegen, die bereits in einen LDAP-Server  oder UCS-Server eingetragene Benutzerauthentifizierungsdaten zu nutzen, klicken Sie auf <SPAN  CLASS="textit">''Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten vom UCS lesen.''</SPAN>.
+<BR><SPAN  CLASS="textbf">Anmeldungsdaten in den LDAP-Server speichern. / Anmeldungsdaten auf UCS speichern.</SPAN>: Wollen Sie hingegen die oben angegebenen Benutzerdaten in die LDAP-Datenbank des m23-Servers  oder UCS-Servers eintragen und f&#252;r Clientlogins nutzen, so w&#228;hlen Sie <SPAN  CLASS="textit">''Anmeldungsdaten in den LDAP-Server speichern.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten auf UCS speichern.''</SPAN>. Bei Auswahl dieser Option ist ein LDAP-Server mit Vollzugriff erforderlich, da die oben angegebenen Benutzerdaten auf dem LDAP geschrieben werden.
+<BR><SPAN  CLASS="textbf">Benutzer-ID, Gruppen-ID</SPAN>: Zus&#228;tzlich m&#252;ssen Sie die <SPAN  CLASS="textit">''Benutzer-ID''</SPAN> und <SPAN  CLASS="textit">''Gruppen-ID''</SPAN> f&#252;r den Benutzer ausw&#228;hlen. Dies ist insbesondere wichtig, wenn Sie NFS f&#252;r das Speichern der Heimatverzeichnisse verwenden wollen.
+<BR><SPAN  CLASS="textbf">LDAP-Servername</SPAN>: Zuletzt m&#252;ssen Sie einen LDAP-Server aus der Auswahlliste bei <SPAN  CLASS="textit">''LDAP-Servername''</SPAN> ausw&#228;hlen. Sollte der gew&#252;nschte LDAP-Server nicht vorhanden sein, so k&#246;nnen Sie ihn durch einen Klick auf <SPAN  CLASS="textit">''LDAP-Server verwalten''</SPAN> hinzuf&#252;gen. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option. Es wird stattdessen der UCS-eigene LDAP-Server verwendet.
+<BR><SPAN  CLASS="textbf">Heimatverzeichnis auf NFS:</SPAN> Diese Option sorgt daf&#252;r, da&#223; die Benutzerdateien auf einem zentralen NFS-Server gespeichert werden, soda&#223; auf diese (in Kombination mit LDAP) von jedem Client aus zugegriffen werden kann. Um NFS zu aktivieren, geben Sie den Rechnernamen bzw. die IP-Adresse und den Pfad zum Speichern der Heimatverzeichnisse an z.B. 
+<BR><PRE>
+192.168.1.23:/nfs-homes
+</PRE>
+. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option.
 <BR>
-Geben Sie hier die Eigenschaften der Festplatte des definierten Clients an. Da keine Hardwareinformationen &#252;ber diesen Client ermittelt werden k&#246;nnen, m&#252;ssen Sie definieren, um welchen Festplattentyp (IDE, SCSI) es sich handeln und wie gro&#223; das Laufwerk sein soll. Die hier definierte Gr&#246;&#223;e sollte ungef&#228;hr mit den Festplattengr&#246;&#223;en der abgeleiteten Clients &#252;bereinstimmen, die Sie &#252;ber diesen definierten Client installieren m&#246;chten.
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3346"
+  HREF="node219.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3342"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3336"
+  HREF="node217.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3344"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3338"
-  HREF="node219.html">Hinweis</A>
-<LI><A NAME="tex2html3339"
-  HREF="node220.html">Anpassungskriterien</A>
-<LI><A NAME="tex2html3340"
-  HREF="node221.html">Hinweis</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3347"
+  HREF="node219.html">Hinweis: UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3343"
+  HREF="node214.html">Client definieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3337"
+  HREF="node217.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3345"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2016-10-07
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

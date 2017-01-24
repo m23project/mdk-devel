@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Wertbestimmungs-Methode festlegen</TITLE>
-<META NAME="description" CONTENT="Wertbestimmungs-Methode festlegen">
+<TITLE>Anpassungskriterien</TITLE>
+<META NAME="description" CONTENT="Anpassungskriterien">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,63 +19,83 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node224.html">
-<LINK REL="previous" HREF="node218.html">
-<LINK REL="up" HREF="node211.html">
+<LINK REL="next" HREF="node223.html">
+<LINK REL="previous" HREF="node221.html">
+<LINK REL="up" HREF="node220.html">
 <LINK REL="next" HREF="node223.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3385"
+<A NAME="tex2html3395"
   HREF="node223.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3381"
-  HREF="node211.html">
+<A NAME="tex2html3391"
+  HREF="node220.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3375"
+<A NAME="tex2html3385"
   HREF="node221.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3383"
+<A NAME="tex2html3393"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3386"
-  HREF="node223.html">Es stehen 3 Methoden</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3382"
-  HREF="node211.html">Masseninstallation</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3376"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3396"
+  HREF="node223.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3392"
+  HREF="node220.html">Festplattentyp und Größe definieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3386"
   HREF="node221.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html3384"
+ &nbsp; <B>  <A NAME="tex2html3394"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001430000000000000000">
-Wertbestimmungs-Methode festlegen</A>
-</H1>
-<IMG
-  WIDTH="1044" HEIGHT="1045" ALIGN="BOTTOM" BORDER="0"
- SRC="./mi_step0.png"
- ALT="Image mi_step0"> 
+<H2><A NAME="SECTION001422000000000000000">
+Anpassungskriterien</A>
+</H2>
+Da davon auszugehen ist, da&#223; die hier definierten Festplatten-Parameter nicht f&#252;r alle Ihre Clients zutreffen, gibt es verschiedene Methoden, wie m23 die Partitionen individuell f&#252;r die einzelnen Clients anpassen kann.
 <BR>
-Hier k&#246;nnen Sie festlegen, wie die Eigenschaftswerte der Clients generiert werden sollen.
+<UL>
+<LI>Das <SPAN  CLASS="textit">''Festplattenauswahl-Kriterium''</SPAN> legt fest, nach welchem Schema die Festplatte im Zielrechner ausgew&#228;hlt werden soll, falls mehrere Festplatten vorhanden sind.
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3387"
-  HREF="node223.html">Es stehen 3 Methoden zur Auswahl</A>
+<UL>
+<LI><SPAN  CLASS="textit">''Wie angegeben''</SPAN> benutzt die oben angegebene Festplatte auch, wenn im Client Festplatten vorhanden sind, die in ihrer Gr&#246;&#223;e &#228;hnlicher sind. Existiert diese Festplatte nicht (z.B. kein Laufwerk /dev/hda in einem reinen SCSI-System), so wird eine andere Festplatte ausgew&#228;hlt. Wird diese Funktion nicht aktiviert, so wird automatisch die beste Festplatte nach den folgenden Kriterien ausgew&#228;hlt.
+<BR></LI>
+<LI>Die Toleranzangaben bei <SPAN  CLASS="textit">''Gleicher Typ''</SPAN> und <SPAN  CLASS="textit">''Anderer Typ''</SPAN> geben an, wie gro&#223; die Toleranz nach oben (Client-Festplatte ist gr&#246;&#223;er als die definierte) und unten (Client-Festplatte ist kleiner) von der definierten Gr&#246;&#223;e sein soll. Festplatten, die innerhalb der Toleranz liegen, werden als &#220;bereinstimmung mit der Definition gewertet. Wenn Festplatten gleichen Typs (z.B. vom Typ IDE) bevorzugt werden sollen, so w&#228;hlen Sie bei <SPAN  CLASS="textit">Anderer Typ</SPAN> einen kleineren oder keinen (obere und untere Toleranzgrenze auf 0 setzen) Toleranzbereich.
+<BR></LI>
 </UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+</LI>
+</UL>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3395"
+  HREF="node223.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3391"
+  HREF="node220.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3385"
+  HREF="node221.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3393"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3396"
+  HREF="node223.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3392"
+  HREF="node220.html">Festplattentyp und Größe definieren</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3386"
+  HREF="node221.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3394"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2016-10-07
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

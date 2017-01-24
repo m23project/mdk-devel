@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getStatusBarID</TITLE>
-<META NAME="description" CONTENT="HTML_getStatusBarID">
+<TITLE>HTML_setStatusBarStatusByID</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatusByID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node679.html">
 <LINK REL="previous" HREF="node677.html">
-<LINK REL="up" HREF="node647.html">
+<LINK REL="up" HREF="node648.html">
 <LINK REL="next" HREF="node679.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12367"
+<A NAME="tex2html12378"
   HREF="node679.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12363"
-  HREF="node647.html">
+<A NAME="tex2html12374"
+  HREF="node648.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12357"
+<A NAME="tex2html12368"
   HREF="node677.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12365"
+<A NAME="tex2html12376"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12368"
-  HREF="node679.html">HTML_newStatusBar</A>
-<B> Up:</B> <A NAME="tex2html12364"
-  HREF="node647.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12358"
-  HREF="node677.html">HTML_setStatusBarStatus</A>
- &nbsp; <B>  <A NAME="tex2html12366"
+<B> Next:</B> <A NAME="tex2html12379"
+  HREF="node679.html">HTML_setStatusBarStatus</A>
+<B> Up:</B> <A NAME="tex2html12375"
+  HREF="node648.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12369"
+  HREF="node677.html">HTML_setStatusBarStatusByName</A>
+ &nbsp; <B>  <A NAME="tex2html12377"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092031000000000000000">
-HTML_getStatusBarID</A>
+<H2><A NAME="SECTION0092030000000000000000">
+HTML_setStatusBarStatusByID</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the status bar ID of the searched status bar.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>name: The name of the status bar.
+<LI>id: ID of the status bar
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+</LI>
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: The status bar ID of the searched status bar or false if none could be found.
+<LI>: false on parameter error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ HTML_getStatusBarID</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

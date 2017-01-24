@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_delPart</TITLE>
-<META NAME="description" CONTENT="FDISK_delPart">
+<TITLE>FDISK_getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node501.html">
 <LINK REL="previous" HREF="node499.html">
-<LINK REL="up" HREF="node446.html">
+<LINK REL="up" HREF="node447.html">
 <LINK REL="next" HREF="node501.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10091"
+<A NAME="tex2html10101"
   HREF="node501.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10087"
-  HREF="node446.html">
+<A NAME="tex2html10097"
+  HREF="node447.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10081"
+<A NAME="tex2html10091"
   HREF="node499.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10089"
+<A NAME="tex2html10099"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10092"
-  HREF="node501.html">FDISK_addPart</A>
-<B> Up:</B> <A NAME="tex2html10088"
-  HREF="node446.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10082"
-  HREF="node499.html">FDISK_getBelongingRaidDev</A>
- &nbsp; <B>  <A NAME="tex2html10090"
+<B> Next:</B> <A NAME="tex2html10102"
+  HREF="node501.html">FDISK_delPart</A>
+<B> Up:</B> <A NAME="tex2html10098"
+  HREF="node447.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10092"
+  HREF="node499.html">FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html10100"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091654000000000000000">
-FDISK_delPart</A>
+<H2><A NAME="SECTION0091653000000000000000">
+FDISK_getBelongingRaidDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> deletes a partition from the param string and generates the parted commands
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: the partition to delete (e.g. /dev/hda4)
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
 </LI>
 <LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>partJobs: parted commands
-</LI>
-<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Changed param string.
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +76,7 @@ FDISK_delPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

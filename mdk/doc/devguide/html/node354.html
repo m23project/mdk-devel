@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/db.php</TITLE>
-<META NAME="description" CONTENT="./inc/db.php">
+<TITLE>CScredit::show</TITLE>
+<META NAME="description" CONTENT="CScredit::show">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,132 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node391.html">
-<LINK REL="previous" HREF="node334.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="previous" HREF="node353.html">
+<LINK REL="up" HREF="node335.html">
 <LINK REL="next" HREF="node355.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8150"
+<A NAME="tex2html8160"
   HREF="node355.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8146"
-  HREF="node101.html">
+<A NAME="tex2html8156"
+  HREF="node335.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8140"
+<A NAME="tex2html8152"
   HREF="node353.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8148"
+<A NAME="tex2html8158"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8151"
-  HREF="node355.html">ip2longSafe</A>
-<B> Up:</B> <A NAME="tex2html8147"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html8141"
-  HREF="node353.html">CScredit::show</A>
- &nbsp; <B>  <A NAME="tex2html8149"
+<B> Next:</B> <A NAME="tex2html8161"
+  HREF="node355.html">./inc/db.php</A>
+<B> Up:</B> <A NAME="tex2html8157"
+  HREF="node335.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html8153"
+  HREF="node353.html">CScredit::saveScript</A>
+ &nbsp; <B>  <A NAME="tex2html8159"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009120000000000000000">
-./inc/db.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: database functions, open, close the database, get ip of the calling client
+<H2><A NAME="SECTION0091119000000000000000">
+CScredit::show</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a script editor with syntax highlighting.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html8152"
-  HREF="node355.html">ip2longSafe</A>
-<LI><A NAME="tex2html8153"
-  HREF="node356.html">getArchList</A>
-<LI><A NAME="tex2html8154"
-  HREF="node357.html">isMySQL3used</A>
-<LI><A NAME="tex2html8155"
-  HREF="node358.html">encryptShadow</A>
-<LI><A NAME="tex2html8156"
-  HREF="node359.html">getClientLanguage</A>
-<LI><A NAME="tex2html8157"
-  HREF="node360.html">getInstDev</A>
-<LI><A NAME="tex2html8158"
-  HREF="node361.html">DB_getConnection</A>
-<LI><A NAME="tex2html8159"
-  HREF="node362.html">DB_setConnection</A>
-<LI><A NAME="tex2html8160"
-  HREF="node363.html">DB_isConnectionValid</A>
-<LI><A NAME="tex2html8161"
-  HREF="node364.html">dbConnect</A>
-<LI><A NAME="tex2html8162"
-  HREF="node365.html">dbClose</A>
-<LI><A NAME="tex2html8163"
-  HREF="node366.html">getServerIP</A>
-<LI><A NAME="tex2html8164"
-  HREF="node367.html">getServerNetmask</A>
-<LI><A NAME="tex2html8165"
-  HREF="node368.html">getServerNetwork</A>
-<LI><A NAME="tex2html8166"
-  HREF="node369.html">getDNSServers</A>
-<LI><A NAME="tex2html8167"
-  HREF="node370.html">getServerGateway</A>
-<LI><A NAME="tex2html8168"
-  HREF="node371.html">sendClientStatus</A>
-<LI><A NAME="tex2html8169"
-  HREF="node372.html">sendClientStageStatus</A>
-<LI><A NAME="tex2html8170"
-  HREF="node373.html">returnClientStageStatus</A>
-<LI><A NAME="tex2html8171"
-  HREF="node374.html">sendClientLogStatus</A>
-<LI><A NAME="tex2html8172"
-  HREF="node375.html">deleteClientLogs</A>
-<LI><A NAME="tex2html8173"
-  HREF="node376.html">workPhpName</A>
-<LI><A NAME="tex2html8174"
-  HREF="node377.html">executeNextWork</A>
-<LI><A NAME="tex2html8175"
-  HREF="node378.html">DB_query</A>
-<LI><A NAME="tex2html8176"
-  HREF="node379.html">DB_queryNoDie</A>
-<LI><A NAME="tex2html8177"
-  HREF="node380.html">DB_genPassword</A>
-<LI><A NAME="tex2html8178"
-  HREF="node381.html">getClientIP</A>
-<LI><A NAME="tex2html8179"
-  HREF="node382.html">implodeAssoc</A>
-<LI><A NAME="tex2html8180"
-  HREF="node383.html">explodeAssoc</A>
-<LI><A NAME="tex2html8181"
-  HREF="node384.html">sedSearchReplace</A>
-<LI><A NAME="tex2html8182"
-  HREF="node385.html">isProgrammInstalled</A>
-<LI><A NAME="tex2html8183"
-  HREF="node386.html">pingIP</A>
-<LI><A NAME="tex2html8184"
-  HREF="node387.html">delFromArray</A>
-<LI><A NAME="tex2html8185"
-  HREF="node388.html">delValuesFromArray</A>
-<LI><A NAME="tex2html8186"
-  HREF="node389.html">DB_getLikeableColumns</A>
-<LI><A NAME="tex2html8187"
-  HREF="node390.html">DB_getArrayAssoc</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

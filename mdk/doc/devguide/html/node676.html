@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarStatusByID</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarStatusByID">
+<TITLE>HTML_setStatusBarPercentPointByName</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarPercentPointByName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node677.html">
 <LINK REL="previous" HREF="node675.html">
-<LINK REL="up" HREF="node647.html">
+<LINK REL="up" HREF="node648.html">
 <LINK REL="next" HREF="node677.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12343"
+<A NAME="tex2html12354"
   HREF="node677.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12339"
-  HREF="node647.html">
+<A NAME="tex2html12350"
+  HREF="node648.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12333"
+<A NAME="tex2html12344"
   HREF="node675.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12341"
+<A NAME="tex2html12352"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12344"
-  HREF="node677.html">HTML_setStatusBarStatus</A>
-<B> Up:</B> <A NAME="tex2html12340"
-  HREF="node647.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12334"
-  HREF="node675.html">HTML_setStatusBarStatusByName</A>
- &nbsp; <B>  <A NAME="tex2html12342"
+<B> Next:</B> <A NAME="tex2html12355"
+  HREF="node677.html">HTML_setStatusBarStatusByName</A>
+<B> Up:</B> <A NAME="tex2html12351"
+  HREF="node648.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12345"
+  HREF="node675.html">HTML_incStatusBarPercentByName</A>
+ &nbsp; <B>  <A NAME="tex2html12353"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092029000000000000000">
-HTML_setStatusBarStatusByID</A>
+<H2><A NAME="SECTION0092028000000000000000">
+HTML_setStatusBarPercentPointByName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID.
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the value of a percent point according to the amount of waiting packages and stores the result in the DB.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>id: ID of the status bar
+<LI>statusBarName: The name of the status bar.
 </LI>
-<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
 </LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
+<LI>recalculate: true, if the remaining percent value of the status bar should be used to calculate a new (better fitting) percentpoint.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: false on parameter error.
+<LI>false on errors, otherwise true.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ HTML_setStatusBarStatusByID</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

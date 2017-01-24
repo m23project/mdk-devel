@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>BitTorrent</TITLE>
-<META NAME="description" CONTENT="BitTorrent">
+<TITLE>Package builder</TITLE>
+<META NAME="description" CONTENT="Package builder">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,103 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node190.html">
-<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node195.html">
+<LINK REL="previous" HREF="node186.html">
+<LINK REL="up" HREF="node167.html">
 <LINK REL="next" HREF="node192.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2974"
+<A NAME="tex2html2987"
   HREF="node192.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2970"
-  HREF="node189.html">
+<A NAME="tex2html2983"
+  HREF="node167.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2966"
+<A NAME="tex2html2977"
   HREF="node190.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2972"
+<A NAME="tex2html2985"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2975"
-  HREF="node192.html">Script editor</A>
-<B> Up:</B> <A NAME="tex2html2971"
-  HREF="node189.html">Package builder</A>
-<B> Previous:</B> <A NAME="tex2html2967"
+<B> Next:</B> <A NAME="tex2html2988"
+  HREF="node192.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2984"
+  HREF="node167.html">Packages</A>
+<B> Previous:</B> <A NAME="tex2html2978"
   HREF="node190.html">Hint</A>
- &nbsp; <B>  <A NAME="tex2html2973"
+ &nbsp; <B>  <A NAME="tex2html2986"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001262000000000000000">
-BitTorrent</A>
-</H2>
-If you would like to distribute large files to many client computers, and would like to reduce the strain this puts on the server, you can use the BitTorrent functionality. BitTorrent makes it possible that the m23 clients share parts of already downloaded files among each other, which (in the ideal case) will result in the m23 server only transferring this file a single time.
+<H1><A NAME="SECTION001260000000000000000">
+Package builder</A>
+</H1>
+<IMG
+  WIDTH="1097" HEIGHT="1171" ALIGN="BOTTOM" BORDER="0"
+ SRC="./packageBuilder.png"
+ ALT="Image packageBuilder"> 
 <BR>
-To use Bittorrent, follow these steps:
+The integrated Package builder is a comfortable tool to create Debian packages directly from the m23 webinterface. These packages can be installed on the m23 clients like any other package and can contain single files or complete file directory trees.
+<BR>
+The packages are created from archive files in tar format compressed with bzip2 or gzip. User and access rights of files and directories are tranferred to the Debian package without recompression. The resulting Debian packages are independent of a certain distribution or release branch. This means that the same package can be installed on Debian, Ubuntu or Kubuntu clients.
+<BR>
+Creation of the package step-by-step:
 <BR>
 <OL>
-<LI>Copy the file(s) you would like to transfer to the clients into the directory <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> on your m23 server.
+<LI>Filing of the tar file into the directory /m23/data+scripts/extraDebs/. This can be done e.g. with scp or the integrated file upload <SPAN  CLASS="textit">''Upload tar file for conversion''</SPAN>.
 <BR></LI>
-<LI>Click on the button labelled <SPAN  CLASS="textit">''Create .torrent''</SPAN> behind the corresponding file name.
+<LI>Click on <SPAN  CLASS="textit">''Refresh''</SPAN> after the filing to see the file in the list <SPAN  CLASS="textit">''File list''</SPAN>.
 <BR></LI>
-<LI>In your own scripts, use the m23 function 
-<BR><PRE>
-BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
-</PRE>
-.
+<LI>Choose the tar file you want to convert and click after its file name on <SPAN  CLASS="textit">''Convert to Debian package''</SPAN>. The package index files are re-created automatically to ensure a ready-for-use package source.
 <BR></LI>
 </OL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2989"
+  HREF="node192.html">Hint</A>
+<LI><A NAME="tex2html2990"
+  HREF="node193.html">BitTorrent</A>
+<LI><A NAME="tex2html2991"
+  HREF="node194.html">GPG key for signing the package source</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2987"
+  HREF="node192.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2983"
+  HREF="node167.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2977"
+  HREF="node190.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2985"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2988"
+  HREF="node192.html">Hint</A>
+<B> Up:</B> <A NAME="tex2html2984"
+  HREF="node167.html">Packages</A>
+<B> Previous:</B> <A NAME="tex2html2978"
+  HREF="node190.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html2986"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2016-10-07
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

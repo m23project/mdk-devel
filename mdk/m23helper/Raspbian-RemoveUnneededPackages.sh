@@ -22,5 +22,8 @@ fi
 
 cat /tmp/sources.list > /etc/apt/sources.list
 
+# Allow SSH login as root with password
+sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+
 echo "Set Password to 'test'"
 passwd root

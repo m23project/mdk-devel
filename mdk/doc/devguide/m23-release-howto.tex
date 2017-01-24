@@ -41,6 +41,7 @@
 	\begin{itemize}
 		\item /mdk/bin/menuStart \Rightarrow debs \Rightarrow build
 		\item Upload the packages, if all seems to be right: \Rightarrow directuplinst
+		\item Login into t5, call /var/www/ucs/upload-4.1
 	\end{itemize}
 \item Server installation ISO
 	\begin{itemize}
@@ -81,6 +82,7 @@
 		\item Continue the installation with: apt-get install -f
 		\item Run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh
 		\item /mdk/bin/prepareOSForCompression.
+		\item Compress the SD card: dd if=/dev/sdX | 7zr a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si m23server_xx.y_rock-RaPi.7z
 	\end{itemize}
 \end{itemize}
 

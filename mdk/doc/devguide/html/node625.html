@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_listFilesInDir</TITLE>
-<META NAME="description" CONTENT="HELPER_listFilesInDir">
+<TITLE>HELPER_grubMd5Crypt</TITLE>
+<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node626.html">
 <LINK REL="previous" HREF="node624.html">
-<LINK REL="up" HREF="node589.html">
+<LINK REL="up" HREF="node590.html">
 <LINK REL="next" HREF="node626.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11671"
+<A NAME="tex2html11681"
   HREF="node626.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11667"
-  HREF="node589.html">
+<A NAME="tex2html11677"
+  HREF="node590.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11661"
+<A NAME="tex2html11671"
   HREF="node624.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11669"
+<A NAME="tex2html11679"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11672"
-  HREF="node626.html">HELPER_getBootLoaders</A>
-<B> Up:</B> <A NAME="tex2html11668"
-  HREF="node589.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11662"
-  HREF="node624.html">HELPER_grubMd5Crypt</A>
- &nbsp; <B>  <A NAME="tex2html11670"
+<B> Next:</B> <A NAME="tex2html11682"
+  HREF="node626.html">HELPER_listFilesInDir</A>
+<B> Up:</B> <A NAME="tex2html11678"
+  HREF="node590.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11672"
+  HREF="node624.html">HELPER_generateSalt</A>
+ &nbsp; <B>  <A NAME="tex2html11680"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091836000000000000000">
-HELPER_listFilesInDir</A>
+<H2><A NAME="SECTION0091835000000000000000">
+HELPER_grubMd5Crypt</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Lists all files in a directory and returns an array with all file names.
+<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dirname: Name of the directory.
+<LI>password: Password to encrypt.
+</LI>
+<LI>length: Length of the salt.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all file names.
+<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ HELPER_listFilesInDir</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

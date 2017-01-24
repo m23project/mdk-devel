@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_removeSpecialFromJobList</TITLE>
-<META NAME="description" CONTENT="PKG_removeSpecialFromJobList">
+<TITLE>PKG_executeOnClientJobs</TITLE>
+<META NAME="description" CONTENT="PKG_executeOnClientJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node955.html">
 <LINK REL="previous" HREF="node953.html">
-<LINK REL="up" HREF="node877.html">
+<LINK REL="up" HREF="node879.html">
 <LINK REL="next" HREF="node955.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15932"
+<A NAME="tex2html15944"
   HREF="node955.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15928"
-  HREF="node877.html">
+<A NAME="tex2html15940"
+  HREF="node879.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15922"
+<A NAME="tex2html15934"
   HREF="node953.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15930"
+<A NAME="tex2html15942"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15933"
-  HREF="node955.html">PKG_previewUpdateSystem</A>
-<B> Up:</B> <A NAME="tex2html15929"
-  HREF="node877.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15923"
-  HREF="node953.html">PKG_changeClientJobsStatus</A>
- &nbsp; <B>  <A NAME="tex2html15931"
+<B> Next:</B> <A NAME="tex2html15945"
+  HREF="node955.html">PKG_removeFromJobList</A>
+<B> Up:</B> <A NAME="tex2html15941"
+  HREF="node879.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html15935"
+  HREF="node953.html">PKG_updateSourcesListAtAllClients</A>
+ &nbsp; <B>  <A NAME="tex2html15943"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092877000000000000000">
-PKG_removeSpecialFromJobList</A>
+<H2><A NAME="SECTION0092875000000000000000">
+PKG_executeOnClientJobs</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Removes a special job from the joblist identified by package name and priority.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a sql statement on all package IDs.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: Name of the client
+<LI>sql: initial SQL statement e.g. "DELETE FROM `clientjobs` WHERE "
 </LI>
-<LI>package: Name of the package.
-</LI>
-<LI>priority: Priority of the job.
+<LI>packageIDList: the list of IDs of jobs to be deleted
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ PKG_removeSpecialFromJobList</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

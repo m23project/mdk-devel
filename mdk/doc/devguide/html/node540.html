@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDriveAndNr</TITLE>
-<META NAME="description" CONTENT="FDISK_getDriveAndNr">
+<TITLE>FDISK_getDiskType</TITLE>
+<META NAME="description" CONTENT="FDISK_getDiskType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node541.html">
 <LINK REL="previous" HREF="node539.html">
-<LINK REL="up" HREF="node446.html">
+<LINK REL="up" HREF="node447.html">
 <LINK REL="next" HREF="node541.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10571"
+<A NAME="tex2html10581"
   HREF="node541.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10567"
-  HREF="node446.html">
+<A NAME="tex2html10577"
+  HREF="node447.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10561"
+<A NAME="tex2html10571"
   HREF="node539.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10569"
+<A NAME="tex2html10579"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10572"
-  HREF="node541.html">FDISK_getNextFdiskFormatJobNr</A>
-<B> Up:</B> <A NAME="tex2html10568"
-  HREF="node446.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10562"
-  HREF="node539.html">FDISK_getDiskType</A>
- &nbsp; <B>  <A NAME="tex2html10570"
+<B> Next:</B> <A NAME="tex2html10582"
+  HREF="node541.html">FDISK_getDriveAndNr</A>
+<B> Up:</B> <A NAME="tex2html10578"
+  HREF="node447.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10572"
+  HREF="node539.html">FDISK_listPartJobs</A>
+ &nbsp; <B>  <A NAME="tex2html10580"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091694000000000000000">
-FDISK_getDriveAndNr</A>
+<H2><A NAME="SECTION0091693000000000000000">
+FDISK_getDiskType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> splits a path (e.g. /dev/hda1) in the device (/dev/hda) and the device number (1). The device is returned as element 0 and the number as element 1 in an array.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the type of the drive (DISK_TYPE_IDE, DISK_TYPE_SCSI)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>path: the path to partition (e.g. /dev/hde1)
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Array with two parts. $out[0]=drive (e.g. /dev/hda), $out[1]=the device number
+<LI>path: the path to the device (e.g. /dev/hde)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ FDISK_getDriveAndNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

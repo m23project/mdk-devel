@@ -622,7 +622,7 @@ fi
 db_get m23/configureApache
 if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
-	if [ -f /etc/default/apache2 ] && [ `grep "NO_START=1" /etc/default/apache2 -c` -eq 0 ]
+	if ( [ -f /etc/default/apache2 ] && [ `grep "NO_START=1" /etc/default/apache2 -c` -eq 0 ] ) || ( [ -f /etc/apache2/ports.conf ] )
 	then
 		#Configuration for Apache 2.x
 
@@ -719,10 +719,15 @@ echo "	<VirtualHost *:443>
 	fi
 	
 	#Get the absolute path to the PHP ini file(s)
-	for phpFile in `find /etc/php?/apache* | grep php.ini` `find /etc/php?/cli | grep php.ini`
+	for phpFile in `find /etc/php?/apache* /etc/php/7.0 | grep php.ini` `find /etc/php?/cli | grep php.ini`
 	do
 		#PHP settings
 		sed -i -e 's/register_globals = Off/register_globals = On/g' -e 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' -e 's/short_open_tag = Off/short_open_tag = On/g' -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 5/g' -e 's/^session.gc_divisor[ =0-9]*/session.gc_divisor = 100/g' $phpFile
+		
+		if [ -e /etc/php/7.0 ]
+		then
+			sed -i -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 0/g' $phpFile
+		fi
 
 		chown root.root $phpFile
 		chmod 644 $phpFile

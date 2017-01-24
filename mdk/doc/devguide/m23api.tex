@@ -1165,6 +1165,17 @@
 \item client: Name of the client.
 \end{itemize}
 
+\subsection{CLIENT\_filterLinesFromLiveScreenRecording}
+\textbf{Description:} Filters out unwanted lines from the live log.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input line to give out or not.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Empty string, if the line should be filtered out or input line.
+\end{itemize}
+
 \subsection{CLIENT\_getOverviewSearchLine}
 \textbf{Description:} Checks all client search dialogs and returns the current search term.\\
 \textbf{Parameter:}
@@ -4141,6 +4152,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item log: Name of the log file.
 \item sessionPrefix: Prefix for storing the last read line number in the session.
+\item filterFunction: Function to filter the lines before adding them to the output. The function gets the unfiltered string as input and returns the filtedred version.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -4591,6 +4603,17 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Returns:}
 \begin{itemize}
 \item true, if the button was clicked otherwise false.
+\end{itemize}
+
+\subsection{HTML\_getOriginalUploadFilename}
+\textbf{Description:} Get the original file name of an uploaded file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlName: Name of the HTML element
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Original file name of an uploaded file.
 \end{itemize}
 
 \subsection{HTML\_uploadFile}
@@ -6578,6 +6601,13 @@ Description: basic package operations (search, add,...)\\
 \textbf{Parameter:}
 \begin{itemize}
 \item client: Name of the client or empty.
+\end{itemize}
+
+\subsection{PKG\_getPackageStatusCSV}
+\textbf{Description:} Exports the packages of a client in tabulator separated CSV.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Name of the client.
 \end{itemize}
 
 \subsection{PKG\_getDebootstrapCacheFilename}

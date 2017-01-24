@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_dynamicIPWarn</TITLE>
-<META NAME="description" CONTENT="SERVER_dynamicIPWarn">
+<TITLE>SERVER_addToHtpasswd</TITLE>
+<META NAME="description" CONTENT="SERVER_addToHtpasswd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1082.html">
 <LINK REL="previous" HREF="node1080.html">
-<LINK REL="up" HREF="node1061.html">
+<LINK REL="up" HREF="node1064.html">
 <LINK REL="next" HREF="node1082.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17564"
+<A NAME="tex2html17576"
   HREF="node1082.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17560"
-  HREF="node1061.html">
+<A NAME="tex2html17572"
+  HREF="node1064.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17554"
+<A NAME="tex2html17566"
   HREF="node1080.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17562"
+<A NAME="tex2html17574"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17565"
-  HREF="node1082.html">SERVER_tmpNotWritable</A>
-<B> Up:</B> <A NAME="tex2html17561"
-  HREF="node1061.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17555"
-  HREF="node1080.html">SERVER_sendScriptToSF</A>
- &nbsp; <B>  <A NAME="tex2html17563"
+<B> Next:</B> <A NAME="tex2html17577"
+  HREF="node1082.html">SERVER_dhcpServerInNetWarn</A>
+<B> Up:</B> <A NAME="tex2html17573"
+  HREF="node1064.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html17567"
+  HREF="node1080.html">SERVER_delFromHtpasswd</A>
+ &nbsp; <B>  <A NAME="tex2html17575"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093520000000000000000">
-SERVER_dynamicIPWarn</A>
+<H2><A NAME="SECTION0093517000000000000000">
+SERVER_addToHtpasswd</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows an error message if the m23 server has a dynmic IP address.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new user with password to a htpasswd file.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: false, if the IP address is static.
+<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+</LI>
+<LI>: username: Name of the new user to add
+</LI>
+<LI>: password: The according password for the new user
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: True if the new user was added sucessfully.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ SERVER_dynamicIPWarn</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

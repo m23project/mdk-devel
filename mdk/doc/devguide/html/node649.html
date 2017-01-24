@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_uploadFile</TITLE>
-<META NAME="description" CONTENT="HTML_uploadFile">
+<TITLE>HTML_imgSwitch</TITLE>
+<META NAME="description" CONTENT="HTML_imgSwitch">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node650.html">
 <LINK REL="previous" HREF="node648.html">
-<LINK REL="up" HREF="node647.html">
+<LINK REL="up" HREF="node648.html">
 <LINK REL="next" HREF="node650.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12019"
+<A NAME="tex2html12030"
   HREF="node650.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12015"
-  HREF="node647.html">
+<A NAME="tex2html12026"
+  HREF="node648.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12009"
+<A NAME="tex2html12020"
   HREF="node648.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12017"
+<A NAME="tex2html12028"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12020"
-  HREF="node650.html">HTML_urlButton</A>
-<B> Up:</B> <A NAME="tex2html12016"
-  HREF="node647.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12010"
-  HREF="node648.html">HTML_imgSwitch</A>
- &nbsp; <B>  <A NAME="tex2html12018"
+<B> Next:</B> <A NAME="tex2html12031"
+  HREF="node650.html">HTML_getOriginalUploadFilename</A>
+<B> Up:</B> <A NAME="tex2html12027"
+  HREF="node648.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12021"
+  HREF="node648.html">./inc/html.php</A>
+ &nbsp; <B>  <A NAME="tex2html12029"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009202000000000000000">
-HTML_uploadFile</A>
+<H2><A NAME="SECTION009201000000000000000">
+HTML_imgSwitch</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for uploading image files.
+<SPAN  CLASS="textbf">Description:</SPAN> Defines an image button with two states and a text next to it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlName: Name of the HTML element
+<LI>$htmlName: Name of the html image input element.
 </LI>
-<LI>label: The visual naming of the HTML element.
+<LI>$off_img: Name and path of image to be displayed if its state is "off"
 </LI>
-<LI>maxFileSize: The maximum allowed filesize in bytes.
+<LI>$on_img: Name and path of image to be displayed it its state is "on"
+</LI>
+<LI>$off_text: Text to be displayed if state is "off"
+</LI>
+<LI>$on_text: Text to be displayed if state is "on"
+</LI>
+<LI>$separator: Anything which shall be displayed between the picture (clickable) and the text (not clickable)
+</LI>
+<LI>$default: State of the image input element on first load of page ("on" or "off")
+</LI>
+<LI>$outState: Current state of element (true for "on" or false for "off").
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The full path to the uploaded file or false in case of an error.
+<LI>true, if the button was clicked otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +88,7 @@ HTML_uploadFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

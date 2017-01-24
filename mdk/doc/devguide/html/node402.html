@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_addClient</TITLE>
-<META NAME="description" CONTENT="DHCP_addClient">
+<TITLE>DHCP_runScript</TITLE>
+<META NAME="description" CONTENT="DHCP_runScript">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,45 +21,47 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node403.html">
 <LINK REL="previous" HREF="node401.html">
-<LINK REL="up" HREF="node391.html">
+<LINK REL="up" HREF="node392.html">
 <LINK REL="next" HREF="node403.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8780"
+<A NAME="tex2html8790"
   HREF="node403.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8776"
-  HREF="node391.html">
+<A NAME="tex2html8786"
+  HREF="node392.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8770"
+<A NAME="tex2html8780"
   HREF="node401.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8778"
+<A NAME="tex2html8788"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8781"
-  HREF="node403.html">DHCP_addLineToDHCPDConf</A>
-<B> Up:</B> <A NAME="tex2html8777"
-  HREF="node391.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html8771"
-  HREF="node401.html">DHCP_runScript</A>
- &nbsp; <B>  <A NAME="tex2html8779"
+<B> Next:</B> <A NAME="tex2html8791"
+  HREF="node403.html">DHCP_addClient</A>
+<B> Up:</B> <A NAME="tex2html8787"
+  HREF="node392.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html8781"
+  HREF="node401.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html8789"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091311000000000000000">
-DHCP_addClient</A>
+<H2><A NAME="SECTION0091310000000000000000">
+DHCP_runScript</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
+<SPAN  CLASS="textbf">Description:</SPAN> Runs the script for controlling an external DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
+<LI>command: 'add' for adding an entry to the DHCP server or 'remove' for removing.
+</LI>
 <LI>clientName: name of the client
 </LI>
 <LI>ip: ip address of the client
@@ -68,19 +70,9 @@ DHCP_addClient</A>
 </LI>
 <LI>mac: mac addresse of the network card
 </LI>
-<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
-</LI>
 <LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
 </LI>
 <LI>gateway: The gateway for the client.
-</LI>
-<LI>updateDB: If set to true, the boot type is set for the client in the DB.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -88,7 +80,7 @@ DHCP_addClient</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

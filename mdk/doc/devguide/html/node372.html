@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>sendClientStageStatus</TITLE>
-<META NAME="description" CONTENT="sendClientStageStatus">
+<TITLE>sendClientStatus</TITLE>
+<META NAME="description" CONTENT="sendClientStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node373.html">
 <LINK REL="previous" HREF="node371.html">
-<LINK REL="up" HREF="node354.html">
+<LINK REL="up" HREF="node355.html">
 <LINK REL="next" HREF="node373.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8402"
+<A NAME="tex2html8412"
   HREF="node373.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8398"
-  HREF="node354.html">
+<A NAME="tex2html8408"
+  HREF="node355.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8392"
+<A NAME="tex2html8402"
   HREF="node371.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8400"
+<A NAME="tex2html8410"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8403"
-  HREF="node373.html">returnClientStageStatus</A>
-<B> Up:</B> <A NAME="tex2html8399"
-  HREF="node354.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html8393"
-  HREF="node371.html">sendClientStatus</A>
- &nbsp; <B>  <A NAME="tex2html8401"
+<B> Next:</B> <A NAME="tex2html8413"
+  HREF="node373.html">sendClientStageStatus</A>
+<B> Up:</B> <A NAME="tex2html8409"
+  HREF="node355.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html8403"
+  HREF="node371.html">getServerGateway</A>
+ &nbsp; <B>  <A NAME="tex2html8411"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091218000000000000000">
-sendClientStageStatus</A>
+<H2><A NAME="SECTION0091217000000000000000">
+sendClientStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send a stage status to the server
+<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send a status to the server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>status: 0: client waiting for hardware detection, 1 hardware detection done, 2 partitionated and formated, base system is installed
+<LI>id: package ID
+</LI>
+<LI>status: done, waiting; finished jobs should be set to done, waiting should not be used from this place
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ sendClientStageStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

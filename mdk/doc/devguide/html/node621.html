@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_array2AssociativeArray</TITLE>
-<META NAME="description" CONTENT="HELPER_array2AssociativeArray">
+<TITLE>HELPER_passGenerator</TITLE>
+<META NAME="description" CONTENT="HELPER_passGenerator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node622.html">
 <LINK REL="previous" HREF="node620.html">
-<LINK REL="up" HREF="node589.html">
+<LINK REL="up" HREF="node590.html">
 <LINK REL="next" HREF="node622.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11623"
+<A NAME="tex2html11633"
   HREF="node622.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11619"
-  HREF="node589.html">
+<A NAME="tex2html11629"
+  HREF="node590.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11613"
+<A NAME="tex2html11623"
   HREF="node620.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11621"
+<A NAME="tex2html11631"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11624"
-  HREF="node622.html">HELPER_randomMAC</A>
-<B> Up:</B> <A NAME="tex2html11620"
-  HREF="node589.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11614"
-  HREF="node620.html">HELPER_passGenerator</A>
- &nbsp; <B>  <A NAME="tex2html11622"
+<B> Next:</B> <A NAME="tex2html11634"
+  HREF="node622.html">HELPER_array2AssociativeArray</A>
+<B> Up:</B> <A NAME="tex2html11630"
+  HREF="node590.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html11624"
+  HREF="node620.html">HELPER_getRemoteFileContents</A>
+ &nbsp; <B>  <A NAME="tex2html11632"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091832000000000000000">
-HELPER_array2AssociativeArray</A>
+<H2><A NAME="SECTION0091831000000000000000">
+HELPER_passGenerator</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Copies the values of an array as keys AND values to a new assiciative array.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates semi-random passwords via pwgen or DB_genPassword.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Input array.
+<LI>length: The length of the passwords.
+</LI>
+<LI>amount: The amount of passwords to generate.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with equal keys and values.
+<LI>Array with the generated passwords if $amount <SPAN CLASS="MATH"></SPAN> 1 or the password string directly if $amount = 1.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ HELPER_array2AssociativeArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_checkBoxCheckAll</TITLE>
-<META NAME="description" CONTENT="HTML_checkBoxCheckAll">
+<TITLE>HTML_selection</TITLE>
+<META NAME="description" CONTENT="HTML_selection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node702.html">
 <LINK REL="previous" HREF="node700.html">
-<LINK REL="up" HREF="node647.html">
+<LINK REL="up" HREF="node648.html">
 <LINK REL="next" HREF="node702.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12643"
+<A NAME="tex2html12654"
   HREF="node702.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12639"
-  HREF="node647.html">
+<A NAME="tex2html12650"
+  HREF="node648.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12633"
+<A NAME="tex2html12644"
   HREF="node700.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12641"
+<A NAME="tex2html12652"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12644"
-  HREF="node702.html">HTML_submitDefine</A>
-<B> Up:</B> <A NAME="tex2html12640"
-  HREF="node647.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12634"
-  HREF="node700.html">HTML_checkBox</A>
- &nbsp; <B>  <A NAME="tex2html12642"
+<B> Next:</B> <A NAME="tex2html12655"
+  HREF="node702.html">HTML_checkBox</A>
+<B> Up:</B> <A NAME="tex2html12651"
+  HREF="node648.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html12645"
+  HREF="node700.html">HTML_getValidSelected</A>
+ &nbsp; <B>  <A NAME="tex2html12653"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092054000000000000000">
-HTML_checkBoxCheckAll</A>
+<H2><A NAME="SECTION0092053000000000000000">
+HTML_selection</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an array with all checked checkboxes. It assumes that value of a checked checkbox is 1.
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of radio buttons or a selection.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>filter: Filter to get only the POST elements which begin with the filter string.
+<LI>htmlName: Name of the HTML element.
+</LI>
+<LI>array: An array that hold the returned values (array keys) the naming for the elements (array values).
+</LI>
+<LI>type: SELTYPE_selection for a selection or SELTYPE_radio for radio buttons.
+</LI>
+<LI>vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
+</LI>
+<LI>defaultSelection: The value of the item to select by default.
+</LI>
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>js: Here can JavaScript or other parameters be added.
+</LI>
+<LI>multipleSize: If set to a number (and not to false) a multi selection is generated, where the user can select multiple entries. The number sets the amount of entries to show the user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all checked checkboxes.
+<LI>The value of the selected element or false if nothing was selected.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +88,7 @@ HTML_checkBoxCheckAll</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

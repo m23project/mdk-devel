@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStackConfigGUI</TITLE>
-<META NAME="description" CONTENT="VM_CloudStackConfigGUI">
+<TITLE>VM_CloudStackDeleteClientVM</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackDeleteClientVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1164.html">
 <LINK REL="previous" HREF="node1162.html">
-<LINK REL="up" HREF="node1158.html">
+<LINK REL="up" HREF="node1161.html">
 <LINK REL="next" HREF="node1164.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18650"
+<A NAME="tex2html18662"
   HREF="node1164.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18646"
-  HREF="node1158.html">
+<A NAME="tex2html18658"
+  HREF="node1161.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18640"
+<A NAME="tex2html18652"
   HREF="node1162.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18648"
+<A NAME="tex2html18660"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18651"
-  HREF="node1164.html">VM_CloudStackWriteConfFile</A>
-<B> Up:</B> <A NAME="tex2html18647"
-  HREF="node1158.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18641"
-  HREF="node1162.html">VM_CloudStackCheckConstants</A>
- &nbsp; <B>  <A NAME="tex2html18649"
+<B> Next:</B> <A NAME="tex2html18663"
+  HREF="node1164.html">VM_isCloudStackClient</A>
+<B> Up:</B> <A NAME="tex2html18659"
+  HREF="node1161.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html18653"
+  HREF="node1162.html">VM_captureVMScreenAsMovie</A>
+ &nbsp; <B>  <A NAME="tex2html18661"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009385000000000000000">
-VM_CloudStackConfigGUI</A>
+<H2><A NAME="SECTION009382000000000000000">
+VM_CloudStackDeleteClientVM</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for editing the CloudStack config file and uploading the m23 client ISO.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a virtual machine for use with m23 in CloudStack, only a cloudstack admin can recover it
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>virtualMachineId:  CloudStack ID of the virtual machine
+</LI>
+<LI>VMDeletionOK: True if VM was successfully deleted, false otherwise
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>ErrorMessages or Success messages, sets parameter VMDeletionOK (true if all went well, false if an error ocurred)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getFstabArray</TITLE>
-<META NAME="description" CONTENT="FDISK_getFstabArray">
+<TITLE>FDISK_mdToEndOfArray</TITLE>
+<META NAME="description" CONTENT="FDISK_mdToEndOfArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node451.html">
 <LINK REL="previous" HREF="node449.html">
-<LINK REL="up" HREF="node446.html">
+<LINK REL="up" HREF="node447.html">
 <LINK REL="next" HREF="node451.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9491"
+<A NAME="tex2html9501"
   HREF="node451.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9487"
-  HREF="node446.html">
+<A NAME="tex2html9497"
+  HREF="node447.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9481"
+<A NAME="tex2html9491"
   HREF="node449.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9489"
+<A NAME="tex2html9499"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9492"
-  HREF="node451.html">FDISK_findFstabMountPointByDev</A>
-<B> Up:</B> <A NAME="tex2html9488"
-  HREF="node446.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9482"
-  HREF="node449.html">FDISK_mdToEndOfArray</A>
- &nbsp; <B>  <A NAME="tex2html9490"
+<B> Next:</B> <A NAME="tex2html9502"
+  HREF="node451.html">FDISK_getFstabArray</A>
+<B> Up:</B> <A NAME="tex2html9498"
+  HREF="node447.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html9492"
+  HREF="node449.html">FDISK_showCombinedFdiskGUIDialog</A>
+ &nbsp; <B>  <A NAME="tex2html9500"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009164000000000000000">
-FDISK_getFstabArray</A>
+<H2><A NAME="SECTION009163000000000000000">
+FDISK_mdToEndOfArray</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the fstab of a client as array.
+<SPAN  CLASS="textbf">Description:</SPAN> Orders all MD devices from the input array to the end of the output array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: Name of the client.
+<LI>in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 )).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the fstab (each line of the fstab as item).
+<LI>Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 )).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ FDISK_getFstabArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

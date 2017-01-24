@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_exists</TITLE>
-<META NAME="description" CONTENT="GRP_exists">
+<TITLE>./inc/groups.php</TITLE>
+<META NAME="description" CONTENT="./inc/groups.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,124 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node558.html">
-<LINK REL="previous" HREF="node556.html">
-<LINK REL="up" HREF="node556.html">
+<LINK REL="next" HREF="node590.html">
+<LINK REL="previous" HREF="node447.html">
+<LINK REL="up" HREF="node101.html">
 <LINK REL="next" HREF="node558.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10805"
+<A NAME="tex2html10783"
   HREF="node558.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10801"
-  HREF="node556.html">
+<A NAME="tex2html10779"
+  HREF="node101.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10795"
+<A NAME="tex2html10773"
   HREF="node556.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10803"
+<A NAME="tex2html10781"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10806"
-  HREF="node558.html">GRP_add</A>
-<B> Up:</B> <A NAME="tex2html10802"
-  HREF="node556.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html10796"
-  HREF="node556.html">./inc/groups.php</A>
- &nbsp; <B>  <A NAME="tex2html10804"
+<B> Next:</B> <A NAME="tex2html10784"
+  HREF="node558.html">GRP_exists</A>
+<B> Up:</B> <A NAME="tex2html10780"
+  HREF="node101.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html10774"
+  HREF="node556.html">FDISK_deleteDriveFromParam</A>
+ &nbsp; <B>  <A NAME="tex2html10782"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009171000000000000000">
-GRP_exists</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks, if a group exists
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>groupName: name of the group to check
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009170000000000000000">
+./inc/groups.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: group management funtions
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html10785"
+  HREF="node558.html">GRP_exists</A>
+<LI><A NAME="tex2html10786"
+  HREF="node559.html">GRP_add</A>
+<LI><A NAME="tex2html10787"
+  HREF="node560.html">GRP_getIdByName</A>
+<LI><A NAME="tex2html10788"
+  HREF="node561.html">GRP_getNameById</A>
+<LI><A NAME="tex2html10789"
+  HREF="node562.html">GRP_del</A>
+<LI><A NAME="tex2html10790"
+  HREF="node563.html">GRP_isClientInGroup</A>
+<LI><A NAME="tex2html10791"
+  HREF="node564.html">GRP_addClientToGroup</A>
+<LI><A NAME="tex2html10792"
+  HREF="node565.html">GRP_delClientFromGroup</A>
+<LI><A NAME="tex2html10793"
+  HREF="node566.html">GRP_setDescrGroup</A>
+<LI><A NAME="tex2html10794"
+  HREF="node567.html">GRP_getDescrGroup</A>
+<LI><A NAME="tex2html10795"
+  HREF="node568.html">GRP_listGroupsAndCount</A>
+<LI><A NAME="tex2html10796"
+  HREF="node569.html">GRP_showGroupsAndCount</A>
+<LI><A NAME="tex2html10797"
+  HREF="node570.html">GRP_ren</A>
+<LI><A NAME="tex2html10798"
+  HREF="node571.html">GRP_HTMLBackToDetails</A>
+<LI><A NAME="tex2html10799"
+  HREF="node572.html">GRP_countClients</A>
+<LI><A NAME="tex2html10800"
+  HREF="node573.html">GRP_showGeneralInfo</A>
+<LI><A NAME="tex2html10801"
+  HREF="node574.html">GRP_showRenDialog</A>
+<LI><A NAME="tex2html10802"
+  HREF="node575.html">GRP_showChangeDescriptionDialog</A>
+<LI><A NAME="tex2html10803"
+  HREF="node576.html">GRP_moveClientToGroup</A>
+<LI><A NAME="tex2html10804"
+  HREF="node577.html">GRP_listGroups</A>
+<LI><A NAME="tex2html10805"
+  HREF="node578.html">GRP_groupSelection</A>
+<LI><A NAME="tex2html10806"
+  HREF="node579.html">GRP_showDelDialog</A>
+<LI><A NAME="tex2html10807"
+  HREF="node580.html">GRP_doClientMoreGroups</A>
+<LI><A NAME="tex2html10808"
+  HREF="node581.html">GRP_listClientGroups</A>
+<LI><A NAME="tex2html10809"
+  HREF="node582.html">GRP_showClientGroups</A>
+<LI><A NAME="tex2html10810"
+  HREF="node583.html">GRP_listAllClientsInGroup</A>
+<LI><A NAME="tex2html10811"
+  HREF="node584.html">GRP_getDistrsAndSourcesLists</A>
+<LI><A NAME="tex2html10812"
+  HREF="node585.html">GRP_showSelDistrSources</A>
+<LI><A NAME="tex2html10813"
+  HREF="node586.html">GRP_listAllClientsInGroups</A>
+<LI><A NAME="tex2html10814"
+  HREF="node587.html">GRP_HTMLBackToOverview</A>
+<LI><A NAME="tex2html10815"
+  HREF="node588.html">GRP_getAllPackages</A>
+<LI><A NAME="tex2html10816"
+  HREF="node589.html">GRP_desasterRecovery</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

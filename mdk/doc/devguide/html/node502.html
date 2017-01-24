@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_listPartitions">
+<TITLE>FDISK_addPart</TITLE>
+<META NAME="description" CONTENT="FDISK_addPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node503.html">
 <LINK REL="previous" HREF="node501.html">
-<LINK REL="up" HREF="node446.html">
+<LINK REL="up" HREF="node447.html">
 <LINK REL="next" HREF="node503.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10115"
+<A NAME="tex2html10125"
   HREF="node503.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10111"
-  HREF="node446.html">
+<A NAME="tex2html10121"
+  HREF="node447.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10105"
+<A NAME="tex2html10115"
   HREF="node501.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10113"
+<A NAME="tex2html10123"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10116"
-  HREF="node503.html">FDISK_definePartitionSelection</A>
-<B> Up:</B> <A NAME="tex2html10112"
-  HREF="node446.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10106"
-  HREF="node501.html">FDISK_addPart</A>
- &nbsp; <B>  <A NAME="tex2html10114"
+<B> Next:</B> <A NAME="tex2html10126"
+  HREF="node503.html">FDISK_listPartitions</A>
+<B> Up:</B> <A NAME="tex2html10122"
+  HREF="node447.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10116"
+  HREF="node501.html">FDISK_delPart</A>
+ &nbsp; <B>  <A NAME="tex2html10124"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091656000000000000000">
-FDISK_listPartitions</A>
+<H2><A NAME="SECTION0091655000000000000000">
+FDISK_addPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> lists the partitions (/dev/hda1, /dev/hda2, ...) of a device and generates a selection
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param string and generates the parted commands
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
+<LI>partJobs: parted commands
 </LI>
-<LI>selName: name of the selection
+<LI>vDev: virtuell internal used device number.
 </LI>
-<LI>excludeType: type of partitions, not to show in the selection
+<LI>start: start position for the search
+</LI>
+<LI>end: end position for the search
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>freeSpaces: array of the free space information
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>HTML code for the selection.
+<LI>: Changed param string.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +86,7 @@ FDISK_listPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

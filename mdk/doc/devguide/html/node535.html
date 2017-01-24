@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_dev2LDevLPart</TITLE>
-<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
+<TITLE>FDISK_defineDrive</TITLE>
+<META NAME="description" CONTENT="FDISK_defineDrive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node536.html">
 <LINK REL="previous" HREF="node534.html">
-<LINK REL="up" HREF="node446.html">
+<LINK REL="up" HREF="node447.html">
 <LINK REL="next" HREF="node536.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10511"
+<A NAME="tex2html10521"
   HREF="node536.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10507"
-  HREF="node446.html">
+<A NAME="tex2html10517"
+  HREF="node447.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10501"
+<A NAME="tex2html10511"
   HREF="node534.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10509"
+<A NAME="tex2html10519"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10512"
-  HREF="node536.html">FDISK_rereadPartTable</A>
-<B> Up:</B> <A NAME="tex2html10508"
-  HREF="node446.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10502"
-  HREF="node534.html">FDISK_defineDrive</A>
- &nbsp; <B>  <A NAME="tex2html10510"
+<B> Next:</B> <A NAME="tex2html10522"
+  HREF="node536.html">FDISK_dev2LDevLPart</A>
+<B> Up:</B> <A NAME="tex2html10518"
+  HREF="node447.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html10512"
+  HREF="node534.html">FDISK_showDiskDefine</A>
+ &nbsp; <B>  <A NAME="tex2html10520"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091689000000000000000">
-FDISK_dev2LDevLPart</A>
+<H2><A NAME="SECTION0091688000000000000000">
+FDISK_defineDrive</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
+<SPAN  CLASS="textbf">Description:</SPAN> defines drive information for the clientBuilder
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: the associative array containing all values describing the drives of the client
+<LI>client: client name
 </LI>
-<LI>dev: the device (e.g. /dev/hda2)
+<LI>path: path to the drive (/dev/hda, /dev/hdb, ...)
 </LI>
-<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
+<LI>size: size of the drive in MB
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
+<LI>upperI: upper tolerance border for disks with identical type
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true if the search worked otherwise false.
+<LI>lowerI: lower tolerance border for disks with identical type
+</LI>
+<LI>upperO: upper tolerance border for disks with other type
+</LI>
+<LI>lowerO: lower tolerance border for disks with other type
+</LI>
+<LI>asSpeciefied: use the speciefied disk, if it exists (is set to "yes" or empty)
+</LI>
+<LI>sizeAdjustmentType: defines how the partitions should be adjusted, if there is more or less space on the client that the defined one. "system" increases or tries to keep the size of the system partition. "percentage" makes a percentage adjustment of all partitions.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +84,7 @@ FDISK_dev2LDevLPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>

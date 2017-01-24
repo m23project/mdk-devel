@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_minMaxIP</TITLE>
-<META NAME="description" CONTENT="MASS_minMaxIP">
+<TITLE>MASS_loginGenerator</TITLE>
+<META NAME="description" CONTENT="MASS_loginGenerator">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node849.html">
 <LINK REL="previous" HREF="node847.html">
-<LINK REL="up" HREF="node829.html">
+<LINK REL="up" HREF="node831.html">
 <LINK REL="next" HREF="node849.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14540"
+<A NAME="tex2html14551"
   HREF="node849.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14536"
-  HREF="node829.html">
+<A NAME="tex2html14547"
+  HREF="node831.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14530"
+<A NAME="tex2html14541"
   HREF="node847.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14538"
+<A NAME="tex2html14549"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14541"
-  HREF="node849.html">MASS_generateNetmask</A>
-<B> Up:</B> <A NAME="tex2html14537"
-  HREF="node829.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html14531"
-  HREF="node847.html">MASS_ipGenerator</A>
- &nbsp; <B>  <A NAME="tex2html14539"
+<B> Next:</B> <A NAME="tex2html14552"
+  HREF="node849.html">MASS_ipGenerator</A>
+<B> Up:</B> <A NAME="tex2html14548"
+  HREF="node831.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html14542"
+  HREF="node847.html">MASS_passGenerator</A>
+ &nbsp; <B>  <A NAME="tex2html14550"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092519000000000000000">
-MASS_minMaxIP</A>
+<H2><A NAME="SECTION0092517000000000000000">
+MASS_loginGenerator</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> calculates the possible minimum and maximum IP of a given netmask. The IPs are returned as an array: index 0 = minimum; index 1 = maximum.
+<SPAN  CLASS="textbf">Description:</SPAN> generates the selected amount of logins
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>netmask: netmask to use
+<LI>base: the base name of the login
 </LI>
-<LI>ip: is used if the can only be set the current part of the ip (max and min ip part == 255)
+<LI>start: start number for incremental logins
+</LI>
+<LI>forenames: array with all forenames
+</LI>
+<LI>familynames: array with all familynames
+</LI>
+<LI>type: "incremental" if you want to add a incrementing number after the base name, "ForeFamilyName" if the logins should be created from fore- and familynames
+</LI>
+<LI>amount: the amount of logins to generate
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ MASS_minMaxIP</A>
 <BR><HR>
 <ADDRESS>
 root
-2016-11-23
+2017-01-05
 </ADDRESS>
 </BODY>
 </HTML>
