@@ -148,7 +148,7 @@ fi
 if test ! -f /m23/data+scripts/m23admin/phpldapadmin/config.php || test `grep m23-LDAP /m23/data+scripts/m23admin/phpldapadmin/config.php -c` -eq 0
 then
 #if not => add it
-IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1`
+IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1 | sed 's#/.*##'`
 
 echo "<?php
 include(\"/m23/inc/ldap.php\");
