@@ -145,6 +145,10 @@ ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
 DNS=`cat /etc/resolv.conf | head -n 1 | cut -d' ' -f2`
 BROADINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^broadcast | cut -d ' ' -f2 | head -1`
+if [ -z $BROADINT ]
+then
+	BROADINT=`LC_ALL=C; ifconfig | grep broadcast | sed 's/.*broadcast //'`
+fi
 IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1 | sed 's#/.*##'`
 GATEINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^gateway | cut -d ' ' -f2 | head -1`
 dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
