@@ -249,8 +249,19 @@ exportDBInitTable()
 . /tmp/menuVars
 #cd $ISOBuildDir
 
+#fehlt: PHPObjectStorage, debconf, plugins, statusbar
+
+
+
 dbuser=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-dbpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+if [ $dbadmpass ]
+then
+	dbpass="-p$dbadmpass"
+else
+	dbpass=''
+fi
 
 
 #-----------------database: m23
@@ -259,24 +270,24 @@ dbpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -
 
 echo -n "Creating temporary database with the data of the m23 DB..."
 	#store the m23 database in /tmp/m23.sql
-	mysqldump -u$dbuser -p$dbpass m23 > /tmp/m23.sql
+	mysqldump -u$dbuser $dbpass m23 > /tmp/m23.sql
 	#make a new temporary database
-	mysql -u$dbuser -p$dbpass  -e "CREATE DATABASE m23temp"
+	mysql -u$dbuser $dbpass  -e "CREATE DATABASE m23temp"
 	#insert all entries from /tmp/m23.sql into the new "m23temp" database
-	cat /tmp/m23.sql | mysql -u$dbuser -p$dbpass m23temp
+	cat /tmp/m23.sql | mysql -u$dbuser $dbpass m23temp
 echo " done"
 
 echo -n "Cleaning temporary database..."
 #delete database data
-	for table in `mysqlshow -u$dbuser -p$dbpass m23temp | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--"` # | grep -v sourceslist
+	for table in `mysqlshow -u$dbuser $dbpass m23temp | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--"` # | grep -v sourceslist
 	do
-		mysql -u$dbuser -p$dbpass m23temp -e "delete from $table"
+		mysql -u$dbuser $dbpass m23temp -e "delete from $table"
 	done
 echo " done"
 
 echo -n "Export package sources lists..."
 #store the cleaned m23 database in m23.sql
-	mysqldump --skip-add-drop-table -u$dbuser -p$dbpass m23temp | sed 's/ DEFAULT CHARSET=latin1//g' | sed 's/ AUTO_INCREMENT=[0-9]*//g' > m23.sql
+	mysqldump --skip-add-drop-table -u$dbuser $dbpass m23temp | sed 's/ DEFAULT CHARSET=latin1//g' | sed 's/ AUTO_INCREMENT=[0-9]*//g' > m23.sql
 
 #export sources lists
 	php /mdk/bin/exportDBsourceslist.php $@ >> m23.sql
@@ -291,14 +302,14 @@ echo -n "Saving SQL dump of the temporary DB..."
 echo " done"
 
 #drop the temporary database
-	mysql -u$dbuser -p$dbpass  -e "DROP DATABASE m23temp"
+	mysql -u$dbuser $dbpass  -e "DROP DATABASE m23temp"
 
 
 
 #-----------------database: m23captured
 #
 echo -n "Export database for generating screenshots..."
-	mysqldump --skip-add-drop-table -u$dbuser -p$dbpass m23captured | sed 's/ DEFAULT CHARSET=latin1//g' > m23captured.sql
+	mysqldump --skip-add-drop-table -u$dbuser $dbpass m23captured | sed 's/ DEFAULT CHARSET=latin1//g' > m23captured.sql
 	bzip2 -f m23captured.sql
 echo " done"
 

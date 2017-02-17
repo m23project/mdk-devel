@@ -3,6 +3,13 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
+if [ ! -d /m23/tmp ]
+then
+	mkdir -p /m23/tmp
+	chown www-data /m23/tmp
+fi
+
+
 # Returns 0, if run on UCS
 if [ -f '/usr/sbin/udm' ]
 then
@@ -73,7 +80,8 @@ fi
 #add the needed schemata to the slapd.conf if they don't exist
 export m23searchLine=`awk -v START=0 -v SEARCH="/etc/ldap/schema/inetorgperson.schema" 'match($0,SEARCH)&&NR>START {print NR; exit}' /etc/ldap/slapd.conf`
 m23searchLine=`expr $m23searchLine \+ 1`
-if test `awk -v RS='pheeSheiso2sieseegaxeekeitoongei' -v SEARCH="include         /etc/ldap/schema/misc.schema
+if test `awk -v RS='pheeSheiso2sieseegaxeekeitoongei' -v SEARCH="
+include         /etc/ldap/schema/misc.schema
 include         /etc/ldap/schema/openldap.schema" '
 BEGIN { FOUND=0;}
 {if (index($0, SEARCH) > 0) { FOUND++; }}
@@ -152,6 +160,7 @@ IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' |
 
 echo "<?php
 include(\"/m23/inc/ldap.php\");
+include(\"/m23/inc/helper.php\");
 include(\"/m23/inc/server.php\");
 include(\"/m23/inc/edit.php\");
 

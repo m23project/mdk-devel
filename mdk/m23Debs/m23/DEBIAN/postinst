@@ -18,6 +18,22 @@ update-rc.d -f restoreBTServer defaults
 
 
 
+
+#Shows the mysql password parameter (if needed (only on MySQL))
+showDBAdmPassword()
+{
+	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+
+	if [ $dbadmpass ]
+	then
+		echo -n "-p$dbadmpass"
+	fi
+}
+
+
+
+
+
 #Remove bad SSH keys
 if [ -f /tmp/badSSH/root.pub ]
 then
@@ -63,7 +79,7 @@ updateDB()
 	dbserver="localhost"
 	#get username and password of the debian MySQL system 
 	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	dbadmpass=`showDBAdmPassword`
 
 	#create database m23
 	. /usr/share/wwwconfig-common/mysql-createdb.sh
@@ -88,8 +104,8 @@ updateDB()
 	fi
 
 	#Make sure the i18n table is always empty
-	mysql -u$dbadmin -p$dbadmpass m23 -e "delete from i18n"
-	mysql -u$dbadmin -p$dbadmpass m23captured -e "delete from i18n"
+	mysql -u$dbadmin $dbadmpass m23 -e "delete from i18n"
+	mysql -u$dbadmin $dbadmpass m23captured -e "delete from i18n"
 }
 
 
@@ -110,9 +126,9 @@ updateSQLIfOlder()
 	if [ -n "$oldversionint" ] && [ $oldversionint -lt $olderThan ]
 	then
 		dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-		dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+		dbadmpass=`showDBAdmPassword`
 
-		echo "$sql" | mysql -u $dbadmin -p$dbadmpass m23
+		echo "$sql" | mysql -u $dbadmin $dbadmpass m23
 	fi
 }
 
@@ -152,7 +168,7 @@ fi
 IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1 | sed 's#/.*##'`
 GATEINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^gateway | cut -d ' ' -f2 | head -1`
 dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+dbadmpass=`showDBAdmPassword`
 
 
 
@@ -270,31 +286,39 @@ if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
 then
 	# Make sure, innoDB is enabled
 	sed -i 's/skip-innodb/#skip-innodb/' /etc/mysql/my.cnf
+	
+	# Make sure MariaDB uses latin1 and not 4-byte utf8 which would lead to an exceeding of the 1000 bytes limit for unique keys
+	if [ -d /etc/mysql/mariadb.conf.d ]
+	then
+		sed -i 's/utf8mb4/latin1/g' /etc/mysql/mariadb.conf.d/*
+	fi
+
 	/etc/init.d/mysql restart
 
 	dbname="m23"
 	dbserver="localhost"
 	#get username and password of the debian MySQL system 
 	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	dbadmpass=`showDBAdmPassword`
+
 
 	#create database m23
 	. /usr/share/wwwconfig-common/mysql-createdb.sh
 
 	updateDB
 
-	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin -p$dbadmpass m23
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpass m23
 
-	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpass m23
 
 	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
-	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql -u $dbadmin $dbadmpass m23
 
 	#Make the groupname unique
-	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql -u $dbadmin $dbadmpass m23
 
 	#Make sure that a default group exists
-	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql -u $dbadmin $dbadmpass m23
 fi
 
 
@@ -360,6 +384,7 @@ ddns-update-style none;\
 		mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.beforem23
 		ln -s /m23/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
 		sed -i "s/INTERFACES=.*/INTERFACES=\"$netDevices\"/g" /etc/default/isc-dhcp-server
+		sed -i "s/INTERFACESv4=.*/INTERFACESv4=\"$netDevices\"/g" /etc/default/isc-dhcp-server
 	fi
 fi
 
@@ -963,7 +988,7 @@ php -r "
 fi
 
 #Add the server to the list of clients if it's missing
-localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost'" | mysql -u $dbadmin -p$dbadmpass m23 | tail -1`
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost'" | mysql -u $dbadmin $dbadmpass m23 | tail -1`
 if [ $localhostCount -eq 0 ]
 then
 	#Add the server to the list of clients as "localhost"
@@ -973,7 +998,7 @@ then
 	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
 	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
 
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql -u $dbadmin $dbadmpass m23
 fi
 
 #Increased the size of the fields "cpu" and "MHz" in the table "clients".
