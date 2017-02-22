@@ -23,7 +23,7 @@ mkdir "$suite-$arch"
 cd "$suite-$arch"
 
 #Debootstrap the distribution
-debootstrap --arch=$arch --include="parted wget" $suite . http://ftp.de.debian.org/debian
+debootstrap --arch=$arch --include="parted wget net-tools" $suite . http://ftp.de.debian.org/debian
 
 #Delete the packages
 rm ./var/cache/apt/archives/* 2> /dev/null
