@@ -39,4 +39,46 @@ then
 	systemctl enable m23-xorg-configurator
 fi
 
+
+if [ $(grep -c 'Debian GNU/Linux 9' /etc/issue) -gt 0 ]
+then
+	# Convert the sysVinit scripts to systemd .service files stored in /tmp
+	/lib/systemd/system-generators/systemd-sysv-generator
+
+	# Make a directory for the sysVinit scripts that should not be found by the faulty systemd compatibility layer
+	mkdir -p /etc/initd
+	
+	# Use a special version for xenial
+	mv /tmp/m23-xorg-configurator-xenial /etc/init.d/m23-xorg-configurator
+
+	# Run thru the sysVinit scripts that should be converted
+	for service in m23fetchjob m23-xorg-configurator
+	do
+		# systemd .service file name
+		serviceFile="/tmp/$service.service"
+
+		# If there is no .service file generated => skip the further processing
+		if [ ! -f $serviceFile ]
+		then
+			continue
+		fi
+
+		# Move the sysVinit script so that systemd's compatibility layer will not find them
+		mv /etc/init.d/$service /etc/initd/
+
+		# Adjust the timeout and the path to the sysVinit script
+		sed -i -e 's/5min/10min/g' -e 's/init\.d/initd/g' $serviceFile
+
+		# Add the missing lines to make the .service file accepted by systemd
+echo "
+[Install]
+WantedBy=multi-user.target" >> $serviceFile
+
+		# Enable the .service file
+		mv $serviceFile /etc/systemd/system
+		systemctl daemon-reload
+		systemctl enable $service
+	done
+fi
+
 db_stop
