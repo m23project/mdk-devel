@@ -1,0 +1,2 @@
+#!/bin/bash
+egrep -r '\$[0-9a-zA-Z_]*\[[^"$0-9]' . | egrep -v "\\\$[0-9a-zA-Z_]*\['" | grep -v '~:' | grep -v '/geshi/' | grep -v html2pdf
