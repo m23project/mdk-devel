@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="thumbnail_size" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Default Thumbnail Icon Size">
+			<default type="int" value="64"/>
+			<longdesc>
+             The default size of an icon for a thumbnail in the icon view.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="text_ellipsis_limit" mtime="1367786905" type="schema" stype="list" list_type="string">
+		<local_schema locale="C" short_desc="Text Ellipsis Limit">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>3</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+	     
+	     A string specifying how parts of overlong file names
+	     should be replaced by ellipses, depending on the zoom
+	     level.
+	     Each of the list entries is of the form &quot;Zoom Level:Integer&quot;.
+	     For each specified zoom level, if the given integer is
+	     larger than 0, the file name will not exceed the given number of lines.
+	     If the integer is 0 or smaller, no limit is imposed on the specified zoom level.
+	     A default entry of the form &quot;Integer&quot; without any specified zoom level
+	     is also allowed. It defines the maximum number of lines for all other zoom levels.
+	     Examples:
+	     0 - always display overlong file names;
+	     3 - shorten file names if they exceed three lines;
+	     smallest:5,smaller:4,0 - shorten file names if they exceed five lines
+	     for zoom level &quot;smallest&quot;. Shorten file names if they exceed four lines
+	     for zoom level &quot;smaller&quot;. Do not shorten file names for other zoom levels.
+	     Available zoom levels:
+	     smallest (33%), smaller (50%), small (66%), standard (100%), large (150%),
+	     larger (200%), largest (400%)
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="labels_beside_icons" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Put labels beside icons">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If true, labels will be placed beside icons rather than
+	   underneath them.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_zoom_level" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default icon zoom level">
+			<default type="string">
+				<stringvalue>standard</stringvalue>
+			</default>
+			<longdesc>
+             Default zoom level used by the icon view.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_use_tighter_layout" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Use tighter layout in new windows">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If true, icons will be laid out tighter by default in new windows.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_use_manual_layout" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Use manual layout in new windows">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If true, new windows will use manual layout by default.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_sort_order" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default sort order">
+			<default type="string">
+				<stringvalue>name</stringvalue>
+			</default>
+			<longdesc>
+           The default sort-order for items in the icon view. Possible
+	   values are &quot;name&quot;, &quot;size&quot;, &quot;type&quot;, &quot;modification_date&quot;, and &quot;emblems&quot;.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_sort_in_reverse_order" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Reverse sort order in new windows">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If true, files in new windows will be sorted in reverse order.
+	   ie, if sorted by name, then instead of sorting the files from
+	   &quot;a&quot; to &quot;z&quot;, they will be sorted from &quot;z&quot; to &quot;a&quot;; if sorted by
+	   size, instead of being incrementally they will be sorted
+	   decrementally.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="captions" mtime="1367786905" type="schema" stype="list" owner="caja" list_type="string">
+		<local_schema locale="C" short_desc="List of possible captions on icons">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>none</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>size</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>date_modified</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+	  A list of captions below an icon in the icon view and
+          the desktop.  The actual number of captions shown depends on
+          the zoom level.  Possible values are:
+	  &quot;size&quot;, &quot;type&quot;, &quot;date_modified&quot;, &quot;date_changed&quot;, &quot;date_accessed&quot;, &quot;owner&quot;,
+	  &quot;group&quot;, &quot;permissions&quot;, &quot;octal_permissions&quot; and &quot;mime_type&quot;.
+         </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

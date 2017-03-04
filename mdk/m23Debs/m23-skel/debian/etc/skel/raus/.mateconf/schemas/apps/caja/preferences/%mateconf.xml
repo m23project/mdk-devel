@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="thumbnail_limit" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Maximum image size for thumbnailing">
+			<default type="int" value="10485760"/>
+			<longdesc>
+          Images over this size (in bytes) won&apos;t be 
+          thumbnailed. The purpose of this setting is to 
+          avoid thumbnailing large images that may 
+          take a long time to load or use lots of memory.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="theme" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Current Caja theme (deprecated)">
+			<default type="string">
+				<stringvalue>default</stringvalue>
+			</default>
+			<longdesc>
+          Name of the Caja theme to use.
+	  This has been deprecated as of Caja 2.2.
+	  Please use the icon theme instead.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="start_with_toolbar" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show toolbar in new windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, newly opened windows will have toolbars visible.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="start_with_status_bar" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show status bar in new windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, newly opened windows will have the status
+	   bar visible.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="start_with_sidebar" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show side pane in new windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, newly opened windows will have the side
+	   pane visible.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="start_with_location_bar" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show location bar in new windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, newly opened windows will have the
+	   location bar visible.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="sort_directories_first" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show folders first in windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+	  If set to true, then Caja shows folders prior to
+	  showing files in the icon and list views.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="sidebar_width" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Width of the side pane">
+			<default type="int" value="148"/>
+			<longdesc>
+          The default width of the side pane in new windows.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="side_pane_view" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Side pane view">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+	   The side pane view to show in newly opened windows.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="side_pane_background_set" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Custom Side Pane Background Set">
+			<default type="bool" value="false"/>
+			<longdesc>Whether a custom default side pane background has been set.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="side_pane_background_filename" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default Side Pane Background Filename">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>Filename for the default side pane background.  Only used if side_pane_background_set is true.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="side_pane_background_color" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default Side Pane Background Color">
+			<default type="string">
+				<stringvalue>#ffffff</stringvalue>
+			</default>
+			<longdesc>Filename for the default side pane background.  Only used if side_pane_background_set is true.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_image_thumbnails" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="When to show thumbnails of image files">
+			<default type="string">
+				<stringvalue>local_only</stringvalue>
+			</default>
+			<longdesc>
+           Speed tradeoff for when to show an image file as a thumbnail.
+           If set to &quot;always&quot; then always thumbnail, 
+           even if the folder is on a remote server.
+           If set to &quot;local_only&quot; then only show thumbnails for local file systems.
+           If set to &quot;never&quot; then never bother to thumbnail images,
+           just use a generic icon.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_icon_text" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="When to show preview text in icons">
+			<default type="string">
+				<stringvalue>local_only</stringvalue>
+			</default>
+			<longdesc>
+           Speed tradeoff for when to show a preview of text file contents
+           in the file&apos;s icon.
+           If set to &quot;always&quot; then always show previews, 
+           even if the folder is on a remote server.
+           If set to &quot;local_only&quot; then only show previews for local file systems.
+           If set to &quot;never&quot; then never bother to read preview data.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_directory_item_counts" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="When to show number of items in a folder">
+			<default type="string">
+				<stringvalue>local_only</stringvalue>
+			</default>
+			<longdesc>
+           Speed tradeoff for when to show the number of items in a 
+           folder. If set to &quot;always&quot; then always show item counts, 
+           even if the folder is on a remote server. 
+           If set to &quot;local_only&quot; then only show counts for local file systems.
+           If set to &quot;never&quot; then never bother to compute item counts.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_desktop" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Caja handles drawing the desktop">
+			<default type="bool" value="true"/>
+			<longdesc>
+	  If set to true, then Caja will draw the icons on the
+	  desktop.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="show_advanced_permissions" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show advanced permissions in the file property dialog">
+			<default type="bool" value="false"/>
+			<longdesc>
+	  If set to true, then Caja lets you edit and display file
+	  permissions in a more unix-like way, accessing some more
+	  esoteric options.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="search_bar_type" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Criteria for search bar searching">
+			<default type="string">
+				<stringvalue>search_by_text</stringvalue>
+			</default>
+			<longdesc>
+	  Criteria when matching files searched for in the search bar.
+	  If set to &quot;search_by_text&quot;, then Caja will Search for files
+	  by file name only.
+	  If set to &quot;search_by_text_and_properties&quot;, then Caja will
+	  search for files by file name and file properties. 
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="preview_sound" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Whether to preview sounds when mousing over an icon">
+			<default type="string">
+				<stringvalue>local_only</stringvalue>
+			</default>
+			<longdesc>
+           Speed tradeoff for when to preview a sound file when mousing
+           over a files icon.
+           If set to &quot;always&quot; then always plays the sound, 
+           even if the file is on a remote server.
+           If set to &quot;local_only&quot; then only plays previews on local file systems.
+           If set to &quot;never&quot; then it never previews sound.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="navigation_window_saved_maximized" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Whether the navigation window should be maximized.">
+			<default type="bool" value="false"/>
+			<longdesc>
+           Whether the navigation window should be maximized by default.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="navigation_window_saved_geometry" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="The geometry string for a navigation window.">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>
+           A string containing the saved geometry and coordinates string for
+           navigation windows.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mouse_use_extra_buttons" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Use extra mouse button events in Caja&apos; browser window">
+			<default type="bool" value="true"/>
+			<longdesc>
+         For users with mice that have &quot;Forward&quot; and &quot;Back&quot; buttons, this key will determine
+         if any action is taken inside of Caja when either is pressed.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mouse_forward_button" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Mouse button to activate the &quot;Forward&quot; command in browser window">
+			<default type="int" value="9"/>
+			<longdesc>
+         For users with mice that have buttons for &quot;Forward&quot; and &quot;Back&quot;, this key will set
+         which button activates the &quot;Forward&quot; command in a browser window.
+         Possible values range between 6 and 14. 
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="mouse_back_button" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Mouse button to activate the &quot;Back&quot; command in browser window">
+			<default type="int" value="8"/>
+			<longdesc>
+         For users with mice that have buttons for &quot;Forward&quot; and &quot;Back&quot;, this key will set
+         which button activates the &quot;Back&quot; command in a browser window.
+         Possible values range between 6 and 14. 
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_autorun_x_content_start_app" mtime="1367786905" type="schema" stype="list" owner="caja" list_type="string">
+		<local_schema locale="C" short_desc="List of x-content/* types where the preferred application will be launched">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>x-content/software</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+           List of x-content/* types for which the user have chosen to
+           start an application in the preference capplet. The
+           preferred application for the given type will be started on
+           insertion on media matching these types.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_autorun_x_content_open_folder" mtime="1367786905" type="schema" stype="list" owner="caja" list_type="string">
+		<local_schema locale="C" short_desc="List of x-content/* types set to &quot;Open Folder&quot;">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+           List of x-content/* types for which the user have chosen
+           &quot;Open Folder&quot; in the preferences capplet. A folder window
+           will be opened on insertion of media matching these types.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_autorun_x_content_ignore" mtime="1367786905" type="schema" stype="list" owner="caja" list_type="string">
+		<local_schema locale="C" short_desc="List of x-content/* types set to &quot;Do Nothing&quot;">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>
+           List of x-content/* types for which the user have chosen
+           &quot;Do Nothing&quot; in the preference capplet. No prompt will be
+           shown nor will any matching application be started on
+           insertion of media matching these types.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_autorun_never" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Never prompt or autorun/autostart programs when media are inserted">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If set to true, then Caja will never prompt nor autorun/autostart
+           programs when a medium is inserted.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_automount_open" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Whether to automatically open a folder for automounted media">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, then Caja will automatically open a folder when
+           media is automounted. This only applies to media where no known
+           x-content/* type was detected; for media where a known x-content
+           type is detected, the user configurable action will be taken instead.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="media_automount" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Whether to automatically mount media">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, then Caja will automatically mount media
+           such as user-visible hard disks and removable media on start-up
+           and media insertion.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="install_mime_activation" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Show the package installer for unknown mime types">
+			<default type="bool" value="true"/>
+			<longdesc>
+         Whether to show the user a package installer dialog in case an unknown
+         mime type is opened, in order to search for an application to handle it.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="exit_with_last_window" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Caja will exit when last window destroyed.">
+			<default type="bool" value="false"/>
+			<longdesc>
+          If set to true, then Caja will exit when all windows are destroyed.
+          This is the default setting. If set to false, it can be started without
+          any window, so caja can serve as a daemon to monitor media automount,
+          or similar tasks.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="executable_text_activation" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="What to do with executable text files when activated">
+			<default type="string">
+				<stringvalue>ask</stringvalue>
+			</default>
+			<longdesc>
+        What to do with executable text files when they are activated
+        (single or double clicked).
+        Possible values are &quot;launch&quot; to launch them as programs,
+        &quot;ask&quot; to ask what to do via a dialog, and &quot;display&quot; to display
+        them as text files.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="enable_delete" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Whether to enable immediate deletion">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If set to true, then Caja will have a feature allowing
+           you to delete a file immediately and in-place, instead of moving it 
+           to the trash. This feature can be dangerous, so use caution.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="directory_limit" mtime="1367786905" type="schema" stype="int" owner="caja">
+		<local_schema locale="C" short_desc="Maximum handled files in a folder">
+			<default type="int" value="-1"/>
+			<longdesc>
+	  Folders over this size will be truncated to
+	  around this size. The purpose of this is to avoid unintentionally
+	  blowing the heap and killing Caja on massive folders.
+	  A negative value denotes no limit. The limit is approximate due
+	  to the reading of folders chunk-wise.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="desktop_is_home_dir" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Caja uses the users home folder as the desktop">
+			<default type="bool" value="false"/>
+			<longdesc>
+	  If set to true, then Caja will use the user&apos;s home
+	  folder as the desktop.  If it is false, then it will use
+	  ~/Desktop as the desktop.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="desktop_font" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Desktop font">
+			<default type="string">
+				<stringvalue>Sans 10</stringvalue>
+			</default>
+			<longdesc>
+	  The font description used for the icons on the desktop.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_folder_viewer" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default folder viewer">
+			<default type="string">
+				<stringvalue>icon_view</stringvalue>
+			</default>
+			<longdesc>
+	 When a folder is visited this viewer is used unless you have selected
+	 another view for that particular folder. Possible values are &quot;list_view&quot;,
+	 &quot;icon_view&quot; and &quot;compact_view&quot;.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="date_format" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Date Format">
+			<default type="string">
+				<stringvalue>locale</stringvalue>
+			</default>
+			<longdesc>
+             The format of file dates. Possible values are &quot;locale&quot;,
+             &quot;iso&quot;, and &quot;informal&quot;.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="confirm_trash" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Whether to ask for confirmation when deleting files, or emptying Trash">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, then Caja will ask for confirmation when 
+           you attempt to delete files, or empty the Trash.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="click_policy" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Type of click used to launch/open files">
+			<default type="string">
+				<stringvalue>double</stringvalue>
+			</default>
+			<longdesc>
+           Possible values are &quot;single&quot; to launch files on a single click, 
+           or &quot;double&quot; to launch them on a double click.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="background_set" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Custom Background">
+			<default type="bool" value="false"/>
+			<longdesc>Whether a custom default folder background has been set.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="background_filename" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default Background Filename">
+			<default type="string">
+				<stringvalue></stringvalue>
+			</default>
+			<longdesc>Filename for the default folder background.  Only used if background_set is true.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="background_color" mtime="1367786905" type="schema" stype="string" owner="caja">
+		<local_schema locale="C" short_desc="Default Background Color">
+			<default type="string">
+				<stringvalue>#ffffff</stringvalue>
+			</default>
+			<longdesc>Color for the default folder background.  Only used if background_set is true.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="always_use_location_entry" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Always use the location entry, instead of the pathbar">
+			<default type="bool" value="false"/>
+			<longdesc>
+           If set to true, then Caja browser windows will always use a textual
+	   input entry for the location toolbar, instead of the pathbar.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="always_use_browser" mtime="1367786905" type="schema" stype="bool" owner="caja">
+		<local_schema locale="C" short_desc="Enables the classic Caja behavior, where all windows are browsers">
+			<default type="bool" value="true"/>
+			<longdesc>
+           If set to true, then all Caja windows will be browser windows. This is how
+	   Caja used to behave before version 2.6, and some people prefer this behavior.
+         </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

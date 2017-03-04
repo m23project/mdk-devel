@@ -5,6 +5,8 @@ To fully support a new Debian/Ubuntu release a few steps are needed. The followi
 \begin{itemize}
 \item Build a compressed root file system for the new release via /mdk/m23helper/compressedDebootstrap and put it (for testing) into the directory /m23/data+scripts/packages/baseSys on the m23 server.
 
+\item Sign the baseSys files by running /mdk/m23helper/signBaseSys.sh in the directory containing the compresses base system archives.
+
 \item Create an empty file (touch) with the release name of the new distribution release under /m23/data+scripts/distr/debian/debootstrap/scripts/.
 
 \item Add the new release to the list in DISTR_releaseVersionTranslator.

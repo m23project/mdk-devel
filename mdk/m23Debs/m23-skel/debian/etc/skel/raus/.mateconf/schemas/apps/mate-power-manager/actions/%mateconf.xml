@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="sleep_type_battery" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="Whether to hibernate, suspend or do nothing when inactive">
+			<default type="string">
+				<stringvalue>hibernate</stringvalue>
+			</default>
+			<longdesc>The type of sleeping that should be performed when the computer is inactive. Possible values are &quot;hibernate&quot;, &quot;suspend&quot; and &quot;nothing&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="sleep_type_ac" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="Whether to hibernate, suspend or do nothing when inactive">
+			<default type="string">
+				<stringvalue>suspend</stringvalue>
+			</default>
+			<longdesc>The type of sleeping that should be performed when the computer is inactive. Possible values are &quot;hibernate&quot;, &quot;suspend&quot; and &quot;nothing&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="low_ups" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="UPS low power action">
+			<default type="string">
+				<stringvalue>hibernate</stringvalue>
+			</default>
+			<longdesc>The action to take when the UPS is low. Possible values are &quot;hibernate&quot;, &quot;suspend&quot;, &quot;shutdown&quot; and &quot;nothing&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="event_when_closed_battery" mtime="1367786905" type="schema" stype="bool" owner="mate-power-manager">
+		<local_schema locale="C" short_desc="If the battery event should occur when the lid is shut and the power disconnected">
+			<default type="bool" value="true"/>
+			<longdesc>If the battery lid close event should occur (for example &apos;Suspend when lid closed on battery&apos;) when the lid is previously shut and the AC power disconnected at a later time.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="critical_ups" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="UPS critical low action">
+			<default type="string">
+				<stringvalue>shutdown</stringvalue>
+			</default>
+			<longdesc>The action to take when the UPS is critically low. Possible values are &quot;hibernate&quot;, &quot;suspend&quot;, &quot;shutdown&quot; and &quot;nothing&quot;.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="critical_battery" mtime="1367786905" type="schema" stype="string">
+		<local_schema locale="C" short_desc="Battery critical low action">
+			<default type="string">
+				<stringvalue>hibernate</stringvalue>
+			</default>
+			<longdesc>The action to take when the battery is critically low. Possible values are &quot;hibernate&quot;, &quot;suspend&quot;, &quot;shutdown&quot; and &quot;nothing&quot;.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

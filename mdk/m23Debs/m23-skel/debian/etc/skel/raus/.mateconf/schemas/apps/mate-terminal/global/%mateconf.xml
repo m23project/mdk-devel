@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="use_mnemonics" mtime="1367786905" type="schema" stype="bool" owner="mate-terminal">
+		<local_schema locale="C" short_desc="Whether the menubar has access keys">
+			<default type="bool" value="true"/>
+			<longdesc>
+          Whether to have Alt+letter access keys for the menubar. 
+          They may interfere with some applications run inside the terminal
+          so it&apos;s possible to turn them off.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="use_menu_accelerators" mtime="1367786905" type="schema" stype="bool" owner="mate-terminal">
+		<local_schema locale="C" short_desc="Whether the standard GTK shortcut for menubar access is enabled">
+			<default type="bool" value="true"/>
+			<longdesc>
+          Normally you can access the menubar with F10. This can also
+          be customized via gtkrc (gtk-menu-bar-accel =
+          &quot;whatever&quot;). This option allows the standard menubar
+          accelerator to be disabled.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="profile_list" mtime="1367786905" type="schema" stype="list" owner="mate-terminal" list_type="string">
+		<local_schema locale="C" short_desc="List of profiles">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>Default</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+           List of profiles known to mate-terminal. The list contains 
+           strings naming subdirectories relative to
+          /apps/mate-terminal/profiles.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="default_profile" mtime="1367786905" type="schema" stype="string" owner="mate-terminal">
+		<local_schema locale="C" short_desc="Profile to use for new terminals">
+			<default type="string">
+				<stringvalue>Default</stringvalue>
+			</default>
+			<longdesc>
+          Profile to be used when opening a new window or tab. 
+          Must be in profile_list.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="confirm_window_close" mtime="1367786905" type="schema" stype="bool" owner="mate-terminal">
+		<local_schema locale="C" short_desc="Whether to ask for confirmation when closing terminal windows">
+			<default type="bool" value="true"/>
+			<longdesc>
+	 Whether to ask for confirmation when closing a terminal window which has
+	 more than one open tab.
+         </longdesc>
+		</local_schema>
+	</entry>
+	<entry name="active_encodings" mtime="1367786905" type="schema" stype="list" owner="mate-terminal" list_type="string">
+		<local_schema locale="C" short_desc="List of available encodings">
+			<default type="list" ltype="string">
+				<li type="string">
+					<stringvalue>UTF-8</stringvalue>
+				</li>
+				<li type="string">
+					<stringvalue>current</stringvalue>
+				</li>
+			</default>
+			<longdesc>
+          A subset of possible encodings are presented in 
+          the Encoding submenu. This is a list of encodings
+          to appear there. The special encoding name &quot;current&quot; 
+          means to display the encoding of the current locale.
+         </longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<mateconf>
+	<entry name="priority" mtime="1367786905" type="schema" stype="int" owner="mate-settings-daemon">
+		<local_schema locale="C" short_desc="">
+			<default type="int" value="300"/>
+		</local_schema>
+	</entry>
+	<entry name="min_notify_period" mtime="1367786905" type="schema" stype="int">
+		<local_schema locale="C" short_desc="Minimum notify period for repeated warnings">
+			<default type="int" value="10"/>
+			<longdesc>Specify a time in minutes. Subsequent warnings for a volume will not appear more often than this period.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="ignore_paths" mtime="1367786905" type="schema" stype="list" list_type="string">
+		<local_schema locale="C" short_desc="Mount paths to ignore">
+			<default type="list" ltype="string">
+			</default>
+			<longdesc>Specify a list of mount paths to ignore when they run low on space.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="free_size_gb_no_notify" mtime="1367786905" type="schema" stype="int">
+		<local_schema locale="C" short_desc="Free space no notify threshold">
+			<default type="int" value="2"/>
+			<longdesc>Specify an amount in GB. If the amount of free space is more than this, no warning will be shown.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="free_percent_notify_again" mtime="1367786905" type="schema" stype="float">
+		<local_schema locale="C" short_desc="Subsequent free percentage notify threshold">
+			<default type="float" value="0.01"/>
+			<longdesc>Specify the percentage that the free disk space should reduce by before issuing a subsequent warning.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="free_percent_notify" mtime="1367786905" type="schema" stype="float">
+		<local_schema locale="C" short_desc="Free percentage notify threshold">
+			<default type="float" value="0.050000000000000003"/>
+			<longdesc>Percentage free space threshold for initial warning of low disk space.
+				If the percentage free space drops below this, a warning will be shown.</longdesc>
+		</local_schema>
+	</entry>
+	<entry name="active" mtime="1367786905" type="schema" stype="bool" owner="mate-settings-daemon">
+		<local_schema locale="C" short_desc="Enable housekeeping plugin">
+			<default type="bool" value="true"/>
+			<longdesc>Set to True to enable the housekeeping plugin, to prune transient file caches.</longdesc>
+		</local_schema>
+	</entry>
+</mateconf>

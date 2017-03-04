@@ -421,7 +421,7 @@ createRFSImage()
 
 	#format loop device
 	echo -n "Formating image file..."
-	mke2fs -m 0 -N 10000 $loopDev -q
+	mkfs.ext2 -m 0 -N 10000 $loopDev -q
 	echo " done"
 
 	#remove the binding between the loop device and the initrd
