@@ -1077,6 +1077,12 @@ updateSQLIfOlder $oldversionint 143100752 "ALTER TABLE clients ADD CFDiskTemp LO
 # Add description field to the groups table
 updateSQLIfOlder $oldversionint 162100899 "ALTER TABLE groups ADD description LONGTEXT; ALTER TABLE clients ADD keyValueStore LONGTEXT"
 
+# Add new table for storing the autoUpdate schedule
+updateSQLIfOlder $oldversionint 172100985 "CREATE TABLE autoUpdateSchedule ( id int(11) NOT NULL, startsEnds text NOT NULL, groups text NOT NULL, type varchar(1) NOT NULL, parallelUpdates int(11) NOT NULL, lastRun timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, active tinyint(1) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+# Extend the client table by fields for storing autoUpdate values
+updateSQLIfOlder $oldversionint 172100985 "ALTER TABLE clients ADD autoUpdate_lastAttempt TIMESTAMP NOT NULL AFTER keyValueStore, ADD autoUpdate_gotJob BOOLEAN NOT NULL AFTER autoUpdate_lastAttempt, ADD autoUpdate_fails INT NOT NULL AFTER autoUpdate_gotJob;"
+
 
 
 ######################
