@@ -667,6 +667,18 @@ then
 	
 	chown www-data.www-data /m23/data+scripts/packages/baseSys/ca.crt /m23/data+scripts/packages/baseSys/ca.hash
 	chmod 644 /m23/data+scripts/packages/baseSys/ca.crt /m23/data+scripts/packages/baseSys/ca.hash
+
+	# Convert the files to UTF-8
+	find /m23 | grep php$ | xargs -n1 recode ISO-8859-1..utf-8
+	find /m23/inc | grep inc$ | xargs -n1 recode ISO-8859-1..utf-8
+	find /m23/inc | grep hlp$ | xargs -n1 recode ISO-8859-1..utf-8
+	sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php
+
+	for phpFile in `find /etc/php?/apache* /etc/php/7.0 2> /dev/null | grep php.ini` `find /etc/php?/cli | grep php.ini`
+	do
+		#PHP settings
+		sed -i -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
+	done
 fi
 
 

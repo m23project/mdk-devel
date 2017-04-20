@@ -156,8 +156,22 @@ done
 
 m23DuplicateToFRS
 
-# Wait 30 minutes
-sleep 1800
+
+# Copy packages to the repo on goos-habermann.de
+(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "Kopieren-nach-/var/www/m23inst-Fehler"
+	exit 1
+fi
+chown -R www-data.www-data /var/www/m23inst
+
+
+# Wait 30 seconds
+echo "Waiting 30 seconds"
+sleep 30
 
 #check if the pool works
 cd /m23test/
@@ -178,7 +192,10 @@ rm /tmp/poolCheck.log
 
 
 cd /m23test/archives
-(md5sum -c /m23inst/all.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+
+# Check only the Debian packages, because Packages* are not downloaded here
+grep '\.deb$' /m23inst/all.md5 > deb.md5
+(md5sum -c deb.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
 if [ $(grep m23 /tmp/err | grep -v OK -c) -gt 0 ]
 then
 	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler-FRS: MD5", "MD5-Fehler:
@@ -200,14 +217,3 @@ then
 	exit 1
 fi
 chown www-data.www-data m23-Pakete-fuer-ucs.tar.gz
-
-
-(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
-if [ $(cat /tmp/ret) -ne 0 ]
-then
-	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
-	".file_get_contents("/tmp/err"));'
-	echo "Kopieren-nach-/var/www/m23inst-Fehler"
-	exit 1
-fi
-chown -R www-data.www-data /var/www/m23inst
