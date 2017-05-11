@@ -1121,9 +1121,11 @@ then
 fi
 
 
-chown www-data.www-data /m23/data+scripts/packages/userPackages
+chown www-data.www-data /m23/data+scripts/packages/userPackages /m23/log
 mkdir -p /m23/var/cache/m23apt
 chown www-data.www-data /m23/var/cache/m23apt /m23/tmp /m23/tftp/pxelinux.cfg
+chmod 755 /m23/log
+
 
 touch /m23/dhcp/dhcpd.leases
 
