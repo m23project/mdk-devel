@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Copyright (c) 2017 Hauke Goos-Habermann (goos-habermann.de)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but 
+# WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License 
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Source the architecture of the Debian packages to variable $DEB_HOST_ARCH_CPU
+dpkg-architecture 2> /dev/null > /tmp/arch
+. /tmp/arch
+rm /tmp/arch
+
+# Run thru the just downloaded packages and check, if there are any of unmaintained branch
+ls /var/cache/apt/archives | while read pkg
+do
+	# Get information about the download source
+	apt-cache policy $(echo $pkg | cut -d'_' -f1) > /tmp/chkunmain.pol
+
+	# Check, if the package was downloaded from unmaintained tree	
+	if [ $(grep unmaintained -c /tmp/chkunmain.pol) -gt 0 ]
+	then
+		# Get the base url of the unmaintained repo
+		baseURL=$(grep unmaintained /tmp/chkunmain.pol | head -1 | sed -e 's/[^h]*//' -e 's#/ Packages#/#' -e 's# ##')
+
+		# Try to get the packages for all architectures
+		for debarch in amd64 i386 all
+		do
+			url=$(echo $baseURL/$pkg | sed "s/$DEB_HOST_ARCH_CPU/$debarch/g")
+			echo $url
+			wget $url
+		done
+	fi
+done
+
+# Remove duplicated packages with "all" architecture that were downloaded multiple times
+rm *.deb.*
+
+rm /tmp/chkunmain.pol
