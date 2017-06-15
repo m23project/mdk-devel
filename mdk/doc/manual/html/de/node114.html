@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zur Rechnerarchitektur</TITLE>
-<META NAME="description" CONTENT="Hinweis zur Rechnerarchitektur">
+<TITLE>ISC DHCP Server</TITLE>
+<META NAME="description" CONTENT="ISC DHCP Server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,89 +28,79 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1991"
+<A NAME="tex2html1968"
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1987"
+<A NAME="tex2html1964"
   HREF="node110.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1981"
+<A NAME="tex2html1958"
   HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1989"
+<A NAME="tex2html1966"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1992"
-  HREF="node115.html">Hinweis:</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1988"
-  HREF="node110.html">Client hinzufügen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1982"
-  HREF="node113.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html1990"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1969"
+  HREF="node115.html">Anderer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1965"
+  HREF="node110.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1959"
+  HREF="node113.html">Dynamische Konfiguration von DHCP-Servern</A>
+ &nbsp; <B>  <A NAME="tex2html1967"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00914000000000000000">
-Hinweis zur Rechnerarchitektur</A>
+ISC DHCP Server</A>
 </H2>
-m23 unterst&#252;tzt nativ 32- und 64-bittige Rechner. Eine 32-Bit Distribution kann auch auf einem 64-Bit Rechner installiert werden. Umgekehrt ist dies allerdings nicht m&#246;glich. Um das volle Potential einer vorhandenen 64-Bit-CPU auszunutzen, sollten Sie <SPAN  CLASS="textit">''amd64''</SPAN> ausw&#228;hlen. Unter <SPAN  CLASS="textit">''amd64''</SPAN> fallen nicht nur die CPUs von AMD sondern auch die von Intel. Beispielhaft seien hier die Intel-CPUs Pentium D, Pentium Extreme Edition, Celeron D und Core 2 sowie die AMD-CPUs AMD Sempron, Athlon 64, Athlon X2 und Phenom genannt.
-<BR><SPAN  CLASS="textbf">MAC-Adresse:</SPAN> MAC-Adresse der Client-Netzwerkkarte (z.B. 00D0B723865C)
-<BR><SPAN  CLASS="textbf">IP-Adresse:</SPAN> gew&#252;nschte IP-Adresse des Clients (z.B. 192.168.1.23)
-<BR><SPAN  CLASS="textbf">Netzwerkmaske:</SPAN> Netzwerkmaske des Netzwerkes (z.B. 255.255.255.0)
-<BR><SPAN  CLASS="textbf">Gateway:</SPAN> Gateway-IP f&#252;r Internet- oder andere Verbindungen au&#223;erhalb des Netzwerkes
-<BR><SPAN  CLASS="textbf">DNS1:</SPAN> IP-Adresse des DNS-Servers zum Aufl&#246;sen der Internetnamen
-<BR><SPAN  CLASS="textbf">DNS2 (optional):</SPAN> IP des Backup-DNS-Servers
-<BR><SPAN  CLASS="textbf">Paket-Proxy:</SPAN> Der Client versucht die Softwarepakete von der angegebenen Proxy-Server-IP zu beziehen. Im Standardfall ist dies die IP des m23-Servers, alternativ kann auch ein anderer Proxy-Server angegeben werden. Wenn das Feld leer gelassen wird, so l&#228;dt der Client die Softwarepakete aus dem Internet herunter. Geben Sie bitte auch die Port-Addresse der Proxy-Servers an. Beim m23-Server ist dies der Port 2323. Wird der <SPAN  CLASS="textit">''Client hinzuf&#252;gen''</SPAN>-Dialog ge&#246;ffnet, so ist der m23-Server als Proxy voreingestellt.
-<BR><SPAN  CLASS="textbf">Gruppe (optional):</SPAN> Angabe der Clientgruppe f&#252;r den Client
-<BR><SPAN  CLASS="textbf">Benutzer-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 6-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den ersten Login auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
-<BR><SPAN  CLASS="textbf">Root-Pa&#223;wort:</SPAN> Es wird standardm&#228;&#223;ig ein 8-stelliges Zufallspa&#223;wort erstellt, das f&#252;r den Root-Zugang auf dem Client benutzt wird. Sie k&#246;nnen aber auch ein anderes Passwort vorgeben.
-<BR><SPAN  CLASS="textbf">Zeitzone:</SPAN> Hier k&#246;nnen Sie die Zeitzone festlegen, die von Client benutzt werden soll.
-<BR><SPAN  CLASS="textbf">Systemzeit per NTP ermitteln:</SPAN> Setzen Sie diese Option, wenn Sie w&#252;nschen, da&#223; die Uhrzeit des Clients beim Systemstart &#252;ber das Internet abgeglichen werden soll.
-<BR><SPAN  CLASS="textbf">Druckertreiber installieren und angeschlossene Drucker erkennen:</SPAN> Wenn Sie diese Option w&#228;hlen, werden Druckertreiber auf dem Client installiert sowie angeschlossene Drucker erkannt.
-<BR><SPAN  CLASS="textbf">Anmeldungsdaten lokal auf dem Client speichern.:</SPAN>Setzen Sie hier einen Haken, um die lokale Benutzeranmeldung des Clients zu verwenden.
-<BR><SPAN  CLASS="textbf">LDAP nicht benutzen</SPAN>: Um nur die lokale Benutzeranmeldung des Clients zu verwenden, w&#228;hlen Sie <SPAN  CLASS="textit">''LDAP nicht benutzen''</SPAN>. 
-<BR><SPAN  CLASS="textbf">Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen. / Anmeldungsdaten vom UCS lesen.</SPAN>: W&#252;nschen Sie hingegen, die bereits in einen LDAP-Server  oder UCS-Server eingetragene Benutzerauthentifizierungsdaten zu nutzen, klicken Sie auf <SPAN  CLASS="textit">''Anmeldungsdaten vom gew&#228;hlten LDAP-Server lesen.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten vom UCS lesen.''</SPAN>.
-<BR><SPAN  CLASS="textbf">Anmeldungsdaten in den LDAP-Server speichern. / Anmeldungsdaten auf UCS speichern.</SPAN>: Wollen Sie hingegen die oben angegebenen Benutzerdaten in die LDAP-Datenbank des m23-Servers  oder UCS-Servers eintragen und f&#252;r Clientlogins nutzen, so w&#228;hlen Sie <SPAN  CLASS="textit">''Anmeldungsdaten in den LDAP-Server speichern.''</SPAN> bzw. <SPAN  CLASS="textit">''Anmeldungsdaten auf UCS speichern.''</SPAN>. Bei Auswahl dieser Option ist ein LDAP-Server mit Vollzugriff erforderlich, da die oben angegebenen Benutzerdaten auf dem LDAP geschrieben werden.
-<BR><SPAN  CLASS="textbf">Benutzer-ID, Gruppen-ID</SPAN>: Zus&#228;tzlich m&#252;ssen Sie die <SPAN  CLASS="textit">''Benutzer-ID''</SPAN> und <SPAN  CLASS="textit">''Gruppen-ID''</SPAN> f&#252;r den Benutzer ausw&#228;hlen. Dies ist insbesondere wichtig, wenn Sie NFS f&#252;r das Speichern der Heimatverzeichnisse verwenden wollen.
-<BR><SPAN  CLASS="textbf">LDAP-Servername</SPAN>: Zuletzt m&#252;ssen Sie einen LDAP-Server aus der Auswahlliste bei <SPAN  CLASS="textit">''LDAP-Servername''</SPAN> ausw&#228;hlen. Sollte der gew&#252;nschte LDAP-Server nicht vorhanden sein, so k&#246;nnen Sie ihn durch einen Klick auf <SPAN  CLASS="textit">''LDAP-Server verwalten''</SPAN> hinzuf&#252;gen. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option. Es wird stattdessen der UCS-eigene LDAP-Server verwendet.
-<BR><SPAN  CLASS="textbf">Heimatverzeichnis auf NFS:</SPAN> Diese Option sorgt daf&#252;r, da&#223; die Benutzerdateien auf einem zentralen NFS-Server gespeichert werden, soda&#223; auf diese (in Kombination mit LDAP) von jedem Client aus zugegriffen werden kann. Um NFS zu aktivieren, geben Sie den Rechnernamen bzw. die IP-Adresse und den Pfad zum Speichern der Heimatverzeichnisse an z.B. 
+Handelt es sich bei dem anderen DHCP-Server um den ISC DHCP server, so k&#246;nnen Sie diesen anstelle des m23-DHCP-Servers verwenden.
+<BR>
+<OL>
+<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+<BR></LI>
+<LI>Deaktivieren Sie den DHCP-Server auf dem m23-Server: Editieren Sie die Datei /etc/default/isc-dhcp-server auf dem m23-Server, kommentieren die Zeile INTERFACES=... mit einer vorangestellten ''#'' aus und f&#252;gen darunter die neue Zeile INTERFACES='''' ein. Starten Sie anschlie&#223;end den DHCP-Server mit /etc/init.d/isc-dhcp-server restart neu. Dieser l&#228;uft dann zwar, beantwortet aber keine Anfragen mehr.
+<BR></LI>
+<LI>Setzen Sie in der Konfiguration Ihres DHCP-Servers die Option use-host-decl-names on f&#252;r die Gruppe, die die m23-Clients enthalten soll.
+<BR></LI>
+<LI>Aktualisieren Sie die m23-Gruppe in der Konfiguration Ihres DHCP-Servers regelm&#228;&#223;ig (z.B. mittels cronjob oder anderer Verfahren) mit den Daten des m23-Servers von der URL http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php. Diese URL stellt die Konfiguration in ''ISC DHCP server''-Notation f&#252;r m23-Clients, die &#252;ber das Netzwerk booten sollen, bereit. Die Gruppe mit den m23-Clients k&#246;nnte dann wie folgt aussehen:
 <BR><PRE>
-192.168.1.23:/nfs-homes
+group {
+use-host-decl-names on;
+$\langle$Aus exportDHCPSettings.php eingefügte Daten$\rangle$
+}
 </PRE>
-. Falls m23 auf einem UCS-Server installiert wurde, entf&#228;llt diese Option.
-<BR>
-Klicken Sie, nachdem Sie Ihre Eingaben &#252;berpr&#252;ft haben, auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>.
-<BR>
+</LI>
+</OL>
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html1991"
+<A NAME="tex2html1968"
   HREF="node115.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1987"
+<A NAME="tex2html1964"
   HREF="node110.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1981"
+<A NAME="tex2html1958"
   HREF="node113.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1989"
+<A NAME="tex2html1966"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html1992"
-  HREF="node115.html">Hinweis:</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html1988"
-  HREF="node110.html">Client hinzufügen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html1982"
-  HREF="node113.html">Hinweis</A>
- &nbsp; <B>  <A NAME="tex2html1990"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html1969"
+  HREF="node115.html">Anderer DHCP-Server</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html1965"
+  HREF="node110.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html1959"
+  HREF="node113.html">Dynamische Konfiguration von DHCP-Servern</A>
+ &nbsp; <B>  <A NAME="tex2html1967"
   HREF="node1.html">Inhalt</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>

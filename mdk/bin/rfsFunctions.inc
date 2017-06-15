@@ -70,14 +70,25 @@ createRFScopyLib()
 	#get the filename of the library without the path
 	fnamelib=`echo $lib | awk '{anz=split($0,arr,"/"); print(arr[anz]);}'`
 	fnamelib=`basename "$fnamelib"`
+	
+	# Don't copy a lib again, that was copied before
+	if [ -f "lib/$fnamelib" ]
+	then
+		return 0
+	else
+		echo $fnamelib >> /tmp/mdk-createRFSAllLibs.txt
+	fi
+	
+# 	echo "öööfnamelib: $fnamelib"
 
 	#where to find the library in the extracted debs (with full path)
 	#HINT: "sort | tail -1" ensures that the tls version of the libs is used
 	libsrc=`find $extractedDebsDir -name $fnamelib -xtype f | grep lib | sort | tail -1`
+#	echo "ööölibsrc: $libsrc"
 
 	if [ -z $libsrc ]
 	then
-		if [ `echo -n $lib | egrep -v ^not$ | grep -v linux-gate | grep -v '\t'` ] && [ $neededBy ]
+		if [ `echo -n $lib | egrep -v ^not$ | grep -v linux-gate | grep -v linux-vdso | grep -v '\t'` ] && [ $neededBy ]
 		then
 			echo "Error: Library $lib needed by \"$neededBy\" not found!"
 			echo "lib: $lib fnamelib: $fnamelib libsrc: $libsrc extractedDebsDir: $extractedDebsDir"
@@ -90,6 +101,7 @@ createRFScopyLib()
 
 	#link and filename sperated with ?
 	linkAndFile=`find $libsrc -printf "%l?%f"`
+#	echo "ööölinkAndFile: $linkAndFile"
 	
 	#check if the library is a link to a real library
 	if test `echo $linkAndFile | egrep -c '^\?'` -gt 0
@@ -102,6 +114,8 @@ createRFScopyLib()
 		realFile=`echo $linkAndFile | cut -d'?' -f1`
 
 		realFile=$(basename $realFile)
+		
+#		echo "ööörealFile: $realFile"
 
 		#copy the real library to the bootimage lib dir
 		cp -v -u `find $extractedDebsDir -name $realFile -xtype f | grep lib | sort | tail -1` lib
@@ -121,6 +135,8 @@ createRFScopyLib()
 createRFSBins()
 {
 	. /tmp/menuVars
+	
+	rm /tmp/mdk-createRFSAllLibs.txt 2> /dev/null
 
 	echo "Copying binaries, needed libraries and symbolic links... "
 
@@ -167,7 +183,7 @@ createRFSBins()
 	#not needed?: grub grub-install grub-md5-crypt
 
 	#halt: Now in BusyBox
-	for bin in ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar wget MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs sgdisk #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
+	for bin in wget ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar  MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs sgdisk #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
 	do
 		foundBins=$[ $(find $extractedDebsDir -name $bin -xtype f | grep bin -c) + $(find $extractedDebsDir -name $bin -type l | grep bin -c) ]
 
@@ -227,8 +243,9 @@ createRFSBins()
 			fi
 
 			#simple ldd for same architecture as the host
-			for lib in `ldd bin/$bin 2> /dev/null | cut -d " " -f1 | grep -v '(0x'`
+			for lib in `ldd bin/$bin 2> /dev/null | cut -d " " -f1 | tr -d [:blank:] | grep -v '(0x'`
 			do
+				echo "LIB: $lib"
 				createRFScopyLib $lib $bin
 			done
 		else
@@ -241,13 +258,17 @@ createRFSBins()
 
 			bin=`cat /tmp/mdk-createRFSBins.txt`
 
+			# Get the needed libs by objdump and ldd
+			$objdump -x bin/$bin | grep NEEDED | tr -s [:blank:] | cut -d' ' -f3 | grep -v '(0x' > /tmp/mdk-createRFSLibs.txt
+			ldd bin/$bin 2> /dev/null | cut -d " " -f1 | tr -d [:blank:] | grep -v '(0x' >> /tmp/mdk-createRFSLibs.txt
+
 			#special method for amd64
-			for lib in `$objdump -x bin/$bin | grep NEEDED | tr -s [:blank:] | cut -d' ' -f3 | grep -v '(0x'`
+			for lib in `sort -u /tmp/mdk-createRFSLibs.txt`
 			do
 				createRFScopyLib $lib $bin
 			done
-
 		fi
+#		exit 0 #ööö
 	done
 
 	#Special handling for 7-Zip
@@ -284,6 +305,27 @@ createRFSBins()
 	createRFScopyLib libdevmapper.so.1.02.1 	# for parted
 	createRFScopyLib libudev.so.1				# for parted
 	createRFScopyLib libx86emu.so.1				# for hwinfo
+# 	createRFScopyLib libpcre.so.3
+# 	createRFScopyLib libisccfg-export.so.90
+# 	createRFScopyLib libtasn1.so.6
+# 	createRFScopyLib libhogweed.so.2
+	createRFScopyLib libicuuc.so.52				# wget i386
+
+	# Store all libraries used for the bootimage, if it's the same as the CPU architecture of the m23 server
+	if [ `getBuildArch` == `uname -m` ]
+	then
+		sort -u /tmp/mdk-createRFSAllLibs.txt > /mdk/client+server/allLibs.txt
+	else
+		if [ -f /mdk/client+server/allLibs.txt ]
+		then
+			for lib in `cat /mdk/client+server/allLibs.txt`
+			do
+				createRFScopyLib $lib
+			done
+		fi
+	fi
+	
+	
 	echo "done"
 }
 
@@ -615,6 +657,8 @@ deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 localArchAptUpdate
 
 localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk module-init-tools dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk
+
+# libpcre3 libisccfg-export90 libtasn1-6 libhogweed2
 
 #hwdata-knoppix ddcxinfo-knoppix hwsetup m23hwscanner  #directly extracted from the MDK deb directory
 # Not in Wheezy: ms-sys libntfs-3g31 

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Anderer DHCP-Server</TITLE>
-<META NAME="description" CONTENT="Anderer DHCP-Server">
+<TITLE>Hinweis</TITLE>
+<META NAME="description" CONTENT="Hinweis">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node122.html">
 <LINK REL="previous" HREF="node120.html">
-<LINK REL="up" HREF="node116.html">
+<LINK REL="up" HREF="node117.html">
 <LINK REL="next" HREF="node122.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2079"
+<A NAME="tex2html2059"
   HREF="node122.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2075"
-  HREF="node116.html">
+<A NAME="tex2html2055"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2069"
+<A NAME="tex2html2049"
   HREF="node120.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2077"
+<A NAME="tex2html2057"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2080"
-  HREF="node122.html">Proxy DHCP</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2076"
-  HREF="node116.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2070"
-  HREF="node120.html">ISC DHCP Server</A>
- &nbsp; <B>  <A NAME="tex2html2078"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2060"
+  HREF="node122.html">Hinweis zu UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2056"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2050"
+  HREF="node120.html">Menüpunkte im Überblick</A>
+ &nbsp; <B>  <A NAME="tex2html2058"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00925000000000000000">
-Anderer DHCP-Server</A>
+<H2><A NAME="SECTION00924000000000000000">
+Hinweis</A>
 </H2>
-
-<OL>
-<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+Die so erstellten virtuellen Festplatten werden wie die realen Festplatten einen Clients eingerichtet (Partitionieren, Formatieren, Software-RAIDs, Installations- und Swappartition). Die Gr&#246;&#223;en sollten &#228;hnlich (oder identisch), die Laufwerksnamen m&#252;ssen hingegen identisch zu den in Ihren Clients verbauten realen Festplatten sein. Bei Abweichung der virtuellen von der realen Festplattengr&#246;&#223;e werden die Partitionsgr&#246;&#223;en prozentual angepasst.
+<BR><SPAN  CLASS="textbf">Partitionierungsschema</SPAN>
+Unter diesem Men&#252;punkt k&#246;nnen Sie ein vordefiniertes Schema zum Partitionieren und Formatieren der Festplatte des m23-Clients ausw&#228;hlen und durch einen Klick auf <SPAN  CLASS="textit">''Schema anwenden''</SPAN> anwenden.
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Automatische Partitionierung</SPAN>: Bei der automatischen Partitionierung werden alle Daten auf der ersten Festplatte gel&#246;scht und zwei neue Partitionen angelegt. Es wird eine Partition f&#252;r Daten und das Betriebssystem und die andere zum tempor&#228;ren Auslagern (Swappen) erstellt.
 <BR></LI>
-<LI>Konfigurieren Sie Ihren DHCP-Server so, da&#223; der m23-Client den in der m23-Weboberfl&#228;che angegebenen Rechnernamen zugewiesen bekommt.
-<BR></LI>
-<LI>Der PXE-Kernel, den Ihr DHCP-Server an den m23-Client &#252;bermittelt, mu&#223; <SPAN  CLASS="textbf">pxelinux.0</SPAN> hei&#223;en. TFTP-Server ist der m23-Server.
-<BR></LI>
-<LI>Konfigurieren Sie den DHCP-Server so, da&#223; dieser den m23-Clients als Herkunfts-IP die IP des m23-Servers &#252;bermittelt.
-<BR></LI>
-<LI>Sollte sich der DHCP-Server nicht so einrichten lassen, so m&#252;ssen Sie ggf. einen eigenen TFTP-Server auf demselben Rechner einrichten, der auch Ihren DHCP-Server beinhaltet. Als Basis f&#252;r die Einrichtung des TFTPs k&#246;nnen Sie die Konfigurationsdateien aus dem Verzeichnis /m23/tftp/ verwenden.
-<BR></LI>
-</OL>
-<BR><HR>
+</UL>
+<SPAN  CLASS="textbf">Aktuelle Partition l&#246;schen</SPAN>
+Mit einem Klick auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN> entfernen Sie die aktuelle (unter <SPAN  CLASS="textit">''Aktuelle Partition''</SPAN> angegebene) Partition.
+<BR><SPAN  CLASS="textbf">Neue Partition anlegen</SPAN>
+Mit dieser Funktion k&#246;nnen Sie neue Partitionen innerhalb eines freien Bereiches auf der Festplatte anlegen. Zum W&#228;hlen von Start- und Endpunkt der neuen Partition klicken Sie (bei aktivertem JavaScript) auf einen wei&#223;en Bereich oder geben diese unter <SPAN  CLASS="textit">''Start''</SPAN> und <SPAN  CLASS="textit">''Ende''</SPAN> an. Sie k&#246;nnen nat&#252;rlich auch eine Partition anlegen, die nicht den ganzen freien Platz einnimmt. W&#228;hlen Sie zudem unter <SPAN  CLASS="textit">''Typ''</SPAN> aus, ob Sie eine prim&#228;re (primary), erweiterte (extended) oder logische (logical) Partition erstellen m&#246;chten. Klicken Sie abschlie&#223;end auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2059"
+  HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2055"
+  HREF="node117.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2049"
+  HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2057"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2060"
+  HREF="node122.html">Hinweis zu UEFI</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2056"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2050"
+  HREF="node120.html">Menüpunkte im Überblick</A>
+ &nbsp; <B>  <A NAME="tex2html2058"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>

@@ -144,9 +144,10 @@ checkAlternativeM23Server()
 {
 	touch /m23clientIDAdd
 
-	wget -qq "http://$1/latest/availability-zone" -O /dev/null
+	#wget -qq "http://$1/latest/availability-zone" -O /dev/null
+	wget -qq "http://$GATEINT/latest/public-ipv4" -O /tmp/csExternIp
 
-	if [ $? -eq 0 ]
+	if [ $? -eq 0 ] && [ -f /tmp/csExternIp ] && [ $(grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' -c /tmp/csExternIp) -eq 1 ]
 	then
 		wget -qq "http://$1/latest/user-data" -O /tmp/CSud
 		echo -n "?m23clientID=`hostname`" > /m23clientIDAdd
@@ -155,6 +156,7 @@ checkAlternativeM23Server()
 	else
 		echo -n "$1"
 	fi
+	rm /tmp/csExternIp 2> /dev/null
 }
 
 

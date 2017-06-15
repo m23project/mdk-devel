@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Step by step</TITLE>
-<META NAME="description" CONTENT="Step by step">
+<TITLE>Background processes</TITLE>
+<META NAME="description" CONTENT="Background processes">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,83 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node188.html">
 <LINK REL="previous" HREF="node186.html">
-<LINK REL="up" HREF="node186.html">
+<LINK REL="up" HREF="node183.html">
 <LINK REL="next" HREF="node188.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2941"
+<A NAME="tex2html2952"
   HREF="node188.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2937"
-  HREF="node186.html">
+<A NAME="tex2html2948"
+  HREF="node183.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2931"
+<A NAME="tex2html2944"
   HREF="node186.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2939"
+<A NAME="tex2html2950"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2942"
-  HREF="node188.html">Deletion of selection</A>
-<B> Up:</B> <A NAME="tex2html2938"
-  HREF="node186.html">Edit package selections</A>
-<B> Previous:</B> <A NAME="tex2html2932"
-  HREF="node186.html">Edit package selections</A>
- &nbsp; <B>  <A NAME="tex2html2940"
+<B> Next:</B> <A NAME="tex2html2953"
+  HREF="node188.html">Edit package sources</A>
+<B> Up:</B> <A NAME="tex2html2949"
+  HREF="node183.html">Automatical update</A>
+<B> Previous:</B> <A NAME="tex2html2945"
+  HREF="node186.html">Unset update times and</A>
+ &nbsp; <B>  <A NAME="tex2html2951"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001251000000000000000">
-Step by step</A>
+<H2><A NAME="SECTION001244000000000000000">
+Background processes</A>
 </H2>
-
-<OL>
-<LI>Click on <SPAN  CLASS="textit">''Package selection''</SPAN>, <SPAN  CLASS="textit">''Normal packages''</SPAN> or <SPAN  CLASS="textit">''Special packages (for skilled users only)''</SPAN>.
-<BR></LI>
-<LI>Enter the search criteria or leave the search field empty to list all packages.
-<BR></LI>
-<LI>Click on <SPAN  CLASS="textit">''Search''</SPAN>.
-<BR></LI>
-<LI>Choose the desired packages from the <SPAN  CLASS="textit">''Found packages''</SPAN> list.
-<BR></LI>
-<LI>Click on <SPAN  CLASS="textit">''Preselect''</SPAN>.
-<BR></LI>
-<LI>Now you can <SPAN  CLASS="textbf">delete</SPAN> serveral packages from the selection by checking the packages and click on <SPAN  CLASS="textit">''Discard selected''</SPAN>.
-<BR></LI>
-<LI>Packages can be <SPAN  CLASS="textbf">added</SPAN> by searching in the search dialog and preselecting the desired packages.
-<BR></LI>
-<LI>Save this selection under the same or a different selection name.
-<BR></LI>
-</OL>
-<BR><HR>
+When there is (at least) one update group, a cron job will be started in 15-minute intervals, and will check for clients that can be updated.
+<BR>
+This will boot clients successively, while restricting the number of clients in the update group that are updating to the number given at <SPAN  CLASS="textit">''Simultaneous updates''</SPAN>. When the time frame for the currently active update group has terminated, further clients in the group will not be updated this time. Running updates will not be cancelled.
+<BR>
+In addition to this, m23 checks if the update on the clients is actually executed. If the client doesn't start to update within 30 minutes (e.g. because Wake-on-LAN doesn't work), the update job will be retracted, and for the next 24 hours, no further attempts to update will be undertaken.
+<BR>
+When the client is already running, the updates will be executed in the background. Clients that have been booted by WOL will be shut down after the update has completed.
+<BR>
+When all clients within an update group are done updating, the next group with a sui time interval will be activated (if there is one).
+<BR>
+When the last remaining update group is removed, the cron job entry will also be removed.
+<BR>
+In the log file <SPAN  CLASS="textit">''/m23/log/autoUpdate.log''</SPAN> you will find more info about the updates that were run.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2952"
+  HREF="node188.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2948"
+  HREF="node183.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2944"
+  HREF="node186.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2950"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2953"
+  HREF="node188.html">Edit package sources</A>
+<B> Up:</B> <A NAME="tex2html2949"
+  HREF="node183.html">Automatical update</A>
+<B> Previous:</B> <A NAME="tex2html2945"
+  HREF="node186.html">Unset update times and</A>
+ &nbsp; <B>  <A NAME="tex2html2951"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>

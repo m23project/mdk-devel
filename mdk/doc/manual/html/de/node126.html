@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Menüpunkte im Überblick</TITLE>
-<META NAME="description" CONTENT="Menüpunkte im Überblick">
+<TITLE>Hinweis zur Installation von Betriebssystemen auf RAIDs</TITLE>
+<META NAME="description" CONTENT="Hinweis zur Installation von Betriebssystemen auf RAIDs">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,75 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node127.html">
 <LINK REL="previous" HREF="node125.html">
-<LINK REL="up" HREF="node123.html">
+<LINK REL="up" HREF="node117.html">
 <LINK REL="next" HREF="node127.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2146"
+<A NAME="tex2html2117"
   HREF="node127.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2142"
-  HREF="node123.html">
+<A NAME="tex2html2113"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2136"
+<A NAME="tex2html2109"
   HREF="node125.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2144"
+<A NAME="tex2html2115"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2147"
-  HREF="node127.html">Hinweis</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2143"
-  HREF="node123.html">Clientpartitionierung und -formatierung</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2137"
-  HREF="node125.html">Hinweis zur Verwendung von</A>
- &nbsp; <B>  <A NAME="tex2html2145"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2118"
+  HREF="node127.html">Wählen der Client-Distribution</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2114"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2110"
+  HREF="node125.html">Hinweis zu RAIDs und</A>
+ &nbsp; <B>  <A NAME="tex2html2116"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00933000000000000000">
-Men&#252;punkte im &#220;berblick</A>
+<H2><A NAME="SECTION00929000000000000000">
+Hinweis zur Installation von Betriebssystemen auf RAIDs</A>
 </H2>
-<SPAN  CLASS="textbf">Aktuelles Laufwerk und Partition</SPAN>
-Viele der Operationen sind an eine Partition (z.B. formatieren) oder an eine Festplatte (z.B. neue Partition anlegen) gebunden. Diese Operationen beziehen sich jeweils auf die unter <SPAN  CLASS="textit">''Aktuelles Laufwerk und Partition''</SPAN> in <SPAN  CLASS="textit">''Aktuelles Laufwerk''</SPAN> und <SPAN  CLASS="textit">''Aktuelle Partition''</SPAN> angegebenen Laufwerke bzw. Partitionen. Sie k&#246;nnen die aktuelle Festplatte und Partition durch Anklicken in der grafischen &#220;bersicht &#228;ndern.
-<BR><SPAN  CLASS="textbf">Virtuelle Laufwerke</SPAN>
-Wenn Sie einen Client f&#252;r die Masseninstallation definieren, legen Sie unter diesem Men&#252;punkt virtuelle Festplatten an. W&#228;hlen Sie unter <SPAN  CLASS="textit">''Laufwerksname''</SPAN> den gew&#252;nschten Ger&#228;tenamen und geben Sie unter <SPAN  CLASS="textit">''Gr&#246;&#223;e''</SPAN> die Gr&#246;&#223;e des zu erstellenden Laufwerkes an und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''Anlegen''</SPAN>.
+Soll das Betriebssystem auf einem RAID-Laufwerk installiert werden, so mu&#223; meistens (au&#223;er bei RAID-1) eine extra Partition, die nicht auf einem RAID-Laufwerk liegt, f&#252;r den Kernel und die Module angelegt werden. F&#252;r diese Partition reicht eine Gr&#246;&#223;e von ca. 50 MB aus. Sollte keine Partition mehr frei sein, so klicken Sie bitte solange auf den <SPAN  CLASS="textit">Zur&#252;ck</SPAN>-Knopf Ihres Browsers bis Sie zum Anlegen bzw. L&#246;schen von Partitionen kommen, und legen Sie eine kleine Partition an.
+<BR><SPAN  CLASS="textbf">Installations- und Swappartition</SPAN>
+Damit der m23-Client installiert werden kann, m&#252;ssen Sie abschlie&#223;end eine Partition zur Installierung des Betriebssystems unter <SPAN  CLASS="textit">''Installationspartition''</SPAN> sowie eine Partition zum Swappen unter <SPAN  CLASS="textit">''Swappartition''</SPAN> ausw&#228;hlen und auf <SPAN  CLASS="textit">''W&#228;hlen''</SPAN> klicken.
+<BR><SPAN  CLASS="textbf">Mountpunkte definieren</SPAN>
+Falls Sie zus&#228;tzliche Mountpunkte ben&#246;tigen, k&#246;nnen Sie diese unter <SPAN  CLASS="textit">''Mountpunkte definieren''</SPAN> erstellen. Geben Sie dazu die Partition, den Mountpunkt und zum Mounten ben&#246;tigte Parameter an und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''Hinzuf&#252;gen''</SPAN>. Diese Informationen entsprechen denen, die auf einem Linux-System in der Datei <SPAN  CLASS="textbf">/etc/fstab</SPAN> stehen. In der Tabelle unter den Eingabefeldern k&#246;nnen Sie die bereits definierten Mountpunkte sehen. M&#246;chten Sie eine angelegten Mountpunkt wieder l&#246;schen, so klicken Sie in der betreffenden Zeile auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN>.
 <BR>
-<BR><HR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2117"
+  HREF="node127.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2113"
+  HREF="node117.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2109"
+  HREF="node125.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2115"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2118"
+  HREF="node127.html">Wählen der Client-Distribution</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2114"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2110"
+  HREF="node125.html">Hinweis zu RAIDs und</A>
+ &nbsp; <B>  <A NAME="tex2html2116"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>

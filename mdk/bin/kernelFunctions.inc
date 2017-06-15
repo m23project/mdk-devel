@@ -60,6 +60,7 @@ checkKernelBranch()
 	else
 dialog --clear --title "Kernel version" \
         --menu "Please select the kernel version" 11 40 4 \
+"4.9" "Linux kernel v4.4" \
 "4.4" "Linux kernel v4.4" \
 "3.16" "Linux kernel v3.16" \
 "3.18" "Linux kernel v3.18" \
@@ -106,14 +107,14 @@ listKernelVersions()
 	if [ $(echo $kernelBranch | grep -c "^2") -eq 1 ]
 	then
 		# Kernels 2.x
-		wget -o /dev/null ftp://ftp.kernel.org/pub/linux/kernel/v$kernelBranch/
+		wget -o /dev/null https://kernel.org/pub/linux/kernel/v$kernelBranch/
 		for kernelname in `grep "linux-" index.html | cut -d'"' -f2 | grep tar.bz2 | grep -v sign | tr -s ' ' | cut -d' ' -f9  | cut -d'/' -f8 | sort -t'.' -k2,3 -n -r`
 		do
 			echo "\"$kernelname\" \"\" \\"
 		done
 	else
 		# Kernels 3/4.x
-		wget -o /dev/null ftp://ftp.kernel.org/pub/linux/kernel/v`echo $kernelBranch | cut -c 1-1`.x/
+		wget -o /dev/null https://kernel.org/pub/linux/kernel/v`echo $kernelBranch | cut -c 1-1`.x/
 		for kernelname in `grep "linux-" index.html | cut -d'"' -f2 | grep tar.xz | grep -v sign | tr -s ' ' | cut -d' ' -f9  | cut -d'/' -f8 | grep "linux-$kernelBranch" | sort -t'.' -k2,3 -n -r`
 		do
 			echo "\"$kernelname\" \"\" \\"
@@ -167,7 +168,7 @@ kernelDownloadIFile=`echo $kernelDownload`
 kernelDownloadFile=`cat $kernelDownloadIFile`
 
 echo "Downloading the kernel"
-wget -c ftp://ftp.kernel.org/pub/linux/kernel/v'$kernelDownloadDir'/$kernelDownloadFile
+wget -c https://kernel.org/pub/linux/kernel/v'$kernelDownloadDir'/$kernelDownloadFile
 
 echo "Extracting kernel"
 

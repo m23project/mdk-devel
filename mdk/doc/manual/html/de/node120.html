@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ISC DHCP Server</TITLE>
-<META NAME="description" CONTENT="ISC DHCP Server">
+<TITLE>Menüpunkte im Überblick</TITLE>
+<META NAME="description" CONTENT="Menüpunkte im Überblick">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,86 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node121.html">
 <LINK REL="previous" HREF="node119.html">
-<LINK REL="up" HREF="node116.html">
+<LINK REL="up" HREF="node117.html">
 <LINK REL="next" HREF="node121.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2067"
+<A NAME="tex2html2047"
   HREF="node121.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2063"
-  HREF="node116.html">
+<A NAME="tex2html2043"
+  HREF="node117.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2057"
+<A NAME="tex2html2037"
   HREF="node119.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2065"
+<A NAME="tex2html2045"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2068"
-  HREF="node121.html">Anderer DHCP-Server</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2064"
-  HREF="node116.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2058"
-  HREF="node119.html">Dynamische Konfiguration von DHCP-Servern</A>
- &nbsp; <B>  <A NAME="tex2html2066"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2048"
+  HREF="node121.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2044"
+  HREF="node117.html">Clientpartitionierung und -formatierung</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2038"
+  HREF="node119.html">Hinweis zur Verwendung von</A>
+ &nbsp; <B>  <A NAME="tex2html2046"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00924000000000000000">
-ISC DHCP Server</A>
+<H2><A NAME="SECTION00923000000000000000">
+Men&#252;punkte im &#220;berblick</A>
 </H2>
-Handelt es sich bei dem anderen DHCP-Server um den ISC DHCP server, so k&#246;nnen Sie diesen anstelle des m23-DHCP-Servers verwenden.
+<SPAN  CLASS="textbf">Aktuelles Laufwerk und Partition</SPAN>
+Viele der Operationen sind an eine Partition (z.B. formatieren) oder an eine Festplatte (z.B. neue Partition anlegen) gebunden. Diese Operationen beziehen sich jeweils auf die unter <SPAN  CLASS="textit">''Aktuelles Laufwerk und Partition''</SPAN> in <SPAN  CLASS="textit">''Aktuelles Laufwerk''</SPAN> und <SPAN  CLASS="textit">''Aktuelle Partition''</SPAN> angegebenen Laufwerke bzw. Partitionen. Sie k&#246;nnen die aktuelle Festplatte und Partition durch Anklicken in der grafischen &#220;bersicht &#228;ndern.
+<BR><SPAN  CLASS="textbf">Virtuelle Laufwerke</SPAN>
+Wenn Sie einen Client f&#252;r die Masseninstallation definieren, legen Sie unter diesem Men&#252;punkt virtuelle Festplatten an. W&#228;hlen Sie unter <SPAN  CLASS="textit">''Laufwerksname''</SPAN> den gew&#252;nschten Ger&#228;tenamen und geben Sie unter <SPAN  CLASS="textit">''Gr&#246;&#223;e''</SPAN> die Gr&#246;&#223;e des zu erstellenden Laufwerkes an und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''Anlegen''</SPAN>.
 <BR>
-<OL>
-<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
-<BR></LI>
-<LI>Deaktivieren Sie den DHCP-Server auf dem m23-Server: Editieren Sie die Datei /etc/default/isc-dhcp-server auf dem m23-Server, kommentieren die Zeile INTERFACES=... mit einer vorangestellten ''#'' aus und f&#252;gen darunter die neue Zeile INTERFACES='''' ein. Starten Sie anschlie&#223;end den DHCP-Server mit /etc/init.d/isc-dhcp-server restart neu. Dieser l&#228;uft dann zwar, beantwortet aber keine Anfragen mehr.
-<BR></LI>
-<LI>Setzen Sie in der Konfiguration Ihres DHCP-Servers die Option use-host-decl-names on f&#252;r die Gruppe, die die m23-Clients enthalten soll.
-<BR></LI>
-<LI>Aktualisieren Sie die m23-Gruppe in der Konfiguration Ihres DHCP-Servers regelm&#228;&#223;ig (z.B. mittels cronjob oder anderer Verfahren) mit den Daten des m23-Servers von der URL http://<SPAN CLASS="MATH"></SPAN>m23-Server-IP<SPAN CLASS="MATH"></SPAN>/exportDHCPSettings.php. Diese URL stellt die Konfiguration in ''ISC DHCP server''-Notation f&#252;r m23-Clients, die &#252;ber das Netzwerk booten sollen, bereit. Die Gruppe mit den m23-Clients k&#246;nnte dann wie folgt aussehen:
-<BR><PRE>
-group {
-use-host-decl-names on;
-$\langle$Aus exportDHCPSettings.php eingefügte Daten$\rangle$
-}
-</PRE>
-</LI>
-</OL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2067"
-  HREF="node121.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2063"
-  HREF="node116.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2057"
-  HREF="node119.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2065"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2068"
-  HREF="node121.html">Anderer DHCP-Server</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2064"
-  HREF="node116.html">m23 mit einem externen</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2058"
-  HREF="node119.html">Dynamische Konfiguration von DHCP-Servern</A>
- &nbsp; <B>  <A NAME="tex2html2066"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>

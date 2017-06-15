@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweise</TITLE>
-<META NAME="description" CONTENT="Hinweise">
+<TITLE>GPG-Paketquellen-Signierungsschlüssel</TITLE>
+<META NAME="description" CONTENT="GPG-Paketquellen-Signierungsschlüssel">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node205.html">
 <LINK REL="previous" HREF="node203.html">
-<LINK REL="up" HREF="node203.html">
+<LINK REL="up" HREF="node202.html">
 <LINK REL="next" HREF="node205.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3157"
+<A NAME="tex2html3135"
   HREF="node205.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3153"
-  HREF="node203.html">
+<A NAME="tex2html3131"
+  HREF="node202.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3147"
+<A NAME="tex2html3127"
   HREF="node203.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3155"
+<A NAME="tex2html3133"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3158"
-  HREF="node205.html">GPG-Paketquellen-Signierungsschlüssel</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3154"
-  HREF="node203.html">Paketquellen-Architekt (Paketquelle erstellen, editieren,</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3148"
-  HREF="node203.html">Paketquellen-Architekt (Paketquelle erstellen, editieren,</A>
- &nbsp; <B>  <A NAME="tex2html3156"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3136"
+  HREF="node205.html">Paketquellen-Architekt (Pakete von CD</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3132"
+  HREF="node202.html">Paketquellen-Architekt (Paketquelle erstellen, editieren,</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3128"
+  HREF="node203.html">Hinweise</A>
+ &nbsp; <B>  <A NAME="tex2html3134"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001311000000000000000">
-Hinweise</A>
+<H2><A NAME="SECTION001312000000000000000">
+GPG-Paketquellen-Signierungsschl&#252;ssel</A>
 </H2>
-
-<UL>
-<LI><SPAN  CLASS="textbf">Paketquellentyp</SPAN>: Der Typ legt fest, von welchem Medium die Pakete stammen. <SPAN  CLASS="textit">''Download-Paketquelle''</SPAN>: Bei dieser Variante werden die Pakete von einem HTTP- oder FTP-Server heruntergeladen, der bereits dazu geeignet ist, von ihm Pakete zu installieren.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Rechnerarchitektur</SPAN>: W&#228;hlen Sie hier, f&#252;r welche Rechnerarchitektur die Pakete heruntergeladen werden sollen. Die Architektur mu&#223; mit der der Clients und nicht mit der des Servers &#252;bereinstimmen.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Paketquelle</SPAN>: Eine Paketquelle ist ein Verzeichnis (evtl. mit Unterverzeichnissen) in dem Softwarepakete gespeichert sind und das zus&#228;tzlich Indexdateien enth&#228;lt, die Informationen &#252;ber die Softwarepakete bereithalten. Diese Indexdateien werden ben&#246;tigt, damit die Clients die Softwarepakete herunterladen k&#246;nnen.
-<BR></LI>
-</UL>
+Hier k&#246;nnen Sie den privaten GPG-Schl&#252;ssel ausw&#228;hlen, der zum Signieren der auf Ihrem m23-Server erstellten Paketquellen verwendet wird. Auf die m23-Clients wird der dazugeh&#246;rige &#246;ffentliche Schl&#252;ssel &#252;bertragen, damit diese die Unverf&#228;lschtheit der Pakete &#252;berpr&#252;fen k&#246;nnen.
+<BR>
+Unter <SPAN  CLASS="textit">''Aktuell verwendeter GPG-Schl&#252;ssel''</SPAN> sehen Sie den aktuell verwendeten Schl&#252;ssel. Sollte hier kein Schl&#252;ssel angegeben sein, so werden die Pakete auf Ihrem m23-Server aktuell nicht signiert.
+<BR>
+Zum Nutzen eines privaten GPG-Schl&#252;ssels w&#228;hlen Sie diesen aus der Liste aus und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''W&#228;hlen''</SPAN>. Der GPG-Schl&#252;ssel wird nun zum Signieren aller neu erstellten oder aktualisierten Paketquellen verwendet und auch auf neu angelegte oder wiederhergestellte m23-Clients &#252;bertragen.
+<BR>
+M&#246;chten Sie vorhandene GPG-Schl&#252;ssel entfernen oder neue hinzuf&#252;gen, so klicken Sie auf <SPAN  CLASS="textit">''GPG-Schl&#252;ssel verwalten''</SPAN>.
+<BR>
+M&#246;chten Sie den Index der aktuell geladenen Paketquelle (neu) erstellen und anschlie&#223;end (neu) signieren, so klicken Sie auf den Button <SPAN  CLASS="textit">''Paketquellenindex (neu) erstellen und (neu) signieren''</SPAN>.
+<BR>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-13
 </ADDRESS>
 </BODY>
 </HTML>
