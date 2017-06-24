@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_setVBoxAddonAsDefault</TITLE>
-<META NAME="description" CONTENT="VM_setVBoxAddonAsDefault">
+<TITLE>CLCFG_dialogGaugeProcPos</TITLE>
+<META NAME="description" CONTENT="CLCFG_dialogGaugeProcPos">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1190.html">
 <LINK REL="previous" HREF="node1188.html">
-<LINK REL="up" HREF="node1161.html">
+<LINK REL="up" HREF="node1131.html">
 <LINK REL="next" HREF="node1190.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18974"
+<A NAME="tex2html22609"
   HREF="node1190.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18970"
-  HREF="node1161.html">
+<A NAME="tex2html22605"
+  HREF="node1131.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18964"
+<A NAME="tex2html22599"
   HREF="node1188.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18972"
+<A NAME="tex2html22607"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18975"
-  HREF="node1190.html">VM_downloadedVBoxAddons</A>
-<B> Up:</B> <A NAME="tex2html18971"
-  HREF="node1161.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18965"
-  HREF="node1188.html">VM_getVBoxVersion</A>
- &nbsp; <B>  <A NAME="tex2html18973"
+<B> Next:</B> <A NAME="tex2html22610"
+  HREF="node1190.html">CLCFG_dialogInfoBox</A>
+<B> Up:</B> <A NAME="tex2html22606"
+  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22600"
+  HREF="node1188.html">CLCFG_fetchm23BasicTools</A>
+ &nbsp; <B>  <A NAME="tex2html22608"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093828000000000000000">
-VM_setVBoxAddonAsDefault</A>
+<H2><A NAME="SECTION0093958000000000000000">
+CLCFG_dialogGaugeProcPos</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets a choosen VirtualBox addition package version as default.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the BASH code for showing a dialog with status bar that uses /proc/pid/fdinfo for current file position
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>version: Version number of the VirtualBox addition to set as default.
+<LI>backtitle: title on top of the screen
+</LI>
+<LI>title: message title
+</LI>
+<LI>message: message to show over the status bar
+</LI>
+<LI>infofilecmd: BASH code to figure out the needed status file in the proc filesystem
+</LI>
+<LI>fullsize: The full size of the file that should be written.
+</LI>
+<LI>force: Forces showing of the dialog box
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ VM_setVBoxAddonAsDefault</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

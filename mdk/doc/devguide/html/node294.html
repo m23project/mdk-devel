@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_wol</TITLE>
-<META NAME="description" CONTENT="CLIENT_wol">
+<TITLE>CClientLister::isVisibleByPingableFilter</TITLE>
+<META NAME="description" CONTENT="CClientLister::isVisibleByPingableFilter">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node295.html">
 <LINK REL="previous" HREF="node293.html">
-<LINK REL="up" HREF="node241.html">
+<LINK REL="up" HREF="node289.html">
 <LINK REL="next" HREF="node295.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7425"
+<A NAME="tex2html11075"
   HREF="node295.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7421"
-  HREF="node241.html">
+<A NAME="tex2html11071"
+  HREF="node289.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7415"
+<A NAME="tex2html11065"
   HREF="node293.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7423"
+<A NAME="tex2html11073"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7426"
-  HREF="node295.html">CLIENT_recalculateStatusBar</A>
-<B> Up:</B> <A NAME="tex2html7422"
-  HREF="node241.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html7416"
-  HREF="node293.html">CLIENT_recoverClientCombineJobs</A>
- &nbsp; <B>  <A NAME="tex2html7424"
+<B> Next:</B> <A NAME="tex2html11076"
+  HREF="node295.html">CClientLister::setVisibleByPingableFilter</A>
+<B> Up:</B> <A NAME="tex2html11072"
+  HREF="node289.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html11066"
+  HREF="node293.html">CClientLister::getCheckedClientNames</A>
+ &nbsp; <B>  <A NAME="tex2html11074"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091053000000000000000">
-CLIENT_wol</A>
+<H2><A NAME="SECTION009115000000000000000">
+CClientLister::isVisibleByPingableFilter</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> wakes a client over the network
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if only clients that can (not) be pinged should be shown and if the given client matches the filter rule.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>CClientO: Object to the client to check.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if there is no pingable filter rule, or if the client matches the filter rule.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CLIENT_wol</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

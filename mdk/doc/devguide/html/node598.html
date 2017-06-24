@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getContentFromURL</TITLE>
-<META NAME="description" CONTENT="HELPER_getContentFromURL">
+<TITLE>CFDiskIO::getvPartBypPart</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getvPartBypPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node599.html">
 <LINK REL="previous" HREF="node597.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node599.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11357"
+<A NAME="tex2html15038"
   HREF="node599.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11353"
-  HREF="node590.html">
+<A NAME="tex2html15034"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11347"
+<A NAME="tex2html15028"
   HREF="node597.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11355"
+<A NAME="tex2html15036"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11358"
-  HREF="node599.html">HELPER_trimValue</A>
-<B> Up:</B> <A NAME="tex2html11354"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11348"
-  HREF="node597.html">HELPER_isExecutedOnUCS</A>
- &nbsp; <B>  <A NAME="tex2html11356"
+<B> Next:</B> <A NAME="tex2html15039"
+  HREF="node599.html">CFDiskIO::getLogicalpParts</A>
+<B> Up:</B> <A NAME="tex2html15035"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15029"
+  HREF="node597.html">CFDiskIO::virtualDeleteDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15037"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009188000000000000000">
-HELPER_getContentFromURL</A>
+<H2><A NAME="SECTION0091556000000000000000">
+CFDiskIO::getvPartBypPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Downloads an URL via curl and gives back the site code.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the virtual partition number searched by the physical partition number.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>url: The URL to download.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>range: If set, a part of the file will be downloaded. (e.g. 0-500 will download the first 500 kb)
+<LI>pPart: The physical partition number
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The downloaded site code or false in case of an error.
+<LI>Virtual partition number or false, if none of the virtual partitions matches the physical partition number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ HELPER_getContentFromURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

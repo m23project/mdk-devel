@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getSubnet</TITLE>
-<META NAME="description" CONTENT="CLIENT_getSubnet">
+<TITLE>CChecks::checkIPRange</TITLE>
+<META NAME="description" CONTENT="CChecks::checkIPRange">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node285.html">
 <LINK REL="previous" HREF="node283.html">
-<LINK REL="up" HREF="node241.html">
+<LINK REL="up" HREF="node248.html">
 <LINK REL="next" HREF="node285.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7305"
+<A NAME="tex2html10913"
   HREF="node285.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7301"
-  HREF="node241.html">
+<A NAME="tex2html10909"
+  HREF="node248.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7295"
+<A NAME="tex2html10903"
   HREF="node283.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7303"
+<A NAME="tex2html10911"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7306"
-  HREF="node285.html">CLIENT_getBroadcast</A>
-<B> Up:</B> <A NAME="tex2html7302"
-  HREF="node241.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html7296"
-  HREF="node283.html">CLIENT_setLastmodify</A>
- &nbsp; <B>  <A NAME="tex2html7304"
+<B> Next:</B> <A NAME="tex2html10914"
+  HREF="node285.html">CChecks::checkStatus</A>
+<B> Up:</B> <A NAME="tex2html10910"
+  HREF="node248.html">./inc/CChecks.php</A>
+<B> Previous:</B> <A NAME="tex2html10904"
+  HREF="node283.html">CChecks::checkNonusedMAC</A>
+ &nbsp; <B>  <A NAME="tex2html10912"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091043000000000000000">
-CLIENT_getSubnet</A>
+<H2><A NAME="SECTION0091036000000000000000">
+CChecks::checkIPRange</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> gets the subnet of a given ip and netmask
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input IPs are valid and if the first IP is "smaler" than the second. Then adds an error message to the message manager in case of an error.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ip: ip address
+<LI>firstIp: The first IP marking the begin of the IP range.
 </LI>
-<LI>netmask: netmask
+<LI>lastIp: The last IP marking the end of the IP range.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the IPs are correct and the first IP is "smaler" otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ CLIENT_getSubnet</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

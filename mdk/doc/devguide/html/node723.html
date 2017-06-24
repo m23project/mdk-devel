@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>I18N_convertToHumanReadableName</TITLE>
-<META NAME="description" CONTENT="I18N_convertToHumanReadableName">
+<TITLE>CGPGSign::gpgSignClear</TITLE>
+<META NAME="description" CONTENT="CGPGSign::gpgSignClear">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node724.html">
 <LINK REL="previous" HREF="node722.html">
-<LINK REL="up" HREF="node721.html">
+<LINK REL="up" HREF="node715.html">
 <LINK REL="next" HREF="node724.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12936"
+<A NAME="tex2html16600"
   HREF="node724.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12932"
-  HREF="node721.html">
+<A NAME="tex2html16596"
+  HREF="node715.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12926"
+<A NAME="tex2html16590"
   HREF="node722.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12934"
+<A NAME="tex2html16598"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12937"
-  HREF="node724.html">I18N_m23instLanguage</A>
-<B> Up:</B> <A NAME="tex2html12933"
-  HREF="node721.html">./inc/i18n.php</A>
-<B> Previous:</B> <A NAME="tex2html12927"
-  HREF="node722.html">I18N_number_format</A>
- &nbsp; <B>  <A NAME="tex2html12935"
+<B> Next:</B> <A NAME="tex2html16601"
+  HREF="node724.html">CGPGSign::hasConfigFile</A>
+<B> Up:</B> <A NAME="tex2html16597"
+  HREF="node715.html">./inc/CGPGSign.php</A>
+<B> Previous:</B> <A NAME="tex2html16591"
+  HREF="node722.html">CGPGSign::gpgSignDetached</A>
+ &nbsp; <B>  <A NAME="tex2html16599"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009222000000000000000">
-I18N_convertToHumanReadableName</A>
+<H2><A NAME="SECTION009188000000000000000">
+CGPGSign::gpgSignClear</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Converts a short language into a human readable name.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a clear text signature file for a given private GPG key ID and input file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>lang: Two letter TLD (or longer code for countries that have more than a language (e.g. be-nl, be-fr))
+<LI>inFile: The file to create a signature for.
+</LI>
+<LI>outFile: The file with the detached signature.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Language in human readable notation.
+<LI>: true, if the signature file was created and the input file exists, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ I18N_convertToHumanReadableName</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_nextPrimaryDevNr</TITLE>
-<META NAME="description" CONTENT="FDISK_nextPrimaryDevNr">
+<TITLE>CFDiskBasic::createRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node487.html">
 <LINK REL="previous" HREF="node485.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node461.html">
 <LINK REL="next" HREF="node487.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9933"
+<A NAME="tex2html13532"
   HREF="node487.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9929"
-  HREF="node447.html">
+<A NAME="tex2html13528"
+  HREF="node461.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9923"
+<A NAME="tex2html13522"
   HREF="node485.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9931"
+<A NAME="tex2html13530"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9934"
-  HREF="node487.html">FDISK_correctLogical</A>
-<B> Up:</B> <A NAME="tex2html9930"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html9924"
-  HREF="node485.html">FDISK_nextLogicalDevNr</A>
- &nbsp; <B>  <A NAME="tex2html9932"
+<B> Next:</B> <A NAME="tex2html13533"
+  HREF="node487.html">CFDiskBasic::deleteRaid</A>
+<B> Up:</B> <A NAME="tex2html13529"
+  HREF="node461.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13523"
+  HREF="node485.html">CFDiskBasic::createRaidJobForRaid</A>
+ &nbsp; <B>  <A NAME="tex2html13531"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091639000000000000000">
-FDISK_nextPrimaryDevNr</A>
+<H2><A NAME="SECTION0091325000000000000000">
+CFDiskBasic::createRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> gets the next free primary device number
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new RAID disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>dev: Device name for the RAID (eg. /dev/md0)
 </LI>
-<LI>vDev: Virtual (internally used) device number.
+<LI>level: RAID level.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Virtual RAID disk number, if the device string is suitable for a RAID, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ FDISK_nextPrimaryDevNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

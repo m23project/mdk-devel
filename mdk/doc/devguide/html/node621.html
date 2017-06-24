@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_passGenerator</TITLE>
-<META NAME="description" CONTENT="HELPER_passGenerator">
+<TITLE>CFDiskIO::sortDiskKeyByDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::sortDiskKeyByDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node622.html">
 <LINK REL="previous" HREF="node620.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node622.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11633"
+<A NAME="tex2html15314"
   HREF="node622.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11629"
-  HREF="node590.html">
+<A NAME="tex2html15310"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11623"
+<A NAME="tex2html15304"
   HREF="node620.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11631"
+<A NAME="tex2html15312"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11634"
-  HREF="node622.html">HELPER_array2AssociativeArray</A>
-<B> Up:</B> <A NAME="tex2html11630"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11624"
-  HREF="node620.html">HELPER_getRemoteFileContents</A>
- &nbsp; <B>  <A NAME="tex2html11632"
+<B> Next:</B> <A NAME="tex2html15315"
+  HREF="node622.html">CFDiskIO::sortPartitionKeyByStart</A>
+<B> Up:</B> <A NAME="tex2html15311"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15305"
+  HREF="node620.html">CFDiskIO::getWantedPartitioning</A>
+ &nbsp; <B>  <A NAME="tex2html15313"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091831000000000000000">
-HELPER_passGenerator</A>
+<H2><A NAME="SECTION0091579000000000000000">
+CFDiskIO::sortDiskKeyByDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates semi-random passwords via pwgen or DB_genPassword.
+<SPAN  CLASS="textbf">Description:</SPAN> Sorts the elements with numeric keys (disks) of the input array by the subkey 'dev'. The numeric keys will be ascending and in the same order than the ascending subkey 'dev' with /dev/mdX at the end.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>length: The length of the passwords.
-</LI>
-<LI>amount: The amount of passwords to generate.
+<LI>in: Input array of a disk.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the generated passwords if $amount <SPAN CLASS="MATH"></SPAN> 1 or the password string directly if $amount = 1.
+<LI>Array with sorted disks.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ HELPER_passGenerator</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

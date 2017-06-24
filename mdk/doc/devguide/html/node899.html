@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_OptionPageTail2</TITLE>
-<META NAME="description" CONTENT="PKG_OptionPageTail2">
+<TITLE>CObjectStorageManager::getCOSI18NVariable</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getCOSI18NVariable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node900.html">
 <LINK REL="previous" HREF="node898.html">
-<LINK REL="up" HREF="node879.html">
+<LINK REL="up" HREF="node889.html">
 <LINK REL="next" HREF="node900.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15284"
+<A NAME="tex2html18861"
   HREF="node900.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15280"
-  HREF="node879.html">
+<A NAME="tex2html18857"
+  HREF="node889.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15274"
+<A NAME="tex2html18851"
   HREF="node898.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15282"
+<A NAME="tex2html18859"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15285"
-  HREF="node900.html">PKG_decodeDebconfDescription</A>
-<B> Up:</B> <A NAME="tex2html15281"
-  HREF="node879.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15275"
-  HREF="node898.html">PKG_OptionPageHeader2</A>
- &nbsp; <B>  <A NAME="tex2html15283"
+<B> Next:</B> <A NAME="tex2html18862"
+  HREF="node900.html">CObjectStorageManager::getCOSDescription</A>
+<B> Up:</B> <A NAME="tex2html18858"
+  HREF="node889.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html18852"
+  HREF="node898.html">CObjectStorageManager::getCOSStatusHumanReadable</A>
+ &nbsp; <B>  <A NAME="tex2html18860"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092820000000000000000">
-PKG_OptionPageTail2</A>
+<H2><A NAME="SECTION0092610000000000000000">
+CObjectStorageManager::getCOSI18NVariable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the bottom of the OptionPage for debconf settings.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the contents of an I18N variable for the object (if it exists).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>elem: The elements (variable name, type (string, boolean, (multi)select), default value, description) of the debconf templates.
+<LI>object: Object to use or null, if $this-<SPAN CLASS="MATH"></SPAN>object should be used.
+</LI>
+<LI>varPostfix: String to add to the name of the I18N variable.
+</LI>
+<LI>errMsg: Die message to display if the I18N variable is not set.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Contents of the the I18N variable.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ PKG_OptionPageTail2</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

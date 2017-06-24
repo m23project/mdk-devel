@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_getAptGetInstallCommand</TITLE>
-<META NAME="description" CONTENT="SERVER_getAptGetInstallCommand">
+<TITLE>sendClientStatus</TITLE>
+<META NAME="description" CONTENT="sendClientStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1091.html">
 <LINK REL="previous" HREF="node1089.html">
-<LINK REL="up" HREF="node1064.html">
+<LINK REL="up" HREF="node1073.html">
 <LINK REL="next" HREF="node1091.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17684"
+<A NAME="tex2html21329"
   HREF="node1091.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17680"
-  HREF="node1064.html">
+<A NAME="tex2html21325"
+  HREF="node1073.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17674"
+<A NAME="tex2html21319"
   HREF="node1089.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17682"
+<A NAME="tex2html21327"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17685"
-  HREF="node1091.html">SERVER_installTool</A>
-<B> Up:</B> <A NAME="tex2html17681"
-  HREF="node1064.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17675"
-  HREF="node1089.html">SERVER_daemonStartStop</A>
- &nbsp; <B>  <A NAME="tex2html17683"
+<B> Next:</B> <A NAME="tex2html21330"
+  HREF="node1091.html">sendClientStageStatus</A>
+<B> Up:</B> <A NAME="tex2html21326"
+  HREF="node1073.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html21320"
+  HREF="node1089.html">getServerGateway</A>
+ &nbsp; <B>  <A NAME="tex2html21328"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093526000000000000000">
-SERVER_getAptGetInstallCommand</A>
+<H2><A NAME="SECTION0093717000000000000000">
+sendClientStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the apt-get commands to install a tool on the server.
+<SPAN  CLASS="textbf">Description:</SPAN> generates a bash script to send a status to the server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>pkgName: name of the software package
+<LI>id: package ID
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: apt-get commands to install a tool on the server.
+<LI>status: done, waiting; finished jobs should be set to done, waiting should not be used from this place
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +70,7 @@ SERVER_getAptGetInstallCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

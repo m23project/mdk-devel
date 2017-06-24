@@ -44,7 +44,10 @@ while ($row = mysqli_fetch_assoc($result))
 			//export data
 			$out .= "INSERT INTO `sourceslist` ($fieldSql) VALUES (";
 			foreach ($exportFields as $field)
-				$out .= "'$row[$field]', ";
+			{
+				$val = str_replace("'", "\'", $row[$field]);
+				$out .= "'$val', ";
+			}
 			$out = rtrim($out,", ");
 			$out .= ");\n";
 		};

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>POOL_download</TITLE>
-<META NAME="description" CONTENT="POOL_download">
+<TITLE>CScredit::getNextOnlineScriptInfo</TITLE>
+<META NAME="description" CONTENT="CScredit::getNextOnlineScriptInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1033.html">
 <LINK REL="previous" HREF="node1031.html">
-<LINK REL="up" HREF="node1018.html">
+<LINK REL="up" HREF="node1024.html">
 <LINK REL="next" HREF="node1033.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16921"
+<A NAME="tex2html20573"
   HREF="node1033.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16917"
-  HREF="node1018.html">
+<A NAME="tex2html20569"
+  HREF="node1024.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16911"
+<A NAME="tex2html20563"
   HREF="node1031.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16919"
+<A NAME="tex2html20571"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16922"
-  HREF="node1033.html">POOL_showDownloadStatus</A>
-<B> Up:</B> <A NAME="tex2html16918"
-  HREF="node1018.html">./inc/pool.php</A>
-<B> Previous:</B> <A NAME="tex2html16912"
-  HREF="node1031.html">POOL_getDir</A>
- &nbsp; <B>  <A NAME="tex2html16920"
+<B> Next:</B> <A NAME="tex2html20574"
+  HREF="node1033.html">CScredit::loadOnlineScript</A>
+<B> Up:</B> <A NAME="tex2html20570"
+  HREF="node1024.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html20564"
+  HREF="node1031.html">CScredit::updateOnlineScriptInfo</A>
+ &nbsp; <B>  <A NAME="tex2html20572"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093114000000000000000">
-POOL_download</A>
+<H2><A NAME="SECTION009358000000000000000">
+CScredit::getNextOnlineScriptInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets an information about all scripts that are available online. Every call of the function fetches the information about one script.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>poolName: name of the pool
+<LI>ts: Timestamp, when the script was uploaded.
 </LI>
-<LI>distr: name of the distribution
+<LI>scriptId: Id of the script (needed for download).
 </LI>
-<LI>sourceslist: list of the package sources
+<LI>scriptName: Name of the script.
 </LI>
-<LI>release: release branch of the choosen distribution to download the packages from
+<LI>author: Name of the author.
 </LI>
-<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+<LI>description: Description for the script.
 </LI>
-<LI>arch: download the packages for a specific CPU architecture
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if an entry could be read otherwise (e.g. if all entries were read) false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +82,7 @@ POOL_download</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

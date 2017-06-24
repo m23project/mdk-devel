@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_listAllClientsInGroup</TITLE>
-<META NAME="description" CONTENT="GRP_listAllClientsInGroup">
+<TITLE>CFDiskIO::getPartitionAmountOfType</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartitionAmountOfType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node584.html">
 <LINK REL="previous" HREF="node582.html">
-<LINK REL="up" HREF="node557.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node584.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11127"
+<A NAME="tex2html14858"
   HREF="node584.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11123"
-  HREF="node557.html">
+<A NAME="tex2html14854"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11117"
+<A NAME="tex2html14848"
   HREF="node582.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11125"
+<A NAME="tex2html14856"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11128"
-  HREF="node584.html">GRP_getDistrsAndSourcesLists</A>
-<B> Up:</B> <A NAME="tex2html11124"
-  HREF="node557.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html11118"
-  HREF="node582.html">GRP_showClientGroups</A>
- &nbsp; <B>  <A NAME="tex2html11126"
+<B> Next:</B> <A NAME="tex2html14859"
+  HREF="node584.html">CFDiskIO::getExtendedVPart</A>
+<B> Up:</B> <A NAME="tex2html14855"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14849"
+  HREF="node582.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+ &nbsp; <B>  <A NAME="tex2html14857"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091726000000000000000">
-GRP_listAllClientsInGroup</A>
+<H2><A NAME="SECTION0091541000000000000000">
+CFDiskIO::getPartitionAmountOfType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array that consists of all client names that are in a group
+<SPAN  CLASS="textbf">Description:</SPAN> Count all partitions of a selected type on a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>groupName: name of the group to check
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ GRP_listAllClientsInGroup</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

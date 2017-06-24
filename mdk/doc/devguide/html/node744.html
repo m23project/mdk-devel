@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_delServerFromphpLdapAdmin</TITLE>
-<META NAME="description" CONTENT="LDAP_delServerFromphpLdapAdmin">
+<TITLE>CHECK_str</TITLE>
+<META NAME="description" CONTENT="CHECK_str">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node745.html">
 <LINK REL="previous" HREF="node743.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node732.html">
 <LINK REL="next" HREF="node745.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13210"
+<A NAME="tex2html16869"
   HREF="node745.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13206"
-  HREF="node734.html">
+<A NAME="tex2html16865"
+  HREF="node732.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13200"
+<A NAME="tex2html16859"
   HREF="node743.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13208"
+<A NAME="tex2html16867"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13211"
-  HREF="node745.html">LDAP_checkphpLdapAdminConfiguration</A>
-<B> Up:</B> <A NAME="tex2html13207"
-  HREF="node734.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html13201"
-  HREF="node743.html">LDAP_addServerTophpLdapAdmin</A>
- &nbsp; <B>  <A NAME="tex2html13209"
+<B> Next:</B> <A NAME="tex2html16870"
+  HREF="node745.html">countLinesInFile</A>
+<B> Up:</B> <A NAME="tex2html16866"
+  HREF="node732.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html16860"
+  HREF="node743.html">CHECK_letFWDie</A>
+ &nbsp; <B>  <A NAME="tex2html16868"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092310000000000000000">
-LDAP_delServerFromphpLdapAdmin</A>
+<H2><A NAME="SECTION0091912000000000000000">
+CHECK_str</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a LDAP server from the phpLDAPadmin configuration file.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input string only contains valid characters and is not longer than the maximum length and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>name: the name of the LDAP server that should be deleted
+<LI>val: String value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The input string or stops the program on an error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +80,7 @@ LDAP_delServerFromphpLdapAdmin</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_showDelDialog</TITLE>
-<META NAME="description" CONTENT="GRP_showDelDialog">
+<TITLE>CFDiskIO::isDiskOrPartLockedByRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDiskOrPartLockedByRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node580.html">
 <LINK REL="previous" HREF="node578.html">
-<LINK REL="up" HREF="node557.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node580.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11079"
+<A NAME="tex2html14810"
   HREF="node580.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11075"
-  HREF="node557.html">
+<A NAME="tex2html14806"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11069"
+<A NAME="tex2html14800"
   HREF="node578.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11077"
+<A NAME="tex2html14808"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11080"
-  HREF="node580.html">GRP_doClientMoreGroups</A>
-<B> Up:</B> <A NAME="tex2html11076"
-  HREF="node557.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html11070"
-  HREF="node578.html">GRP_groupSelection</A>
- &nbsp; <B>  <A NAME="tex2html11078"
+<B> Next:</B> <A NAME="tex2html14811"
+  HREF="node580.html">CFDiskIO::isPartitionLockedByRaid</A>
+<B> Up:</B> <A NAME="tex2html14807"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14801"
+  HREF="node578.html">CFDiskIO::setDiskPartLockedByRaid</A>
+ &nbsp; <B>  <A NAME="tex2html14809"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091722000000000000000">
-GRP_showDelDialog</A>
+<H2><A NAME="SECTION0091537000000000000000">
+CFDiskIO::isDiskOrPartLockedByRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows a dialog for deleting a group
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a partition or disk is used as RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>groupName: name of the group
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk or partition is locked by a RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ GRP_showDelDialog</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

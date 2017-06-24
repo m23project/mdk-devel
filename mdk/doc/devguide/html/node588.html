@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_getAllPackages</TITLE>
-<META NAME="description" CONTENT="GRP_getAllPackages">
+<TITLE>CFDiskIO::getPartitionNumber</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartitionNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node589.html">
 <LINK REL="previous" HREF="node587.html">
-<LINK REL="up" HREF="node557.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node589.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11187"
+<A NAME="tex2html14918"
   HREF="node589.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11183"
-  HREF="node557.html">
+<A NAME="tex2html14914"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11177"
+<A NAME="tex2html14908"
   HREF="node587.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11185"
+<A NAME="tex2html14916"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11188"
-  HREF="node589.html">GRP_desasterRecovery</A>
-<B> Up:</B> <A NAME="tex2html11184"
-  HREF="node557.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html11178"
-  HREF="node587.html">GRP_HTMLBackToOverview</A>
- &nbsp; <B>  <A NAME="tex2html11186"
+<B> Next:</B> <A NAME="tex2html14919"
+  HREF="node589.html">CFDiskIO::getPartitionSize</A>
+<B> Up:</B> <A NAME="tex2html14915"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14909"
+  HREF="node587.html">CFDiskIO::getPartitionStart</A>
+ &nbsp; <B>  <A NAME="tex2html14917"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091731000000000000000">
-GRP_getAllPackages</A>
+<H2><A NAME="SECTION0091546000000000000000">
+CFDiskIO::getPartitionNumber</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows a list of all packages on all clients in the selected groups. the packages can be selected by checkboxes
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the physical partition number of a virtual partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>groupNames: group names stores in an array
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>key: keyword for searching for packages
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
 </LI>
-<LI>withActions: you can select to draw te action 
+<LI>return: This will returned in case of an error, if set to another value, than 'null'.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Physical partition number of a virtual partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +78,7 @@ GRP_getAllPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

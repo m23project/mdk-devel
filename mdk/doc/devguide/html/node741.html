@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_fqdn2dn</TITLE>
-<META NAME="description" CONTENT="LDAP_fqdn2dn">
+<TITLE>CHECK_strAlpha</TITLE>
+<META NAME="description" CONTENT="CHECK_strAlpha">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node742.html">
 <LINK REL="previous" HREF="node740.html">
-<LINK REL="up" HREF="node734.html">
+<LINK REL="up" HREF="node732.html">
 <LINK REL="next" HREF="node742.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13174"
+<A NAME="tex2html16833"
   HREF="node742.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13170"
-  HREF="node734.html">
+<A NAME="tex2html16829"
+  HREF="node732.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13164"
+<A NAME="tex2html16823"
   HREF="node740.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13172"
+<A NAME="tex2html16831"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13175"
-  HREF="node742.html">LDAP_installServer</A>
-<B> Up:</B> <A NAME="tex2html13171"
-  HREF="node734.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html13165"
-  HREF="node740.html">LDAP_addPosix</A>
- &nbsp; <B>  <A NAME="tex2html13173"
+<B> Next:</B> <A NAME="tex2html16834"
+  HREF="node742.html">CHECK_strAlphaNum</A>
+<B> Up:</B> <A NAME="tex2html16830"
+  HREF="node732.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html16824"
+  HREF="node740.html">CHECK_float</A>
+ &nbsp; <B>  <A NAME="tex2html16832"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009237000000000000000">
-LDAP_fqdn2dn</A>
+<H2><A NAME="SECTION009199000000000000000">
+CHECK_strAlpha</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the DN converted from a FQDN
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>domain: a full qualified domain name (e.g. test.m23.de)
+<LI>val: Input value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The input value if it contains only characters or stops (or false, if $returnNoDie is true) the program on an error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +80,7 @@ LDAP_fqdn2dn</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

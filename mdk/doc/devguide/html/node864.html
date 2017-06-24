@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSG_placeOrReturnMessageBox</TITLE>
-<META NAME="description" CONTENT="MSG_placeOrReturnMessageBox">
+<TITLE>Cm23Admin::delete</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::delete">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node865.html">
 <LINK REL="previous" HREF="node863.html">
-<LINK REL="up" HREF="node862.html">
+<LINK REL="up" HREF="node861.html">
 <LINK REL="next" HREF="node865.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14758"
+<A NAME="tex2html18417"
   HREF="node865.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14754"
-  HREF="node862.html">
+<A NAME="tex2html18413"
+  HREF="node861.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14748"
+<A NAME="tex2html18407"
   HREF="node863.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14756"
+<A NAME="tex2html18415"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14759"
-  HREF="node865.html">MSG_getm23UpdateFeed</A>
-<B> Up:</B> <A NAME="tex2html14755"
-  HREF="node862.html">./inc/message.php</A>
-<B> Previous:</B> <A NAME="tex2html14749"
-  HREF="node863.html">MSG_showMessageBoxPlaceholder</A>
- &nbsp; <B>  <A NAME="tex2html14757"
+<B> Next:</B> <A NAME="tex2html18418"
+  HREF="node865.html">Cm23Admin::changePw</A>
+<B> Up:</B> <A NAME="tex2html18414"
+  HREF="node861.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18408"
+  HREF="node863.html">Cm23Admin::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html18416"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009272000000000000000">
-MSG_placeOrReturnMessageBox</A>
+<H2><A NAME="SECTION009243000000000000000">
+Cm23Admin::delete</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Replaces a (maybe) existing message box placeholder with the given text.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes an m23 administrator from the database and from the password hash files for m23, backup, backuppc and phpmyldap.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>text: Message to embed in the placeholder.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Empty string, if the text could be inserted into the existing placeholder or the message, if no placeholder was found.
+<LI>: True if admin could be deleted, False if admin doesn't exist or cannot be deleted (one must remain, can't delete yourself, or errors with DB or files).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ MSG_placeOrReturnMessageBox</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

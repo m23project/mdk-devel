@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_compareLengthAbc</TITLE>
-<META NAME="description" CONTENT="HELPER_compareLengthAbc">
+<TITLE>CFDiskIO::getDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node641.html">
 <LINK REL="previous" HREF="node639.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node641.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11861"
+<A NAME="tex2html15542"
   HREF="node641.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11857"
-  HREF="node590.html">
+<A NAME="tex2html15538"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11851"
+<A NAME="tex2html15532"
   HREF="node639.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11859"
+<A NAME="tex2html15540"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11862"
-  HREF="node641.html">HELPER_sortByLength</A>
-<B> Up:</B> <A NAME="tex2html11858"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11852"
-  HREF="node639.html">HELPER_maxPhpUploadSize</A>
- &nbsp; <B>  <A NAME="tex2html11860"
+<B> Next:</B> <A NAME="tex2html15543"
+  HREF="node641.html">CFDiskIO::getUnusedMDs</A>
+<B> Up:</B> <A NAME="tex2html15539"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15533"
+  HREF="node639.html">CFDiskIO::virtualDeleteRaidDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15541"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091850000000000000000">
-HELPER_compareLengthAbc</A>
+<H2><A NAME="SECTION0091598000000000000000">
+CFDiskIO::getDrivesAndPartitions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Compares the length of two strings and then by alphabet
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an array that contains all disks and partitions of a given client with the disk devices as keys and the information as values.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>$a: string of a certain length
+<LI>devFilter: Set this to another value than false if you want only devices with a given string in it. If you add an "!" the beginning all is given out that doesn't contains the filter string (without the "!").
 </LI>
-<LI>$b: string of a certain length
+<LI>addSizesAndTypes: If set to true, the array will contain the sizes, filesystems and types of the partitions and drives.
+</LI>
+<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with drives and partitions and (optionally) their sizes, filesystems and types.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ HELPER_compareLengthAbc</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

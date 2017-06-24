@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_DBInstall</TITLE>
-<META NAME="description" CONTENT="PLG_DBInstall">
+<TITLE>CRON_addJobMinutely</TITLE>
+<META NAME="description" CONTENT="CRON_addJobMinutely">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1008.html">
 <LINK REL="previous" HREF="node1006.html">
-<LINK REL="up" HREF="node994.html">
+<LINK REL="up" HREF="node1005.html">
 <LINK REL="next" HREF="node1008.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16604"
+<A NAME="tex2html20256"
   HREF="node1008.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16600"
-  HREF="node994.html">
+<A NAME="tex2html20252"
+  HREF="node1005.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16594"
+<A NAME="tex2html20246"
   HREF="node1006.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16602"
+<A NAME="tex2html20254"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16605"
-  HREF="node1008.html">PLG_realInstall</A>
-<B> Up:</B> <A NAME="tex2html16601"
-  HREF="node994.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html16595"
-  HREF="node1006.html">PLG_checkOverwriting</A>
- &nbsp; <B>  <A NAME="tex2html16603"
+<B> Next:</B> <A NAME="tex2html20257"
+  HREF="node1008.html">CRON_addJobBasic</A>
+<B> Up:</B> <A NAME="tex2html20253"
+  HREF="node1005.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20247"
+  HREF="node1006.html">CRON_genCronEntry</A>
+ &nbsp; <B>  <A NAME="tex2html20255"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093013000000000000000">
-PLG_DBInstall</A>
+<H2><A NAME="SECTION009342000000000000000">
+CRON_addJobMinutely</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> stores information about the plugin in the data base.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every N minutes.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>tempDir: where to find the extracted files of the plugin
+<LI>intervall: Amount of minutes to wait between calls.
 </LI>
-<LI>files: all file names of the plugin file name
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ PLG_DBInstall</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

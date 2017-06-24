@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientsByPackages</TITLE>
-<META NAME="description" CONTENT="PKG_getClientsByPackages">
+<TITLE>CPool::isConvertPackagesToRepositoryRunning</TITLE>
+<META NAME="description" CONTENT="CPool::isConvertPackagesToRepositoryRunning">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node964.html">
 <LINK REL="previous" HREF="node962.html">
-<LINK REL="up" HREF="node879.html">
+<LINK REL="up" HREF="node958.html">
 <LINK REL="next" HREF="node964.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16052"
+<A NAME="tex2html19712"
   HREF="node964.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16048"
-  HREF="node879.html">
+<A NAME="tex2html19708"
+  HREF="node958.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16042"
+<A NAME="tex2html19702"
   HREF="node962.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16050"
+<A NAME="tex2html19710"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16053"
-  HREF="node964.html">PKG_countPackages</A>
-<B> Up:</B> <A NAME="tex2html16049"
-  HREF="node879.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html16043"
-  HREF="node962.html">PKG_getClientsWithWaitingJobs</A>
- &nbsp; <B>  <A NAME="tex2html16051"
+<B> Next:</B> <A NAME="tex2html19713"
+  HREF="node964.html">CPool::convertPackagesToRepository</A>
+<B> Up:</B> <A NAME="tex2html19709"
+  HREF="node958.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html19703"
+  HREF="node962.html">CPool::getConvertPackagesToRepositoryLogNewLines</A>
+ &nbsp; <B>  <A NAME="tex2html19711"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092884000000000000000">
-PKG_getClientsByPackages</A>
+<H2><A NAME="SECTION009335000000000000000">
+CPool::isConvertPackagesToRepositoryRunning</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the conversation of downloaded packages to a repository is running.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>packageNames: Array with the packages to check.
-</LI>
-<LI>status: Debian status code or true for "installed".
-</LI>
-<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
-</LI>
-<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Array with all clients that have the specific package (not) installed (or with another given status).
+<LI>: true, if it is running, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +68,7 @@ PKG_getClientsByPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

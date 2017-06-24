@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_delLineFromFile</TITLE>
-<META NAME="description" CONTENT="SERVER_delLineFromFile">
+<TITLE>delFromArray</TITLE>
+<META NAME="description" CONTENT="delFromArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1107.html">
 <LINK REL="previous" HREF="node1105.html">
-<LINK REL="up" HREF="node1064.html">
+<LINK REL="up" HREF="node1073.html">
 <LINK REL="next" HREF="node1107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17876"
+<A NAME="tex2html21521"
   HREF="node1107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17872"
-  HREF="node1064.html">
+<A NAME="tex2html21517"
+  HREF="node1073.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17866"
+<A NAME="tex2html21511"
   HREF="node1105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17874"
+<A NAME="tex2html21519"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17877"
-  HREF="node1107.html">SERVER_addEtcHosts</A>
-<B> Up:</B> <A NAME="tex2html17873"
-  HREF="node1064.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17867"
-  HREF="node1105.html">SERVER_putFileContents</A>
- &nbsp; <B>  <A NAME="tex2html17875"
+<B> Next:</B> <A NAME="tex2html21522"
+  HREF="node1107.html">delValuesFromArray</A>
+<B> Up:</B> <A NAME="tex2html21518"
+  HREF="node1073.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html21512"
+  HREF="node1105.html">pingIP</A>
+ &nbsp; <B>  <A NAME="tex2html21520"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093542000000000000000">
-SERVER_delLineFromFile</A>
+<H2><A NAME="SECTION0093733000000000000000">
+delFromArray</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes lines from the file that match the search pattern
+<SPAN  CLASS="textbf">Description:</SPAN> deletes all entries in the array $arr assigned by the keys stored in the array $delKeys. the new array without the entries in $delKeys is returned.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: name of the file to edit
+<LI>arr: array with the entries to filter
 </LI>
-<LI>search: the search pattern
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: true on successfully execution otherwise false.
+<LI>delKeys: array with all keys to delete from $arr
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +70,7 @@ SERVER_delLineFromFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

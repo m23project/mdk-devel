@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_arrayInsertBeforeKeynumber</TITLE>
-<META NAME="description" CONTENT="HELPER_arrayInsertBeforeKeynumber">
+<TITLE>CFDiskIO::mayLogicalPartitionsBeChanged</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::mayLogicalPartitionsBeChanged">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node615.html">
 <LINK REL="previous" HREF="node613.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node615.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11549"
+<A NAME="tex2html15230"
   HREF="node615.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11545"
-  HREF="node590.html">
+<A NAME="tex2html15226"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11539"
+<A NAME="tex2html15220"
   HREF="node613.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11547"
+<A NAME="tex2html15228"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11550"
-  HREF="node615.html">HELPER_arrayInsertAfterKeynumber</A>
-<B> Up:</B> <A NAME="tex2html11546"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11540"
-  HREF="node613.html">HELPER_arrayReOrderKeynumbers</A>
- &nbsp; <B>  <A NAME="tex2html11548"
+<B> Next:</B> <A NAME="tex2html15231"
+  HREF="node615.html">CFDiskIO::mayPartitioningBeChanged</A>
+<B> Up:</B> <A NAME="tex2html15227"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15221"
+  HREF="node613.html">CFDiskIO::getCreatablePartitionTypes</A>
+ &nbsp; <B>  <A NAME="tex2html15229"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091824000000000000000">
-HELPER_arrayInsertBeforeKeynumber</A>
+<H2><A NAME="SECTION0091572000000000000000">
+CFDiskIO::mayLogicalPartitionsBeChanged</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Inserts a value into an array (that has simple numbers as keys) before a given key.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the logical partitions may be changed on the given disk. If one logical partition on the disk is assigned to a RAID, none of the other logical partitions may be removed or added, because the numbering of the partitions will change afterwards and bring the RAID into a faulty state.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>inArray: The input array.
-</LI>
-<LI>beforeKeynumber: The key number the value should be inserted before.
-</LI>
-<LI>val: The value that should be inserted.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>New array with the new value inserted.
+<LI>true, if logical partitions may be removed or added on the disk, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ HELPER_arrayInsertBeforeKeynumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

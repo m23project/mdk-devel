@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_autoPart</TITLE>
-<META NAME="description" CONTENT="FDISK_autoPart">
+<TITLE>CFDiskGUI::getPartInfoString</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getPartInfoString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node533.html">
 <LINK REL="previous" HREF="node531.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node493.html">
 <LINK REL="next" HREF="node533.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10485"
+<A NAME="tex2html14130"
   HREF="node533.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10481"
-  HREF="node447.html">
+<A NAME="tex2html14126"
+  HREF="node493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10475"
+<A NAME="tex2html14120"
   HREF="node531.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10483"
+<A NAME="tex2html14128"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10486"
-  HREF="node533.html">FDISK_printColorDefinitions</A>
-<B> Up:</B> <A NAME="tex2html10482"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10476"
-  HREF="node531.html">FDISK_getFreeSpaces</A>
- &nbsp; <B>  <A NAME="tex2html10484"
+<B> Next:</B> <A NAME="tex2html14131"
+  HREF="node533.html">CFDiskGUI::getDiskInfoString</A>
+<B> Up:</B> <A NAME="tex2html14127"
+  HREF="node493.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14121"
+  HREF="node531.html">CFDiskGUI::getPartInfoIcon</A>
+ &nbsp; <B>  <A NAME="tex2html14129"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091685000000000000000">
-FDISK_autoPart</A>
+<H2><A NAME="SECTION0091439000000000000000">
+CFDiskGUI::getPartInfoString</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generation of param string and command list for automatic partition
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an info string, that shows information about the device name of the partition, its filesystem and bolonging to a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>command: parted commands are written to $command
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
 </LI>
-<LI>dev: selected device (e.g. /dev/hda)
-</LI>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>instPart: the variable the installation device name is written to
-</LI>
-<LI>swapPart: the variable the swap device name is written to
-</LI>
-<LI>minSwap: Minimal size of the swap partition in MB.
-</LI>
-<LI>maxSwap: Maximal size of the swap partition in MB.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Info string.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +76,7 @@ FDISK_autoPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

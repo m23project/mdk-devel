@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_checkOverwriting</TITLE>
-<META NAME="description" CONTENT="PLG_checkOverwriting">
+<TITLE>CRON_genCronEntry</TITLE>
+<META NAME="description" CONTENT="CRON_genCronEntry">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1007.html">
 <LINK REL="previous" HREF="node1005.html">
-<LINK REL="up" HREF="node994.html">
+<LINK REL="up" HREF="node1005.html">
 <LINK REL="next" HREF="node1007.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16592"
+<A NAME="tex2html20244"
   HREF="node1007.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16588"
-  HREF="node994.html">
+<A NAME="tex2html20240"
+  HREF="node1005.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16582"
+<A NAME="tex2html20234"
   HREF="node1005.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16590"
+<A NAME="tex2html20242"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16593"
-  HREF="node1007.html">PLG_DBInstall</A>
-<B> Up:</B> <A NAME="tex2html16589"
-  HREF="node994.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html16583"
-  HREF="node1005.html">PLG_showDownloadStatus</A>
- &nbsp; <B>  <A NAME="tex2html16591"
+<B> Next:</B> <A NAME="tex2html20245"
+  HREF="node1007.html">CRON_addJobMinutely</A>
+<B> Up:</B> <A NAME="tex2html20241"
+  HREF="node1005.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20235"
+  HREF="node1005.html">./inc/cron.php</A>
+ &nbsp; <B>  <A NAME="tex2html20243"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093012000000000000000">
-PLG_checkOverwriting</A>
+<H2><A NAME="SECTION009341000000000000000">
+CRON_genCronEntry</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a cron line to insert into crontab.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
+<LI>min: Minute or * for every minute to execute the cron job. (0-59)
 </LI>
-<LI>tempDir: where to store the plugin file temporary
+<LI>hour: Hour or * for every hour to execute the cron job. (0-23)
+</LI>
+<LI>dayOfMonth: The day in the month or * for all days to execute the cron job. (1-31)
+</LI>
+<LI>month: The month or * for every months to execute the cron job. (1-12)
+</LI>
+<LI>dayOfWeek: The day in the week or * for every week days to execute the cron job. (0-7 (0 or 7 is Sun))
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The crontab line that can be inserted.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +90,7 @@ PLG_checkOverwriting</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

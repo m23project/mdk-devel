@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_getPLGAuthor</TITLE>
-<META NAME="description" CONTENT="PLG_getPLGAuthor">
+<TITLE>CPool::startDownloadToPool</TITLE>
+<META NAME="description" CONTENT="CPool::startDownloadToPool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1001.html">
 <LINK REL="previous" HREF="node999.html">
-<LINK REL="up" HREF="node994.html">
+<LINK REL="up" HREF="node958.html">
 <LINK REL="next" HREF="node1001.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16520"
+<A NAME="tex2html20156"
   HREF="node1001.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16516"
-  HREF="node994.html">
+<A NAME="tex2html20152"
+  HREF="node958.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16510"
+<A NAME="tex2html20146"
   HREF="node999.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16518"
+<A NAME="tex2html20154"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16521"
-  HREF="node1001.html">PLG_getPLGUpdateURL</A>
-<B> Up:</B> <A NAME="tex2html16517"
-  HREF="node994.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html16511"
-  HREF="node999.html">PLG_getPLGPage</A>
- &nbsp; <B>  <A NAME="tex2html16519"
+<B> Next:</B> <A NAME="tex2html20157"
+  HREF="node1001.html">CPool::getPoolStatusFileName</A>
+<B> Up:</B> <A NAME="tex2html20153"
+  HREF="node958.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html20147"
+  HREF="node999.html">CPool::downloadDebsFromClient</A>
+ &nbsp; <B>  <A NAME="tex2html20155"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009306000000000000000">
-PLG_getPLGAuthor</A>
+<H2><A NAME="SECTION0093342000000000000000">
+CPool::startDownloadToPool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> gets the author of the plugin
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if all pre-requirements for downloading packages to the pool are satisfied. Then starts the distribution specific download routine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: file name with whole path to the plugin file
+<LI>returnCommands: If set to true, the commands for downloading the packages will be returned instead of executed.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the download was started otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ PLG_getPLGAuthor</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

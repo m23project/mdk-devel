@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitions">
+<TITLE>CFDiskGUI::showEmptyDiskTable</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::showEmptyDiskTable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node512.html">
 <LINK REL="previous" HREF="node510.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node493.html">
 <LINK REL="next" HREF="node512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10233"
+<A NAME="tex2html13878"
   HREF="node512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10229"
-  HREF="node447.html">
+<A NAME="tex2html13874"
+  HREF="node493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10223"
+<A NAME="tex2html13868"
   HREF="node510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10231"
+<A NAME="tex2html13876"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10234"
-  HREF="node512.html">FDISK_getPartInfoString</A>
-<B> Up:</B> <A NAME="tex2html10230"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10224"
-  HREF="node510.html">FDISK_getBeforeFristPartition</A>
- &nbsp; <B>  <A NAME="tex2html10232"
+<B> Next:</B> <A NAME="tex2html13879"
+  HREF="node512.html">CFDiskGUI::getPartitionExtraIconHTML</A>
+<B> Up:</B> <A NAME="tex2html13875"
+  HREF="node493.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13869"
+  HREF="node510.html">CFDiskGUI::showFreeSpaceBarBlock</A>
+ &nbsp; <B>  <A NAME="tex2html13877"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091664000000000000000">
-FDISK_getPartitions</A>
+<H2><A NAME="SECTION0091418000000000000000">
+CFDiskGUI::showEmptyDiskTable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> get the partition info for the client from db
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a table with block for an empty disk (if the disk has no partitions)
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: name of the client
+<LI>pDisk: The physical device name of the disk (eg. /dev/sda)
+</LI>
+<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk has no partitions, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ FDISK_getPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

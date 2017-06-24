@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>./inc/halfSister.php</TITLE>
+<META NAME="description" CONTENT="./inc/halfSister.php">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node1718.html">
+<LINK REL="previous" HREF="node1628.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1662.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html28682"
+  HREF="node1662.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html28678"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html28672"
+  HREF="node1660.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html28680"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html28683"
+  HREF="node1662.html">HS_ASSI_getClientSettingsCommand</A>
+<B> Up:</B> <A NAME="tex2html28679"
+  HREF="node101.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html28673"
+  HREF="node1660.html">GRP_desasterRecovery</A>
+ &nbsp; <B>  <A NAME="tex2html28681"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION009540000000000000000">
+./inc/halfSister.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for halfSister.
+<BR></SMALL></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html28684"
+  HREF="node1662.html">HS_ASSI_getClientSettingsCommand</A>
+<LI><A NAME="tex2html28685"
+  HREF="node1663.html">HS_getClientSettingsCommand</A>
+<LI><A NAME="tex2html28686"
+  HREF="node1664.html">HS_ASSI_statusFileCommand</A>
+<LI><A NAME="tex2html28687"
+  HREF="node1665.html">HS_ASSI_prepareClient</A>
+<LI><A NAME="tex2html28688"
+  HREF="node1666.html">HS_getm23HSAdminPath</A>
+<LI><A NAME="tex2html28689"
+  HREF="node1667.html">HS_getPackageCacheName</A>
+<LI><A NAME="tex2html28690"
+  HREF="node1668.html">HS_pkgUpdateCacheOnServer</A>
+<LI><A NAME="tex2html28691"
+  HREF="node1669.html">HS_fetchAndExtractOSImage</A>
+<LI><A NAME="tex2html28692"
+  HREF="node1670.html">HS_fetchm23HSAdminAndm23hwscannerByOS</A>
+<LI><A NAME="tex2html28693"
+  HREF="node1671.html">HS_fetchm23HSAdminAndm23hwscanner</A>
+<LI><A NAME="tex2html28694"
+  HREF="node1672.html">HS_netConfig</A>
+<LI><A NAME="tex2html28695"
+  HREF="node1673.html">HS_setPackageProxy</A>
+<LI><A NAME="tex2html28696"
+  HREF="node1674.html">HS_setSourcesList</A>
+<LI><A NAME="tex2html28697"
+  HREF="node1675.html">HS_normalUpdate</A>
+<LI><A NAME="tex2html28698"
+  HREF="node1676.html">HS_pkgFullUpdate</A>
+<LI><A NAME="tex2html28699"
+  HREF="node1677.html">HS_sysSetm23ClientID</A>
+<LI><A NAME="tex2html28700"
+  HREF="node1678.html">HS_netEnableNTP</A>
+<LI><A NAME="tex2html28701"
+  HREF="node1679.html">HS_netDisableNTP</A>
+<LI><A NAME="tex2html28702"
+  HREF="node1680.html">HS_hookBeginAfterChroot</A>
+<LI><A NAME="tex2html28703"
+  HREF="node1681.html">HS_hookEndAfterChroot</A>
+<LI><A NAME="tex2html28704"
+  HREF="node1682.html">HS_pkgInstallBasePackages</A>
+<LI><A NAME="tex2html28705"
+  HREF="node1683.html">HS_netSetm23SSLCertificate</A>
+<LI><A NAME="tex2html28706"
+  HREF="node1684.html">HS_sysSetLanguage</A>
+<LI><A NAME="tex2html28707"
+  HREF="node1685.html">HS_sysSetRootPW</A>
+<LI><A NAME="tex2html28708"
+  HREF="node1686.html">HS_sysSetTimeZone</A>
+<LI><A NAME="tex2html28709"
+  HREF="node1687.html">HS_sysHWsetup</A>
+<LI><A NAME="tex2html28710"
+  HREF="node1688.html">HS_sysAddUser</A>
+<LI><A NAME="tex2html28711"
+  HREF="node1689.html">HS_sysChangeUser</A>
+<LI><A NAME="tex2html28712"
+  HREF="node1690.html">HS_netEnableSSHdAndImportKey</A>
+<LI><A NAME="tex2html28713"
+  HREF="node1691.html">HS_writeHosts</A>
+<LI><A NAME="tex2html28714"
+  HREF="node1692.html">HS_sysWriteM23fetchjob</A>
+<LI><A NAME="tex2html28715"
+  HREF="node1693.html">HS_sysWriteCrontabm23fetchjobEvery5Minutes</A>
+<LI><A NAME="tex2html28716"
+  HREF="node1694.html">HS_sysInstallKernel</A>
+<LI><A NAME="tex2html28717"
+  HREF="node1695.html">HS_netEnableNFSHome</A>
+<LI><A NAME="tex2html28718"
+  HREF="node1696.html">HS_netEnableLDAP</A>
+<LI><A NAME="tex2html28719"
+  HREF="node1697.html">HS_sysAddFstabEntries</A>
+<LI><A NAME="tex2html28720"
+  HREF="node1698.html">HS_sysMakeBootable</A>
+<LI><A NAME="tex2html28721"
+  HREF="node1699.html">HS_sysConfigurePrinter</A>
+<LI><A NAME="tex2html28722"
+  HREF="node1700.html">HS_sysInstallPrinter</A>
+<LI><A NAME="tex2html28723"
+  HREF="node1701.html">HS_pkgInstallKDE</A>
+<LI><A NAME="tex2html28724"
+  HREF="node1702.html">HS_pkgInstallX</A>
+<LI><A NAME="tex2html28725"
+  HREF="node1703.html">HS_pkgInstalledList</A>
+<LI><A NAME="tex2html28726"
+  HREF="node1704.html">HS_pkgInstall</A>
+<LI><A NAME="tex2html28727"
+  HREF="node1705.html">HS_runClientPackageConfDB</A>
+<LI><A NAME="tex2html28728"
+  HREF="node1706.html">HS_pkgSearch</A>
+<LI><A NAME="tex2html28729"
+  HREF="node1707.html">HS_pkgInstallPreview</A>
+<LI><A NAME="tex2html28730"
+  HREF="node1708.html">HS_pkgDeinstallPreview</A>
+<LI><A NAME="tex2html28731"
+  HREF="node1709.html">HS_statusFileCommand</A>
+<LI><A NAME="tex2html28732"
+  HREF="node1710.html">HS_pkgUpdateCache</A>
+<LI><A NAME="tex2html28733"
+  HREF="node1711.html">HS_pkgInstallGnome</A>
+<LI><A NAME="tex2html28734"
+  HREF="node1712.html">HS_pkgInstallLXDE</A>
+<LI><A NAME="tex2html28735"
+  HREF="node1713.html">HS_pkgInstallXFce</A>
+<LI><A NAME="tex2html28736"
+  HREF="node1714.html">HS_pkgDeinstall</A>
+<LI><A NAME="tex2html28737"
+  HREF="node1715.html">HS_wrapperHS_wrapperReturn</A>
+<LI><A NAME="tex2html28738"
+  HREF="node1716.html">HS_wrapper</A>
+<LI><A NAME="tex2html28739"
+  HREF="node1717.html">HS_sendCommandExecutionStatus</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2017-06-22
+</ADDRESS>
+</BODY>
+</HTML>

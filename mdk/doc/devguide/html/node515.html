@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartInfoIcon</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartInfoIcon">
+<TITLE>CFDiskGUI::printBars</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::printBars">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node516.html">
 <LINK REL="previous" HREF="node514.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node493.html">
 <LINK REL="next" HREF="node516.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10281"
+<A NAME="tex2html13926"
   HREF="node516.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10277"
-  HREF="node447.html">
+<A NAME="tex2html13922"
+  HREF="node493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10271"
+<A NAME="tex2html13916"
   HREF="node514.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10279"
+<A NAME="tex2html13924"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10282"
-  HREF="node516.html">FDISK_printBars</A>
-<B> Up:</B> <A NAME="tex2html10278"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10272"
-  HREF="node514.html">FDISK_getDriveInfoIcon</A>
- &nbsp; <B>  <A NAME="tex2html10280"
+<B> Next:</B> <A NAME="tex2html13927"
+  HREF="node516.html">CFDiskGUI::showPartTable</A>
+<B> Up:</B> <A NAME="tex2html13923"
+  HREF="node493.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13917"
+  HREF="node514.html">CFDiskGUI::showPartitionBarBlock</A>
+ &nbsp; <B>  <A NAME="tex2html13925"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091668000000000000000">
-FDISK_getPartInfoIcon</A>
+<H2><A NAME="SECTION0091422000000000000000">
+CFDiskGUI::printBars</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> prints the partitions as colored table
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>pDisk: selected device (e.g. /dev/hda)
 </LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1) and if set to false, the icon and the status information will be generated for a drive and not for a partition.
-</LI>
-<LI>param: parameter string containing status informations about the harddisks
-</LI>
-<LI>fstabA: Associative array with fstab information.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>HTML code for showing an icon with status information about the drive or partition.
+<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +70,7 @@ FDISK_getPartInfoIcon</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

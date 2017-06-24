@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>delFromArray</TITLE>
-<META NAME="description" CONTENT="delFromArray">
+<TITLE>CClient::setRootPassword</TITLE>
+<META NAME="description" CONTENT="CClient::setRootPassword">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node389.html">
 <LINK REL="previous" HREF="node387.html">
-<LINK REL="up" HREF="node355.html">
+<LINK REL="up" HREF="node334.html">
 <LINK REL="next" HREF="node389.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8604"
+<A NAME="tex2html12327"
   HREF="node389.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8600"
-  HREF="node355.html">
+<A NAME="tex2html12323"
+  HREF="node334.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8594"
+<A NAME="tex2html12317"
   HREF="node387.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8602"
+<A NAME="tex2html12325"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8605"
-  HREF="node389.html">delValuesFromArray</A>
-<B> Up:</B> <A NAME="tex2html8601"
-  HREF="node355.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html8595"
-  HREF="node387.html">pingIP</A>
- &nbsp; <B>  <A NAME="tex2html8603"
+<B> Next:</B> <A NAME="tex2html12328"
+  HREF="node389.html">CClient::addToClientGroup</A>
+<B> Up:</B> <A NAME="tex2html12324"
+  HREF="node334.html">./inc/CClient.php</A>
+<B> Previous:</B> <A NAME="tex2html12318"
+  HREF="node387.html">CClient::getGetSystemtimeByNTP</A>
+ &nbsp; <B>  <A NAME="tex2html12326"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091233000000000000000">
-delFromArray</A>
+<H2><A NAME="SECTION0091254000000000000000">
+CClient::setRootPassword</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> deletes all entries in the array $arr assigned by the keys stored in the array $delKeys. the new array without the entries in $delKeys is returned.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the root password for the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arr: array with the entries to filter
+<LI>rootPassword: The (encrypted) root password to set.
 </LI>
-<LI>delKeys: array with all keys to delete from $arr
+<LI>cryptRootPw: set to true, if the password should be encrypted or false, if it's already encrypted.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the root password is valid.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ delFromArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

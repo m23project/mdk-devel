@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>./inc/ldap.php</TITLE>
+<META NAME="description" CONTENT="./inc/ldap.php">
+<META NAME="keywords" CONTENT="devguide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="devguide.css">
+
+<LINK REL="next" HREF="node1893.html">
+<LINK REL="previous" HREF="node1852.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1868.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html31342"
+  HREF="node1868.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html31338"
+  HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html31332"
+  HREF="node1866.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html31340"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html31343"
+  HREF="node1868.html">LDAP_getTypes</A>
+<B> Up:</B> <A NAME="tex2html31339"
+  HREF="node101.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html31333"
+  HREF="node1866.html">I18N_getLangVars</A>
+ &nbsp; <B>  <A NAME="tex2html31341"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION009600000000000000000">
+./inc/ldap.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for using a LDAP server
+<BR></SMALL></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html31344"
+  HREF="node1868.html">LDAP_getTypes</A>
+<LI><A NAME="tex2html31345"
+  HREF="node1869.html">LDAP_connectServer</A>
+<LI><A NAME="tex2html31346"
+  HREF="node1870.html">LDAP_makeConnection</A>
+<LI><A NAME="tex2html31347"
+  HREF="node1871.html">LDAP_getValueFromConfigLine</A>
+<LI><A NAME="tex2html31348"
+  HREF="node1872.html">LDAP_listServers</A>
+<LI><A NAME="tex2html31349"
+  HREF="node1873.html">LDAP_loadServer</A>
+<LI><A NAME="tex2html31350"
+  HREF="node1874.html">LDAP_addPosix</A>
+<LI><A NAME="tex2html31351"
+  HREF="node1875.html">LDAP_fqdn2dn</A>
+<LI><A NAME="tex2html31352"
+  HREF="node1876.html">LDAP_installServer</A>
+<LI><A NAME="tex2html31353"
+  HREF="node1877.html">LDAP_addServerTophpLdapAdmin</A>
+<LI><A NAME="tex2html31354"
+  HREF="node1878.html">LDAP_delServerFromphpLdapAdmin</A>
+<LI><A NAME="tex2html31355"
+  HREF="node1879.html">LDAP_checkphpLdapAdminConfiguration</A>
+<LI><A NAME="tex2html31356"
+  HREF="node1880.html">LDAP_showServerManagementDialog</A>
+<LI><A NAME="tex2html31357"
+  HREF="node1881.html">LDAP_I18NLdapType</A>
+<LI><A NAME="tex2html31358"
+  HREF="node1882.html">LDAP_getNextID</A>
+<LI><A NAME="tex2html31359"
+  HREF="node1883.html">LDAP_getNextUserID</A>
+<LI><A NAME="tex2html31360"
+  HREF="node1884.html">LDAP_addNewID</A>
+<LI><A NAME="tex2html31361"
+  HREF="node1885.html">LDAP_deleteID</A>
+<LI><A NAME="tex2html31362"
+  HREF="node1886.html">LDAP_addNewUserID</A>
+<LI><A NAME="tex2html31363"
+  HREF="node1887.html">LDAP_addNewGroupID</A>
+<LI><A NAME="tex2html31364"
+  HREF="node1888.html">LDAP_getNextGroupID</A>
+<LI><A NAME="tex2html31365"
+  HREF="node1889.html">LDAP_getFreeIDs</A>
+<LI><A NAME="tex2html31366"
+  HREF="node1890.html">LDAP_getFreeUserIDs</A>
+<LI><A NAME="tex2html31367"
+  HREF="node1891.html">LDAP_getFreeGroupIDs</A>
+<LI><A NAME="tex2html31368"
+  HREF="node1892.html">LDAP_matchLDAPserver</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2017-06-22
+</ADDRESS>
+</BODY>
+</HTML>

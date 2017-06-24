@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_grep</TITLE>
-<META NAME="description" CONTENT="HELPER_grep">
+<TITLE>CFDiskIO::updateRAIDSize</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::updateRAIDSize">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node631.html">
 <LINK REL="previous" HREF="node629.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node631.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11741"
+<A NAME="tex2html15422"
   HREF="node631.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11737"
-  HREF="node590.html">
+<A NAME="tex2html15418"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11731"
+<A NAME="tex2html15412"
   HREF="node629.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11739"
+<A NAME="tex2html15420"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11742"
-  HREF="node631.html">HELPER_grepNot</A>
-<B> Up:</B> <A NAME="tex2html11738"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11732"
-  HREF="node629.html">HELPER_calcMBSize</A>
- &nbsp; <B>  <A NAME="tex2html11740"
+<B> Next:</B> <A NAME="tex2html15423"
+  HREF="node631.html">CFDiskIO::getRaidCompleteParameters</A>
+<B> Up:</B> <A NAME="tex2html15419"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15413"
+  HREF="node629.html">CFDiskIO::delDevFromRaid</A>
+ &nbsp; <B>  <A NAME="tex2html15421"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091840000000000000000">
-HELPER_grep</A>
+<H2><A NAME="SECTION0091588000000000000000">
+CFDiskIO::updateRAIDSize</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes all lines from $string seperated by $cut that contain $search
+<SPAN  CLASS="textbf">Description:</SPAN> Updates the usable size of the RAID
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>string: the text, that should be searched
-</LI>
-<LI>search: the string to be searched
-</LI>
-<LI>cut: seperator for the input and output lines
+<LI>vrDisk: Virtual (internally used) disk number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The found lines as string separated by $cut.
+<LI>true, if the RAID size could be calculated, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ HELPER_grep</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

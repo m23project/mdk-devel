@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_isUpper</TITLE>
-<META NAME="description" CONTENT="HELPER_isUpper">
+<TITLE>CFDiskIO::getPartitionFileSystem</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartitionFileSystem">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node595.html">
 <LINK REL="previous" HREF="node593.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node595.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11309"
+<A NAME="tex2html14990"
   HREF="node595.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11305"
-  HREF="node590.html">
+<A NAME="tex2html14986"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11299"
+<A NAME="tex2html14980"
   HREF="node593.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11307"
+<A NAME="tex2html14988"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11310"
-  HREF="node595.html">HELPER_filesize</A>
-<B> Up:</B> <A NAME="tex2html11306"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11300"
-  HREF="node593.html">HELPER_URIencode</A>
- &nbsp; <B>  <A NAME="tex2html11308"
+<B> Next:</B> <A NAME="tex2html14991"
+  HREF="node595.html">CFDiskIO::setPartitionFileSystem</A>
+<B> Up:</B> <A NAME="tex2html14987"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14981"
+  HREF="node593.html">CFDiskIO::getPartitionType</A>
+ &nbsp; <B>  <A NAME="tex2html14989"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009184000000000000000">
-HELPER_isUpper</A>
+<H2><A NAME="SECTION0091552000000000000000">
+CFDiskIO::getPartitionFileSystem</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a character is upper case
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the file system of a partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>char: Character to check.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
+</LI>
+<LI>return: This will returned in case of an error, if set to another value, than 'null'.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, when upper case otherwise false
+<LI>FileSystem of a partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ HELPER_isUpper</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

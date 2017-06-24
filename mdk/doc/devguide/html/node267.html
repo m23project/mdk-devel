@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_executeOnClientOrIP</TITLE>
-<META NAME="description" CONTENT="CLIENT_executeOnClientOrIP">
+<TITLE>CChecks::checkLogin</TITLE>
+<META NAME="description" CONTENT="CChecks::checkLogin">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node268.html">
 <LINK REL="previous" HREF="node266.html">
-<LINK REL="up" HREF="node241.html">
+<LINK REL="up" HREF="node248.html">
 <LINK REL="next" HREF="node268.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7101"
+<A NAME="tex2html10709"
   HREF="node268.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7097"
-  HREF="node241.html">
+<A NAME="tex2html10705"
+  HREF="node248.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7091"
+<A NAME="tex2html10699"
   HREF="node266.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7099"
+<A NAME="tex2html10707"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7102"
-  HREF="node268.html">CLIENT_isBasesystemInstalledFromImage</A>
-<B> Up:</B> <A NAME="tex2html7098"
-  HREF="node241.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html7092"
-  HREF="node266.html">CLIENT_getActiveNetDevices</A>
- &nbsp; <B>  <A NAME="tex2html7100"
+<B> Next:</B> <A NAME="tex2html10710"
+  HREF="node268.html">CChecks::checkProxy</A>
+<B> Up:</B> <A NAME="tex2html10706"
+  HREF="node248.html">./inc/CChecks.php</A>
+<B> Previous:</B> <A NAME="tex2html10700"
+  HREF="node266.html">CChecks::firstpw</A>
+ &nbsp; <B>  <A NAME="tex2html10708"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091026000000000000000">
-CLIENT_executeOnClientOrIP</A>
+<H2><A NAME="SECTION0091019000000000000000">
+CChecks::checkLogin</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background or under a plain BASH under a given user. The script can be executed on the local machine "localhost" or a remote client that is accessible via SSH with a public key and without a password.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the given login is valid.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientNameOrIP: The name of the client or localhost or an IP.
+<LI>login: The login name to check.
 </LI>
-<LI>jobName: name of the job screen should show
-</LI>
-<LI>cmds: the commands of the script 
-</LI>
-<LI>user: user the script should be run under
-</LI>
-<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+<LI>allowEmpty: Set to true, if empty logins should be allowed (e.g. when read from an LDAP server)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The output of the screen (only available on direct output if $runInScreen is false.
+<LI>true, if the login name is valid otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +76,7 @@ CLIENT_executeOnClientOrIP</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

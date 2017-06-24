@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_rmJob</TITLE>
-<META NAME="description" CONTENT="FDISK_rmJob">
+<TITLE>CFDiskGUI::getPartitionPercent</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getPartitionPercent">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node527.html">
 <LINK REL="previous" HREF="node525.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node493.html">
 <LINK REL="next" HREF="node527.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10413"
+<A NAME="tex2html14058"
   HREF="node527.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10409"
-  HREF="node447.html">
+<A NAME="tex2html14054"
+  HREF="node493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10403"
+<A NAME="tex2html14048"
   HREF="node525.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10411"
+<A NAME="tex2html14056"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10414"
-  HREF="node527.html">FDISK_addJob</A>
-<B> Up:</B> <A NAME="tex2html10410"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10404"
-  HREF="node525.html">FDISK_getvPart</A>
- &nbsp; <B>  <A NAME="tex2html10412"
+<B> Next:</B> <A NAME="tex2html14059"
+  HREF="node527.html">CFDiskGUI::getHTMLColorForFilesystemOrType</A>
+<B> Up:</B> <A NAME="tex2html14055"
+  HREF="node493.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14049"
+  HREF="node525.html">CFDiskGUI::showFdiskCombinedGUIFunctions</A>
+ &nbsp; <B>  <A NAME="tex2html14057"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091679000000000000000">
-FDISK_rmJob</A>
+<H2><A NAME="SECTION0091433000000000000000">
+CFDiskGUI::getPartitionPercent</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a partition remove job
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the percentual size of a selected partition in comparison to the disk size.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: selected device (e.g. hda)
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>devNr: number of partition, minor number in parted
-</LI>
-<LI>partJobs: associative array with partition jobs
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ FDISK_rmJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

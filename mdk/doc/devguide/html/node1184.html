@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_rebootAndActivateNetboot</TITLE>
-<META NAME="description" CONTENT="VM_rebootAndActivateNetboot">
+<TITLE>CLCFG_debootstrap</TITLE>
+<META NAME="description" CONTENT="CLCFG_debootstrap">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1185.html">
 <LINK REL="previous" HREF="node1183.html">
-<LINK REL="up" HREF="node1161.html">
+<LINK REL="up" HREF="node1131.html">
 <LINK REL="next" HREF="node1185.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18914"
+<A NAME="tex2html22549"
   HREF="node1185.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18910"
-  HREF="node1161.html">
+<A NAME="tex2html22545"
+  HREF="node1131.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18904"
+<A NAME="tex2html22539"
   HREF="node1183.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18912"
+<A NAME="tex2html22547"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18915"
-  HREF="node1185.html">VM_shutdownAndDisableNetbootAfterInstall</A>
-<B> Up:</B> <A NAME="tex2html18911"
-  HREF="node1161.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html18905"
-  HREF="node1183.html">VM_shutdownAndDisableNetbootAfterInstall</A>
- &nbsp; <B>  <A NAME="tex2html18913"
+<B> Next:</B> <A NAME="tex2html22550"
+  HREF="node1185.html">CLCFG_downgradeExt</A>
+<B> Up:</B> <A NAME="tex2html22546"
+  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22540"
+  HREF="node1183.html">CLCFG_setDebconf</A>
+ &nbsp; <B>  <A NAME="tex2html22548"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093823000000000000000">
-VM_rebootAndActivateNetboot</A>
+<H2><A NAME="SECTION0093953000000000000000">
+CLCFG_debootstrap</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Reboots an VM and activates network booting.
+<SPAN  CLASS="textbf">Description:</SPAN> bootstraps a Debian system
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vmname: Name of the VM.
+<LI>suite: select the Debian suite (sarge, sid, woody, potato)
+</LI>
+<LI>DNSServers: DNS server for resolving the names of the installation server
+</LI>
+<LI>gateway: gateway for fetching the packages
+</LI>
+<LI>packageProxy: the ip of the proxy the packages should be fetched from
+</LI>
+<LI>packagePort: the proxy port
+</LI>
+<LI>mirror: the Debian mirror the packages should be fetched from
+</LI>
+<LI>arch: the computer architecture of the client
+</LI>
+<LI>exclude: packages to exclude (as comma-seperated list)
+</LI>
+<LI>include: additional packages to include
+</LI>
+<LI>isCritical: selects if debootstrap errors should be critical
+</LI>
+<LI>additionalPackages: space seperated list of additional packages that should be installed during bootstrapping
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +88,7 @@ VM_rebootAndActivateNetboot</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

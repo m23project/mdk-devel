@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getSupportedFS</TITLE>
-<META NAME="description" CONTENT="FDISK_getSupportedFS">
+<TITLE>CFDiskGUI::addDiskLayoutEntry</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::addDiskLayoutEntry">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node518.html">
 <LINK REL="previous" HREF="node516.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node493.html">
 <LINK REL="next" HREF="node518.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10305"
+<A NAME="tex2html13950"
   HREF="node518.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10301"
-  HREF="node447.html">
+<A NAME="tex2html13946"
+  HREF="node493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10295"
+<A NAME="tex2html13940"
   HREF="node516.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10303"
+<A NAME="tex2html13948"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10306"
-  HREF="node518.html">FDISK_listSupportedFS</A>
-<B> Up:</B> <A NAME="tex2html10302"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10296"
-  HREF="node516.html">FDISK_printBars</A>
- &nbsp; <B>  <A NAME="tex2html10304"
+<B> Next:</B> <A NAME="tex2html13951"
+  HREF="node518.html">CFDiskGUI::newDiskLayout</A>
+<B> Up:</B> <A NAME="tex2html13947"
+  HREF="node493.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13941"
+  HREF="node516.html">CFDiskGUI::showPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html13949"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091670000000000000000">
-FDISK_getSupportedFS</A>
+<H2><A NAME="SECTION0091424000000000000000">
+CFDiskGUI::addDiskLayoutEntry</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates and returns an array with the list of supported file systems.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new entry (partition or free space on a disk) to the disk layout (for rendering only).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the list of supported file systems.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>start: start point of the partition (in MB)
+</LI>
+<LI>end: end point of the partition (in MB)
+</LI>
+<LI>type: type of the partition (primary, logical)
+</LI>
+<LI>fs: File system.
+</LI>
+<LI>dev: Device name (optional)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ FDISK_getSupportedFS</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

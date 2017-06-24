@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_xargsRecursive</TITLE>
-<META NAME="description" CONTENT="HELPER_xargsRecursive">
+<TITLE>CFDiskIO::correctLogical</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::correctLogical">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node601.html">
 <LINK REL="previous" HREF="node599.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node601.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11381"
+<A NAME="tex2html15062"
   HREF="node601.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11377"
-  HREF="node590.html">
+<A NAME="tex2html15058"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11371"
+<A NAME="tex2html15052"
   HREF="node599.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11379"
+<A NAME="tex2html15060"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11382"
-  HREF="node601.html">HELPER_resetNewLogLines</A>
-<B> Up:</B> <A NAME="tex2html11378"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11372"
-  HREF="node599.html">HELPER_trimValue</A>
- &nbsp; <B>  <A NAME="tex2html11380"
+<B> Next:</B> <A NAME="tex2html15063"
+  HREF="node601.html">CFDiskIO::devNrExists</A>
+<B> Up:</B> <A NAME="tex2html15059"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15053"
+  HREF="node599.html">CFDiskIO::getLogicalpParts</A>
+ &nbsp; <B>  <A NAME="tex2html15061"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091810000000000000000">
-HELPER_xargsRecursive</A>
+<H2><A NAME="SECTION0091558000000000000000">
+CFDiskIO::correctLogical</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
+<SPAN  CLASS="textbf">Description:</SPAN> Corrects the order of the logical partitions after deleting a physical partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>cmd: BASH command
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>argsA: Array of commands for the BASH command.
-</LI>
-<LI>tabAmount: Amount of identing to start with.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Recursive calls of the BASH command with error checking.
+<LI>pPart: The physical partition number to delete.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +70,7 @@ HELPER_xargsRecursive</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

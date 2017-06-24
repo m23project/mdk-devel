@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deleteDriveFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
+<TITLE>CFDiskIO::dev2VDiskVPart</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::dev2VDiskVPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node557.html">
 <LINK REL="previous" HREF="node555.html">
-<LINK REL="up" HREF="node447.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node557.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10771"
+<A NAME="tex2html14534"
   HREF="node557.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10767"
-  HREF="node447.html">
+<A NAME="tex2html14530"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10763"
+<A NAME="tex2html14524"
   HREF="node555.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10769"
+<A NAME="tex2html14532"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10772"
-  HREF="node557.html">./inc/groups.php</A>
-<B> Up:</B> <A NAME="tex2html10768"
-  HREF="node447.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html10764"
-  HREF="node555.html">FDISK_virtualDeleteDrive</A>
- &nbsp; <B>  <A NAME="tex2html10770"
+<B> Next:</B> <A NAME="tex2html14535"
+  HREF="node557.html">CFDiskIO::getPreviousPartitionStep</A>
+<B> Up:</B> <A NAME="tex2html14531"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14525"
+  HREF="node555.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
+ &nbsp; <B>  <A NAME="tex2html14533"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00916109000000000000000">
-FDISK_deleteDriveFromParam</A>
+<H2><A NAME="SECTION0091514000000000000000">
+CFDiskIO::dev2VDiskVPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for a device (e.g. /dev/sda2) and writes the virtual disk and partition numbers to the variables. These values can be used to access the array $this-<SPAN CLASS="MATH"></SPAN>wantedPartitioning.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number of the drive to delete.
+<LI>dev: The device (e.g. /dev/sda2).
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array) or false, if no matching (physical) disk number was found.
+</LI>
+<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array) or false, if no matching (physical) partition number was found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Changed param without the drive.
+<LI>true if the search worked otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -75,7 +78,7 @@ FDISK_deleteDriveFromParam</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CHECK_strAlpha</TITLE>
-<META NAME="description" CONTENT="CHECK_strAlpha">
+<TITLE>CAutoUpdate::delSet</TITLE>
+<META NAME="description" CONTENT="CAutoUpdate::delSet">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,51 +28,45 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6504"
+<A NAME="tex2html10167"
   HREF="node226.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6500"
+<A NAME="tex2html10163"
   HREF="node216.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6494"
+<A NAME="tex2html10157"
   HREF="node224.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6502"
+<A NAME="tex2html10165"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6505"
-  HREF="node226.html">CHECK_strAlphaNum</A>
-<B> Up:</B> <A NAME="tex2html6501"
-  HREF="node216.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html6495"
-  HREF="node224.html">CHECK_float</A>
- &nbsp; <B>  <A NAME="tex2html6503"
+<B> Next:</B> <A NAME="tex2html10168"
+  HREF="node226.html">CAutoUpdate::getAllSets</A>
+<B> Up:</B> <A NAME="tex2html10164"
+  HREF="node216.html">./inc/CAutoUpdate.php</A>
+<B> Previous:</B> <A NAME="tex2html10158"
+  HREF="node224.html">CAutoUpdate::getUpdateTypeTranslation</A>
+ &nbsp; <B>  <A NAME="tex2html10166"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00989000000000000000">
-CHECK_strAlpha</A>
+<H2><A NAME="SECTION00999000000000000000">
+CAutoUpdate::delSet</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and shuts down the application if not.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes one set.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>val: Input value to check.
-</LI>
-<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
-</LI>
-<LI>allowEmpty: Set to true if you want to allow empty strings.
-</LI>
-<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+<LI>id: ID of the set to delete.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The input value if it contains only characters or stops (or false, if $returnNoDie is true) the program on an error.
+<LI>: true, of the set with the given ID could be deleted, otherwise dies.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ CHECK_strAlpha</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

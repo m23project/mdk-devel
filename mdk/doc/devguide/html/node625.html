@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_grubMd5Crypt</TITLE>
-<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
+<TITLE>CFDiskIO::getRaidDevsBuildingDisk</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getRaidDevsBuildingDisk">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node626.html">
 <LINK REL="previous" HREF="node624.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node626.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11681"
+<A NAME="tex2html15362"
   HREF="node626.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11677"
-  HREF="node590.html">
+<A NAME="tex2html15358"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11671"
+<A NAME="tex2html15352"
   HREF="node624.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11679"
+<A NAME="tex2html15360"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11682"
-  HREF="node626.html">HELPER_listFilesInDir</A>
-<B> Up:</B> <A NAME="tex2html11678"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11672"
-  HREF="node624.html">HELPER_generateSalt</A>
- &nbsp; <B>  <A NAME="tex2html11680"
+<B> Next:</B> <A NAME="tex2html15363"
+  HREF="node626.html">CFDiskIO::getvrDevNrByrDev</A>
+<B> Up:</B> <A NAME="tex2html15359"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15353"
+  HREF="node624.html">CFDiskIO::isRaidLevelNumberValid</A>
+ &nbsp; <B>  <A NAME="tex2html15361"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091835000000000000000">
-HELPER_grubMd5Crypt</A>
+<H2><A NAME="SECTION0091583000000000000000">
+CFDiskIO::getRaidDevsBuildingDisk</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with all disk or partition devices building the RAID of the disk (if it is a RAID).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>password: Password to encrypt.
-</LI>
-<LI>length: Length of the salt.
+<LI>vrDisk: Virtual (internally used) disk number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
+<LI>Array with all disk or partition devices building the RAID of the disk (if it is a RAID) or empty array if the disk is no RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ HELPER_grubMd5Crypt</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

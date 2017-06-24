@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_killPID</TITLE>
-<META NAME="description" CONTENT="SERVER_killPID">
+<TITLE>CSystemProxy::getUserPasswordString</TITLE>
+<META NAME="description" CONTENT="CSystemProxy::getUserPasswordString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1073.html">
 <LINK REL="previous" HREF="node1071.html">
-<LINK REL="up" HREF="node1064.html">
+<LINK REL="up" HREF="node1044.html">
 <LINK REL="next" HREF="node1073.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17468"
+<A NAME="tex2html21077"
   HREF="node1073.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17464"
-  HREF="node1064.html">
+<A NAME="tex2html21073"
+  HREF="node1044.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17458"
+<A NAME="tex2html21069"
   HREF="node1071.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17466"
+<A NAME="tex2html21075"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17469"
-  HREF="node1073.html">SERVER_killBackgroundJob</A>
-<B> Up:</B> <A NAME="tex2html17465"
-  HREF="node1064.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html17459"
-  HREF="node1071.html">SERVER_existsServerSetting</A>
- &nbsp; <B>  <A NAME="tex2html17467"
+<B> Next:</B> <A NAME="tex2html21078"
+  HREF="node1073.html">./inc/db.php</A>
+<B> Up:</B> <A NAME="tex2html21074"
+  HREF="node1044.html">./inc/CSystemProxy.php</A>
+<B> Previous:</B> <A NAME="tex2html21070"
+  HREF="node1071.html">CSystemProxy::getProxyPort</A>
+ &nbsp; <B>  <A NAME="tex2html21076"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009358000000000000000">
-SERVER_killPID</A>
+<H2><A NAME="SECTION0093628000000000000000">
+CSystemProxy::getUserPasswordString</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Kills a process running under a given PID or sends a signal.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a string with the user/password combination ($user:$pass@).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: pid: The PID of the process to kill.
-</LI>
-<LI>: signal: The signal to send to the process.
+<LI>connector: Character to connect the user/password combination with the following words.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: True if the process was killed or got the signal.
+<LI>String with the user/password combination ($user:$pass@) or empty string, if no proxy authentifictaion is used.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +73,7 @@ SERVER_killPID</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

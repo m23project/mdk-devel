@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_sourceViewer</TITLE>
-<META NAME="description" CONTENT="HTML_sourceViewer">
+<TITLE>CFDiskIO::genManualFstab</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node654.html">
 <LINK REL="previous" HREF="node652.html">
-<LINK REL="up" HREF="node648.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node654.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12078"
+<A NAME="tex2html15698"
   HREF="node654.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12074"
-  HREF="node648.html">
+<A NAME="tex2html15694"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12068"
+<A NAME="tex2html15688"
   HREF="node652.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12076"
+<A NAME="tex2html15696"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12079"
-  HREF="node654.html">HTML_getOutputBuffer</A>
-<B> Up:</B> <A NAME="tex2html12075"
-  HREF="node648.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12069"
-  HREF="node652.html">HTML_urlButton</A>
- &nbsp; <B>  <A NAME="tex2html12077"
+<B> Next:</B> <A NAME="tex2html15699"
+  HREF="node654.html">CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
+<B> Up:</B> <A NAME="tex2html15695"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15689"
+  HREF="node652.html">CFDiskIO::adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html15697"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009205000000000000000">
-HTML_sourceViewer</A>
+<H2><A NAME="SECTION00915111000000000000000">
+CFDiskIO::genManualFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a source code viewer area with syntax highlighting.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlNames: Name of the source viewer.
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
 </LI>
-<LI>code: The source code to show.
+<LI>sourceName: Name of the client's sources list.
 </LI>
-<LI>highlighting: The GeSHi language of the source code (e.g. bash).
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if fstab data in new format is used on the client, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +76,7 @@ HTML_sourceViewer</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_listClientGroups</TITLE>
-<META NAME="description" CONTENT="GRP_listClientGroups">
+<TITLE>CFDiskIO::isDiskLockedByRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDiskLockedByRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node582.html">
 <LINK REL="previous" HREF="node580.html">
-<LINK REL="up" HREF="node557.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node582.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11103"
+<A NAME="tex2html14834"
   HREF="node582.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11099"
-  HREF="node557.html">
+<A NAME="tex2html14830"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11093"
+<A NAME="tex2html14824"
   HREF="node580.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11101"
+<A NAME="tex2html14832"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11104"
-  HREF="node582.html">GRP_showClientGroups</A>
-<B> Up:</B> <A NAME="tex2html11100"
-  HREF="node557.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html11094"
-  HREF="node580.html">GRP_doClientMoreGroups</A>
- &nbsp; <B>  <A NAME="tex2html11102"
+<B> Next:</B> <A NAME="tex2html14835"
+  HREF="node582.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+<B> Up:</B> <A NAME="tex2html14831"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14825"
+  HREF="node580.html">CFDiskIO::isPartitionLockedByRaid</A>
+ &nbsp; <B>  <A NAME="tex2html14833"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091724000000000000000">
-GRP_listClientGroups</A>
+<H2><A NAME="SECTION0091539000000000000000">
+CFDiskIO::isDiskLockedByRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes an array containing all groups a client is in
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a disk is locked, because it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk is locked, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ GRP_listClientGroups</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

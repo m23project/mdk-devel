@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getNextPackage</TITLE>
-<META NAME="description" CONTENT="PKG_getNextPackage">
+<TITLE>CObjectStorage::__construct</TITLE>
+<META NAME="description" CONTENT="CObjectStorage::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node906.html">
 <LINK REL="previous" HREF="node904.html">
-<LINK REL="up" HREF="node879.html">
+<LINK REL="up" HREF="node903.html">
 <LINK REL="next" HREF="node906.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15356"
+<A NAME="tex2html18936"
   HREF="node906.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15352"
-  HREF="node879.html">
+<A NAME="tex2html18932"
+  HREF="node903.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15346"
+<A NAME="tex2html18926"
   HREF="node904.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15354"
+<A NAME="tex2html18934"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15357"
-  HREF="node906.html">PKG_listRecommendPackages</A>
-<B> Up:</B> <A NAME="tex2html15353"
-  HREF="node879.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html15347"
-  HREF="node904.html">PKG_closeSearch</A>
- &nbsp; <B>  <A NAME="tex2html15355"
+<B> Next:</B> <A NAME="tex2html18937"
+  HREF="node906.html">CObjectStorage::__destruct</A>
+<B> Up:</B> <A NAME="tex2html18933"
+  HREF="node903.html">./inc/CObjectStorage.php</A>
+<B> Previous:</B> <A NAME="tex2html18927"
+  HREF="node904.html">CObjectStorage::statusCodeToHumanReadable</A>
+ &nbsp; <B>  <A NAME="tex2html18935"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092826000000000000000">
-PKG_getNextPackage</A>
+<H2><A NAME="SECTION009272000000000000000">
+CObjectStorage::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> fetches the next package
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new CObjectStorage objects. The object saves/updates or loads an object.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: file handle
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>classOrObject: Class name of the object or the object itself.
+</LI>
+<LI>readFromDBIfObjectExists: Set to true, if an existing object should read from the DB, even if an object is given.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ PKG_getNextPackage</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

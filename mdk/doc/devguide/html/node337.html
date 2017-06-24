@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CScredit::setCurrentScriptFilename</TITLE>
-<META NAME="description" CONTENT="CScredit::setCurrentScriptFilename">
+<TITLE>CClient::setKeyValueStore</TITLE>
+<META NAME="description" CONTENT="CClient::setKeyValueStore">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node338.html">
 <LINK REL="previous" HREF="node336.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node334.html">
 <LINK REL="next" HREF="node338.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html7958"
+<A NAME="tex2html11715"
   HREF="node338.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html7954"
-  HREF="node335.html">
+<A NAME="tex2html11711"
+  HREF="node334.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html7948"
+<A NAME="tex2html11705"
   HREF="node336.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html7956"
+<A NAME="tex2html11713"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html7959"
-  HREF="node338.html">CScredit::getCurrentScriptFilename</A>
-<B> Up:</B> <A NAME="tex2html7955"
-  HREF="node335.html">./inc/CScredit.php</A>
-<B> Previous:</B> <A NAME="tex2html7949"
-  HREF="node336.html">CScredit::__construct</A>
- &nbsp; <B>  <A NAME="tex2html7957"
+<B> Next:</B> <A NAME="tex2html11716"
+  HREF="node338.html">CClient::getKeyValueStore</A>
+<B> Up:</B> <A NAME="tex2html11712"
+  HREF="node334.html">./inc/CClient.php</A>
+<B> Previous:</B> <A NAME="tex2html11706"
+  HREF="node336.html">CClient::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html11714"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009112000000000000000">
-CScredit::setCurrentScriptFilename</A>
+<H2><A NAME="SECTION009123000000000000000">
+CClient::setKeyValueStore</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Corrects the given filename to have it a valid prefix and suffix and sets it as current file name.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets a value in the key value store of the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>filename: The filename to check and correct.
+<LI>key: Name of the key.
+</LI>
+<LI>value: The value to store under the key.
+</LI>
+<LI>check: An optional variable firewall check constant or rule or a function for check the validity of the value.
+</LI>
+<LI>errorMsg: An error message to give out, if the value fails the check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CScredit::setCurrentScriptFilename</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

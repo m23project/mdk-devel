@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_listFilesInDir</TITLE>
-<META NAME="description" CONTENT="HELPER_listFilesInDir">
+<TITLE>CFDiskIO::getvrDevNrByrDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getvrDevNrByrDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node627.html">
 <LINK REL="previous" HREF="node625.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node627.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11693"
+<A NAME="tex2html15374"
   HREF="node627.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11689"
-  HREF="node590.html">
+<A NAME="tex2html15370"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11683"
+<A NAME="tex2html15364"
   HREF="node625.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11691"
+<A NAME="tex2html15372"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11694"
-  HREF="node627.html">HELPER_getBootLoaders</A>
-<B> Up:</B> <A NAME="tex2html11690"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11684"
-  HREF="node625.html">HELPER_grubMd5Crypt</A>
- &nbsp; <B>  <A NAME="tex2html11692"
+<B> Next:</B> <A NAME="tex2html15375"
+  HREF="node627.html">CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
+<B> Up:</B> <A NAME="tex2html15371"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15365"
+  HREF="node625.html">CFDiskIO::getRaidDevsBuildingDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15373"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091836000000000000000">
-HELPER_listFilesInDir</A>
+<H2><A NAME="SECTION0091584000000000000000">
+CFDiskIO::getvrDevNrByrDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Lists all files in a directory and returns an array with all file names.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the (virtual) number of the given device building the RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dirname: Name of the directory.
+<LI>vrDisk: Virtual (internally used) disk number of the RAID.
+</LI>
+<LI>dev: Device to search in the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all file names.
+<LI>Virtual number of the given device building the RAID or false, if the device is not part of the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ HELPER_listFilesInDir</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

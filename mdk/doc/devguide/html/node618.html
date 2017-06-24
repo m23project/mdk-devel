@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>print_r2</TITLE>
-<META NAME="description" CONTENT="print_r2">
+<TITLE>CFDiskIO::nextPrimaryDevNr</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::nextPrimaryDevNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node619.html">
 <LINK REL="previous" HREF="node617.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node619.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11597"
+<A NAME="tex2html15278"
   HREF="node619.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11593"
-  HREF="node590.html">
+<A NAME="tex2html15274"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11587"
+<A NAME="tex2html15268"
   HREF="node617.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11595"
+<A NAME="tex2html15276"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11598"
-  HREF="node619.html">HELPER_debugBacktraceToFile</A>
-<B> Up:</B> <A NAME="tex2html11594"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11588"
-  HREF="node617.html">HELPER_array2m23Array</A>
- &nbsp; <B>  <A NAME="tex2html11596"
+<B> Next:</B> <A NAME="tex2html15279"
+  HREF="node619.html">CFDiskIO::nextPrimaryDevNr</A>
+<B> Up:</B> <A NAME="tex2html15275"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15269"
+  HREF="node617.html">CFDiskIO::nextLogicalDevNr</A>
+ &nbsp; <B>  <A NAME="tex2html15277"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091828000000000000000">
-print_r2</A>
+<H2><A NAME="SECTION0091576000000000000000">
+CFDiskIO::nextPrimaryDevNr</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Function like print_r, but sorts the entries, if the input is an array and converts newlines to HTML breaks.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the next free primary (physical) partition number.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Value to print.
+<LI>vDisk: Virtual (internally used) disk number.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Next free logical (physical) partition number or -1, if there are no free partition numbers.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ print_r2</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

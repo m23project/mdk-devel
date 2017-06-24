@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_putFileContents</TITLE>
-<META NAME="description" CONTENT="HELPER_putFileContents">
+<TITLE>CFDiskIO::setRaidLevel</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::setRaidLevel">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node637.html">
 <LINK REL="previous" HREF="node635.html">
-<LINK REL="up" HREF="node590.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node637.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11813"
+<A NAME="tex2html15494"
   HREF="node637.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11809"
-  HREF="node590.html">
+<A NAME="tex2html15490"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11803"
+<A NAME="tex2html15484"
   HREF="node635.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11811"
+<A NAME="tex2html15492"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11814"
-  HREF="node637.html">HELPER_getFileContents</A>
-<B> Up:</B> <A NAME="tex2html11810"
-  HREF="node590.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html11804"
-  HREF="node635.html">HELPER_getApacheGroup</A>
- &nbsp; <B>  <A NAME="tex2html11812"
+<B> Next:</B> <A NAME="tex2html15495"
+  HREF="node637.html">CFDiskIO::getDiskSize</A>
+<B> Up:</B> <A NAME="tex2html15491"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15485"
+  HREF="node635.html">CFDiskIO::getRaidDevsBuildingDiskAmount</A>
+ &nbsp; <B>  <A NAME="tex2html15493"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091846000000000000000">
-HELPER_putFileContents</A>
+<H2><A NAME="SECTION0091594000000000000000">
+CFDiskIO::setRaidLevel</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Writes data to a file.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the RAID level on a new RAID disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: name of the file to write
+<LI>vrDisk: Virtual (internally used) disk number.
 </LI>
-<LI>contents: Text or data that should be written to the file.
+<LI>level: RAID level number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Error code from fwrite.
+<LI>true, if the RAID level is valid, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ HELPER_putFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

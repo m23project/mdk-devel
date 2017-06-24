@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getOriginalUploadFilename</TITLE>
-<META NAME="description" CONTENT="HTML_getOriginalUploadFilename">
+<TITLE>CFDiskIO::fdiskGetEntry</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::fdiskGetEntry">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node651.html">
 <LINK REL="previous" HREF="node649.html">
-<LINK REL="up" HREF="node648.html">
+<LINK REL="up" HREF="node542.html">
 <LINK REL="next" HREF="node651.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12042"
+<A NAME="tex2html15662"
   HREF="node651.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12038"
-  HREF="node648.html">
+<A NAME="tex2html15658"
+  HREF="node542.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12032"
+<A NAME="tex2html15652"
   HREF="node649.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12040"
+<A NAME="tex2html15660"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12043"
-  HREF="node651.html">HTML_uploadFile</A>
-<B> Up:</B> <A NAME="tex2html12039"
-  HREF="node648.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html12033"
-  HREF="node649.html">HTML_imgSwitch</A>
- &nbsp; <B>  <A NAME="tex2html12041"
+<B> Next:</B> <A NAME="tex2html15663"
+  HREF="node651.html">CFDiskIO::fdiskDelFstabEntry</A>
+<B> Up:</B> <A NAME="tex2html15659"
+  HREF="node542.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15653"
+  HREF="node649.html">CFDiskIO::fdiskAddFstab</A>
+ &nbsp; <B>  <A NAME="tex2html15661"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009202000000000000000">
-HTML_getOriginalUploadFilename</A>
+<H2><A NAME="SECTION00915108000000000000000">
+CFDiskIO::fdiskGetEntry</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Get the original file name of an uploaded file.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets an entry to from the fstab array. Can be called more times to get all entries.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlName: Name of the HTML element
+<LI>dev: Device to mount (e.g. /dev/hda1)
+</LI>
+<LI>mountpoint: Location where to mount the device (e.g. /mnt/hda1)
+</LI>
+<LI>parameter: Mount parameter.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Original file name of an uploaded file.
+<LI>true, if an entry to from the fstab array could be fetched from the array, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ HTML_getOriginalUploadFilename</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>

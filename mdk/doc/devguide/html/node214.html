@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getClientName</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getClientName">
+<TITLE>CAutoTest::parseAnswersFromXML</TITLE>
+<META NAME="description" CONTENT="CAutoTest::parseAnswersFromXML">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node215.html">
 <LINK REL="previous" HREF="node213.html">
-<LINK REL="up" HREF="node193.html">
+<LINK REL="up" HREF="node174.html">
 <LINK REL="next" HREF="node215.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6355"
+<A NAME="tex2html10006"
   HREF="node215.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6351"
-  HREF="node193.html">
+<A NAME="tex2html10002"
+  HREF="node174.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6345"
+<A NAME="tex2html9996"
   HREF="node213.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6353"
+<A NAME="tex2html10004"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6356"
-  HREF="node215.html">CFDiskIO::getClientObject</A>
-<B> Up:</B> <A NAME="tex2html6352"
-  HREF="node193.html">./inc/CFDiskAlles.php</A>
-<B> Previous:</B> <A NAME="tex2html6346"
-  HREF="node213.html">CFDiskIO::setClientName</A>
- &nbsp; <B>  <A NAME="tex2html6354"
+<B> Next:</B> <A NAME="tex2html10007"
+  HREF="node215.html">CAutoTest::parseXML</A>
+<B> Up:</B> <A NAME="tex2html10003"
+  HREF="node174.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html9997"
+  HREF="node213.html">CAutoTest::parseActionFromXML</A>
+ &nbsp; <B>  <A NAME="tex2html10005"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009721000000000000000">
-CFDiskIO::getClientName</A>
+<H2><A NAME="SECTION009840000000000000000">
+CAutoTest::parseAnswersFromXML</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the client name, if set via constructor.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Parses an (good, warn, bad) array from the XML.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: Client name or dies, when no client name was set.
+<LI>xmlO: Prased XML structure pointing to the array.
+</LI>
+<LI>goodWarnBad: Answer type (CAutoTest::GWB_GOOD, GWB_WARN or GWB_BAD).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the good, warn or bad answers, how to fetch the answer from the client/webbrowser/etc. and the answer type (GWB_GOOD, GWB_WARN or GWB_BAD).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskIO::getClientName</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-01-05
+2017-06-22
 </ADDRESS>
 </BODY>
 </HTML>
