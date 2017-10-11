@@ -63,6 +63,20 @@ Building the files</A>
 <UL>
 <LI>/mdk/bin/menuStart &rArr#Rightarrow;debs &rArr#Rightarrow;build
 </LI>
+<LI>Maybe recreate the UCS extra package: Call quickBuild.sh m23-ucs-extra
+</LI>
+<LI>Test the packages
+		
+<UL>
+<LI>UCS VM (local repository): Call /mdk/m23helper/addLocalm23ServerRepository, install m23
+</LI>
+<LI>UCS VM (online test repository): Call /mdk/m23helper/addUCSTestRepository, install m23
+</LI>
+<LI>Debian: Call /mdk/m23helper/addLocalm23ServerRepository, install m23
+		
+</LI>
+</UL>
+</LI>
 <LI>Upload the packages, if all seems to be right: &rArr#Rightarrow;directuplinst
 </LI>
 <LI>Login into t5, call /var/www/ucs/upload-4.1
@@ -137,7 +151,7 @@ Building the files</A>
 </LI>
 <LI>Choose yes on all options and use "test" for all passwords.
 </LI>
-<LI>After the failure edit /etc/default/tftpd-hpa: Adjust TFTP_OPTIONS="-4 -secure"
+<LI>After the failure edit /etc/default/tftpd-hpa: Adjust TFTP_OPTIONS="-4 <SPAN CLASS="MATH"></SPAN>secure"
 </LI>
 <LI>Continue the installation with: apt-get install -f
 </LI>
@@ -180,7 +194,7 @@ Building the files</A>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-22
+2017-06-27
 </ADDRESS>
 </BODY>
 </HTML>

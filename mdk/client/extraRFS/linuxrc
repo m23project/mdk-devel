@@ -3,6 +3,9 @@
 #For UEFI
 mount -o remount,rw /dev/ram0 /
 
+#kernel=`uname -r`
+#find /lib/modules/$kernel -type f | grep atl1c.ko | xargs rm
+
 /bin/HWMiniInit.sh
 /etc/init.d/m23hwdetect
 

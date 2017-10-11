@@ -1,0 +1,34 @@
+#!/bin/bash
+
+debdir='aktuelles-m23Deb'
+
+#UCSOldversion="4.1"
+#UCSversion="4.2"
+
+
+# m23-Haupt-Debian-Paket entpacken => voller Pfad hinterher in $m23Deb
+rm -r $debdir 2> /dev/null
+mkdir $debdir
+cd $debdir
+m23DebFile=$(tar xfvz ../m23-Pakete-fuer-ucs.tar.gz --wildcards --no-anchored m23_*.deb)
+m23Deb="$(pwd)/$m23DebFile"
+cd ..
+
+
+for ucsVer in 4.2 4.1
+do
+	# Debian-Paket mit geänderter Versionsnummer erstellen und hochladen
+	debVer=$(echo $ucsVer | sed 's/\.//')
+	neuDeb=$(./debAddVersionSuffix $m23Deb "ucs$debVer")
+	univention-selfservice upload $ucsVer/m23 $neuDeb
+	rm $neuDeb
+
+	univention-selfservice upload $ucsVer/m23 m23-Pakete-fuer-ucs.tar.gz
+done
+
+# univention-selfservice upload 4.2/m23=17.2-42 m23-Pakete-fuer-ucs.tar.gz
+
+
+
+#univention-selfservice new-version $UCSOldversion/m23 $UCSversion/m23
+#univention-selfservice upload $UCSversion/m23 m23-Pakete-fuer-ucs.tar.gz

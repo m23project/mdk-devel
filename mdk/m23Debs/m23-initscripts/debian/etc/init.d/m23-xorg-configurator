@@ -11,7 +11,7 @@
 ### END INIT INFO
 
 # /etc/init.d/m23-xorg-configurator
-# Configurates X11
+# Configurates X11/Xorg
 # (C) Hauke Goos-Habermann <hhabermann@pc-kiel.de>
 
 
@@ -19,6 +19,34 @@
 if [ -f /etc/sysconfig/disableConfig ]
 then
 	exit 0
+fi
+
+
+if [ $(lspci  | grep 'VGA compatible' | grep Intel -c) ] && [ ! -f /etc/apt/sources.list.d/intellinuxgraphics.list ]
+then
+	runUpdate=0
+	
+	if [ $(grep xenial /etc/apt/sources.list -c) -gt 0 ]
+	then
+		echo "deb https://download.01.org/gfx/ubuntu/16.04/main xenial main" > /etc/apt/sources.list.d/intellinuxgraphics.list
+		runUpdate=1
+	fi
+	
+	if [ $runUpdate -eq 1 ]
+	then
+		# Import GPG sign key
+		wget --no-check-certificate https://download.01.org/gfx/RPM-GPG-KEY-ilg -O - | apt-key add -
+
+		# Import other possible GPG sign keys
+		for i in `seq 2 9`
+		do
+			wget --no-check-certificate https://download.01.org/gfx/RPM-GPG-KEY-ilg-$i -O - | apt-key add -
+		done
+
+		apt-get update
+		apt-get upgrade --force-yes -y
+		apt-get install --force-yes -y intel-gpu-tools i965-va-driver
+	fi
 fi
 
 #Disable configuration on Ubuntu 12.04 LTS completely, because the X session will crash, when Return is pressed on auto login

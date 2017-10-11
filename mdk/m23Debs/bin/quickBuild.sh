@@ -33,11 +33,13 @@ case $1 in
 		exit;;
 	"m23-ucs-extra")
 		finishBuilding m23-ucs-extra
-		updatePackages
 		# Move the package to /mdk/ucs/debs, so it will net get installed by default
 		mkdir -p /mdk/ucs/debs
 		rm /mdk/ucs/debs/m23-ucs-extra*
 		mv /mdk/server/iso/pool/m23-ucs-extra* /mdk/ucs/debs
+		cd /mdk/ucs/debs
+		makePackages
+		#updatePackages
 		exit;;
 esac
 

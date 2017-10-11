@@ -143,7 +143,7 @@ activateNet
 #base hardware scanner that used the hardware IDs that are stored in the modules
 addBaseScanner() {
 
-if [ ! -e /sbin/modinfo ]
+if [ ! -e /sbin/modinfo ] && [ ! -e /bin/modinfo ]
 then
 	return
 fi
@@ -167,6 +167,9 @@ fi
 
 # Add nic ID of DELL Optiplex 5040/7040
 echo "8086:15B8" >> e1000e.ids
+
+# Add nic ID of Intel Corporation I211 Gigabit Network Connection
+echo "1458:e000" >> igb.ids
 
 cd $cacheDir
 

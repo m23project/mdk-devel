@@ -1,0 +1,32 @@
+#!/bin/bash
+
+repoIp='192.168.1.77'
+
+# Check, if the UCS extra repository need to be included
+if [ -f '/usr/sbin/udm' ]
+then
+	hosts="m23debs m23ucs"
+	ucr set repository/online/unmaintained="yes"
+else
+	hosts="m23debs"
+fi
+
+# Add the hostnames of the repo server
+for host in $hosts
+do
+	if [ $(grep $host /etc/hosts -c) -eq 0 ]
+	then
+		echo $repoIp $host >> /etc/hosts
+	fi
+done
+
+# Add the entries to the sources.list
+for host in $hosts
+do
+	if [ $(grep $host /etc/apt/sources.list -c) -eq 0 ]
+	then
+		echo "deb http://$host ./" >> /etc/apt/sources.list
+	fi
+done
+
+apt-get update

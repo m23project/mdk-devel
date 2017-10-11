@@ -40,6 +40,13 @@
 \item Debian packages
 	\begin{itemize}
 		\item /mdk/bin/menuStart \Rightarrow debs \Rightarrow build
+		\item Maybe recreate the UCS extra package: Call quickBuild.sh m23-ucs-extra
+		\item Test the packages
+		\begin{itemize}
+			\item UCS VM (local repository): Call /mdk/m23helper/addLocalm23ServerRepository, install m23
+			\item UCS VM (online test repository): Call /mdk/m23helper/addUCSTestRepository, install m23
+			\item Debian: Call /mdk/m23helper/addLocalm23ServerRepository, install m23
+		\end{itemize}
 		\item Upload the packages, if all seems to be right: \Rightarrow directuplinst
 		\item Login into t5, call /var/www/ucs/upload-4.1
 	\end{itemize}
@@ -58,7 +65,7 @@
 		\item Choose the automatic partitioning and formating.
 		\item Call /mdk/bin/prepareOSForCompression after reboot.
 		\item Shutdown the VM
-		\item Export it (m23server_xx.y_rock.ova) and compress (7zm / 7zr -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on a m23server_xx.y_rock.7z m23server_xx.y_rock.ova) the exported files.
+		\item Export it (m23server\_xx.y\_rock.ova) and compress (7zm / 7zr -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on a m23server\_xx.y\_rock.7z m23server\_xx.y\_rock.ova) the exported files.
 	\end{itemize}
 \item
 	\begin{itemize}
@@ -70,7 +77,7 @@
 		\item Call in the menu "Expand Filesystem", set "Advanced Options" "Memory split" to 16 MB, call "Update".
 		\item Reboot.
 		\item Enable root access (set password to test): "sudo passwd"
-		\item Enable root login for SSH in /etc/ssh/sshd_config
+		\item Enable root login for SSH in /etc/ssh/sshd\_config
 		\item Log out and log into it via SSH (user: root, password: test)
 		\item Remove the user pi: userdel -r -f pi
 		\item Add "192.168.1.77 m23debs" to /etc/hosts
@@ -78,11 +85,11 @@
 		\item Update the package index: apt-get update
 		\item Install the m23 server: apt-get install m23
 		\item Choose yes on all options and use "test" for all passwords.
-		\item After the failure edit /etc/default/tftpd-hpa: Adjust TFTP_OPTIONS="-4 --secure"
+		\item After the failure edit /etc/default/tftpd-hpa: Adjust TFTP\_OPTIONS="-4 $--$secure"
 		\item Continue the installation with: apt-get install -f
 		\item Run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh
 		\item /mdk/bin/prepareOSForCompression.
-		\item Compress the SD card: dd if=/dev/sdX | 7zr a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si m23server_xx.y_rock-RaPi.7z
+		\item Compress the SD card: dd if=/dev/sdX | 7zr a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si m23server\_xx.y\_rock-RaPi.7z
 	\end{itemize}
 \end{itemize}
 
