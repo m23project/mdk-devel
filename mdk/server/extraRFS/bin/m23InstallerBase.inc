@@ -131,6 +131,10 @@ echo "resolv.conf erstellen"
 	echo "nameserver $nameserver" > /etc/resolv.conf
 done
 
+# Set network setting temporarily
+ifconfig eth0 $ip
+route add -net default gw $gateway
+
 /etc/init.d/networking start 2> /dev/null
 /etc/init.d/networking restart 2> /dev/null
 ifconfig lo up
@@ -171,19 +175,17 @@ configureMySQLmycnf()
 	#starting the server
 	/etc/init.d/mysql stop
 	/etc/init.d/mysql start
-	
-# 	echo "DEBUG"
-# 	read lala
-
 
 	#Get username and password for the MySQL database
-	dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-	dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	#dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
+	#dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
 
 	#Delete all contents of the tables in the m23 database
-	mysqlshow -u$dbadmin -p$dbadmpass m23 | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--" | while read table
+	#-u$dbadmin -p$dbadmpass
+	
+	mysqlshow -uroot m23 | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--" | while read table
 	do
-		mysql -u$dbadmin -p$dbadmpass m23 -e "TRUNCATE $table;"
+		mysql -uroot m23 -e "TRUNCATE $table;"
 	done
 
 # echo "DEBUG"
@@ -871,13 +873,16 @@ installGrub()
 
 	if test `cat /tmp/dialog.value` = "y"
 	then
+		# Remove resume file that may contain the UUID of the swap partition for suspend/hibernation
+		rm /etc/initramfs-tools/conf.d/resume 2> /dev/null
+
 		checkFstabAndMount
 
 		bootDevice="/dev/$installdrive"
 		rootDevice="/dev/$rootdev"
 
 		createInitrd
-		
+
 		if /usr/sbin/grub-install $bootDevice
 		then
 			echo "grub ok"
