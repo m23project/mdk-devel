@@ -1103,6 +1103,9 @@ updateSQLIfOlder $oldversionint 172100985 "CREATE TABLE autoUpdateSchedule ( id 
 # Extend the client table by fields for storing autoUpdate values
 updateSQLIfOlder $oldversionint 172100985 "ALTER TABLE clients ADD autoUpdate_lastAttempt int(10) DEFAULT NULL AFTER keyValueStore, ADD autoUpdate_gotJob BOOLEAN NOT NULL AFTER autoUpdate_lastAttempt, ADD autoUpdate_fails INT NOT NULL AFTER autoUpdate_gotJob;"
 
+# Add field for online status in the client's table
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD online TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER status;"
+
 
 
 ######################
