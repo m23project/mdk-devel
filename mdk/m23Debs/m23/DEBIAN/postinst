@@ -380,7 +380,7 @@ max-lease-time                21600;\
 
 option log-servers            $IPINT;\
 
-next-server                    $IPINT;\
+next-server   $IPINT;\
 
 option routers                $GATEINT;
 
@@ -1109,6 +1109,24 @@ updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientjobs ADD reason LON
 updateSQLIfOlder $oldversionint 173101018 "DROP TABLE IF EXISTS xhprofsettings; CREATE TABLE xhprofsettings ( id int(10) UNSIGNED NOT NULL, active varchar(10) NOT NULL DEFAULT 'disabled', save varchar(10) NOT NULL DEFAULT 'no' ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
 updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE xhprofsettings ADD PRIMARY KEY (id);"
 updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE xhprofsettings MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT;"
+
+#Speed improvements
+
+# Add indices
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientpackages ADD id INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (id);"
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientpackages ADD INDEX idx_clientname_package (clientname, package);"
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientjobs ADD INDEX idx_client_status (client, status);"
+
+# Longtext fields cannot be indexed, so make it indexable varchar
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients CHANGE client client VARCHAR(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;"
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD INDEX idx_client (client);"
+
+# Add triggers to calculate the sum of client packages in the SQL database itself
+updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
+updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
+
+
+
 
 
 ######################
