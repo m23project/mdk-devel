@@ -1,0 +1,53 @@
+#!/bin/sh -e
+
+pwd=$(pwd);
+
+# Compile extension on PHP 7 only
+if [ -d /etc/php/7.0 ]
+then
+	cd /m23/data+scripts/m23admin/xhprof/extension
+	phpize >/dev/null 2>/dev/null
+	./configure --with-php-config=$(which php-config) >/dev/null 2>/dev/null
+	make >/dev/null 2>/dev/null
+	make install >/dev/null 2>/dev/null
+fi
+
+# Find mod directory in PHP 5 and 7
+config_dir="$(find /etc/php* -type d -name mods-available)"
+
+# Write configuration file for setting the profiling files store path
+cat > $config_dir/xhprof.ini << EOF
+[xhprof]
+extension=xhprof.so
+;
+; directory used by default implementation of the iXHProfRuns
+; interface (namely, the XHProfRuns_Default class) for storing
+; XHProf runs.
+;
+xhprof.output_dir=/var/cache/xhprof/runs
+EOF
+
+# Tool for enabling PHP mods are named different in PHP 5 and 7
+for modtool in php5enmod phpenmod
+do
+	(type $modtool 2> /dev/null > /dev/null; echo $? > /tmp/ret) || true
+	if [ $(cat /tmp/ret) -eq 0 ]
+	then
+		$modtool xhprof
+	fi
+done
+
+chown -R www-data:www-data /m23/data+scripts/m23admin/xhprof
+
+# Create directory for storing the log files of profile runs
+mkdir -p /var/cache/xhprof/runs
+chown -R www-data:www-data /var/cache/xhprof/runs
+
+service apache2 restart
+
+# Set lock, so the directories will only be removed by prerm, if all was executed successfully
+touch /m23/data+scripts/m23admin/xhprof/isinstalled.lock
+
+cd $pwd;
+
+exit 0

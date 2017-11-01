@@ -1,0 +1,26 @@
+#!/bin/sh -e
+
+if [ -f /m23/data+scripts/m23admin/xhprof/isinstalled.lock ]
+then
+	# Tool for disabling PHP mods are named different in PHP 5 and 7
+	for modtool in phpdismod php5dismod
+	do
+		(type $modtool 2> /dev/null > /dev/null; echo $? > /tmp/ret) || true
+		if [ $(cat /tmp/ret) -eq 0 ]
+		then
+			$modtool xhprof
+		fi
+	done
+
+	# Find mod directory in PHP 5 and 7
+	config_dir="$(find /etc/php* -type d -name mods-available)"
+	rm $config_dir/xhprof.ini
+	rm -r /m23/data+scripts/m23admin/xhprof/extension
+
+	service apache2 restart
+
+	# Unset lock
+	rm /m23/data+scripts/m23admin/xhprof/isinstalled.lock
+fi
+
+exit 0

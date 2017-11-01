@@ -168,6 +168,18 @@ adjustControl()
 	size=`cat /tmp/Installed-Size.m23`
 	rm /tmp/Installed-Size.m23
 
+	# Check for the Version line and add, if it's missing
+	if [ $(grep -c 'Version: ' "$1") -eq 0 ]
+	then
+		echo 'Version: m23-dummy' >> $1
+	fi
+
+	# Check for the Installed-Size line and add, if it's missing
+	if [ $(grep -c 'Installed-Size: ' "$1") -eq 0 ]
+	then
+		echo 'Installed-Size: 0' >> $1
+	fi
+	
 	sed "s/`grep 'Version: ' \"$1\" `/Version: $ver/" "$1" | sed "s/`grep 'Installed-Size:' \"$1\" `/Installed-Size: $size/" > /tmp/m23Deb.Name
 	
 	cat /tmp/m23Deb.Name > "$1"

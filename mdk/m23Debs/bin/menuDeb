@@ -142,6 +142,8 @@ then
 		#build md5 sums
 		md5sum *.deb Packages Packages.gz Packages.bz2 > all.md5
 
+		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . tux05:/var/www/m23dev/
+
 		#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
 		ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
 

@@ -1122,10 +1122,14 @@ updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients CHANGE client cli
 updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD INDEX idx_client (client);"
 
 # Add triggers to calculate the sum of client packages in the SQL database itself
+updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
 updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
 updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
-#updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
 
+if [ -n "$oldversionint" ] && [ $oldversionint -lt 173101018 ]
+then
+	/m23/bin/m23cli.php PKG_recountAllClientPackages
+fi
 
 
 
