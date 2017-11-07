@@ -145,10 +145,10 @@ then
 		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . tux05:/var/www/m23dev/
 
 		#Copy the regular packages to the testing directory (to speed up copying the changed chunks)
-		ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
+# 		ShellSFssh "cp -u /home/frs/project/m/m2/m23/m23inst/*.deb /home/frs/project/m/m2/m23/m23testing/"
 
 		#upload all files
-		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23testing/
+# 		rsync -razPy --delete-after `rsyncUploadSpeedLimit` . hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23testing/
 	else
 		dialog --title ERROR --msgbox 'ERROR: You cannot upload a development to the release package repository' 6 50
 	fi
