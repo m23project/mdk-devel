@@ -1,0 +1,34 @@
+#!/bin/bash
+
+bootCDPrefix=m23client
+arch=amd64
+extraName=mitFetchJobManual
+
+
+isoTmp="/tmp/iso"
+loopTmp="/mnt/loop"
+
+# Make ISO extratcion directory
+mkdir -p "$isoTmp"
+cd "$isoTmp"
+
+# Extract the ISO
+umount "$loopTmp"
+mount -o loop /mdk/client/m23client-amd64.iso "$loopTmp"
+cp -r "$loopTmp/"* .
+
+rm  "$loopTmp/isolinux/boot.cat"  "$loopTmp/efi.img"
+
+# Extract and mount the initrd
+umount "$loopTmp"
+cd isolinux
+gunzip initrd.gz
+mount -o loop initrd "$loopTmp"
+
+echo "Make your changes to \"$loopTmp\" and press Enter after finishing..."
+
+umount "$loopTmp"
+gzip initrd
+
+# Generate new ISO
+mkisofs -p "The m23 team [http://m23.sf.net]" -A "MDK [m23 development kit]" -T -J -joliet-long -V $bootCDPrefix -o ../$bootCDPrefix-$arch$extraName.iso -b isolinux/isolinux.bin -c isolinux/boot.cat --no-emul-boot -boot-load-size 4 -boot-info-table --eltorito-alt-boot boot/grub/efi.img .

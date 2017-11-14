@@ -1,0 +1,29 @@
+#!/bin/bash
+
+ret=1
+
+# Try to get a valid IP of an m23 server
+while [ $ret -ne 0 ]
+do
+	echo -n "Enter m23 server IP:"
+	read ip
+
+	# Check, if the (possible) m23 server is online
+	ping -t10 -c2 $ip &> /dev/null
+	ret=$?
+	if [ $ret -eq 0 ]
+	then
+		# Check, if work.php can be downloaded
+		wget $ip/work.php -O /tmp/work.php
+		if [ $? -eq 0 ]
+		then
+			ret=0
+		else
+			echo "ERROR: work.php could not be fetched from the m23 server!"
+		fi
+	else
+		echo "ERROR: m23 server not pingable!"
+	fi
+done
+
+sh /tmp/work.php
