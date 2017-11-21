@@ -1106,9 +1106,6 @@ updateSQLIfOlder $oldversionint 172100985 "ALTER TABLE clients ADD autoUpdate_la
 # Add field for online status in the client's table
 updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD online TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER status;"
 updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientjobs ADD reason LONGTEXT NOT NULL COMMENT 'Grund für das Hinzufuegen des Jobs' AFTER package;"
-updateSQLIfOlder $oldversionint 173101018 "DROP TABLE IF EXISTS xhprofsettings; CREATE TABLE xhprofsettings ( id int(10) UNSIGNED NOT NULL, active varchar(10) NOT NULL DEFAULT 'disabled', save varchar(10) NOT NULL DEFAULT 'no' ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE xhprofsettings ADD PRIMARY KEY (id);"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE xhprofsettings MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT;"
 
 #Speed improvements
 

@@ -13,13 +13,27 @@ do
 	ret=$?
 	if [ $ret -eq 0 ]
 	then
-		# Check, if work.php can be downloaded
-		wget $ip/work.php -O /tmp/work.php
+		wget $ip/debugScreen.php -O /dev/null -qq
+		# Check, if it's an m23 server
 		if [ $? -eq 0 ]
 		then
 			ret=0
+
+			# Enter ID (or not) and build GET parameter
+			echo -n "Enter m23 client ID (or press return to continue without ID):"
+			read id
+			if [ $id ]
+			then
+				urlAdd="?m23clientID=$id"
+			else
+				urlAdd=''
+			fi
+
+			# Get the current job
+			wget $ip/work.php$urlAdd -O /tmp/work.php
 		else
 			echo "ERROR: work.php could not be fetched from the m23 server!"
+			ret=1
 		fi
 	else
 		echo "ERROR: m23 server not pingable!"

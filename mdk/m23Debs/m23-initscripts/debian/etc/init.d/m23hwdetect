@@ -174,7 +174,7 @@ echo "1458:e000" >> igb.ids
 cd $cacheDir
 
 echo -n "Finding modules by ID in cache..."
-lspci -n | cut -d' ' -f3 | sort -u | while read devID
+(lspci -n | cut -d' ' -f3 | sort -u; lsusb | cut -d' ' -f6 | sort -u) | while read devID
 do
 	id1=`echo $devID | cut -d':' -f1`
 	id2=`echo $devID | cut -d':' -f2`
