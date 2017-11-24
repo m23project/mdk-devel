@@ -173,8 +173,14 @@ configureMySQLmycnf()
 	sed -i 's/skip-innodb/#skip-innodb/g' /etc/mysql/my.cnf
 
 	#starting the server
-	/etc/init.d/mysql stop
-	/etc/init.d/mysql start
+	/etc/init.d/mysql restart
+
+	# Start MySQL/MariaDB server without init system
+# 	if [ $(ps -A | grep mysql -c) -eq 0 ]
+# 	then
+# 		/usr/sbin/mysqld &
+# 		sleep 5
+# 	fi
 
 	#Get username and password for the MySQL database
 	#dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
@@ -188,9 +194,9 @@ configureMySQLmycnf()
 		mysql -uroot m23 -e "TRUNCATE $table;"
 	done
 
-# echo "DEBUG"
-# mysqlshow -u$dbadmin -p$dbadmpass m23
-# read lala
+echo "DEBUG"
+mysqlshow -uroot m23
+read lala
 
 # 	echo "TRUNCATE clientgroups;
 # 	TRUNCATE clientjobs;
@@ -1020,7 +1026,7 @@ installDebs()
 # read lala
 
 	#Make sure GPG will be configured and there are no keys stored
-	rm /home/grdmgpg/.gnupg/secring.gpg /home/grdmgpg/.gnupg/pubring.gpg
+	rm /home/grdmgpg/.gnupg/*
 
 # echo "DEBUG"
 	dpkg-reconfigure m23
@@ -1128,12 +1134,20 @@ setISOInitMySQL()
 #!/bin/bash
 case "${1:-''}" in
 	'start')
-		mysqld_safe&
+		/usr/sbin/mysqld &
 		sleep 3
 	;;
 	'stop')
-		killall -9 mysqld_safe
-		sleep 1
+		killall -9 mysqld
+		killall -9 mysql
+		sleep 3
+	;;
+	'restart')
+		killall -9 mysqld
+		killall -9 mysql
+		sleep 3
+		/usr/sbin/mysqld &
+		sleep 3
 	;;
 esac
 EOF
@@ -1182,7 +1196,7 @@ startBaseInstallation()
 
 	extractFromCD
 	chrootSystem
-#	setISOInitMySQL
+	setISOInitMySQL
 	configureNetwork
 	configureMySQLmycnf
 	setRootPwd
@@ -1324,6 +1338,6 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 	updateSystem
 
 	umount /mnt/cdrom
-#	setSystemdInitMySQL
+	setSystemdInitMySQL
 	installGrub
 }

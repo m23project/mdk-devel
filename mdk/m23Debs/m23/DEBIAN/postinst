@@ -318,6 +318,13 @@ then
 
 	/etc/init.d/mysql restart
 
+	# Start MySQL/MariaDB server without init system
+# 	if [ $(ps -A | grep mysql -c) -eq 0 ]
+# 	then
+# 		/usr/sbin/mysqld &
+# 		sleep 5
+# 	fi
+
 	dbname="m23"
 	dbserver="localhost"
 	#get username and password of the debian MySQL system 
@@ -450,11 +457,22 @@ then
 	then
 		squidName='squid3'
 		squidConf="/etc/squid3/squid.conf"
+		
 	else
 		squidName='squid'
 		squidConf="/etc/squid/squid.conf"
 	fi
 
+	# Special handling for Squid 3 that used squid.conf
+	if [ -f /usr/sbin/squid3 ]
+	then
+		squidName='squid3'
+		squidConf="/etc/squid/squid.conf"
+
+		# Create the spool and log directories
+		mkdir /var/spool/squid3 /var/log/squid3
+		chown -R proxy:proxy /var/spool/squid3 /var/log/squid3
+	fi
 
 	rm $squidConf 2> /dev/null
 
@@ -913,7 +931,7 @@ fi
 
 
 #Create the GPG key
-if [ ! -e /home/grdmgpg/.gnupg/secring.gpg ]
+if [ $(su -c "gpg --list-secret-keys | grep ^sec -c" grdmgpg) -eq 0 ]
 then
 	#Change random to non-blocking urandom
 	if [ -c /dev/random ]
@@ -1030,8 +1048,19 @@ php -r "
 "
 fi
 
+
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql -u $dbadmin $dbadmpassParam m23" > /m23serverinst.log
+ps -A >> /m23serverinst.log
+
+echo 'ergkompl' >> /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql -u $dbadmin $dbadmpassParam m23 >> /m23serverinst.log
+echo 'erge' >> /m23serverinst.log
+
 #Add the server to the list of clients if it's missing
-localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost'" | mysql -u $dbadmin $dbadmpassParam m23 | tail -1`
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql -u $dbadmin $dbadmpassParam m23 | tail -1`
+
+echo "erge2: $localhostCount" >> /m23serverinst.log
+
 if [ $localhostCount -eq 0 ]
 then
 	#Add the server to the list of clients as "localhost"
@@ -1041,6 +1070,10 @@ then
 	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
 	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
 
+	echo "DELETE FROM clients WHERE client='localhost' | mysql -u $dbadmin $dbadmpassParam m23" >> /m23serverinst.log
+	echo "DELETE FROM clients WHERE client='localhost'" | mysql -u $dbadmin $dbadmpassParam m23
+
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql -u $dbadmin $dbadmpassParam m23" >> /m23serverinst.log	
 	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql -u $dbadmin $dbadmpassParam m23
 fi
 
@@ -1104,26 +1137,26 @@ updateSQLIfOlder $oldversionint 172100985 "CREATE TABLE autoUpdateSchedule ( id 
 updateSQLIfOlder $oldversionint 172100985 "ALTER TABLE clients ADD autoUpdate_lastAttempt int(10) DEFAULT NULL AFTER keyValueStore, ADD autoUpdate_gotJob BOOLEAN NOT NULL AFTER autoUpdate_lastAttempt, ADD autoUpdate_fails INT NOT NULL AFTER autoUpdate_gotJob;"
 
 # Add field for online status in the client's table
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD online TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER status;"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientjobs ADD reason LONGTEXT NOT NULL COMMENT 'Grund für das Hinzufuegen des Jobs' AFTER package;"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD online TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER status;"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clientjobs ADD reason LONGTEXT NOT NULL COMMENT 'Grund für das Hinzufuegen des Jobs' AFTER package;"
 
 #Speed improvements
 
 # Add indices
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientpackages ADD id INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (id);"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientpackages ADD INDEX idx_clientname_package (clientname, package);"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clientjobs ADD INDEX idx_client_status (client, status);"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clientpackages ADD id INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (id);"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clientpackages ADD INDEX idx_clientname_package (clientname, package);"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clientjobs ADD INDEX idx_client_status (client, status);"
 
 # Longtext fields cannot be indexed, so make it indexable varchar
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients CHANGE client client VARCHAR(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;"
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD INDEX idx_client (client);"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients CHANGE client client VARCHAR(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD INDEX idx_client (client);"
 
 # Add triggers to calculate the sum of client packages in the SQL database itself
-updateSQLIfOlder $oldversionint 173101018 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
-updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
-updateSQLIfOlder $oldversionint 173101018 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
+updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
+updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
+updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
 
-if [ -n "$oldversionint" ] && [ $oldversionint -lt 173101018 ]
+if [ -n "$oldversionint" ] && [ $oldversionint -lt 173101041 ]
 then
 	/m23/bin/m23cli.php PKG_recountAllClientPackages
 fi
@@ -1217,6 +1250,13 @@ fi
 
 # Needed on Debian 8
 /etc/init.d/mysql restart
+
+# Start MySQL/MariaDB server without init system
+# if [ $(ps -A | grep mysql -c) -eq 0 ]
+# then
+# 	/usr/sbin/mysqld &
+# 	sleep 5
+# fi
 
 postinstHook='/m23/bin/postinstHook.sh'
 if [ -f $postinstHook ]

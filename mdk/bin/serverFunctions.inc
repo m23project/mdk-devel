@@ -281,7 +281,7 @@ echo -n "Cleaning temporary database..."
 #delete database data
 	for table in `mysqlshow -u$dbuser $dbpass m23temp | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--"` # | grep -v sourceslist
 	do
-		mysql -u$dbuser $dbpass m23temp -e "delete from $table"
+		mysql -u$dbuser $dbpass m23temp -e "truncate $table"
 	done
 echo " done"
 
