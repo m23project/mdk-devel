@@ -173,14 +173,7 @@ configureMySQLmycnf()
 	sed -i 's/skip-innodb/#skip-innodb/g' /etc/mysql/my.cnf
 
 	#starting the server
-	/etc/init.d/mysql restart
-
-	# Start MySQL/MariaDB server without init system
-# 	if [ $(ps -A | grep mysql -c) -eq 0 ]
-# 	then
-# 		/usr/sbin/mysqld &
-# 		sleep 5
-# 	fi
+	/etc/init.d/mysql start
 
 	#Get username and password for the MySQL database
 	#dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
@@ -194,26 +187,9 @@ configureMySQLmycnf()
 		mysql -uroot m23 -e "TRUNCATE $table;"
 	done
 
-echo "DEBUG"
-mysqlshow -uroot m23
-read lala
-
-# 	echo "TRUNCATE clientgroups;
-# 	TRUNCATE clientjobs;
-# 	TRUNCATE clientlogs;
-# 	TRUNCATE clientpackages;
-# 	TRUNCATE clientpreferences;
-# 	TRUNCATE clients;
-# 	TRUNCATE ftpusers;
-# 	TRUNCATE groupIDs;
-# 	TRUNCATE groups;
-# 	TRUNCATE m23update;
-# 	TRUNCATE packages;
-# 	TRUNCATE plugins;
-# 	TRUNCATE recommendpackages;
-# 	TRUNCATE remotevar;
-# 	TRUNCATE sourceslist;
-# 	TRUNCATE userIDs;" | mysql -u $dbadmin -p$dbadmpass m23
+# echo "DEBUG"
+# mysqlshow -uroot m23
+# exit
 }
 
 
@@ -1128,31 +1104,44 @@ setISOInitMySQL()
 {
 	if [ ! -f /etc/init.d/mysql.m23 ]
 	then
+		# Start MySQL/MariaDB
+		/usr/bin/mysqld_safe --log-error=/tmp/my.log --skip-syslog --socket=/var/run/mysqld/mysqld.sock&
+		sleep 5
+
+		# Move the initscript out of the way
 		mv /etc/init.d/mysql /etc/init.d/mysql.m23
-		
-		cat >> /etc/init.d/mysql << "EOF"
-#!/bin/bash
-case "${1:-''}" in
-	'start')
-		/usr/sbin/mysqld &
-		sleep 3
-	;;
-	'stop')
-		killall -9 mysqld
-		killall -9 mysql
-		sleep 3
-	;;
-	'restart')
-		killall -9 mysqld
-		killall -9 mysql
-		sleep 3
-		/usr/sbin/mysqld &
-		sleep 3
-	;;
-esac
-EOF
-	chmod +x /etc/init.d/mysql
+
+		# Create a fake initscript that does nothing
+		touch /etc/init.d/mysql
+		chmod +x /etc/init.d/mysql
+
+# 		cat >> /etc/init.d/mysql.raus << "EOF"
+# #!/bin/bash
+# case "${1:-''}" in
+# 	'start')
+# 		/usr/bin/mysqld_safe --log-error=/tmp/my.log --skip-syslog --socket=/var/run/mysqld/mysqld.sock&
+# 		sleep 3
+# 	;;
+# 	'stop')
+# 		killall -9 mysqld_safe
+# 		killall -9 mysqld
+# 		killall -9 mysql
+# 		sleep 3
+# 	;;
+# 	'restart')
+# 		killall -9 mysqld_safe
+# 		killall -9 mysqld
+# 		killall -9 mysql
+# 		sleep 3
+# 		/usr/bin/mysqld_safe --log-error=/tmp/my.log --skip-syslog --socket=/var/run/mysqld/mysqld.sock&
+# 		sleep 3
+# 	;;
+# esac
+# EOF
 	fi
+
+	# Make logger happy that expects existence /dev/log (systemd)
+	ln -s /dev/log /dev/stderr
 }
 
 
@@ -1162,7 +1151,10 @@ EOF
 # Change MySQL init to a version working with systemd
 setSystemdInitMySQL()
 {
+	# Switch back to original initscript
 	mv /etc/init.d/mysql.m23 /etc/init.d/mysql
+	# Remove fake logging device (systemd)
+	rm /dev/log
 }
 
 
