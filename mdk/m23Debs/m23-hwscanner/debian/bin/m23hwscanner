@@ -657,16 +657,24 @@ scanDisksPartitions()
 			
 			#echo "$path: $partInfo dn: $devNr pn: $partNr fs:`getPartFS $partInfo`"
 
+			# NVMe devices need a "p" before the partition number
+			if [ $(echo $path | grep nvme -c) -eq 0 ]
+			then
+				partPathNVMESafe="$path`getPartNr $partInfo`"
+			else
+				partPathNVMESafe="${path}p`getPartNr $partInfo`"
+			fi
+
 			if [ $isGPT -eq 0 ]
 			then
 				addAssoc `printf "dev%ipart%i_type" $devNr $partNr` 'efipart'
-				partPath="$path`getPartNr $partInfo`"
+				partPath=$partPathNVMESafe
 			else
 				#Only add a type here if it's not a MD (MDs get RAID-? as type)
 				if [ `echo $path | grep md -c` -eq 0 ]
 				then
 					addAssoc `printf "dev%ipart%i_type" $devNr $partNr` `getPartType $partInfo`
-					partPath="$path`getPartNr $partInfo`"
+					partPath=$partPathNVMESafe
 				else
 					partPath=$path
 				fi
