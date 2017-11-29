@@ -338,9 +338,9 @@ then
 
 	updateDB
 
-	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
 
-	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
 
 	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
 	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql -u $dbadmin $dbadmpassParam m23
@@ -1152,14 +1152,14 @@ updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients CHANGE client cli
 updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD INDEX idx_client (client);"
 
 # Add triggers to calculate the sum of client packages in the SQL database itself
-updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
-updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
-updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
+# updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
+# updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
+# updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_del AFTER DELETE ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages - 1 WHERE client = DEL.clientname;"
 
-if [ -n "$oldversionint" ] && [ $oldversionint -lt 173101041 ]
-then
-	/m23/bin/m23cli.php PKG_recountAllClientPackages
-fi
+# if [ -n "$oldversionint" ] && [ $oldversionint -lt 173101041 ]
+# then
+# 	/m23/bin/m23cli.php PKG_recountAllClientPackages
+# fi
 
 
 
