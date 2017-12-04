@@ -3,9 +3,44 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
-#Get MySQL user and password
-dbadmin=`grep "^user" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
-dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d [:blank:] | cut -d'=' -f2 | head -1`
+
+#Shows the mysql password (if needed (only on MySQL))
+showDBAdmPassword()
+{
+	grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
+}
+
+
+
+
+
+#Shows the MySQL / MariaDB password parameter (if needed (only on MySQL))
+showDBAdmPasswordParameter()
+{
+	dbadmpass=`showDBAdmPassword`
+
+	if [ $dbadmpass ]
+	then
+		echo -n "-p$dbadmpass"
+	fi
+}
+
+
+
+
+
+#Shows the MySQL / MariaDB admin user
+showDBAdmUser()
+{
+	grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
+}
+
+
+#Get MySQL/MariaDB user and password
+dbadmin=`showDBAdmUser`
+dbadmpassParam=`showDBAdmPasswordParameter`
+
+
 
 #check if we are reconfiguring
 if [ "$1" = "reconfigure" ] || [ "${DEBCONF_RECONFIGURE}" = "1" ]
@@ -156,7 +191,7 @@ fi
 
 
 #Check if the m23 database is accessible (this is possible if the package is installed on the m23 server)
-echo "SELECT COUNT(*) FROM clients" | mysql -u $dbadmin -p$dbadmpass m23 1> /dev/null 2> /dev/null
+echo "SELECT COUNT(*) FROM clients" | mysql -u $dbadmin $dbadmpassParam m23 1> /dev/null 2> /dev/null
 if [ $? -eq 0 ]
 then
 	#Get the VNC password
@@ -164,7 +199,7 @@ then
 	#Make the server VBOX server by setting software type and virtualisation role
 # 	define('VM_SW_VBOX',1);
 # 	define('VM_ROLE_HOST',1);
-	echo "UPDATE clients SET vmVisualPassword = '$pw', vmSoftware = (vmSoftware | 1), vmRole = (vmRole | 1) WHERE client = 'localhost' LIMIT 1" | mysql -u $dbadmin -p$dbadmpass m23
+	echo "UPDATE clients SET vmVisualPassword = '$pw', vmSoftware = (vmSoftware | 1), vmRole = (vmRole | 1) WHERE client = 'localhost' LIMIT 1" | mysql -u $dbadmin $dbadmpassParam m23
 else
 	db_get m23-vbox/m23server
 	##Check if the m23 server IP is not empty
@@ -204,6 +239,11 @@ mkdir -p /m23/vms/vbox /m23/vms/runningVMs
 chown m23-vbox -R /m23/vms/ /home/m23-vbox/.hushlogin
 chmod +x /m23/vms/bin/restoreVMsStates
 
+# Enable SSH loging without password by copying authorized_keys form root
+mkdir /home/m23-vbox/.ssh
+cp /root/.ssh/authorized_keys /home/m23-vbox/.ssh
+chown m23-vbox /home/m23-vbox/.ssh -R
+chmod 700 /home/m23-vbox/.ssh
 
 
 
