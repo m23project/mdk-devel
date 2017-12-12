@@ -175,9 +175,17 @@ done
 
 if [ `grep -c Debian /etc/issue` -eq 0 ] && [ `grep -c Raspbian /etc/issue` -eq 0 ] && [ `grep -c Univention /etc/issue` -eq 0 ]
 then
-	echo "The m23 packages are ment for installation on Debian ONLY!"
+	echo "The m23 packages are ment for installation on Debian/Raspbian/UCS ONLY!"
 	exit 666
 fi
+
+# Set a new password for the pi user, if it is still the default password
+if [ -d /home/pi ] && [ -e /run/sshwarn ]
+then
+	db_get m23/PIpass
+	yes "$RET" | passwd pi
+fi
+
 
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 

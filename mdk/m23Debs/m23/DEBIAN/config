@@ -33,6 +33,13 @@ then
 
 	db_input high m23/configureBackupPC || true
 	db_go
+
+	# Ask for a new password for the pi user, if it is still the default password
+	if [ -d /home/pi ] && [ -e /run/sshwarn ]
+	then
+		db_input high m23/PIpass || true
+		db_go
+	fi
 fi
 
 if test `grep address /etc/network/interfaces | wc -l` -eq 0
