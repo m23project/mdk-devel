@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Textauswahl</TITLE>
-<META NAME="description" CONTENT="Textauswahl">
+<TITLE>Paket-Architekt</TITLE>
+<META NAME="description" CONTENT="Paket-Architekt">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,72 +19,103 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node198.html">
-<LINK REL="previous" HREF="node196.html">
-<LINK REL="up" HREF="node194.html">
+<LINK REL="next" HREF="node201.html">
+<LINK REL="previous" HREF="node192.html">
+<LINK REL="up" HREF="node168.html">
 <LINK REL="next" HREF="node198.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3043"
+<A NAME="tex2html3061"
   HREF="node198.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3039"
-  HREF="node194.html">
+<A NAME="tex2html3057"
+  HREF="node168.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3033"
+<A NAME="tex2html3051"
   HREF="node196.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3041"
+<A NAME="tex2html3059"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3044"
-  HREF="node198.html">Suchen und ersetzen</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3040"
-  HREF="node194.html">Skript-Editor</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3034"
-  HREF="node196.html">Einige Tastenkürzel</A>
- &nbsp; <B>  <A NAME="tex2html3042"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3062"
+  HREF="node198.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3058"
+  HREF="node168.html">Pakete</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3052"
+  HREF="node196.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3060"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001283000000000000000">
-Textauswahl</A>
-</H2>
-
-<UL>
-<LI>Aktuelle Zeile l&#246;schen: <SPAN  CLASS="textit">Strg + D</SPAN> (PC), <SPAN  CLASS="textit">Command + D</SPAN> (Mac)
+<H1><A NAME="SECTION001270000000000000000">
+Paket-Architekt</A>
+</H1>
+<IMG
+  WIDTH="1154" HEIGHT="1111" ALIGN="BOTTOM" BORDER="0"
+ SRC="./packageBuilder.png"
+ ALT="Image packageBuilder"> 
+<BR>
+Der in m23 integrierte Paket-Architekt ist ein komfors Werkzeug, um direkt aus der m23-Oberfl&#228;che heraus Debian-Pakete zu erstellen, die dann wie gewohnt auf den Clients installiert werden k&#246;nnen. Diese Pakete k&#246;nnen einzelne Dateien oder ganze Verzeichnisb&#228;ume enthalten.
+<BR>
+Die Pakete werden aus Archivdateien im tar-Format mit bzip2- oder gzip-Kompression erzeugt. Darin enthaltene Benutzer- und Zugriffsrechte von Dateien und Verzeichnissen werden dabei ohne Neukompression beibehalten. Die erzeugten Debian-Pakete sind unabh&#228;ngig von einer Distribution und einer Distributionsversion und k&#246;nnen somit auf Debian-, Ubuntu- oder Kubuntu-Clients verwendet werden.
+<BR>
+Die Erstellung des Paketes l&#228;uft folgenderma&#223;en ab:
+<BR>
+<OL>
+<LI>Ablegen der tar-Datei in das Verzeichnis <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN>. Dies kann z.B. durch Hochladen mittels scp geschehen oder durch den integrierten Datei-Upload <SPAN  CLASS="textit">''Tar-Datei zum Umwandeln hochladen''</SPAN>.
 <BR></LI>
-<LI>Kompletten Quelltext ausw&#228;hlen: <SPAN  CLASS="textit">Strg + A</SPAN> (PC), <SPAN  CLASS="textit">Command + A</SPAN> (Mac)
+<LI>Nach dem Ablegen der Datei klicken Sie auf <SPAN  CLASS="textit">''Aktualisieren''</SPAN>, damit diese in der Liste <SPAN  CLASS="textit">''Dateiliste''</SPAN> erscheinen.
 <BR></LI>
-<LI>Worte im Text ausgehend vom Textcursor ausw&#228;hlen: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + &amp;larr; bzw. <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + &amp;larr; bzw. <!-- MATH
- $\rightarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (Mac)
+<LI>W&#228;hlen Sie die Datei aus, die sie umwandeln m&#246;chten und klicken neben dem Dateinamen auf <SPAN  CLASS="textit">''In Debian-Paket umwandeln''</SPAN>. Die Aktualisierung der Paketindexdateien erfolgt automatisch, so da&#223; die Paketquelle sofort verwendet werden kann.
 <BR></LI>
-<LI>Zeile &#252;ber bzw. unter aktueller w&#228;hlen: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + <SPAN CLASS="MATH"></SPAN> bzw. <!-- MATH
- $\downarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + <SPAN CLASS="MATH"></SPAN> bzw. <!-- MATH
- $\downarrow$
- -->
-<SPAN CLASS="MATH"></SPAN></SPAN>
-</LI>
-<LI>Text zum Zeilenanfang bzw. Zeilenende ausgehend vom Textcursor ausw&#228;hlen: <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + Pos1 bzw. Ende</SPAN> (PC), <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN> + Home bzw. Ende</SPAN>
-</LI>
-</UL>
+</OL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3063"
+  HREF="node198.html">Hinweis</A>
+<LI><A NAME="tex2html3064"
+  HREF="node199.html">BitTorrent</A>
+<LI><A NAME="tex2html3065"
+  HREF="node200.html">GPG-Paketquellen-Signierungsschlüssel</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3061"
+  HREF="node198.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html3057"
+  HREF="node168.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html3051"
+  HREF="node196.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html3059"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3062"
+  HREF="node198.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3058"
+  HREF="node168.html">Pakete</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3052"
+  HREF="node196.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3060"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

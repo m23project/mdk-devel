@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis zum Rückgängigmachen von Aktionen</TITLE>
-<META NAME="description" CONTENT="Hinweis zum Rückgängigmachen von Aktionen">
+<TITLE>Anderer DHCP-Server</TITLE>
+<META NAME="description" CONTENT="Anderer DHCP-Server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node119.html">
 <LINK REL="previous" HREF="node117.html">
-<LINK REL="up" HREF="node117.html">
+<LINK REL="up" HREF="node112.html">
 <LINK REL="next" HREF="node119.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2023"
+<A NAME="tex2html2038"
   HREF="node119.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2019"
-  HREF="node117.html">
+<A NAME="tex2html2034"
+  HREF="node112.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2013"
+<A NAME="tex2html2028"
   HREF="node117.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2021"
+<A NAME="tex2html2036"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2024"
-  HREF="node119.html">Hinweis zur Verwendung von</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2020"
-  HREF="node117.html">Clientpartitionierung und -formatierung</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2014"
-  HREF="node117.html">Clientpartitionierung und -formatierung</A>
- &nbsp; <B>  <A NAME="tex2html2022"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2039"
+  HREF="node119.html">Proxy DHCP</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2035"
+  HREF="node112.html">m23 mit einem externen</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2029"
+  HREF="node117.html">ISC DHCP Server</A>
+ &nbsp; <B>  <A NAME="tex2html2037"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00921000000000000000">
-Hinweis zum R&#252;ckg&#228;ngigmachen von Aktionen</A>
+<H2><A NAME="SECTION00916000000000000000">
+Anderer DHCP-Server</A>
 </H2>
-Sie k&#246;nnen die jeweils letzte &#196;nderung durch einen Klick auf <SPAN  CLASS="textit">''Letzte Aktion verwerfen''</SPAN> r&#252;ckg&#228;ngigmachen. Mit <SPAN  CLASS="textit">''Zur&#252;cksetzen''</SPAN> verwerfen Sie alle Partitionierungs- und Formatierungsanweisungen. Versuchen Sie <SPAN  CLASS="textbf">keinesfalls</SPAN>, &#196;nderung durch Zur&#252;ckspringen in der Browserhistorie r&#252;ckg&#228;ngigzumachen.
-<BR>
+
+<OL>
+<LI>In der m23-Weboberfl&#228;che w&#228;hlen Sie beim Anlegen eines neuen Clients <SPAN  CLASS="textit">''PXE''</SPAN> unter <SPAN  CLASS="textit">''Boottyp''</SPAN> aus. Vergeben Sie bei <SPAN  CLASS="textit">''Clientname''</SPAN> den Rechnernamen, den Ihr DHCP-Server dem Client zuweist.
+<BR></LI>
+<LI>Konfigurieren Sie Ihren DHCP-Server so, da&#223; der m23-Client den in der m23-Weboberfl&#228;che angegebenen Rechnernamen zugewiesen bekommt.
+<BR></LI>
+<LI>Der PXE-Kernel, den Ihr DHCP-Server an den m23-Client &#252;bermittelt, mu&#223; <SPAN  CLASS="textbf">pxelinux.0</SPAN> hei&#223;en. TFTP-Server ist der m23-Server.
+<BR></LI>
+<LI>Konfigurieren Sie den DHCP-Server so, da&#223; dieser den m23-Clients als Herkunfts-IP die IP des m23-Servers &#252;bermittelt.
+<BR></LI>
+<LI>Sollte sich der DHCP-Server nicht so einrichten lassen, so m&#252;ssen Sie ggf. einen eigenen TFTP-Server auf demselben Rechner einrichten, der auch Ihren DHCP-Server beinhaltet. Als Basis f&#252;r die Einrichtung des TFTPs k&#246;nnen Sie die Konfigurationsdateien aus dem Verzeichnis /m23/tftp/ verwenden.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

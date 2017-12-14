@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Generator-Optionen</TITLE>
-<META NAME="description" CONTENT="Generator-Optionen">
+<TITLE>Wertbestimmungs-Methode festlegen</TITLE>
+<META NAME="description" CONTENT="Wertbestimmungs-Methode festlegen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,96 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node225.html">
-<LINK REL="previous" HREF="node219.html">
-<LINK REL="up" HREF="node212.html">
+<LINK REL="next" HREF="node226.html">
+<LINK REL="previous" HREF="node220.html">
+<LINK REL="up" HREF="node219.html">
 <LINK REL="next" HREF="node225.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3388"
+<A NAME="tex2html3410"
   HREF="node225.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3384"
-  HREF="node212.html">
+<A NAME="tex2html3406"
+  HREF="node219.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3378"
+<A NAME="tex2html3400"
   HREF="node223.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3386"
+<A NAME="tex2html3408"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3389"
-  HREF="node225.html">Restliche Werte eingeben/Übersicht</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3385"
-  HREF="node212.html">Masseninstallation</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3379"
-  HREF="node223.html">Gehen Sie hierzu wie</A>
- &nbsp; <B>  <A NAME="tex2html3387"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3411"
+  HREF="node225.html">Es stehen 3 Methoden</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3407"
+  HREF="node219.html">Masseninstallation</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3401"
+  HREF="node223.html">Hinweis</A>
+ &nbsp; <B>  <A NAME="tex2html3409"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001440000000000000000">
-Generator-Optionen</A>
+<H1><A NAME="SECTION001420000000000000000">
+Wertbestimmungs-Methode festlegen</A>
 </H1>
 <IMG
-  WIDTH="1043" HEIGHT="434" ALIGN="BOTTOM" BORDER="0"
- SRC="./mi_step3.png"
- ALT="Image mi_step3"> 
+  WIDTH="1044" HEIGHT="1045" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mi_step0.png"
+ ALT="Image mi_step0"> 
 <BR>
-Hier k&#246;nnen Sie die Parameter f&#252;r die Generatoren der folgenden Eigenschaften festlegen:
+Hier k&#246;nnen Sie festlegen, wie die Eigenschaftswerte der Clients generiert werden sollen.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Clientname</SPAN>: Sie k&#246;nnen hier den Client-Basis-Namen und eine Startnummer vorgeben. Die Clientnamen werden dann in der ben&#246;tigten Anzahl nach dem Schema <SPAN CLASS="MATH"></SPAN>Client-Basis-Name<SPAN CLASS="MATH"></SPAN><SPAN CLASS="MATH"></SPAN>fortlaufende Nummer<SPAN CLASS="MATH"></SPAN> erstellt. Bereits vergebene Client-Namen werden bei der Generierung &#252;bersprungen. Bsp.: Client-Basis-Name=m23client, Startnummer=12 generiert die Clientnamen m23client12, m23client13, ...
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Anmeldungsname</SPAN>: Dies ist der Name, mit dem sich der Benutzer am Client anmelden kann. Es stehen zwei Methoden zur Generierung zur Verf&#252;gung. Die inkrementelle Variante verh&#228;lt sich identisch zur Erstellung bei <SPAN  CLASS="textit">''Clientname''</SPAN>. Zus&#228;tzlich ist das Bilden aus dem ersten Buchstaben des Vornamens und dem vollst&#228;ndigen Nachnamen m&#246;glich (<SPAN  CLASS="textit">''Aus Vor- und Nachnamen erstellen''</SPAN>).
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Vorname</SPAN>: Die Generierung der Vornamen (die zugleich die Loginnamen sind) geschieht analog zu den Clientnamen.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">IP-Adresse</SPAN>: Legen sie hier die IP-Adressen-Bereiche fest, in denen nach freien IP-Adressen gesucht werden soll. Standardm&#228;&#223;ig werden nur IP-Adressen generiert, die nicht bereits von m23-Clients benutzt werden. Sie k&#246;nnen aber auch angeben, da&#223; jede IP-Adresse vor der Verwendung ''angepingt'' werden soll. Sollte sich unter einer oder mehreren IP-Adressen ein Rechner melden, so werden diese IPs nicht verwendet.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Netzwerkmaske</SPAN>: Die Netzwerkmasken werden automatisch nach Schema der Netzwerk-Klassen berechnet. Dieses ist per Definition folgenderma&#223;en:
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Erstes Login</SPAN>: F&#252;r dieses Login k&#246;nnen die Pa&#223;w&#246;rter komplett zuf&#228;llig (<SPAN  CLASS="textit">''Zufalls-Pa&#223;w&#246;rter''</SPAN>) oder nach einem zuf&#228;lligen aber f&#252;r Menschen leichter merkbaren Schema (<SPAN  CLASS="textit">''PwGen-Pa&#223;w&#246;rter''</SPAN>) angelegt werden. Au&#223;erdem kann die L&#228;nge der generierten Pa&#223;w&#246;rter zwischen 6 und 8 Zeichen L&#228;nge variiert werden. Es wird empfohlen, die voreingestellte L&#228;nge von 8 beizubehalten.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Benutzer-ID</SPAN>: Legen Sie hier die Startnummer fest, ab der freie Benutzer-IDs gesucht und verwendet werden sollen.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Gruppen-ID</SPAN>: Legen Sie hier die Startnummer fest, ab der freie Gruppen-IDs gesucht und verwendet werden sollen.
-<BR></LI>
-</UL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
 
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html3388"
-  HREF="node225.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3384"
-  HREF="node212.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3378"
-  HREF="node223.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3386"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3389"
-  HREF="node225.html">Restliche Werte eingeben/Übersicht</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3385"
-  HREF="node212.html">Masseninstallation</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3379"
-  HREF="node223.html">Gehen Sie hierzu wie</A>
- &nbsp; <B>  <A NAME="tex2html3387"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3412"
+  HREF="node225.html">Es stehen 3 Methoden zur Auswahl</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

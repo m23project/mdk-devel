@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hint for RAIDs and partitions</TITLE>
-<META NAME="description" CONTENT="Hint for RAIDs and partitions">
+<TITLE>Note</TITLE>
+<META NAME="description" CONTENT="Note">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,47 +21,81 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node132.html">
 <LINK REL="previous" HREF="node130.html">
-<LINK REL="up" HREF="node123.html">
+<LINK REL="up" HREF="node127.html">
 <LINK REL="next" HREF="node132.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2215"
+<A NAME="tex2html2237"
   HREF="node132.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2211"
-  HREF="node123.html">
+<A NAME="tex2html2233"
+  HREF="node127.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2205"
+<A NAME="tex2html2227"
   HREF="node130.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2213"
+<A NAME="tex2html2235"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2216"
-  HREF="node132.html">Hint for the installation</A>
-<B> Up:</B> <A NAME="tex2html2212"
-  HREF="node123.html">Client partitioning and formating</A>
-<B> Previous:</B> <A NAME="tex2html2206"
-  HREF="node130.html">Step by step</A>
- &nbsp; <B>  <A NAME="tex2html2214"
+<B> Next:</B> <A NAME="tex2html2238"
+  HREF="node132.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2234"
+  HREF="node127.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2228"
+  HREF="node130.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2236"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00938000000000000000">
-Hint for RAIDs and partitions</A>
+<H2><A NAME="SECTION00934000000000000000">
+Note</A>
 </H2>
-The Linux kernel accesses the software RAIDs via <SPAN  CLASS="textit">''multi devices''</SPAN>. These RAID drives behave like partitions and cannot be partitioned further. This limitation is made by m23 to accomplish backwards compatibility to older Linux kernels.
+These templates for harddisks can be set up like real harddisks (partitioning, formatting, software RAIDS, partitions for installation and swap) The sizes you enter should be similar (or identical) to the real hardware in your clients, but the device names must be identical to the real device names. If the size of the template disk differs from the real size of the client's disk, the sizes of the respective partitions will be adjusted percentally.
+<BR><SPAN  CLASS="textbf">Partition scheme</SPAN>
+Predefined schemes for partitioning and formating the hard disk of the m23 client can be choosen here and executed by a click on <SPAN  CLASS="textit">''Execute scheme''</SPAN>.
 <BR>
-<BR><HR>
+<UL>
+<LI><SPAN  CLASS="textbf">Automatic partitioning</SPAN>: This scheme deletes all data from the first hard disk and creates two new partitions. The first partition is used for the operating system and data and the second for swapping.
+<BR></LI>
+</UL>
+<SPAN  CLASS="textbf">Delete current partition</SPAN>
+A click on <SPAN  CLASS="textit">''Delete''</SPAN> removes the current (shown/selected at <SPAN  CLASS="textit">''Current partition''</SPAN>) partition.
+<BR><SPAN  CLASS="textbf">Create new partition</SPAN>
+You can create a new partition in the free space of a hard disk with this function. Choose the start and end point of the new partition by clicking into the white space of a drive (on activated JavaScript) or by entering the values for its bordes into <SPAN  CLASS="textit">''Start''</SPAN> and <SPAN  CLASS="textit">''End''</SPAN>. Of course it is possible to create a partition that is smaler than the whole free area. Choose the type of the partition at <SPAN  CLASS="textit">''Type''</SPAN> to select, if a primary, extended or logical partition should be created. Finally create it with a click to <SPAN  CLASS="textit">''Add''</SPAN>.
+<BR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2237"
+  HREF="node132.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2233"
+  HREF="node127.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2227"
+  HREF="node130.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2235"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2238"
+  HREF="node132.html">Note about UEFI</A>
+<B> Up:</B> <A NAME="tex2html2234"
+  HREF="node127.html">Client partitioning and formating</A>
+<B> Previous:</B> <A NAME="tex2html2228"
+  HREF="node130.html">Overview of the menu</A>
+ &nbsp; <B>  <A NAME="tex2html2236"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Client partitioning and formating</TITLE>
-<META NAME="description" CONTENT="Client partitioning and formating">
+<TITLE>Configuring DHCP servers dynamically</TITLE>
+<META NAME="description" CONTENT="Configuring DHCP servers dynamically">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,103 +19,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node133.html">
-<LINK REL="previous" HREF="node116.html">
-<LINK REL="up" HREF="node109.html">
+<LINK REL="next" HREF="node124.html">
+<LINK REL="previous" HREF="node122.html">
+<LINK REL="up" HREF="node119.html">
 <LINK REL="next" HREF="node124.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2110"
+<A NAME="tex2html2134"
   HREF="node124.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2106"
-  HREF="node109.html">
+<A NAME="tex2html2130"
+  HREF="node119.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2100"
+<A NAME="tex2html2124"
   HREF="node122.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2108"
+<A NAME="tex2html2132"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2111"
-  HREF="node124.html">Hint: Undoing your changes</A>
-<B> Up:</B> <A NAME="tex2html2107"
-  HREF="node109.html">Control clients</A>
-<B> Previous:</B> <A NAME="tex2html2101"
-  HREF="node122.html">Proxy DHCP</A>
- &nbsp; <B>  <A NAME="tex2html2109"
+<B> Next:</B> <A NAME="tex2html2135"
+  HREF="node124.html">ISC DHCP server</A>
+<B> Up:</B> <A NAME="tex2html2131"
+  HREF="node119.html">Using m23 with an</A>
+<B> Previous:</B> <A NAME="tex2html2125"
+  HREF="node122.html">Alternatively: Create boot media</A>
+ &nbsp; <B>  <A NAME="tex2html2133"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00930000000000000000">
-Client partitioning and formating</A>
-</H1>This dialog is designed for partitioning and formating your m23 client and the management and creation of software RAIDs. Click on <SPAN  CLASS="textit">''Finalise the partitioning and formating and choose the distribution''</SPAN> after you did all changes.
-<BR><IMG
-  WIDTH="1094" HEIGHT="1983" ALIGN="BOTTOM" BORDER="0"
- SRC="./clientPartitionFormat.png"
- ALT="Image clientPartitionFormat"> 
-<BR><SPAN  CLASS="textbf">Overview</SPAN>
-The tools and functions for editing the drives and partitions are shown in the menu on the left side. You can point to the desired function with the mouse cursor to open the menu block. Adjacent (and right) to the menu, the current partition and formating of all drives and RAIDs is displayed. Under <SPAN  CLASS="textit">''Waiting partitioning and formating jobs''</SPAN> the tasks are shown, that are needed to get the client into the displayed state. Adjacent (and right) to it detailed information are shown (if JavaScript is activated or the information about all drives are shown if deactivated) about the drive, the mouse cursor points to. In the caption under <SPAN  CLASS="textit">''Supported file systems''</SPAN> all file systems that can be created and managed with m23 are listed.
+<H2><A NAME="SECTION00924000000000000000">
+Configuring DHCP servers dynamically</A>
+</H2>
+Each time the network boot status of a client is changed (activated / deactivated), the script <SPAN  CLASS="textit">''/m23/bin/externalDHCPControl.sh''</SPAN> is called. You can adapt this script according to your needs in order to dynamically configure an existing DHCP server. More information can be found in the comments inside the script file.
 <BR>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html2112"
-  HREF="node124.html">Hint: Undoing your changes</A>
-<LI><A NAME="tex2html2113"
-  HREF="node125.html">Hint: Usage of JavaScript</A>
-<LI><A NAME="tex2html2114"
-  HREF="node126.html">Overview of the menu entries</A>
-<LI><A NAME="tex2html2115"
-  HREF="node127.html">Note</A>
-<LI><A NAME="tex2html2116"
-  HREF="node128.html">Note about UEFI</A>
-<LI><A NAME="tex2html2117"
-  HREF="node129.html">Note about file systems</A>
-<LI><A NAME="tex2html2118"
-  HREF="node130.html">Step by step</A>
-<LI><A NAME="tex2html2119"
-  HREF="node131.html">Hint for RAIDs and partitions</A>
-<LI><A NAME="tex2html2120"
-  HREF="node132.html">Hint for the installation of operating systems on a RAID</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2110"
-  HREF="node124.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2106"
-  HREF="node109.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2100"
-  HREF="node122.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2108"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2111"
-  HREF="node124.html">Hint: Undoing your changes</A>
-<B> Up:</B> <A NAME="tex2html2107"
-  HREF="node109.html">Control clients</A>
-<B> Previous:</B> <A NAME="tex2html2101"
-  HREF="node122.html">Proxy DHCP</A>
- &nbsp; <B>  <A NAME="tex2html2109"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

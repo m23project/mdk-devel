@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Hinweis für die Integration von Ubuntu-Systemen</TITLE>
-<META NAME="description" CONTENT="Hinweis für die Integration von Ubuntu-Systemen">
+<TITLE>Client integrieren</TITLE>
+<META NAME="description" CONTENT="Client integrieren">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,105 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node139.html">
-<LINK REL="up" HREF="node137.html">
+<LINK REL="next" HREF="node144.html">
+<LINK REL="previous" HREF="node134.html">
+<LINK REL="up" HREF="node111.html">
 <LINK REL="next" HREF="node141.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2288"
+<A NAME="tex2html2311"
   HREF="node141.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2284"
-  HREF="node137.html">
+<A NAME="tex2html2307"
+  HREF="node111.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2280"
+<A NAME="tex2html2301"
   HREF="node139.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2286"
+<A NAME="tex2html2309"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2289"
-  HREF="node141.html">Virtualisierung</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2285"
-  HREF="node137.html">Client integrieren</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2281"
-  HREF="node139.html">Manuelle Integration</A>
- &nbsp; <B>  <A NAME="tex2html2287"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2312"
+  HREF="node141.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2308"
+  HREF="node111.html">Clients einrichten</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2302"
+  HREF="node139.html">Tricks</A>
+ &nbsp; <B>  <A NAME="tex2html2310"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00953000000000000000">
-Hinweis f&#252;r die Integration von Ubuntu-Systemen</A>
-</H2>
-Ubuntusysteme lassen sich normalerweise nur manuell integrieren, da bei der Standardinstallation  kein laufender SSH-D&#228;mon vorhanden ist. Starten Sie deshalb auf dem Ubuntu-Rechner eine Root-Konsole und beginnen Sie mit der manuellen Integration.
+<H1><A NAME="SECTION00950000000000000000">
+Client integrieren</A>
+</H1>
+<IMG
+  WIDTH="1044" HEIGHT="397" ALIGN="BOTTOM" BORDER="0"
+ SRC="./client_assimilate.png"
+ ALT="Image client_assimilate"> 
 <BR>
-<P>
+Sie k&#246;nnen bestehende Debian-Systeme mit m23 administrieren, indem Sie sie integrieren und somit m23 bekannt machen. F&#252;r eine reibungslose Integration ist es erforderlich, da&#223; der Client komplett hochgefahren und &#252;ber das Netzwerk erreichbar ist. Nun werden nur noch drei Angaben ben&#246;tigt:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Clientname</SPAN>: Geben Sie hier einen Namen an, &#252;ber den der Client im m23-Server verwaltet werden soll. Dieser Name mu&#223; nicht zwangsl&#228;ufig mit dem Hostnamen des Clients identisch sein.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">IP-Adresse</SPAN>: Dies ist die (ggf. tempor&#228;re) IP-Adresse des Clients.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Name des Ubuntu-Benutzers (nur bei Ubuntu-Systemen, bei Debian leerlassen)</SPAN>: Geben Sie hier einen Benutzernamen an, der auf dem Rechner ein Konto besitzt und mit dem man sich per SSH einloggen kann. Au&#223;erdem mu&#223; dieser Benutzer mittels sudo und seinem Pa&#223;wort Befehle als root ausf&#252;hren k&#246;nnen. Dies wird nur bei Computern ben&#246;tigt, auf denen Ubuntu installiert ist oder bei denen das Einloggen als root deaktiviert ist.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Root-Pa&#223;wort oder Pa&#223;wort des Ubuntu-Benutzers</SPAN>: Das aktuelle Root-Pa&#223;wort des Clients bei Debian-Systemen oder das Pa&#223;wort eines Benutzers bei Ubuntu-Systemen. Sie k&#246;nnen dieses Feld allerdings auch leer lassen, wenn Sie eine manuelle Integration vorziehen.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Der Client verwendet eine dynamische IP (DHCP)</SPAN>: Setzen Sie hier den Haken, wenn der zu integrierende Rechner seine Netzwerkeinstellungen per DHCP bezieht.
+<BR></LI>
+</UL>
+Klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''Integrieren''</SPAN>. Die Integration l&#228;uft nun im Hintergrund.
+<BR>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Unterabschnitte</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2313"
+  HREF="node141.html">Hinweis</A>
+<LI><A NAME="tex2html2314"
+  HREF="node142.html">Manuelle Integration</A>
+<LI><A NAME="tex2html2315"
+  HREF="node143.html">Hinweis für die Integration von Ubuntu-Systemen</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2311"
+  HREF="node141.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2307"
+  HREF="node111.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2301"
+  HREF="node139.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2309"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2312"
+  HREF="node141.html">Hinweis</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2308"
+  HREF="node111.html">Clients einrichten</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2302"
+  HREF="node139.html">Tricks</A>
+ &nbsp; <B>  <A NAME="tex2html2310"
+  HREF="node1.html">Inhalt</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>

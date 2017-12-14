@@ -95,13 +95,13 @@ fi
 
 
 
+#		"screenshots"  "make screenshots for the manual" \
 
 
 menuSelection=`menuSelection 2>/dev/null` || menuSelection=/tmp/lilom23$$
 dialog --backtitle "MDK manual generator" --default-item "ja" --clear --title "Select what you want to do" \
-        --menu "Last updated:\nGerman:  $scrde $textde\n $pdfde $htmlde\nEnglish: $scren $texten\n$pdfen $htmlen\nFrench:  $scrfr $textfr\n $pdffr $htmlfr\n\nSelected language(s): $lang" 22 75 7 \
+        --menu "Last updated:\nGerman:  $scrde $textde\n $pdfde $htmlde\nEnglish: $scren $texten\n$pdfen $htmlen\nFrench:  $scrfr $textfr\n $pdffr $htmlfr\n\nSelected language(s): $lang" 21 75 6 \
 		"lang"  "select manual language" \
-		"screenshots"  "make screenshots for the manual" \
 		"optimisePNGs"  "optimise the manual screenshots" \
 		"tex"  "generate LaTeX files" \
 		"pdf-html" "generate the PDF and HTML manual(s)"\

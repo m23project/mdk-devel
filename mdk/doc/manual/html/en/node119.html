@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Configuring DHCP servers dynamically</TITLE>
-<META NAME="description" CONTENT="Configuring DHCP servers dynamically">
+<TITLE>Using m23 with an external DHCP server</TITLE>
+<META NAME="description" CONTENT="Using m23 with an external DHCP server">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,77 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node120.html">
-<LINK REL="previous" HREF="node118.html">
-<LINK REL="up" HREF="node116.html">
+<LINK REL="next" HREF="node127.html">
+<LINK REL="previous" HREF="node112.html">
+<LINK REL="up" HREF="node111.html">
 <LINK REL="next" HREF="node120.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2064"
+<A NAME="tex2html2079"
   HREF="node120.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2060"
-  HREF="node116.html">
+<A NAME="tex2html2075"
+  HREF="node111.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2054"
+<A NAME="tex2html2069"
   HREF="node118.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2062"
+<A NAME="tex2html2077"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html2065"
-  HREF="node120.html">ISC DHCP server</A>
-<B> Up:</B> <A NAME="tex2html2061"
-  HREF="node116.html">Using m23 with an</A>
-<B> Previous:</B> <A NAME="tex2html2055"
-  HREF="node118.html">The other DHCP server</A>
- &nbsp; <B>  <A NAME="tex2html2063"
+<B> Next:</B> <A NAME="tex2html2080"
+  HREF="node120.html">The other DHCP server</A>
+<B> Up:</B> <A NAME="tex2html2076"
+  HREF="node111.html">Control clients</A>
+<B> Previous:</B> <A NAME="tex2html2070"
+  HREF="node118.html">Additional information:</A>
+ &nbsp; <B>  <A NAME="tex2html2078"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00923000000000000000">
-Configuring DHCP servers dynamically</A>
-</H2>
-Each time the network boot status of a client is changed (activated / deactivated), the script <SPAN  CLASS="textit">''/m23/bin/externalDHCPControl.sh''</SPAN> is called. You can adapt this script according to your needs in order to dynamically configure an existing DHCP server. More information can be found in the comments inside the script file.
+<H1><A NAME="SECTION00920000000000000000">
+Using m23 with an external DHCP server</A>
+</H1>Scenario: There is an existing DHCP server in your network, that distributes network settings (IP, netmask, ...) to all your computers and an m23 server, that should install the clients.
+<BR><IMG
+  WIDTH="1" HEIGHT="1" ALIGN="BOTTOM" BORDER="0"
+ SRC="./externalDHCP.png"
+ ALT="Image externalDHCP"> 
 <BR>
+Problem: The installation of the m23 clients doesn't work, because the other DHCP server assigns the network settings faster that the m23 server.
+<BR>
+Reason: The m23 server needs to assign the IP and other network settings to let the client boot and install via the network. If these settings are distributed by another DHCP server, the client cannot find the m23 server, cannot download the network bootimage and cannot be installed. This cannot be changed generally, because there are standards in the network and boot protocols, that define a standardised network booting procedure.
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2081"
+  HREF="node120.html">The other DHCP server can be deactivated</A>
+<LI><A NAME="tex2html2082"
+  HREF="node121.html">The other DHCP server CANNOT be deactivated</A>
+<LI><A NAME="tex2html2083"
+  HREF="node122.html">Alternatively: Create boot media</A>
+<LI><A NAME="tex2html2084"
+  HREF="node123.html">Configuring DHCP servers dynamically</A>
+<LI><A NAME="tex2html2085"
+  HREF="node124.html">ISC DHCP server</A>
+<LI><A NAME="tex2html2086"
+  HREF="node125.html">Other DHCP server</A>
+<LI><A NAME="tex2html2087"
+  HREF="node126.html">Proxy DHCP</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2017-06-13
+2017-12-13
 </ADDRESS>
 </BODY>
 </HTML>
