@@ -14,9 +14,9 @@ cd /mdk/doc/devguide
 rm -f -r *.dvi *.pdf devguide.ps html/* *.toc 2> /dev/null
 
 #First run for creating the table of contents
-pdflatex devguide.tex
+pdflatex -interaction nonstopmode devguide.tex
 #Next run to create the PDF with the updated table of contents
-pdflatex devguide.tex
+pdflatex -interaction nonstopmode devguide.tex
 
 cd /mdk/doc/devguide
 latex2html -local_icons devguide.tex -dir /mdk/doc/devguide/html

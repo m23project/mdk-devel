@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::virtualAddPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::virtualAddPartition">
+<TITLE>CFDiskIO::devNrExists</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::devNrExists">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node606.html">
 <LINK REL="previous" HREF="node604.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node606.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15122"
+<A NAME="tex2html15257"
   HREF="node606.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15118"
-  HREF="node542.html">
+<A NAME="tex2html15253"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15112"
+<A NAME="tex2html15247"
   HREF="node604.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15120"
+<A NAME="tex2html15255"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15123"
-  HREF="node606.html">CFDiskIO::virtualAddDisk</A>
-<B> Up:</B> <A NAME="tex2html15119"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15113"
-  HREF="node604.html">CFDiskIO::getLowestValueOf</A>
- &nbsp; <B>  <A NAME="tex2html15121"
+<B> Next:</B> <A NAME="tex2html15258"
+  HREF="node606.html">CFDiskIO::getBiggestLowestValueOf</A>
+<B> Up:</B> <A NAME="tex2html15254"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15248"
+  HREF="node604.html">CFDiskIO::correctLogical</A>
+ &nbsp; <B>  <A NAME="tex2html15256"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091563000000000000000">
-CFDiskIO::virtualAddPartition</A>
+<H2><A NAME="SECTION0091561000000000000000">
+CFDiskIO::devNrExists</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new (virtual) partition on a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if a certain (physical) partition number exists.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda2).
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>start: Start position (in MB) of the partition to create.
-</LI>
-<LI>end: End position (in MB) of the partition to create.
-</LI>
-<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
+<LI>devNr: Device numer you want to check (e.g. 2 for /dev/sda2)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Physical partition number of the new partition.
+<LI>true, when the (physical) partition number exists on the disk.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +76,7 @@ CFDiskIO::virtualAddPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

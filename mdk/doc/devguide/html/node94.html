@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>End position of a patchable area</TITLE>
-<META NAME="description" CONTENT="End position of a patchable area">
+<TITLE>Start position of a patchable area</TITLE>
+<META NAME="description" CONTENT="Start position of a patchable area">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,75 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node95.html">
 <LINK REL="previous" HREF="node93.html">
-<LINK REL="up" HREF="node92.html">
+<LINK REL="up" HREF="node93.html">
 <LINK REL="next" HREF="node95.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6134"
+<A NAME="tex2html6222"
   HREF="node95.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6130"
-  HREF="node92.html">
+<A NAME="tex2html6218"
+  HREF="node93.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6124"
+<A NAME="tex2html6212"
   HREF="node93.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6132"
+<A NAME="tex2html6220"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6135"
-  HREF="node95.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
-<B> Up:</B> <A NAME="tex2html6131"
-  HREF="node92.html">Indicating patchable areas in</A>
-<B> Previous:</B> <A NAME="tex2html6125"
-  HREF="node93.html">Start position of a</A>
- &nbsp; <B>  <A NAME="tex2html6133"
+<B> Next:</B> <A NAME="tex2html6223"
+  HREF="node95.html">End position of a</A>
+<B> Up:</B> <A NAME="tex2html6219"
+  HREF="node93.html">Indicating patchable areas in</A>
+<B> Previous:</B> <A NAME="tex2html6213"
+  HREF="node93.html">Indicating patchable areas in</A>
+ &nbsp; <B>  <A NAME="tex2html6221"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00812000000000000000">
-End position of a patchable area</A>
+<H2><A NAME="SECTION00811000000000000000">
+Start position of a patchable area</A>
 </H2>
 
 <P>
 
 <UL>
-<LI>HTML notation: "&lt;!<SPAN CLASS="MATH"></SPAN>m23customPatchEnd id=logo<SPAN CLASS="MATH"></SPAN>&gt;"
+<LI>HTML notation: "&lt;!<SPAN CLASS="MATH"></SPAN>m23customPatchBegin type=change id=logo<SPAN CLASS="MATH"></SPAN>&gt;"
 </LI>
-<LI>PHP notation: "/*m23customPatchEnd id=logo*/"
+<LI>PHP notation: "/*m23customPatchBegin type=change id=logo*/"
 </LI>
-<LI>PHP notation (alternativ): "//m23customPatchEnd id=logo"
+<LI>PHP notation (alternativ): "//m23customPatchBegin type=change id=logo"
 </LI>
-<LI>BASH notation: -Notation#m23customPatchEnd id=logo"
-</LI>
-</UL>
-
-<P>
-The parameter "type" defines how the contents between start and end position may be changed:
-
-<P>
-
-<UL>
-<LI>change: By running the m23customPatch file here, all code lines between the start and end position of a patchable area are replaced by the code lines of the m23customPatch file.
-</LI>
-<LI>del: By running the m23customPatch file here, all code lines between the start and end position will be deleted.
+<LI>BASH notation: "#m23customPatchBegin type=change id=logo"
 </LI>
 </UL>
-
-<P>
-The parameter "id" is a unique identifier to find the correct patchable area. The ID may be uses only once in each source file and is written in the m23customPatch file too. This way, the patchable area and m23customPatch file are "linked".
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

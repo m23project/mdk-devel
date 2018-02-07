@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::isDiskLockedByRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::isDiskLockedByRaid">
+<TITLE>CFDiskIO::setDiskPartLockedByRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::setDiskPartLockedByRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node582.html">
 <LINK REL="previous" HREF="node580.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node582.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14834"
+<A NAME="tex2html14969"
   HREF="node582.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14830"
-  HREF="node542.html">
+<A NAME="tex2html14965"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14824"
+<A NAME="tex2html14959"
   HREF="node580.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14832"
+<A NAME="tex2html14967"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14835"
-  HREF="node582.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
-<B> Up:</B> <A NAME="tex2html14831"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14825"
-  HREF="node580.html">CFDiskIO::isPartitionLockedByRaid</A>
- &nbsp; <B>  <A NAME="tex2html14833"
+<B> Next:</B> <A NAME="tex2html14970"
+  HREF="node582.html">CFDiskIO::isDiskOrPartLockedByRaid</A>
+<B> Up:</B> <A NAME="tex2html14966"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14960"
+  HREF="node580.html">CFDiskIO::isNVMe</A>
+ &nbsp; <B>  <A NAME="tex2html14968"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091539000000000000000">
-CFDiskIO::isDiskLockedByRaid</A>
+<H2><A NAME="SECTION0091537000000000000000">
+CFDiskIO::setDiskPartLockedByRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a disk is locked, because it is part of a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets or unsets the RAID lock of a partition or disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if the disk is locked, otherwise false.
+<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array).
+</LI>
+<LI>lock: Set to true, to set tha RAID lock, false for removing the lock.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ CFDiskIO::isDiskLockedByRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

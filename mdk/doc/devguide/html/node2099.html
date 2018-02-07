@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getNextPackage</TITLE>
-<META NAME="description" CONTENT="PKG_getNextPackage">
+<TITLE>PKG_addUser</TITLE>
+<META NAME="description" CONTENT="PKG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2100.html">
 <LINK REL="previous" HREF="node2098.html">
-<LINK REL="up" HREF="node2073.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2100.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34417"
+<A NAME="tex2html34570"
   HREF="node2100.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34413"
-  HREF="node2073.html">
+<A NAME="tex2html34566"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34407"
+<A NAME="tex2html34560"
   HREF="node2098.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34415"
+<A NAME="tex2html34568"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34418"
-  HREF="node2100.html">PKG_listRecommendPackages</A>
-<B> Up:</B> <A NAME="tex2html34414"
-  HREF="node2073.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html34408"
-  HREF="node2098.html">PKG_closeSearch</A>
- &nbsp; <B>  <A NAME="tex2html34416"
+<B> Next:</B> <A NAME="tex2html34571"
+  HREF="node2100.html">PKG_cleanPackageLine</A>
+<B> Up:</B> <A NAME="tex2html34567"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html34561"
+  HREF="node2098.html">PKG_addDebianUser</A>
+ &nbsp; <B>  <A NAME="tex2html34569"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096826000000000000000">
-PKG_getNextPackage</A>
+<H2><A NAME="SECTION009684000000000000000">
+PKG_addUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> fetches the next package
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a job for creating an user on the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: file handle
+<LI>client: Name of the client.
+</LI>
+<LI>login: Login name of the new user.
+</LI>
+<LI>firstpw: Password for the new user.
+</LI>
+<LI>groups: Array of groups the user should be added.
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ PKG_getNextPackage</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ucr set repository/app_center/server=appcenter-test.software-univention.de
+ucr set update/secure_apt=no
+ucr set appcenter/index/verify=no
+univention-install univention-appcenter-dev
+univention-app dev-use-test-appcenter

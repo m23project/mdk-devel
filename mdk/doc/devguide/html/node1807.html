@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarPercentPointByName</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarPercentPointByName">
+<TITLE>HTML_AJAXAutoSubmit</TITLE>
+<META NAME="description" CONTENT="HTML_AJAXAutoSubmit">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1808.html">
 <LINK REL="previous" HREF="node1806.html">
-<LINK REL="up" HREF="node1778.html">
+<LINK REL="up" HREF="node1798.html">
 <LINK REL="next" HREF="node1808.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30604"
+<A NAME="tex2html30754"
   HREF="node1808.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30600"
-  HREF="node1778.html">
+<A NAME="tex2html30750"
+  HREF="node1798.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30594"
+<A NAME="tex2html30744"
   HREF="node1806.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30602"
+<A NAME="tex2html30752"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30605"
-  HREF="node1808.html">HTML_setStatusBarStatusByName</A>
-<B> Up:</B> <A NAME="tex2html30601"
-  HREF="node1778.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30595"
-  HREF="node1806.html">HTML_incStatusBarPercentByName</A>
- &nbsp; <B>  <A NAME="tex2html30603"
+<B> Next:</B> <A NAME="tex2html30755"
+  HREF="node1808.html">HTML_liveSpan</A>
+<B> Up:</B> <A NAME="tex2html30751"
+  HREF="node1798.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30745"
+  HREF="node1806.html">HTML_setOutputBuffer</A>
+ &nbsp; <B>  <A NAME="tex2html30753"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095729000000000000000">
-HTML_setStatusBarPercentPointByName</A>
+<H2><A NAME="SECTION009579000000000000000">
+HTML_AJAXAutoSubmit</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the value of a percent point according to the amount of waiting packages and stores the result in the DB.
+<SPAN  CLASS="textbf">Description:</SPAN> Defines AJAX code that clicks a submit button when the given URL returns 'submit'. The defined constant should be used as LAST part of the $extra parameter in the HTML_submit function.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>statusBarName: The name of the status bar.
+<LI>htmlNames: Name of the HTML submit element (button).
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>url: The HTTP URL to poll.
 </LI>
-<LI>recalculate: true, if the remaining percent value of the status bar should be used to calculate a new (better fitting) percentpoint.
+<LI>timeout: Time in milliseconds to poll the URL for new status.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>false on errors, otherwise true.
+<LI>Constant name to insert into $extra.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ HTML_setStatusBarPercentPointByName</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createInstallPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createInstallPartition">
+<TITLE>CFDiskBasic::formatPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::formatPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node482.html">
 <LINK REL="previous" HREF="node480.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node482.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13472"
+<A NAME="tex2html13603"
   HREF="node482.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13468"
-  HREF="node461.html">
+<A NAME="tex2html13599"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13462"
+<A NAME="tex2html13593"
   HREF="node480.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13470"
+<A NAME="tex2html13601"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13473"
-  HREF="node482.html">CFDiskBasic::createSwapPartition</A>
-<B> Up:</B> <A NAME="tex2html13469"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13463"
-  HREF="node480.html">CFDiskBasic::deleteAllPartitions</A>
- &nbsp; <B>  <A NAME="tex2html13471"
+<B> Next:</B> <A NAME="tex2html13604"
+  HREF="node482.html">CFDiskBasic::deleteAllPartitions</A>
+<B> Up:</B> <A NAME="tex2html13600"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13594"
+  HREF="node480.html">CFDiskBasic::deletePartition</A>
+ &nbsp; <B>  <A NAME="tex2html13602"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091320000000000000000">
-CFDiskBasic::createInstallPartition</A>
+<H2><A NAME="SECTION0091317000000000000000">
+CFDiskBasic::formatPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates and formats an installation partition and makes it bootable. The created partition is stored in the client parameters as installation partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Formats a partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>diskDev: The disk device (e.g. /dev/hda) where the installation partition should be created on.
+<LI>dev: partition to format (e.g. /dev/hda1)
 </LI>
-<LI>instStart: Start position of the installation partition (in MB).
-</LI>
-<LI>instEnd: End position of the installation partition (in MB).
+<LI>fs: type of filesystem
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ CFDiskBasic::createInstallPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoUpdate::activateNextSet</TITLE>
-<META NAME="description" CONTENT="CAutoUpdate::activateNextSet">
+<TITLE>CAutoUpdate::activateSet</TITLE>
+<META NAME="description" CONTENT="CAutoUpdate::activateSet">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node234.html">
 <LINK REL="previous" HREF="node232.html">
-<LINK REL="up" HREF="node216.html">
+<LINK REL="up" HREF="node217.html">
 <LINK REL="next" HREF="node234.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10263"
+<A NAME="tex2html10393"
   HREF="node234.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10259"
-  HREF="node216.html">
+<A NAME="tex2html10389"
+  HREF="node217.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10253"
+<A NAME="tex2html10383"
   HREF="node232.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10261"
+<A NAME="tex2html10391"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10264"
-  HREF="node234.html">CAutoUpdate::activateNextTimlySet</A>
-<B> Up:</B> <A NAME="tex2html10260"
-  HREF="node216.html">./inc/CAutoUpdate.php</A>
-<B> Previous:</B> <A NAME="tex2html10254"
-  HREF="node232.html">CAutoUpdate::activateSet</A>
- &nbsp; <B>  <A NAME="tex2html10262"
+<B> Next:</B> <A NAME="tex2html10394"
+  HREF="node234.html">CAutoUpdate::activateNextSet</A>
+<B> Up:</B> <A NAME="tex2html10390"
+  HREF="node217.html">./inc/CAutoUpdate.php</A>
+<B> Previous:</B> <A NAME="tex2html10384"
+  HREF="node232.html">CAutoUpdate::isASetActive</A>
+ &nbsp; <B>  <A NAME="tex2html10392"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009917000000000000000">
-CAutoUpdate::activateNextSet</A>
+<H2><A NAME="SECTION009916000000000000000">
+CAutoUpdate::activateSet</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Activates the next set with the oldest timestamp.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Activates one set and deactivates all other sets.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: ID of the active set or NULL, if no set could be activated.
+<LI>id: ID of the set to activate.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: true, of the set with the given ID could be activated, otherwise dies.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CAutoUpdate::activateNextSet</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

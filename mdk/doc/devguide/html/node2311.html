@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_delEtcHosts</TITLE>
-<META NAME="description" CONTENT="SERVER_delEtcHosts">
+<TITLE>SERVER_addAdmin</TITLE>
+<META NAME="description" CONTENT="SERVER_addAdmin">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2312.html">
 <LINK REL="previous" HREF="node2310.html">
-<LINK REL="up" HREF="node2267.html">
+<LINK REL="up" HREF="node2291.html">
 <LINK REL="next" HREF="node2312.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37074"
+<A NAME="tex2html37236"
   HREF="node2312.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37070"
-  HREF="node2267.html">
+<A NAME="tex2html37232"
+  HREF="node2291.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37064"
+<A NAME="tex2html37226"
   HREF="node2310.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37072"
+<A NAME="tex2html37234"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37075"
-  HREF="node2312.html">SERVER_getInstallationMedium</A>
-<B> Up:</B> <A NAME="tex2html37071"
-  HREF="node2267.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html37065"
-  HREF="node2310.html">SERVER_addEtcHosts</A>
- &nbsp; <B>  <A NAME="tex2html37073"
+<B> Next:</B> <A NAME="tex2html37237"
+  HREF="node2312.html">SERVER_delAdmin</A>
+<B> Up:</B> <A NAME="tex2html37233"
+  HREF="node2291.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37227"
+  HREF="node2310.html">SERVER_insertLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html37235"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097644000000000000000">
-SERVER_delEtcHosts</A>
+<H2><A NAME="SECTION0097620000000000000000">
+SERVER_addAdmin</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a host entry from /etc/hosts and /etc/backuppc/hosts
+<SPAN  CLASS="textbf">Description:</SPAN> Adds an administrator with all access rights.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>hostname: name of the host to delete
+<LI>newadmin: Name of the new admin to create.
+</LI>
+<LI>password: Password for the admin account.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: true, if the deletion was sucessfully otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ SERVER_delEtcHosts</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

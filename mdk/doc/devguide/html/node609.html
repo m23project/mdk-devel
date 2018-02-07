@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::collidesWithPartitionOfType</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::collidesWithPartitionOfType">
+<TITLE>CFDiskIO::virtualAddPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::virtualAddPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node610.html">
 <LINK REL="previous" HREF="node608.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node610.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15170"
+<A NAME="tex2html15305"
   HREF="node610.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15166"
-  HREF="node542.html">
+<A NAME="tex2html15301"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15160"
+<A NAME="tex2html15295"
   HREF="node608.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15168"
+<A NAME="tex2html15303"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15171"
-  HREF="node610.html">CFDiskIO::isFreeSpaceBetween</A>
-<B> Up:</B> <A NAME="tex2html15167"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15161"
-  HREF="node608.html">CFDiskIO::FDISK_dev2VDiskVPart_Legacy</A>
- &nbsp; <B>  <A NAME="tex2html15169"
+<B> Next:</B> <A NAME="tex2html15306"
+  HREF="node610.html">CFDiskIO::virtualAddDisk</A>
+<B> Up:</B> <A NAME="tex2html15302"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15296"
+  HREF="node608.html">CFDiskIO::getLowestValueOf</A>
+ &nbsp; <B>  <A NAME="tex2html15304"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091567000000000000000">
-CFDiskIO::collidesWithPartitionOfType</A>
+<H2><A NAME="SECTION0091565000000000000000">
+CFDiskIO::virtualAddPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if a partition (to be created) defined by start and end position would collide with existing partitions of given type.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new (virtual) partition on a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
+<LI>dev: The device (e.g. /dev/sda2).
 </LI>
-<LI>type: type of the partition (primary, extended, logical, efipart, or -1 to match all partition types)
+<LI>start: Start position (in MB) of the partition to create.
 </LI>
-<LI>start: start position for the partition (to be created)
+<LI>end: End position (in MB) of the partition to create.
 </LI>
-<LI>end: end position for the  partition (to be created)
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the partition to create would collide, otherwise false.
+<LI>Physical partition number of the new partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +80,7 @@ CFDiskIO::collidesWithPartitionOfType</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

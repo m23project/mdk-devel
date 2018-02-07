@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::deleteAllPartitionsOnDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::deleteAllPartitionsOnDisk">
+<TITLE>CFDiskBasic::assignDeviceToRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::assignDeviceToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node491.html">
 <LINK REL="previous" HREF="node489.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node491.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13580"
+<A NAME="tex2html13711"
   HREF="node491.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13576"
-  HREF="node461.html">
+<A NAME="tex2html13707"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13570"
+<A NAME="tex2html13701"
   HREF="node489.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13578"
+<A NAME="tex2html13709"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13581"
-  HREF="node491.html">CFDiskBasic::fdiskAdjustPartitioningLinearScale</A>
-<B> Up:</B> <A NAME="tex2html13577"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13571"
-  HREF="node489.html">CFDiskBasic::deleteDeviceFromRaid</A>
- &nbsp; <B>  <A NAME="tex2html13579"
+<B> Next:</B> <A NAME="tex2html13712"
+  HREF="node491.html">CFDiskBasic::deleteDeviceFromRaid</A>
+<B> Up:</B> <A NAME="tex2html13708"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13702"
+  HREF="node489.html">CFDiskBasic::deleteRaid</A>
+ &nbsp; <B>  <A NAME="tex2html13710"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091329000000000000000">
-CFDiskBasic::deleteAllPartitionsOnDisk</A>
+<H2><A NAME="SECTION0091326000000000000000">
+CFDiskBasic::assignDeviceToRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all partitions on a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a partition or disk to a RAID disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name of the disk.
+<LI>raidDev: Device name of the RAID (eg. /dev/md0)
+</LI>
+<LI>devToAdd: partition or disk device name to add.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the device could be added, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskBasic::deleteAllPartitionsOnDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_deleteUserdataFromDB</TITLE>
-<META NAME="description" CONTENT="m23SHARED_deleteUserdataFromDB">
+<TITLE>LDAP_addPosix</TITLE>
+<META NAME="description" CONTENT="LDAP_addPosix">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1896.html">
 <LINK REL="previous" HREF="node1894.html">
-<LINK REL="up" HREF="node1893.html">
+<LINK REL="up" HREF="node1888.html">
 <LINK REL="next" HREF="node1896.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31772"
+<A NAME="tex2html31853"
   HREF="node1896.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31768"
-  HREF="node1893.html">
+<A NAME="tex2html31849"
+  HREF="node1888.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31762"
+<A NAME="tex2html31843"
   HREF="node1894.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31770"
+<A NAME="tex2html31851"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31773"
-  HREF="node1896.html">m23SHARED_isMarkedForDeletion</A>
-<B> Up:</B> <A NAME="tex2html31769"
-  HREF="node1893.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html31763"
-  HREF="node1894.html">m23SHARED_deleteBills</A>
- &nbsp; <B>  <A NAME="tex2html31771"
+<B> Next:</B> <A NAME="tex2html31854"
+  HREF="node1896.html">LDAP_fqdn2dn</A>
+<B> Up:</B> <A NAME="tex2html31850"
+  HREF="node1888.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html31844"
+  HREF="node1894.html">LDAP_loadServer</A>
+ &nbsp; <B>  <A NAME="tex2html31852"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009612000000000000000">
-m23SHARED_deleteUserdataFromDB</A>
+<H2><A NAME="SECTION009607000000000000000">
+LDAP_addPosix</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes user data not needed for archiving purpose.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>ldapServer: name of the LDAP server stored in the configuration file
+</LI>
+<LI>account: the login name
+</LI>
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true or error message string in case of an error.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

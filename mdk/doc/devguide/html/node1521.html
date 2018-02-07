@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_mdToEndOfArray</TITLE>
-<META NAME="description" CONTENT="FDISK_mdToEndOfArray">
+<TITLE>EDIT_commentout</TITLE>
+<META NAME="description" CONTENT="EDIT_commentout">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1522.html">
 <LINK REL="previous" HREF="node1520.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1511.html">
 <LINK REL="next" HREF="node1522.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26974"
+<A NAME="tex2html27016"
   HREF="node1522.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26970"
-  HREF="node1518.html">
+<A NAME="tex2html27012"
+  HREF="node1511.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26964"
+<A NAME="tex2html27006"
   HREF="node1520.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26972"
+<A NAME="tex2html27014"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26975"
-  HREF="node1522.html">FDISK_getFstabArray</A>
-<B> Up:</B> <A NAME="tex2html26971"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html26965"
-  HREF="node1520.html">FDISK_showCombinedFdiskGUIDialog</A>
- &nbsp; <B>  <A NAME="tex2html26973"
+<B> Next:</B> <A NAME="tex2html27017"
+  HREF="node1522.html">EDIT_insertAfterLineNumber</A>
+<B> Up:</B> <A NAME="tex2html27013"
+  HREF="node1511.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html27007"
+  HREF="node1520.html">EDIT_uncomment</A>
+ &nbsp; <B>  <A NAME="tex2html27015"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009523000000000000000">
-FDISK_mdToEndOfArray</A>
+<H2><A NAME="SECTION0095110000000000000000">
+EDIT_commentout</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Orders all MD devices from the input array to the end of the output array.
+<SPAN  CLASS="textbf">Description:</SPAN> comments out lines in range or matching lines
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Associative array with devices as keys and values (e.g Array ( [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 )).
+<LI>file: the name of the file
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Associative array with devices as keys and values where the MDs are at the end (e.g. Array ( [/dev/sda1] =<SPAN CLASS="MATH"></SPAN> /dev/sda1 [/dev/sdb2] =<SPAN CLASS="MATH"></SPAN> /dev/sdb2 [/dev/md0] =<SPAN CLASS="MATH"></SPAN> /dev/md0 )).
+<LI>from: start commenting out from this line
+</LI>
+<LI>to: stop commenting out at this line
+</LI>
+<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
+</LI>
+<LI>match: 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ FDISK_mdToEndOfArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

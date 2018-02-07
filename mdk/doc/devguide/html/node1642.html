@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_HTMLBackToDetails</TITLE>
-<META NAME="description" CONTENT="GRP_HTMLBackToDetails">
+<TITLE>FDISK_buildRaidDialog</TITLE>
+<META NAME="description" CONTENT="FDISK_buildRaidDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1643.html">
 <LINK REL="previous" HREF="node1641.html">
-<LINK REL="up" HREF="node1628.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1643.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28456"
+<A NAME="tex2html28575"
   HREF="node1643.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28452"
-  HREF="node1628.html">
+<A NAME="tex2html28571"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28446"
+<A NAME="tex2html28565"
   HREF="node1641.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28454"
+<A NAME="tex2html28573"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28457"
-  HREF="node1643.html">GRP_countClients</A>
-<B> Up:</B> <A NAME="tex2html28453"
-  HREF="node1628.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html28447"
-  HREF="node1641.html">GRP_ren</A>
- &nbsp; <B>  <A NAME="tex2html28455"
+<B> Next:</B> <A NAME="tex2html28576"
+  HREF="node1643.html">FDISK_addRaidJobs</A>
+<B> Up:</B> <A NAME="tex2html28572"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28566"
+  HREF="node1641.html">FDISK_addDrivePartitionToRaid</A>
+ &nbsp; <B>  <A NAME="tex2html28574"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095314000000000000000">
-GRP_HTMLBackToDetails</A>
+<H2><A NAME="SECTION00952104000000000000000">
+FDISK_buildRaidDialog</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates HTML code to return to the group details page
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for creating RAIDs of different types and assign real drives or partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>groupName: name of the group
+<LI>param: parameter string containing status information about the harddisks
 </LI>
-<LI>section: name of the section to jump to
+<LI>partJobs: associative array with partition jobs
+</LI>
+<LI>currentDrive: the current drive to work on (e.g. hda)
+</LI>
+<LI>helpPage: Name of the help page to show.
+</LI>
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+</LI>
+<LI>partMethod: partition method (used for the partition/format dialog). The next step will depend on this value.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +84,7 @@ GRP_HTMLBackToDetails</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

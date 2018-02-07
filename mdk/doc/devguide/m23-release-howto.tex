@@ -43,8 +43,8 @@
 		\item Maybe recreate the UCS extra package: Call quickBuild.sh m23-ucs-extra
 		\item Test the packages
 		\begin{itemize}
-			\item UCS VM (local repository): Call /mdk/m23helper/addLocalm23ServerRepository, install m23
-			\item UCS VM (online test repository): Call /mdk/m23helper/addUCSTestRepository, install m23
+			\item UCS VM (local repository): Call /mdk/ucs/installLocalm23DebsOnUCS to install m23 and create the tar with the unmaintained Debian packages.
+			\item UCS VM (online test repository): Copy /mdk/ucs/addUCSTestRepository to the UCS and install m23
 			\item Debian: Call /mdk/m23helper/addLocalm23ServerRepository, install m23
 		\end{itemize}
 		\item Upload the packages, if all seems to be right: \Rightarrow directuplinst
@@ -80,9 +80,7 @@
 		\item Enable root login for SSH in /etc/ssh/sshd\_config
 		\item Log out and log into it via SSH (user: root, password: test)
 		\item Remove the user pi: userdel -r -f pi
-		\item Add "192.168.1.77 m23debs" to /etc/hosts
-		\item Create "/etc/apt/sources.list.d/m23debs.list" with the contents "deb http://m23debs ./"
-		\item Update the package index: apt-get update
+		\item Copy /mdk/m23helper/addLocalm23ServerRepository to the RasPi and execute it there
 		\item Install the m23 server: apt-get install m23
 		\item Choose yes on all options and use "test" for all passwords.
 		\item After the failure edit /etc/default/tftpd-hpa: Adjust TFTP\_OPTIONS="-4 $--$secure"
@@ -94,10 +92,19 @@
 \end{itemize}
 
 
+\subsection{Update the m23admin-offline-copy}
+	\begin{itemize}
+		\item VM: Start the VM and make sure it's available under 192.168.1.23
+		\item Host: Export and transfer a new SQL dump: /mdk/m23helper/m23admin-offline-copy/export-dataset.sh
+		\item VM: Import the SQL dump and data files: /mdk/m23helper/m23admin-offline-copy/import.sh
+		\item Host: Call /mdk/m23helper/m23admin-offline-copy/dlhttrack to make the offline copy and upload the files to SF.
+	\end{itemize}
+
+
 \subsection{CMS}
 \begin{itemize}
 	\item Write an article
-	\item Create new link files and move the old to the old directories.
+	\item Create the link files by calling /mdk/doc/CMSLinkCreator.sh for the ISO, OVA and RasPi image.
 	\item Check in into Bazaar
 	\item Upload the files.
 \end{itemize}

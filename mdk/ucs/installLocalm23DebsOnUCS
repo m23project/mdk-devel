@@ -1,0 +1,86 @@
+#!/bin/bash
+
+ret=1
+ipPrefix='192.168.1.'
+UCSIP=''
+installFile='/tmp/m23ucsinstall.sh'
+
+
+
+# Copy files without storing the SSH server in the known hosts file
+scpWithoutHostfile()
+{
+	scp -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C "$@"
+}
+
+
+
+# Execute SSH command without storing the SSH server in the known hosts file
+sshWithoutHostfile()
+{
+	ssh -o ServerAliveInterval=100 -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C  "$1" "export TERM='screen'; $2"
+}
+
+
+
+# Read the IP as long as it is pingable
+while [ $ret -ne 0 ]
+do
+	echo "Enter the last part of the IP \"${ipPrefix}X\""
+	read ipPart
+	UCSIP="${ipPrefix}$ipPart"
+	
+	ping -c1 -t1 -W1 -qq $UCSIP &> /dev/null
+	ret=$?
+done
+
+
+
+
+# Write the installer script
+cat >> $installFile << "EOF"
+hosts="m23debs m23ucs"
+
+# Add the hostnames of the repo server
+for host in $hosts
+do
+	if [ $(grep $host /etc/hosts -c) -eq 0 ]
+	then
+		echo 192.168.1.77 $host >> /etc/hosts
+	fi
+done
+
+# Add the entries to the sources.list
+for host in $hosts
+do
+	if [ $(grep $host /etc/apt/sources.list -c) -eq 0 ]
+	then
+		echo "deb http://$host ./" >> /etc/apt/sources.list.d/m23debs.list
+	fi
+done
+
+echo "mysql-server-5.5 mysql-server/root_password_again password test
+mysql-server-5.5 mysql-server/root_password password test" | debconf-set-selections
+
+# Activate the unmaintained packages
+ucr set repository/online/unmaintained="yes"
+
+# Update the package sources
+apt-get update
+
+# Install the dependencies and m23 itself
+apt-get install --yes --force-yes m23-ucs-extra
+
+/mdk/ucs/check-UCS-unmaintained
+EOF
+
+# Copy the files to the UCS
+scpWithoutHostfile $installFile "root@$UCSIP:/tmp"
+
+# Execute the installer script
+sshWithoutHostfile root@$UCSIP "bash $installFile"
+
+rm $installFile
+
+scpWithoutHostfile "root@$UCSIP:/tmp/ucs*unmaintained*.tar.gz" .
+

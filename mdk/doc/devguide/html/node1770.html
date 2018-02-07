@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_compareLengthAbc</TITLE>
-<META NAME="description" CONTENT="HELPER_compareLengthAbc">
+<TITLE>HELPER_getRemoteFileContents</TITLE>
+<META NAME="description" CONTENT="HELPER_getRemoteFileContents">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1771.html">
 <LINK REL="previous" HREF="node1769.html">
-<LINK REL="up" HREF="node1718.html">
+<LINK REL="up" HREF="node1738.html">
 <LINK REL="next" HREF="node1771.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30098"
+<A NAME="tex2html30247"
   HREF="node1771.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30094"
-  HREF="node1718.html">
+<A NAME="tex2html30243"
+  HREF="node1738.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30088"
+<A NAME="tex2html30237"
   HREF="node1769.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30096"
+<A NAME="tex2html30245"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30099"
-  HREF="node1771.html">HELPER_sortByLength</A>
-<B> Up:</B> <A NAME="tex2html30095"
-  HREF="node1718.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html30089"
-  HREF="node1769.html">HELPER_maxPhpUploadSize</A>
- &nbsp; <B>  <A NAME="tex2html30097"
+<B> Next:</B> <A NAME="tex2html30248"
+  HREF="node1771.html">HELPER_passGenerator</A>
+<B> Up:</B> <A NAME="tex2html30244"
+  HREF="node1738.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html30238"
+  HREF="node1769.html">HELPER_debugBacktraceToFile</A>
+ &nbsp; <B>  <A NAME="tex2html30246"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095552000000000000000">
-HELPER_compareLengthAbc</A>
+<H2><A NAME="SECTION0095532000000000000000">
+HELPER_getRemoteFileContents</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Compares the length of two strings and then by alphabet
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads a file if it is not older than a given time and returns its contents.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>$a: string of a certain length
+<LI>url: The URL where to download the file from.
 </LI>
-<LI>$b: string of a certain length
+<LI>storeFile: The file name to store the download in.
+</LI>
+<LI>refreshTime: The time in minutes the file is downloaded again.
+</LI>
+<LI>forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
+</LI>
+<LI>noProxy: Set to true, if the system proxy should not be used.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The contents of the files from chache or from download or false if no file could be found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +82,7 @@ HELPER_compareLengthAbc</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

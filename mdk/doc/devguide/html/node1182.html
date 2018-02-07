@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_installBasePackages</TITLE>
-<META NAME="description" CONTENT="CLCFG_installBasePackages">
+<TITLE>CLCFG_addUser</TITLE>
+<META NAME="description" CONTENT="CLCFG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1183.html">
 <LINK REL="previous" HREF="node1181.html">
-<LINK REL="up" HREF="node1131.html">
+<LINK REL="up" HREF="node1147.html">
 <LINK REL="next" HREF="node1183.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22525"
+<A NAME="tex2html22671"
   HREF="node1183.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22521"
-  HREF="node1131.html">
+<A NAME="tex2html22667"
+  HREF="node1147.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22515"
+<A NAME="tex2html22661"
   HREF="node1181.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22523"
+<A NAME="tex2html22669"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22526"
-  HREF="node1183.html">CLCFG_setDebconf</A>
-<B> Up:</B> <A NAME="tex2html22522"
-  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22516"
-  HREF="node1181.html">CLCFG_importLocalPoolKey</A>
- &nbsp; <B>  <A NAME="tex2html22524"
+<B> Next:</B> <A NAME="tex2html22672"
+  HREF="node1183.html">CLCFG_createBootDeviceNode</A>
+<B> Up:</B> <A NAME="tex2html22668"
+  HREF="node1147.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22662"
+  HREF="node1181.html">CLCFG_writeHosts</A>
+ &nbsp; <B>  <A NAME="tex2html22670"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093951000000000000000">
-CLCFG_installBasePackages</A>
+<H2><A NAME="SECTION0093935000000000000000">
+CLCFG_addUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> installs needed base packages
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to add a user on the client. it adds the user account, creates a home directory, copies the m23 skel files and sets the
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>packagelist: the list of the packages to install
+<LI>userName: the username for the account
 </LI>
-<LI>keyring: name of the keyring package
+<LI>password: the unecrypted password for the account
+</LI>
+<LI>groups: the groups the user should be added to
+</LI>
+<LI>skelDir: directory to the skeleton files
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ CLCFG_installBasePackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

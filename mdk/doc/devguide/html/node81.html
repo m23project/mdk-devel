@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Filling the *OptionPage.php</TITLE>
-<META NAME="description" CONTENT="Filling the *OptionPage.php">
+<TITLE>The *OptionPage.php</TITLE>
+<META NAME="description" CONTENT="The *OptionPage.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,71 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node82.html">
 <LINK REL="previous" HREF="node80.html">
-<LINK REL="up" HREF="node79.html">
+<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node82.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5959"
+<A NAME="tex2html6047"
   HREF="node82.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5955"
-  HREF="node79.html">
+<A NAME="tex2html6043"
+  HREF="node80.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5949"
+<A NAME="tex2html6037"
   HREF="node80.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5957"
+<A NAME="tex2html6045"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5960"
-  HREF="node82.html">Layoutoptions</A>
-<B> Up:</B> <A NAME="tex2html5956"
-  HREF="node79.html">Additional installation parameters for</A>
-<B> Previous:</B> <A NAME="tex2html5950"
-  HREF="node80.html">The *OptionPage.php</A>
- &nbsp; <B>  <A NAME="tex2html5958"
+<B> Next:</B> <A NAME="tex2html6048"
+  HREF="node82.html">Filling the *OptionPage.php</A>
+<B> Up:</B> <A NAME="tex2html6044"
+  HREF="node80.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html6038"
+  HREF="node80.html">Additional installation parameters for</A>
+ &nbsp; <B>  <A NAME="tex2html6046"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006102000000000000000">
-Filling the *OptionPage.php</A>
+<H2><A NAME="SECTION006101000000000000000">
+The *OptionPage.php</A>
 </H2>
-To make it easier for you there are two functions that help you to generate your option page. To use these function you have to include <SPAN  CLASS="textit">/m23/inc/packages.php</SPAN>
-
-<UL>
-<LI><SPAN  CLASS="textit">PKG_OptionPageHeader($title)</SPAN>: For starting the page. It generates all necessary HTML code (colors, styles, tables, form) and expects a title for your option page. This title is shown in the window label of your webbrowser and in the window itself. It returnes an associative array with all parameters of the selected package. These values are used to initalise the OptionPage if it is opened for the first time.
-
-<P>
-</LI>
-<LI><SPAN  CLASS="textit">PKG_OptionPageTail($layout)</SPAN>: Renderes the layout of the page, adds a save button and closes the HTML page.
-
-<P>
-</LI>
-<LI><SPAN  CLASS="textit">PKG_OptionPageGetValue($variable,$params)</SPAN>: gets a value from the $_GET array or falls back to the params values. This is used if there havn't been entered values in the OptionPage.
-</LI>
-</UL>
-Your OptionPage needs to have the following elements:
-<PRE>
-include ('/m23/inc/packages.php');
-
-$params = PKG_OptionPageHeader("My OptionPage title");
-
-$layout[0]...
-
-PKG_OptionPageTail($layout);
-</PRE>
+If you want to enable this feature for a special package (e.g. apache) you have to design an OptionPage. This page shows and writes/reads possible options of this package. The file is called &lt;packagename&gt;OptionPage.php. In our example it's <SPAN  CLASS="textbf">apacheOptionPage.php</SPAN>. The file is placed in the 
+<BR><SPAN  CLASS="textit">/m23/data+scripts/distr/&lt;distributionname&gt;/packages directory</SPAN>. It is important to put the *OptionPage.php in the correct directory, otherwise the it can't be found.
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

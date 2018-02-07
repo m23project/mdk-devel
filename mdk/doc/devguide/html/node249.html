@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CChecks::checkSizeInMB</TITLE>
-<META NAME="description" CONTENT="CChecks::checkSizeInMB">
+<TITLE>./inc/CChecks.php</TITLE>
+<META NAME="description" CONTENT="./inc/CChecks.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,140 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node250.html">
-<LINK REL="previous" HREF="node248.html">
-<LINK REL="up" HREF="node248.html">
+<LINK REL="next" HREF="node290.html">
+<LINK REL="previous" HREF="node217.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node250.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10493"
+<A NAME="tex2html10583"
   HREF="node250.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10489"
-  HREF="node248.html">
+<A NAME="tex2html10579"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10483"
+<A NAME="tex2html10573"
   HREF="node248.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10491"
+<A NAME="tex2html10581"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10494"
-  HREF="node250.html">CChecks::checkDiskDefinedSize</A>
-<B> Up:</B> <A NAME="tex2html10490"
-  HREF="node248.html">./inc/CChecks.php</A>
-<B> Previous:</B> <A NAME="tex2html10484"
-  HREF="node248.html">./inc/CChecks.php</A>
- &nbsp; <B>  <A NAME="tex2html10492"
+<B> Next:</B> <A NAME="tex2html10584"
+  HREF="node250.html">CChecks::checkSizeInMB</A>
+<B> Up:</B> <A NAME="tex2html10580"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html10574"
+  HREF="node248.html">CAutoUpdate::showAutoUpdateManager</A>
+ &nbsp; <B>  <A NAME="tex2html10582"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009101000000000000000">
-CChecks::checkSizeInMB</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if a size in MB is valid.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>size: Size to check.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if the size is valid (numeric) otherwise false.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009100000000000000000">
+./inc/CChecks.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for checking values.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html10585"
+  HREF="node250.html">CChecks::checkSizeInMB</A>
+<LI><A NAME="tex2html10586"
+  HREF="node251.html">CChecks::checkDiskDefinedSize</A>
+<LI><A NAME="tex2html10587"
+  HREF="node252.html">CChecks::checkFdiskAdjustmentUpperToleranceIdentical</A>
+<LI><A NAME="tex2html10588"
+  HREF="node253.html">CChecks::checkFdiskAdjustmentLowerToleranceIdentical</A>
+<LI><A NAME="tex2html10589"
+  HREF="node254.html">CChecks::checkSwapPart</A>
+<LI><A NAME="tex2html10590"
+  HREF="node255.html">CChecks::checkEFIPart</A>
+<LI><A NAME="tex2html10591"
+  HREF="node256.html">CChecks::checkInstPart</A>
+<LI><A NAME="tex2html10592"
+  HREF="node257.html">CChecks::checkMountDev</A>
+<LI><A NAME="tex2html10593"
+  HREF="node258.html">CChecks::checkMountPoint</A>
+<LI><A NAME="tex2html10594"
+  HREF="node259.html">CChecks::checkFdiskAdjustmentSpecifiedDev</A>
+<LI><A NAME="tex2html10595"
+  HREF="node260.html">CChecks::checkRelease</A>
+<LI><A NAME="tex2html10596"
+  HREF="node261.html">CChecks::checkDistribution</A>
+<LI><A NAME="tex2html10597"
+  HREF="node262.html">CChecks::checkNfshomeserver</A>
+<LI><A NAME="tex2html10598"
+  HREF="node263.html">CChecks::checkGroupname</A>
+<LI><A NAME="tex2html10599"
+  HREF="node264.html">CChecks::checkUserGroupIDs</A>
+<LI><A NAME="tex2html10600"
+  HREF="node265.html">CChecks::checkLanguage</A>
+<LI><A NAME="tex2html10601"
+  HREF="node266.html">CChecks::checkRootpassword</A>
+<LI><A NAME="tex2html10602"
+  HREF="node267.html">CChecks::firstpw</A>
+<LI><A NAME="tex2html10603"
+  HREF="node268.html">CChecks::checkLogin</A>
+<LI><A NAME="tex2html10604"
+  HREF="node269.html">CChecks::checkProxy</A>
+<LI><A NAME="tex2html10605"
+  HREF="node270.html">CChecks::checkOffice</A>
+<LI><A NAME="tex2html10606"
+  HREF="node271.html">CChecks::checkEmail</A>
+<LI><A NAME="tex2html10607"
+  HREF="node272.html">CChecks::checkFamilyname</A>
+<LI><A NAME="tex2html10608"
+  HREF="node273.html">CChecks::checkForename</A>
+<LI><A NAME="tex2html10609"
+  HREF="node274.html">CChecks::checkIPGeneric</A>
+<LI><A NAME="tex2html10610"
+  HREF="node275.html">CChecks::checkIP</A>
+<LI><A NAME="tex2html10611"
+  HREF="node276.html">CChecks::checkNonusedIP</A>
+<LI><A NAME="tex2html10612"
+  HREF="node277.html">CChecks::checkDNS1</A>
+<LI><A NAME="tex2html10613"
+  HREF="node278.html">CChecks::checkDNS2</A>
+<LI><A NAME="tex2html10614"
+  HREF="node279.html">CChecks::checkGateway</A>
+<LI><A NAME="tex2html10615"
+  HREF="node280.html">CChecks::checkClientname</A>
+<LI><A NAME="tex2html10616"
+  HREF="node281.html">CChecks::checkNonusedClientname</A>
+<LI><A NAME="tex2html10617"
+  HREF="node282.html">CChecks::checkNetmask</A>
+<LI><A NAME="tex2html10618"
+  HREF="node283.html">CChecks::checkMAC</A>
+<LI><A NAME="tex2html10619"
+  HREF="node284.html">CChecks::checkNonusedMAC</A>
+<LI><A NAME="tex2html10620"
+  HREF="node285.html">CChecks::checkIPRange</A>
+<LI><A NAME="tex2html10621"
+  HREF="node286.html">CChecks::checkStatus</A>
+<LI><A NAME="tex2html10622"
+  HREF="node287.html">CChecks::checkBootType</A>
+<LI><A NAME="tex2html10623"
+  HREF="node288.html">CChecks::genericCHECK_FW</A>
+<LI><A NAME="tex2html10624"
+  HREF="node289.html">CChecks::checkPoolName</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

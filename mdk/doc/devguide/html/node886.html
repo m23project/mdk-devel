@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CMessageManager::showWarning</TITLE>
-<META NAME="description" CONTENT="CMessageManager::showWarning">
+<TITLE>CMessageManager::addMessage</TITLE>
+<META NAME="description" CONTENT="CMessageManager::addMessage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node887.html">
 <LINK REL="previous" HREF="node885.html">
-<LINK REL="up" HREF="node873.html">
+<LINK REL="up" HREF="node885.html">
 <LINK REL="next" HREF="node887.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18694"
+<A NAME="tex2html18835"
   HREF="node887.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18690"
-  HREF="node873.html">
+<A NAME="tex2html18831"
+  HREF="node885.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18684"
+<A NAME="tex2html18825"
   HREF="node885.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18692"
+<A NAME="tex2html18833"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18695"
-  HREF="node887.html">CMessageManager::showError</A>
-<B> Up:</B> <A NAME="tex2html18691"
-  HREF="node873.html">./inc/CMessageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html18685"
-  HREF="node885.html">CMessageManager::showInfo</A>
- &nbsp; <B>  <A NAME="tex2html18693"
+<B> Next:</B> <A NAME="tex2html18836"
+  HREF="node887.html">CMessageManager::addInfoMessage</A>
+<B> Up:</B> <A NAME="tex2html18832"
+  HREF="node885.html">./inc/CMessageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html18826"
+  HREF="node885.html">./inc/CMessageManager.php</A>
+ &nbsp; <B>  <A NAME="tex2html18834"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092513000000000000000">
-CMessageManager::showWarning</A>
+<H2><A NAME="SECTION009251000000000000000">
+CMessageManager::addMessage</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows (hopefully not) existing warning messages in a warning box if there are any.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generic function for adding a message to a message stack.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if there have warnings been occurred otherwise false.
+<LI>msg: Error message to add.
+</LI>
+<LI>msgVar: The reference to the variable where the massages should be stored.
+</LI>
+<LI>foundVar: The reference to the variable that should be set to true when there are messages in the given stack.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CMessageManager::showWarning</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

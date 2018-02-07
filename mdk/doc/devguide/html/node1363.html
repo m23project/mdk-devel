@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_downloadPool</TITLE>
-<META NAME="description" CONTENT="PKG_downloadPool">
+<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
+<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1364.html">
 <LINK REL="previous" HREF="node1362.html">
-<LINK REL="up" HREF="node1338.html">
+<LINK REL="up" HREF="node1356.html">
 <LINK REL="next" HREF="node1364.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24833"
+<A NAME="tex2html24980"
   HREF="node1364.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24829"
-  HREF="node1338.html">
+<A NAME="tex2html24976"
+  HREF="node1356.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24823"
+<A NAME="tex2html24970"
   HREF="node1362.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24831"
+<A NAME="tex2html24978"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24834"
-  HREF="node1364.html">PKG_getDebootStrapBasePackages</A>
-<B> Up:</B> <A NAME="tex2html24830"
-  HREF="node1338.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html24824"
-  HREF="node1362.html">PKG_getKernels</A>
- &nbsp; <B>  <A NAME="tex2html24832"
+<B> Next:</B> <A NAME="tex2html24981"
+  HREF="node1364.html">PKG_preparePool</A>
+<B> Up:</B> <A NAME="tex2html24977"
+  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24971"
+  HREF="node1362.html">PKG_ncTarDebsFromClientToServer_Server</A>
+ &nbsp; <B>  <A NAME="tex2html24979"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094625000000000000000">
-PKG_downloadPool</A>
+<H2><A NAME="SECTION009467000000000000000">
+PKG_rsyncDebsFromClientToServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to download packages from a sources list to a directory.
+<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>destDir: the directory the packages should be downloaded to
+<LI>clientIP: The IP of the client.
 </LI>
-<LI>sourceslist: package source list
-</LI>
-<LI>packagesArr: array of the lists that contain packages to download (seperated by blanks)
-</LI>
-<LI>arch: CPU architecture to download the packages for.
-</LI>
-<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+<LI>poolDir: The directory on the server to store the Debian packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +70,7 @@ PKG_downloadPool</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

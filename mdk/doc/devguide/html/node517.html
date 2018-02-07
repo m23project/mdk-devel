@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::addDiskLayoutEntry</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::addDiskLayoutEntry">
+<TITLE>CFDiskGUI::printBars</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::printBars">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node518.html">
 <LINK REL="previous" HREF="node516.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node495.html">
 <LINK REL="next" HREF="node518.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13950"
+<A NAME="tex2html14081"
   HREF="node518.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13946"
-  HREF="node493.html">
+<A NAME="tex2html14077"
+  HREF="node495.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13940"
+<A NAME="tex2html14071"
   HREF="node516.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13948"
+<A NAME="tex2html14079"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13951"
-  HREF="node518.html">CFDiskGUI::newDiskLayout</A>
-<B> Up:</B> <A NAME="tex2html13947"
-  HREF="node493.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13941"
-  HREF="node516.html">CFDiskGUI::showPartTable</A>
- &nbsp; <B>  <A NAME="tex2html13949"
+<B> Next:</B> <A NAME="tex2html14082"
+  HREF="node518.html">CFDiskGUI::showPartTable</A>
+<B> Up:</B> <A NAME="tex2html14078"
+  HREF="node495.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14072"
+  HREF="node516.html">CFDiskGUI::showPartitionBarBlock</A>
+ &nbsp; <B>  <A NAME="tex2html14080"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091424000000000000000">
-CFDiskGUI::addDiskLayoutEntry</A>
+<H2><A NAME="SECTION0091422000000000000000">
+CFDiskGUI::printBars</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new entry (partition or free space on a disk) to the disk layout (for rendering only).
+<SPAN  CLASS="textbf">Description:</SPAN> prints the partitions as colored table
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>pDisk: selected device (e.g. /dev/hda)
 </LI>
-<LI>start: start point of the partition (in MB)
-</LI>
-<LI>end: end point of the partition (in MB)
-</LI>
-<LI>type: type of the partition (primary, logical)
-</LI>
-<LI>fs: File system.
-</LI>
-<LI>dev: Device name (optional)
+<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +70,7 @@ CFDiskGUI::addDiskLayoutEntry</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

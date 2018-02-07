@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createAllRaidJobs</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createAllRaidJobs">
+<TITLE>CFDiskBasic::createSwapPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createSwapPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node485.html">
 <LINK REL="previous" HREF="node483.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node485.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13508"
+<A NAME="tex2html13639"
   HREF="node485.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13504"
-  HREF="node461.html">
+<A NAME="tex2html13635"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13498"
+<A NAME="tex2html13629"
   HREF="node483.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13506"
+<A NAME="tex2html13637"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13509"
-  HREF="node485.html">CFDiskBasic::createRaidJobForRaid</A>
-<B> Up:</B> <A NAME="tex2html13505"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13499"
-  HREF="node483.html">CFDiskBasic::autoPartitionDisk</A>
- &nbsp; <B>  <A NAME="tex2html13507"
+<B> Next:</B> <A NAME="tex2html13640"
+  HREF="node485.html">CFDiskBasic::autoPartitionDisk</A>
+<B> Up:</B> <A NAME="tex2html13636"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13630"
+  HREF="node483.html">CFDiskBasic::createInstallPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13638"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091323000000000000000">
-CFDiskBasic::createAllRaidJobs</A>
+<H2><A NAME="SECTION0091320000000000000000">
+CFDiskBasic::createSwapPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the jobs to create all RAIDs.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates and formats a swap partition. The created partition is stored in the client parameters as swap partition.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if all RAIDs are complete, otherwise false.
+<LI>diskDev: The disk device (e.g. /dev/hda) where the swap partition should be created on.
+</LI>
+<LI>instStart: Start position of the swap partition (in MB).
+</LI>
+<LI>instEnd: End position of the swap partition (in MB).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CFDiskBasic::createAllRaidJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

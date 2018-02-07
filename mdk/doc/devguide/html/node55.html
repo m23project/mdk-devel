@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compress operating system</TITLE>
-<META NAME="description" CONTENT="compress operating system">
+<TITLE>initrd</TITLE>
+<META NAME="description" CONTENT="initrd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node56.html">
 <LINK REL="previous" HREF="node54.html">
-<LINK REL="up" HREF="node53.html">
+<LINK REL="up" HREF="node54.html">
 <LINK REL="next" HREF="node56.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5639"
+<A NAME="tex2html5727"
   HREF="node56.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5635"
-  HREF="node53.html">
+<A NAME="tex2html5723"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5629"
+<A NAME="tex2html5717"
   HREF="node54.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5637"
+<A NAME="tex2html5725"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5640"
-  HREF="node56.html">compresses the m23 files</A>
-<B> Up:</B> <A NAME="tex2html5636"
-  HREF="node53.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5630"
-  HREF="node54.html">initrd</A>
- &nbsp; <B>  <A NAME="tex2html5638"
+<B> Next:</B> <A NAME="tex2html5728"
+  HREF="node56.html">compress operating system</A>
+<B> Up:</B> <A NAME="tex2html5724"
+  HREF="node54.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html5718"
+  HREF="node54.html">what does the makeCD</A>
+ &nbsp; <B>  <A NAME="tex2html5726"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652200000000000000">
-compress operating system</A>
+<H3><A NAME="SECTION00652100000000000000">
+initrd</A>
 </H3>
-The whole current operating system is compressed mith bzip2 to a file called m23image.tb2. Some directories aren't saved, because they aren't needed or will mess up the image with useless files. E.g. /proc, /tmp, ... should not be saved. The image is stored in the /mdk/bootCD/iso directory. If there is allready a m23image.tb2 the operating isn't compressed. To regenerate the m23image.tb2 you have to delete the file.
+While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.
+<BR>
+In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

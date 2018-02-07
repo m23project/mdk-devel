@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getRemoteFileContents</TITLE>
-<META NAME="description" CONTENT="HELPER_getRemoteFileContents">
+<TITLE>HELPER_xargsRecursive</TITLE>
+<META NAME="description" CONTENT="HELPER_xargsRecursive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1751.html">
 <LINK REL="previous" HREF="node1749.html">
-<LINK REL="up" HREF="node1718.html">
+<LINK REL="up" HREF="node1738.html">
 <LINK REL="next" HREF="node1751.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29858"
+<A NAME="tex2html30007"
   HREF="node1751.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29854"
-  HREF="node1718.html">
+<A NAME="tex2html30003"
+  HREF="node1738.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29848"
+<A NAME="tex2html29997"
   HREF="node1749.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29856"
+<A NAME="tex2html30005"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29859"
-  HREF="node1751.html">HELPER_passGenerator</A>
-<B> Up:</B> <A NAME="tex2html29855"
-  HREF="node1718.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html29849"
-  HREF="node1749.html">HELPER_debugBacktraceToFile</A>
- &nbsp; <B>  <A NAME="tex2html29857"
+<B> Next:</B> <A NAME="tex2html30008"
+  HREF="node1751.html">HELPER_resetNewLogLines</A>
+<B> Up:</B> <A NAME="tex2html30004"
+  HREF="node1738.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html29998"
+  HREF="node1749.html">HELPER_trimValue</A>
+ &nbsp; <B>  <A NAME="tex2html30006"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095532000000000000000">
-HELPER_getRemoteFileContents</A>
+<H2><A NAME="SECTION0095512000000000000000">
+HELPER_xargsRecursive</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Downloads a file if it is not older than a given time and returns its contents.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>url: The URL where to download the file from.
+<LI>cmd: BASH command
 </LI>
-<LI>storeFile: The file name to store the download in.
+<LI>argsA: Array of commands for the BASH command.
 </LI>
-<LI>refreshTime: The time in minutes the file is downloaded again.
-</LI>
-<LI>forceOverwrite: Set to true if the file should be overwritten even if the new file is epmty.
-</LI>
-<LI>noProxy: Set to true, if the system proxy should not be used.
+<LI>tabAmount: Amount of identing to start with.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The contents of the files from chache or from download or false if no file could be found.
+<LI>Recursive calls of the BASH command with error checking.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +78,7 @@ HELPER_getRemoteFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

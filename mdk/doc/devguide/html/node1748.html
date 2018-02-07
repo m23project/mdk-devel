@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>print_r2</TITLE>
-<META NAME="description" CONTENT="print_r2">
+<TITLE>HELPER_getContentFromURL</TITLE>
+<META NAME="description" CONTENT="HELPER_getContentFromURL">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1749.html">
 <LINK REL="previous" HREF="node1747.html">
-<LINK REL="up" HREF="node1718.html">
+<LINK REL="up" HREF="node1738.html">
 <LINK REL="next" HREF="node1749.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29834"
+<A NAME="tex2html29983"
   HREF="node1749.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29830"
-  HREF="node1718.html">
+<A NAME="tex2html29979"
+  HREF="node1738.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29824"
+<A NAME="tex2html29973"
   HREF="node1747.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29832"
+<A NAME="tex2html29981"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29835"
-  HREF="node1749.html">HELPER_debugBacktraceToFile</A>
-<B> Up:</B> <A NAME="tex2html29831"
-  HREF="node1718.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html29825"
-  HREF="node1747.html">HELPER_array2m23Array</A>
- &nbsp; <B>  <A NAME="tex2html29833"
+<B> Next:</B> <A NAME="tex2html29984"
+  HREF="node1749.html">HELPER_trimValue</A>
+<B> Up:</B> <A NAME="tex2html29980"
+  HREF="node1738.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html29974"
+  HREF="node1747.html">HELPER_isExecutedOnUCS</A>
+ &nbsp; <B>  <A NAME="tex2html29982"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095530000000000000000">
-print_r2</A>
+<H2><A NAME="SECTION0095510000000000000000">
+HELPER_getContentFromURL</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Function like print_r, but sorts the entries, if the input is an array and converts newlines to HTML breaks.
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads an URL via curl and gives back the site code.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Value to print.
+<LI>url: The URL to download.
+</LI>
+<LI>range: If set, a part of the file will be downloaded. (e.g. 0-500 will download the first 500 kb)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The downloaded site code or false in case of an error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ print_r2</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

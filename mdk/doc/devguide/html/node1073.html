@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/db.php</TITLE>
-<META NAME="description" CONTENT="./inc/db.php">
+<TITLE>CSystemProxy::getProxyHost</TITLE>
+<META NAME="description" CONTENT="CSystemProxy::getProxyHost">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,132 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1110.html">
-<LINK REL="previous" HREF="node1044.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1074.html">
+<LINK REL="previous" HREF="node1072.html">
+<LINK REL="up" HREF="node1056.html">
 <LINK REL="next" HREF="node1074.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21089"
+<A NAME="tex2html21232"
   HREF="node1074.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21085"
-  HREF="node101.html">
+<A NAME="tex2html21228"
+  HREF="node1056.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21079"
+<A NAME="tex2html21222"
   HREF="node1072.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21087"
+<A NAME="tex2html21230"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21090"
-  HREF="node1074.html">ip2longSafe</A>
-<B> Up:</B> <A NAME="tex2html21086"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html21080"
-  HREF="node1072.html">CSystemProxy::getUserPasswordString</A>
- &nbsp; <B>  <A NAME="tex2html21088"
+<B> Next:</B> <A NAME="tex2html21233"
+  HREF="node1074.html">CSystemProxy::getProxyHostIP</A>
+<B> Up:</B> <A NAME="tex2html21229"
+  HREF="node1056.html">./inc/CSystemProxy.php</A>
+<B> Previous:</B> <A NAME="tex2html21223"
+  HREF="node1072.html">CSystemProxy::setProxyHost</A>
+ &nbsp; <B>  <A NAME="tex2html21231"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009370000000000000000">
-./inc/db.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: database functions, open, close the database, get ip of the calling client
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0093617000000000000000">
+CSystemProxy::getProxyHost</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the proxy host/servername.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Proxy host/servername.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html21091"
-  HREF="node1074.html">ip2longSafe</A>
-<LI><A NAME="tex2html21092"
-  HREF="node1075.html">getArchList</A>
-<LI><A NAME="tex2html21093"
-  HREF="node1076.html">isMySQL3used</A>
-<LI><A NAME="tex2html21094"
-  HREF="node1077.html">encryptShadow</A>
-<LI><A NAME="tex2html21095"
-  HREF="node1078.html">getClientLanguage</A>
-<LI><A NAME="tex2html21096"
-  HREF="node1079.html">getInstDev</A>
-<LI><A NAME="tex2html21097"
-  HREF="node1080.html">DB_getConnection</A>
-<LI><A NAME="tex2html21098"
-  HREF="node1081.html">DB_setConnection</A>
-<LI><A NAME="tex2html21099"
-  HREF="node1082.html">DB_isConnectionValid</A>
-<LI><A NAME="tex2html21100"
-  HREF="node1083.html">dbConnect</A>
-<LI><A NAME="tex2html21101"
-  HREF="node1084.html">dbClose</A>
-<LI><A NAME="tex2html21102"
-  HREF="node1085.html">getServerIP</A>
-<LI><A NAME="tex2html21103"
-  HREF="node1086.html">getServerNetmask</A>
-<LI><A NAME="tex2html21104"
-  HREF="node1087.html">getServerNetwork</A>
-<LI><A NAME="tex2html21105"
-  HREF="node1088.html">getDNSServers</A>
-<LI><A NAME="tex2html21106"
-  HREF="node1089.html">getServerGateway</A>
-<LI><A NAME="tex2html21107"
-  HREF="node1090.html">sendClientStatus</A>
-<LI><A NAME="tex2html21108"
-  HREF="node1091.html">sendClientStageStatus</A>
-<LI><A NAME="tex2html21109"
-  HREF="node1092.html">returnClientStageStatus</A>
-<LI><A NAME="tex2html21110"
-  HREF="node1093.html">sendClientLogStatus</A>
-<LI><A NAME="tex2html21111"
-  HREF="node1094.html">deleteClientLogs</A>
-<LI><A NAME="tex2html21112"
-  HREF="node1095.html">workPhpName</A>
-<LI><A NAME="tex2html21113"
-  HREF="node1096.html">executeNextWork</A>
-<LI><A NAME="tex2html21114"
-  HREF="node1097.html">DB_query</A>
-<LI><A NAME="tex2html21115"
-  HREF="node1098.html">DB_queryNoDie</A>
-<LI><A NAME="tex2html21116"
-  HREF="node1099.html">DB_genPassword</A>
-<LI><A NAME="tex2html21117"
-  HREF="node1100.html">getClientIP</A>
-<LI><A NAME="tex2html21118"
-  HREF="node1101.html">implodeAssoc</A>
-<LI><A NAME="tex2html21119"
-  HREF="node1102.html">explodeAssoc</A>
-<LI><A NAME="tex2html21120"
-  HREF="node1103.html">sedSearchReplace</A>
-<LI><A NAME="tex2html21121"
-  HREF="node1104.html">isProgrammInstalled</A>
-<LI><A NAME="tex2html21122"
-  HREF="node1105.html">pingIP</A>
-<LI><A NAME="tex2html21123"
-  HREF="node1106.html">delFromArray</A>
-<LI><A NAME="tex2html21124"
-  HREF="node1107.html">delValuesFromArray</A>
-<LI><A NAME="tex2html21125"
-  HREF="node1108.html">DB_getLikeableColumns</A>
-<LI><A NAME="tex2html21126"
-  HREF="node1109.html">DB_getArrayAssoc</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

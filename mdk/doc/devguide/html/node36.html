@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>translating the messages</TITLE>
-<META NAME="description" CONTENT="translating the messages">
+<TITLE>generate the language file</TITLE>
+<META NAME="description" CONTENT="generate the language file">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,57 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node37.html">
 <LINK REL="previous" HREF="node35.html">
-<LINK REL="up" HREF="node33.html">
+<LINK REL="up" HREF="node34.html">
 <LINK REL="next" HREF="node37.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5394"
+<A NAME="tex2html5482"
   HREF="node37.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5390"
-  HREF="node33.html">
+<A NAME="tex2html5478"
+  HREF="node34.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5384"
+<A NAME="tex2html5472"
   HREF="node35.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5392"
+<A NAME="tex2html5480"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5395"
-  HREF="node37.html">translating the help texts</A>
-<B> Up:</B> <A NAME="tex2html5391"
-  HREF="node33.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html5385"
-  HREF="node35.html">generate the language file</A>
- &nbsp; <B>  <A NAME="tex2html5393"
+<B> Next:</B> <A NAME="tex2html5483"
+  HREF="node37.html">translating the messages</A>
+<B> Up:</B> <A NAME="tex2html5479"
+  HREF="node34.html">How to translate m23?</A>
+<B> Previous:</B> <A NAME="tex2html5473"
+  HREF="node35.html">make directories</A>
+ &nbsp; <B>  <A NAME="tex2html5481"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00633000000000000000">
-translating the messages</A>
+<H2><A NAME="SECTION00632000000000000000">
+generate the language file</A>
 </H2>
-Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
+To give your language a name and make it available to m23 create a <SPAN  CLASS="textit">language.info</SPAN> file.
 <BR>
-Now translate the text between the ' " 's.
-e.g.
+The language.info has to contain the following lines:
 <PRE>
-$I18N_help="Help";
+language: &lt;the full name of your language&gt;
+shortlanguage: &lt;the short 2 letter name of the language&gt;
 </PRE>
-becomes
-<PRE>
-$I18N_help="Hilfe";
+m23 uses the word for the language that is used in the origin country. e.g. Deutsch and not German, Francais and not French.
+<BR>
+<BR>
+Your language.info may look like this:
+<BR><PRE>
+language:Deutsch
+shortlanguage:de
 </PRE>
-Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

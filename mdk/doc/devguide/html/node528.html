@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getPartTableEntryNr</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getPartTableEntryNr">
+<TITLE>CFDiskGUI::getPartitionPercent</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getPartitionPercent">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node529.html">
 <LINK REL="previous" HREF="node527.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node495.html">
 <LINK REL="next" HREF="node529.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14082"
+<A NAME="tex2html14213"
   HREF="node529.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14078"
-  HREF="node493.html">
+<A NAME="tex2html14209"
+  HREF="node495.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14072"
+<A NAME="tex2html14203"
   HREF="node527.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14080"
+<A NAME="tex2html14211"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14083"
-  HREF="node529.html">CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
-<B> Up:</B> <A NAME="tex2html14079"
-  HREF="node493.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14073"
-  HREF="node527.html">CFDiskGUI::getHTMLColorForFilesystemOrType</A>
- &nbsp; <B>  <A NAME="tex2html14081"
+<B> Next:</B> <A NAME="tex2html14214"
+  HREF="node529.html">CFDiskGUI::getHTMLColorForFilesystemOrType</A>
+<B> Up:</B> <A NAME="tex2html14210"
+  HREF="node495.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14204"
+  HREF="node527.html">CFDiskGUI::showFdiskCombinedGUIFunctions</A>
+ &nbsp; <B>  <A NAME="tex2html14212"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091435000000000000000">
-CFDiskGUI::getPartTableEntryNr</A>
+<H2><A NAME="SECTION0091433000000000000000">
+CFDiskGUI::getPartitionPercent</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a unique number for the partitions and free spaces on a disk bar and for the partition table (used in JavaScript).
+<SPAN  CLASS="textbf">Description:</SPAN> Calculates the percentual size of a selected partition in comparison to the disk size.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>start: Start position of the partition / free space.
-</LI>
-<LI>end: End position of the partition / free space.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Unique number
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +70,7 @@ CFDiskGUI::getPartTableEntryNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

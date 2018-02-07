@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getDrivePartitionSize</TITLE>
-<META NAME="description" CONTENT="FDISK_getDrivePartitionSize">
+<TITLE>FDISK_bootflagJob</TITLE>
+<META NAME="description" CONTENT="FDISK_bootflagJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1620.html">
 <LINK REL="previous" HREF="node1618.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1620.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28150"
+<A NAME="tex2html28299"
   HREF="node1620.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28146"
-  HREF="node1518.html">
+<A NAME="tex2html28295"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28140"
+<A NAME="tex2html28289"
   HREF="node1618.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28148"
+<A NAME="tex2html28297"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28151"
-  HREF="node1620.html">FDISK_listRaidTable</A>
-<B> Up:</B> <A NAME="tex2html28147"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28141"
-  HREF="node1618.html">FDISK_virtualAddDrive</A>
- &nbsp; <B>  <A NAME="tex2html28149"
+<B> Next:</B> <A NAME="tex2html28300"
+  HREF="node1620.html">FDISK_formatJob</A>
+<B> Up:</B> <A NAME="tex2html28296"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28290"
+  HREF="node1618.html">FDISK_addJob</A>
+ &nbsp; <B>  <A NAME="tex2html28298"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00952101000000000000000">
-FDISK_getDrivePartitionSize</A>
+<H2><A NAME="SECTION0095281000000000000000">
+FDISK_bootflagJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Calculates the size of a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> enables the booting flag on a partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
+<LI>path: device to activate booting on (e.g. /dev/hda1)
 </LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 0 on /dev/hda1)
+<LI>devNr: number of partition, minor number in parted
 </LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Size of the drive or partition in MB.
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +72,7 @@ FDISK_getDrivePartitionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

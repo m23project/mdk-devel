@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CAutoUpdate.php</TITLE>
-<META NAME="description" CONTENT="./inc/CAutoUpdate.php">
+<TITLE>CAutoTest::parseXML</TITLE>
+<META NAME="description" CONTENT="CAutoTest::parseXML">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,122 +19,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node248.html">
-<LINK REL="previous" HREF="node174.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="previous" HREF="node215.html">
+<LINK REL="up" HREF="node175.html">
 <LINK REL="next" HREF="node217.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10028"
+<A NAME="tex2html10158"
   HREF="node217.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10024"
-  HREF="node101.html">
+<A NAME="tex2html10154"
+  HREF="node175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10018"
+<A NAME="tex2html10150"
   HREF="node215.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10026"
+<A NAME="tex2html10156"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10029"
-  HREF="node217.html">CAutoUpdate::getActiveSetID</A>
-<B> Up:</B> <A NAME="tex2html10025"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html10019"
-  HREF="node215.html">CAutoTest::parseXML</A>
- &nbsp; <B>  <A NAME="tex2html10027"
+<B> Next:</B> <A NAME="tex2html10159"
+  HREF="node217.html">./inc/CAutoUpdate.php</A>
+<B> Up:</B> <A NAME="tex2html10155"
+  HREF="node175.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html10151"
+  HREF="node215.html">CAutoTest::parseAnswersFromXML</A>
+ &nbsp; <B>  <A NAME="tex2html10157"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00990000000000000000">
-./inc/CAutoUpdate.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for handling automatic updates.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009841000000000000000">
+CAutoTest::parseXML</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Parses the XML test description file.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>xmlFile: File name (with full path) of the XML test description file.
+</LI>
+<LI>argv: Array with the command line parameters.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html10030"
-  HREF="node217.html">CAutoUpdate::getActiveSetID</A>
-<LI><A NAME="tex2html10031"
-  HREF="node218.html">CAutoUpdate::getActiveSet</A>
-<LI><A NAME="tex2html10032"
-  HREF="node219.html">CAutoUpdate::addSet</A>
-<LI><A NAME="tex2html10033"
-  HREF="node220.html">CAutoUpdate::setParallelUpdates</A>
-<LI><A NAME="tex2html10034"
-  HREF="node221.html">CAutoUpdate::getParallelUpdates</A>
-<LI><A NAME="tex2html10035"
-  HREF="node222.html">CAutoUpdate::setType</A>
-<LI><A NAME="tex2html10036"
-  HREF="node223.html">CAutoUpdate::getType</A>
-<LI><A NAME="tex2html10037"
-  HREF="node224.html">CAutoUpdate::getUpdateTypeTranslation</A>
-<LI><A NAME="tex2html10038"
-  HREF="node225.html">CAutoUpdate::delSet</A>
-<LI><A NAME="tex2html10039"
-  HREF="node226.html">CAutoUpdate::getAllSets</A>
-<LI><A NAME="tex2html10040"
-  HREF="node227.html">CAutoUpdate::loadSets</A>
-<LI><A NAME="tex2html10041"
-  HREF="node228.html">CAutoUpdate::saveSets</A>
-<LI><A NAME="tex2html10042"
-  HREF="node229.html">CAutoUpdate::getSetAmount</A>
-<LI><A NAME="tex2html10043"
-  HREF="node230.html">CAutoUpdate::configureCron</A>
-<LI><A NAME="tex2html10044"
-  HREF="node231.html">CAutoUpdate::isASetActive</A>
-<LI><A NAME="tex2html10045"
-  HREF="node232.html">CAutoUpdate::activateSet</A>
-<LI><A NAME="tex2html10046"
-  HREF="node233.html">CAutoUpdate::activateNextSet</A>
-<LI><A NAME="tex2html10047"
-  HREF="node234.html">CAutoUpdate::activateNextTimlySet</A>
-<LI><A NAME="tex2html10048"
-  HREF="node235.html">CAutoUpdate::addStartEnd</A>
-<LI><A NAME="tex2html10049"
-  HREF="node236.html">CAutoUpdate::delStartEnd</A>
-<LI><A NAME="tex2html10050"
-  HREF="node237.html">CAutoUpdate::getAllStartsEndsHumanReadable</A>
-<LI><A NAME="tex2html10051"
-  HREF="node238.html">CAutoUpdate::addGroup</A>
-<LI><A NAME="tex2html10052"
-  HREF="node239.html">CAutoUpdate::delGroup</A>
-<LI><A NAME="tex2html10053"
-  HREF="node240.html">CAutoUpdate::getAllGroupsHumanReadable</A>
-<LI><A NAME="tex2html10054"
-  HREF="node241.html">CAutoUpdate::getImgButtonParams</A>
-<LI><A NAME="tex2html10055"
-  HREF="node242.html">CAutoUpdate::isTimeToRunNow</A>
-<LI><A NAME="tex2html10056"
-  HREF="node243.html">CAutoUpdate::getActiveGroups</A>
-<LI><A NAME="tex2html10057"
-  HREF="node244.html">CAutoUpdate::getAllClientnames</A>
-<LI><A NAME="tex2html10058"
-  HREF="node245.html">CAutoUpdate::startNewClients</A>
-<LI><A NAME="tex2html10059"
-  HREF="node246.html">CAutoUpdate::run</A>
-<LI><A NAME="tex2html10060"
-  HREF="node247.html">CAutoUpdate::showAutoUpdateManager</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

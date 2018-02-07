@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/cron.php</TITLE>
-<META NAME="description" CONTENT="./inc/cron.php">
+<TITLE>CPool::getProperty</TITLE>
+<META NAME="description" CONTENT="CPool::getProperty">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,96 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1024.html">
-<LINK REL="previous" HREF="node958.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1006.html">
+<LINK REL="previous" HREF="node1004.html">
+<LINK REL="up" HREF="node970.html">
 <LINK REL="next" HREF="node1006.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20214"
+<A NAME="tex2html20357"
   HREF="node1006.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20210"
-  HREF="node101.html">
+<A NAME="tex2html20353"
+  HREF="node970.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20204"
+<A NAME="tex2html20347"
   HREF="node1004.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20212"
+<A NAME="tex2html20355"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20215"
-  HREF="node1006.html">CRON_genCronEntry</A>
-<B> Up:</B> <A NAME="tex2html20211"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html20205"
-  HREF="node1004.html">CPool::downloadPackagesAndCreatePool</A>
- &nbsp; <B>  <A NAME="tex2html20213"
+<B> Next:</B> <A NAME="tex2html20358"
+  HREF="node1006.html">CPool::getPoolSize</A>
+<B> Up:</B> <A NAME="tex2html20354"
+  HREF="node970.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html20348"
+  HREF="node1004.html">CPool::setProperty</A>
+ &nbsp; <B>  <A NAME="tex2html20356"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009340000000000000000">
-./inc/cron.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for managing cron jobs.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0093335000000000000000">
+CPool::getProperty</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Reads the contents of a property file.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>property: Name of the pool property
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Contents of a property file
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html20216"
-  HREF="node1006.html">CRON_genCronEntry</A>
-<LI><A NAME="tex2html20217"
-  HREF="node1007.html">CRON_addJobMinutely</A>
-<LI><A NAME="tex2html20218"
-  HREF="node1008.html">CRON_addJobBasic</A>
-<LI><A NAME="tex2html20219"
-  HREF="node1009.html">CRON_rmJob</A>
-<LI><A NAME="tex2html20220"
-  HREF="node1010.html">CRON_reloadConfig</A>
-<LI><A NAME="tex2html20221"
-  HREF="node1011.html">CRON_addJobHourly</A>
-<LI><A NAME="tex2html20222"
-  HREF="node1012.html">CRON_addJobDayly</A>
-<LI><A NAME="tex2html20223"
-  HREF="node1013.html">CRON_addJobWeekly</A>
-<LI><A NAME="tex2html20224"
-  HREF="node1014.html">CRON_getTimeBaseArray</A>
-<LI><A NAME="tex2html20225"
-  HREF="node1015.html">CRON_getDayOfWeekArray</A>
-<LI><A NAME="tex2html20226"
-  HREF="node1016.html">CRON_checkMinute</A>
-<LI><A NAME="tex2html20227"
-  HREF="node1017.html">CRON_checkHour</A>
-<LI><A NAME="tex2html20228"
-  HREF="node1018.html">CRON_isEntryPresent</A>
-<LI><A NAME="tex2html20229"
-  HREF="node1019.html">CRON_getEntriesByIdentifier</A>
-<LI><A NAME="tex2html20230"
-  HREF="node1020.html">CRON_getNextIdentifierNr</A>
-<LI><A NAME="tex2html20231"
-  HREF="node1021.html">CRON_cronManagementDialog</A>
-<LI><A NAME="tex2html20232"
-  HREF="node1022.html">CRON_cronEntryDeletionDialog</A>
-<LI><A NAME="tex2html20233"
-  HREF="node1023.html">CRON_translateEveryIntervallValue</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

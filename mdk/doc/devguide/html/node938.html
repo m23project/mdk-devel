@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPoolFromClientGUI::getCOSStatusHumanReadable</TITLE>
-<META NAME="description" CONTENT="CPoolFromClientGUI::getCOSStatusHumanReadable">
+<TITLE>CPackageStatusCompare::showStatusRow</TITLE>
+<META NAME="description" CONTENT="CPackageStatusCompare::showStatusRow">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node939.html">
 <LINK REL="previous" HREF="node937.html">
-<LINK REL="up" HREF="node933.html">
+<LINK REL="up" HREF="node921.html">
 <LINK REL="next" HREF="node939.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19356"
+<A NAME="tex2html19490"
   HREF="node939.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19352"
-  HREF="node933.html">
+<A NAME="tex2html19486"
+  HREF="node921.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19346"
+<A NAME="tex2html19480"
   HREF="node937.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19354"
+<A NAME="tex2html19488"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19357"
-  HREF="node939.html">CPoolFromClientGUI::getCOSStatus</A>
-<B> Up:</B> <A NAME="tex2html19353"
-  HREF="node933.html">./inc/CPoolFromClientGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html19347"
-  HREF="node937.html">CPoolFromClientGUI::__construct</A>
- &nbsp; <B>  <A NAME="tex2html19355"
+<B> Next:</B> <A NAME="tex2html19491"
+  HREF="node939.html">CPackageStatusCompare::diff</A>
+<B> Up:</B> <A NAME="tex2html19487"
+  HREF="node921.html">./inc/CPackageStatusCompare.php</A>
+<B> Previous:</B> <A NAME="tex2html19481"
+  HREF="node937.html">CPackageStatusCompare::getStatusFile</A>
+ &nbsp; <B>  <A NAME="tex2html19489"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009305000000000000000">
-CPoolFromClientGUI::getCOSStatusHumanReadable</A>
+<H2><A NAME="SECTION0092817000000000000000">
+CPackageStatusCompare::showStatusRow</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Translates the status code (COSSTATUS_*) into human readable word(s).
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the file name of a package status file. If a client name is give, a temporary package status file will be written.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Human readable word(s) representing the status code.
+<LI>left: Left package name.
+</LI>
+<LI>leftVersion: Left version of the package.
+</LI>
+<LI>leftStatus: Left status of the package.
+</LI>
+<LI>type: diff type.
+</LI>
+<LI>right: Right package name.
+</LI>
+<LI>rightVersion: Right version of the package.
+</LI>
+<LI>rightStatus: Right status of the package.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with, the package file name, the version and the status.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +86,7 @@ CPoolFromClientGUI::getCOSStatusHumanReadable</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

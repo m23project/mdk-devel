@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getExtendedVPart</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getExtendedVPart">
+<TITLE>CFDiskIO::isDiskLockedByRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDiskLockedByRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,42 +21,42 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node585.html">
 <LINK REL="previous" HREF="node583.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node585.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14870"
+<A NAME="tex2html15005"
   HREF="node585.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14866"
-  HREF="node542.html">
+<A NAME="tex2html15001"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14860"
+<A NAME="tex2html14995"
   HREF="node583.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14868"
+<A NAME="tex2html15003"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14871"
-  HREF="node585.html">CFDiskIO::getDiskSize</A>
-<B> Up:</B> <A NAME="tex2html14867"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14861"
-  HREF="node583.html">CFDiskIO::getPartitionAmountOfType</A>
- &nbsp; <B>  <A NAME="tex2html14869"
+<B> Next:</B> <A NAME="tex2html15006"
+  HREF="node585.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+<B> Up:</B> <A NAME="tex2html15002"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14996"
+  HREF="node583.html">CFDiskIO::isPartitionLockedByRaid</A>
+ &nbsp; <B>  <A NAME="tex2html15004"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091542000000000000000">
-CFDiskIO::getExtendedVPart</A>
+<H2><A NAME="SECTION0091540000000000000000">
+CFDiskIO::isDiskLockedByRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Searches the vPart that contains the extended partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a disk is locked, because it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
@@ -66,7 +66,7 @@ CFDiskIO::getExtendedVPart</A>
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vPart number of the extended partition, if there is an one, otherwise false.
+<LI>true, if the disk is locked, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::getExtendedVPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

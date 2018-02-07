@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::findFstabMountPointByDev</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::findFstabMountPointByDev">
+<TITLE>CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node659.html">
 <LINK REL="previous" HREF="node657.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node659.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15758"
+<A NAME="tex2html15893"
   HREF="node659.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15754"
-  HREF="node542.html">
+<A NAME="tex2html15889"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15748"
+<A NAME="tex2html15883"
   HREF="node657.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15756"
+<A NAME="tex2html15891"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15759"
-  HREF="node659.html">CFDiskIO::getPrimaryOrEfiPartitionType</A>
-<B> Up:</B> <A NAME="tex2html15755"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15749"
-  HREF="node657.html">CFDiskIO::getPartitionStepsArray</A>
- &nbsp; <B>  <A NAME="tex2html15757"
+<B> Next:</B> <A NAME="tex2html15894"
+  HREF="node659.html">CFDiskIO::FDISK_genManualFstab</A>
+<B> Up:</B> <A NAME="tex2html15890"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15884"
+  HREF="node657.html">CFDiskIO::genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html15892"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00915116000000000000000">
-CFDiskIO::findFstabMountPointByDev</A>
+<H2><A NAME="SECTION00915114000000000000000">
+CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Searches a client's fstab for a device and figures out the according mountpoint.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the fstab entries in the old style array format that is used by HS_sysAddFstabEntries.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fstabA: The fstab as array.
-</LI>
-<LI>dev: The device.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Mountpoint for the device or false, if there is no matching.
+<LI>Fstab entries in the old style array format.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +68,7 @@ CFDiskIO::findFstabMountPointByDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

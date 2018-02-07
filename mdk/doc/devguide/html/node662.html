@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::getTestDiskDev</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::getTestDiskDev">
+<TITLE>CFDiskIO::findFstabMountPointByDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::findFstabMountPointByDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node663.html">
 <LINK REL="previous" HREF="node661.html">
-<LINK REL="up" HREF="node661.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node663.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15841"
+<A NAME="tex2html15941"
   HREF="node663.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15837"
-  HREF="node661.html">
+<A NAME="tex2html15937"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15831"
+<A NAME="tex2html15931"
   HREF="node661.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15839"
+<A NAME="tex2html15939"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15842"
-  HREF="node663.html">CFDiskTest::nextTurn</A>
-<B> Up:</B> <A NAME="tex2html15838"
-  HREF="node661.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html15832"
-  HREF="node661.html">./inc/CFDiskTest.php</A>
- &nbsp; <B>  <A NAME="tex2html15840"
+<B> Next:</B> <A NAME="tex2html15942"
+  HREF="node663.html">CFDiskIO::getPrimaryOrEfiPartitionType</A>
+<B> Up:</B> <A NAME="tex2html15938"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15932"
+  HREF="node661.html">CFDiskIO::getPartitionStepsArray</A>
+ &nbsp; <B>  <A NAME="tex2html15940"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009161000000000000000">
-CFDiskTest::getTestDiskDev</A>
+<H2><A NAME="SECTION00915118000000000000000">
+CFDiskIO::findFstabMountPointByDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the disk device that is used for testing.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Searches a client's fstab for a device and figures out the according mountpoint.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Disk device that is used for testing.
+<LI>fstabA: The fstab as array.
+</LI>
+<LI>dev: The device.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Mountpoint for the device or false, if there is no matching.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskTest::getTestDiskDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

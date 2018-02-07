@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getFileContents</TITLE>
-<META NAME="description" CONTENT="HELPER_getFileContents">
+<TITLE>HELPER_array2m23Array</TITLE>
+<META NAME="description" CONTENT="HELPER_array2m23Array">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1768.html">
 <LINK REL="previous" HREF="node1766.html">
-<LINK REL="up" HREF="node1718.html">
+<LINK REL="up" HREF="node1738.html">
 <LINK REL="next" HREF="node1768.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30062"
+<A NAME="tex2html30211"
   HREF="node1768.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30058"
-  HREF="node1718.html">
+<A NAME="tex2html30207"
+  HREF="node1738.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30052"
+<A NAME="tex2html30201"
   HREF="node1766.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30060"
+<A NAME="tex2html30209"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30063"
-  HREF="node1768.html">HELPER_showFileContents</A>
-<B> Up:</B> <A NAME="tex2html30059"
-  HREF="node1718.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html30053"
-  HREF="node1766.html">HELPER_putFileContents</A>
- &nbsp; <B>  <A NAME="tex2html30061"
+<B> Next:</B> <A NAME="tex2html30212"
+  HREF="node1768.html">print_r2</A>
+<B> Up:</B> <A NAME="tex2html30208"
+  HREF="node1738.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html30202"
+  HREF="node1766.html">HELPER_m23Array2Array</A>
+ &nbsp; <B>  <A NAME="tex2html30210"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095549000000000000000">
-HELPER_getFileContents</A>
+<H2><A NAME="SECTION0095529000000000000000">
+HELPER_array2m23Array</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the contents of a file (the file is read to a maximum of 5 MB)
+<SPAN  CLASS="textbf">Description:</SPAN> Converts a normal array to an m23 array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: name of the file to read
+<LI>array: A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The m23 array, that is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ HELPER_getFileContents</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

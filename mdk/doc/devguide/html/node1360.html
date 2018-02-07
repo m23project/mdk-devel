@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_updatePackageInfo</TITLE>
-<META NAME="description" CONTENT="PKG_updatePackageInfo">
+<TITLE>PKG_searchPackageSearchCacheFileCMD</TITLE>
+<META NAME="description" CONTENT="PKG_searchPackageSearchCacheFileCMD">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1361.html">
 <LINK REL="previous" HREF="node1359.html">
-<LINK REL="up" HREF="node1338.html">
+<LINK REL="up" HREF="node1356.html">
 <LINK REL="next" HREF="node1361.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24797"
+<A NAME="tex2html24944"
   HREF="node1361.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24793"
-  HREF="node1338.html">
+<A NAME="tex2html24940"
+  HREF="node1356.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24787"
+<A NAME="tex2html24934"
   HREF="node1359.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24795"
+<A NAME="tex2html24942"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24798"
-  HREF="node1361.html">PKG_previewInstall</A>
-<B> Up:</B> <A NAME="tex2html24794"
-  HREF="node1338.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html24788"
-  HREF="node1359.html">PKG_preparePackageDir</A>
- &nbsp; <B>  <A NAME="tex2html24796"
+<B> Next:</B> <A NAME="tex2html24945"
+  HREF="node1361.html">PKG_ncTarDebsFromClientToServer_Client</A>
+<B> Up:</B> <A NAME="tex2html24941"
+  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24935"
+  HREF="node1359.html">PKG_genPackageSearchCacheFileCMD</A>
+ &nbsp; <B>  <A NAME="tex2html24943"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094622000000000000000">
-PKG_updatePackageInfo</A>
+<H2><A NAME="SECTION009464000000000000000">
+PKG_searchPackageSearchCacheFileCMD</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Updates the package information to make it searchable.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH commands to search a compressed package search file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the distribution name
+<LI>dir: Directory where the package information is stored.
 </LI>
-<LI>packagesource: name of the package source
+<LI>arch: Architecture for the packages in the search file.
 </LI>
-<LI>force: set to true if you want to update the package info and the time is not over
+<LI>search: Search terms.
 </LI>
-<LI>arch: Architecture to get package infos for.
-</LI>
-<LI>changeTime: Writes the time when the status file was last modified to.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>BASH commands to search a compressed package search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ PKG_updatePackageInfo</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

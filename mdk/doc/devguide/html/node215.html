@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoTest::parseXML</TITLE>
-<META NAME="description" CONTENT="CAutoTest::parseXML">
+<TITLE>CAutoTest::parseAnswersFromXML</TITLE>
+<META NAME="description" CONTENT="CAutoTest::parseAnswersFromXML">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node216.html">
 <LINK REL="previous" HREF="node214.html">
-<LINK REL="up" HREF="node174.html">
+<LINK REL="up" HREF="node175.html">
 <LINK REL="next" HREF="node216.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10016"
+<A NAME="tex2html10148"
   HREF="node216.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10012"
-  HREF="node174.html">
+<A NAME="tex2html10144"
+  HREF="node175.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10008"
+<A NAME="tex2html10138"
   HREF="node214.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10014"
+<A NAME="tex2html10146"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10017"
-  HREF="node216.html">./inc/CAutoUpdate.php</A>
-<B> Up:</B> <A NAME="tex2html10013"
-  HREF="node174.html">./inc/CAutoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html10009"
-  HREF="node214.html">CAutoTest::parseAnswersFromXML</A>
- &nbsp; <B>  <A NAME="tex2html10015"
+<B> Next:</B> <A NAME="tex2html10149"
+  HREF="node216.html">CAutoTest::parseXML</A>
+<B> Up:</B> <A NAME="tex2html10145"
+  HREF="node175.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html10139"
+  HREF="node214.html">CAutoTest::parseActionFromXML</A>
+ &nbsp; <B>  <A NAME="tex2html10147"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009841000000000000000">
-CAutoTest::parseXML</A>
+<H2><A NAME="SECTION009840000000000000000">
+CAutoTest::parseAnswersFromXML</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Parses the XML test description file.
+<SPAN  CLASS="textbf">Description:</SPAN> Parses an (good, warn, bad) array from the XML.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>xmlFile: File name (with full path) of the XML test description file.
+<LI>xmlO: Prased XML structure pointing to the array.
 </LI>
-<LI>argv: Array with the command line parameters.
+<LI>goodWarnBad: Answer type (CAutoTest::GWB_GOOD, GWB_WARN or GWB_BAD).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the good, warn or bad answers, how to fetch the answer from the client/webbrowser/etc. and the answer type (GWB_GOOD, GWB_WARN or GWB_BAD).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -69,7 +76,7 @@ CAutoTest::parseXML</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

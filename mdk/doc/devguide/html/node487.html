@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::deleteRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::deleteRaid">
+<TITLE>CFDiskBasic::createRaidJobForRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createRaidJobForRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node488.html">
 <LINK REL="previous" HREF="node486.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node488.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13544"
+<A NAME="tex2html13675"
   HREF="node488.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13540"
-  HREF="node461.html">
+<A NAME="tex2html13671"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13534"
+<A NAME="tex2html13665"
   HREF="node486.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13542"
+<A NAME="tex2html13673"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13545"
-  HREF="node488.html">CFDiskBasic::assignDeviceToRaid</A>
-<B> Up:</B> <A NAME="tex2html13541"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13535"
-  HREF="node486.html">CFDiskBasic::createRaid</A>
- &nbsp; <B>  <A NAME="tex2html13543"
+<B> Next:</B> <A NAME="tex2html13676"
+  HREF="node488.html">CFDiskBasic::createRaid</A>
+<B> Up:</B> <A NAME="tex2html13672"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13666"
+  HREF="node486.html">CFDiskBasic::createAllRaidJobs</A>
+ &nbsp; <B>  <A NAME="tex2html13674"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091326000000000000000">
-CFDiskBasic::deleteRaid</A>
+<H2><A NAME="SECTION0091323000000000000000">
+CFDiskBasic::createRaidJobForRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a RAID disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the jobs to create a given RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name for the RAID (eg. /dev/md0)
+<LI>vrDisk: Virtual (internally used) disk number for the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if deleting of the RAID works, otherwise false.
+<LI>true, if $vrDisk is a RAID, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskBasic::deleteRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

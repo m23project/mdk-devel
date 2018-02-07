@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getNextFdiskFormatJobNr</TITLE>
-<META NAME="description" CONTENT="FDISK_getNextFdiskFormatJobNr">
+<TITLE>FDISK_listPartTable</TITLE>
+<META NAME="description" CONTENT="FDISK_listPartTable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1614.html">
 <LINK REL="previous" HREF="node1612.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1614.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28078"
+<A NAME="tex2html28227"
   HREF="node1614.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28074"
-  HREF="node1518.html">
+<A NAME="tex2html28223"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28068"
+<A NAME="tex2html28217"
   HREF="node1612.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28076"
+<A NAME="tex2html28225"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28079"
-  HREF="node1614.html">FDISK_AFPselectDrive</A>
-<B> Up:</B> <A NAME="tex2html28075"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28069"
-  HREF="node1612.html">FDISK_getDriveAndNr</A>
- &nbsp; <B>  <A NAME="tex2html28077"
+<B> Next:</B> <A NAME="tex2html28228"
+  HREF="node1614.html">FDISK_listInstPartSelector</A>
+<B> Up:</B> <A NAME="tex2html28224"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28218"
+  HREF="node1612.html">FDISK_virtualAddPartition</A>
+ &nbsp; <B>  <A NAME="tex2html28226"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095295000000000000000">
-FDISK_getNextFdiskFormatJobNr</A>
+<H2><A NAME="SECTION0095275000000000000000">
+FDISK_listPartTable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the next free job number for the parameters of a m23fdiskFormat job. (e.g. there are used the following parameters: command0 = rm, command1= add. Then the next command number to use will be command2 =<SPAN CLASS="MATH"></SPAN> return value is 2)
+<SPAN  CLASS="textbf">Description:</SPAN> lists the partition information as table
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fdiskParams: the parameters of the m23fdiskFormat job
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ FDISK_getNextFdiskFormatJobNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

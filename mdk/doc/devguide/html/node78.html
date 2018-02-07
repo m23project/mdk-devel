@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>get the output of your script</TITLE>
-<META NAME="description" CONTENT="get the output of your script">
+<TITLE>Set script status</TITLE>
+<META NAME="description" CONTENT="Set script status">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,70 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node79.html">
 <LINK REL="previous" HREF="node77.html">
-<LINK REL="up" HREF="node73.html">
+<LINK REL="up" HREF="node74.html">
 <LINK REL="next" HREF="node79.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5922"
+<A NAME="tex2html6012"
   HREF="node79.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5918"
-  HREF="node73.html">
+<A NAME="tex2html6008"
+  HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5914"
+<A NAME="tex2html6002"
   HREF="node77.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5920"
+<A NAME="tex2html6010"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5923"
-  HREF="node79.html">Additional installation parameters for</A>
-<B> Up:</B> <A NAME="tex2html5919"
-  HREF="node73.html">debugging m23 scripts</A>
-<B> Previous:</B> <A NAME="tex2html5915"
-  HREF="node77.html">Set script status</A>
- &nbsp; <B>  <A NAME="tex2html5921"
+<B> Next:</B> <A NAME="tex2html6013"
+  HREF="node79.html">get the output of</A>
+<B> Up:</B> <A NAME="tex2html6009"
+  HREF="node74.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html6003"
+  HREF="node77.html">Turn off m23 script</A>
+ &nbsp; <B>  <A NAME="tex2html6011"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00695000000000000000">
-get the output of your script</A>
+<H2><A NAME="SECTION00694000000000000000">
+Set script status</A>
 </H2>
-You should turn off your client and overtake its ip. Now you can get the generated script by:
-<PRE>
-wget http://serverIP/work.php
-</PRE>
+After the script is executed and has produced an error, you have to set the status of this script to "waiting" to repeat the execution.
+
+<UL>
+<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
+</LI>
+<LI>select the database "m23"
+</LI>
+<LI>select the table "clientjobs"
+</LI>
+<LI>click on "Browse"
+</LI>
+<LI>search for your job script
+</LI>
+<LI>click on "Edit"
+</LI>
+<LI>enter "waiting" at the "status" field
+</LI>
+<LI>click on "Go" to save your changes
+</LI>
+</UL>
+This will work if the script you want to debug has the lowest priority and id among all waiting jobs of the client only.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

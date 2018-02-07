@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::getRandomPartitionDev</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::getRandomPartitionDev">
+<TITLE>./inc/CFDiskTest.php</TITLE>
+<META NAME="description" CONTENT="./inc/CFDiskTest.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,134 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node668.html">
-<LINK REL="previous" HREF="node666.html">
-<LINK REL="up" HREF="node661.html">
+<LINK REL="next" HREF="node705.html">
+<LINK REL="previous" HREF="node544.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node668.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15901"
+<A NAME="tex2html15999"
   HREF="node668.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15897"
-  HREF="node661.html">
+<A NAME="tex2html15995"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15891"
+<A NAME="tex2html15989"
   HREF="node666.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15899"
+<A NAME="tex2html15997"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15902"
-  HREF="node668.html">CFDiskTest::getRadomStartEnd</A>
-<B> Up:</B> <A NAME="tex2html15898"
-  HREF="node661.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html15892"
-  HREF="node666.html">CFDiskTest::getTestDiskvDisk</A>
- &nbsp; <B>  <A NAME="tex2html15900"
+<B> Next:</B> <A NAME="tex2html16000"
+  HREF="node668.html">CFDiskTest::getTestDiskDev</A>
+<B> Up:</B> <A NAME="tex2html15996"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html15990"
+  HREF="node666.html">CFDiskIO::getMknodCommand</A>
+ &nbsp; <B>  <A NAME="tex2html15998"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009166000000000000000">
-CFDiskTest::getRandomPartitionDev</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the a random device string for a partition on the test disk.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Random device string for a partition on the test disk.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009160000000000000000">
+./inc/CFDiskTest.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for testing partitioning and formating functions.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html16001"
+  HREF="node668.html">CFDiskTest::getTestDiskDev</A>
+<LI><A NAME="tex2html16002"
+  HREF="node669.html">CFDiskTest::nextTurn</A>
+<LI><A NAME="tex2html16003"
+  HREF="node670.html">CFDiskTest::addLineToReplay</A>
+<LI><A NAME="tex2html16004"
+  HREF="node671.html">CFDiskTest::rand</A>
+<LI><A NAME="tex2html16005"
+  HREF="node672.html">CFDiskTest::getTestDiskvDisk</A>
+<LI><A NAME="tex2html16006"
+  HREF="node673.html">CFDiskTest::getRandomPartitionDev</A>
+<LI><A NAME="tex2html16007"
+  HREF="node674.html">CFDiskTest::getRadomStartEnd</A>
+<LI><A NAME="tex2html16008"
+  HREF="node675.html">CFDiskTest::checkBothSetKey</A>
+<LI><A NAME="tex2html16009"
+  HREF="node676.html">CFDiskTest::checkConsistencyDiskKey</A>
+<LI><A NAME="tex2html16010"
+  HREF="node677.html">CFDiskTest::checkConsistencyvDiskvPartKey</A>
+<LI><A NAME="tex2html16011"
+  HREF="node678.html">CFDiskTest::checkPartitionConsistency</A>
+<LI><A NAME="tex2html16012"
+  HREF="node679.html">CFDiskTest::getDiskArrayFromClient</A>
+<LI><A NAME="tex2html16013"
+  HREF="node680.html">CFDiskTest::getDiskDevsFromClient</A>
+<LI><A NAME="tex2html16014"
+  HREF="node681.html">CFDiskTest::getPartInfoFromClient</A>
+<LI><A NAME="tex2html16015"
+  HREF="node682.html">CFDiskTest::getRaidsFromClient</A>
+<LI><A NAME="tex2html16016"
+  HREF="node683.html">CFDiskTest::executePartedCommands</A>
+<LI><A NAME="tex2html16017"
+  HREF="node684.html">CFDiskTest::createPartition</A>
+<LI><A NAME="tex2html16018"
+  HREF="node685.html">CFDiskTest::randomCreatePartition</A>
+<LI><A NAME="tex2html16019"
+  HREF="node686.html">CFDiskTest::deletePartition</A>
+<LI><A NAME="tex2html16020"
+  HREF="node687.html">CFDiskTest::randomDeletePartition</A>
+<LI><A NAME="tex2html16021"
+  HREF="node688.html">CFDiskTest::formatPartition</A>
+<LI><A NAME="tex2html16022"
+  HREF="node689.html">CFDiskTest::randomFormatPartition</A>
+<LI><A NAME="tex2html16023"
+  HREF="node690.html">CFDiskTest::getRandomFilesystem</A>
+<LI><A NAME="tex2html16024"
+  HREF="node691.html">CFDiskTest::getRandomPartitionType</A>
+<LI><A NAME="tex2html16025"
+  HREF="node692.html">CFDiskTest::createPartitionsForRaid</A>
+<LI><A NAME="tex2html16026"
+  HREF="node693.html">CFDiskTest::showDebugConsistencyClientVirtualArray</A>
+<LI><A NAME="tex2html16027"
+  HREF="node694.html">CFDiskTest::randomPartTest</A>
+<LI><A NAME="tex2html16028"
+  HREF="node695.html">CFDiskTest::getRandomRaidLevel</A>
+<LI><A NAME="tex2html16029"
+  HREF="node696.html">CFDiskTest::getRandomUnusedMD</A>
+<LI><A NAME="tex2html16030"
+  HREF="node697.html">CFDiskTest::getRandomUsedMD</A>
+<LI><A NAME="tex2html16031"
+  HREF="node698.html">CFDiskTest::deleteRaid</A>
+<LI><A NAME="tex2html16032"
+  HREF="node699.html">CFDiskTest::areThereEnoughFreePartitionsToBuildTheRaid</A>
+<LI><A NAME="tex2html16033"
+  HREF="node700.html">CFDiskTest::randomCreateRaid</A>
+<LI><A NAME="tex2html16034"
+  HREF="node701.html">CFDiskTest::randomDeleteRaid</A>
+<LI><A NAME="tex2html16035"
+  HREF="node702.html">CFDiskTest::randomFormatRaid</A>
+<LI><A NAME="tex2html16036"
+  HREF="node703.html">CFDiskTest::randomRaidTest</A>
+<LI><A NAME="tex2html16037"
+  HREF="node704.html">CFDiskTest::randomPartTest</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

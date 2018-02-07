@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_checkOverwriting</TITLE>
-<META NAME="description" CONTENT="PLG_checkOverwriting">
+<TITLE>PKG_getDuplicatedIdenticalJobs</TITLE>
+<META NAME="description" CONTENT="PKG_getDuplicatedIdenticalJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2202.html">
 <LINK REL="previous" HREF="node2200.html">
-<LINK REL="up" HREF="node2189.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2202.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35665"
+<A NAME="tex2html35794"
   HREF="node2202.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35661"
-  HREF="node2189.html">
+<A NAME="tex2html35790"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35655"
+<A NAME="tex2html35784"
   HREF="node2200.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35663"
+<A NAME="tex2html35792"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35666"
-  HREF="node2202.html">PLG_DBInstall</A>
-<B> Up:</B> <A NAME="tex2html35662"
-  HREF="node2189.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html35656"
-  HREF="node2200.html">PLG_showDownloadStatus</A>
- &nbsp; <B>  <A NAME="tex2html35664"
+<B> Next:</B> <A NAME="tex2html35795"
+  HREF="node2202.html">PKG_removeDuplicatedIdenticalJobs</A>
+<B> Up:</B> <A NAME="tex2html35791"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35785"
+  HREF="node2200.html">PKG_savePackagesList</A>
+ &nbsp; <B>  <A NAME="tex2html35793"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097012000000000000000">
-PLG_checkOverwriting</A>
+<H2><A NAME="SECTION00968106000000000000000">
+PKG_getDuplicatedIdenticalJobs</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with a list of all jobs that are identical by package, priority, status and params.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
+<LI>clientName: Name of the client.
 </LI>
-<LI>tempDir: where to store the plugin file temporary
+<LI>omitFirstID: Set to true if the first ID of each duplicate jobs block should be omitted.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with a list of all jobs that are identical by package, priority, status and params.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ PLG_checkOverwriting</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

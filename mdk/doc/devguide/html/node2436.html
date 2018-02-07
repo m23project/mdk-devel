@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_activateNetbootCMD</TITLE>
-<META NAME="description" CONTENT="VM_activateNetbootCMD">
+<TITLE>VM_CloudStackClientName2ClientID</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackClientName2ClientID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2437.html">
 <LINK REL="previous" HREF="node2435.html">
-<LINK REL="up" HREF="node2379.html">
+<LINK REL="up" HREF="node2422.html">
 <LINK REL="next" HREF="node2437.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38688"
+<A NAME="tex2html38860"
   HREF="node2437.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38684"
-  HREF="node2379.html">
+<A NAME="tex2html38856"
+  HREF="node2422.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38678"
+<A NAME="tex2html38850"
   HREF="node2435.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38686"
+<A NAME="tex2html38858"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38689"
-  HREF="node2437.html">VM_createVM</A>
-<B> Up:</B> <A NAME="tex2html38685"
-  HREF="node2379.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38679"
-  HREF="node2435.html">VM_delVMCMD</A>
- &nbsp; <B>  <A NAME="tex2html38687"
+<B> Next:</B> <A NAME="tex2html38861"
+  HREF="node2437.html">VM_CloudStackNetBootActivate</A>
+<B> Up:</B> <A NAME="tex2html38857"
+  HREF="node2422.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html38851"
+  HREF="node2435.html">VM_CloudStackGetVMStatus</A>
+ &nbsp; <B>  <A NAME="tex2html38859"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098057000000000000000">
-VM_activateNetbootCMD</A>
+<H2><A NAME="SECTION0098014000000000000000">
+VM_CloudStackClientName2ClientID</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command line to (de)activate network booting of a VM.
+<SPAN  CLASS="textbf">Description:</SPAN> returns the Cloudstack-ID of a client with the given client host name
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmName: Name of the VM.
-</LI>
-<LI>activate: true for booting from network, false for booting from the HD.
+<LI>clientname: Host name of the virtual machine
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>BASH code to delete a virtual machine.
+<LI>Cloudstack-Client-ID if the clientname can be retrieved, False otherwise 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ VM_activateNetbootCMD</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

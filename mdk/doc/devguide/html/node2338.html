@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getStorageFS</TITLE>
-<META NAME="description" CONTENT="SRCLST_getStorageFS">
+<TITLE>SERVER_addLineToFile</TITLE>
+<META NAME="description" CONTENT="SERVER_addLineToFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2339.html">
 <LINK REL="previous" HREF="node2337.html">
-<LINK REL="up" HREF="node2320.html">
+<LINK REL="up" HREF="node2291.html">
 <LINK REL="next" HREF="node2339.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37434"
+<A NAME="tex2html37560"
   HREF="node2339.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37430"
-  HREF="node2320.html">
+<A NAME="tex2html37556"
+  HREF="node2291.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37424"
+<A NAME="tex2html37550"
   HREF="node2337.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37432"
+<A NAME="tex2html37558"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37435"
-  HREF="node2339.html">SRCLST_supportedFS</A>
-<B> Up:</B> <A NAME="tex2html37431"
-  HREF="node2320.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html37425"
-  HREF="node2337.html">SRCLST_packageInformationOlderThan</A>
- &nbsp; <B>  <A NAME="tex2html37433"
+<B> Next:</B> <A NAME="tex2html37561"
+  HREF="node2339.html">SERVER_deleteFile</A>
+<B> Up:</B> <A NAME="tex2html37557"
+  HREF="node2291.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37551"
+  HREF="node2337.html">SERVER_runningInScreen</A>
+ &nbsp; <B>  <A NAME="tex2html37559"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097718000000000000000">
-SRCLST_getStorageFS</A>
+<H2><A NAME="SECTION0097647000000000000000">
+SERVER_addLineToFile</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns a file systems that can be used to install the OS and to store data. A wished file system is given and an alternative FS is returned, if this FS is not supported.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds (if the search pattern can't be found) a line to a file on the server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fs: File system to probe.
+<LI>file: name of the file to edit
 </LI>
-<LI>sourceName: The name of the package source list
+<LI>search: the search pattern
+</LI>
+<LI>add: the line to add
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: File systems that can be used to install the OS and to store data
+<LI>: true on successfully execution otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ SRCLST_getStorageFS</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

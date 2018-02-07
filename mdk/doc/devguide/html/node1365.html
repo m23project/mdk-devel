@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/distr.php</TITLE>
-<META NAME="description" CONTENT="./inc/distr.php">
+<TITLE>PKG_convertPackagesToRepository</TITLE>
+<META NAME="description" CONTENT="PKG_convertPackagesToRepository">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,86 +19,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1379.html">
-<LINK REL="previous" HREF="node1338.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1366.html">
+<LINK REL="previous" HREF="node1364.html">
+<LINK REL="up" HREF="node1356.html">
 <LINK REL="next" HREF="node1366.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24855"
+<A NAME="tex2html25004"
   HREF="node1366.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24851"
-  HREF="node101.html">
+<A NAME="tex2html25000"
+  HREF="node1356.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24845"
+<A NAME="tex2html24994"
   HREF="node1364.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24853"
+<A NAME="tex2html25002"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24856"
-  HREF="node1366.html">DISTR_getUbuntuUserGroups</A>
-<B> Up:</B> <A NAME="tex2html24852"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html24846"
-  HREF="node1364.html">PKG_getDebootStrapBasePackages</A>
- &nbsp; <B>  <A NAME="tex2html24854"
+<B> Next:</B> <A NAME="tex2html25005"
+  HREF="node1366.html">PKG_fastGetInstalledPackages</A>
+<B> Up:</B> <A NAME="tex2html25001"
+  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24995"
+  HREF="node1364.html">PKG_preparePool</A>
+ &nbsp; <B>  <A NAME="tex2html25003"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009470000000000000000">
-./inc/distr.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for handling distributions.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009469000000000000000">
+PKG_convertPackagesToRepository</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands for creating a package source from packages stored in one directory.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>poolDir: Complete path to the directory that stores the pool.
+</LI>
+<LI>logFile: File (with full path) to store the pool generation log in.
+</LI>
+<LI>poolName: Name of the pool.
+</LI>
+<LI>sourceslist: Variable to store the sources list in.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Commands for creating a package source from packages stored in one directory.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html24857"
-  HREF="node1366.html">DISTR_getUbuntuUserGroups</A>
-<LI><A NAME="tex2html24858"
-  HREF="node1367.html">DISTR_getDebianUserGroups</A>
-<LI><A NAME="tex2html24859"
-  HREF="node1368.html">DISTR_releaseVersionTranslator</A>
-<LI><A NAME="tex2html24860"
-  HREF="node1369.html">DISTR_listDistributions</A>
-<LI><A NAME="tex2html24861"
-  HREF="node1370.html">DISTR_getDescriptionValues</A>
-<LI><A NAME="tex2html24862"
-  HREF="node1371.html">DISTR_DistributionsSelections</A>
-<LI><A NAME="tex2html24863"
-  HREF="node1372.html">DISTR_geti18nValue</A>
-<LI><A NAME="tex2html24864"
-  HREF="node1373.html">DISTR_listCommaSeperated</A>
-<LI><A NAME="tex2html24865"
-  HREF="node1374.html">DISTR_commaSeperatedSelections</A>
-<LI><A NAME="tex2html24866"
-  HREF="node1375.html">DISTR_getDesktopsCBList</A>
-<LI><A NAME="tex2html24867"
-  HREF="node1376.html">DISTR_getDesktopDescription</A>
-<LI><A NAME="tex2html24868"
-  HREF="node1377.html">DISTR_getSelectedDesktopsArr</A>
-<LI><A NAME="tex2html24869"
-  HREF="node1378.html">DISTR_getSelectedDesktopsStr</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

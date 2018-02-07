@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_moveClientToGroup</TITLE>
-<META NAME="description" CONTENT="GRP_moveClientToGroup">
+<TITLE>FDISK_deleteDriveFromParam</TITLE>
+<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,52 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1648.html">
 <LINK REL="previous" HREF="node1646.html">
-<LINK REL="up" HREF="node1628.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1648.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28516"
+<A NAME="tex2html28633"
   HREF="node1648.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28512"
-  HREF="node1628.html">
+<A NAME="tex2html28629"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28506"
+<A NAME="tex2html28625"
   HREF="node1646.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28514"
+<A NAME="tex2html28631"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28517"
-  HREF="node1648.html">GRP_listGroups</A>
-<B> Up:</B> <A NAME="tex2html28513"
-  HREF="node1628.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html28507"
-  HREF="node1646.html">GRP_showChangeDescriptionDialog</A>
- &nbsp; <B>  <A NAME="tex2html28515"
+<B> Next:</B> <A NAME="tex2html28634"
+  HREF="node1648.html">./inc/groups.php</A>
+<B> Up:</B> <A NAME="tex2html28630"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28626"
+  HREF="node1646.html">FDISK_virtualDeleteDrive</A>
+ &nbsp; <B>  <A NAME="tex2html28632"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095319000000000000000">
-GRP_moveClientToGroup</A>
+<H2><A NAME="SECTION00952109000000000000000">
+FDISK_deleteDriveFromParam</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> moves a client from one group to another
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: client to move
+<LI>vDev: Virtual (internally used) device number of the drive to delete.
 </LI>
-<LI>oldGroup: name of the old group
+<LI>param: parameter string containing status informations about the harddisks.
 </LI>
-<LI>newGroup: name of the new group
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Changed param without the drive.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +75,7 @@ GRP_moveClientToGroup</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

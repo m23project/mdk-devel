@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DISTR_getUbuntuUserGroups</TITLE>
-<META NAME="description" CONTENT="DISTR_getUbuntuUserGroups">
+<TITLE>PKG_fastGetInstalledPackages</TITLE>
+<META NAME="description" CONTENT="PKG_fastGetInstalledPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1367.html">
 <LINK REL="previous" HREF="node1365.html">
-<LINK REL="up" HREF="node1365.html">
+<LINK REL="up" HREF="node1356.html">
 <LINK REL="next" HREF="node1367.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24880"
+<A NAME="tex2html25016"
   HREF="node1367.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24876"
-  HREF="node1365.html">
+<A NAME="tex2html25012"
+  HREF="node1356.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24870"
+<A NAME="tex2html25006"
   HREF="node1365.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24878"
+<A NAME="tex2html25014"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24881"
-  HREF="node1367.html">DISTR_getDebianUserGroups</A>
-<B> Up:</B> <A NAME="tex2html24877"
-  HREF="node1365.html">./inc/distr.php</A>
-<B> Previous:</B> <A NAME="tex2html24871"
-  HREF="node1365.html">./inc/distr.php</A>
- &nbsp; <B>  <A NAME="tex2html24879"
+<B> Next:</B> <A NAME="tex2html25017"
+  HREF="node1367.html">PKG_fastGetNewInstalledPackages</A>
+<B> Up:</B> <A NAME="tex2html25013"
+  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25007"
+  HREF="node1365.html">PKG_convertPackagesToRepository</A>
+ &nbsp; <B>  <A NAME="tex2html25015"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009471000000000000000">
-DISTR_getUbuntuUserGroups</A>
+<H2><A NAME="SECTION0094610000000000000000">
+PKG_fastGetInstalledPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the default groups an user of a Ubuntu system should be in.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets a list of all installed packages (faster than dpkg -get-selections).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arrayOrSeparator: If set to true, the groups are returned as array, otherwise the value is used as separator character.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Default groups as array or as string, where the groups are separates by a separator character.
+<LI>storeFile: File name to store the list of installed on the client or empty if the list should be outputted to stdout.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ DISTR_getUbuntuUserGroups</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

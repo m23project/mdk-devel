@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>booting your new system</TITLE>
-<META NAME="description" CONTENT="booting your new system">
+<TITLE>system update and installation of additional packages</TITLE>
+<META NAME="description" CONTENT="system update and installation of additional packages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="previous" HREF="node49.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="next" HREF="node51.html">
+<LINK REL="previous" HREF="node48.html">
+<LINK REL="up" HREF="node39.html">
 <LINK REL="next" HREF="node51.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5571"
+<A NAME="tex2html5661"
   HREF="node51.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5567"
-  HREF="node38.html">
+<A NAME="tex2html5657"
+  HREF="node39.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5563"
+<A NAME="tex2html5651"
   HREF="node49.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5569"
+<A NAME="tex2html5659"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5572"
-  HREF="node51.html">How to create a</A>
-<B> Up:</B> <A NAME="tex2html5568"
-  HREF="node38.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html5564"
-  HREF="node49.html">system update and installation</A>
- &nbsp; <B>  <A NAME="tex2html5570"
+<B> Next:</B> <A NAME="tex2html5662"
+  HREF="node51.html">booting your new system</A>
+<B> Up:</B> <A NAME="tex2html5658"
+  HREF="node39.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html5652"
+  HREF="node49.html">in case of an</A>
+ &nbsp; <B>  <A NAME="tex2html5660"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00647000000000000000">
-booting your new system</A>
+<H2><A NAME="SECTION00646000000000000000">
+system update and installation of additional packages</A>
 </H2>
-To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
-Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
 <PRE>
-image=/boot/vmlinuz-2.4.20-1-386-sec
-        root=/dev/hda3
-        label=m23Server3
-        initrd=/initrd.img
+apt-get dist-upgrade -u
+apt-get install ssh
 </PRE>
-vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
+
+<P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

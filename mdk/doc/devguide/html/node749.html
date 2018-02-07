@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>checkEmail</TITLE>
-<META NAME="description" CONTENT="checkEmail">
+<TITLE>CHECK_strAlphaNum</TITLE>
+<META NAME="description" CONTENT="CHECK_strAlphaNum">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node750.html">
 <LINK REL="previous" HREF="node748.html">
-<LINK REL="up" HREF="node732.html">
+<LINK REL="up" HREF="node738.html">
 <LINK REL="next" HREF="node750.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16929"
+<A NAME="tex2html17065"
   HREF="node750.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16925"
-  HREF="node732.html">
+<A NAME="tex2html17061"
+  HREF="node738.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16919"
+<A NAME="tex2html17055"
   HREF="node748.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16927"
+<A NAME="tex2html17063"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16930"
-  HREF="node750.html">checkFQDN</A>
-<B> Up:</B> <A NAME="tex2html16926"
-  HREF="node732.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html16920"
-  HREF="node748.html">checkNetmask</A>
- &nbsp; <B>  <A NAME="tex2html16928"
+<B> Next:</B> <A NAME="tex2html17066"
+  HREF="node750.html">CHECK_letFWDie</A>
+<B> Up:</B> <A NAME="tex2html17062"
+  HREF="node738.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html17056"
+  HREF="node748.html">CHECK_strAlpha</A>
+ &nbsp; <B>  <A NAME="tex2html17064"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091917000000000000000">
-checkEmail</A>
+<H2><A NAME="SECTION0091911000000000000000">
+CHECK_strAlphaNum</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a email address is valid, returns 1 if it is a valid netmask otherwise 0
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and digits and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>string: email address value to check
+<LI>val: Input value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The input value if it contains only characters and digits or stops (or false, if $returnNoDie is true) the program on an error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +80,7 @@ checkEmail</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

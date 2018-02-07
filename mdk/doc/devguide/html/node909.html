@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CPackageStatusCompare.php</TITLE>
-<META NAME="description" CONTENT="./inc/CPackageStatusCompare.php">
+<TITLE>CObjectStorageManager::getCOSStatus</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getCOSStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,98 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node929.html">
-<LINK REL="previous" HREF="node903.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node910.html">
+<LINK REL="previous" HREF="node908.html">
+<LINK REL="up" HREF="node901.html">
 <LINK REL="next" HREF="node910.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18982"
+<A NAME="tex2html19122"
   HREF="node910.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18978"
-  HREF="node101.html">
+<A NAME="tex2html19118"
+  HREF="node901.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18972"
+<A NAME="tex2html19112"
   HREF="node908.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18980"
+<A NAME="tex2html19120"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18983"
-  HREF="node910.html">CPackageStatusCompare::__construct</A>
-<B> Up:</B> <A NAME="tex2html18979"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html18973"
-  HREF="node908.html">CObjectStorage::destroy</A>
- &nbsp; <B>  <A NAME="tex2html18981"
+<B> Next:</B> <A NAME="tex2html19123"
+  HREF="node910.html">CObjectStorageManager::getCOSStatusHumanReadable</A>
+<B> Up:</B> <A NAME="tex2html19119"
+  HREF="node901.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19113"
+  HREF="node908.html">CObjectStorageManager::getObjectMethodReturnValue</A>
+ &nbsp; <B>  <A NAME="tex2html19121"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009280000000000000000">
-./inc/CPackageStatusCompare.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for comparing the package status between clients and files.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009268000000000000000">
+CObjectStorageManager::getCOSStatus</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the status code of the object.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>object: Object to use or null, if $this-<SPAN CLASS="MATH"></SPAN>object should be used.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Status code.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html18984"
-  HREF="node910.html">CPackageStatusCompare::__construct</A>
-<LI><A NAME="tex2html18985"
-  HREF="node911.html">CPackageStatusCompare::__destruct</A>
-<LI><A NAME="tex2html18986"
-  HREF="node912.html">CPackageStatusCompare::save</A>
-<LI><A NAME="tex2html18987"
-  HREF="node913.html">CPackageStatusCompare::setFile</A>
-<LI><A NAME="tex2html18988"
-  HREF="node914.html">CPackageStatusCompare::setFile1</A>
-<LI><A NAME="tex2html18989"
-  HREF="node915.html">CPackageStatusCompare::setFile2</A>
-<LI><A NAME="tex2html18990"
-  HREF="node916.html">CPackageStatusCompare::setClient</A>
-<LI><A NAME="tex2html18991"
-  HREF="node917.html">CPackageStatusCompare::setClient1</A>
-<LI><A NAME="tex2html18992"
-  HREF="node918.html">CPackageStatusCompare::setClient2</A>
-<LI><A NAME="tex2html18993"
-  HREF="node919.html">CPackageStatusCompare::isClientSet</A>
-<LI><A NAME="tex2html18994"
-  HREF="node920.html">CPackageStatusCompare::isClient1Set</A>
-<LI><A NAME="tex2html18995"
-  HREF="node921.html">CPackageStatusCompare::isClient2Set</A>
-<LI><A NAME="tex2html18996"
-  HREF="node922.html">CPackageStatusCompare::isFile1Set</A>
-<LI><A NAME="tex2html18997"
-  HREF="node923.html">CPackageStatusCompare::isFile2Set</A>
-<LI><A NAME="tex2html18998"
-  HREF="node924.html">CPackageStatusCompare::getVersionStatus</A>
-<LI><A NAME="tex2html18999"
-  HREF="node925.html">CPackageStatusCompare::getStatusFile</A>
-<LI><A NAME="tex2html19000"
-  HREF="node926.html">CPackageStatusCompare::showStatusRow</A>
-<LI><A NAME="tex2html19001"
-  HREF="node927.html">CPackageStatusCompare::diff</A>
-<LI><A NAME="tex2html19002"
-  HREF="node928.html">CPackageStatusCompare::show</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

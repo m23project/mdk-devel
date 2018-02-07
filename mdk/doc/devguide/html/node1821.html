@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getElementValue</TITLE>
-<META NAME="description" CONTENT="HTML_getElementValue">
+<TITLE>HTML_JSMenuOpener</TITLE>
+<META NAME="description" CONTENT="HTML_JSMenuOpener">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1822.html">
 <LINK REL="previous" HREF="node1820.html">
-<LINK REL="up" HREF="node1778.html">
+<LINK REL="up" HREF="node1798.html">
 <LINK REL="next" HREF="node1822.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30772"
+<A NAME="tex2html30922"
   HREF="node1822.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30768"
-  HREF="node1778.html">
+<A NAME="tex2html30918"
+  HREF="node1798.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30762"
+<A NAME="tex2html30912"
   HREF="node1820.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30770"
+<A NAME="tex2html30920"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30773"
-  HREF="node1822.html">HTML_listSelection</A>
-<B> Up:</B> <A NAME="tex2html30769"
-  HREF="node1778.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30763"
-  HREF="node1820.html">HTML_storableCheckBox</A>
- &nbsp; <B>  <A NAME="tex2html30771"
+<B> Next:</B> <A NAME="tex2html30923"
+  HREF="node1822.html">HTML_jQueryMenu</A>
+<B> Up:</B> <A NAME="tex2html30919"
+  HREF="node1798.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30913"
+  HREF="node1820.html">HTML_JSMenuCloseAllEntries</A>
+ &nbsp; <B>  <A NAME="tex2html30921"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095743000000000000000">
-HTML_getElementValue</A>
+<H2><A NAME="SECTION0095723000000000000000">
+HTML_JSMenuOpener</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the value for a HTML element by the session data or POST value.
+<SPAN  CLASS="textbf">Description:</SPAN> Opens a menu entry when moving the mouse over the title and closes all other entries of the same menu.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlName: Name of the HTML element.
+<LI>menuName: Name of the complete menu. This name must be the same on all entries belonging to the same menu.
 </LI>
-<LI>prefKey: Variable name of the preference the dialog element stands for.
+<LI>entryName: Name of the entry. This name must be unique.
 </LI>
-<LI>initValue: The initial value if the element is shown first.
+<LI>title: Title for the menu entry.
+</LI>
+<LI>html: HTML code of the menu entry. Here can stand all that is expressable with HTML. This part is shown and hidden.
+</LI>
+<LI>titleCSS: CSS class for marking the title.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Returns the default value, the session value or false.
+<LI>The HTML code for displaying the menu entry.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +82,7 @@ HTML_getElementValue</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

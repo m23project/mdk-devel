@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getCurrentDiskDev</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getCurrentDiskDev">
+<TITLE>CFDiskGUI::updateDiskLayout</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::updateDiskLayout">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node522.html">
 <LINK REL="previous" HREF="node520.html">
-<LINK REL="up" HREF="node493.html">
+<LINK REL="up" HREF="node495.html">
 <LINK REL="next" HREF="node522.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13998"
+<A NAME="tex2html14129"
   HREF="node522.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13994"
-  HREF="node493.html">
+<A NAME="tex2html14125"
+  HREF="node495.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13988"
+<A NAME="tex2html14119"
   HREF="node520.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13996"
+<A NAME="tex2html14127"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13999"
-  HREF="node522.html">CFDiskGUI::getCurrentDiskvDev</A>
-<B> Up:</B> <A NAME="tex2html13995"
-  HREF="node493.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13989"
-  HREF="node520.html">CFDiskGUI::showCombinedFdiskGUIDialog</A>
- &nbsp; <B>  <A NAME="tex2html13997"
+<B> Next:</B> <A NAME="tex2html14130"
+  HREF="node522.html">CFDiskGUI::showCombinedFdiskGUIDialog</A>
+<B> Up:</B> <A NAME="tex2html14126"
+  HREF="node495.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14120"
+  HREF="node520.html">CFDiskGUI::newDiskLayout</A>
+ &nbsp; <B>  <A NAME="tex2html14128"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091428000000000000000">
-CFDiskGUI::getCurrentDiskDev</A>
+<H2><A NAME="SECTION0091426000000000000000">
+CFDiskGUI::updateDiskLayout</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the currently choosen (in the GUI) disk device name.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Updates the disk layout for a given disk, if it is not in the cache.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Currently choosen (in the GUI) disk device name.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk layout was calculated, false, if it is in the cache 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CFDiskGUI::getCurrentDiskDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

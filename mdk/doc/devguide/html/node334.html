@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CClient.php</TITLE>
-<META NAME="description" CONTENT="./inc/CClient.php">
+<TITLE>CClientLister::ClientExists</TITLE>
+<META NAME="description" CONTENT="CClientLister::ClientExists">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,312 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node461.html">
-<LINK REL="previous" HREF="node289.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="previous" HREF="node333.html">
+<LINK REL="up" HREF="node290.html">
 <LINK REL="next" HREF="node335.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11553"
+<A NAME="tex2html11683"
   HREF="node335.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11549"
-  HREF="node101.html">
+<A NAME="tex2html11679"
+  HREF="node290.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11543"
+<A NAME="tex2html11675"
   HREF="node333.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11551"
+<A NAME="tex2html11681"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11554"
-  HREF="node335.html">CClient::__construct</A>
-<B> Up:</B> <A NAME="tex2html11550"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html11544"
-  HREF="node333.html">CClientLister::ClientExists</A>
- &nbsp; <B>  <A NAME="tex2html11552"
+<B> Next:</B> <A NAME="tex2html11684"
+  HREF="node335.html">./inc/CClient.php</A>
+<B> Up:</B> <A NAME="tex2html11680"
+  HREF="node290.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html11676"
+  HREF="node333.html">CClientLister::MACexists</A>
+ &nbsp; <B>  <A NAME="tex2html11682"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009120000000000000000">
-./inc/CClient.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for handling clients.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0091144000000000000000">
+CClientLister::ClientExists</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> checks if a client with the selected name exists and returns true if yes, otherwise false
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>clientName: name of the client
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html11555"
-  HREF="node335.html">CClient::__construct</A>
-<LI><A NAME="tex2html11556"
-  HREF="node336.html">CClient::__destruct</A>
-<LI><A NAME="tex2html11557"
-  HREF="node337.html">CClient::setKeyValueStore</A>
-<LI><A NAME="tex2html11558"
-  HREF="node338.html">CClient::getKeyValueStore</A>
-<LI><A NAME="tex2html11559"
-  HREF="node339.html">CClient::copyImagingParameters</A>
-<LI><A NAME="tex2html11560"
-  HREF="node340.html">CClient::copyMassOptions</A>
-<LI><A NAME="tex2html11561"
-  HREF="node341.html">CClient::setInstallationStatusBar</A>
-<LI><A NAME="tex2html11562"
-  HREF="node342.html">CClient::delSpecialJob</A>
-<LI><A NAME="tex2html11563"
-  HREF="node343.html">CClient::addJob</A>
-<LI><A NAME="tex2html11564"
-  HREF="node344.html">CClient::includeDistributionSpecificPackagesPHP</A>
-<LI><A NAME="tex2html11565"
-  HREF="node345.html">CClient::addNormalJob</A>
-<LI><A NAME="tex2html11566"
-  HREF="node346.html">CClient::addSpecialJob</A>
-<LI><A NAME="tex2html11567"
-  HREF="node347.html">CClient::addUpdateSourcesListJob</A>
-<LI><A NAME="tex2html11568"
-  HREF="node348.html">CClient::addUpdatePackageInfosJob</A>
-<LI><A NAME="tex2html11569"
-  HREF="node349.html">CClient::addNormalUpdateJob</A>
-<LI><A NAME="tex2html11570"
-  HREF="node350.html">CClient::addCompleteUpdateJob</A>
-<LI><A NAME="tex2html11571"
-  HREF="node351.html">CClient::addUpdateJob</A>
-<LI><A NAME="tex2html11572"
-  HREF="node352.html">CClient::startAutoUpdate</A>
-<LI><A NAME="tex2html11573"
-  HREF="node353.html">CClient::stopAutoUpdate</A>
-<LI><A NAME="tex2html11574"
-  HREF="node354.html">CClient::getAutoUpdate_lastAttempt</A>
-<LI><A NAME="tex2html11575"
-  HREF="node355.html">CClient::hasAutoUpdateJob</A>
-<LI><A NAME="tex2html11576"
-  HREF="node356.html">CClient::checkAutoUpdate</A>
-<LI><A NAME="tex2html11577"
-  HREF="node357.html">CClient::unsetInstPartDev</A>
-<LI><A NAME="tex2html11578"
-  HREF="node358.html">CClient::setInstPartDev</A>
-<LI><A NAME="tex2html11579"
-  HREF="node359.html">CClient::setUEFI</A>
-<LI><A NAME="tex2html11580"
-  HREF="node360.html">CClient::isUEFIActive</A>
-<LI><A NAME="tex2html11581"
-  HREF="node361.html">CClient::isHalfSisterClient</A>
-<LI><A NAME="tex2html11582"
-  HREF="node362.html">CClient::getEFIBootPartDev</A>
-<LI><A NAME="tex2html11583"
-  HREF="node363.html">CClient::setEFIBootPartDev</A>
-<LI><A NAME="tex2html11584"
-  HREF="node364.html">CClient::unsetEFIBootPartDev</A>
-<LI><A NAME="tex2html11585"
-  HREF="node365.html">CClient::getInstPartDev</A>
-<LI><A NAME="tex2html11586"
-  HREF="node366.html">CClient::unsetSwapPartDev</A>
-<LI><A NAME="tex2html11587"
-  HREF="node367.html">CClient::setSwapPartDev</A>
-<LI><A NAME="tex2html11588"
-  HREF="node368.html">CClient::getSwapPartDev</A>
-<LI><A NAME="tex2html11589"
-  HREF="node369.html">CClient::isDerivedClient</A>
-<LI><A NAME="tex2html11590"
-  HREF="node370.html">CClient::setLanguage</A>
-<LI><A NAME="tex2html11591"
-  HREF="node371.html">CClient::getLanguage</A>
-<LI><A NAME="tex2html11592"
-  HREF="node372.html">CClient::setTimeZone</A>
-<LI><A NAME="tex2html11593"
-  HREF="node373.html">CClient::getTimeZone</A>
-<LI><A NAME="tex2html11594"
-  HREF="node374.html">CClient::setBootloader</A>
-<LI><A NAME="tex2html11595"
-  HREF="node375.html">CClient::getBootloader</A>
-<LI><A NAME="tex2html11596"
-  HREF="node376.html">CClient::getClientGroup</A>
-<LI><A NAME="tex2html11597"
-  HREF="node377.html">CClient::setNetRootPwd</A>
-<LI><A NAME="tex2html11598"
-  HREF="node378.html">CClient::getNetRootPwd</A>
-<LI><A NAME="tex2html11599"
-  HREF="node379.html">CClient::setNfshomeserver</A>
-<LI><A NAME="tex2html11600"
-  HREF="node380.html">CClient::getNfshomeserver</A>
-<LI><A NAME="tex2html11601"
-  HREF="node381.html">CClient::setBoolProperty</A>
-<LI><A NAME="tex2html11602"
-  HREF="node382.html">CClient::setInstallPrinter</A>
-<LI><A NAME="tex2html11603"
-  HREF="node383.html">CClient::getInstallPrinter</A>
-<LI><A NAME="tex2html11604"
-  HREF="node384.html">CClient::setAddNewLocalLogin</A>
-<LI><A NAME="tex2html11605"
-  HREF="node385.html">CClient::getAddNewLocalLogin</A>
-<LI><A NAME="tex2html11606"
-  HREF="node386.html">CClient::setGetSystemtimeByNTP</A>
-<LI><A NAME="tex2html11607"
-  HREF="node387.html">CClient::getGetSystemtimeByNTP</A>
-<LI><A NAME="tex2html11608"
-  HREF="node388.html">CClient::setRootPassword</A>
-<LI><A NAME="tex2html11609"
-  HREF="node389.html">CClient::addToClientGroup</A>
-<LI><A NAME="tex2html11610"
-  HREF="node390.html">CClient::setUserGroupIDs</A>
-<LI><A NAME="tex2html11611"
-  HREF="node391.html">CClient::getGroupID</A>
-<LI><A NAME="tex2html11612"
-  HREF="node392.html">CClient::getUserID</A>
-<LI><A NAME="tex2html11613"
-  HREF="node393.html">CClient::setUserDetails</A>
-<LI><A NAME="tex2html11614"
-  HREF="node394.html">CClient::getFirstpw</A>
-<LI><A NAME="tex2html11615"
-  HREF="node395.html">CClient::getFamilyname</A>
-<LI><A NAME="tex2html11616"
-  HREF="node396.html">CClient::getForename</A>
-<LI><A NAME="tex2html11617"
-  HREF="node397.html">CClient::getLogin</A>
-<LI><A NAME="tex2html11618"
-  HREF="node398.html">CClient::setLDAPType</A>
-<LI><A NAME="tex2html11619"
-  HREF="node399.html">CClient::getLDAPType</A>
-<LI><A NAME="tex2html11620"
-  HREF="node400.html">CClient::setLDAPServer</A>
-<LI><A NAME="tex2html11621"
-  HREF="node401.html">CClient::getLDAPServer</A>
-<LI><A NAME="tex2html11622"
-  HREF="node402.html">CClient::addToCredentialsToLDAPServer</A>
-<LI><A NAME="tex2html11623"
-  HREF="node403.html">CClient::getBackToDetailsLink</A>
-<LI><A NAME="tex2html11624"
-  HREF="node404.html">CClient::getClientWorkPHPURL</A>
-<LI><A NAME="tex2html11625"
-  HREF="node405.html">CClient::getClientCurrentWorkPHP</A>
-<LI><A NAME="tex2html11626"
-  HREF="node406.html">CClient::getClientPackages</A>
-<LI><A NAME="tex2html11627"
-  HREF="node407.html">CClient::save</A>
-<LI><A NAME="tex2html11628"
-  HREF="node408.html">CClient::getProperty</A>
-<LI><A NAME="tex2html11629"
-  HREF="node409.html">CClient::getSourcesList</A>
-<LI><A NAME="tex2html11630"
-  HREF="node410.html">CClient::setArch</A>
-<LI><A NAME="tex2html11631"
-  HREF="node411.html">CClient::getArch</A>
-<LI><A NAME="tex2html11632"
-  HREF="node412.html">CClient::setDistribution</A>
-<LI><A NAME="tex2html11633"
-  HREF="node413.html">CClient::getDistribution</A>
-<LI><A NAME="tex2html11634"
-  HREF="node414.html">CClient::setRelease</A>
-<LI><A NAME="tex2html11635"
-  HREF="node415.html">CClient::getRelease</A>
-<LI><A NAME="tex2html11636"
-  HREF="node416.html">CClient::updateModifyDate</A>
-<LI><A NAME="tex2html11637"
-  HREF="node417.html">CClient::getModifyDate</A>
-<LI><A NAME="tex2html11638"
-  HREF="node418.html">CClient::getModifyDateHumanReadable</A>
-<LI><A NAME="tex2html11639"
-  HREF="node419.html">CClient::updateInstallDate</A>
-<LI><A NAME="tex2html11640"
-  HREF="node420.html">CClient::getInstallDate</A>
-<LI><A NAME="tex2html11641"
-  HREF="node421.html">CClient::getInstallDateHumanReadable</A>
-<LI><A NAME="tex2html11642"
-  HREF="node422.html">CClient::export</A>
-<LI><A NAME="tex2html11643"
-  HREF="node423.html">CClient::setClientName</A>
-<LI><A NAME="tex2html11644"
-  HREF="node424.html">CClient::getClientName</A>
-<LI><A NAME="tex2html11645"
-  HREF="node425.html">CClient::getID</A>
-<LI><A NAME="tex2html11646"
-  HREF="node426.html">CClient::setDNS</A>
-<LI><A NAME="tex2html11647"
-  HREF="node427.html">CClient::getDNS1</A>
-<LI><A NAME="tex2html11648"
-  HREF="node428.html">CClient::getDNS2</A>
-<LI><A NAME="tex2html11649"
-  HREF="node429.html">CClient::setPackageProxy</A>
-<LI><A NAME="tex2html11650"
-  HREF="node430.html">CClient::setIP</A>
-<LI><A NAME="tex2html11651"
-  HREF="node431.html">CClient::getIP</A>
-<LI><A NAME="tex2html11652"
-  HREF="node432.html">CClient::setNetmask</A>
-<LI><A NAME="tex2html11653"
-  HREF="node433.html">CClient::getNetmask</A>
-<LI><A NAME="tex2html11654"
-  HREF="node434.html">CClient::setMAC</A>
-<LI><A NAME="tex2html11655"
-  HREF="node435.html">CClient::getMAC</A>
-<LI><A NAME="tex2html11656"
-  HREF="node436.html">CClient::setGateway</A>
-<LI><A NAME="tex2html11657"
-  HREF="node437.html">CClient::getGateway</A>
-<LI><A NAME="tex2html11658"
-  HREF="node438.html">CClient::setGateway</A>
-<LI><A NAME="tex2html11659"
-  HREF="node439.html">CClient::getStatus</A>
-<LI><A NAME="tex2html11660"
-  HREF="node440.html">CClient::isDefinedClient</A>
-<LI><A NAME="tex2html11661"
-  HREF="node441.html">CClient::generateHTMLStatusBar</A>
-<LI><A NAME="tex2html11662"
-  HREF="node442.html">CClient::getBootType</A>
-<LI><A NAME="tex2html11663"
-  HREF="node443.html">CClient::usesDynamicIP</A>
-<LI><A NAME="tex2html11664"
-  HREF="node444.html">CClient::setBootType</A>
-<LI><A NAME="tex2html11665"
-  HREF="node445.html">CClient::getNetworkBootTypesArrayForSelection</A>
-<LI><A NAME="tex2html11666"
-  HREF="node446.html">CClient::startInstall</A>
-<LI><A NAME="tex2html11667"
-  HREF="node447.html">CClient::addShutdownPackage</A>
-<LI><A NAME="tex2html11668"
-  HREF="node448.html">CClient::activateNetboot</A>
-<LI><A NAME="tex2html11669"
-  HREF="node449.html">CClient::deactivateNetboot</A>
-<LI><A NAME="tex2html11670"
-  HREF="node450.html">CClient::wol</A>
-<LI><A NAME="tex2html11671"
-  HREF="node451.html">CClient::isNetbootActive</A>
-<LI><A NAME="tex2html11672"
-  HREF="node452.html">CClient::isPingable</A>
-<LI><A NAME="tex2html11673"
-  HREF="node453.html">CClient::sshFetchJob</A>
-<LI><A NAME="tex2html11674"
-  HREF="node454.html">CClient::executeBySSH</A>
-<LI><A NAME="tex2html11675"
-  HREF="node455.html">CClient::generateHTMLClientNameBar</A>
-<LI><A NAME="tex2html11676"
-  HREF="node456.html">CClient::generateHTMLPackagesBar</A>
-<LI><A NAME="tex2html11677"
-  HREF="node457.html">CClient::generateHTMLWaitingAllJobsBar</A>
-<LI><A NAME="tex2html11678"
-  HREF="node458.html">CClient::generateHTMLWaitingAllJobsBar</A>
-<LI><A NAME="tex2html11679"
-  HREF="node459.html">CClient::getActionString</A>
-<LI><A NAME="tex2html11680"
-  HREF="node460.html">CClient::destroy</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

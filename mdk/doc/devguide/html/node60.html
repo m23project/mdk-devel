@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>creating a new bootimage</TITLE>
-<META NAME="description" CONTENT="creating a new bootimage">
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,70 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node62.html">
+<LINK REL="next" HREF="node61.html">
 <LINK REL="previous" HREF="node59.html">
-<LINK REL="up" HREF="node58.html">
+<LINK REL="up" HREF="node59.html">
 <LINK REL="next" HREF="node61.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5702"
+<A NAME="tex2html5790"
   HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5698"
-  HREF="node58.html">
+<A NAME="tex2html5786"
+  HREF="node59.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5692"
+<A NAME="tex2html5780"
   HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5700"
+<A NAME="tex2html5788"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5703"
-  HREF="node61.html">How it works?</A>
-<B> Up:</B> <A NAME="tex2html5699"
-  HREF="node58.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html5693"
-  HREF="node59.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html5701"
+<B> Next:</B> <A NAME="tex2html5791"
+  HREF="node61.html">creating a new bootimage</A>
+<B> Up:</B> <A NAME="tex2html5787"
+  HREF="node59.html">How to make network</A>
+<B> Previous:</B> <A NAME="tex2html5781"
+  HREF="node59.html">How to make network</A>
+ &nbsp; <B>  <A NAME="tex2html5789"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00662000000000000000">
-creating a new bootimage</A>
+<H2><A NAME="SECTION00661000000000000000">
+Introduction</A>
 </H2>
-In the /mdk/bootimage directory you can find the mkBootImage.sh script that generates the bootimage for PXE and Etherboot standard. The bootimages will be stored in /m23/tftp/ as m23pxeinstall (PXE kernel), initrd.gz (initial ramdisk for PXE) and m23install (Etherboot). To generate the Etherboot files you need to install <SPAN  CLASS="textbf">mknbi</SPAN>.
+What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
 <BR>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5704"
-  HREF="node61.html">How it works?</A>
-</UL>
-<!--End of Table of Child-Links-->
+A client runs for first start up thru the following sequence:
+<BR>
+<UL>
+<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
+</LI>
+<LI>fetch the bootimage from the server with TFTP protocoll
+</LI>
+<LI>load and extract the image to the client memory
+</LI>
+<LI>start the contained kernel
+</LI>
+<LI>kernel loades the included initrd
+</LI>
+<LI>start up script fetches IP, netmask, etc. from the server again
+</LI>
+<LI>the script fetches the first job for the client and saves the job script file
+</LI>
+<LI>the script is executed and the next job will be fetched from the server
+</LI>
+</UL> 
+This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

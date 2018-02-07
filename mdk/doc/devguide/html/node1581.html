@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getBeforeFristPartition</TITLE>
-<META NAME="description" CONTENT="FDISK_getBeforeFristPartition">
+<TITLE>FDISK_canPartTypeBeCreated</TITLE>
+<META NAME="description" CONTENT="FDISK_canPartTypeBeCreated">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1582.html">
 <LINK REL="previous" HREF="node1580.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1582.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27694"
+<A NAME="tex2html27843"
   HREF="node1582.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27690"
-  HREF="node1518.html">
+<A NAME="tex2html27839"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27684"
+<A NAME="tex2html27833"
   HREF="node1580.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27692"
+<A NAME="tex2html27841"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27695"
-  HREF="node1582.html">FDISK_getPartitions</A>
-<B> Up:</B> <A NAME="tex2html27691"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27685"
-  HREF="node1580.html">FDISK_getAfterPartition</A>
- &nbsp; <B>  <A NAME="tex2html27693"
+<B> Next:</B> <A NAME="tex2html27844"
+  HREF="node1582.html">FDISK_checkFreeSpace</A>
+<B> Up:</B> <A NAME="tex2html27840"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27834"
+  HREF="node1580.html">FDISK_partCreationSelect</A>
+ &nbsp; <B>  <A NAME="tex2html27842"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095263000000000000000">
-FDISK_getBeforeFristPartition</A>
+<H2><A NAME="SECTION0095243000000000000000">
+FDISK_canPartTypeBeCreated</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> gets the free space before the first partition
+<SPAN  CLASS="textbf">Description:</SPAN> checks if a partition from a certain type can be created
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>vDev: virtual device number to access the drive
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>factor: the factor to multiplay percent amount of free space
+<LI>type: type of the partition (primary, extended, logical)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +72,7 @@ FDISK_getBeforeFristPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

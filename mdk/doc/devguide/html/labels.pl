@@ -3,7 +3,7 @@
 
 
 $key = q/m23customPatch/;
-$external_labels{$key} = "$URL/" . q|node91.html|; 
+$external_labels{$key} = "$URL/" . q|node92.html|; 
 $noresave{$key} = "$nosave";
 
 1;

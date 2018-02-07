@@ -28,26 +28,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5320"
+<A NAME="tex2html5408"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5316"
+<A NAME="tex2html5404"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5310"
+<A NAME="tex2html5398"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5318"
+<A NAME="tex2html5406"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5321"
-  HREF="node31.html">CMS</A>
-<B> Up:</B> <A NAME="tex2html5317"
+<B> Next:</B> <A NAME="tex2html5409"
+  HREF="node31.html">Update the m23admin-offline-copy</A>
+<B> Up:</B> <A NAME="tex2html5405"
   HREF="node27.html">Releasing a new m23</A>
-<B> Previous:</B> <A NAME="tex2html5311"
+<B> Previous:</B> <A NAME="tex2html5399"
   HREF="node29.html">Documentation</A>
- &nbsp; <B>  <A NAME="tex2html5319"
+ &nbsp; <B>  <A NAME="tex2html5407"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -68,9 +68,9 @@ Building the files</A>
 <LI>Test the packages
 		
 <UL>
-<LI>UCS VM (local repository): Call /mdk/m23helper/addLocalm23ServerRepository, install m23
+<LI>UCS VM (local repository): Call /mdk/ucs/installLocalm23DebsOnUCS to install m23 and create the tar with the unmaintained Debian packages.
 </LI>
-<LI>UCS VM (online test repository): Call /mdk/m23helper/addUCSTestRepository, install m23
+<LI>UCS VM (online test repository): Copy /mdk/ucs/addUCSTestRepository to the UCS and install m23
 </LI>
 <LI>Debian: Call /mdk/m23helper/addLocalm23ServerRepository, install m23
 		
@@ -141,11 +141,7 @@ Building the files</A>
 </LI>
 <LI>Remove the user pi: userdel -r -f pi
 </LI>
-<LI>Add "192.168.1.77 m23debs" to /etc/hosts
-</LI>
-<LI>Create "/etc/apt/sources.list.d/m23debs.list" with the contents "deb http://m23debs ./"
-</LI>
-<LI>Update the package index: apt-get update
+<LI>Copy /mdk/m23helper/addLocalm23ServerRepository to the RasPi and execute it there
 </LI>
 <LI>Install the m23 server: apt-get install m23
 </LI>
@@ -170,31 +166,31 @@ Building the files</A>
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html5320"
+<A NAME="tex2html5408"
   HREF="node31.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5316"
+<A NAME="tex2html5404"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5310"
+<A NAME="tex2html5398"
   HREF="node29.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5318"
+<A NAME="tex2html5406"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5321"
-  HREF="node31.html">CMS</A>
-<B> Up:</B> <A NAME="tex2html5317"
+<B> Next:</B> <A NAME="tex2html5409"
+  HREF="node31.html">Update the m23admin-offline-copy</A>
+<B> Up:</B> <A NAME="tex2html5405"
   HREF="node27.html">Releasing a new m23</A>
-<B> Previous:</B> <A NAME="tex2html5311"
+<B> Previous:</B> <A NAME="tex2html5399"
   HREF="node29.html">Documentation</A>
- &nbsp; <B>  <A NAME="tex2html5319"
+ &nbsp; <B>  <A NAME="tex2html5407"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

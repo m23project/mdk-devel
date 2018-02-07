@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getPartitionFileSystem</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getPartitionFileSystem">
+<TITLE>CFDiskIO::getDevBypDiskpPart</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getDevBypDiskpPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node595.html">
 <LINK REL="previous" HREF="node593.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node595.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14990"
+<A NAME="tex2html15125"
   HREF="node595.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14986"
-  HREF="node542.html">
+<A NAME="tex2html15121"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14980"
+<A NAME="tex2html15115"
   HREF="node593.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14988"
+<A NAME="tex2html15123"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14991"
-  HREF="node595.html">CFDiskIO::setPartitionFileSystem</A>
-<B> Up:</B> <A NAME="tex2html14987"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14981"
-  HREF="node593.html">CFDiskIO::getPartitionType</A>
- &nbsp; <B>  <A NAME="tex2html14989"
+<B> Next:</B> <A NAME="tex2html15126"
+  HREF="node595.html">CFDiskIO::getPartitionDevs</A>
+<B> Up:</B> <A NAME="tex2html15122"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15116"
+  HREF="node593.html">CFDiskIO::getPartitionDev</A>
+ &nbsp; <B>  <A NAME="tex2html15124"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091552000000000000000">
-CFDiskIO::getPartitionFileSystem</A>
+<H2><A NAME="SECTION0091550000000000000000">
+CFDiskIO::getDevBypDiskpPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the file system of a partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns device string with pDisk and partition number correctly combined.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>pDisk: Physical disk is written to (e.g. /dev/hda).
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
-</LI>
-<LI>return: This will returned in case of an error, if set to another value, than 'null'.
+<LI>pPart: Physical partition number (e.g. 1) or false (if there is no number in the dev).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>FileSystem of a partition.
+<LI>Device string.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +76,7 @@ CFDiskIO::getPartitionFileSystem</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

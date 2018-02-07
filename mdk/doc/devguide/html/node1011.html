@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CRON_addJobHourly</TITLE>
-<META NAME="description" CONTENT="CRON_addJobHourly">
+<TITLE>CPool::downloadDebsFromClient</TITLE>
+<META NAME="description" CONTENT="CPool::downloadDebsFromClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1012.html">
 <LINK REL="previous" HREF="node1010.html">
-<LINK REL="up" HREF="node1005.html">
+<LINK REL="up" HREF="node970.html">
 <LINK REL="next" HREF="node1012.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20304"
+<A NAME="tex2html20429"
   HREF="node1012.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20300"
-  HREF="node1005.html">
+<A NAME="tex2html20425"
+  HREF="node970.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20294"
+<A NAME="tex2html20419"
   HREF="node1010.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20302"
+<A NAME="tex2html20427"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20305"
-  HREF="node1012.html">CRON_addJobDayly</A>
-<B> Up:</B> <A NAME="tex2html20301"
-  HREF="node1005.html">./inc/cron.php</A>
-<B> Previous:</B> <A NAME="tex2html20295"
-  HREF="node1010.html">CRON_reloadConfig</A>
- &nbsp; <B>  <A NAME="tex2html20303"
+<B> Next:</B> <A NAME="tex2html20430"
+  HREF="node1012.html">CPool::startDownloadToPool</A>
+<B> Up:</B> <A NAME="tex2html20426"
+  HREF="node970.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html20420"
+  HREF="node1010.html">CPool::stopDownloadToPool</A>
+ &nbsp; <B>  <A NAME="tex2html20428"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009346000000000000000">
-CRON_addJobHourly</A>
+<H2><A NAME="SECTION0093341000000000000000">
+CPool::downloadDebsFromClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every N hours.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if all pre-requirements for downloading packages to the pool are satisfied. Then starts the routine to download the packages directly from the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>min: Minute or * for every minute to execute the cron job. (0-59)
+<LI>clientName: Name of the client to download the packages from.
 </LI>
-<LI>user: The user the cron job should be run under.
+<LI>returnCommands: If set to true, the commands for downloading the packages will be returned instead of executed.
 </LI>
-<LI>cmd: The command to exectute.
-</LI>
-<LI>identifier: A string to identify the cron entry (for deletion)
-</LI>
-<LI>runInScreen: Set to true if the command should be run in a screen.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the download was started otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ CRON_addJobHourly</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

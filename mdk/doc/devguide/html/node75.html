@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Turn on m23 script debugging</TITLE>
-<META NAME="description" CONTENT="Turn on m23 script debugging">
+<TITLE>Activate PHP debugging</TITLE>
+<META NAME="description" CONTENT="Activate PHP debugging">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,63 +21,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node76.html">
 <LINK REL="previous" HREF="node74.html">
-<LINK REL="up" HREF="node73.html">
+<LINK REL="up" HREF="node74.html">
 <LINK REL="next" HREF="node76.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5888"
+<A NAME="tex2html5976"
   HREF="node76.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5884"
-  HREF="node73.html">
+<A NAME="tex2html5972"
+  HREF="node74.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5878"
+<A NAME="tex2html5966"
   HREF="node74.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5886"
+<A NAME="tex2html5974"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5889"
-  HREF="node76.html">Turn off m23 script</A>
-<B> Up:</B> <A NAME="tex2html5885"
-  HREF="node73.html">debugging m23 scripts</A>
-<B> Previous:</B> <A NAME="tex2html5879"
-  HREF="node74.html">Activate PHP debugging</A>
- &nbsp; <B>  <A NAME="tex2html5887"
+<B> Next:</B> <A NAME="tex2html5977"
+  HREF="node76.html">Turn on m23 script</A>
+<B> Up:</B> <A NAME="tex2html5973"
+  HREF="node74.html">debugging m23 scripts</A>
+<B> Previous:</B> <A NAME="tex2html5967"
+  HREF="node74.html">debugging m23 scripts</A>
+ &nbsp; <B>  <A NAME="tex2html5975"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00692000000000000000">
-Turn on m23 script debugging</A>
+<H2><A NAME="SECTION00691000000000000000">
+Activate PHP debugging</A>
 </H2>
-If you want to see the messages behind the blue status screens of the normal m23 client installation, you can turn on the debugging mode. You can do it by setting the debugging status for your client IP.
-
-<UL>
-<LI>call http://serverIP/m23admin/phpMyAdmin/ with your webbrowser
-</LI>
-<LI>select the database "m23"
-</LI>
-<LI>select the table "remotevar"
-</LI>
-<LI>click on "Browse"
-</LI>
-<LI>click on "Insert new row"
-</LI>
-<LI>enter the ip of your client in the "ip" field, "debug" in the "var" field and "1" in the "value" field.
-</LI>
-</UL>
+You can activate the PHP warning messages if you call:
+<PRE>
+/m23/bin/phpDebug
+</PRE>
+to deactivate the debugging mode simply call:
+<PRE>
+/m23/bin/phpNormal
+</PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

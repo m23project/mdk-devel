@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_deleteDriveFromParam</TITLE>
-<META NAME="description" CONTENT="FDISK_deleteDriveFromParam">
+<TITLE>FDISK_dev2LDevLPart</TITLE>
+<META NAME="description" CONTENT="FDISK_dev2LDevLPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,55 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node1628.html">
 <LINK REL="previous" HREF="node1626.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1628.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28244"
+<A NAME="tex2html28395"
   HREF="node1628.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28240"
-  HREF="node1518.html">
+<A NAME="tex2html28391"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28236"
+<A NAME="tex2html28385"
   HREF="node1626.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28242"
+<A NAME="tex2html28393"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28245"
-  HREF="node1628.html">./inc/groups.php</A>
-<B> Up:</B> <A NAME="tex2html28241"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28237"
-  HREF="node1626.html">FDISK_virtualDeleteDrive</A>
- &nbsp; <B>  <A NAME="tex2html28243"
+<B> Next:</B> <A NAME="tex2html28396"
+  HREF="node1628.html">FDISK_rereadPartTable</A>
+<B> Up:</B> <A NAME="tex2html28392"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28386"
+  HREF="node1626.html">FDISK_defineDrive</A>
+ &nbsp; <B>  <A NAME="tex2html28394"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00952109000000000000000">
-FDISK_deleteDriveFromParam</A>
+<H2><A NAME="SECTION0095289000000000000000">
+FDISK_dev2LDevLPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all drive and partition parameters of a drive from param without correcting any order.
+<SPAN  CLASS="textbf">Description:</SPAN> searches a special device (e.g. /dev/hda2) and writes the virtual device and partition numbers to the variables. These values can be used to access the file system via $param["dev$vDev"."part$vPart"."_fs"]
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number of the drive to delete.
+<LI>param: the associative array containing all values describing the drives of the client
 </LI>
-<LI>param: parameter string containing status informations about the harddisks.
+<LI>dev: the device (e.g. /dev/hda2)
+</LI>
+<LI>vDev: the virtual device number, that is used to build the variable name to access the associative array.
+</LI>
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array. This number has not to be qual to the partition number of the real drive (e.g. /dev/hda5 can be $vPart == 3). If it is set to "empty", only vDev is calculated.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Changed param without the drive.
+<LI>true if the search worked otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -75,7 +80,7 @@ FDISK_deleteDriveFromParam</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

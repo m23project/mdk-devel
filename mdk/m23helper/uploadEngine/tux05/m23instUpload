@@ -59,7 +59,7 @@ sftp -b /tmp/ftpDel.cmd hhabermann,m23@web.sourceforge.net
 cd /m23inst
 
 
-
+sleep 120
 
 (md5sum -c all.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
 if test `cat /tmp/ret` -ne 0

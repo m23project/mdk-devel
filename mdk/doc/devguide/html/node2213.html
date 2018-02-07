@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/pool.php</TITLE>
-<META NAME="description" CONTENT="./inc/pool.php">
+<TITLE>./inc/plugin.php</TITLE>
+<META NAME="description" CONTENT="./inc/plugin.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,46 +19,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2233.html">
-<LINK REL="previous" HREF="node2189.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node2237.html">
+<LINK REL="previous" HREF="node2207.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node2214.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35807"
+<A NAME="tex2html35939"
   HREF="node2214.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35803"
-  HREF="node101.html">
+<A NAME="tex2html35935"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35797"
+<A NAME="tex2html35929"
   HREF="node2212.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35805"
+<A NAME="tex2html35937"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35808"
-  HREF="node2214.html">POOL_selectPoolType</A>
-<B> Up:</B> <A NAME="tex2html35804"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html35798"
-  HREF="node2212.html">PLG_realUpdate</A>
- &nbsp; <B>  <A NAME="tex2html35806"
+<B> Next:</B> <A NAME="tex2html35940"
+  HREF="node2214.html">PLG_listMenuPlugins</A>
+<B> Up:</B> <A NAME="tex2html35936"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html35930"
+  HREF="node2212.html">PDF_output</A>
+ &nbsp; <B>  <A NAME="tex2html35938"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009710000000000000000">
-./inc/pool.php</A>
+<H1><A NAME="SECTION009700000000000000000">
+./inc/plugin.php</A>
 </H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
 <BR>
-Description: functions for administrating package pools
+Description: functions dealing with (de)installation of plugins and status information.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
@@ -67,50 +67,58 @@ Description: functions for administrating package pools
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html35809"
-  HREF="node2214.html">POOL_selectPoolType</A>
-<LI><A NAME="tex2html35810"
-  HREF="node2215.html">POOL_getPools</A>
-<LI><A NAME="tex2html35811"
-  HREF="node2216.html">POOL_showLoadDeleteCreate</A>
-<LI><A NAME="tex2html35812"
-  HREF="node2217.html">POOL_create</A>
-<LI><A NAME="tex2html35813"
-  HREF="node2218.html">POOL_setProperty</A>
-<LI><A NAME="tex2html35814"
-  HREF="node2219.html">POOL_getProperty</A>
-<LI><A NAME="tex2html35815"
-  HREF="node2220.html">POOL_delete</A>
-<LI><A NAME="tex2html35816"
-  HREF="node2221.html">POOL_showReadCD</A>
-<LI><A NAME="tex2html35817"
-  HREF="node2222.html">POOL_readCD</A>
-<LI><A NAME="tex2html35818"
-  HREF="node2223.html">POOL_createExtendedPackageIndex</A>
-<LI><A NAME="tex2html35819"
-  HREF="node2224.html">POOL_showCreatePackageIndex</A>
-<LI><A NAME="tex2html35820"
-  HREF="node2225.html">POOL_getSize</A>
-<LI><A NAME="tex2html35821"
-  HREF="node2226.html">POOL_getDir</A>
-<LI><A NAME="tex2html35822"
-  HREF="node2227.html">POOL_download</A>
-<LI><A NAME="tex2html35823"
-  HREF="node2228.html">POOL_showDownloadStatus</A>
-<LI><A NAME="tex2html35824"
-  HREF="node2229.html">POOL_prepare</A>
-<LI><A NAME="tex2html35825"
-  HREF="node2230.html">POOL_makeRepository</A>
-<LI><A NAME="tex2html35826"
-  HREF="node2231.html">POOL_getCDDistributionRelease</A>
-<LI><A NAME="tex2html35827"
-  HREF="node2232.html">POOL_showSourcesList</A>
+<LI><A NAME="tex2html35941"
+  HREF="node2214.html">PLG_listMenuPlugins</A>
+<LI><A NAME="tex2html35942"
+  HREF="node2215.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html35943"
+  HREF="node2216.html">PLG_isPluginSelected</A>
+<LI><A NAME="tex2html35944"
+  HREF="node2217.html">PLG_getPLGName</A>
+<LI><A NAME="tex2html35945"
+  HREF="node2218.html">PLG_getPLGPage</A>
+<LI><A NAME="tex2html35946"
+  HREF="node2219.html">PLG_getPLGAuthor</A>
+<LI><A NAME="tex2html35947"
+  HREF="node2220.html">PLG_getPLGUpdateURL</A>
+<LI><A NAME="tex2html35948"
+  HREF="node2221.html">PLG_getPLGClientRequires</A>
+<LI><A NAME="tex2html35949"
+  HREF="node2222.html">PLG_getPLGVersion</A>
+<LI><A NAME="tex2html35950"
+  HREF="node2223.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html35951"
+  HREF="node2224.html">PLG_showDownloadStatus</A>
+<LI><A NAME="tex2html35952"
+  HREF="node2225.html">PLG_checkOverwriting</A>
+<LI><A NAME="tex2html35953"
+  HREF="node2226.html">PLG_DBInstall</A>
+<LI><A NAME="tex2html35954"
+  HREF="node2227.html">PLG_realInstall</A>
+<LI><A NAME="tex2html35955"
+  HREF="node2228.html">PLG_getTempDir</A>
+<LI><A NAME="tex2html35956"
+  HREF="node2229.html">PLG_getFilename</A>
+<LI><A NAME="tex2html35957"
+  HREF="node2230.html">PLG_install</A>
+<LI><A NAME="tex2html35958"
+  HREF="node2231.html">PLG_showPluginOverview</A>
+<LI><A NAME="tex2html35959"
+  HREF="node2232.html">PLG_install</A>
+<LI><A NAME="tex2html35960"
+  HREF="node2233.html">PLG_getUpdateFile</A>
+<LI><A NAME="tex2html35961"
+  HREF="node2234.html">PLG_update</A>
+<LI><A NAME="tex2html35962"
+  HREF="node2235.html">PLG_listInfofile</A>
+<LI><A NAME="tex2html35963"
+  HREF="node2236.html">PLG_realUpdate</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_virtualDeletePartition</TITLE>
-<META NAME="description" CONTENT="FDISK_virtualDeletePartition">
+<TITLE>FDISK_getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1592.html">
 <LINK REL="previous" HREF="node1590.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1592.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27814"
+<A NAME="tex2html27963"
   HREF="node1592.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27810"
-  HREF="node1518.html">
+<A NAME="tex2html27959"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27804"
+<A NAME="tex2html27953"
   HREF="node1590.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27812"
+<A NAME="tex2html27961"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27815"
-  HREF="node1592.html">FDISK_virtualAddPartition</A>
-<B> Up:</B> <A NAME="tex2html27811"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27805"
-  HREF="node1590.html">FDISK_deletePartitionFromParam</A>
- &nbsp; <B>  <A NAME="tex2html27813"
+<B> Next:</B> <A NAME="tex2html27964"
+  HREF="node1592.html">FDISK_delPart</A>
+<B> Up:</B> <A NAME="tex2html27960"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27954"
+  HREF="node1590.html">FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html27962"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095273000000000000000">
-FDISK_virtualDeletePartition</A>
+<H2><A NAME="SECTION0095253000000000000000">
+FDISK_getBelongingRaidDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> deletes partition from param assigned thru $vDev and $vPart.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDev: Virtual (internally used) device number.
-</LI>
-<LI>devNr: device number of the real device
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
 </LI>
 <LI>param: parameter string containing status informations about the harddisks
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +76,7 @@ FDISK_virtualDeletePartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

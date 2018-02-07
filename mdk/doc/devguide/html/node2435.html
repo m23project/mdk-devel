@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_delVMCMD</TITLE>
-<META NAME="description" CONTENT="VM_delVMCMD">
+<TITLE>VM_CloudStackGetVMStatus</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackGetVMStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2436.html">
 <LINK REL="previous" HREF="node2434.html">
-<LINK REL="up" HREF="node2379.html">
+<LINK REL="up" HREF="node2422.html">
 <LINK REL="next" HREF="node2436.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38676"
+<A NAME="tex2html38848"
   HREF="node2436.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38672"
-  HREF="node2379.html">
+<A NAME="tex2html38844"
+  HREF="node2422.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38666"
+<A NAME="tex2html38838"
   HREF="node2434.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38674"
+<A NAME="tex2html38846"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38677"
-  HREF="node2436.html">VM_activateNetbootCMD</A>
-<B> Up:</B> <A NAME="tex2html38673"
-  HREF="node2379.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38667"
-  HREF="node2434.html">VM_createDiskImage</A>
- &nbsp; <B>  <A NAME="tex2html38675"
+<B> Next:</B> <A NAME="tex2html38849"
+  HREF="node2436.html">VM_CloudStackClientName2ClientID</A>
+<B> Up:</B> <A NAME="tex2html38845"
+  HREF="node2422.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html38839"
+  HREF="node2434.html">VM_CloudStackStopVM</A>
+ &nbsp; <B>  <A NAME="tex2html38847"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098056000000000000000">
-VM_delVMCMD</A>
+<H2><A NAME="SECTION0098013000000000000000">
+VM_CloudStackGetVMStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a virtual machine.
+<SPAN  CLASS="textbf">Description:</SPAN> gets the status of a virtual machine
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmname: Name of the VM.
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>BASH code to delete a virtual machine.
+<LI>textmessage with machine status (like 'Running' or 'Stopped') or FALSE if no status could be retrieved (e.g. if machine doesn't exist)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ VM_delVMCMD</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

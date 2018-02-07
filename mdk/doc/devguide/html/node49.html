@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>system update and installation of additional packages</TITLE>
-<META NAME="description" CONTENT="system update and installation of additional packages">
+<TITLE>in case of an error</TITLE>
+<META NAME="description" CONTENT="in case of an error">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node50.html">
-<LINK REL="previous" HREF="node47.html">
-<LINK REL="up" HREF="node38.html">
+<LINK REL="previous" HREF="node48.html">
+<LINK REL="up" HREF="node48.html">
 <LINK REL="next" HREF="node50.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5561"
+<A NAME="tex2html5649"
   HREF="node50.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5557"
-  HREF="node38.html">
+<A NAME="tex2html5645"
+  HREF="node48.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5551"
+<A NAME="tex2html5641"
   HREF="node48.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5559"
+<A NAME="tex2html5647"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5562"
-  HREF="node50.html">booting your new system</A>
-<B> Up:</B> <A NAME="tex2html5558"
-  HREF="node38.html">How to generate a</A>
-<B> Previous:</B> <A NAME="tex2html5552"
-  HREF="node48.html">in case of an</A>
- &nbsp; <B>  <A NAME="tex2html5560"
+<B> Next:</B> <A NAME="tex2html5650"
+  HREF="node50.html">system update and installation</A>
+<B> Up:</B> <A NAME="tex2html5646"
+  HREF="node48.html">installing a kernel</A>
+<B> Previous:</B> <A NAME="tex2html5642"
+  HREF="node48.html">installing a kernel</A>
+ &nbsp; <B>  <A NAME="tex2html5648"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00646000000000000000">
-system update and installation of additional packages</A>
-</H2>
+<H3><A NAME="SECTION00645100000000000000">
+in case of an error</A>
+</H3>
+If you get an error with the <SPAN  CLASS="textit">mkinitrd</SPAN> command try it manualy. Adjust <SPAN  CLASS="textit">/boot/initrd.img-2.4.20-1-386-sec</SPAN> to the filename you entered in the <SPAN  CLASS="textit">lilo.conf</SPAN>. You have to adjust the <SPAN  CLASS="textit">/lib/modules/...</SPAN> and the root device after <SPAN  CLASS="textit">-r</SPAN> also.
 <PRE>
-apt-get dist-upgrade -u
-apt-get install ssh
+mkinitrd -r /dev/hda3 -o /boot/initrd.img-2.4.20-1-386-sec /lib/modules/2.4.20-1-386-sec/
 </PRE>
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

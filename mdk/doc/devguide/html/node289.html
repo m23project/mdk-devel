@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CClientLister.php</TITLE>
-<META NAME="description" CONTENT="./inc/CClientLister.php">
+<TITLE>CChecks::checkPoolName</TITLE>
+<META NAME="description" CONTENT="CChecks::checkPoolName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,148 +19,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node334.html">
-<LINK REL="previous" HREF="node248.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="previous" HREF="node288.html">
+<LINK REL="up" HREF="node249.html">
 <LINK REL="next" HREF="node290.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10971"
+<A NAME="tex2html11101"
   HREF="node290.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10967"
-  HREF="node101.html">
+<A NAME="tex2html11097"
+  HREF="node249.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10961"
+<A NAME="tex2html11093"
   HREF="node288.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10969"
+<A NAME="tex2html11099"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10972"
-  HREF="node290.html">CClientLister::showClientTable</A>
-<B> Up:</B> <A NAME="tex2html10968"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html10962"
-  HREF="node288.html">CChecks::checkPoolName</A>
- &nbsp; <B>  <A NAME="tex2html10970"
+<B> Next:</B> <A NAME="tex2html11102"
+  HREF="node290.html">./inc/CClientLister.php</A>
+<B> Up:</B> <A NAME="tex2html11098"
+  HREF="node249.html">./inc/CChecks.php</A>
+<B> Previous:</B> <A NAME="tex2html11094"
+  HREF="node288.html">CChecks::genericCHECK_FW</A>
+ &nbsp; <B>  <A NAME="tex2html11100"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009110000000000000000">
-./inc/CClientLister.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for generating lists of clients.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0091040000000000000000">
+CChecks::checkPoolName</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the pool name is valid.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>poolName: The pool name to check.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the pool name is valid otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html10973"
-  HREF="node290.html">CClientLister::showClientTable</A>
-<LI><A NAME="tex2html10974"
-  HREF="node291.html">CClientLister::generateHTMLClientNameIdCheckbox</A>
-<LI><A NAME="tex2html10975"
-  HREF="node292.html">CClientLister::importCheckedClientNamesIds</A>
-<LI><A NAME="tex2html10976"
-  HREF="node293.html">CClientLister::getCheckedClientNames</A>
-<LI><A NAME="tex2html10977"
-  HREF="node294.html">CClientLister::isVisibleByPingableFilter</A>
-<LI><A NAME="tex2html10978"
-  HREF="node295.html">CClientLister::setVisibleByPingableFilter</A>
-<LI><A NAME="tex2html10979"
-  HREF="node296.html">CClientLister::getClientNames</A>
-<LI><A NAME="tex2html10980"
-  HREF="node297.html">CClientLister::showClientList</A>
-<LI><A NAME="tex2html10981"
-  HREF="node298.html">CClientLister::showClientListExtraLine</A>
-<LI><A NAME="tex2html10982"
-  HREF="node299.html">CClientLister::setClientListExtraLine</A>
-<LI><A NAME="tex2html10983"
-  HREF="node300.html">CClientLister::getColumnNrToSort</A>
-<LI><A NAME="tex2html10984"
-  HREF="node301.html">CClientLister::getColumnNrWithContinousNumber</A>
-<LI><A NAME="tex2html10985"
-  HREF="node302.html">CClientLister::cmpArrayElements</A>
-<LI><A NAME="tex2html10986"
-  HREF="node303.html">CClientLister::sortLines</A>
-<LI><A NAME="tex2html10987"
-  HREF="node304.html">CClientLister::getAscDescHeader</A>
-<LI><A NAME="tex2html10988"
-  HREF="node305.html">CClientLister::getStatusHeader</A>
-<LI><A NAME="tex2html10989"
-  HREF="node306.html">CClientLister::getClientNameHeader</A>
-<LI><A NAME="tex2html10990"
-  HREF="node307.html">CClientLister::getInstallDateHeader</A>
-<LI><A NAME="tex2html10991"
-  HREF="node308.html">CClientLister::getLastModifyHeader</A>
-<LI><A NAME="tex2html10992"
-  HREF="node309.html">CClientLister::getIPHeader</A>
-<LI><A NAME="tex2html10993"
-  HREF="node310.html">CClientLister::getMACHeader</A>
-<LI><A NAME="tex2html10994"
-  HREF="node311.html">CClientLister::getJobsHeader</A>
-<LI><A NAME="tex2html10995"
-  HREF="node312.html">CClientLister::getPackagesHeader</A>
-<LI><A NAME="tex2html10996"
-  HREF="node313.html">CClientLister::getGroupHeader</A>
-<LI><A NAME="tex2html10997"
-  HREF="node314.html">CClientLister::showClientListHeader</A>
-<LI><A NAME="tex2html10998"
-  HREF="node315.html">CClientLister::setOutputColumns</A>
-<LI><A NAME="tex2html10999"
-  HREF="node316.html">CClientLister::setActionString</A>
-<LI><A NAME="tex2html11000"
-  HREF="node317.html">CClientLister::getActionString</A>
-<LI><A NAME="tex2html11001"
-  HREF="node318.html">CClientLister::setOrderBy</A>
-<LI><A NAME="tex2html11002"
-  HREF="node319.html">CClientLister::addStatusFilter</A>
-<LI><A NAME="tex2html11003"
-  HREF="node320.html">CClientLister::addKeyValueStoreFilter</A>
-<LI><A NAME="tex2html11004"
-  HREF="node321.html">CClientLister::addGroupFilter</A>
-<LI><A NAME="tex2html11005"
-  HREF="node322.html">CClientLister::addSearchFilter</A>
-<LI><A NAME="tex2html11006"
-  HREF="node323.html">CClientLister::setAscending</A>
-<LI><A NAME="tex2html11007"
-  HREF="node324.html">CClientLister::isAscending</A>
-<LI><A NAME="tex2html11008"
-  HREF="node325.html">CClientLister::vmRunOnHostFilter</A>
-<LI><A NAME="tex2html11009"
-  HREF="node326.html">CClientLister::resetGetting</A>
-<LI><A NAME="tex2html11010"
-  HREF="node327.html">CClientLister::getClient</A>
-<LI><A NAME="tex2html11011"
-  HREF="node328.html">CClientLister::getAllMatchingClients</A>
-<LI><A NAME="tex2html11012"
-  HREF="node329.html">CClientLister::isMatchingClientPresent</A>
-<LI><A NAME="tex2html11013"
-  HREF="node330.html">CClientLister::getAllAutoUpdateClientNames</A>
-<LI><A NAME="tex2html11014"
-  HREF="node331.html">CClientLister::IPexists</A>
-<LI><A NAME="tex2html11015"
-  HREF="node332.html">CClientLister::MACexists</A>
-<LI><A NAME="tex2html11016"
-  HREF="node333.html">CClientLister::ClientExists</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

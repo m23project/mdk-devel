@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to create the server update files?</TITLE>
-<META NAME="description" CONTENT="How to create the server update files?">
+<TITLE>Making the bootimage</TITLE>
+<META NAME="description" CONTENT="Making the bootimage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,66 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node73.html">
-<LINK REL="previous" HREF="node64.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="previous" HREF="node66.html">
+<LINK REL="up" HREF="node65.html">
 <LINK REL="next" HREF="node68.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5782"
+<A NAME="tex2html5870"
   HREF="node68.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5778"
-  HREF="node23.html">
+<A NAME="tex2html5866"
+  HREF="node65.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5772"
+<A NAME="tex2html5862"
   HREF="node66.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5780"
+<A NAME="tex2html5868"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5783"
-  HREF="node68.html">The files</A>
-<B> Up:</B> <A NAME="tex2html5779"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html5773"
-  HREF="node66.html">Making the bootimage</A>
- &nbsp; <B>  <A NAME="tex2html5781"
+<B> Next:</B> <A NAME="tex2html5871"
+  HREF="node68.html">How to create the</A>
+<B> Up:</B> <A NAME="tex2html5867"
+  HREF="node65.html">How to generate an</A>
+<B> Previous:</B> <A NAME="tex2html5863"
+  HREF="node66.html">exchange epic100.c with the</A>
+ &nbsp; <B>  <A NAME="tex2html5869"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00680000000000000000">
-How to create the server update files?</A>
-</H1>
-m23 has a mechnism that makes it easy for the user to update the m23 server. The information for the update is fetched from the internet. There is a php script that generates the needed update information from single files. This files contain information about the new codename, the new version number, a describing text, a script that is exectued at the beginning and at the end of the update.
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5784"
-  HREF="node68.html">The files</A>
-<UL>
-<LI><A NAME="tex2html5785"
-  HREF="node69.html">xxx.begin</A>
-<LI><A NAME="tex2html5786"
-  HREF="node70.html">xxx.end</A>
-<LI><A NAME="tex2html5787"
-  HREF="node71.html">xxx.info</A>
-<LI><A NAME="tex2html5788"
-  HREF="node72.html">xxx.text</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<H2><A NAME="SECTION00672000000000000000">
+Making the bootimage</A>
+</H2>
+You should find the epic100.rom file in the <SPAN  CLASS="textbf">src/bin32</SPAN>. With the help of the <SPAN  CLASS="textit">mknbi-rom</SPAN> program you can convert this from file to an Etherboot bootimage. To convert and save the bootimage as new "harddisk boot image" for m23 execute the following command:
+<BR><PRE>
+mknbi-rom epic100.rom &gt; /m23/tftp/hdboot
+</PRE>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

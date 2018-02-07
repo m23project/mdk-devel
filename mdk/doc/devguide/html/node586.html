@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getDiskDev</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getDiskDev">
+<TITLE>CFDiskIO::getPartitionAmountOfType</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartitionAmountOfType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node587.html">
 <LINK REL="previous" HREF="node585.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node587.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14894"
+<A NAME="tex2html15029"
   HREF="node587.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14890"
-  HREF="node542.html">
+<A NAME="tex2html15025"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14884"
+<A NAME="tex2html15019"
   HREF="node585.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14892"
+<A NAME="tex2html15027"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14895"
-  HREF="node587.html">CFDiskIO::getPartitionStart</A>
-<B> Up:</B> <A NAME="tex2html14891"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14885"
-  HREF="node585.html">CFDiskIO::getDiskSize</A>
- &nbsp; <B>  <A NAME="tex2html14893"
+<B> Next:</B> <A NAME="tex2html15030"
+  HREF="node587.html">CFDiskIO::getExtendedVPart</A>
+<B> Up:</B> <A NAME="tex2html15026"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15020"
+  HREF="node585.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+ &nbsp; <B>  <A NAME="tex2html15028"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091544000000000000000">
-CFDiskIO::getDiskDev</A>
+<H2><A NAME="SECTION0091542000000000000000">
+CFDiskIO::getPartitionAmountOfType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the device name (e.g. /dev/sda) for a virtual disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Count all partitions of a selected type on a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Device name (e.g. /dev/sda) for a virtual disk.
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +70,7 @@ CFDiskIO::getDiskDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

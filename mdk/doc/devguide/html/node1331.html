@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_installDesktopLanguagePackage</TITLE>
-<META NAME="description" CONTENT="CLCFG_installDesktopLanguagePackage">
+<TITLE>CLCFG_mountRootDir</TITLE>
+<META NAME="description" CONTENT="CLCFG_mountRootDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1332.html">
 <LINK REL="previous" HREF="node1330.html">
-<LINK REL="up" HREF="node1258.html">
+<LINK REL="up" HREF="node1275.html">
 <LINK REL="next" HREF="node1332.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24425"
+<A NAME="tex2html24572"
   HREF="node1332.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24421"
-  HREF="node1258.html">
+<A NAME="tex2html24568"
+  HREF="node1275.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24415"
+<A NAME="tex2html24562"
   HREF="node1330.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24423"
+<A NAME="tex2html24570"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24426"
-  HREF="node1332.html">CLCFG_installApplicationLanguagePackages</A>
-<B> Up:</B> <A NAME="tex2html24422"
-  HREF="node1258.html">./inc/distr/imaging/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html24416"
-  HREF="node1330.html">CLCFG_disableNFSHome</A>
- &nbsp; <B>  <A NAME="tex2html24424"
+<B> Next:</B> <A NAME="tex2html24573"
+  HREF="node1332.html">CLCFG_activateDMA</A>
+<B> Up:</B> <A NAME="tex2html24569"
+  HREF="node1275.html">./inc/distr/imaging/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html24563"
+  HREF="node1330.html">CLCFG_downgradeExt</A>
+ &nbsp; <B>  <A NAME="tex2html24571"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094473000000000000000">
-CLCFG_installDesktopLanguagePackage</A>
+<H2><A NAME="SECTION0094456000000000000000">
+CLCFG_mountRootDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Installs some additional language packages for (KDE / Gnome) desktops.
+<SPAN  CLASS="textbf">Description:</SPAN> create a new directory for mounting the root partition of the client, mount the installation directory to this mount point and create a temp directory
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>lang: short language
+<LI>rootDev: the root device (e.g. /dev/hda1)
 </LI>
-<LI>kde: Install KDE language packages too.
+<LI>mountPoint: directory under /mnt to mount the device in
 </LI>
-<LI>gnome: Install Gnome language packages too.
+<LI>CFDiskIOO: Client object (used for mounting the EFI boot partition).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +72,7 @@ CLCFG_installDesktopLanguagePackage</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

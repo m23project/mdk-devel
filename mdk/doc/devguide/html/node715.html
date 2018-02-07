@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CGPGSign.php</TITLE>
-<META NAME="description" CONTENT="./inc/CGPGSign.php">
+<TITLE>CFirewall::activateInInterfaces</TITLE>
+<META NAME="description" CONTENT="CFirewall::activateInInterfaces">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,92 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node732.html">
-<LINK REL="previous" HREF="node699.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node716.html">
+<LINK REL="previous" HREF="node714.html">
+<LINK REL="up" HREF="node705.html">
 <LINK REL="next" HREF="node716.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16488"
+<A NAME="tex2html16625"
   HREF="node716.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16484"
-  HREF="node101.html">
+<A NAME="tex2html16621"
+  HREF="node705.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16478"
+<A NAME="tex2html16615"
   HREF="node714.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16486"
+<A NAME="tex2html16623"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16489"
-  HREF="node716.html">CGPGSign::__construct</A>
-<B> Up:</B> <A NAME="tex2html16485"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html16479"
-  HREF="node714.html">CFirewall::show</A>
- &nbsp; <B>  <A NAME="tex2html16487"
+<B> Next:</B> <A NAME="tex2html16626"
+  HREF="node716.html">CFirewall::isActive</A>
+<B> Up:</B> <A NAME="tex2html16622"
+  HREF="node705.html">./inc/CFirewall.php</A>
+<B> Previous:</B> <A NAME="tex2html16616"
+  HREF="node714.html">CFirewall::exportRules</A>
+ &nbsp; <B>  <A NAME="tex2html16624"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009180000000000000000">
-./inc/CGPGSign.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for managing GPG keys and signing messages.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0091710000000000000000">
+CFirewall::activateInInterfaces</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Activates auto-loading of the iptables rules in the interfaces file.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the auto-loading is not allready active, otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html16490"
-  HREF="node716.html">CGPGSign::__construct</A>
-<LI><A NAME="tex2html16491"
-  HREF="node717.html">CGPGSign::getKeySelectionDialog</A>
-<LI><A NAME="tex2html16492"
-  HREF="node718.html">CGPGSign::showWarningAndDie</A>
-<LI><A NAME="tex2html16493"
-  HREF="node719.html">CGPGSign::exportPublicSignKey</A>
-<LI><A NAME="tex2html16494"
-  HREF="node720.html">CGPGSign::checkKey</A>
-<LI><A NAME="tex2html16495"
-  HREF="node721.html">CGPGSign::getKeyInfo</A>
-<LI><A NAME="tex2html16496"
-  HREF="node722.html">CGPGSign::gpgSignDetached</A>
-<LI><A NAME="tex2html16497"
-  HREF="node723.html">CGPGSign::gpgSignClear</A>
-<LI><A NAME="tex2html16498"
-  HREF="node724.html">CGPGSign::hasConfigFile</A>
-<LI><A NAME="tex2html16499"
-  HREF="node725.html">CGPGSign::loadConfigFile</A>
-<LI><A NAME="tex2html16500"
-  HREF="node726.html">CGPGSign::writeConfigFile</A>
-<LI><A NAME="tex2html16501"
-  HREF="node727.html">CGPGSign::setGPGID</A>
-<LI><A NAME="tex2html16502"
-  HREF="node728.html">CGPGSign::getGPGID</A>
-<LI><A NAME="tex2html16503"
-  HREF="node729.html">CGPGSign::setStoreMode</A>
-<LI><A NAME="tex2html16504"
-  HREF="node730.html">CGPGSign::getStoreMode</A>
-<LI><A NAME="tex2html16505"
-  HREF="node731.html">CClient::__destruct</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

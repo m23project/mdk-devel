@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compresses the m23 files</TITLE>
-<META NAME="description" CONTENT="compresses the m23 files">
+<TITLE>compress operating system</TITLE>
+<META NAME="description" CONTENT="compress operating system">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node57.html">
 <LINK REL="previous" HREF="node55.html">
-<LINK REL="up" HREF="node53.html">
+<LINK REL="up" HREF="node54.html">
 <LINK REL="next" HREF="node57.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5651"
+<A NAME="tex2html5739"
   HREF="node57.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5647"
-  HREF="node53.html">
+<A NAME="tex2html5735"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5641"
+<A NAME="tex2html5729"
   HREF="node55.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5649"
+<A NAME="tex2html5737"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5652"
-  HREF="node57.html">generating the ISO image</A>
-<B> Up:</B> <A NAME="tex2html5648"
-  HREF="node53.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5642"
-  HREF="node55.html">compress operating system</A>
- &nbsp; <B>  <A NAME="tex2html5650"
+<B> Next:</B> <A NAME="tex2html5740"
+  HREF="node57.html">compresses the m23 files</A>
+<B> Up:</B> <A NAME="tex2html5736"
+  HREF="node54.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html5730"
+  HREF="node55.html">initrd</A>
+ &nbsp; <B>  <A NAME="tex2html5738"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652300000000000000">
-compresses the m23 files</A>
+<H3><A NAME="SECTION00652200000000000000">
+compress operating system</A>
 </H3>
-The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
-<BR>
-For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
+The whole current operating system is compressed mith bzip2 to a file called m23image.tb2. Some directories aren't saved, because they aren't needed or will mess up the image with useless files. E.g. /proc, /tmp, ... should not be saved. The image is stored in the /mdk/bootCD/iso directory. If there is allready a m23image.tb2 the operating isn't compressed. To regenerate the m23image.tb2 you have to delete the file.
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

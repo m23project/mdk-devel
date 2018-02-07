@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_setVisualURL</TITLE>
-<META NAME="description" CONTENT="VM_setVisualURL">
+<TITLE>VM_CloudStackEnablePortForwarding</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackEnablePortForwarding">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2431.html">
 <LINK REL="previous" HREF="node2429.html">
-<LINK REL="up" HREF="node2379.html">
+<LINK REL="up" HREF="node2422.html">
 <LINK REL="next" HREF="node2431.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38616"
+<A NAME="tex2html38788"
   HREF="node2431.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38612"
-  HREF="node2379.html">
+<A NAME="tex2html38784"
+  HREF="node2422.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38606"
+<A NAME="tex2html38778"
   HREF="node2429.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38614"
+<A NAME="tex2html38786"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38617"
-  HREF="node2431.html">VM_setHostInDB</A>
-<B> Up:</B> <A NAME="tex2html38613"
-  HREF="node2379.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38607"
-  HREF="node2429.html">VM_getAllVMHosts</A>
- &nbsp; <B>  <A NAME="tex2html38615"
+<B> Next:</B> <A NAME="tex2html38789"
+  HREF="node2431.html">VM_CloudStackDisablePortForwarding</A>
+<B> Up:</B> <A NAME="tex2html38785"
+  HREF="node2422.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html38779"
+  HREF="node2429.html">VM_CloudStackUploadIso</A>
+ &nbsp; <B>  <A NAME="tex2html38787"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098051000000000000000">
-VM_setVisualURL</A>
+<H2><A NAME="SECTION009808000000000000000">
+VM_CloudStackEnablePortForwarding</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the URL to connect to the visual management console.
+<SPAN  CLASS="textbf">Description:</SPAN> creates a port forwarding rule for a virtual machine, with private port and public port being the same
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>VMguest: Name of the guest that is run in the virtualisation software.
+<LI>virtualMachineId: the cloudstack ID of the virtual machine to which the rule shall apply
 </LI>
-<LI>url: The URL to connect to the visual management console (e.g. 192.168.1.23:23 with VNC).
+<LI>pFSuccess: is set to true, if the rule was created
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>MySQL resource or false on error.
+<LI>textmessage about result (errormessage or success message) and sets pFSuccess to True if action succeeded, false otherwise
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ VM_setVisualURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listRaidTable</TITLE>
-<META NAME="description" CONTENT="FDISK_listRaidTable">
+<TITLE>FDISK_formatJob</TITLE>
+<META NAME="description" CONTENT="FDISK_formatJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1621.html">
 <LINK REL="previous" HREF="node1619.html">
-<LINK REL="up" HREF="node1518.html">
+<LINK REL="up" HREF="node1538.html">
 <LINK REL="next" HREF="node1621.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28162"
+<A NAME="tex2html28311"
   HREF="node1621.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28158"
-  HREF="node1518.html">
+<A NAME="tex2html28307"
+  HREF="node1538.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28152"
+<A NAME="tex2html28301"
   HREF="node1619.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28160"
+<A NAME="tex2html28309"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28163"
-  HREF="node1621.html">FDISK_addDrivePartitionToRaid</A>
-<B> Up:</B> <A NAME="tex2html28159"
-  HREF="node1518.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28153"
-  HREF="node1619.html">FDISK_getDrivePartitionSize</A>
- &nbsp; <B>  <A NAME="tex2html28161"
+<B> Next:</B> <A NAME="tex2html28312"
+  HREF="node1621.html">FDISK_countPartitions</A>
+<B> Up:</B> <A NAME="tex2html28308"
+  HREF="node1538.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28302"
+  HREF="node1619.html">FDISK_bootflagJob</A>
+ &nbsp; <B>  <A NAME="tex2html28310"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00952102000000000000000">
-FDISK_listRaidTable</A>
+<H2><A NAME="SECTION0095282000000000000000">
+FDISK_formatJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Get informations about the assigned real drives/partitions of a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> generates a partition format job
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
+<LI>path: device to format (e.g. /dev/hda1)
 </LI>
-<LI>param: parameter string containing status information about the harddisks
+<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>HTML table with informations about the assigned real drives/partitions.
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +72,7 @@ FDISK_listRaidTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

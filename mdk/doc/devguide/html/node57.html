@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>generating the ISO image</TITLE>
-<META NAME="description" CONTENT="generating the ISO image">
+<TITLE>compresses the m23 files</TITLE>
+<META NAME="description" CONTENT="compresses the m23 files">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node58.html">
 <LINK REL="previous" HREF="node56.html">
-<LINK REL="up" HREF="node53.html">
+<LINK REL="up" HREF="node54.html">
 <LINK REL="next" HREF="node58.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5661"
+<A NAME="tex2html5751"
   HREF="node58.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5657"
-  HREF="node53.html">
+<A NAME="tex2html5747"
+  HREF="node54.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5653"
+<A NAME="tex2html5741"
   HREF="node56.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5659"
+<A NAME="tex2html5749"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5662"
-  HREF="node58.html">How to make network</A>
-<B> Up:</B> <A NAME="tex2html5658"
-  HREF="node53.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5654"
-  HREF="node56.html">compresses the m23 files</A>
- &nbsp; <B>  <A NAME="tex2html5660"
+<B> Next:</B> <A NAME="tex2html5752"
+  HREF="node58.html">generating the ISO image</A>
+<B> Up:</B> <A NAME="tex2html5748"
+  HREF="node54.html">what does the makeCD</A>
+<B> Previous:</B> <A NAME="tex2html5742"
+  HREF="node56.html">compress operating system</A>
+ &nbsp; <B>  <A NAME="tex2html5750"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652400000000000000">
-generating the ISO image</A>
+<H3><A NAME="SECTION00652300000000000000">
+compresses the m23 files</A>
 </H3>
-After these steps the ISO image will be created automatical in /mdk/bootCD directory. Now you can write the iso file to a CD. This should generate a bootable CD. Good luck ;)
+The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
+<BR>
+For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/hwinfo.php</TITLE>
-<META NAME="description" CONTENT="./inc/hwinfo.php">
+<TITLE>HTML_storableCheckBox</TITLE>
+<META NAME="description" CONTENT="HTML_storableCheckBox">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,80 +19,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1852.html">
-<LINK REL="previous" HREF="node1778.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1842.html">
+<LINK REL="previous" HREF="node1840.html">
+<LINK REL="up" HREF="node1798.html">
 <LINK REL="next" HREF="node1842.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31010"
+<A NAME="tex2html31162"
   HREF="node1842.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31006"
-  HREF="node101.html">
+<A NAME="tex2html31158"
+  HREF="node1798.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31000"
+<A NAME="tex2html31152"
   HREF="node1840.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31008"
+<A NAME="tex2html31160"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31011"
-  HREF="node1842.html">HWINFO_getParam</A>
-<B> Up:</B> <A NAME="tex2html31007"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html31001"
-  HREF="node1840.html">HTML_showPagePrintButton</A>
- &nbsp; <B>  <A NAME="tex2html31009"
+<B> Next:</B> <A NAME="tex2html31163"
+  HREF="node1842.html">HTML_getElementValue</A>
+<B> Up:</B> <A NAME="tex2html31159"
+  HREF="node1798.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31153"
+  HREF="node1840.html">HTML_storableMultiSelection</A>
+ &nbsp; <B>  <A NAME="tex2html31161"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009580000000000000000">
-./inc/hwinfo.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions to view the hardware information of the client.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0095743000000000000000">
+HTML_storableCheckBox</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a check box with label with loading and storing the checking state to and from the session.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>htmlName: Name of the HTML element.
+</LI>
+<LI>label: Label of the element.
+</LI>
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>defaultCheck: Set to true if the check box should be checked if no HTML value is given.
+</LI>
+<LI>storePointer: Additional pointer to the variable where to store the entered value.
+</LI>
+<LI>checkedValue: The value that should be stored into $storePointer if the check box is checked.
+</LI>
+<LI>unCheckedValue: The value that should be stored into $storePointer if the check box is NOT checked.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the check box is checked.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html31012"
-  HREF="node1842.html">HWINFO_getParam</A>
-<LI><A NAME="tex2html31013"
-  HREF="node1843.html">HWINFO_getMemory</A>
-<LI><A NAME="tex2html31014"
-  HREF="node1844.html">HWINFO_getHDSize</A>
-<LI><A NAME="tex2html31015"
-  HREF="node1845.html">HWINFO_printPartitions</A>
-<LI><A NAME="tex2html31016"
-  HREF="node1846.html">DMI_getAllTextBox</A>
-<LI><A NAME="tex2html31017"
-  HREF="node1847.html">DMI_getParam</A>
-<LI><A NAME="tex2html31018"
-  HREF="node1848.html">DMI_getBoard</A>
-<LI><A NAME="tex2html31019"
-  HREF="node1849.html">DMI_getMemory</A>
-<LI><A NAME="tex2html31020"
-  HREF="node1850.html">DMI_getCPU</A>
-<LI><A NAME="tex2html31021"
-  HREF="node1851.html">DMI_getSlot</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

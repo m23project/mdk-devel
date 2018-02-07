@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>How to create a bootable server installation CD?</TITLE>
-<META NAME="description" CONTENT="How to create a bootable server installation CD?">
+<TITLE>booting your new system</TITLE>
+<META NAME="description" CONTENT="booting your new system">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,67 +19,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node58.html">
-<LINK REL="previous" HREF="node38.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="previous" HREF="node50.html">
+<LINK REL="up" HREF="node39.html">
 <LINK REL="next" HREF="node52.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5583"
+<A NAME="tex2html5671"
   HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5579"
-  HREF="node23.html">
+<A NAME="tex2html5667"
+  HREF="node39.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5573"
+<A NAME="tex2html5663"
   HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5581"
+<A NAME="tex2html5669"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5584"
-  HREF="node52.html">Introduction</A>
-<B> Up:</B> <A NAME="tex2html5580"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html5574"
-  HREF="node50.html">booting your new system</A>
- &nbsp; <B>  <A NAME="tex2html5582"
+<B> Next:</B> <A NAME="tex2html5672"
+  HREF="node52.html">How to create a</A>
+<B> Up:</B> <A NAME="tex2html5668"
+  HREF="node39.html">How to generate a</A>
+<B> Previous:</B> <A NAME="tex2html5664"
+  HREF="node50.html">system update and installation</A>
+ &nbsp; <B>  <A NAME="tex2html5670"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00650000000000000000">
-How to create a bootable server installation CD?</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5585"
-  HREF="node52.html">Introduction</A>
-<LI><A NAME="tex2html5586"
-  HREF="node53.html">what does the makeCD script?</A>
-<UL>
-<LI><A NAME="tex2html5587"
-  HREF="node54.html">initrd</A>
-<LI><A NAME="tex2html5588"
-  HREF="node55.html">compress operating system</A>
-<LI><A NAME="tex2html5589"
-  HREF="node56.html">compresses the m23 files</A>
-<LI><A NAME="tex2html5590"
-  HREF="node57.html">generating the ISO image</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<H2><A NAME="SECTION00647000000000000000">
+booting your new system</A>
+</H2>
+To see if your new system is ready to boot, copy your new kernel from the new boot/ directory to /boot. This kernel will be called like <SPAN  CLASS="textit">vmlinuz-2.4.20-1-386-sec</SPAN>.
+Edit your <SPAN  CLASS="textbf">current</SPAN> /etc/lilo.conf and add a new section like this:
+<PRE>
+image=/boot/vmlinuz-2.4.20-1-386-sec
+        root=/dev/hda3
+        label=m23Server3
+        initrd=/initrd.img
+</PRE>
+vmlinuz-2.4.20-1-386-sec should be replaced with the name of your kernel and the section above has to be the same as in your new <SPAN  CLASS="textit">lilo.conf</SPAN>.
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

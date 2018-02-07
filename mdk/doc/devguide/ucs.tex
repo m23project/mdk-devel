@@ -1,2 +1,15 @@
+scp-ohneSpeichern /mdk/ucs/debs/m23-ucs-extra_17.2-101004_all.deb root@192.168.1.X:/tmp
+
+\subsection{On the UCS
+echo "192.168.1.77 m23debs" >> /etc/hosts
+echo 'deb http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list
+/mdk/m23helper/addUCSTestRepository
+apt-get update
+dpkg -i /tmp/m23-ucs-extra_*.deb
+apt-get install -f
+
+
+
+
 Copy m23-ucs-extra*.deb to the UCS server
 Install it with dpkg -i m23-ucs-extra*.deb

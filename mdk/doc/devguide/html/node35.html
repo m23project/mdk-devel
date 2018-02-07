@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>generate the language file</TITLE>
-<META NAME="description" CONTENT="generate the language file">
+<TITLE>make directories</TITLE>
+<META NAME="description" CONTENT="make directories">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node36.html">
 <LINK REL="previous" HREF="node34.html">
-<LINK REL="up" HREF="node33.html">
+<LINK REL="up" HREF="node34.html">
 <LINK REL="next" HREF="node36.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5382"
+<A NAME="tex2html5470"
   HREF="node36.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5378"
-  HREF="node33.html">
+<A NAME="tex2html5466"
+  HREF="node34.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5372"
+<A NAME="tex2html5460"
   HREF="node34.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5380"
+<A NAME="tex2html5468"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5383"
-  HREF="node36.html">translating the messages</A>
-<B> Up:</B> <A NAME="tex2html5379"
-  HREF="node33.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html5373"
-  HREF="node34.html">make directories</A>
- &nbsp; <B>  <A NAME="tex2html5381"
+<B> Next:</B> <A NAME="tex2html5471"
+  HREF="node36.html">generate the language file</A>
+<B> Up:</B> <A NAME="tex2html5467"
+  HREF="node34.html">How to translate m23?</A>
+<B> Previous:</B> <A NAME="tex2html5461"
+  HREF="node34.html">How to translate m23?</A>
+ &nbsp; <B>  <A NAME="tex2html5469"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00632000000000000000">
-generate the language file</A>
+<H2><A NAME="SECTION00631000000000000000">
+make directories</A>
 </H2>
-To give your language a name and make it available to m23 create a <SPAN  CLASS="textit">language.info</SPAN> file.
+You should think about a good abreviation for the language. All m23 languages have a short 2 letter name that is used for directory name (e.g. de=german, en=english, fr=french).
 <BR>
-The language.info has to contain the following lines:
+<BR>
+Make the directories:
 <PRE>
-language: &lt;the full name of your language&gt;
-shortlanguage: &lt;the short 2 letter name of the language&gt;
+/m23/inc/i18n/&lt;your language short name&gt;
+/m23/inc/help/&lt;your language short name&gt;
 </PRE>
-m23 uses the word for the language that is used in the origin country. e.g. Deutsch and not German, Francais and not French.
-<BR>
-<BR>
-Your language.info may look like this:
-<BR><PRE>
-language:Deutsch
-shortlanguage:de
+if you use a console to create the directories it may look like this:
+<PRE>
+mkdir /m23/inc/i18n/de
+mkdir /m23/inc/help/de
 </PRE>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

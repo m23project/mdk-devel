@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_GUIstepCreateCloudStackVM</TITLE>
-<META NAME="description" CONTENT="VM_GUIstepCreateCloudStackVM">
+<TITLE>UCS_getGenericNetworkName</TITLE>
+<META NAME="description" CONTENT="UCS_getGenericNetworkName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2398.html">
 <LINK REL="previous" HREF="node2396.html">
-<LINK REL="up" HREF="node2379.html">
+<LINK REL="up" HREF="node2392.html">
 <LINK REL="next" HREF="node2398.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38220"
+<A NAME="tex2html38326"
   HREF="node2398.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38216"
-  HREF="node2379.html">
+<A NAME="tex2html38322"
+  HREF="node2392.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38210"
+<A NAME="tex2html38316"
   HREF="node2396.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38218"
+<A NAME="tex2html38324"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38221"
-  HREF="node2398.html">VM_CloudStack_available</A>
-<B> Up:</B> <A NAME="tex2html38217"
-  HREF="node2379.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38211"
-  HREF="node2396.html">VM_CloudStack_getServerIP</A>
- &nbsp; <B>  <A NAME="tex2html38219"
+<B> Next:</B> <A NAME="tex2html38327"
+  HREF="node2398.html">UCS_ensureNetworkObjectExists</A>
+<B> Up:</B> <A NAME="tex2html38323"
+  HREF="node2392.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38317"
+  HREF="node2396.html">UCS_createNetworkObject</A>
+ &nbsp; <B>  <A NAME="tex2html38325"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098018000000000000000">
-VM_GUIstepCreateCloudStackVM</A>
+<H2><A NAME="SECTION009785000000000000000">
+UCS_getGenericNetworkName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog to create a new VM in CloudStack.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a generic name for a network object in UCS.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>netmaskBits: Amount of set bits in the netmask.
+</LI>
+<LI>networkIP: Network IP (ends with .0)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Generic name for a network object in UCS.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

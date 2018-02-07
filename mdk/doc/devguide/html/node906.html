@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorage::__destruct</TITLE>
-<META NAME="description" CONTENT="CObjectStorage::__destruct">
+<TITLE>CObjectStorageManager::getByIdentClass</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getByIdentClass">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node907.html">
 <LINK REL="previous" HREF="node905.html">
-<LINK REL="up" HREF="node903.html">
+<LINK REL="up" HREF="node901.html">
 <LINK REL="next" HREF="node907.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18948"
+<A NAME="tex2html19086"
   HREF="node907.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18944"
-  HREF="node903.html">
+<A NAME="tex2html19082"
+  HREF="node901.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18938"
+<A NAME="tex2html19076"
   HREF="node905.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18946"
+<A NAME="tex2html19084"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18949"
-  HREF="node907.html">CObjectStorage::getObject</A>
-<B> Up:</B> <A NAME="tex2html18945"
-  HREF="node903.html">./inc/CObjectStorage.php</A>
-<B> Previous:</B> <A NAME="tex2html18939"
-  HREF="node905.html">CObjectStorage::__construct</A>
- &nbsp; <B>  <A NAME="tex2html18947"
+<B> Next:</B> <A NAME="tex2html19087"
+  HREF="node907.html">CObjectStorageManager::deleteObject</A>
+<B> Up:</B> <A NAME="tex2html19083"
+  HREF="node901.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19077"
+  HREF="node905.html">CObjectStorageManager::getByClass</A>
+ &nbsp; <B>  <A NAME="tex2html19085"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009273000000000000000">
-CObjectStorage::__destruct</A>
+<H2><A NAME="SECTION009265000000000000000">
+CObjectStorageManager::getByIdentClass</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Destructor for storing changed values of the object back to the DB.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Fetches an object from the DB that match an identifier and a class.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>class: Class name of the objects to find.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Found object or null, if no matching object could be found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

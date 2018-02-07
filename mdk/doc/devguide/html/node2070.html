@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKGBUILDER_listFiles</TITLE>
-<META NAME="description" CONTENT="PKGBUILDER_listFiles">
+<TITLE>MSR_clientSideBase64Encode</TITLE>
+<META NAME="description" CONTENT="MSR_clientSideBase64Encode">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2071.html">
 <LINK REL="previous" HREF="node2069.html">
-<LINK REL="up" HREF="node2066.html">
+<LINK REL="up" HREF="node2053.html">
 <LINK REL="next" HREF="node2071.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33962"
+<A NAME="tex2html34109"
   HREF="node2071.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33958"
-  HREF="node2066.html">
+<A NAME="tex2html34105"
+  HREF="node2053.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33952"
+<A NAME="tex2html34099"
   HREF="node2069.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33960"
+<A NAME="tex2html34107"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33963"
-  HREF="node2071.html">array_keysSearch</A>
-<B> Up:</B> <A NAME="tex2html33959"
-  HREF="node2066.html">./inc/packageBuilder.php</A>
-<B> Previous:</B> <A NAME="tex2html33953"
-  HREF="node2069.html">PKGBUILDER_showUploadDialog</A>
- &nbsp; <B>  <A NAME="tex2html33961"
+<B> Next:</B> <A NAME="tex2html34110"
+  HREF="node2071.html">MSR_genSendBinayFileCommand</A>
+<B> Up:</B> <A NAME="tex2html34106"
+  HREF="node2053.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html34100"
+  HREF="node2069.html">MSR_decodeClientSideBase64</A>
+ &nbsp; <B>  <A NAME="tex2html34108"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009674000000000000000">
-PKGBUILDER_listFiles</A>
+<H2><A NAME="SECTION0096617000000000000000">
+MSR_clientSideBase64Encode</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog of all files in EXTRA_DEBS_DIRECTORY with possibillity to create Debian packages from tar files and to delete files.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Encodes a given file to (a slighly different, + is converted to - for sending it as post variable via wget) base64 format and appends the output to statusdata.post. There are two methods for generating the base64 output. First the native uuencode tool that is very fast and second a plattform idependent implementation of base64 encode in AWK taken from the HylaFAX package.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>fileName: name of the file
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Commands for encoding the file.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

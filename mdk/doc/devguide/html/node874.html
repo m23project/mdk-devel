@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CMessageManager::addMessage</TITLE>
-<META NAME="description" CONTENT="CMessageManager::addMessage">
+<TITLE>Cm23Admin::__construct</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,43 +28,41 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18550"
+<A NAME="tex2html18678"
   HREF="node875.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18546"
+<A NAME="tex2html18674"
   HREF="node873.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18540"
+<A NAME="tex2html18668"
   HREF="node873.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18548"
+<A NAME="tex2html18676"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18551"
-  HREF="node875.html">CMessageManager::addInfoMessage</A>
-<B> Up:</B> <A NAME="tex2html18547"
-  HREF="node873.html">./inc/CMessageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html18541"
-  HREF="node873.html">./inc/CMessageManager.php</A>
- &nbsp; <B>  <A NAME="tex2html18549"
+<B> Next:</B> <A NAME="tex2html18679"
+  HREF="node875.html">Cm23Admin::__destruct</A>
+<B> Up:</B> <A NAME="tex2html18675"
+  HREF="node873.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18669"
+  HREF="node873.html">./inc/Cm23Admin.php</A>
+ &nbsp; <B>  <A NAME="tex2html18677"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009251000000000000000">
-CMessageManager::addMessage</A>
+<H2><A NAME="SECTION009241000000000000000">
+Cm23Admin::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generic function for adding a message to a message stack.
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new Cm23Admin objects. The object holds all information about a single admin and loads values from the DB if the admin exists. If only name is given, an admin is loaded from the database, if name and password are given, an admin will be created, if nothing is given, the current admin is loaded and added to database if not already in.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>msg: Error message to add.
+<LI>name: login name of an existing admin (to load or to create).
 </LI>
-<LI>msgVar: The reference to the variable where the massages should be stored.
-</LI>
-<LI>foundVar: The reference to the variable that should be set to true when there are messages in the given stack.
+<LI>password: password of a new admin (to create).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ CMessageManager::addMessage</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

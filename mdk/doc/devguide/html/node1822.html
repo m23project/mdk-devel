@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_listSelection</TITLE>
-<META NAME="description" CONTENT="HTML_listSelection">
+<TITLE>HTML_jQueryMenu</TITLE>
+<META NAME="description" CONTENT="HTML_jQueryMenu">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1823.html">
 <LINK REL="previous" HREF="node1821.html">
-<LINK REL="up" HREF="node1778.html">
+<LINK REL="up" HREF="node1798.html">
 <LINK REL="next" HREF="node1823.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30784"
+<A NAME="tex2html30934"
   HREF="node1823.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30780"
-  HREF="node1778.html">
+<A NAME="tex2html30930"
+  HREF="node1798.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30774"
+<A NAME="tex2html30924"
   HREF="node1821.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30782"
+<A NAME="tex2html30932"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30785"
-  HREF="node1823.html">HTML_showTableHeader</A>
-<B> Up:</B> <A NAME="tex2html30781"
-  HREF="node1778.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30775"
-  HREF="node1821.html">HTML_getElementValue</A>
- &nbsp; <B>  <A NAME="tex2html30783"
+<B> Next:</B> <A NAME="tex2html30935"
+  HREF="node1823.html">HTML_jQueryMenuHeader</A>
+<B> Up:</B> <A NAME="tex2html30931"
+  HREF="node1798.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30925"
+  HREF="node1821.html">HTML_JSMenuOpener</A>
+ &nbsp; <B>  <A NAME="tex2html30933"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095744000000000000000">
-HTML_listSelection</A>
+<H2><A NAME="SECTION0095724000000000000000">
+HTML_jQueryMenu</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows a selection with options stored in an array
+<SPAN  CLASS="textbf">Description:</SPAN> Creates an entry for the jQuery accordion menu
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>selName: name of the selection
+<LI>title: Title for the menu entry.
 </LI>
-<LI>list: array with the entries. The array can be a simple numeric array or an associative array with discrete entries for the shown name and the value. e.g. : $l[name0]="public"; $l[val0]="internal"; $l[name1]="public1"; $l[val1]="internal1"; public and public1 will be shown the user in the webbrowser, while internal and internal1 are the values that are transfered to the server.
+<LI>html: HTML code of the menu entry. Here can stand all that is expressable with HTML. This part is shown and hidden.
 </LI>
-<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+<LI>titleCSS: CSS class for marking the title.
 </LI>
-<LI>firstName: if you want to use the associative array variant and a first value, you need to set the name that should be shown to the user. This name is stored in firstName
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The jQuery code for the menu entry.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ HTML_listSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

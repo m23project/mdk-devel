@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::getMknodCommand</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::getMknodCommand">
+<TITLE>CFDiskBasic::deleteRaidJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::deleteRaidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node474.html">
 <LINK REL="previous" HREF="node472.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node474.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13376"
+<A NAME="tex2html13507"
   HREF="node474.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13372"
-  HREF="node461.html">
+<A NAME="tex2html13503"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13366"
+<A NAME="tex2html13497"
   HREF="node472.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13374"
+<A NAME="tex2html13505"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13377"
-  HREF="node474.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
-<B> Up:</B> <A NAME="tex2html13373"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13367"
-  HREF="node472.html">CFDiskBasic::rereadPartTable</A>
- &nbsp; <B>  <A NAME="tex2html13375"
+<B> Next:</B> <A NAME="tex2html13508"
+  HREF="node474.html">CFDiskBasic::makeInstOrEFIPartBootable</A>
+<B> Up:</B> <A NAME="tex2html13504"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13498"
+  HREF="node472.html">CFDiskBasic::createRaidJob</A>
+ &nbsp; <B>  <A NAME="tex2html13506"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091312000000000000000">
-CFDiskBasic::getMknodCommand</A>
+<H2><A NAME="SECTION009139000000000000000">
+CFDiskBasic::deleteRaidJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the mknod command for a given /dev/sdX(Y) device (disk or partition).
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a RAID deletion job and adds it to the list of partition steps.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda5) to created the mknod command for.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>mknod command with the parameter matching the given /dev/sdX(Y).
+<LI>dev: RAID device to delete (e.g. /dev/md0)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ CFDiskBasic::getMknodCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CChecks.php</TITLE>
-<META NAME="description" CONTENT="./inc/CChecks.php">
+<TITLE>CAutoUpdate::showAutoUpdateManager</TITLE>
+<META NAME="description" CONTENT="CAutoUpdate::showAutoUpdateManager">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,140 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node289.html">
-<LINK REL="previous" HREF="node216.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="previous" HREF="node247.html">
+<LINK REL="up" HREF="node217.html">
 <LINK REL="next" HREF="node249.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10441"
+<A NAME="tex2html10571"
   HREF="node249.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10437"
-  HREF="node101.html">
+<A NAME="tex2html10567"
+  HREF="node217.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10431"
+<A NAME="tex2html10563"
   HREF="node247.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10439"
+<A NAME="tex2html10569"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10442"
-  HREF="node249.html">CChecks::checkSizeInMB</A>
-<B> Up:</B> <A NAME="tex2html10438"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html10432"
-  HREF="node247.html">CAutoUpdate::showAutoUpdateManager</A>
- &nbsp; <B>  <A NAME="tex2html10440"
+<B> Next:</B> <A NAME="tex2html10572"
+  HREF="node249.html">./inc/CChecks.php</A>
+<B> Up:</B> <A NAME="tex2html10568"
+  HREF="node217.html">./inc/CAutoUpdate.php</A>
+<B> Previous:</B> <A NAME="tex2html10564"
+  HREF="node247.html">CAutoUpdate::run</A>
+ &nbsp; <B>  <A NAME="tex2html10570"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009100000000000000000">
-./inc/CChecks.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for checking values.
+<H2><A NAME="SECTION009931000000000000000">
+CAutoUpdate::showAutoUpdateManager</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for viewing, creating, changing and deleting automatic update sets.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html10443"
-  HREF="node249.html">CChecks::checkSizeInMB</A>
-<LI><A NAME="tex2html10444"
-  HREF="node250.html">CChecks::checkDiskDefinedSize</A>
-<LI><A NAME="tex2html10445"
-  HREF="node251.html">CChecks::checkFdiskAdjustmentUpperToleranceIdentical</A>
-<LI><A NAME="tex2html10446"
-  HREF="node252.html">CChecks::checkFdiskAdjustmentLowerToleranceIdentical</A>
-<LI><A NAME="tex2html10447"
-  HREF="node253.html">CChecks::checkSwapPart</A>
-<LI><A NAME="tex2html10448"
-  HREF="node254.html">CChecks::checkEFIPart</A>
-<LI><A NAME="tex2html10449"
-  HREF="node255.html">CChecks::checkInstPart</A>
-<LI><A NAME="tex2html10450"
-  HREF="node256.html">CChecks::checkMountDev</A>
-<LI><A NAME="tex2html10451"
-  HREF="node257.html">CChecks::checkMountPoint</A>
-<LI><A NAME="tex2html10452"
-  HREF="node258.html">CChecks::checkFdiskAdjustmentSpecifiedDev</A>
-<LI><A NAME="tex2html10453"
-  HREF="node259.html">CChecks::checkRelease</A>
-<LI><A NAME="tex2html10454"
-  HREF="node260.html">CChecks::checkDistribution</A>
-<LI><A NAME="tex2html10455"
-  HREF="node261.html">CChecks::checkNfshomeserver</A>
-<LI><A NAME="tex2html10456"
-  HREF="node262.html">CChecks::checkGroupname</A>
-<LI><A NAME="tex2html10457"
-  HREF="node263.html">CChecks::checkUserGroupIDs</A>
-<LI><A NAME="tex2html10458"
-  HREF="node264.html">CChecks::checkLanguage</A>
-<LI><A NAME="tex2html10459"
-  HREF="node265.html">CChecks::checkRootpassword</A>
-<LI><A NAME="tex2html10460"
-  HREF="node266.html">CChecks::firstpw</A>
-<LI><A NAME="tex2html10461"
-  HREF="node267.html">CChecks::checkLogin</A>
-<LI><A NAME="tex2html10462"
-  HREF="node268.html">CChecks::checkProxy</A>
-<LI><A NAME="tex2html10463"
-  HREF="node269.html">CChecks::checkOffice</A>
-<LI><A NAME="tex2html10464"
-  HREF="node270.html">CChecks::checkEmail</A>
-<LI><A NAME="tex2html10465"
-  HREF="node271.html">CChecks::checkFamilyname</A>
-<LI><A NAME="tex2html10466"
-  HREF="node272.html">CChecks::checkForename</A>
-<LI><A NAME="tex2html10467"
-  HREF="node273.html">CChecks::checkIPGeneric</A>
-<LI><A NAME="tex2html10468"
-  HREF="node274.html">CChecks::checkIP</A>
-<LI><A NAME="tex2html10469"
-  HREF="node275.html">CChecks::checkNonusedIP</A>
-<LI><A NAME="tex2html10470"
-  HREF="node276.html">CChecks::checkDNS1</A>
-<LI><A NAME="tex2html10471"
-  HREF="node277.html">CChecks::checkDNS2</A>
-<LI><A NAME="tex2html10472"
-  HREF="node278.html">CChecks::checkGateway</A>
-<LI><A NAME="tex2html10473"
-  HREF="node279.html">CChecks::checkClientname</A>
-<LI><A NAME="tex2html10474"
-  HREF="node280.html">CChecks::checkNonusedClientname</A>
-<LI><A NAME="tex2html10475"
-  HREF="node281.html">CChecks::checkNetmask</A>
-<LI><A NAME="tex2html10476"
-  HREF="node282.html">CChecks::checkMAC</A>
-<LI><A NAME="tex2html10477"
-  HREF="node283.html">CChecks::checkNonusedMAC</A>
-<LI><A NAME="tex2html10478"
-  HREF="node284.html">CChecks::checkIPRange</A>
-<LI><A NAME="tex2html10479"
-  HREF="node285.html">CChecks::checkStatus</A>
-<LI><A NAME="tex2html10480"
-  HREF="node286.html">CChecks::checkBootType</A>
-<LI><A NAME="tex2html10481"
-  HREF="node287.html">CChecks::genericCHECK_FW</A>
-<LI><A NAME="tex2html10482"
-  HREF="node288.html">CChecks::checkPoolName</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

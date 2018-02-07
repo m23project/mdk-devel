@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::formatPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::formatPartition">
+<TITLE>CFDiskBasic::createUEFIPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createUEFIPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node480.html">
 <LINK REL="previous" HREF="node478.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node480.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13448"
+<A NAME="tex2html13579"
   HREF="node480.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13444"
-  HREF="node461.html">
+<A NAME="tex2html13575"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13438"
+<A NAME="tex2html13569"
   HREF="node478.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13446"
+<A NAME="tex2html13577"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13449"
-  HREF="node480.html">CFDiskBasic::deleteAllPartitions</A>
-<B> Up:</B> <A NAME="tex2html13445"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13439"
-  HREF="node478.html">CFDiskBasic::deletePartition</A>
- &nbsp; <B>  <A NAME="tex2html13447"
+<B> Next:</B> <A NAME="tex2html13580"
+  HREF="node480.html">CFDiskBasic::deletePartition</A>
+<B> Up:</B> <A NAME="tex2html13576"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13570"
+  HREF="node478.html">CFDiskBasic::createPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13578"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091318000000000000000">
-CFDiskBasic::formatPartition</A>
+<H2><A NAME="SECTION0091315000000000000000">
+CFDiskBasic::createUEFIPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Formats a partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new UEFI partition with a size of 512 MB at the start of the disk (if possible).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: partition to format (e.g. /dev/hda1)
+<LI>dev: The device (e.g. /dev/sda).
 </LI>
-<LI>fs: type of filesystem
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The physical partition number of the newly created partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ CFDiskBasic::formatPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

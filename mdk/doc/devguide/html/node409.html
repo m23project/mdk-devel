@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::getSourcesList</TITLE>
-<META NAME="description" CONTENT="CClient::getSourcesList">
+<TITLE>CClient::getProperty</TITLE>
+<META NAME="description" CONTENT="CClient::getProperty">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node410.html">
 <LINK REL="previous" HREF="node408.html">
-<LINK REL="up" HREF="node334.html">
+<LINK REL="up" HREF="node335.html">
 <LINK REL="next" HREF="node410.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12579"
+<A NAME="tex2html12711"
   HREF="node410.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12575"
-  HREF="node334.html">
+<A NAME="tex2html12707"
+  HREF="node335.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12569"
+<A NAME="tex2html12701"
   HREF="node408.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12577"
+<A NAME="tex2html12709"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12580"
-  HREF="node410.html">CClient::setArch</A>
-<B> Up:</B> <A NAME="tex2html12576"
-  HREF="node334.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html12570"
-  HREF="node408.html">CClient::getProperty</A>
- &nbsp; <B>  <A NAME="tex2html12578"
+<B> Next:</B> <A NAME="tex2html12712"
+  HREF="node410.html">CClient::getSourcesList</A>
+<B> Up:</B> <A NAME="tex2html12708"
+  HREF="node335.html">./inc/CClient.php</A>
+<B> Previous:</B> <A NAME="tex2html12702"
+  HREF="node408.html">CClient::save</A>
+ &nbsp; <B>  <A NAME="tex2html12710"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091275000000000000000">
-CClient::getSourcesList</A>
+<H2><A NAME="SECTION0091274000000000000000">
+CClient::getProperty</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the sources list of the client.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets a client property from $this-<SPAN CLASS="MATH"></SPAN>clientInfo and dies (or returns an error value), if this property is not set.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Sources list of the client.
+<LI>key: Name of the property.
+</LI>
+<LI>dieMessage: Message to show before dying.
+</LI>
+<LI>return: This will returned in case of an error, if set to another value, than 'null'.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Value of the property (or error value).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CClient::getSourcesList</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

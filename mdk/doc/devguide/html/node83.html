@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23 helpers</TITLE>
-<META NAME="description" CONTENT="m23 helpers">
+<TITLE>Layoutoptions</TITLE>
+<META NAME="description" CONTENT="Layoutoptions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,69 +19,140 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node91.html">
-<LINK REL="previous" HREF="node23.html">
-<LINK REL="up" HREF="devguide.html">
+<LINK REL="previous" HREF="node82.html">
+<LINK REL="up" HREF="node80.html">
 <LINK REL="next" HREF="node84.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5981"
+<A NAME="tex2html6069"
   HREF="node84.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5977"
-  HREF="devguide.html">
+<A NAME="tex2html6065"
+  HREF="node80.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5971"
+<A NAME="tex2html6061"
   HREF="node82.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5979"
+<A NAME="tex2html6067"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5982"
-  HREF="node84.html">mdoc</A>
-<B> Up:</B> <A NAME="tex2html5978"
-  HREF="devguide.html">m23 Development Guide for</A>
-<B> Previous:</B> <A NAME="tex2html5972"
-  HREF="node82.html">Layoutoptions</A>
- &nbsp; <B>  <A NAME="tex2html5980"
+<B> Next:</B> <A NAME="tex2html6070"
+  HREF="node84.html">m23 helpers</A>
+<B> Up:</B> <A NAME="tex2html6066"
+  HREF="node80.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html6062"
+  HREF="node82.html">Filling the *OptionPage.php</A>
+ &nbsp; <B>  <A NAME="tex2html6068"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00700000000000000000">
-m23 helpers</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+<H2><A NAME="SECTION006103000000000000000">
+Layoutoptions</A>
+</H2>
+The layout is stored in an array. Every element gets an numeric entry with several options. These entries have to be counted beginning by 0. The elements are marked by the <SPAN  CLASS="textbf">type</SPAN> attribute.
+There are some different types of elements:
 
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5983"
-  HREF="node84.html">mdoc</A>
 <UL>
-<LI><A NAME="tex2html5984"
-  HREF="node85.html">what is mdoc?</A>
-<LI><A NAME="tex2html5985"
-  HREF="node86.html">how to make your source code mdoc compatible?</A>
-<LI><A NAME="tex2html5986"
-  HREF="node87.html">mdoc info block</A>
-<LI><A NAME="tex2html5987"
-  HREF="node88.html">example for a mdoc comment</A>
-<LI><A NAME="tex2html5988"
-  HREF="node89.html">using mdoc</A>
-<LI><A NAME="tex2html5989"
-  HREF="node90.html">example</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<LI><SPAN  CLASS="textit">text</SPAN> Is a simple text: In the exaple you can see the text is selected by the <SPAN  CLASS="textit">type</SPAN> of <SPAN  CLASS="textbf">text</SPAN>. All types are case sensitive. If you want a text as first element, give it the index 0.
+<PRE>
+$layout[0]['type']="text";
+$layout[0]['text']="HalloText";
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">line</SPAN>: A line is even simpler, because it has no attributes. It only draws a horizontal line. Lines are graphical objects to make your OptionPage look better ;)
+<PRE>
+$layout[1]['type']="line";
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">inputline</SPAN>: An inputline is a editable text field with the height of one. The inputline has a lot of attributes:
+
+<UL>
+<LI>text: a text that is shown before the element. It is a good idea to put a name or a descriptive text here.
+</LI>
+<LI>value: is the text, that stands in the inputline. You should follow the example and use the PKG_OptionPageGetValue function to get the value. Otherwise the value can't be gotten after saving and will disappear.
+</LI>
+<LI>name: The name of the element, that's the same name the entered value will be stored under the params column in the packagejobs table. <SPAN  CLASS="textbf">This name has to be the same as in the PKG_OptionPageGetValue function under value. Otherwise the values can't be stored!!!</SPAN>
+</LI>
+<LI>size: The width of the inputline in characters.
+</LI>
+<LI>maxlength: The maximum of characters that can be entered.
+</LI>
+</UL>
+<PRE>
+$layout[2]['type']="inputline";
+$layout[2]['text']="documentRoot";
+$layout[2]['value']=PKG_OptionPageGetValue('documentRoot',$params);
+$layout[2]['name']="documentRoot";
+$layout[2]['size']=10;
+$layout[2]['maxlength']=100;
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">selection</SPAN>: A selection gives the user a list with options to choose. As before the text attribute describes the element, name is the variable name to store it in the database, value the value to store. New is the option* attribute. The selectable options are stored under the attributes option0, option1, ... . <SPAN  CLASS="textbf">It is important to start by 0 and to left no number out.</SPAN> Otherwise the renderer will stop by the first hole in the count.
+<PRE>
+$layout[3]['type']="selection";
+$layout[3]['text']="Desktop";
+$layout[3]['name']="desktop";
+$layout[3]['value']=PKG_OptionPageGetValue('desktop',$params);
+$layout[3]['option0']="gnome";
+$layout[3]['option1']="kde3";
+$layout[3]['option2']="kde2";
+$layout[3]['option3']="kde4";
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textit">textarea</SPAN>: A text area with multiple colums and rows. The attributes type, name and value as usual. Cols (colums) and rows are the size parameters of the text area in characters.
+<PRE>
+$layout[4]['type']="textarea";
+$layout[4]['cols']=20;
+$layout[4]['rows']=20;
+$layout[4]['name']="textedit";
+$layout[4]['value']=PKG_OptionPageGetValue('textedit',$params);
+</PRE>
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html6069"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html6065"
+  HREF="node80.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html6061"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html6067"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html6070"
+  HREF="node84.html">m23 helpers</A>
+<B> Up:</B> <A NAME="tex2html6066"
+  HREF="node80.html">Additional installation parameters for</A>
+<B> Previous:</B> <A NAME="tex2html6062"
+  HREF="node82.html">Filling the *OptionPage.php</A>
+ &nbsp; <B>  <A NAME="tex2html6068"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

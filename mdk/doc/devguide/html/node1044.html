@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CSystemProxy.php</TITLE>
-<META NAME="description" CONTENT="./inc/CSystemProxy.php">
+<TITLE>CScredit::getNextOnlineScriptInfo</TITLE>
+<META NAME="description" CONTENT="CScredit::getNextOnlineScriptInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,116 +19,70 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1073.html">
-<LINK REL="previous" HREF="node1024.html">
-<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node1045.html">
+<LINK REL="previous" HREF="node1043.html">
+<LINK REL="up" HREF="node1036.html">
 <LINK REL="next" HREF="node1045.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20715"
+<A NAME="tex2html20858"
   HREF="node1045.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20711"
-  HREF="node101.html">
+<A NAME="tex2html20854"
+  HREF="node1036.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20705"
+<A NAME="tex2html20848"
   HREF="node1043.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20713"
+<A NAME="tex2html20856"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20716"
-  HREF="node1045.html">CSYSTEMPROXY_getProxySettingsFromAPT</A>
-<B> Up:</B> <A NAME="tex2html20712"
-  HREF="node101.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html20706"
-  HREF="node1043.html">CScredit::show</A>
- &nbsp; <B>  <A NAME="tex2html20714"
+<B> Next:</B> <A NAME="tex2html20859"
+  HREF="node1045.html">CScredit::loadOnlineScript</A>
+<B> Up:</B> <A NAME="tex2html20855"
+  HREF="node1036.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html20849"
+  HREF="node1043.html">CScredit::updateOnlineScriptInfo</A>
+ &nbsp; <B>  <A NAME="tex2html20857"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009360000000000000000">
-./inc/CSystemProxy.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for managing systemwide proxies.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009358000000000000000">
+CScredit::getNextOnlineScriptInfo</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Gets an information about all scripts that are available online. Every call of the function fetches the information about one script.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>ts: Timestamp, when the script was uploaded.
+</LI>
+<LI>scriptId: Id of the script (needed for download).
+</LI>
+<LI>scriptName: Name of the script.
+</LI>
+<LI>author: Name of the author.
+</LI>
+<LI>description: Description for the script.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if an entry could be read otherwise (e.g. if all entries were read) false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html20717"
-  HREF="node1045.html">CSYSTEMPROXY_getProxySettingsFromAPT</A>
-<LI><A NAME="tex2html20718"
-  HREF="node1046.html">CSYSTEMPROXY_addCurlProxySettings</A>
-<LI><A NAME="tex2html20719"
-  HREF="node1047.html">CSYSTEMPROXY_getUserPasswordString</A>
-<LI><A NAME="tex2html20720"
-  HREF="node1048.html">CSYSTEMPROXY_getEnvironmentVariables</A>
-<LI><A NAME="tex2html20721"
-  HREF="node1049.html">CSYSTEMPROXY_getAptGetProxyParamter</A>
-<LI><A NAME="tex2html20722"
-  HREF="node1050.html">CSystemProxy::__construct</A>
-<LI><A NAME="tex2html20723"
-  HREF="node1051.html">CSystemProxy::writeEtcProfiles</A>
-<LI><A NAME="tex2html20724"
-  HREF="node1052.html">CSystemProxy::writeAPTProxyConf</A>
-<LI><A NAME="tex2html20725"
-  HREF="node1053.html">CSystemProxy::writeSquidConf</A>
-<LI><A NAME="tex2html20726"
-  HREF="node1054.html">CSystemProxy::save</A>
-<LI><A NAME="tex2html20727"
-  HREF="node1055.html">CSystemProxy::showProxyDialog</A>
-<LI><A NAME="tex2html20728"
-  HREF="node1056.html">CSystemProxy::loadProxySettings</A>
-<LI><A NAME="tex2html20729"
-  HREF="node1057.html">CSystemProxy::isProxyActive</A>
-<LI><A NAME="tex2html20730"
-  HREF="node1058.html">CSystemProxy::setProxyActive</A>
-<LI><A NAME="tex2html20731"
-  HREF="node1059.html">CSystemProxy::areProxySettingsAvailable</A>
-<LI><A NAME="tex2html20732"
-  HREF="node1060.html">CSystemProxy::setProxyHost</A>
-<LI><A NAME="tex2html20733"
-  HREF="node1061.html">CSystemProxy::getProxyHost</A>
-<LI><A NAME="tex2html20734"
-  HREF="node1062.html">CSystemProxy::getProxyHostIP</A>
-<LI><A NAME="tex2html20735"
-  HREF="node1063.html">CSystemProxy::usesUserPassword</A>
-<LI><A NAME="tex2html20736"
-  HREF="node1064.html">CSystemProxy::setProxyUser</A>
-<LI><A NAME="tex2html20737"
-  HREF="node1065.html">CSystemProxy::getProxyUser</A>
-<LI><A NAME="tex2html20738"
-  HREF="node1066.html">CSystemProxy::setProxyPassword</A>
-<LI><A NAME="tex2html20739"
-  HREF="node1067.html">CSystemProxy::getProxyPassword</A>
-<LI><A NAME="tex2html20740"
-  HREF="node1068.html">CSystemProxy::setProxyScheme</A>
-<LI><A NAME="tex2html20741"
-  HREF="node1069.html">CSystemProxy::getProxyScheme</A>
-<LI><A NAME="tex2html20742"
-  HREF="node1070.html">CSystemProxy::setProxyPort</A>
-<LI><A NAME="tex2html20743"
-  HREF="node1071.html">CSystemProxy::getProxyPort</A>
-<LI><A NAME="tex2html20744"
-  HREF="node1072.html">CSystemProxy::getUserPasswordString</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::addDevToRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::addDevToRaid">
+<TITLE>CFDiskIO::isRaidLevelNumberValid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isRaidLevelNumberValid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node629.html">
 <LINK REL="previous" HREF="node627.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node629.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15398"
+<A NAME="tex2html15533"
   HREF="node629.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15394"
-  HREF="node542.html">
+<A NAME="tex2html15529"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15388"
+<A NAME="tex2html15523"
   HREF="node627.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15396"
+<A NAME="tex2html15531"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15399"
-  HREF="node629.html">CFDiskIO::delDevFromRaid</A>
-<B> Up:</B> <A NAME="tex2html15395"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15389"
-  HREF="node627.html">CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
- &nbsp; <B>  <A NAME="tex2html15397"
+<B> Next:</B> <A NAME="tex2html15534"
+  HREF="node629.html">CFDiskIO::getRaidDevsBuildingDisk</A>
+<B> Up:</B> <A NAME="tex2html15530"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15524"
+  HREF="node627.html">CFDiskIO::getRaidLevelNumbers</A>
+ &nbsp; <B>  <A NAME="tex2html15532"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091586000000000000000">
-CFDiskIO::addDevToRaid</A>
+<H2><A NAME="SECTION0091584000000000000000">
+CFDiskIO::isRaidLevelNumberValid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a device (disk or partition) to the list of devices building the RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a number is a valid RAID level.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vrDisk: Virtual (internally used) RAID disk number.
-</LI>
-<LI>dev: Device to add to the RAID.
+<LI>level: RAID level to check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the device could be added, otherwise false.
+<LI>true, if the input number is a valid RAID level.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CFDiskIO::addDevToRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

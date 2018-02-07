@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createRaidJobForRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createRaidJobForRaid">
+<TITLE>CFDiskBasic::autoPartitionDisk</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::autoPartitionDisk">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node486.html">
 <LINK REL="previous" HREF="node484.html">
-<LINK REL="up" HREF="node461.html">
+<LINK REL="up" HREF="node464.html">
 <LINK REL="next" HREF="node486.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13520"
+<A NAME="tex2html13651"
   HREF="node486.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13516"
-  HREF="node461.html">
+<A NAME="tex2html13647"
+  HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13510"
+<A NAME="tex2html13641"
   HREF="node484.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13518"
+<A NAME="tex2html13649"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13521"
-  HREF="node486.html">CFDiskBasic::createRaid</A>
-<B> Up:</B> <A NAME="tex2html13517"
-  HREF="node461.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13511"
-  HREF="node484.html">CFDiskBasic::createAllRaidJobs</A>
- &nbsp; <B>  <A NAME="tex2html13519"
+<B> Next:</B> <A NAME="tex2html13652"
+  HREF="node486.html">CFDiskBasic::createAllRaidJobs</A>
+<B> Up:</B> <A NAME="tex2html13648"
+  HREF="node464.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13642"
+  HREF="node484.html">CFDiskBasic::createSwapPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13650"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091324000000000000000">
-CFDiskBasic::createRaidJobForRaid</A>
+<H2><A NAME="SECTION0091321000000000000000">
+CFDiskBasic::autoPartitionDisk</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the jobs to create a given RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Automatically partitions and formats a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vrDisk: Virtual (internally used) disk number for the RAID.
+<LI>diskDev: The disk device (e.g. /dev/hda) that should be partitionated and formated automatically.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if $vrDisk is a RAID, otherwise false.
+<LI>minSwap: Minimal size of the swap partition in MB.
+</LI>
+<LI>maxSwap: Maximal size of the swap partition in MB.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ CFDiskBasic::createRaidJobForRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

@@ -2747,6 +2747,20 @@
 \subsection{CClient::destroy}
 \textbf{Description:} Destroys a client finally.\\
 
+\subsection{CClient::getVMRole}
+\textbf{Description:} Returns the client's vmRole.\\
+\textbf{Returns:}
+\begin{itemize}
+\item vmRole of the client.
+\end{itemize}
+
+\subsection{CClient::getVmSoftware}
+\textbf{Description:} Returns the client's vmSoftware.\\
+\textbf{Returns:}
+\begin{itemize}
+\item vmSoftware of the client.
+\end{itemize}
+
 \newpage\section{./inc/CFDiskBasic.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Class for basic partitioning and formating functions.\\
@@ -2830,17 +2844,6 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item dev: The device that was changed/created (e.g. /dev/sda5).
-\end{itemize}
-
-\subsection{CFDiskBasic::getMknodCommand}
-\textbf{Description:} Generates the mknod command for a given /dev/sdX(Y) device (disk or partition).\\
-\textbf{Parameter:}
-\begin{itemize}
-\item dev: The device (e.g. /dev/sda5) to created the mknod command for.
-\end{itemize}
-\textbf{Returns:}
-\begin{itemize}
-\item mknod command with the parameter matching the given /dev/sdX(Y).
 \end{itemize}
 
 \subsection{CFDiskBasic::getMknodCommandsForDeviceArray}
@@ -3700,6 +3703,17 @@
 \item true, if the device string is a RAID, otherwise false.
 \end{itemize}
 
+\subsection{CFDiskIO::isNVMe}
+\textbf{Description:} Checks, if a device string is an NVMe.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dev: The device (e.g. /dev/sda2 or /dev/md0).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the device string is an NVMe, otherwise false.
+\end{itemize}
+
 \subsection{CFDiskIO::setDiskPartLockedByRaid}
 \textbf{Description:} Sets or unsets the RAID lock of a partition or disk.\\
 \textbf{Parameter:}
@@ -3845,6 +3859,18 @@
 \textbf{Returns:}
 \begin{itemize}
 \item Device of a partition (eg. /dev/sda1).
+\end{itemize}
+
+\subsection{CFDiskIO::getDevBypDiskpPart}
+\textbf{Description:} Returns device string with pDisk and partition number correctly combined.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item pDisk: Physical disk is written to (e.g. /dev/hda).
+\item pPart: Physical partition number (e.g. 1) or false (if there is no number in the dev).
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Device string.
 \end{itemize}
 
 \subsection{CFDiskIO::getPartitionDevs}
@@ -4603,6 +4629,24 @@
 \item The maybe unchanged type for isFreeSpaceBetween.
 \end{itemize}
 
+\subsection{CFDiskIO::getNVMeMknodCommand}
+\textbf{Description:} Generates the mknod commands for creating the NVMe devices.\\
+\textbf{Returns:}
+\begin{itemize}
+\item mknod commands for creating the NVMe devices.
+\end{itemize}
+
+\subsection{CFDiskIO::getMknodCommand}
+\textbf{Description:} Generates the mknod command for a given /dev/sdX(Y) device (disk or partition).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dev: The device (e.g. /dev/sda5) to created the mknod command for.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item mknod command with the parameter matching the given /dev/sdX(Y).
+\end{itemize}
+
 \newpage\section{./inc/CFDiskTest.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Class for testing partitioning and formating functions.\\
@@ -5062,6 +5106,17 @@
 \newpage\section{./inc/checks.php}
  Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (hauke@goos-habermann.de)\\
  Description: different checks for validation of email, ip, netmasks, etc.\\
+
+\subsection{CHECK\_ip}
+\textbf{Description:} Checks, if an IP is (syntactically) valid.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ip: IP to check.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the IP is valid, otherwise false.
+\end{itemize}
 
 \subsection{CHECK\_safeFilename}
 \textbf{Description:} Make sure, the file/directory name is safe and doesn't contain evil characters.\\
@@ -5749,6 +5804,28 @@
 \item client: name of the client
 \end{itemize}
 
+\subsection{CLIENT\_getNetmaskBits}
+\textbf{Description:} Gets the amount of set bits of a netmask.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item netmask: IPv4 netmask.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Amount of set bits of a netmask.
+\end{itemize}
+
+\subsection{CLIENT\_getNetmaskFromBitAmount}
+\textbf{Description:} Gets the netmask by the amount of set bits.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item bits: Amount if set bits of a netmask.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item IPv4 netmask
+\end{itemize}
+
 \subsection{CLIENT\_getSubnet}
 \textbf{Description:} gets the subnet of a given ip and netmask\\
 \textbf{Parameter:}
@@ -5881,6 +5958,13 @@
 \item clientName: name of the client
 \end{itemize}
 
+\subsection{CLIENT\_showLastLogError}
+\textbf{Description:} Prints the last error in the client log\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+
 \subsection{CLIENT\_showLog}
 \textbf{Description:} prints the log information of the client\\
 \textbf{Parameter:}
@@ -5973,7 +6057,11 @@
 \textbf{Description:} generates HTML code containing the status of the client with links to the pages\\
 \textbf{Parameter:}
 \begin{itemize}
-\item clientName: name of the client
+\item clientName: Name of the m23 client
+\item id: ID of the m23 client
+\item status: Status (number, green, red, ...) of the client.
+\item vmRole: Role of the m23 client (host, guest, no virtualisation)
+\item vmSoftware: Number of the used virtualisation software.
 \end{itemize}
 
 \subsection{CLIENT\_showDebugSelection}
@@ -6093,7 +6181,7 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item client: name of the client
-\item data: the options as assiciative array
+\item data: the options as associative array
 \end{itemize}
 
 \subsection{CLIENT\_plinkFetchJob}
@@ -6115,6 +6203,28 @@
 \textbf{Returns:}
 \begin{itemize}
 \item true, if the client was assimilated. false, if the client was normaly installed.
+\end{itemize}
+
+\subsection{CLIENT\_isDedicatedAndReachable}
+\textbf{Description:} Checks, if a client is dedicated to this M23-Server and reachable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the client is dedicated and pingable. false, if any of the conditions is false.
+\end{itemize}
+
+\subsection{CLIENT\_generateHTMLDedicatedAndReachableStatus}
+\textbf{Description:} Generates HTML code and tooltip containing the status of the client showing if it's dedicated and reachable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: name of the client
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array containg HTML code and tooltip 
 \end{itemize}
 
 \newpage\section{./inc/Cm23AdminLister.php}
@@ -7803,8 +7913,26 @@
 \subsection{dbClose}
 \textbf{Description:} closes the connection to the m23 database\\
 
+\subsection{DB\_getSuperUserName}
+\textbf{Description:} Returns the name of the super MySQL/MariaDB user.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Name of the super MySQL/MariaDB user.
+\end{itemize}
+
+\subsection{DB\_getSuperUserPassword}
+\textbf{Description:} Returns the password (or empty) of the super MySQL/MariaDB user.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Password (or empty) of the super MySQL/MariaDB user.
+\end{itemize}
+
 \subsection{getServerIP}
 \textbf{Description:} returnes the IP of the m23 server\\
+\textbf{Returns:}
+\begin{itemize}
+\item IP of the m23 server.
+\end{itemize}
 
 \subsection{getServerNetmask}
 \textbf{Description:} returnes the netmask of the m23 server\\
@@ -7973,6 +8101,25 @@
 \textbf{Returns:}
 \begin{itemize}
 \item Array with continuous numbers as keys and associative arrays with the result rows as value.
+\end{itemize}
+
+\subsection{DB\_getTableColumns}
+\textbf{Description:} Creates an associative array with table and column names and their data types and codepages (collation).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dbName: Name of the database.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with table and column names and their data types and codepages (collation).
+\end{itemize}
+
+\subsection{DB\_changeAllCollations}
+\textbf{Description:} Changes the codepage for the collation of all text fields in all tables of a database.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item destCodepage: Wanted codepage.
+\item dbName: Name of the database.
 \end{itemize}
 
 \newpage\section{./inc/dhcp.php}
@@ -8165,6 +8312,13 @@
 \newpage\section{./inc/distr/debian/clientConfigCommon.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
+
+\subsection{CLCFG\_addPAMtoDM}
+\textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dmFile: Name of the login manager pam.d config file.
+\end{itemize}
 
 \subsection{CLCFG\_disableSudoRootLogin}
 \textbf{Description:} Disables getting root rights of normal users via sudo.\\
@@ -9103,6 +9257,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_addPAMtoDM}
+\textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dmFile: Name of the login manager pam.d config file.
+\end{itemize}
+
 \subsection{CLCFG\_disableSudoRootLogin}
 \textbf{Description:} Disables getting root rights of normal users via sudo.\\
 
@@ -9977,6 +10138,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_addPAMtoDM}
+\textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dmFile: Name of the login manager pam.d config file.
+\end{itemize}
+
 \subsection{CLCFG\_disableSudoRootLogin}
 \textbf{Description:} Disables getting root rights of normal users via sudo.\\
 
@@ -10474,7 +10642,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{UBUNTU\_desktopInstall}
-\textbf{Description:} Installs the Unity desktop.\\
+\textbf{Description:} Installs a desktop environment.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item desktop: Desktop constant.
@@ -10483,6 +10651,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item normalScrollBars: If set to true the normal scroll bars are usesed instead of the Unity bars.
 \item addDesktopIcons: If set to true the home, network, volumes and trash icons are shown on the desktop.
 \item removeUbuntuOne: If set to true Ubuntu One is removed.
+\item removeMono: If set to true Mono is removed.
+\item installLangPacks: If set to true language packs will be installed.
 \end{itemize}
 
 \subsection{UBUNTU\_fixBeforeBaseInstall}
@@ -11011,6 +11181,18 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item file: the name to the file
 \item search: regular expression to search
 \item replace: line to add
+\end{itemize}
+
+\subsection{EDIT\_appendToFile}
+\textbf{Description:} Appends a text to a file on a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item file: Name of the file.
+\item text: The text to append.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Code for appending a text to a file on a client.
 \end{itemize}
 
 \newpage\section{./inc/fdisk.php}
@@ -13670,6 +13852,25 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item true if the check box is checked.
 \end{itemize}
 
+\subsection{HTML\_storableMultiSelection}
+\textbf{Description:} Shows a list of radio buttons or a selection with loading and storing the checking state to and from the session.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlName: Name of the HTML element.
+\item prefKey: Variable name of the preference the dialog element stands for.
+\item array: An array that hold the returned values (array keys) the naming for the elements (array values).
+\item type: SELTYPE\_selection for a selection or SELTYPE\_radio for radio buttons.
+\item multipleSize: Number of elements to display.
+\item vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
+\item defaultSelection: The value of the item to select by default.
+\item storePointer: Additional pointer to the variable where to store the entered value.
+\item js: Here can JavaScript or other parameters be added.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true if the check box is checked.
+\end{itemize}
+
 \subsection{HTML\_storableCheckBox}
 \textbf{Description:} Shows a check box with label with loading and storing the checking state to and from the session.\\
 \textbf{Parameter:}
@@ -15599,6 +15800,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \subsection{MSR\_clientSettings}
 \textbf{Description:} Imports the clients settings\\
 
+\subsection{MSR\_setOnline}
+\textbf{Description:} Sets the online-state of a client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item online: The new online-state.
+\end{itemize}
+
 \newpage\section{./inc/packageBuilder.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for building pools.\\
@@ -15989,6 +16197,15 @@ Description: basic package operations (search, add,...)\\
 \textbf{Returns:}
 \begin{itemize}
 \item Amount of jobs with changed priority.
+\end{itemize}
+
+\subsection{PKG\_changeInstallReasonSelectedPackages}
+\textbf{Description:} Changes the priority of selected wait4acc packages.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item amount: amount of selected packages
+\item client: name of client to install packages on
+\item newReason: The new reason to set.
 \end{itemize}
 
 \subsection{PKG\_rmSelectedPackages}
@@ -16598,6 +16815,9 @@ Description: basic package operations (search, add,...)\\
 \item priority: The priority of the job.
 \end{itemize}
 
+\subsection{PKG\_recountAllClientPackages}
+\textbf{Description:} Recounts all packages of a client and updates corresponding fields in the database.\\
+
 \newpage\section{./inc/pdf.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for generating PDF files\\
@@ -17176,6 +17396,70 @@ Description: basic package operations (search, add,...)\\
 \textbf{Returns:}
 \begin{itemize}
 \item : true, if the check is disabled otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_isLiveLogDisabled}
+\textbf{Description:} Determines, if live logging should be disabled globally for all clients.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if live logging should be disabled globally for all clients otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_setLiveLogDisabled}
+\textbf{Description:} Sets/Unsets live disabling of logging globally for all clients.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item disabled: true, if live logging should be disabled globally for all clients otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_isUpdatePackageInfosDisabled}
+\textbf{Description:} Determines, if the updatePackageInfos job should NOT be added to any clients.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if the updatePackageInfos job should NOT be added to any clients otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_setUpdatePackageInfosDisabled}
+\textbf{Description:} Sets/Unsets if the updatePackageInfos job should NOT be added to any clients.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item disabled: true, if the updatePackageInfos job should NOT be added to any clients otherwise false.
+\end{itemize}
+
+\subsection{SERVER\_isClientOnlineStatusEnabled}
+\textbf{Description:} Determines, if the online status of all clients should be detected and shown.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if the online status of all clients should be detected and shown.
+\end{itemize}
+
+\subsection{SERVER\_startUpdateClientOnlineInDBBackgroundJob}
+\textbf{Description:} Starts a background job to update the online status of the clients cyclically.\\
+
+\subsection{SERVER\_setClientOnlineStatusEnabled}
+\textbf{Description:} Sets/Unsets if the online status of all clients should be detected and shown.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item active: true, if the online status of all clients should be detected and shown.
+\end{itemize}
+
+\subsection{SERVER\_setServerBoolSetting}
+\textbf{Description:} Sets a bool value of a server setting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : var: Name of the setting.
+\item : val: true or false.
+\end{itemize}
+
+\subsection{SERVER\_getServerBoolSetting}
+\textbf{Description:} Gets the boolean value of a server setting.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item : var: Name of the setting.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true or false.
 \end{itemize}
 
 \subsection{SERVER\_setServerSetting}
@@ -18008,6 +18292,112 @@ Description: basic package operations (search, add,...)\\
 \item client: Client name.
 \end{itemize}
 
+\subsection{UCS\_createNetworkObject}
+\textbf{Description:} Creates a new network object in the UCS LDAP:\\
+\textbf{Parameter:}
+\begin{itemize}
+\item networkName: Name of the network object to create.
+\item netmaskBits: Amount of set bits in the netmask.
+\item networkIP: Network IP (ends with .0)
+\end{itemize}
+
+\subsection{UCS\_getGenericNetworkName}
+\textbf{Description:} Generates a generic name for a network object in UCS.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item netmaskBits: Amount of set bits in the netmask.
+\item networkIP: Network IP (ends with .0)
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Generic name for a network object in UCS.
+\end{itemize}
+
+\subsection{UCS\_ensureNetworkObjectExists}
+\textbf{Description:} Makes sure that the network object exists in the UCS.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item netmaskBits: Amount of set bits in the netmask.
+\item networkIP: Network IP (ends with .0)
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Generic name for a network object in UCS.
+\end{itemize}
+
+\subsection{UCS\_modifyClientIP}
+\textbf{Description:} Modifies the IP of a client in the UCS LDAP.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Client name or CClient object.
+\item ip: The new client's IP address.
+\item netmask: Amount of set bits in the netmask or normal netmask.
+\end{itemize}
+
+\subsection{UCS\_getAllClientNamesLDAP}
+\textbf{Description:} Gets all client names stored in the LDAP of the UCS.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : Array with all client names stored in the LDAP of the UCS.
+\end{itemize}
+
+\subsection{UCS\_getUDMInfo}
+\textbf{Description:} Get information from the UCS's LDAP by udm tool.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item udmModule: Name of the udm module (eg. networks/network or computers/linux).
+\item afterLines: Amount of lines with information after the line containing the keyword.
+\item keyWord: Keyword matching the first line to find the block with the wanted information.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Associative array with the information.
+\end{itemize}
+
+\subsection{UCS\_networkObjectExists}
+\textbf{Description:} Checks, if a network object exists in the UCS.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item networkName: Network name.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if a network object exists in the UCS, otherwise false.
+\end{itemize}
+
+\subsection{UCS\_getNetworkLDAPInfo}
+\textbf{Description:} Get information about a network stored in the UCS LDAP.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item networkName: Network name.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Associative array with the information about the network.
+\end{itemize}
+
+\subsection{UCS\_getFirstElementFromDN}
+\textbf{Description:} Gets the first value of a distinguished name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item dn: distinguished name.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : First value of a distinguished name.
+\end{itemize}
+
+\subsection{UCS\_getClientLDAPInfo}
+\textbf{Description:} Get information about a client stored in the UCS LDAP.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Client name.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Associative array with the information about the client.
+\end{itemize}
+
 \subsection{UCS\_addClient}
 \textbf{Description:} Adds a client to the UCS LDAP.\\
 \textbf{Parameter:}
@@ -18102,11 +18492,7 @@ Description: basic package operations (search, add,...)\\
  Description: functions for updating the server\\
 
 \subsection{UPDATE\_doUpdate}
-\textbf{Description:} downloads and executes the update script.\\
-\textbf{Parameter:}
-\begin{itemize}
-\item URL: url to fetch the update file from
-\end{itemize}
+\textbf{Description:} Makes sure the package repository is included and upgrades the m23 server.\\
 
 \subsection{UPDATE\_running}
 \textbf{Description:} checks, if an update is running (returns true otherwise false)\\
@@ -18655,7 +19041,10 @@ Description: basic package operations (search, add,...)\\
 \textbf{Description:} Returns HTML codes that include the VM status icons of the client.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item param: Client's parameter array.
+\item clientName: Name of the m23 client
+\item id: ID of the m23 client
+\item vmRole: Role of the m23 client (host, guest, no virtualisation)
+\item vmSoftware: Number of the used virtualisation software.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}

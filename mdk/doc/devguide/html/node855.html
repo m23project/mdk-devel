@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_isAssimilated</TITLE>
-<META NAME="description" CONTENT="CLIENT_isAssimilated">
+<TITLE>CLIENT_query</TITLE>
+<META NAME="description" CONTENT="CLIENT_query">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node856.html">
 <LINK REL="previous" HREF="node854.html">
-<LINK REL="up" HREF="node758.html">
+<LINK REL="up" HREF="node765.html">
 <LINK REL="next" HREF="node856.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18296"
+<A NAME="tex2html18439"
   HREF="node856.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18292"
-  HREF="node758.html">
+<A NAME="tex2html18435"
+  HREF="node765.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18288"
+<A NAME="tex2html18429"
   HREF="node854.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18294"
+<A NAME="tex2html18437"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18297"
-  HREF="node856.html">./inc/Cm23AdminLister.php</A>
-<B> Up:</B> <A NAME="tex2html18293"
-  HREF="node758.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html18289"
-  HREF="node854.html">CLIENT_plinkFetchJob</A>
- &nbsp; <B>  <A NAME="tex2html18295"
+<B> Next:</B> <A NAME="tex2html18440"
+  HREF="node856.html">CLIENT_addChangeElement</A>
+<B> Up:</B> <A NAME="tex2html18436"
+  HREF="node765.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html18430"
+  HREF="node854.html">CLIENT_getId</A>
+ &nbsp; <B>  <A NAME="tex2html18438"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092297000000000000000">
-CLIENT_isAssimilated</A>
+<H2><A NAME="SECTION0092290000000000000000">
+CLIENT_query</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a client was assimilated.
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the result of a query for getting all clients matching selected states and groupNames. Empty values are interpreted as 'all' for this kind of value.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>o1: operator 1 (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects of the first state should be equal, smaler or bigger that the state in s1
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if the client was assimilated. false, if the client was normaly installed.
+<LI>s1: first state to compare with the state of the client
+</LI>
+<LI>o2: operator 2
+</LI>
+<LI>s2: second state to compare
+</LI>
+<LI>groupName: if you want to filter for special group, set it to the group name
+</LI>
+<LI>o3: operator 3
+</LI>
+<LI>s3: third state to compare
+</LI>
+<LI>search: Search string to search all clients for and only list matching clients or all if $search is empty.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -73,7 +82,7 @@ CLIENT_isAssimilated</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

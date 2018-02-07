@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>initrd</TITLE>
-<META NAME="description" CONTENT="initrd">
+<TITLE>what does the makeCD script?</TITLE>
+<META NAME="description" CONTENT="what does the makeCD script?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node55.html">
 <LINK REL="previous" HREF="node53.html">
-<LINK REL="up" HREF="node53.html">
+<LINK REL="up" HREF="node52.html">
 <LINK REL="next" HREF="node55.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5627"
+<A NAME="tex2html5711"
   HREF="node55.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5623"
-  HREF="node53.html">
+<A NAME="tex2html5707"
+  HREF="node52.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5617"
+<A NAME="tex2html5703"
   HREF="node53.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5625"
+<A NAME="tex2html5709"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5628"
-  HREF="node55.html">compress operating system</A>
-<B> Up:</B> <A NAME="tex2html5624"
-  HREF="node53.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5618"
-  HREF="node53.html">what does the makeCD</A>
- &nbsp; <B>  <A NAME="tex2html5626"
+<B> Next:</B> <A NAME="tex2html5712"
+  HREF="node55.html">initrd</A>
+<B> Up:</B> <A NAME="tex2html5708"
+  HREF="node52.html">How to create a</A>
+<B> Previous:</B> <A NAME="tex2html5704"
+  HREF="node53.html">Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html5710"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652100000000000000">
-initrd</A>
-</H3>
-While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.
-<BR>
-In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
+<H2><A NAME="SECTION00652000000000000000">
+what does the makeCD script?</A>
+</H2>
+
+<UL>
+<LI>generates a new initrd files used for booting from the CD
+</LI>
+<LI>compresses the server operating system
+</LI>
+<LI>compresses the m23 files
+</LI>
+<LI>generates the ISO image to burn on a CD
+</LI>
+</UL>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html5713"
+  HREF="node55.html">initrd</A>
+<LI><A NAME="tex2html5714"
+  HREF="node56.html">compress operating system</A>
+<LI><A NAME="tex2html5715"
+  HREF="node57.html">compresses the m23 files</A>
+<LI><A NAME="tex2html5716"
+  HREF="node58.html">generating the ISO image</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

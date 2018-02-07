@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Index du menu dans la vue d'ensemble</TITLE>
-<META NAME="description" CONTENT="Index du menu dans la vue d'ensemble">
+<TITLE>Autre serveur DHCP</TITLE>
+<META NAME="description" CONTENT="Autre serveur DHCP">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node125.html">
 <LINK REL="previous" HREF="node123.html">
-<LINK REL="up" HREF="node121.html">
+<LINK REL="up" HREF="node118.html">
 <LINK REL="next" HREF="node125.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2112"
+<A NAME="tex2html2127"
   HREF="node125.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2108"
-  HREF="node121.html">
+<A NAME="tex2html2123"
+  HREF="node118.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2102"
+<A NAME="tex2html2117"
   HREF="node123.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2110"
+<A NAME="tex2html2125"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html2113"
-  HREF="node125.html">Note</A>
-<B> monter:</B> <A NAME="tex2html2109"
-  HREF="node121.html">Partitionnement et formatage du</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2103"
-  HREF="node123.html">Indication concernant l'utilisation de</A>
- &nbsp; <B>  <A NAME="tex2html2111"
+<B> suivant:</B> <A NAME="tex2html2128"
+  HREF="node125.html">Proxy DHCP</A>
+<B> monter:</B> <A NAME="tex2html2124"
+  HREF="node118.html">Utiliser m23 conjointement avec</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2118"
+  HREF="node123.html">Serveur DHCP ISC</A>
+ &nbsp; <B>  <A NAME="tex2html2126"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001033000000000000000">
-Index du menu dans la vue d'ensemble</A>
+<H2><A NAME="SECTION001026000000000000000">
+Autre serveur DHCP</A>
 </H2>
-<SPAN  CLASS="textbf">Lecteur et partition actuels</SPAN>
-Plusieurs op&#233;rations sont li&#233;es &#224; une partition (p.ex. le formatage) ou &#224; un disque dur (p.ex. &#233;tablir une nouvelle partition). Ces fonctions correspondent au partitions respectives affich&#233;es sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Lecteur et partition actuels<SPAN CLASS="MATH"></SPAN></SPAN> dans <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Lecteur actuel<SPAN CLASS="MATH"></SPAN></SPAN> et <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Partition actuelle<SPAN CLASS="MATH"></SPAN></SPAN>. Vous pouvez afficher la composition d'un disque dur et de la partition en cliquant dessus.
-<BR><SPAN  CLASS="textbf">P&#233;riph&#233;rique Virtuel</SPAN>
-Pour d&#233;finir un client utilis&#233; dans une installation de masse, vous devez cr&#233;er un mod&#232;le pour les disques durs &#224; cette &#233;tape. Dans <SPAN  CLASS="textit">''Nom du disque''</SPAN> selectionnez le nom du p&#233;riph&#233;rique &#224; utiliser, entrez la taille du disque dans <SPAN  CLASS="textit">''Taille''</SPAN>, et finalement, cliquez sur <SPAN  CLASS="textit">''Cr&#233;er''</SPAN>.
-<BR>
+
+<OL>
+<LI>Choisissez <SPAN  CLASS="textit">''PXE''</SPAN> dans <SPAN  CLASS="textit">''Type de boot''</SPAN> lorsque vous ajoutez un nouveau client m23 par l'interface web. Saisissez le nom de l'ordinateur &#224; assigner au client m23 par le serveur DHCP dans <SPAN  CLASS="textit">''Nom du poste client''</SPAN>.
+<BR></LI>
+<LI>Ajustez votre serveur DHCP de sorte qu'il assigne le nom du poste client indiqu&#233; dans l'interface web m23 au poste client m23.
+<BR></LI>
+<LI>Le nom du noyau PXE, transmis par votre serveur DHCP au poste client, doit &#234;tre <SPAN  CLASS="textbf">pxelinux.0</SPAN>. Le serveur TFTP est le serveur m23.
+<BR></LI>
+<LI>Configurez le serveur DHCP de mani&#232;re &#224; ce qu'il fournisse l'adresse IP du serveur m23 comme adresse d'origine pour les clients m23.
+<BR></LI>
+<LI>Si malgr&#233; cela, votre serveur DHCP ne fonctionne toujours pas apr&#232;s l'ajustement des param&#232;tres, vous devez installer un serveur TFTP sur l'ordinateur h&#233;bergeant votre serveur DHCP. La configuration de base du serveur TFTP peut s'inspirer des fichiers de configuration du r&#233;pertoire /m23/tftp/.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-22
+2018-01-11
 </ADDRESS>
 </BODY>
 </HTML>

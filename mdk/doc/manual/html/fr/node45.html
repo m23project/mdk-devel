@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Remarque</TITLE>
-<META NAME="description" CONTENT="Remarque">
+<TITLE>scp</TITLE>
+<META NAME="description" CONTENT="scp">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node46.html">
 <LINK REL="previous" HREF="node44.html">
-<LINK REL="up" HREF="node41.html">
+<LINK REL="up" HREF="node42.html">
 <LINK REL="next" HREF="node46.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1071"
+<A NAME="tex2html1085"
   HREF="node46.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1067"
-  HREF="node41.html">
+<A NAME="tex2html1081"
+  HREF="node42.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1061"
+<A NAME="tex2html1075"
   HREF="node44.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1069"
+<A NAME="tex2html1083"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html1072"
-  HREF="node46.html">share-online.biz</A>
-<B> monter:</B> <A NAME="tex2html1068"
-  HREF="node41.html">Sauvegarde du serveur</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1062"
-  HREF="node44.html">scp</A>
- &nbsp; <B>  <A NAME="tex2html1070"
+<B> suivant:</B> <A NAME="tex2html1086"
+  HREF="node46.html">Remarque</A>
+<B> monter:</B> <A NAME="tex2html1082"
+  HREF="node42.html">Sauvegarde du serveur</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1076"
+  HREF="node44.html">Remarque concernant les cl&#233;s</A>
+ &nbsp; <B>  <A NAME="tex2html1084"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00784000000000000000">
-Remarque</A>
+<H2><A NAME="SECTION00783000000000000000">
+scp</A>
 </H2>
-			Prenez soin que la cl&#233; SSH du superutilisateur root du serveur m23 qui est contenu dans le fichier 
-<BR><PRE>
-/root/.ssh/id\_dsa.pub
-</PRE>
- serait entr&#233; dans le fichier 
-<BR><PRE>
-~/.ssh/authorized\_keys
-</PRE>
- de l'utilisateur indiqu&#233; <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Utilisateur<SPAN CLASS="MATH"></SPAN></SPAN> sur le serveur SCP pour qu'un transfert des fichiers sans mot de passe soit possible. Si vous disposez de la commande <SPAN CLASS="MATH"></SPAN>ssh-copy-id<SPAN CLASS="MATH"></SPAN>, la copie s'effectuera simplement. Pour ce faire, tapez la commande <SPAN CLASS="MATH"></SPAN>ssh-copy-id -i /root/.ssh/id_dsa.pub user@serveur_SCP<SPAN CLASS="MATH"></SPAN>.
-<BR>			<BR><HR>
+			Pour ''Secure Copy'' les indications suivantes sont n&#233;cessaires:
+<BR>
+<UL>
+<LI><SPAN  CLASS="textbf">Utilisateur:</SPAN> C'est le nom d'utilisateur avec lequel le serveur m23 doit se connecter sur le serveur SCP pour y sauvegarder le fichiers de sauvegarde.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Serveur SCP:</SPAN> Ici, entrez le nom ou l'adresse IP par le(la)quel(le) le serveur m23 se connectera au serveur SCP.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">R&#233;pertoire de sauvegarde du serveur:</SPAN> C'est le r&#233;pertoire sur le serveur SCP o&#249; les archives de sauvegarde seront copi&#233;s. Entrez le chemin absolu.
+<BR></LI>
+<LI><SPAN  CLASS="textbf">Cl&#233; GPG:</SPAN> Ici, choisissez la cl&#233; GPG avec laquelle vous souhaitez chiffrer les sauvegardes avant de les transf&#233;rer.
+<BR></LI>
+</UL>
+<BR><HR>
 <ADDRESS>
 root
-2017-06-22
+2018-01-11
 </ADDRESS>
 </BODY>
 </HTML>

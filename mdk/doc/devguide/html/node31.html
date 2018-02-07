@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CMS</TITLE>
-<META NAME="description" CONTENT="CMS">
+<TITLE>Update the m23admin-offline-copy</TITLE>
+<META NAME="description" CONTENT="Update the m23admin-offline-copy">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,43 +28,44 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5332"
+<A NAME="tex2html5420"
   HREF="node32.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5328"
+<A NAME="tex2html5416"
   HREF="node27.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5322"
+<A NAME="tex2html5410"
   HREF="node30.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5330"
+<A NAME="tex2html5418"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5333"
-  HREF="node32.html">Announcement</A>
-<B> Up:</B> <A NAME="tex2html5329"
+<B> Next:</B> <A NAME="tex2html5421"
+  HREF="node32.html">CMS</A>
+<B> Up:</B> <A NAME="tex2html5417"
   HREF="node27.html">Releasing a new m23</A>
-<B> Previous:</B> <A NAME="tex2html5323"
+<B> Previous:</B> <A NAME="tex2html5411"
   HREF="node30.html">Building the files</A>
- &nbsp; <B>  <A NAME="tex2html5331"
+ &nbsp; <B>  <A NAME="tex2html5419"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00624000000000000000">
-CMS</A>
+Update the m23admin-offline-copy</A>
 </H2>
-
+	
 <UL>
-<LI>Write an article
+<LI>VM: Start the VM and make sure it's available under 192.168.1.23
 </LI>
-<LI>Create new link files and move the old to the old directories.
+<LI>Host: Export and transfer a new SQL dump: /mdk/m23helper/m23admin-offline-copy/export-dataset.sh
 </LI>
-<LI>Check in into Bazaar
+<LI>VM: Import the SQL dump and data files: /mdk/m23helper/m23admin-offline-copy/import.sh
 </LI>
-<LI>Upload the files.
+<LI>Host: Call /mdk/m23helper/m23admin-offline-copy/dlhttrack to make the offline copy and upload the files to SF.
+	
 </LI>
 </UL>
 
@@ -72,7 +73,7 @@ CMS</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

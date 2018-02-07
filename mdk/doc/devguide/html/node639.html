@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::virtualDeleteRaidDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::virtualDeleteRaidDisk">
+<TITLE>CFDiskIO::getRaidDevsBuildingDiskAmount</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getRaidDevsBuildingDiskAmount">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node640.html">
 <LINK REL="previous" HREF="node638.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node640.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15530"
+<A NAME="tex2html15665"
   HREF="node640.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15526"
-  HREF="node542.html">
+<A NAME="tex2html15661"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15520"
+<A NAME="tex2html15655"
   HREF="node638.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15528"
+<A NAME="tex2html15663"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15531"
-  HREF="node640.html">CFDiskIO::getDrivesAndPartitions</A>
-<B> Up:</B> <A NAME="tex2html15527"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15521"
-  HREF="node638.html">CFDiskIO::virtualCreateRaidDisk</A>
- &nbsp; <B>  <A NAME="tex2html15529"
+<B> Next:</B> <A NAME="tex2html15666"
+  HREF="node640.html">CFDiskIO::setRaidLevel</A>
+<B> Up:</B> <A NAME="tex2html15662"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15656"
+  HREF="node638.html">CFDiskIO::areAllRaidsComplete</A>
+ &nbsp; <B>  <A NAME="tex2html15664"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091597000000000000000">
-CFDiskIO::virtualDeleteRaidDisk</A>
+<H2><A NAME="SECTION0091595000000000000000">
+CFDiskIO::getRaidDevsBuildingDiskAmount</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a RAID disk and removes the RAID locks from all devices building it.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the amount of the devices building the RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name for the RAID (eg. /dev/md0)
+<LI>vrDisk: Virtual (internally used) RAID disk number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Virtual RAID disk number, if the device string is suitable for a RAID, otherwise false.
+<LI>Amount of the devices building the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::virtualDeleteRaidDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

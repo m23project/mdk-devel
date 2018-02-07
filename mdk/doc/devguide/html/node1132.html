@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_disableSudoRootLogin</TITLE>
-<META NAME="description" CONTENT="CLCFG_disableSudoRootLogin">
+<TITLE>DHCP_getDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1133.html">
 <LINK REL="previous" HREF="node1131.html">
-<LINK REL="up" HREF="node1131.html">
+<LINK REL="up" HREF="node1126.html">
 <LINK REL="next" HREF="node1133.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21925"
+<A NAME="tex2html21996"
   HREF="node1133.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21921"
-  HREF="node1131.html">
+<A NAME="tex2html21992"
+  HREF="node1126.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21915"
+<A NAME="tex2html21986"
   HREF="node1131.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21923"
+<A NAME="tex2html21994"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21926"
-  HREF="node1133.html">CLCFG_installFirmware</A>
-<B> Up:</B> <A NAME="tex2html21922"
-  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html21916"
-  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
- &nbsp; <B>  <A NAME="tex2html21924"
+<B> Next:</B> <A NAME="tex2html21997"
+  HREF="node1133.html">DHCP_getNetmaskOfDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html21993"
+  HREF="node1126.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21987"
+  HREF="node1131.html">DHCP_addDynamicRange</A>
+ &nbsp; <B>  <A NAME="tex2html21995"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009391000000000000000">
-CLCFG_disableSudoRootLogin</A>
+<H2><A NAME="SECTION009386000000000000000">
+DHCP_getDynamicRanges</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Disables getting root rights of normal users via sudo.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all dynamic IP ranges from the dhcpd.conf.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the found IP ranges (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [netmask] =<SPAN CLASS="MATH"></SPAN> 255.255.255.0 [firstIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.10 [lastIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.200 [gateway] =<SPAN CLASS="MATH"></SPAN> 192.168.1.1 ) [1] =<SPAN CLASS="MATH"></SPAN> ...)) or empty array.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

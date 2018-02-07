@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_downloadPool</TITLE>
-<META NAME="description" CONTENT="PKG_downloadPool">
+<TITLE>PKG_preparePool</TITLE>
+<META NAME="description" CONTENT="PKG_preparePool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1242.html">
 <LINK REL="previous" HREF="node1240.html">
-<LINK REL="up" HREF="node1216.html">
+<LINK REL="up" HREF="node1233.html">
 <LINK REL="next" HREF="node1242.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23262"
+<A NAME="tex2html23408"
   HREF="node1242.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23258"
-  HREF="node1216.html">
+<A NAME="tex2html23404"
+  HREF="node1233.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23252"
+<A NAME="tex2html23398"
   HREF="node1240.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23260"
+<A NAME="tex2html23406"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23263"
-  HREF="node1242.html">PKG_getDebootStrapBasePackages</A>
-<B> Up:</B> <A NAME="tex2html23259"
-  HREF="node1216.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23253"
-  HREF="node1240.html">PKG_getKernels</A>
- &nbsp; <B>  <A NAME="tex2html23261"
+<B> Next:</B> <A NAME="tex2html23409"
+  HREF="node1242.html">PKG_convertPackagesToRepository</A>
+<B> Up:</B> <A NAME="tex2html23405"
+  HREF="node1233.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23399"
+  HREF="node1240.html">PKG_rsyncDebsFromClientToServer</A>
+ &nbsp; <B>  <A NAME="tex2html23407"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094125000000000000000">
-PKG_downloadPool</A>
+<H2><A NAME="SECTION009418000000000000000">
+PKG_preparePool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to download packages from a sources list to a directory.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the needed configuration file for reprepro.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>destDir: the directory the packages should be downloaded to
+<LI>release: Release of the pool.
 </LI>
-<LI>sourceslist: package source list
+<LI>distr: Distribution of the pool.
 </LI>
-<LI>packagesArr: array of the lists that contain packages to download (seperated by blanks)
+<LI>arch: Architecture of the pool (POOL_ARCH_I386 or CPoolLister::POOL_ARCH_AMD64).
 </LI>
-<LI>arch: CPU architecture to download the packages for.
+<LI>poolName: Name of the pool (if a pool with the given name exists =<SPAN CLASS="MATH"></SPAN> load)
 </LI>
-<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+<LI>poolDir: Directory of the pool with full path.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ PKG_downloadPool</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

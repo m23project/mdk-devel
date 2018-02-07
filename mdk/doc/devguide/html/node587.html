@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getPartitionStart</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getPartitionStart">
+<TITLE>CFDiskIO::getExtendedVPart</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getExtendedVPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node588.html">
 <LINK REL="previous" HREF="node586.html">
-<LINK REL="up" HREF="node542.html">
+<LINK REL="up" HREF="node544.html">
 <LINK REL="next" HREF="node588.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14906"
+<A NAME="tex2html15041"
   HREF="node588.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14902"
-  HREF="node542.html">
+<A NAME="tex2html15037"
+  HREF="node544.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14896"
+<A NAME="tex2html15031"
   HREF="node586.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14904"
+<A NAME="tex2html15039"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14907"
-  HREF="node588.html">CFDiskIO::getPartitionNumber</A>
-<B> Up:</B> <A NAME="tex2html14903"
-  HREF="node542.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14897"
-  HREF="node586.html">CFDiskIO::getDiskDev</A>
- &nbsp; <B>  <A NAME="tex2html14905"
+<B> Next:</B> <A NAME="tex2html15042"
+  HREF="node588.html">CFDiskIO::getDiskSize</A>
+<B> Up:</B> <A NAME="tex2html15038"
+  HREF="node544.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15032"
+  HREF="node586.html">CFDiskIO::getPartitionAmountOfType</A>
+ &nbsp; <B>  <A NAME="tex2html15040"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091545000000000000000">
-CFDiskIO::getPartitionStart</A>
+<H2><A NAME="SECTION0091543000000000000000">
+CFDiskIO::getExtendedVPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the start position (in MB) of a partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches the vPart that contains the extended partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
-</LI>
-<LI>return: This will returned in case of an error, if set to another value, than 'null'.
-</LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Start position (in MB) of a partition.
+<LI>vPart number of the extended partition, if there is an one, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ CFDiskIO::getPartitionStart</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

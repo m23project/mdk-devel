@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_clientChangeCommand</TITLE>
-<META NAME="description" CONTENT="MSR_clientChangeCommand">
+<TITLE>MSR_statusBarCommand</TITLE>
+<META NAME="description" CONTENT="MSR_statusBarCommand">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2061.html">
 <LINK REL="previous" HREF="node2059.html">
-<LINK REL="up" HREF="node2032.html">
+<LINK REL="up" HREF="node2053.html">
 <LINK REL="next" HREF="node2061.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33838"
+<A NAME="tex2html33989"
   HREF="node2061.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33834"
-  HREF="node2032.html">
+<A NAME="tex2html33985"
+  HREF="node2053.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33828"
+<A NAME="tex2html33979"
   HREF="node2059.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33836"
+<A NAME="tex2html33987"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33839"
-  HREF="node2061.html">MSR_clientChange</A>
-<B> Up:</B> <A NAME="tex2html33835"
-  HREF="node2032.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html33829"
-  HREF="node2059.html">MSR_genSendCommand</A>
- &nbsp; <B>  <A NAME="tex2html33837"
+<B> Next:</B> <A NAME="tex2html33990"
+  HREF="node2061.html">MSR_genericSendCommand</A>
+<B> Up:</B> <A NAME="tex2html33986"
+  HREF="node2053.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html33980"
+  HREF="node2059.html">MSR_statusBarIncCommand</A>
+ &nbsp; <B>  <A NAME="tex2html33988"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096628000000000000000">
-MSR_clientChangeCommand</A>
+<H2><A NAME="SECTION009667000000000000000">
+MSR_statusBarCommand</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> sends the ID of a "m23changeClient" job to the server.
+<SPAN  CLASS="textbf">Description:</SPAN> Command to set a new percent value and/or new status text for the current client and for the "installStatus" status bar.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>id: the ID of the client job
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+</LI>
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ MSR_clientChangeCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

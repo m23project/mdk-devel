@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_searchNextLineNumber</TITLE>
-<META NAME="description" CONTENT="EDIT_searchNextLineNumber">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1509.html">
 <LINK REL="previous" HREF="node1507.html">
-<LINK REL="up" HREF="node1492.html">
+<LINK REL="up" HREF="node1484.html">
 <LINK REL="next" HREF="node1509.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26711"
+<A NAME="tex2html26836"
   HREF="node1509.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26707"
-  HREF="node1492.html">
+<A NAME="tex2html26832"
+  HREF="node1484.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26701"
+<A NAME="tex2html26826"
   HREF="node1507.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26709"
+<A NAME="tex2html26834"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26712"
-  HREF="node1509.html">EDIT_replace</A>
-<B> Up:</B> <A NAME="tex2html26708"
-  HREF="node1492.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html26702"
-  HREF="node1507.html">EDIT_searchLastLineNumber</A>
- &nbsp; <B>  <A NAME="tex2html26710"
+<B> Next:</B> <A NAME="tex2html26837"
+  HREF="node1509.html">PKG_downloadPool</A>
+<B> Up:</B> <A NAME="tex2html26833"
+  HREF="node1484.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26827"
+  HREF="node1507.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html26835"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095116000000000000000">
-EDIT_searchNextLineNumber</A>
+<H2><A NAME="SECTION0095024000000000000000">
+PKG_getKernels</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> searches for the next line number that contains "searchLine"
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: the name of the file
+<LI>distr: the distribution name
 </LI>
-<LI>searchLine: line to search
+<LI>packagesource: name of the package source
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ EDIT_searchNextLineNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

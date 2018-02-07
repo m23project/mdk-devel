@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_listPackages</TITLE>
-<META NAME="description" CONTENT="PKG_listPackages">
+<TITLE>PKG_preparePackageDir</TITLE>
+<META NAME="description" CONTENT="PKG_preparePackageDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1255.html">
 <LINK REL="previous" HREF="node1253.html">
-<LINK REL="up" HREF="node1250.html">
+<LINK REL="up" HREF="node1233.html">
 <LINK REL="next" HREF="node1255.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23427"
+<A NAME="tex2html23564"
   HREF="node1255.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23423"
-  HREF="node1250.html">
+<A NAME="tex2html23560"
+  HREF="node1233.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23417"
+<A NAME="tex2html23554"
   HREF="node1253.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23425"
+<A NAME="tex2html23562"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23428"
-  HREF="node1255.html">PKG_previewInstall</A>
-<B> Up:</B> <A NAME="tex2html23424"
-  HREF="node1250.html">./inc/distr/halfSister/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23418"
-  HREF="node1253.html">pkgUpdateCacheOnServer</A>
- &nbsp; <B>  <A NAME="tex2html23426"
+<B> Next:</B> <A NAME="tex2html23565"
+  HREF="node1255.html">PKG_updatePackageInfo</A>
+<B> Up:</B> <A NAME="tex2html23561"
+  HREF="node1233.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23555"
+  HREF="node1253.html">PKG_addAPTConfigFiles</A>
+ &nbsp; <B>  <A NAME="tex2html23563"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009434000000000000000">
-PKG_listPackages</A>
+<H2><A NAME="SECTION0094121000000000000000">
+PKG_preparePackageDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> list packages matching the key
+<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>key: search key
+<LI>dir: the directory to prepare
 </LI>
-<LI>distr: the distribution name
+<LI>packagesource: sources list
 </LI>
-<LI>packagesource: name of the package source
+<LI>logFile: Name of the file the messages from apt-get should be written to.
 </LI>
-<LI>client: Name of the client the packages are searched for. (Not used here and only for halfSister)
+<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>sourceName: The name of the package source list
+</LI>
+<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Error text on error or empty string on success.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +86,7 @@ PKG_listPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

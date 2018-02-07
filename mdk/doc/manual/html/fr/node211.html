@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>D&#233;finir un poste client</TITLE>
-<META NAME="description" CONTENT="D&#233;finir un poste client">
+<TITLE>Clé GPG pour signer le paquet source</TITLE>
+<META NAME="description" CONTENT="Clé GPG pour signer le paquet source">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,120 +19,79 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node216.html">
 <LINK REL="previous" HREF="node210.html">
-<LINK REL="up" HREF="node210.html">
+<LINK REL="up" HREF="node209.html">
 <LINK REL="next" HREF="node212.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3246"
+<A NAME="tex2html3252"
   HREF="node212.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3242"
-  HREF="node210.html">
+<A NAME="tex2html3248"
+  HREF="node209.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3236"
+<A NAME="tex2html3244"
   HREF="node210.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3244"
+<A NAME="tex2html3250"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html3247"
-  HREF="node212.html">Note: Serveur DHCP externe</A>
-<B> monter:</B> <A NAME="tex2html3243"
-  HREF="node210.html">Outils de masse</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3237"
-  HREF="node210.html">Outils de masse</A>
- &nbsp; <B>  <A NAME="tex2html3245"
+<B> suivant:</B> <A NAME="tex2html3253"
+  HREF="node212.html">Architecte de sources de</A>
+<B> monter:</B> <A NAME="tex2html3249"
+  HREF="node209.html">Architecte de sources de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3245"
+  HREF="node210.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html3251"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001510000000000000000">
-D&#233;finir un poste client</A>
-</H1>
-<IMG
-  WIDTH="1003" HEIGHT="1365" ALIGN="BOTTOM" BORDER="0"
- SRC="./clientBuilder.png"
- ALT="Image clientBuilder"> 
+<H2><A NAME="SECTION001412000000000000000">
+Cl&#233; GPG pour signer le paquet source</A>
+</H2>
+Selectionnez la cl&#195;&#169; GPG priv&#195;&#169;e &#195;&nbsp; utiliser pour la signature des paquets sources devant &#195;^atres cr&#195;&#169;&#195;&#169;s par votre serveur m23. La cl&#195;&#169; publique correspondante sera transf&#195;&#169;r&#195;&#169;e sur les clients m23, ceci permettra de valider l'authenticit&#195;&#169; des paquets provenant de votre serveur m23.
 <BR>
-Les configurations faites sur cette page seront utilis&#233;es pour tous les postes client cr&#233;&#233;s par l'installation de masse, les postes client seront calqu&#233;s sur ce mod&#232;le .
+Lorsque <SPAN  CLASS="textit">''Cl&#233; GPG en cours d'utilisation''</SPAN>, la cl&#195;&#169; en cours d'utilisation est affich&#195;&#169;e. Si aucune cl&#195;&#169; n'apparait, les paquets ne seront pas sign&#195;&#169;s.
 <BR>
-Quelques-unes de ces valeurs peuvent varier d'un poste client &#224; l'autre. 
+Afin de pouvoir utiliser une cl&#195;&#169; GPG priv&#195;&#169;e, s&#195;&#169;lectionnez en une dans la liste puis cliquez sur <SPAN  CLASS="textit">''Choisir''</SPAN>. La cl&#195;&#169; GPG sera d&#195;&#168;s apr&#195;&#169;sent utilis&#195;&#169;e pour signer tous les paquets sources cr&#195;&#169;&#195;&#169;s ou modifi&#195;&#169;s; ces paquets seront par la m&#195;^ame occasion transf&#195;&#169;r&#195;&#169;s sur les clients.
 <BR>
-Celles-ci peuvent &#234;tre charg&#233;es depuis un fichier, entr&#233;es manuellement, g&#233;n&#233;r&#233;es automatiquement ou conserv&#233;es pour tous les postes client. 
+Si vous d&#195;&#169;sirez supprimer ou ajouter une cl&#195;&#169; GPG, cliquez sur <SPAN  CLASS="textit">''G&#233;rer les cl&#233;s GPG''</SPAN>.
 <BR>
-Le choix du type d'entr&#233;e des configurations est pris pendant l'ex&#233;cution de l'installation de masse.
-<BR>(les champs de saisie marqu&#233;es avec * doivent &#234;tre remplis correctement dans tous les cas)
+Si vous d&#233;sirez (re)cr&#233;er l'index du paquet source charg&#233; et le (re)signer dans la foul&#233;e, vous devez cliquer sur <SPAN  CLASS="textit">''Cre&#233; un (nouvel) index de paquet source et le signe''</SPAN>.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Pr&#233;f&#233;rences:</SPAN> Il vous est possible de choisir parmis les configurations d&#233;j&#224; enregistr&#233;es, vous aurez par la suite la possibilit&#233; de les charger ou de les effacer. Si vous souhaitez enregistrer la configuration actuelle, entrez un nom pertinent et cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Enregistrer<SPAN CLASS="MATH"></SPAN></SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Langue:</SPAN> Choisissez la langue du poste client m23. Cette langue sera employ&#233;e pour le param&#233;trage du clavier, du bureau et de la console.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Nom d&amp;apos;authentification sur le syst&#232;me:</SPAN> Compte de connexion de l'utilisateur sur le poste client.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Nom du poste client:</SPAN> Nom unique du poste client ne devant &#234;tre employ&#233; qu'une seule fois dans m23
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Bureau:</SPAN> Cette information est facultative, vous pouvez indiquer l'endroit o&#249; le poste client est localis&#233; (par ex. le num&#233;ro et/ou l'&#233;tage de la pi&#232;ce, etc )
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Pr&#233;nom:</SPAN> Pr&#233;nom de l'utilisateur, correspond au nom d'entr&#233;e dans le syst&#232;me
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Nom de famille:</SPAN> Nom de famille de l'utilisateur
-<BR></LI>
-<LI><SPAN  CLASS="textbf">eMail:</SPAN> Adresse de courrier &#233;lectronique de l'utilisateur
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Type de boot:</SPAN> Type de d&#233;marrage des postes clients par le r&#233;seau. 
-<BR></LI>
-</UL>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3248"
-  HREF="node212.html">Note: Serveur DHCP externe</A>
-<LI><A NAME="tex2html3249"
-  HREF="node213.html">Note: UEFI</A>
-<LI><A NAME="tex2html3250"
-  HREF="node214.html">Information supplémentaire</A>
-<LI><A NAME="tex2html3251"
-  HREF="node215.html">Renseignement concernant l'architecture du processeur</A>
-</UL>
-<!--End of Table of Child-Links-->
-
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html3246"
+<A NAME="tex2html3252"
   HREF="node212.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3242"
-  HREF="node210.html">
+<A NAME="tex2html3248"
+  HREF="node209.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3236"
+<A NAME="tex2html3244"
   HREF="node210.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3244"
+<A NAME="tex2html3250"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html3247"
-  HREF="node212.html">Note: Serveur DHCP externe</A>
-<B> monter:</B> <A NAME="tex2html3243"
-  HREF="node210.html">Outils de masse</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3237"
-  HREF="node210.html">Outils de masse</A>
- &nbsp; <B>  <A NAME="tex2html3245"
+<B> suivant:</B> <A NAME="tex2html3253"
+  HREF="node212.html">Architecte de sources de</A>
+<B> monter:</B> <A NAME="tex2html3249"
+  HREF="node209.html">Architecte de sources de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3245"
+  HREF="node210.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html3251"
   HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>
 root
-2017-06-22
+2018-01-11
 </ADDRESS>
 </BODY>
 </HTML>

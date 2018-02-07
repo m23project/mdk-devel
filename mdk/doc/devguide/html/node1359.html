@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_preparePackageDir</TITLE>
-<META NAME="description" CONTENT="PKG_preparePackageDir">
+<TITLE>PKG_genPackageSearchCacheFileCMD</TITLE>
+<META NAME="description" CONTENT="PKG_genPackageSearchCacheFileCMD">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1360.html">
 <LINK REL="previous" HREF="node1358.html">
-<LINK REL="up" HREF="node1338.html">
+<LINK REL="up" HREF="node1356.html">
 <LINK REL="next" HREF="node1360.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24785"
+<A NAME="tex2html24932"
   HREF="node1360.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24781"
-  HREF="node1338.html">
+<A NAME="tex2html24928"
+  HREF="node1356.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24775"
+<A NAME="tex2html24922"
   HREF="node1358.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24783"
+<A NAME="tex2html24930"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24786"
-  HREF="node1360.html">PKG_updatePackageInfo</A>
-<B> Up:</B> <A NAME="tex2html24782"
-  HREF="node1338.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html24776"
-  HREF="node1358.html">PKG_addAPTConfigFiles</A>
- &nbsp; <B>  <A NAME="tex2html24784"
+<B> Next:</B> <A NAME="tex2html24933"
+  HREF="node1360.html">PKG_searchPackageSearchCacheFileCMD</A>
+<B> Up:</B> <A NAME="tex2html24929"
+  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24923"
+  HREF="node1358.html">PKG_getSearchCacheFileName</A>
+ &nbsp; <B>  <A NAME="tex2html24931"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094621000000000000000">
-PKG_preparePackageDir</A>
+<H2><A NAME="SECTION009463000000000000000">
+PKG_genPackageSearchCacheFileCMD</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to create a compressed package search file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: the directory to prepare
+<LI>dir: Directory where the package information is stored.
 </LI>
-<LI>packagesource: sources list
-</LI>
-<LI>logFile: Name of the file the messages from apt-get should be written to.
-</LI>
-<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
-</LI>
-<LI>arch: Architecture to get package infos for.
-</LI>
-<LI>sourceName: The name of the package source list
-</LI>
-<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
+<LI>arch: Architecture for the packages in the search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: Error text on error or empty string on success.
+<LI>BASH commands for creating a compressed package search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -86,7 +76,7 @@ PKG_preparePackageDir</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

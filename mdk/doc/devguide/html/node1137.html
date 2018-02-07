@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_installSDDM</TITLE>
-<META NAME="description" CONTENT="CLCFG_installSDDM">
+<TITLE>DHCP_addClient</TITLE>
+<META NAME="description" CONTENT="DHCP_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1138.html">
 <LINK REL="previous" HREF="node1136.html">
-<LINK REL="up" HREF="node1131.html">
+<LINK REL="up" HREF="node1126.html">
 <LINK REL="next" HREF="node1138.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21985"
+<A NAME="tex2html22056"
   HREF="node1138.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21981"
-  HREF="node1131.html">
+<A NAME="tex2html22052"
+  HREF="node1126.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21975"
+<A NAME="tex2html22046"
   HREF="node1136.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21983"
+<A NAME="tex2html22054"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21986"
-  HREF="node1138.html">CLCFG_installMintDM</A>
-<B> Up:</B> <A NAME="tex2html21982"
-  HREF="node1131.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html21976"
-  HREF="node1136.html">CLCFG_installXDM</A>
- &nbsp; <B>  <A NAME="tex2html21984"
+<B> Next:</B> <A NAME="tex2html22057"
+  HREF="node1138.html">DHCP_addLineToDHCPDConf</A>
+<B> Up:</B> <A NAME="tex2html22053"
+  HREF="node1126.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html22047"
+  HREF="node1136.html">DHCP_runScript</A>
+ &nbsp; <B>  <A NAME="tex2html22055"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009396000000000000000">
-CLCFG_installSDDM</A>
+<H2><A NAME="SECTION0093811000000000000000">
+DHCP_addClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Installs the SDDM display manager.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>clientName: name of the client
+</LI>
+<LI>ip: ip address of the client
+</LI>
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
+</LI>
+<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>

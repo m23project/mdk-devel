@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>array_makeFirst</TITLE>
-<META NAME="description" CONTENT="array_makeFirst">
+<TITLE>HTML_setStatusBarStatus</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1831.html">
 <LINK REL="previous" HREF="node1829.html">
-<LINK REL="up" HREF="node1778.html">
+<LINK REL="up" HREF="node1798.html">
 <LINK REL="next" HREF="node1831.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30880"
+<A NAME="tex2html31030"
   HREF="node1831.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30876"
-  HREF="node1778.html">
+<A NAME="tex2html31026"
+  HREF="node1798.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30870"
+<A NAME="tex2html31020"
   HREF="node1829.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30878"
+<A NAME="tex2html31028"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30881"
-  HREF="node1831.html">HTML_getValidSelected</A>
-<B> Up:</B> <A NAME="tex2html30877"
-  HREF="node1778.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30871"
-  HREF="node1829.html">HTML_input</A>
- &nbsp; <B>  <A NAME="tex2html30879"
+<B> Next:</B> <A NAME="tex2html31031"
+  HREF="node1831.html">HTML_getStatusBarID</A>
+<B> Up:</B> <A NAME="tex2html31027"
+  HREF="node1798.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31021"
+  HREF="node1829.html">HTML_setStatusBarStatusByID</A>
+ &nbsp; <B>  <A NAME="tex2html31029"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095752000000000000000">
-array_makeFirst</A>
+<H2><A NAME="SECTION0095732000000000000000">
+HTML_setStatusBarStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> special sort function that makes a special element the first element and leaves the other elements in its previous order.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID or clientname AND status bar name.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arr: Array to sort
+<LI>id: ID of the status bar (Optional parameter to set values of status bar with given ID).
 </LI>
-<LI>first: Value of the element that should be put on top
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+</LI>
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
+</LI>
+<LI>statusBarName: The name of the status bar.
+</LI>
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: false on parameter error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +82,7 @@ array_makeFirst</A>
 <BR><HR>
 <ADDRESS>
 root
-2017-06-27
+2018-01-22
 </ADDRESS>
 </BODY>
 </HTML>
