@@ -1,4 +1,12 @@
 #!/bin/bash
 
+type tasksel
+if [ $? -ne 0 ]
+then
+	apt-get update
+	apt-get install tasksel
+fi
+
 # Get all packages from tasksel, that install desktops
-tasksel --list-tasks 2> /dev/null | grep desktop | cut -d' ' -f2 | sed 's/[\t ].*//' | xargs -n1 tasksel -t install  2> /dev/null | sed 's/.* install //'
+tasksel --list-tasks 2> /dev/null | grep desktop | cut -d' ' -f2 | sed 's/[\t ].*//'
+# | xargs -n1 tasksel -t install  2> /dev/null | sed 's/.* install //'

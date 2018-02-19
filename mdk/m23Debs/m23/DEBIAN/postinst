@@ -940,7 +940,7 @@ fi
 
 
 #Create the GPG key
-if [ $(su -c "gpg --list-secret-keys | grep ^sec -c" grdmgpg) -eq 0 ]
+if [ -z $(getent passwd grdmgpg) ] || [ $(su -c "gpg --list-secret-keys | grep ^sec -c" grdmgpg) -eq 0 ]
 then
 	#Change random to non-blocking urandom
 	if [ -c /dev/random ]
