@@ -368,16 +368,16 @@ else
 
 print($1"*"$3"*"out[1]out[2]out[3]out[4]"*"$0);
 
-'} | sort -r -n | awk -vFS='*' '
+}' | /m23/bin/natsort.php -r | awk -vFS='*' '
 BEGIN {
 last=""
 }
 
 {
-        if (last != $1""$2)
-                last=$1""$2
-        else
-                system("rm "$4);
+	if (last != $1""$2)
+		last=$1""$2
+	else
+		system("rm "$4);
 }'
 }
 

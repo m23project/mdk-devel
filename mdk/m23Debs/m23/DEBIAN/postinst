@@ -1170,6 +1170,8 @@ updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD INDEX idx_cli
 # 	/m23/bin/m23cli.php PKG_recountAllClientPackages
 # fi
 
+updateSQLIfOlder $oldversionint 181101085 "CREATE TABLE monitors ( vendor varchar(255) NOT NULL COMMENT 'Vendor name', model varchar(255) NOT NULL COMMENT 'Model name' ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+updateSQLIfOlder $oldversionint 181101085 "ALTER TABLE monitors ADD PRIMARY KEY (vendor,model);"
 
 
 ######################
