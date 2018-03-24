@@ -28,11 +28,11 @@ do
 	# Get information about the download source
 	apt-cache policy $(echo $pkg | cut -d'_' -f1) > /tmp/chkunmain.pol
 
-	# Check, if the package was downloaded from unmaintained tree	
-	if [ $(grep unmaintained -c /tmp/chkunmain.pol) -gt 0 ]
+	# Check, if the package was downloaded from unmaintained tree (1st entry with (un)maintained decides)
+	if [ $(grep maintained /tmp/chkunmain.pol | head -1 | grep unmaintained -c) -gt 0 ]
 	then
 		# Get the base url of the unmaintained repo
-		baseURL=$(grep unmaintained /tmp/chkunmain.pol | head -1 | sed -e 's/[^h]*//' -e 's#/ Packages#/#' -e 's# ##')
+		baseURL=$(grep unmaintained /tmp/chkunmain.pol | head -1 | sed -e 's/[^h]*//' -e 's#/ Packages#/#' -e 's# #/#')
 
 		# Try to get the packages for all architectures
 		for debarch in amd64 i386 all
