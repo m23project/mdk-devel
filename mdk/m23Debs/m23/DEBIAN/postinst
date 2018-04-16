@@ -703,6 +703,7 @@ then
 		find /m23 | grep php$ | xargs -n1 recode ISO-8859-1..utf-8
 		find /m23/inc | grep inc$ | xargs -n1 recode ISO-8859-1..utf-8
 		find /m23/inc | grep hlp$ | xargs -n1 recode ISO-8859-1..utf-8
+		find /m23/inc | grep info.txt$ | xargs -n1 recode ISO-8859-1..utf-8
 		sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php
 	fi
 
@@ -1024,7 +1025,11 @@ then
 	ln -s /usr/bin/wodim /usr/bin/cdrecord
 fi
 
-
+# Add the cron entry for automatically removing old APT lists files
+if [ $( grep rmOldM23VarCacheM23aptLists /etc/crontab -c ) -eq 0 ]
+then
+	echo "*/30 * * * *	root	/m23/bin/rmOldM23VarCacheM23aptLists" >> /etc/crontab
+fi
 
 
 
