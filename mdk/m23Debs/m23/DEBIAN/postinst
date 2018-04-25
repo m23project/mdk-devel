@@ -631,10 +631,15 @@ fi
 	chown root.root $squidConf
 	chmod 644 $squidConf
 
+	# Get the name of the init script
+	squidName=$(ls /etc/init.d/ | grep squid | head -1)
+
 	#restarting squid
 	/etc/init.d/$squidName stop
 	$squidName -z
 	/etc/init.d/$squidName start
+
+	echo $squidName > /tmp/squidName
 fi
 
 
@@ -846,6 +851,10 @@ echo "	<VirtualHost *:443>
 	. /usr/share/wwwconfig-common/apache-php.sh
 	server="apache$apacheV-ssl"
 	. /usr/share/wwwconfig-common/apache-php.sh
+
+	# Disable systemd redirecting /tmp of PHP processes to separte directories
+	sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /lib/systemd/system/apache*
+	systemctl daemon-reload
 
 	/etc/init.d/apache$apacheV restart
 	
@@ -1279,5 +1288,14 @@ if [ -f $postinstHook ]
 then
 	bash $postinstHook
 fi
+
+# Restart Squid as long until it is availabe via port 2323
+sRet=1
+while [ $sRet -ne 0 ]
+do
+	/etc/init.d/$(cat /tmp/squidName) restart
+	http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
+	sRet=$?
+done
 
 db_stop

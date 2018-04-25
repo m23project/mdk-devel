@@ -1,0 +1,39 @@
+echo 'm23-ldap m23-ldap/LDAPhint note
+m23-ldap m23-ldap/LDAPpass password test
+m23 m23/configDHCP boolean true
+m23 m23/configMySQL boolean true
+m23 m23/configureApache boolean true
+m23 m23/configureBackupPC boolean true
+m23 m23/configureSquid boolean true
+m23 m23/configureSSH boolean true
+m23 m23/configureSSL boolean true
+m23 m23/configureSudo boolean true
+m23 m23/experimentalWarn note
+m23 m23/PIpass password test
+m23 m23/warnDHCP note
+m23-tftp m23-tftp/configureTFTP boolean true
+slapd shared/organization string nodomain
+slapd slapd/backend select MDB
+slapd slapd/domain string nodomain
+slapd slapd/dump_database_destdir string /var/backups/slapd-VERSION
+slapd slapd/dump_database select when needed
+slapd slapd/internal/adminpw password
+slapd slapd/internal/generated_adminpw password
+slapd slapd/invalid_config boolean true
+slapd slapd/move_old_database boolean true
+slapd slapd/no_configuration boolean false
+slapd slapd/password1 password
+slapd slapd/password2 password
+slapd slapd/password_mismatch note
+slapd slapd/ppolicy_schema_needs_update select abort installation
+slapd slapd/purge_database boolean false
+slapd slapd/unsafe_selfwrite_acl note' | debconf-set-selections
+
+echo 'deb http://m23debs ./' >> /etc/apt/sources.list
+echo '192.168.1.77 m23debs' >> /etc/hosts
+apt-get update
+apt-get dist-upgrade -y
+
+apt-get update
+apt-get install m23 -y --allow-unauthenticated
+
