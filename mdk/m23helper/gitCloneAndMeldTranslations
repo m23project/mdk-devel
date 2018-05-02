@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Downloads the translations from gitlab and merges them with meld
+
+tmp="/tmp/gcmt$$"
+mkdir "$tmp"
+cd "$tmp"
+
+git clone https://gitlab.com/Moini/m23-i18n/
+
+cd m23-i18n
+
+meld . /m23/inc
+
+cd /
+rm -r -f "$tmp"
