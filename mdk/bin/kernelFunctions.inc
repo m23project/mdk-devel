@@ -60,6 +60,7 @@ checkKernelBranch()
 	else
 dialog --clear --title "Kernel version" \
         --menu "Please select the kernel version" 11 40 4 \
+"4.14" "Linux kernel v4.14" \
 "4.9" "Linux kernel v4.9" \
 "4.4" "Linux kernel v4.4" \
 "3.16" "Linux kernel v3.16" \
@@ -319,11 +320,43 @@ compileKernel()
 		EDIT_addIfNotExists .config "^CONFIG_RELOCATABLE=y" "CONFIG_RELOCATABLE=y"
 		EDIT_addIfNotExists .config "^CONFIG_FB_EFI=y" "CONFIG_FB_EFI=y"
 		EDIT_addIfNotExists .config "^CONFIG_FRAMEBUFFER_CONSOLE=y" "CONFIG_FRAMEBUFFER_CONSOLE=y"
-		EDIT_addIfNotExists .config "^CONFIG_DRM=n" "CONFIG_DRM=n"
-		EDIT_addIfNotExists .config "^CONFIG_DRM_KMS_HELPER=n" "CONFIG_DRM_KMS_HELPER=n"
 		EDIT_addIfNotExists .config "^CONFIG_FB_NVIDIA=n" "CONFIG_FB_NVIDIA=n"
 		EDIT_addIfNotExists .config "^CONFIG_DRM_NOUVEAU=n" "CONFIG_DRM_NOUVEAU=n"
 		EDIT_addIfNotExists .config "^CONFIG_FB=y" "CONFIG_FB=y"
+		EDIT_addIfNotExists .config "^CONFIG_FRAMEBUFFER_CONSOLE_DETECT_PRIMARY=y" "CONFIG_FRAMEBUFFER_CONSOLE_DETECT_PRIMARY=y"
+		EDIT_addIfNotExists .config "^CONFIG_EARLY_PRINTK_EFI=y" "CONFIG_EARLY_PRINTK_EFI=y"
+		EDIT_addIfNotExists .config "^CONFIG_EFI_ESRT=y" "CONFIG_EFI_ESRT=y"
+		EDIT_addIfNotExists .config "^CONFIG_EFI_RUNTIME_MAP=y" "CONFIG_EFI_RUNTIME_MAP=y"
+		EDIT_addIfNotExists .config "^CONFIG_EFI_RUNTIME_WRAPPERS=y" "CONFIG_EFI_RUNTIME_WRAPPERS=y"
+		EDIT_addIfNotExists .config "^CONFIG_EFI_BOOTLOADER_CONTROL=y" "CONFIG_EFI_BOOTLOADER_CONTROL=y"
+		EDIT_addIfNotExists .config "^CONFIG_EFI_CAPSULE_LOADER=y" "CONFIG_EFI_CAPSULE_LOADER=y"
+		EDIT_addIfNotExists .config "^CONFIG_FRAMEBUFFER_CONSOLE=y" "CONFIG_FRAMEBUFFER_CONSOLE=y"
+		EDIT_addIfNotExists .config "^CONFIG_X86_SYSFB=y" "CONFIG_X86_SYSFB=y"
+		EDIT_addIfNotExists .config "^CONFIG_FB_SIMPLE=y" "CONFIG_FB_SIMPLE=y"
+		EDIT_addIfNotExists .config "^CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y" "CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM=y" "CONFIG_DRM=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_KMS_HELPER=y" "CONFIG_DRM_KMS_HELPER=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_KMS_FB_HELPER=y" "CONFIG_DRM_KMS_FB_HELPER=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_FBDEV_EMULATION=y" "CONFIG_DRM_FBDEV_EMULATION=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_FBDEV_OVERALLOC=100" "CONFIG_DRM_FBDEV_OVERALLOC=100"
+		EDIT_addIfNotExists .config "^CONFIG_FIRMWARE_EDID=y" "CONFIG_FIRMWARE_EDID=y"
+		EDIT_addIfNotExists .config "^CONFIG_FB_CMDLINE=y" "CONFIG_FB_CMDLINE=y"
+		EDIT_addIfNotExists .config "^CONFIG_FB_NOTIFY=y" "CONFIG_FB_NOTIFY=y"
+		EDIT_addIfNotExists .config "^CONFIG_FB_DDC=y" "CONFIG_FB_DDC=y"
+		EDIT_addIfNotExists .config "^CONFIG_FB_BOOT_VESA_SUPPORT=y" "CONFIG_FB_BOOT_VESA_SUPPORT=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_VM=y" "CONFIG_DRM_VM=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_RADEON=y" "CONFIG_DRM_RADEON=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_AMDGPU=y" "CONFIG_DRM_AMDGPU=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_NOUVEAU=y" "CONFIG_DRM_NOUVEAU=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_NOUVEAU_BACKLIGHT=y" "CONFIG_DRM_NOUVEAU_BACKLIGHT=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_I915=y" "CONFIG_DRM_I915=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_I915_CAPTURE_ERROR=y" "CONFIG_DRM_I915_CAPTURE_ERROR=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_I915_COMPRESS_ERROR=y" "CONFIG_DRM_I915_COMPRESS_ERROR=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_I915_USERPTR=y" "CONFIG_DRM_I915_USERPTR=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_VMWGFX=y" "CONFIG_DRM_VMWGFX=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_GMA500=y" "CONFIG_DRM_GMA500=y"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_VIRTIO_GPU=y" "CONFIG_DRM_VIRTIO_GPU=y"
+		
 # 		checkForx86_64Toolchain
 
 		if [ $lastCompilationArch != "x86-64" ]

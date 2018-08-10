@@ -10,7 +10,7 @@ installFile='/tmp/m23ucsinstall.sh'
 # Copy files without storing the SSH server in the known hosts file
 scpWithoutHostfile()
 {
-	scp -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C "$@"
+	sshpass -p "testtest" scp -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C "$@"
 }
 
 
@@ -18,7 +18,7 @@ scpWithoutHostfile()
 # Execute SSH command without storing the SSH server in the known hosts file
 sshWithoutHostfile()
 {
-	ssh -o ServerAliveInterval=100 -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C  "$1" "export TERM='screen'; $2"
+	sshpass -p "testtest" ssh -o ServerAliveInterval=100 -o VerifyHostKeyDNS=no -o PasswordAuthentication=yes -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -C  "$1" "export TERM='screen'; $2"
 }
 
 
@@ -83,4 +83,3 @@ sshWithoutHostfile root@$UCSIP "bash $installFile"
 rm $installFile
 
 scpWithoutHostfile "root@$UCSIP:/tmp/ucs*unmaintained*.tar.gz" .
-

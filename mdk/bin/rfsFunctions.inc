@@ -249,12 +249,14 @@ createRFSBins()
 				createRFScopyLib $lib $bin
 			done
 		else
-			if [ -f /usr/bin/x86_64-linux-gnu-objdump ]
-			then
-				objdump="/usr/bin/x86_64-linux-gnu-objdump"
-			else
-				objdump="/usr/x86_64-unknown-linux-gnu/bin/x86_64-unknown-linux-gnu-objdump"
-			fi
+			for possibleObjdump in /usr/bin/x86_64-linux-gnu-objdump /usr/x86_64-unknown-linux-gnu/bin/x86_64-unknown-linux-gnu-objdump /usr/bin/objdump
+			do
+				if [ -f $possibleObjdump ]
+				then
+					export objdump=$possibleObjdump
+					break
+				fi
+			done
 
 			bin=`cat /tmp/mdk-createRFSBins.txt`
 

@@ -96,8 +96,11 @@ case $choice in
 		createRFSDevs
 		createRFSFinishInitrd
 		createRFSISO
-		createRFSISO m23shared.goos-habermann.de /m23/data+scripts/m23shared/bootMedia/
-		createRFSEtherboot
+		if [ -d /m23/data+scripts/m23shared/bootMedia ]
+		then
+			createRFSISO m23shared.goos-habermann.de /m23/data+scripts/m23shared/bootMedia/
+		fi
+		#createRFSEtherboot
 		createRFSPXE
 		cd $oldPath
 
