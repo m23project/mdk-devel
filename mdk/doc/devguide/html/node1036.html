@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CScredit.php</TITLE>
-<META NAME="description" CONTENT="./inc/CScredit.php">
+<TITLE>CRON_cronManagementDialog</TITLE>
+<META NAME="description" CONTENT="CRON_cronManagementDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,98 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1056.html">
-<LINK REL="previous" HREF="node1017.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1037.html">
+<LINK REL="previous" HREF="node1035.html">
+<LINK REL="up" HREF="node1020.html">
 <LINK REL="next" HREF="node1037.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20743"
+<A NAME="tex2html20793"
   HREF="node1037.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20739"
-  HREF="node102.html">
+<A NAME="tex2html20789"
+  HREF="node1020.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20733"
+<A NAME="tex2html20783"
   HREF="node1035.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20741"
+<A NAME="tex2html20791"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20744"
-  HREF="node1037.html">CScredit::__construct</A>
-<B> Up:</B> <A NAME="tex2html20740"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html20734"
-  HREF="node1035.html">CRON_translateEveryIntervallValue</A>
- &nbsp; <B>  <A NAME="tex2html20742"
+<B> Next:</B> <A NAME="tex2html20794"
+  HREF="node1037.html">CRON_cronEntryDeletionDialog</A>
+<B> Up:</B> <A NAME="tex2html20790"
+  HREF="node1020.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20784"
+  HREF="node1035.html">CRON_getNextIdentifierNr</A>
+ &nbsp; <B>  <A NAME="tex2html20792"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009350000000000000000">
-./inc/CScredit.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for the embedded script editor.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0093416000000000000000">
+CRON_cronManagementDialog</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for viewing, adding and deleting crontab entries for a given user, command and identifier.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html20745"
-  HREF="node1037.html">CScredit::__construct</A>
-<LI><A NAME="tex2html20746"
-  HREF="node1038.html">CScredit::setCurrentScriptFilename</A>
-<LI><A NAME="tex2html20747"
-  HREF="node1039.html">CScredit::getCurrentScriptFilename</A>
-<LI><A NAME="tex2html20748"
-  HREF="node1040.html">CScredit::getCurrentScriptFilenameFullPath</A>
-<LI><A NAME="tex2html20749"
-  HREF="node1041.html">CScredit::getCurrentScriptFilenameWithoutInstallPhp</A>
-<LI><A NAME="tex2html20750"
-  HREF="node1042.html">CScredit::getLocalScriptFilenames</A>
-<LI><A NAME="tex2html20751"
-  HREF="node1043.html">CScredit::updateOnlineScriptInfo</A>
-<LI><A NAME="tex2html20752"
-  HREF="node1044.html">CScredit::getNextOnlineScriptInfo</A>
-<LI><A NAME="tex2html20753"
-  HREF="node1045.html">CScredit::loadOnlineScript</A>
-<LI><A NAME="tex2html20754"
-  HREF="node1046.html">CScredit::getOnlineScriptDialog</A>
-<LI><A NAME="tex2html20755"
-  HREF="node1047.html">CScredit::isNotSaved</A>
-<LI><A NAME="tex2html20756"
-  HREF="node1048.html">CScredit::getNewScriptTemplate</A>
-<LI><A NAME="tex2html20757"
-  HREF="node1049.html">CScredit::uploadScript</A>
-<LI><A NAME="tex2html20758"
-  HREF="node1050.html">CScredit::getCurrentScript</A>
-<LI><A NAME="tex2html20759"
-  HREF="node1051.html">CScredit::setCurrentScript</A>
-<LI><A NAME="tex2html20760"
-  HREF="node1052.html">CScredit::deleteCurrentScript</A>
-<LI><A NAME="tex2html20761"
-  HREF="node1053.html">CScredit::getViewScriptOutputDialog</A>
-<LI><A NAME="tex2html20762"
-  HREF="node1054.html">CScredit::saveScript</A>
-<LI><A NAME="tex2html20763"
-  HREF="node1055.html">CScredit::show</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

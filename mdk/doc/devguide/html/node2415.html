@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UCS_udmSuccessOrErrorMessage</TITLE>
-<META NAME="description" CONTENT="UCS_udmSuccessOrErrorMessage">
+<TITLE>UCS_getUDMInfo</TITLE>
+<META NAME="description" CONTENT="UCS_getUDMInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2416.html">
 <LINK REL="previous" HREF="node2414.html">
-<LINK REL="up" HREF="node2392.html">
+<LINK REL="up" HREF="node2406.html">
 <LINK REL="next" HREF="node2416.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38542"
+<A NAME="tex2html38601"
   HREF="node2416.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38538"
-  HREF="node2392.html">
+<A NAME="tex2html38597"
+  HREF="node2406.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38532"
+<A NAME="tex2html38591"
   HREF="node2414.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38540"
+<A NAME="tex2html38599"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38543"
-  HREF="node2416.html">UCS_getUsedIPs</A>
-<B> Up:</B> <A NAME="tex2html38539"
-  HREF="node2392.html">./inc/ucs.php</A>
-<B> Previous:</B> <A NAME="tex2html38533"
-  HREF="node2414.html">UCS_enableClientLDAP</A>
- &nbsp; <B>  <A NAME="tex2html38541"
+<B> Next:</B> <A NAME="tex2html38602"
+  HREF="node2416.html">UCS_networkObjectExists</A>
+<B> Up:</B> <A NAME="tex2html38598"
+  HREF="node2406.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38592"
+  HREF="node2414.html">UCS_getAllClientNamesLDAP</A>
+ &nbsp; <B>  <A NAME="tex2html38600"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097823000000000000000">
-UCS_udmSuccessOrErrorMessage</A>
+<H2><A NAME="SECTION009789000000000000000">
+UCS_getUDMInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Takes the output from an udm command and checks for the return code (must be a single number in the last line). If the return code is non-zero, all lines above the last line are treated as error message and written to $errorMessage.
+<SPAN  CLASS="textbf">Description:</SPAN> Get information from the UCS's LDAP by udm tool.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ret: The complete message block with return code (must be a single number in the last line)
+<LI>udmModule: Name of the udm module (eg. networks/network or computers/linux).
 </LI>
-<LI>errorMessage: The variable, the error message may be written to.
+<LI>afterLines: Amount of lines with information after the line containing the keyword.
+</LI>
+<LI>keyWord: Keyword matching the first line to find the block with the wanted information.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the udm command returned a success return code (0), otherwise false.
+<LI>: Associative array with the information.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ UCS_udmSuccessOrErrorMessage</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

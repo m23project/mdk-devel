@@ -15,15 +15,24 @@ m23Deb="$(pwd)/$m23DebFile"
 cd ..
 
 
-for ucsVer in 4.2 4.1
+#for ucsVer in 4.3 4.2 4.1
+for ucsVer in 4.3
 do
+	univention-selfservice upload $ucsVer/m23 m23-Pakete-fuer-ucs.tar.gz
+
 	# Debian-Paket mit geänderter Versionsnummer erstellen und hochladen
 	debVer=$(echo $ucsVer | sed 's/\.//')
 	neuDeb=$(./debAddVersionSuffix $m23Deb "ucs$debVer")
 	univention-selfservice upload $ucsVer/m23 $neuDeb
+	
+	if [ $debVer -gt 42 ]
+	then
+		univention-selfservice upload $ucsVer/m23 m23-ucs-extra_18.2-101114_all.deb
+	else
+		univention-selfservice upload $ucsVer/m23 m23-ucs-extra_16.2-100884_all.deb
+	fi
+	
 	rm $neuDeb
-
-	univention-selfservice upload $ucsVer/m23 m23-Pakete-fuer-ucs.tar.gz
 done
 
 # univention-selfservice upload 4.2/m23=17.2-42 m23-Pakete-fuer-ucs.tar.gz

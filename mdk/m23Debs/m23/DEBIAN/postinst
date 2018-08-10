@@ -20,41 +20,6 @@ update-rc.d -f restoreBTServer defaults
 
 
 
-#Shows the mysql password (if needed (only on MySQL))
-showDBAdmPassword()
-{
-	grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
-}
-
-
-
-
-
-#Shows the MySQL / MariaDB password parameter (if needed (only on MySQL))
-showDBAdmPasswordParameter()
-{
-	dbadmpass=`showDBAdmPassword`
-
-	if [ $dbadmpass ]
-	then
-		echo -n "-p$dbadmpass"
-	fi
-}
-
-
-
-
-
-#Shows the MySQL / MariaDB admin user
-showDBAdmUser()
-{
-	grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
-}
-
-
-
-
-
 #Remove bad SSH keys
 if [ -f /tmp/badSSH/root.pub ]
 then
@@ -96,38 +61,25 @@ fi
 #description Updates the MySQL DB from m23.sql.bz2.
 updateDB()
 {
-	dbname="m23"
-	dbserver="localhost"
 	#get username and password of the debian MySQL system 
-	dbadmin=`showDBAdmUser`
-	dbadmpassParam=`showDBAdmPasswordParameter`
-	dbadmpass=`showDBAdmPassword`
+	dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
 	#create database m23
-	. /usr/share/wwwconfig-common/mysql-createdb.sh
+	mysql $dbParams -e "CREATE DATABASE m23"
+	#create database m23captured
+	mysql $dbParams -e "CREATE DATABASE m23captured"
 
 	if [ -d /tmp/m23-install ]
 	then
-		#add the entries of the main database
-		bunzip2 /tmp/m23-install/m23.sql.bz2
-		echo "Entpacken: /tmp/m23-install/m23.sql.bz2"  >> /m23.log
-		sqlfile="/tmp/m23-install/m23.sql"
-		. /usr/share/wwwconfig-common/mysql-exec.sh >> /m23.log
-		rm $sqlfile
-
-		#create database m23captured
-		dbname="m23captured"
-		. /usr/share/wwwconfig-common/mysql-createdb.sh
-		bunzip2  /tmp/m23-install/m23captured.sql.bz2	
-		sqlfile="/tmp/m23-install/m23captured.sql"
-		. /usr/share/wwwconfig-common/mysql-exec.sh >> /m23.log
-		rm $sqlfile
-		rm -r /tmp/m23-install
+		# Add the entries of the main database
+		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql $dbParams m23
+		# Add the entries of the m23captured database
+		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql $dbParams m23captured
 	fi
 
 	#Make sure the i18n table is always empty
-	mysql -u$dbadmin $dbadmpassParam m23 -e "delete from i18n"
-	mysql -u$dbadmin $dbadmpassParam m23captured -e "delete from i18n"
+	mysql $dbParams m23 -e "delete from i18n"
+	mysql $dbParams m23captured -e "delete from i18n"
 }
 
 
@@ -147,10 +99,9 @@ updateSQLIfOlder()
 
 	if [ -n "$oldversionint" ] && [ $oldversionint -lt $olderThan ]
 	then
-		dbadmin=`showDBAdmUser`
-		dbadmpassParam=`showDBAdmPasswordParameter`
+		dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-		echo "$sql" | mysql -u $dbadmin $dbadmpassParam m23
+		echo "$sql" | mysql $dbParams m23
 	fi
 }
 
@@ -337,9 +288,7 @@ then
 	dbname="m23"
 	dbserver="localhost"
 	#get username and password of the debian MySQL system 
-	dbadmin=`showDBAdmUser`
-	dbadmpassParam=`showDBAdmPasswordParameter`
-	dbadmpass=`showDBAdmPassword`
+	dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
 
 	#create database m23
@@ -347,18 +296,18 @@ then
 
 	updateDB
 
-	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23
 
-	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23
 
 	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
-	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql $dbParams m23
 
 	#Make the groupname unique
-	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql $dbParams m23
 
 	#Make sure that a default group exists
-	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql $dbParams m23
 fi
 
 
@@ -702,13 +651,12 @@ then
 	chmod 644 /m23/data+scripts/packages/baseSys/ca.crt /m23/data+scripts/packages/baseSys/ca.hash
 
 	# Convert to UTF-8 on UCS > 4.1
-	if [ $(grep ' 4\.1-' /etc/issue -c) -ne 1 ]
+	if [ $(grep ' 4\.1-' /etc/issue -c) -ne 1 ] && [ $(LC_ALL=C file /m23/inc/i18n/de/m23base.php | grep -i -c UTF-8) -eq 0 ]
 	then
 		# Convert the files to UTF-8
-		find /m23 | grep php$ | xargs -n1 recode ISO-8859-1..utf-8
-		find /m23/inc | grep inc$ | xargs -n1 recode ISO-8859-1..utf-8
-		find /m23/inc | grep hlp$ | xargs -n1 recode ISO-8859-1..utf-8
-		find /m23/inc | grep info.txt$ | xargs -n1 recode ISO-8859-1..utf-8
+		find /m23/inc/help -type f | xargs -n1 recode ISO-8859-1..utf-8
+		find /m23/inc/i18n -type f | xargs -n1 recode ISO-8859-1..utf-8
+		find /m23/inc -type f | grep info.txt$ | xargs -n1 recode ISO-8859-1..utf-8
 		sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php
 	fi
 
@@ -1071,16 +1019,17 @@ php -r "
 "
 fi
 
+dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql -u $dbadmin $dbadmpassParam m23" > /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql $dbParams m23" > /m23serverinst.log
 ps -A >> /m23serverinst.log
 
 echo 'ergkompl' >> /m23serverinst.log
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql -u $dbadmin $dbadmpassParam m23 >> /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 >> /m23serverinst.log
 echo 'erge' >> /m23serverinst.log
 
 #Add the server to the list of clients if it's missing
-localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql -u $dbadmin $dbadmpassParam m23 | tail -1`
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 | tail -1`
 
 echo "erge2: $localhostCount" >> /m23serverinst.log
 
@@ -1093,11 +1042,11 @@ then
 	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
 	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
 
-	echo "DELETE FROM clients WHERE client='localhost' | mysql -u $dbadmin $dbadmpassParam m23" >> /m23serverinst.log
-	echo "DELETE FROM clients WHERE client='localhost'" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "DELETE FROM clients WHERE client='localhost' | mysql $dbParams m23" >> /m23serverinst.log
+	echo "DELETE FROM clients WHERE client='localhost'" | mysql $dbParams m23
 
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql -u $dbadmin $dbadmpassParam m23" >> /m23serverinst.log	
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql $dbParams m23" >> /m23serverinst.log	
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql $dbParams m23
 fi
 
 #Increased the size of the fields "cpu" and "MHz" in the table "clients".
@@ -1291,11 +1240,20 @@ fi
 
 # Restart Squid as long until it is availabe via port 2323
 sRet=1
-while [ $sRet -ne 0 ]
+while [ -f /tmp/squidName ] && [ $sRet -ne 0 ] && [ ! -e /tmp/oldsys ]
 do
 	/etc/init.d/$(cat /tmp/squidName) restart
 	http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
 	sRet=$?
 done
+
+
+mkdir -p /m23/m23customPatch
+cd /m23/m23customPatch
+ls | xargs -n1 /m23/bin/m23customPatch.php
+
+chmod 777 -R /m23/tmp
+
+/m23/bin/m23cli.php GPG_set1stKey
 
 db_stop

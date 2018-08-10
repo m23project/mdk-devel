@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DISTR_getUbuntuUserGroups</TITLE>
-<META NAME="description" CONTENT="DISTR_getUbuntuUserGroups">
+<TITLE>PKG_preparePackageDir</TITLE>
+<META NAME="description" CONTENT="PKG_preparePackageDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1385.html">
 <LINK REL="previous" HREF="node1383.html">
-<LINK REL="up" HREF="node1383.html">
+<LINK REL="up" HREF="node1363.html">
 <LINK REL="next" HREF="node1385.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25243"
+<A NAME="tex2html25284"
   HREF="node1385.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25239"
-  HREF="node1383.html">
+<A NAME="tex2html25280"
+  HREF="node1363.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25233"
+<A NAME="tex2html25274"
   HREF="node1383.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25241"
+<A NAME="tex2html25282"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25244"
-  HREF="node1385.html">DISTR_getDebianUserGroups</A>
-<B> Up:</B> <A NAME="tex2html25240"
-  HREF="node1383.html">./inc/distr.php</A>
-<B> Previous:</B> <A NAME="tex2html25234"
-  HREF="node1383.html">./inc/distr.php</A>
- &nbsp; <B>  <A NAME="tex2html25242"
+<B> Next:</B> <A NAME="tex2html25285"
+  HREF="node1385.html">PKG_updatePackageInfo</A>
+<B> Up:</B> <A NAME="tex2html25281"
+  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25275"
+  HREF="node1383.html">PKG_addAPTConfigFiles</A>
+ &nbsp; <B>  <A NAME="tex2html25283"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009471000000000000000">
-DISTR_getUbuntuUserGroups</A>
+<H2><A NAME="SECTION0094621000000000000000">
+PKG_preparePackageDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the default groups an user of a Ubuntu system should be in.
+<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arrayOrSeparator: If set to true, the groups are returned as array, otherwise the value is used as separator character.
+<LI>dir: the directory to prepare
+</LI>
+<LI>packagesource: sources list
+</LI>
+<LI>logFile: Name of the file the messages from apt-get should be written to.
+</LI>
+<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>sourceName: The name of the package source list
+</LI>
+<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Default groups as array or as string, where the groups are separates by a separator character.
+<LI>: Error text on error or empty string on success.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +86,7 @@ DISTR_getUbuntuUserGroups</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

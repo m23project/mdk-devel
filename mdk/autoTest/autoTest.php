@@ -14,7 +14,6 @@ include('/m23/inc/CChecks.php');
 include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
-
 $xmlFile = $argv[1];
 array_shift($argv);
 $AutoTestO = new CAutoTest($xmlFile, $argv);

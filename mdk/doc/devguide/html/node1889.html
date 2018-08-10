@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>LDAP_getTypes</TITLE>
-<META NAME="description" CONTENT="LDAP_getTypes">
+<TITLE>I18N_addLanguage</TITLE>
+<META NAME="description" CONTENT="I18N_addLanguage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1890.html">
 <LINK REL="previous" HREF="node1888.html">
-<LINK REL="up" HREF="node1888.html">
+<LINK REL="up" HREF="node1883.html">
 <LINK REL="next" HREF="node1890.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31781"
+<A NAME="tex2html31813"
   HREF="node1890.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31777"
-  HREF="node1888.html">
+<A NAME="tex2html31809"
+  HREF="node1883.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31771"
+<A NAME="tex2html31803"
   HREF="node1888.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31779"
+<A NAME="tex2html31811"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31782"
-  HREF="node1890.html">LDAP_connectServer</A>
-<B> Up:</B> <A NAME="tex2html31778"
-  HREF="node1888.html">./inc/ldap.php</A>
-<B> Previous:</B> <A NAME="tex2html31772"
-  HREF="node1888.html">./inc/ldap.php</A>
- &nbsp; <B>  <A NAME="tex2html31780"
+<B> Next:</B> <A NAME="tex2html31814"
+  HREF="node1890.html">I18N_listClientLanguages</A>
+<B> Up:</B> <A NAME="tex2html31810"
+  HREF="node1883.html">./inc/i18n.php</A>
+<B> Previous:</B> <A NAME="tex2html31804"
+  HREF="node1888.html">I18N_m23instLanguage</A>
+ &nbsp; <B>  <A NAME="tex2html31812"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009601000000000000000">
-LDAP_getTypes</A>
+<H2><A NAME="SECTION009596000000000000000">
+I18N_addLanguage</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with the known LDAP types.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new language to the i18n table.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Aarray with the known LDAP types.
+<LI>webinterface: Set to true, if it is a webinterface language. Set to false, for marking a client language.
+</LI>
+<LI>shortLanguage: Two letter TLD (or longer code for countries that have more than a language (e.g. be-nl, be-fr))
+</LI>
+<LI>longLanguage: Long human readable country/language name.
+</LI>
+<LI>country: Two letter TLD.
+</LI>
+<LI>lang: Locale setting (e.g. for locale and KDM)
+</LI>
+<LI>keymap: Available keymaps for the console etc.
+</LI>
+<LI>xkeyboard: X11 keybord setting.
+</LI>
+<LI>kdekeyboard: Language setting for the KDE keyboard.
+</LI>
+<LI>locale: List of locales (seperated by newlines) for the locale tool.
+</LI>
+<LI>kdekeyboards: List of additional KDE keyboards (seperated by commata).
+</LI>
+<LI>timezone: The timezone matching the language.
+</LI>
+<LI>packagelang: Language suffix that is added to the packages (e.g. language-pack-gnome-XX)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +90,7 @@ LDAP_getTypes</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

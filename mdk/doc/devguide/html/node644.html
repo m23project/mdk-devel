@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getDrivesAndPartitions</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getDrivesAndPartitions">
+<TITLE>CFDiskIO::virtualDeleteRaidDisk</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::virtualDeleteRaidDisk">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node645.html">
 <LINK REL="previous" HREF="node643.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node645.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15725"
+<A NAME="tex2html15771"
   HREF="node645.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15721"
-  HREF="node544.html">
+<A NAME="tex2html15767"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15715"
+<A NAME="tex2html15761"
   HREF="node643.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15723"
+<A NAME="tex2html15769"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15726"
-  HREF="node645.html">CFDiskIO::getUnusedMDs</A>
-<B> Up:</B> <A NAME="tex2html15722"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15716"
-  HREF="node643.html">CFDiskIO::virtualDeleteRaidDisk</A>
- &nbsp; <B>  <A NAME="tex2html15724"
+<B> Next:</B> <A NAME="tex2html15772"
+  HREF="node645.html">CFDiskIO::getDrivesAndPartitions</A>
+<B> Up:</B> <A NAME="tex2html15768"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15762"
+  HREF="node643.html">CFDiskIO::virtualCreateRaidDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15770"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00915100000000000000000">
-CFDiskIO::getDrivesAndPartitions</A>
+<H2><A NAME="SECTION0091599000000000000000">
+CFDiskIO::virtualDeleteRaidDisk</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an array that contains all disks and partitions of a given client with the disk devices as keys and the information as values.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a RAID disk and removes the RAID locks from all devices building it.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>devFilter: Set this to another value than false if you want only devices with a given string in it. If you add an "!" the beginning all is given out that doesn't contains the filter string (without the "!").
-</LI>
-<LI>addSizesAndTypes: If set to true, the array will contain the sizes, filesystems and types of the partitions and drives.
-</LI>
-<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
+<LI>dev: Device name for the RAID (eg. /dev/md0)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with drives and partitions and (optionally) their sizes, filesystems and types.
+<LI>Virtual RAID disk number, if the device string is suitable for a RAID, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ CFDiskIO::getDrivesAndPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CRON_reloadConfig</TITLE>
-<META NAME="description" CONTENT="CRON_reloadConfig">
+<TITLE>CRON_addJobMinutely</TITLE>
+<META NAME="description" CONTENT="CRON_addJobMinutely">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1023.html">
 <LINK REL="previous" HREF="node1021.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1020.html">
 <LINK REL="next" HREF="node1023.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20577"
+<A NAME="tex2html20625"
   HREF="node1023.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20573"
-  HREF="node1017.html">
+<A NAME="tex2html20621"
+  HREF="node1020.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20567"
+<A NAME="tex2html20615"
   HREF="node1021.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20575"
+<A NAME="tex2html20623"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20578"
-  HREF="node1023.html">CRON_addJobHourly</A>
-<B> Up:</B> <A NAME="tex2html20574"
-  HREF="node1017.html">./inc/cron.php</A>
-<B> Previous:</B> <A NAME="tex2html20568"
-  HREF="node1021.html">CRON_rmJob</A>
- &nbsp; <B>  <A NAME="tex2html20576"
+<B> Next:</B> <A NAME="tex2html20626"
+  HREF="node1023.html">CRON_addJobBasic</A>
+<B> Up:</B> <A NAME="tex2html20622"
+  HREF="node1020.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20616"
+  HREF="node1021.html">CRON_genCronEntry</A>
+ &nbsp; <B>  <A NAME="tex2html20624"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009345000000000000000">
-CRON_reloadConfig</A>
+<H2><A NAME="SECTION009342000000000000000">
+CRON_addJobMinutely</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Reloads cron with new crontab.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every N minutes.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>intervall: Amount of minutes to wait between calls.
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

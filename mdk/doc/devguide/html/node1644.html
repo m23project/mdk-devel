@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_addRaidBeforeFormat</TITLE>
-<META NAME="description" CONTENT="FDISK_addRaidBeforeFormat">
+<TITLE>FDISK_AFPlinearScale</TITLE>
+<META NAME="description" CONTENT="FDISK_AFPlinearScale">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1645.html">
 <LINK REL="previous" HREF="node1643.html">
-<LINK REL="up" HREF="node1538.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1645.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28599"
+<A NAME="tex2html28653"
   HREF="node1645.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28595"
-  HREF="node1538.html">
+<A NAME="tex2html28649"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28589"
+<A NAME="tex2html28643"
   HREF="node1643.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28597"
+<A NAME="tex2html28651"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28600"
-  HREF="node1645.html">FDISK_raidJob</A>
-<B> Up:</B> <A NAME="tex2html28596"
-  HREF="node1538.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28590"
-  HREF="node1643.html">FDISK_addRaidJobs</A>
- &nbsp; <B>  <A NAME="tex2html28598"
+<B> Next:</B> <A NAME="tex2html28654"
+  HREF="node1645.html">FDISK_AFPgetPartSizes</A>
+<B> Up:</B> <A NAME="tex2html28650"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28644"
+  HREF="node1643.html">FDISK_AFPselectDrive</A>
+ &nbsp; <B>  <A NAME="tex2html28652"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00952106000000000000000">
-FDISK_addRaidBeforeFormat</A>
+<H2><A NAME="SECTION0095297000000000000000">
+FDISK_AFPlinearScale</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates and places a job to create a RAID on given drives/partitions before the formating of the RAID device.
+<SPAN  CLASS="textbf">Description:</SPAN> scales all partitions sizes to match the full disk size.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>raidDev: RAID device (e.g. /dev/md0)
+<LI>driveToUse: device to use (e.g. /dev/hda)
 </LI>
-<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+<LI>driveToUseSize: Size of the real drive to use.
 </LI>
-<LI>partJobs: associative array with partition jobs.
+<LI>options: options array of the client
 </LI>
-<LI>raidMode: The type of the RAID (0,1,5, ...)
+<LI>command: array that stores the modificated format parameters
+</LI>
+<LI>formatarr: array that contains the original format parameters
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ FDISK_addRaidBeforeFormat</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

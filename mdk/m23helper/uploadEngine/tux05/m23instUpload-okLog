@@ -1,0 +1,237 @@
+#!/bin/sh
+
+#Uploads files to the new FRS of SF
+#uploadFRS <file name with complete path> <release> <category>
+uploadFRS()
+{
+	if [ $# -lt 3 ]
+	then
+		echo "uploadFRS: Missing parameters"
+		echo "uploadFRS <file name with complete path> <release> <category>"
+		echo "e.g. uploadFRS /mdk/doc/manual/pdf/m23-manual-de.pdf 2008-09-03 docs"
+		echo "Press key to continue"
+		read gaga
+		exit 42
+	fi
+
+	file=$1
+	release=$2
+	category=$3
+
+
+	tempDir="/tmp/m23SF-Upload$RANDOM"
+	releaseDir="$tempDir/$release"
+	mkdir -p "$releaseDir" #e.g. /tmp/m23-manual-de-2008-09-03
+	#link the file to the temporary dir
+	ln -s "$file" "$releaseDir"
+
+	rsync -vPyrL -e ssh "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m23/$category"
+	rm -r "$tempDir"
+}
+
+
+remoteDeleteOldDoubles()
+{
+echo "cd htdocs
+cd m23inst
+" >/tmp/ftpDel.cmd
+
+echo "Erstelle Löschliste..."
+
+echo "cd htdocs
+cd m23inst
+ls -1 *.deb" | sftp -b - hhabermann,m23@web.sourceforge.net | grep -v sftp | sort -r | awk -vFS='_' '
+BEGIN {
+last=""
+}
+
+{
+	if (last != $1$3)
+		last=$1$3
+	else
+		print("rm "$0);
+}' >> /tmp/ftpDel.cmd
+
+echo "Lösche doppelte Dateien..."
+sftp -b /tmp/ftpDel.cmd hhabermann,m23@web.sourceforge.net
+}
+
+okLog='/tmp/m23instUploadOk.log'
+cd /m23inst
+rm "$okLog" 2> /dev/null
+
+
+tries=0
+
+(md5sum -c all.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+while [ `cat /tmp/ret` -ne 0 ] && [ $tries -lt 100 ]
+do
+	sleep 120
+	(md5sum -c all.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+	tries=$[ $tries + 1 ]
+done
+
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: MD5", "MD5-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "MD5-Fehler."
+	exit 1
+fi
+echo 'MD5 der Pakete: ok' | tee -a "$okLog"
+
+
+
+
+(rsync -razPy --delete-after *.deb hhabermann,m23@web.sourceforge.net:/home/project-web/m23/htdocs/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if test `cat /tmp/ret` -ne 0
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: Pakethochladen", "Fehler: Pakethochladen
+	".file_get_contents("/tmp/err"));'
+	echo "Fehler: Pakethochladen"
+	exit 1
+fi
+echo 'Hochladen der Pakete auf /home/project-web/m23/htdocs/m23inst: ok' | tee -a "$okLog"
+
+
+
+
+(rsync --delete-after -razPy Release Release.gpg Packages Packages.gz Packages.bz2 hhabermann,m23@web.sourceforge.net:/home/project-web/m23/htdocs/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if test `cat /tmp/ret` -ne 0
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: Hochladen Packages", "Fehler: Hochladen Packages*
+	".file_get_contents("/tmp/err"));'
+	echo "Fehler: Hochladen Packages*"
+	exit 1
+fi
+echo 'Hochladen von Release* Packages* auf /home/project-web/m23/htdocs/m23inst: ok' | tee -a "$okLog"
+
+
+
+
+(scp *.info hhabermann,m23@web.sourceforge.net:/home/project-web/m23/htdocs/m23patch/0.5.0/ 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+
+if test `cat /tmp/ret` -ne 0
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler:Hochladen info", "Fehler: Hochladen info
+	".file_get_contents("/tmp/err"));'
+	echo "Fehler: Hochladen info"
+	exit 1
+fi
+echo 'Hochladen von *.info auf /home/project-web/m23/htdocs/m23patch/0.5.0/: ok' | tee -a "$okLog"
+
+
+
+
+
+
+#ssh hhabermann@shell.sf.net '/home/groups/m23/bin/deleteOldDoubles /home/project-web/m23/htdocs/m23inst'
+(remoteDeleteOldDoubles 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if test `cat /tmp/ret` -ne 0
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: Alte Pakete löschen", "Fehler: Alte Pakete löschen
+	".file_get_contents("/tmp/err"));'
+	echo "Fehler: Alte Pakete löschen"
+fi
+
+rm /tmp/err
+
+#making backups to the FRS
+for deb in `ls *.deb`
+do
+	nr=`echo $deb | php -r '
+$name=fgets(STDIN);
+$parts=preg_split("/[_-]+/",$name);
+foreach ($parts as $part)
+	if ($part > 100000)
+	{
+		echo($part);
+		break;
+	}
+'`
+
+#if it's no m23 package put it under addons
+if [ -z $nr ]
+then
+	datum=`date +%Y-%m-%d`
+	nr="addons-$datum"
+fi
+
+# 	(sf-upload -groupid 67156 -packageid 195044 -r $nr -f "$deb" -type .deb 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+	(uploadFRS "`pwd`/$deb" $nr packagebackups 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+	if test `cat /tmp/ret` -ne 0
+	then
+		php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: FRS-Hochladen", "Fehler: FRS-Hochladen
+		".file_get_contents("/tmp/err"));'
+		echo "Fehler: FRS-Hochladen"
+		exit 1
+	fi
+done
+echo 'FRS-Hochladen: ok' | tee -a "$okLog"
+
+m23DuplicateToFRS
+
+
+# Copy packages to the repo on goos-habermann.de
+(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "Kopieren-nach-/var/www/m23inst-Fehler"
+	exit 1
+fi
+chown -R www-data.www-data /var/www/m23inst
+echo 'Kopieren der m23-Pakete nach /var/www/m23inst: ok' | tee -a "$okLog"
+
+# Wait 30 seconds
+echo "Waiting 30 seconds"
+sleep 30
+
+#check if the pool works
+cd /m23test/
+rm archives/m23*
+local-apt-update -o=Dir::Etc::sourceparts="/does/not/exist"
+local-apt-download --force-yes -y m23* 2>&1 | tee /tmp/poolCheck.log
+php -r '
+$f=fopen("/tmp/poolCheck.log","r");
+
+$msg="";
+while (!feof($f))
+	$msg.=fgets($f);
+mail("hauke@goos-habermann.de", "Uploadergebnis", "$msg");
+
+fclose($f);
+'
+rm /tmp/poolCheck.log
+
+
+cd /m23test/archives
+
+# Check only the Debian packages, because Packages* are not downloaded here
+grep '\.deb$' /m23inst/all.md5 > deb.md5
+(md5sum -c deb.md5 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(grep m23 /tmp/err | grep -v OK -c) -gt 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler-FRS: MD5", "MD5-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "MD5-Fehler."
+	exit 1
+fi
+echo 'Upload-FRS: ok' | tee -a "$okLog"
+
+
+cd /var/www/ucs/
+rm m23-Pakete-fuer-ucs.tar.gz 2> /dev/null
+(tar cfvz m23-Pakete-fuer-ucs.tar.gz /m23inst/m23*.deb m23-ucs-extra*.deb 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Erstellen von m23-Pakete-fuer-ucs.tar.gz", "m23-Pakete-fuer-ucs.tar.gz-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "m23-Pakete-fuer-ucs.tar.gz-Fehler."
+	exit 1
+fi
+chown www-data.www-data m23-Pakete-fuer-ucs.tar.gz
+echo 'Packen von m23-Pakete-fuer-ucs.tar.gz: ok' | tee -a "$okLog"
+php -r "mail('hauke@goos-habermann.de', 'm23instUpload: ok', 'Ergebnis:
+	'.file_get_contents(\"$okLog\"));"

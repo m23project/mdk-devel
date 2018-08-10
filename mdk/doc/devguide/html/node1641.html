@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_addDrivePartitionToRaid</TITLE>
-<META NAME="description" CONTENT="FDISK_addDrivePartitionToRaid">
+<TITLE>FDISK_getDriveAndNr</TITLE>
+<META NAME="description" CONTENT="FDISK_getDriveAndNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1642.html">
 <LINK REL="previous" HREF="node1640.html">
-<LINK REL="up" HREF="node1538.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1642.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28563"
+<A NAME="tex2html28617"
   HREF="node1642.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28559"
-  HREF="node1538.html">
+<A NAME="tex2html28613"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28553"
+<A NAME="tex2html28607"
   HREF="node1640.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28561"
+<A NAME="tex2html28615"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28564"
-  HREF="node1642.html">FDISK_buildRaidDialog</A>
-<B> Up:</B> <A NAME="tex2html28560"
-  HREF="node1538.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28554"
-  HREF="node1640.html">FDISK_listRaidTable</A>
- &nbsp; <B>  <A NAME="tex2html28562"
+<B> Next:</B> <A NAME="tex2html28618"
+  HREF="node1642.html">FDISK_getNextFdiskFormatJobNr</A>
+<B> Up:</B> <A NAME="tex2html28614"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28608"
+  HREF="node1640.html">FDISK_getDiskType</A>
+ &nbsp; <B>  <A NAME="tex2html28616"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00952103000000000000000">
-FDISK_addDrivePartitionToRaid</A>
+<H2><A NAME="SECTION0095294000000000000000">
+FDISK_getDriveAndNr</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a drive or partition to a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> splits a path (e.g. /dev/hda1) in the device (/dev/hda) and the device number (1). The device is returned as element 0 and the number as element 1 in an array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
-</LI>
-<LI>raidType: RAID level (this can be 0,1,4,5,6,10)
-</LI>
-<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
-</LI>
-<LI>param: parameter string containing status information about the harddisks
-</LI>
-<LI>raidMode: Raid mode (e.g. 1 for RAID-1, 5 for RAID-5)
+<LI>path: the path to partition (e.g. /dev/hde1)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
+<LI>Array with two parts. $out[0]=drive (e.g. /dev/hda), $out[1]=the device number
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +74,7 @@ FDISK_addDrivePartitionToRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

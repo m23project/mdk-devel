@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GRP_del</TITLE>
-<META NAME="description" CONTENT="GRP_del">
+<TITLE>FDISK_addRaidBeforeFormat</TITLE>
+<META NAME="description" CONTENT="FDISK_addRaidBeforeFormat">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1654.html">
 <LINK REL="previous" HREF="node1652.html">
-<LINK REL="up" HREF="node1648.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1654.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28737"
+<A NAME="tex2html28761"
   HREF="node1654.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28733"
-  HREF="node1648.html">
+<A NAME="tex2html28757"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28727"
+<A NAME="tex2html28751"
   HREF="node1652.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28735"
+<A NAME="tex2html28759"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28738"
-  HREF="node1654.html">GRP_isClientInGroup</A>
-<B> Up:</B> <A NAME="tex2html28734"
-  HREF="node1648.html">./inc/groups.php</A>
-<B> Previous:</B> <A NAME="tex2html28728"
-  HREF="node1652.html">GRP_getNameById</A>
- &nbsp; <B>  <A NAME="tex2html28736"
+<B> Next:</B> <A NAME="tex2html28762"
+  HREF="node1654.html">FDISK_raidJob</A>
+<B> Up:</B> <A NAME="tex2html28758"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28752"
+  HREF="node1652.html">FDISK_addRaidJobs</A>
+ &nbsp; <B>  <A NAME="tex2html28760"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009535000000000000000">
-GRP_del</A>
+<H2><A NAME="SECTION00952106000000000000000">
+FDISK_addRaidBeforeFormat</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> deletes all clients from the group and the group itself
+<SPAN  CLASS="textbf">Description:</SPAN> Generates and places a job to create a RAID on given drives/partitions before the formating of the RAID device.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>groupName: name of the group
+<LI>raidDev: RAID device (e.g. /dev/md0)
+</LI>
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+</LI>
+<LI>partJobs: associative array with partition jobs.
+</LI>
+<LI>raidMode: The type of the RAID (0,1,5, ...)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ GRP_del</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

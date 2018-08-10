@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_getApacheUser</TITLE>
-<META NAME="description" CONTENT="HELPER_getApacheUser">
+<TITLE>HELPER_grubMd5Crypt</TITLE>
+<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1785.html">
 <LINK REL="previous" HREF="node1783.html">
-<LINK REL="up" HREF="node1738.html">
+<LINK REL="up" HREF="node1747.html">
 <LINK REL="next" HREF="node1785.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30415"
+<A NAME="tex2html30469"
   HREF="node1785.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30411"
-  HREF="node1738.html">
+<A NAME="tex2html30465"
+  HREF="node1747.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30405"
+<A NAME="tex2html30459"
   HREF="node1783.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30413"
+<A NAME="tex2html30467"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30416"
-  HREF="node1785.html">HELPER_getApacheGroup</A>
-<B> Up:</B> <A NAME="tex2html30412"
-  HREF="node1738.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html30406"
-  HREF="node1783.html">HELPER_getFdiskMountPoints</A>
- &nbsp; <B>  <A NAME="tex2html30414"
+<B> Next:</B> <A NAME="tex2html30470"
+  HREF="node1785.html">HELPER_listFilesInDir</A>
+<B> Up:</B> <A NAME="tex2html30466"
+  HREF="node1747.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html30460"
+  HREF="node1783.html">HELPER_generateSalt</A>
+ &nbsp; <B>  <A NAME="tex2html30468"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095546000000000000000">
-HELPER_getApacheUser</A>
+<H2><A NAME="SECTION0095537000000000000000">
+HELPER_grubMd5Crypt</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the name of the Apache user
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>password: Password to encrypt.
+</LI>
+<LI>length: Length of the salt.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

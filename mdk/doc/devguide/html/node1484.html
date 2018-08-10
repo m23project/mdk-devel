@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/distr/ubuntu/packages.php</TITLE>
-<META NAME="description" CONTENT="./inc/distr/ubuntu/packages.php">
+<TITLE>./inc/distr/ubuntu/clientConfig.php</TITLE>
+<META NAME="description" CONTENT="./inc/distr/ubuntu/clientConfig.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,8 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1511.html">
-<LINK REL="previous" HREF="node1475.html">
+<LINK REL="next" HREF="node1493.html">
+<LINK REL="previous" HREF="node1404.html">
 <LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node1485.html">
 </HEAD>
@@ -28,37 +28,37 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26522"
+<A NAME="tex2html26570"
   HREF="node1485.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26518"
+<A NAME="tex2html26566"
   HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26512"
+<A NAME="tex2html26560"
   HREF="node1483.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26520"
+<A NAME="tex2html26568"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26523"
-  HREF="node1485.html">PKG_updatePackageSearchCacheFile</A>
-<B> Up:</B> <A NAME="tex2html26519"
+<B> Next:</B> <A NAME="tex2html26571"
+  HREF="node1485.html">CLCFG_showDistributionSpecificOptionsUbuntu</A>
+<B> Up:</B> <A NAME="tex2html26567"
   HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html26513"
-  HREF="node1483.html">CLIENT_enableLDAP</A>
- &nbsp; <B>  <A NAME="tex2html26521"
+<B> Previous:</B> <A NAME="tex2html26561"
+  HREF="node1483.html">CLCFG_updateDebootstrapScriptsDebian</A>
+ &nbsp; <B>  <A NAME="tex2html26569"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009500000000000000000">
-./inc/distr/ubuntu/packages.php</A>
+<H1><A NAME="SECTION009490000000000000000">
+./inc/distr/ubuntu/clientConfig.php</A>
 </H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
 <BR>
-Description: Debian/Ubuntu specific package handling functions.
+Description: Ubuntu specific management functions.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
@@ -67,64 +67,28 @@ Description: Debian/Ubuntu specific package handling functions.
 <A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html26524"
-  HREF="node1485.html">PKG_updatePackageSearchCacheFile</A>
-<LI><A NAME="tex2html26525"
-  HREF="node1486.html">PKG_getSearchCacheFileName</A>
-<LI><A NAME="tex2html26526"
-  HREF="node1487.html">PKG_genPackageSearchCacheFileCMD</A>
-<LI><A NAME="tex2html26527"
-  HREF="node1488.html">PKG_searchPackageSearchCacheFileCMD</A>
-<LI><A NAME="tex2html26528"
-  HREF="node1489.html">PKG_ncTarDebsFromClientToServer_Client</A>
-<LI><A NAME="tex2html26529"
-  HREF="node1490.html">PKG_ncTarDebsFromClientToServer_Server</A>
-<LI><A NAME="tex2html26530"
-  HREF="node1491.html">PKG_rsyncDebsFromClientToServer</A>
-<LI><A NAME="tex2html26531"
-  HREF="node1492.html">PKG_preparePool</A>
-<LI><A NAME="tex2html26532"
-  HREF="node1493.html">PKG_convertPackagesToRepository</A>
-<LI><A NAME="tex2html26533"
-  HREF="node1494.html">PKG_fastGetInstalledPackages</A>
-<LI><A NAME="tex2html26534"
-  HREF="node1495.html">PKG_fastGetNewInstalledPackages</A>
-<LI><A NAME="tex2html26535"
-  HREF="node1496.html">PKG_searchFor</A>
-<LI><A NAME="tex2html26536"
-  HREF="node1497.html">PKG_getDescription</A>
-<LI><A NAME="tex2html26537"
-  HREF="node1498.html">PKG_getPackageName</A>
-<LI><A NAME="tex2html26538"
-  HREF="node1499.html">PKG_getLongPackageDescription</A>
-<LI><A NAME="tex2html26539"
-  HREF="node1500.html">PKG_getPackageDescriptionSize</A>
-<LI><A NAME="tex2html26540"
-  HREF="node1501.html">PKG_printStatus</A>
-<LI><A NAME="tex2html26541"
-  HREF="node1502.html">PKG_listPackages</A>
-<LI><A NAME="tex2html26542"
-  HREF="node1503.html">PKG_getAptArchOptions</A>
-<LI><A NAME="tex2html26543"
-  HREF="node1504.html">PKG_addAPTConfigFiles</A>
-<LI><A NAME="tex2html26544"
-  HREF="node1505.html">PKG_preparePackageDir</A>
-<LI><A NAME="tex2html26545"
-  HREF="node1506.html">PKG_updatePackageInfo</A>
-<LI><A NAME="tex2html26546"
-  HREF="node1507.html">PKG_previewInstall</A>
-<LI><A NAME="tex2html26547"
-  HREF="node1508.html">PKG_getKernels</A>
-<LI><A NAME="tex2html26548"
-  HREF="node1509.html">PKG_downloadPool</A>
-<LI><A NAME="tex2html26549"
-  HREF="node1510.html">PKG_getDebootStrapBasePackages</A>
+<LI><A NAME="tex2html26572"
+  HREF="node1485.html">CLCFG_showDistributionSpecificOptionsUbuntu</A>
+<LI><A NAME="tex2html26573"
+  HREF="node1486.html">UBUNTU_installLanguagePacks</A>
+<LI><A NAME="tex2html26574"
+  HREF="node1487.html">UBUNTU_desktopInstall</A>
+<LI><A NAME="tex2html26575"
+  HREF="node1488.html">UBUNTU_fixBeforeBaseInstall</A>
+<LI><A NAME="tex2html26576"
+  HREF="node1489.html">UBUNTU_fixAfterBaseInstall</A>
+<LI><A NAME="tex2html26577"
+  HREF="node1490.html">CLCFG_listUbuntuReleases</A>
+<LI><A NAME="tex2html26578"
+  HREF="node1491.html">CLCFG_updateDebootstrapScriptsUbuntu</A>
+<LI><A NAME="tex2html26579"
+  HREF="node1492.html">CLIENT_enableLDAP</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

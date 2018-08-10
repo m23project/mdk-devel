@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_isBasesystemInstalledFromImage</TITLE>
-<META NAME="description" CONTENT="CLIENT_isBasesystemInstalledFromImage">
+<TITLE>CLIENT_executeOnClientOrIP</TITLE>
+<META NAME="description" CONTENT="CLIENT_executeOnClientOrIP">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node797.html">
 <LINK REL="previous" HREF="node795.html">
-<LINK REL="up" HREF="node765.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node797.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17731"
+<A NAME="tex2html17779"
   HREF="node797.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17727"
-  HREF="node765.html">
+<A NAME="tex2html17775"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17721"
+<A NAME="tex2html17769"
   HREF="node795.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17729"
+<A NAME="tex2html17777"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17732"
-  HREF="node797.html">CLIENT_addClient</A>
-<B> Up:</B> <A NAME="tex2html17728"
-  HREF="node765.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html17722"
-  HREF="node795.html">CLIENT_executeOnClientOrIP</A>
- &nbsp; <B>  <A NAME="tex2html17730"
+<B> Next:</B> <A NAME="tex2html17780"
+  HREF="node797.html">CLIENT_isBasesystemInstalledFromImage</A>
+<B> Up:</B> <A NAME="tex2html17776"
+  HREF="node766.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html17770"
+  HREF="node795.html">CLIENT_getActiveNetDevices</A>
+ &nbsp; <B>  <A NAME="tex2html17778"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092231000000000000000">
-CLIENT_isBasesystemInstalledFromImage</A>
+<H2><A NAME="SECTION0092230000000000000000">
+CLIENT_executeOnClientOrIP</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Detects if the base system should be installed from an image.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background or under a plain BASH under a given user. The script can be executed on the local machine "localhost" or a remote client that is accessible via SSH with a public key and without a password.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>options: Array with the client options.
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
+</LI>
+<LI>jobName: name of the job screen should show
+</LI>
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if it should be installed from an image, otherwise false
+<LI>The output of the screen (only available on direct output if $runInScreen is false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +82,7 @@ CLIENT_isBasesystemInstalledFromImage</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

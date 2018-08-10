@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getAptArchOptions</TITLE>
-<META NAME="description" CONTENT="PKG_getAptArchOptions">
+<TITLE>PKG_fastGetInstalledPackages</TITLE>
+<META NAME="description" CONTENT="PKG_fastGetInstalledPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1504.html">
 <LINK REL="previous" HREF="node1502.html">
-<LINK REL="up" HREF="node1484.html">
+<LINK REL="up" HREF="node1493.html">
 <LINK REL="next" HREF="node1504.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26776"
+<A NAME="tex2html26830"
   HREF="node1504.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26772"
-  HREF="node1484.html">
+<A NAME="tex2html26826"
+  HREF="node1493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26766"
+<A NAME="tex2html26820"
   HREF="node1502.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26774"
+<A NAME="tex2html26828"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26777"
-  HREF="node1504.html">PKG_addAPTConfigFiles</A>
-<B> Up:</B> <A NAME="tex2html26773"
-  HREF="node1484.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26767"
-  HREF="node1502.html">PKG_listPackages</A>
- &nbsp; <B>  <A NAME="tex2html26775"
+<B> Next:</B> <A NAME="tex2html26831"
+  HREF="node1504.html">PKG_fastGetNewInstalledPackages</A>
+<B> Up:</B> <A NAME="tex2html26827"
+  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26821"
+  HREF="node1502.html">PKG_convertPackagesToRepository</A>
+ &nbsp; <B>  <A NAME="tex2html26829"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095019000000000000000">
-PKG_getAptArchOptions</A>
+<H2><A NAME="SECTION0095010000000000000000">
+PKG_fastGetInstalledPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates options to specify the architecture of a client that can be appended to an apt-get line.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets a list of all installed packages (faster than dpkg -get-selections).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arch: Architecture to get package infos for.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Parameter for architecture specific apt-get commands, if architecture is not i386.
+<LI>storeFile: File name to store the list of installed on the client or empty if the list should be outputted to stdout.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ PKG_getAptArchOptions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <testcase>
-	<machine>
-		<type>VM</type>
-		<ram>1024</ram>
-		<hdsize>8192</hdsize>
-		<cliparam description="Name der VM">vmname</cliparam>
-		<cliparam description="ISO-Boot-CD-Dateiname (inkl. Pfad)">iso</cliparam>
-	</machine>
+	<constant>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</constant>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_ISO description="ISO-Boot-CD-Dateiname (inkl. Pfad)"></VM_ISO>
+	</cli>
 	<sequence>
 		<test timeout="60" description="Sprachauswahl">
 			<trigger type="ocr">Installation language/Installationssprache</trigger>

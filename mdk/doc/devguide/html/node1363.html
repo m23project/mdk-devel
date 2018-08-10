@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
-<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
+<TITLE>./inc/distr/imaging/packages.php</TITLE>
+<META NAME="description" CONTENT="./inc/distr/imaging/packages.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,112 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1364.html">
-<LINK REL="previous" HREF="node1362.html">
-<LINK REL="up" HREF="node1356.html">
+<LINK REL="next" HREF="node1390.html">
+<LINK REL="previous" HREF="node1360.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node1364.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24980"
+<A NAME="tex2html25006"
   HREF="node1364.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24976"
-  HREF="node1356.html">
+<A NAME="tex2html25002"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24970"
+<A NAME="tex2html24996"
   HREF="node1362.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24978"
+<A NAME="tex2html25004"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24981"
-  HREF="node1364.html">PKG_preparePool</A>
-<B> Up:</B> <A NAME="tex2html24977"
-  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html24971"
-  HREF="node1362.html">PKG_ncTarDebsFromClientToServer_Server</A>
- &nbsp; <B>  <A NAME="tex2html24979"
+<B> Next:</B> <A NAME="tex2html25007"
+  HREF="node1364.html">PKG_updatePackageSearchCacheFile</A>
+<B> Up:</B> <A NAME="tex2html25003"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html24997"
+  HREF="node1362.html">CLCFG_showDistributionSpecificOptions</A>
+ &nbsp; <B>  <A NAME="tex2html25005"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009467000000000000000">
-PKG_rsyncDebsFromClientToServer</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>clientIP: The IP of the client.
-</LI>
-<LI>poolDir: The directory on the server to store the Debian packages.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009460000000000000000">
+./inc/distr/imaging/packages.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Debian/Ubuntu specific package handling functions.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html25008"
+  HREF="node1364.html">PKG_updatePackageSearchCacheFile</A>
+<LI><A NAME="tex2html25009"
+  HREF="node1365.html">PKG_getSearchCacheFileName</A>
+<LI><A NAME="tex2html25010"
+  HREF="node1366.html">PKG_genPackageSearchCacheFileCMD</A>
+<LI><A NAME="tex2html25011"
+  HREF="node1367.html">PKG_searchPackageSearchCacheFileCMD</A>
+<LI><A NAME="tex2html25012"
+  HREF="node1368.html">PKG_ncTarDebsFromClientToServer_Client</A>
+<LI><A NAME="tex2html25013"
+  HREF="node1369.html">PKG_ncTarDebsFromClientToServer_Server</A>
+<LI><A NAME="tex2html25014"
+  HREF="node1370.html">PKG_rsyncDebsFromClientToServer</A>
+<LI><A NAME="tex2html25015"
+  HREF="node1371.html">PKG_preparePool</A>
+<LI><A NAME="tex2html25016"
+  HREF="node1372.html">PKG_convertPackagesToRepository</A>
+<LI><A NAME="tex2html25017"
+  HREF="node1373.html">PKG_fastGetInstalledPackages</A>
+<LI><A NAME="tex2html25018"
+  HREF="node1374.html">PKG_fastGetNewInstalledPackages</A>
+<LI><A NAME="tex2html25019"
+  HREF="node1375.html">PKG_searchFor</A>
+<LI><A NAME="tex2html25020"
+  HREF="node1376.html">PKG_getDescription</A>
+<LI><A NAME="tex2html25021"
+  HREF="node1377.html">PKG_getPackageName</A>
+<LI><A NAME="tex2html25022"
+  HREF="node1378.html">PKG_getLongPackageDescription</A>
+<LI><A NAME="tex2html25023"
+  HREF="node1379.html">PKG_getPackageDescriptionSize</A>
+<LI><A NAME="tex2html25024"
+  HREF="node1380.html">PKG_printStatus</A>
+<LI><A NAME="tex2html25025"
+  HREF="node1381.html">PKG_listPackages</A>
+<LI><A NAME="tex2html25026"
+  HREF="node1382.html">PKG_getAptArchOptions</A>
+<LI><A NAME="tex2html25027"
+  HREF="node1383.html">PKG_addAPTConfigFiles</A>
+<LI><A NAME="tex2html25028"
+  HREF="node1384.html">PKG_preparePackageDir</A>
+<LI><A NAME="tex2html25029"
+  HREF="node1385.html">PKG_updatePackageInfo</A>
+<LI><A NAME="tex2html25030"
+  HREF="node1386.html">PKG_previewInstall</A>
+<LI><A NAME="tex2html25031"
+  HREF="node1387.html">PKG_getKernels</A>
+<LI><A NAME="tex2html25032"
+  HREF="node1388.html">PKG_downloadPool</A>
+<LI><A NAME="tex2html25033"
+  HREF="node1389.html">PKG_getDebootStrapBasePackages</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

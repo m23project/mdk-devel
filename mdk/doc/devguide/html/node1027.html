@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CRON_getDayOfWeekArray</TITLE>
-<META NAME="description" CONTENT="CRON_getDayOfWeekArray">
+<TITLE>CRON_addJobDayly</TITLE>
+<META NAME="description" CONTENT="CRON_addJobDayly">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1028.html">
 <LINK REL="previous" HREF="node1026.html">
-<LINK REL="up" HREF="node1017.html">
+<LINK REL="up" HREF="node1020.html">
 <LINK REL="next" HREF="node1028.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20637"
+<A NAME="tex2html20685"
   HREF="node1028.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20633"
-  HREF="node1017.html">
+<A NAME="tex2html20681"
+  HREF="node1020.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20627"
+<A NAME="tex2html20675"
   HREF="node1026.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20635"
+<A NAME="tex2html20683"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20638"
-  HREF="node1028.html">CRON_checkMinute</A>
-<B> Up:</B> <A NAME="tex2html20634"
-  HREF="node1017.html">./inc/cron.php</A>
-<B> Previous:</B> <A NAME="tex2html20628"
-  HREF="node1026.html">CRON_getTimeBaseArray</A>
- &nbsp; <B>  <A NAME="tex2html20636"
+<B> Next:</B> <A NAME="tex2html20686"
+  HREF="node1028.html">CRON_addJobWeekly</A>
+<B> Up:</B> <A NAME="tex2html20682"
+  HREF="node1020.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20676"
+  HREF="node1026.html">CRON_addJobHourly</A>
+ &nbsp; <B>  <A NAME="tex2html20684"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093410000000000000000">
-CRON_getDayOfWeekArray</A>
+<H2><A NAME="SECTION009347000000000000000">
+CRON_addJobDayly</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an associative array that contains the week day names for cron.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every day at a specified time.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with the week day names for cron with three letter cron name as key and language specific human readable week day as value.
+<LI>min: Minute or * for every minute to execute the cron job. (0-59)
+</LI>
+<LI>hour: Hour or * for every hour to execute the cron job. (0-23)
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CRON_getDayOfWeekArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_parseVBOXNic</TITLE>
-<META NAME="description" CONTENT="VM_parseVBOXNic">
+<TITLE>VM_setHostInDB</TITLE>
+<META NAME="description" CONTENT="VM_setHostInDB">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2490.html">
 <LINK REL="previous" HREF="node2488.html">
-<LINK REL="up" HREF="node2422.html">
+<LINK REL="up" HREF="node2436.html">
 <LINK REL="next" HREF="node2490.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39496"
+<A NAME="tex2html39556"
   HREF="node2490.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39492"
-  HREF="node2422.html">
+<A NAME="tex2html39552"
+  HREF="node2436.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39486"
+<A NAME="tex2html39546"
   HREF="node2488.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39494"
+<A NAME="tex2html39554"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39497"
-  HREF="node2490.html">VM_parseStatus</A>
-<B> Up:</B> <A NAME="tex2html39493"
-  HREF="node2422.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39487"
-  HREF="node2488.html">VM_parseVBOXstate</A>
- &nbsp; <B>  <A NAME="tex2html39495"
+<B> Next:</B> <A NAME="tex2html39557"
+  HREF="node2490.html">VM_setGuestInDB</A>
+<B> Up:</B> <A NAME="tex2html39553"
+  HREF="node2436.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39547"
+  HREF="node2488.html">VM_setVisualURL</A>
+ &nbsp; <B>  <A NAME="tex2html39555"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098067000000000000000">
-VM_parseVBOXNic</A>
+<H2><A NAME="SECTION0098053000000000000000">
+VM_setHostInDB</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Parses the status line of a virtual network card.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the password for the login to the visual management console on the host for all guests, the host flag and the type of used virtualisation software.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: Parameter line that contains the status string of the VM.
+<LI>VMhost: Name of the host with the virtualisation software.
+</LI>
+<LI>password: Password to set.
+</LI>
+<LI>vmSoftware: Type of the virtualisation software.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the current state of the network device.
+<LI>MySQL resource or false on error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ VM_parseVBOXNic</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

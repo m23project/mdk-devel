@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# Creates an SQL dump for generating the offline demo from
+if [ $(whoami) != 'root' ]
+then
+	echo "ERROR: Must be run as root!"
+	exit 1
+fi
 
-p=`/m23/bin/getMySQL-Password.sh`
-u=`/m23/bin/getMySQL-User.sh`
+# Creates an SQL dump for generating the offline demo from
+p=`/m23/bin/getMySQL-PasswordParam.sh`
+u=`/m23/bin/getMySQL-UserParam.sh`
 
 # Drop commands for some unwanted entries
 echo 'TRUNCATE `clientjobs`;
@@ -22,4 +27,6 @@ rm all.sql.gz
 gzip all.sql
 
 # Upload the dump to the VM
-scp-ohneSpeichern all.sql.gz import.sh root@192.168.1.23:/mdk/m23helper/m23admin-offline-copy
+scp-ohneSpeichern all.sql.gz root@192.168.1.23:/mdk/m23helper/m23admin-offline-copy
+
+rm all.sql.gz

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_efi</TITLE>
-<META NAME="description" CONTENT="CLCFG_efi">
+<TITLE>CLCFG_getMbrPart</TITLE>
+<META NAME="description" CONTENT="CLCFG_getMbrPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1185.html">
 <LINK REL="previous" HREF="node1183.html">
-<LINK REL="up" HREF="node1147.html">
+<LINK REL="up" HREF="node1150.html">
 <LINK REL="next" HREF="node1185.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22695"
+<A NAME="tex2html22745"
   HREF="node1185.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22691"
-  HREF="node1147.html">
+<A NAME="tex2html22741"
+  HREF="node1150.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22685"
+<A NAME="tex2html22735"
   HREF="node1183.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22693"
+<A NAME="tex2html22743"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22696"
-  HREF="node1185.html">CLCFG_genFstab</A>
-<B> Up:</B> <A NAME="tex2html22692"
-  HREF="node1147.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22686"
-  HREF="node1183.html">CLCFG_createBootDeviceNode</A>
- &nbsp; <B>  <A NAME="tex2html22694"
+<B> Next:</B> <A NAME="tex2html22746"
+  HREF="node1185.html">CLCFG_setTimeZone</A>
+<B> Up:</B> <A NAME="tex2html22742"
+  HREF="node1150.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22736"
+  HREF="node1183.html">CLCFG_lilo2Grub</A>
+ &nbsp; <B>  <A NAME="tex2html22744"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093937000000000000000">
-CLCFG_efi</A>
+<H2><A NAME="SECTION0093934000000000000000">
+CLCFG_getMbrPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Configures the client for UEFI booting.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the device to install the MBR of the bootloader in.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>CFDiskIOO: Object to with partition information for the calling client.
+<LI>installPart: Partition to install the OS on.
+</LI>
+<LI>clientOptions: Array with information about client options.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the client uses EFI, otherwise false.
+<LI>Device to install the MBR of the bootloader in.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CLCFG_efi</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

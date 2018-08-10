@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Cm23AdminLister::AdminExistsHt</TITLE>
-<META NAME="description" CONTENT="Cm23AdminLister::AdminExistsHt">
+<TITLE>CLIENT_sendNotifySendMessage</TITLE>
+<META NAME="description" CONTENT="CLIENT_sendNotifySendMessage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,54 +19,65 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node871.html">
 <LINK REL="previous" HREF="node869.html">
-<LINK REL="up" HREF="node868.html">
+<LINK REL="up" HREF="node766.html">
 <LINK REL="next" HREF="node871.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18621"
+<A NAME="tex2html18665"
   HREF="node871.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18617"
-  HREF="node868.html">
+<A NAME="tex2html18661"
+  HREF="node766.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18611"
+<A NAME="tex2html18657"
   HREF="node869.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18619"
+<A NAME="tex2html18663"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18622"
-  HREF="node871.html">Cm23AdminLister::CountAdmins</A>
-<B> Up:</B> <A NAME="tex2html18618"
-  HREF="node868.html">./inc/Cm23AdminLister.php</A>
-<B> Previous:</B> <A NAME="tex2html18612"
-  HREF="node869.html">Cm23AdminLister::AdminExistsDB</A>
- &nbsp; <B>  <A NAME="tex2html18620"
+<B> Next:</B> <A NAME="tex2html18666"
+  HREF="node871.html">./inc/Cm23AdminLister.php</A>
+<B> Up:</B> <A NAME="tex2html18662"
+  HREF="node766.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html18658"
+  HREF="node869.html">CLIENT_sendPlymouthMessage</A>
+ &nbsp; <B>  <A NAME="tex2html18664"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009232000000000000000">
-Cm23AdminLister::AdminExistsHt</A>
+<H2><A NAME="SECTION00922104000000000000000">
+CLIENT_sendNotifySendMessage</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if an admin with the selected name exists in the m23 password file and returns true if yes, otherwise false
+<SPAN  CLASS="textbf">Description:</SPAN> Send message to all users using notify-send
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>name: admin login name to check
+<LI>message: message to display
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>True if the admin exists in the password file, else false
+<LI>icon_path: icon shown
+</LI>
+<LI>must_inform: respect client settings or force message display? default false
+</LI>
+<LI>timeout_ms: timeout till message disapperas. default 0 (never)
+</LI>
+<LI>title: title of the message
+</LI>
+<LI>escape: escape the message for notify-send? default true
+</LI>
+<LI>timestamp: Show a timestamp at the beginning of the message. default true
+</LI>
+<LI>message: message to display
+</LI>
+<LI>icon_path: icon shown
+</LI>
+<LI>must_inform: respect client settings or force message display? default false
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +85,7 @@ Cm23AdminLister::AdminExistsHt</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UCS_addLDAPUser</TITLE>
-<META NAME="description" CONTENT="UCS_addLDAPUser">
+<TITLE>UCS_ensureNetworkObjectExists</TITLE>
+<META NAME="description" CONTENT="UCS_ensureNetworkObjectExists">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2413.html">
 <LINK REL="previous" HREF="node2411.html">
-<LINK REL="up" HREF="node2392.html">
+<LINK REL="up" HREF="node2406.html">
 <LINK REL="next" HREF="node2413.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38506"
+<A NAME="tex2html38565"
   HREF="node2413.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38502"
-  HREF="node2392.html">
+<A NAME="tex2html38561"
+  HREF="node2406.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38496"
+<A NAME="tex2html38555"
   HREF="node2411.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38504"
+<A NAME="tex2html38563"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38507"
-  HREF="node2413.html">UCS_getEtc_ucr_master</A>
-<B> Up:</B> <A NAME="tex2html38503"
-  HREF="node2392.html">./inc/ucs.php</A>
-<B> Previous:</B> <A NAME="tex2html38497"
-  HREF="node2411.html">UCS_openFirewallPort</A>
- &nbsp; <B>  <A NAME="tex2html38505"
+<B> Next:</B> <A NAME="tex2html38566"
+  HREF="node2413.html">UCS_modifyClientIP</A>
+<B> Up:</B> <A NAME="tex2html38562"
+  HREF="node2406.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38556"
+  HREF="node2411.html">UCS_getGenericNetworkName</A>
+ &nbsp; <B>  <A NAME="tex2html38564"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097820000000000000000">
-UCS_addLDAPUser</A>
+<H2><A NAME="SECTION009786000000000000000">
+UCS_ensureNetworkObjectExists</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the UCS LDAP server.
+<SPAN  CLASS="textbf">Description:</SPAN> Makes sure that the network object exists in the UCS.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>account: the login name
+<LI>netmaskBits: Amount of set bits in the netmask.
 </LI>
-<LI>forename: the forename of the user
-</LI>
-<LI>familyname: the familyname of the user
-</LI>
-<LI>pwd: the unencrypted password
-</LI>
-<LI>uid: Linux user ID
-</LI>
-<LI>gid: Linux group ID
+<LI>networkIP: Network IP (ends with .0)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The output from udm after executing the parameters.
+<LI>: Generic name for a network object in UCS.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -84,7 +76,7 @@ UCS_addLDAPUser</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

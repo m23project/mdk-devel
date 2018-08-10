@@ -2947,6 +2947,9 @@
 \item maxSwap: Maximal size of the swap partition in MB.
 \end{itemize}
 
+\subsection{CFDiskBasic::PM\_auto2Disk1SysSwap2Home}
+\textbf{Description:} Automatically partitions two disks (1st for system + swap, 2nd for /home).\\
+
 \subsection{CFDiskBasic::createAllRaidJobs}
 \textbf{Description:} Generates the jobs to create all RAIDs.\\
 \textbf{Returns:}
@@ -5634,6 +5637,8 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item clientNameOrIP: The name of the client or localhost or an IP.
+\item skipLoop: Skip loopdevices in the output array, if set to true.
+\item skipEQL: Skip eqldevices in the output array, if set to true.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -6220,11 +6225,34 @@
 \textbf{Description:} Generates HTML code and tooltip containing the status of the client showing if it's dedicated and reachable.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item clientName: name of the client
+\item online: true, if client is online
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
 \item Associative array containg HTML code and tooltip 
+\end{itemize}
+
+\subsection{CLIENT\_sendPlymouthMessage}
+\textbf{Description:} If Plymouth is running, display a message\\
+\textbf{Parameter:}
+\begin{itemize}
+\item message: message to display
+\end{itemize}
+
+\subsection{CLIENT\_sendNotifySendMessage}
+\textbf{Description:} Send message to all users using notify-send\\
+\textbf{Parameter:}
+\begin{itemize}
+\item message: message to display
+\item icon\_path: icon shown
+\item must\_inform: respect client settings or force message display? default false
+\item timeout\_ms: timeout till message disapperas. default 0 (never)
+\item title: title of the message
+\item escape: escape the message for notify-send? default true
+\item timestamp: Show a timestamp at the beginning of the message. default true
+\item message: message to display
+\item icon\_path: icon shown
+\item must\_inform: respect client settings or force message display? default false
 \end{itemize}
 
 \newpage\section{./inc/Cm23AdminLister.php}
@@ -8313,6 +8341,12 @@
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_setSystime}
+\textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
+
+\subsection{CLCFG\_disableAptSystemdDaily}
+\textbf{Description:} Deactivates systemd apt-daily.timer.\\
+
 \subsection{CLCFG\_addPAMtoDM}
 \textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
 \textbf{Parameter:}
@@ -8588,7 +8622,8 @@
 \textbf{Parameter:}
 \begin{itemize}
 \item serverIP: IP of the server
-\item \$pathToKeyFile: path on the server where to get the key file from
+\item pathToKeyFile: path on the server where to get the key file from
+\item acceptyDSSKeys: Set to true, if SSH-DSS keys should be re-enabled
 \end{itemize}
 
 \subsection{CLCFG\_copyClientPackageStatus}
@@ -9036,6 +9071,10 @@
 \item client: Name of the client the packages are searched for. (Not used here and only for halfSister)
 \item completeDescription: If set to true, the full package description and sizes are fetched (time consuming)
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Amount of found packages.
+\end{itemize}
 
 \subsection{PKG\_getAptArchOptions}
 \textbf{Description:} Generates options to specify the architecture of a client that can be appended to an apt-get line.\\
@@ -9221,6 +9260,10 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item packagesource: name of the package source
 \item client: Name of the client the packages are searched for. (Not used here and only for halfSister)
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Amount of found packages.
+\end{itemize}
 
 \subsection{PKG\_previewInstall}
 \textbf{Description:} shows what happens if packages get (de)installed\\
@@ -9256,6 +9299,12 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/distr/imaging/clientConfigCommon.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
+
+\subsection{CLCFG\_setSystime}
+\textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
+
+\subsection{CLCFG\_disableAptSystemdDaily}
+\textbf{Description:} Deactivates systemd apt-daily.timer.\\
 
 \subsection{CLCFG\_addPAMtoDM}
 \textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
@@ -9532,7 +9581,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item serverIP: IP of the server
-\item \$pathToKeyFile: path on the server where to get the key file from
+\item pathToKeyFile: path on the server where to get the key file from
+\item acceptyDSSKeys: Set to true, if SSH-DSS keys should be re-enabled
 \end{itemize}
 
 \subsection{CLCFG\_copyClientPackageStatus}
@@ -9932,6 +9982,10 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item client: Name of the client the packages are searched for. (Not used here and only for halfSister)
 \item completeDescription: If set to true, the full package description and sizes are fetched (time consuming)
 \end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Amount of found packages.
+\end{itemize}
 
 \subsection{PKG\_getAptArchOptions}
 \textbf{Description:} Generates options to specify the architecture of a client that can be appended to an apt-get line.\\
@@ -10137,6 +10191,12 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/distr/ubuntu/clientConfigCommon.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
+
+\subsection{CLCFG\_setSystime}
+\textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
+
+\subsection{CLCFG\_disableAptSystemdDaily}
+\textbf{Description:} Deactivates systemd apt-daily.timer.\\
 
 \subsection{CLCFG\_addPAMtoDM}
 \textbf{Description:} Adds PAM modules (if present) to the pam.d configuration files.\\
@@ -10413,7 +10473,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item serverIP: IP of the server
-\item \$pathToKeyFile: path on the server where to get the key file from
+\item pathToKeyFile: path on the server where to get the key file from
+\item acceptyDSSKeys: Set to true, if SSH-DSS keys should be re-enabled
 \end{itemize}
 
 \subsection{CLCFG\_copyClientPackageStatus}
@@ -10861,6 +10922,10 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item packagesource: name of the package source
 \item client: Name of the client the packages are searched for. (Not used here and only for halfSister)
 \item completeDescription: If set to true, the full package description and sizes are fetched (time consuming)
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item : Amount of found packages.
 \end{itemize}
 
 \subsection{PKG\_getAptArchOptions}
@@ -12853,8 +12918,8 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \textbf{Parameter:}
 \begin{itemize}
 \item logFile: Name of the log file with full path.
-\item htmlH: If nummeric, the text will shown with the given HTML heading level.
 \item text: Text to add.
+\item htmlH: If nummeric, the text will shown with the given HTML heading level.
 \end{itemize}
 
 \subsection{HELPER\_splitDayHourMinuteString}
@@ -13414,6 +13479,15 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for generating often used HTML code\\
 
+\subsection{HTML\_waitAnimation}
+\textbf{Description:} Defines HTML code for showing a waiting animation and onClick code for insering into buttons. The JavaScript showing function is given out where the PHP function is called.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item \$htmlName: Base name for the defines and naming of the JavaScript function and DIVs.
+\item \$waitText: Text to show while the animation runs.
+\item \$width: Width for the animation image or unscaled if not set.
+\end{itemize}
+
 \subsection{HTML\_imgSwitch}
 \textbf{Description:} Defines an image button with two states and a text next to it.\\
 \textbf{Parameter:}
@@ -13828,6 +13902,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item size: Size (in characters) of the input line.
 \item maxlength: The maximum length of the entered text.
 \item type: Type of the edit line (INPUT\_TYPE\_text or INPUT\_TYPE\_password)
+\item extraHTML: Extra HTML/JavaScript code 
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -15807,6 +15882,20 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item online: The new online-state.
 \end{itemize}
 
+\subsection{MSR\_addMonitor}
+\textbf{Parameter:}
+\begin{itemize}
+\item vendor: The vendor of the monitor
+\item model: The model of the monitor
+\item edid: The monitor information
+\end{itemize}
+
+\subsection{MSR\_listMonitors}
+\textbf{Returns:}
+\begin{itemize}
+\item list of monitors
+\end{itemize}
+
 \newpage\section{./inc/packageBuilder.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for building pools.\\
@@ -17412,6 +17501,20 @@ Description: basic package operations (search, add,...)\\
 \item disabled: true, if live logging should be disabled globally for all clients otherwise false.
 \end{itemize}
 
+\subsection{SERVER\_isInstallReasonEnabled}
+\textbf{Description:} Determines, if the install reason feature is enabled\\
+\textbf{Returns:}
+\begin{itemize}
+\item : true, if the install reason feature is enabled, false otherwise
+\end{itemize}
+
+\subsection{SERVER\_setInstallReasonEnabled}
+\textbf{Description:} Enables the install reason feature\\
+\textbf{Parameter:}
+\begin{itemize}
+\item \$enabled true, if the install reason feature shall be enabled, false otherwise
+\end{itemize}
+
 \subsection{SERVER\_isUpdatePackageInfosDisabled}
 \textbf{Description:} Determines, if the updatePackageInfos job should NOT be added to any clients.\\
 \textbf{Returns:}
@@ -18519,6 +18622,17 @@ Description: basic package operations (search, add,...)\\
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for managing virtual clients.\\
 
+\subsection{VM\_isHost}
+\textbf{Description:} Check, if an m23 client is an VM host.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientName: Name of the m23 client.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item false, if no VM host software is installed on the client otherwise the number of VM software.
+\end{itemize}
+
 \subsection{VM\_captureVMScreenAsMovie}
 \textbf{Description:} Enables/disables capturing the screen of a VM to a movie file.\\
 \textbf{Parameter:}
@@ -18551,6 +18665,10 @@ Description: basic package operations (search, add,...)\\
 
 \subsection{VM\_isCloudStackClient}
 \textbf{Description:} Checks, if the client is run in CloudStack\\
+\textbf{Parameter:}
+\begin{itemize}
+\item clientname: CloudStack name of the instance / name of the m23 client.
+\end{itemize}
 \textbf{Returns:}
 \begin{itemize}
 \item true, when the client is run in CloudStack otherwise false.
@@ -18887,6 +19005,7 @@ Description: basic package operations (search, add,...)\\
 \begin{itemize}
 \item vmName: Name of the VM.
 \item action: Action for the VM given by the URL parameter.
+\item visual: Set to true, if the VM should be started in visual mode always.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -19100,6 +19219,8 @@ Description: basic package operations (search, add,...)\\
 \item diskName: Name of the virtual harddisk file.
 \item mac: MAC address of the virtual network card. It can be in the format 12:23:34:45:56:78 or 122334455678.
 \item netDev: Device of the real network card that is used to let the VM communictae with the outer world.
+\item imageDir: Base directory where to create the directory structure for storing the VM files.
+\item arch: Architecture of the VM (amd64 or i386)
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}

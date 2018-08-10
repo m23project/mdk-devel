@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DISTR_getDebianUserGroups</TITLE>
-<META NAME="description" CONTENT="DISTR_getDebianUserGroups">
+<TITLE>PKG_updatePackageInfo</TITLE>
+<META NAME="description" CONTENT="PKG_updatePackageInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1386.html">
 <LINK REL="previous" HREF="node1384.html">
-<LINK REL="up" HREF="node1383.html">
+<LINK REL="up" HREF="node1363.html">
 <LINK REL="next" HREF="node1386.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25255"
+<A NAME="tex2html25296"
   HREF="node1386.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25251"
-  HREF="node1383.html">
+<A NAME="tex2html25292"
+  HREF="node1363.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25245"
+<A NAME="tex2html25286"
   HREF="node1384.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25253"
+<A NAME="tex2html25294"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25256"
-  HREF="node1386.html">DISTR_releaseVersionTranslator</A>
-<B> Up:</B> <A NAME="tex2html25252"
-  HREF="node1383.html">./inc/distr.php</A>
-<B> Previous:</B> <A NAME="tex2html25246"
-  HREF="node1384.html">DISTR_getUbuntuUserGroups</A>
- &nbsp; <B>  <A NAME="tex2html25254"
+<B> Next:</B> <A NAME="tex2html25297"
+  HREF="node1386.html">PKG_previewInstall</A>
+<B> Up:</B> <A NAME="tex2html25293"
+  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25287"
+  HREF="node1384.html">PKG_preparePackageDir</A>
+ &nbsp; <B>  <A NAME="tex2html25295"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009472000000000000000">
-DISTR_getDebianUserGroups</A>
+<H2><A NAME="SECTION0094622000000000000000">
+PKG_updatePackageInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the default groups an user of a Debian system should be in.
+<SPAN  CLASS="textbf">Description:</SPAN> Updates the package information to make it searchable.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>arrayOrSeparator: If set to true, the groups are returned as array, otherwise the value is used as separator character.
+<LI>distr: the distribution name
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Default groups as array or as string, where the groups are separates by a separator character.
+<LI>packagesource: name of the package source
+</LI>
+<LI>force: set to true if you want to update the package info and the time is not over
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>changeTime: Writes the time when the status file was last modified to.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ DISTR_getDebianUserGroups</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

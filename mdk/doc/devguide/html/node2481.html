@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_insertBootISO</TITLE>
-<META NAME="description" CONTENT="VM_insertBootISO">
+<TITLE>VM_convertSwitchStatusInfo</TITLE>
+<META NAME="description" CONTENT="VM_convertSwitchStatusInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2482.html">
 <LINK REL="previous" HREF="node2480.html">
-<LINK REL="up" HREF="node2422.html">
+<LINK REL="up" HREF="node2436.html">
 <LINK REL="next" HREF="node2482.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39400"
+<A NAME="tex2html39460"
   HREF="node2482.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39396"
-  HREF="node2422.html">
+<A NAME="tex2html39456"
+  HREF="node2436.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39390"
+<A NAME="tex2html39450"
   HREF="node2480.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39398"
+<A NAME="tex2html39458"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39401"
-  HREF="node2482.html">VM_startVMInExistingXSession</A>
-<B> Up:</B> <A NAME="tex2html39397"
-  HREF="node2422.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39391"
-  HREF="node2480.html">VM_createVM</A>
- &nbsp; <B>  <A NAME="tex2html39399"
+<B> Next:</B> <A NAME="tex2html39461"
+  HREF="node2482.html">VM_getSWandHost</A>
+<B> Up:</B> <A NAME="tex2html39457"
+  HREF="node2436.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39451"
+  HREF="node2480.html">VM_activateNetboot</A>
+ &nbsp; <B>  <A NAME="tex2html39459"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098059000000000000000">
-VM_insertBootISO</A>
+<H2><A NAME="SECTION0098045000000000000000">
+VM_convertSwitchStatusInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Inserts a bootable ISO into a VM.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the status of a VM guest in several ways.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
-</LI>
-<LI>vmName: Name of the VM.
-</LI>
-<LI>iso: ISO file with full path.
+<LI>status: Status of the VM guest (one of VM_STATE_*)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>BASH code to insert a bootable ISO into a VM.
+<LI>Associative array with: $out['text']: The status as text in the current language. $out['icon']: The icon of the given status (as traffic lights). $out['imgTag']: The status as traffic light in an HTML img tag with the written status as title.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ VM_insertBootISO</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

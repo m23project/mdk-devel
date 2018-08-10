@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_listPartitions">
+<TITLE>FDISK_delFstab</TITLE>
+<META NAME="description" CONTENT="FDISK_delFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1595.html">
 <LINK REL="previous" HREF="node1593.html">
-<LINK REL="up" HREF="node1538.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1595.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27999"
+<A NAME="tex2html28053"
   HREF="node1595.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27995"
-  HREF="node1538.html">
+<A NAME="tex2html28049"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27989"
+<A NAME="tex2html28043"
   HREF="node1593.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27997"
+<A NAME="tex2html28051"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28000"
-  HREF="node1595.html">FDISK_definePartitionSelection</A>
-<B> Up:</B> <A NAME="tex2html27996"
-  HREF="node1538.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27990"
-  HREF="node1593.html">FDISK_addPart</A>
- &nbsp; <B>  <A NAME="tex2html27998"
+<B> Next:</B> <A NAME="tex2html28054"
+  HREF="node1595.html">FDISK_listFstab</A>
+<B> Up:</B> <A NAME="tex2html28050"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28044"
+  HREF="node1593.html">FDISK_addFstab</A>
+ &nbsp; <B>  <A NAME="tex2html28052"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095256000000000000000">
-FDISK_listPartitions</A>
+<H2><A NAME="SECTION0095247000000000000000">
+FDISK_delFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> lists the partitions (/dev/hda1, /dev/hda2, ...) of a device and generates a selection
+<SPAN  CLASS="textbf">Description:</SPAN> Removes an entry from the fstab array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>fstab: Array that contains the fstab information. The changed fstab will be written to this parameter too.
 </LI>
-<LI>vDev: Virtual (internally used) device number or -1, if all partitions on all devices should be listed.
-</LI>
-<LI>selName: name of the selection
-</LI>
-<LI>excludeType: type of partitions, not to show in the selection
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>HTML code for the selection.
+<LI>fstabNr: Number of the fstab entry to delete.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +70,7 @@ FDISK_listPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

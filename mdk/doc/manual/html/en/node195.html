@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Background processes</TITLE>
-<META NAME="description" CONTENT="Background processes">
+<TITLE>Unset update times and remove client groups</TITLE>
+<META NAME="description" CONTENT="Unset update times and remove client groups">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,83 +19,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node196.html">
 <LINK REL="previous" HREF="node194.html">
-<LINK REL="up" HREF="node191.html">
+<LINK REL="up" HREF="node192.html">
 <LINK REL="next" HREF="node196.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3071"
+<A NAME="tex2html3077"
   HREF="node196.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3067"
-  HREF="node191.html">
+<A NAME="tex2html3073"
+  HREF="node192.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3063"
+<A NAME="tex2html3067"
   HREF="node194.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3069"
+<A NAME="tex2html3075"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3072"
-  HREF="node196.html">Edit package sources</A>
-<B> Up:</B> <A NAME="tex2html3068"
-  HREF="node191.html">Automatical update</A>
-<B> Previous:</B> <A NAME="tex2html3064"
-  HREF="node194.html">Unset update times and</A>
- &nbsp; <B>  <A NAME="tex2html3070"
+<B> Next:</B> <A NAME="tex2html3078"
+  HREF="node196.html">Background processes</A>
+<B> Up:</B> <A NAME="tex2html3074"
+  HREF="node192.html">Automatical update</A>
+<B> Previous:</B> <A NAME="tex2html3068"
+  HREF="node194.html">Adding update times and</A>
+ &nbsp; <B>  <A NAME="tex2html3076"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001244000000000000000">
-Background processes</A>
+<H2><A NAME="SECTION001243000000000000000">
+Unset update times and remove client groups</A>
 </H2>
-When there is (at least) one update group, a cron job will be started in 15-minute intervals, and will check for clients that can be updated.
+When you click on the <SPAN  CLASS="textit">red x</SPAN> that follows a period of time or a client group, you can remove them from the update group. To remove the whole update group from the list, click on <SPAN  CLASS="textit">''Delete''</SPAN> in the corresponding group's row.
 <BR>
-This will boot clients successively, while restricting the number of clients in the update group that are updating to the number given at <SPAN  CLASS="textit">''Simultaneous updates''</SPAN>. When the time frame for the currently active update group has terminated, further clients in the group will not be updated this time. Running updates will not be cancelled.
-<BR>
-In addition to this, m23 checks if the update on the clients is actually executed. If the client doesn't start to update within 30 minutes (e.g. because Wake-on-LAN doesn't work), the update job will be retracted, and for the next 24 hours, no further attempts to update will be undertaken.
-<BR>
-When the client is already running, the updates will be executed in the background. Clients that have been booted by WOL will be shut down after the update has completed.
-<BR>
-When all clients within an update group are done updating, the next group with a sui time interval will be activated (if there is one).
-<BR>
-When the last remaining update group is removed, the cron job entry will also be removed.
-<BR>
-In the log file <SPAN  CLASS="textit">''/m23/log/autoUpdate.log''</SPAN> you will find more info about the updates that were run.
-<BR>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html3071"
-  HREF="node196.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3067"
-  HREF="node191.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3063"
-  HREF="node194.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3069"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html3072"
-  HREF="node196.html">Edit package sources</A>
-<B> Up:</B> <A NAME="tex2html3068"
-  HREF="node191.html">Automatical update</A>
-<B> Previous:</B> <A NAME="tex2html3064"
-  HREF="node194.html">Unset update times and</A>
- &nbsp; <B>  <A NAME="tex2html3070"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 root
-2018-01-09
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

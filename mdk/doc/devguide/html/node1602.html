@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_getPartitions">
+<TITLE>FDISK_addPart</TITLE>
+<META NAME="description" CONTENT="FDISK_addPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1603.html">
 <LINK REL="previous" HREF="node1601.html">
-<LINK REL="up" HREF="node1538.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1603.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28095"
+<A NAME="tex2html28149"
   HREF="node1603.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28091"
-  HREF="node1538.html">
+<A NAME="tex2html28145"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28085"
+<A NAME="tex2html28139"
   HREF="node1601.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28093"
+<A NAME="tex2html28147"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28096"
-  HREF="node1603.html">FDISK_getPartInfoString</A>
-<B> Up:</B> <A NAME="tex2html28092"
-  HREF="node1538.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28086"
-  HREF="node1601.html">FDISK_getBeforeFristPartition</A>
- &nbsp; <B>  <A NAME="tex2html28094"
+<B> Next:</B> <A NAME="tex2html28150"
+  HREF="node1603.html">FDISK_listPartitions</A>
+<B> Up:</B> <A NAME="tex2html28146"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28140"
+  HREF="node1601.html">FDISK_delPart</A>
+ &nbsp; <B>  <A NAME="tex2html28148"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095264000000000000000">
-FDISK_getPartitions</A>
+<H2><A NAME="SECTION0095255000000000000000">
+FDISK_addPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> get the partition info for the client from db
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param string and generates the parted commands
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: name of the client
+<LI>param: parameter string containing status informations about the harddisks
+</LI>
+<LI>partJobs: parted commands
+</LI>
+<LI>vDev: virtuell internal used device number.
+</LI>
+<LI>start: start position for the search
+</LI>
+<LI>end: end position for the search
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>freeSpaces: array of the free space information
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Changed param string.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +86,7 @@ FDISK_getPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

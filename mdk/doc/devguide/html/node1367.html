@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_fastGetNewInstalledPackages</TITLE>
-<META NAME="description" CONTENT="PKG_fastGetNewInstalledPackages">
+<TITLE>PKG_searchPackageSearchCacheFileCMD</TITLE>
+<META NAME="description" CONTENT="PKG_searchPackageSearchCacheFileCMD">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1368.html">
 <LINK REL="previous" HREF="node1366.html">
-<LINK REL="up" HREF="node1356.html">
+<LINK REL="up" HREF="node1363.html">
 <LINK REL="next" HREF="node1368.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25028"
+<A NAME="tex2html25080"
   HREF="node1368.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25024"
-  HREF="node1356.html">
+<A NAME="tex2html25076"
+  HREF="node1363.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25018"
+<A NAME="tex2html25070"
   HREF="node1366.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25026"
+<A NAME="tex2html25078"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25029"
-  HREF="node1368.html">PKG_searchFor</A>
-<B> Up:</B> <A NAME="tex2html25025"
-  HREF="node1356.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html25019"
-  HREF="node1366.html">PKG_fastGetInstalledPackages</A>
- &nbsp; <B>  <A NAME="tex2html25027"
+<B> Next:</B> <A NAME="tex2html25081"
+  HREF="node1368.html">PKG_ncTarDebsFromClientToServer_Client</A>
+<B> Up:</B> <A NAME="tex2html25077"
+  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25071"
+  HREF="node1366.html">PKG_genPackageSearchCacheFileCMD</A>
+ &nbsp; <B>  <A NAME="tex2html25079"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094611000000000000000">
-PKG_fastGetNewInstalledPackages</A>
+<H2><A NAME="SECTION009464000000000000000">
+PKG_searchPackageSearchCacheFileCMD</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets new installed packages by comparing status files (before and after the installation).
+<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH commands to search a compressed package search file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>oldStatusFile: File with the list of all installed packages before the installation of the new packages
+<LI>dir: Directory where the package information is stored.
 </LI>
-<LI>newStatusFile: File with the list of all installed packages after the installation of the new packages
+<LI>arch: Architecture for the packages in the search file.
 </LI>
-<LI>storeFile: File name to store the list of new installed on the client.
+<LI>search: Search terms.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>BASH commands to search a compressed package search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +78,7 @@ PKG_fastGetNewInstalledPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

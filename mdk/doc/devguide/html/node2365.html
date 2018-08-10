@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getDescription</TITLE>
-<META NAME="description" CONTENT="SRCLST_getDescription">
+<TITLE>SERVER_multiMkDir</TITLE>
+<META NAME="description" CONTENT="SERVER_multiMkDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2366.html">
 <LINK REL="previous" HREF="node2364.html">
-<LINK REL="up" HREF="node2353.html">
+<LINK REL="up" HREF="node2303.html">
 <LINK REL="next" HREF="node2366.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37920"
+<A NAME="tex2html37943"
   HREF="node2366.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37916"
-  HREF="node2353.html">
+<A NAME="tex2html37939"
+  HREF="node2303.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37910"
+<A NAME="tex2html37933"
   HREF="node2364.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37918"
+<A NAME="tex2html37941"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37921"
-  HREF="node2366.html">SRCLST_delete</A>
-<B> Up:</B> <A NAME="tex2html37917"
-  HREF="node2353.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html37911"
-  HREF="node2364.html">SRCLST_loadSourceList</A>
- &nbsp; <B>  <A NAME="tex2html37919"
+<B> Next:</B> <A NAME="tex2html37944"
+  HREF="node2366.html">SERVER_commandAvailable</A>
+<B> Up:</B> <A NAME="tex2html37940"
+  HREF="node2303.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37934"
+  HREF="node2364.html">SERVER_checkKernel</A>
+ &nbsp; <B>  <A NAME="tex2html37942"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097712000000000000000">
-SRCLST_getDescription</A>
+<H2><A NAME="SECTION0097662000000000000000">
+SERVER_multiMkDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returnes the the package source description
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a directory and all needed directories on the way to the destination path.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>name: the name of the package source list
+<LI>path: The complete path to create.
+</LI>
+<LI>mode: The access mode of the path to create (should start with "0" e.g. 0777)
+</LI>
+<LI>user: User name to create the directory for. If no name is given, the directory will be created for the Apache user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ SRCLST_getDescription</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

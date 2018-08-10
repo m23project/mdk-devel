@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorage::destroy</TITLE>
-<META NAME="description" CONTENT="CObjectStorage::destroy">
+<TITLE>CObjectStorage::__construct</TITLE>
+<META NAME="description" CONTENT="CObjectStorage::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node921.html">
 <LINK REL="previous" HREF="node919.html">
-<LINK REL="up" HREF="node915.html">
+<LINK REL="up" HREF="node918.html">
 <LINK REL="next" HREF="node921.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19255"
+<A NAME="tex2html19305"
   HREF="node921.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19251"
-  HREF="node915.html">
+<A NAME="tex2html19301"
+  HREF="node918.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19247"
+<A NAME="tex2html19295"
   HREF="node919.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19253"
+<A NAME="tex2html19303"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19256"
-  HREF="node921.html">./inc/CPackageStatusCompare.php</A>
-<B> Up:</B> <A NAME="tex2html19252"
-  HREF="node915.html">./inc/CObjectStorage.php</A>
-<B> Previous:</B> <A NAME="tex2html19248"
-  HREF="node919.html">CObjectStorage::getObject</A>
- &nbsp; <B>  <A NAME="tex2html19254"
+<B> Next:</B> <A NAME="tex2html19306"
+  HREF="node921.html">CObjectStorage::__destruct</A>
+<B> Up:</B> <A NAME="tex2html19302"
+  HREF="node918.html">./inc/CObjectStorage.php</A>
+<B> Previous:</B> <A NAME="tex2html19296"
+  HREF="node919.html">CObjectStorage::statusCodeToHumanReadable</A>
+ &nbsp; <B>  <A NAME="tex2html19304"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009275000000000000000">
-CObjectStorage::destroy</A>
+<H2><A NAME="SECTION009272000000000000000">
+CObjectStorage::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Destroys the 
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new CObjectStorage objects. The object saves/updates or loads an object.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Human readable status.
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>classOrObject: Class name of the object or the object itself.
+</LI>
+<LI>readFromDBIfObjectExists: Set to true, if an existing object should read from the DB, even if an object is given.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -67,7 +72,7 @@ CObjectStorage::destroy</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Clé GPG pour signer le paquet source</TITLE>
-<META NAME="description" CONTENT="Clé GPG pour signer le paquet source">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,54 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node201.html">
 <LINK REL="previous" HREF="node199.html">
-<LINK REL="up" HREF="node197.html">
+<LINK REL="up" HREF="node198.html">
 <LINK REL="next" HREF="node201.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3108"
+<A NAME="tex2html3114"
   HREF="node201.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3104"
-  HREF="node197.html">
+<A NAME="tex2html3110"
+  HREF="node198.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3100"
+<A NAME="tex2html3104"
   HREF="node199.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3106"
+<A NAME="tex2html3112"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html3109"
-  HREF="node201.html">Éditeur de scripts</A>
-<B> monter:</B> <A NAME="tex2html3105"
-  HREF="node197.html">Constructeur de paquets</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3101"
-  HREF="node199.html">BitTorrent</A>
- &nbsp; <B>  <A NAME="tex2html3107"
+<B> suivant:</B> <A NAME="tex2html3115"
+  HREF="node201.html">Clé GPG pour signer</A>
+<B> monter:</B> <A NAME="tex2html3111"
+  HREF="node198.html">Constructeur de paquets</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3105"
+  HREF="node199.html">Notez</A>
+ &nbsp; <B>  <A NAME="tex2html3113"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001363000000000000000">
-Cl&#233; GPG pour signer le paquet source</A>
+<H2><A NAME="SECTION001362000000000000000">
+BitTorrent</A>
 </H2>
-Selectionnez la cl&#195;&#169; GPG priv&#195;&#169;e &#195;&nbsp; utiliser pour la signature des paquets sources devant &#195;^atres cr&#195;&#169;&#195;&#169;s par votre serveur m23. La cl&#195;&#169; publique correspondante sera transf&#195;&#169;r&#195;&#169;e sur les clients m23, ceci permettra de valider l'authenticit&#195;&#169; des paquets provenant de votre serveur m23.
+Lorsque vous souhaitez distribuer des fichiers volumineux &#224; plusieurs ordinateurs clients tout en r&#233;duisant la charge induite sur le serveur, vous pouvez utiliser la fonctionnalit&#233; BitTorrent. BitTorrent rend possible le partage des fichiers d&#233;j&#224; t&#233;l&#233;charg&#233;s sur des clients m23 pour les autres clients, (dans le cas id&#233;al) le serveur m23 ne transf&#233;rera le fichier qu'une seule fois.
 <BR>
-Lorsque <SPAN  CLASS="textit">''Cl&#233; GPG en cours d'utilisation''</SPAN>, la cl&#195;&#169; en cours d'utilisation est affich&#195;&#169;e. Si aucune cl&#195;&#169; n'apparait, les paquets ne seront pas sign&#195;&#169;s.
+Pour utiliser Bittorrent, suivez ces &#233;tapes:
 <BR>
-Afin de pouvoir utiliser une cl&#195;&#169; GPG priv&#195;&#169;e, s&#195;&#169;lectionnez en une dans la liste puis cliquez sur <SPAN  CLASS="textit">''Choisir''</SPAN>. La cl&#195;&#169; GPG sera d&#195;&#168;s apr&#195;&#169;sent utilis&#195;&#169;e pour signer tous les paquets sources cr&#195;&#169;&#195;&#169;s ou modifi&#195;&#169;s; ces paquets seront par la m&#195;^ame occasion transf&#195;&#169;r&#195;&#169;s sur les clients.
-<BR>
-Si vous d&#195;&#169;sirez supprimer ou ajouter une cl&#195;&#169; GPG, cliquez sur <SPAN  CLASS="textit">''G&#233;rer les cl&#233;s GPG''</SPAN>.
-<BR>
+<OL>
+<LI>Copiez le(s) fichier(s) &#224; transf&#233;rer sur les clients dans le r&#233;pertoire <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> de votre serveur m23.
+<BR></LI>
+<LI>Cliquez sur le bouton <SPAN  CLASS="textit">''Cr&#233;ation du .torrent''</SPAN> sous le fichier correspondant.
+<BR></LI>
+<LI>Dans vos propres scripts, utilisez la fonction m23 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-11
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

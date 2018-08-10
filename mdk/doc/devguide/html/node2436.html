@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStackClientName2ClientID</TITLE>
-<META NAME="description" CONTENT="VM_CloudStackClientName2ClientID">
+<TITLE>./inc/vm.php</TITLE>
+<META NAME="description" CONTENT="./inc/vm.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,197 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2437.html">
-<LINK REL="previous" HREF="node2435.html">
-<LINK REL="up" HREF="node2422.html">
+<LINK REL="previous" HREF="node2431.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node2437.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38860"
+<A NAME="tex2html38851"
   HREF="node2437.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38856"
-  HREF="node2422.html">
+<A NAME="tex2html38847"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38850"
+<A NAME="tex2html38843"
   HREF="node2435.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38858"
+<A NAME="tex2html38849"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38861"
-  HREF="node2437.html">VM_CloudStackNetBootActivate</A>
-<B> Up:</B> <A NAME="tex2html38857"
-  HREF="node2422.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38851"
-  HREF="node2435.html">VM_CloudStackGetVMStatus</A>
- &nbsp; <B>  <A NAME="tex2html38859"
+<B> Next:</B> <A NAME="tex2html38852"
+  HREF="node2437.html">VM_isHost</A>
+<B> Up:</B> <A NAME="tex2html38848"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html38844"
+  HREF="node2435.html">UPDATE_getInfo</A>
+ &nbsp; <B>  <A NAME="tex2html38850"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098014000000000000000">
-VM_CloudStackClientName2ClientID</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns the Cloudstack-ID of a client with the given client host name
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>clientname: Host name of the virtual machine
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Cloudstack-Client-ID if the clientname can be retrieved, False otherwise 
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009800000000000000000">
+./inc/vm.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for managing virtual clients.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html38853"
+  HREF="node2437.html">VM_isHost</A>
+<LI><A NAME="tex2html38854"
+  HREF="node2438.html">VM_captureVMScreenAsMovie</A>
+<LI><A NAME="tex2html38855"
+  HREF="node2439.html">VM_CloudStackDeleteClientVM</A>
+<LI><A NAME="tex2html38856"
+  HREF="node2440.html">VM_isCloudStackClient</A>
+<LI><A NAME="tex2html38857"
+  HREF="node2441.html">VM_CloudStackCheckConstants</A>
+<LI><A NAME="tex2html38858"
+  HREF="node2442.html">VM_CloudStackConfigGUI</A>
+<LI><A NAME="tex2html38859"
+  HREF="node2443.html">VM_CloudStackWriteConfFile</A>
+<LI><A NAME="tex2html38860"
+  HREF="node2444.html">VM_CloudStackUploadIso</A>
+<LI><A NAME="tex2html38861"
+  HREF="node2445.html">VM_CloudStackEnablePortForwarding</A>
+<LI><A NAME="tex2html38862"
+  HREF="node2446.html">VM_CloudStackDisablePortForwarding</A>
+<LI><A NAME="tex2html38863"
+  HREF="node2447.html">VM_CloudStackSendSetVisualURL</A>
+<LI><A NAME="tex2html38864"
+  HREF="node2448.html">VM_CloudStackStartVM</A>
+<LI><A NAME="tex2html38865"
+  HREF="node2449.html">VM_CloudStackStopVM</A>
+<LI><A NAME="tex2html38866"
+  HREF="node2450.html">VM_CloudStackGetVMStatus</A>
+<LI><A NAME="tex2html38867"
+  HREF="node2451.html">VM_CloudStackClientName2ClientID</A>
+<LI><A NAME="tex2html38868"
+  HREF="node2452.html">VM_CloudStackNetBootActivate</A>
+<LI><A NAME="tex2html38869"
+  HREF="node2453.html">VM_CloudStackCreateVM</A>
+<LI><A NAME="tex2html38870"
+  HREF="node2454.html">VM_CloudStack_getServerIP</A>
+<LI><A NAME="tex2html38871"
+  HREF="node2455.html">VM_GUIstepCreateCloudStackVM</A>
+<LI><A NAME="tex2html38872"
+  HREF="node2456.html">VM_CloudStack_available</A>
+<LI><A NAME="tex2html38873"
+  HREF="node2457.html">VM_CloudStack_getObject</A>
+<LI><A NAME="tex2html38874"
+  HREF="node2458.html">VM_CloudStack_getVersion</A>
+<LI><A NAME="tex2html38875"
+  HREF="node2459.html">VM_shutdownAndDisableNetbootAfterInstall</A>
+<LI><A NAME="tex2html38876"
+  HREF="node2460.html">VM_rebootAndActivateNetboot</A>
+<LI><A NAME="tex2html38877"
+  HREF="node2461.html">VM_shutdownAndDisableNetbootAfterInstall</A>
+<LI><A NAME="tex2html38878"
+  HREF="node2462.html">VM_shutdownAndDisableNetboot</A>
+<LI><A NAME="tex2html38879"
+  HREF="node2463.html">VM_rebootChangeBootDevice</A>
+<LI><A NAME="tex2html38880"
+  HREF="node2464.html">VM_getVBoxVersion</A>
+<LI><A NAME="tex2html38881"
+  HREF="node2465.html">VM_setVBoxAddonAsDefault</A>
+<LI><A NAME="tex2html38882"
+  HREF="node2466.html">VM_downloadedVBoxAddons</A>
+<LI><A NAME="tex2html38883"
+  HREF="node2467.html">VM_getVBoxAddonDefaultVersion</A>
+<LI><A NAME="tex2html38884"
+  HREF="node2468.html">VM_generateVBOXaddonDownloadCMD</A>
+<LI><A NAME="tex2html38885"
+  HREF="node2469.html">VM_downloadVBOXaddons</A>
+<LI><A NAME="tex2html38886"
+  HREF="node2470.html">VM_VBOXaddonDownloadDialog</A>
+<LI><A NAME="tex2html38887"
+  HREF="node2471.html">VM_wasVBoxAddonDownloaded</A>
+<LI><A NAME="tex2html38888"
+  HREF="node2472.html">VM_listDownloadableVBoxAddons</A>
+<LI><A NAME="tex2html38889"
+  HREF="node2473.html">VM_stopVM</A>
+<LI><A NAME="tex2html38890"
+  HREF="node2474.html">VM_pauseVM</A>
+<LI><A NAME="tex2html38891"
+  HREF="node2475.html">VM_resumeVM</A>
+<LI><A NAME="tex2html38892"
+  HREF="node2476.html">VM_webAction</A>
+<LI><A NAME="tex2html38893"
+  HREF="node2477.html">VM_delete</A>
+<LI><A NAME="tex2html38894"
+  HREF="node2478.html">VM_vmSwNr2Name</A>
+<LI><A NAME="tex2html38895"
+  HREF="node2479.html">VM_getHTMLStatusBlock</A>
+<LI><A NAME="tex2html38896"
+  HREF="node2480.html">VM_activateNetboot</A>
+<LI><A NAME="tex2html38897"
+  HREF="node2481.html">VM_convertSwitchStatusInfo</A>
+<LI><A NAME="tex2html38898"
+  HREF="node2482.html">VM_getSWandHost</A>
+<LI><A NAME="tex2html38899"
+  HREF="node2483.html">VM_getStatus</A>
+<LI><A NAME="tex2html38900"
+  HREF="node2484.html">VM_GUIstepCreateGuest</A>
+<LI><A NAME="tex2html38901"
+  HREF="node2485.html">VM_GUIstepCheckHost</A>
+<LI><A NAME="tex2html38902"
+  HREF="node2486.html">VM_GUIstepSelectHost</A>
+<LI><A NAME="tex2html38903"
+  HREF="node2487.html">VM_getAllVMHosts</A>
+<LI><A NAME="tex2html38904"
+  HREF="node2488.html">VM_setVisualURL</A>
+<LI><A NAME="tex2html38905"
+  HREF="node2489.html">VM_setHostInDB</A>
+<LI><A NAME="tex2html38906"
+  HREF="node2490.html">VM_setGuestInDB</A>
+<LI><A NAME="tex2html38907"
+  HREF="node2491.html">VM_statusIcons</A>
+<LI><A NAME="tex2html38908"
+  HREF="node2492.html">VM_createDiskImage</A>
+<LI><A NAME="tex2html38909"
+  HREF="node2493.html">VM_delVMCMD</A>
+<LI><A NAME="tex2html38910"
+  HREF="node2494.html">VM_activateNetbootCMD</A>
+<LI><A NAME="tex2html38911"
+  HREF="node2495.html">VM_createVM</A>
+<LI><A NAME="tex2html38912"
+  HREF="node2496.html">VM_insertBootISO</A>
+<LI><A NAME="tex2html38913"
+  HREF="node2497.html">VM_startVMInExistingXSession</A>
+<LI><A NAME="tex2html38914"
+  HREF="node2498.html">VM_startVM</A>
+<LI><A NAME="tex2html38915"
+  HREF="node2499.html">VM_startVMCommandFile</A>
+<LI><A NAME="tex2html38916"
+  HREF="node2500.html">VM_stopVMCommandFile</A>
+<LI><A NAME="tex2html38917"
+  HREF="node2501.html">VM_status</A>
+<LI><A NAME="tex2html38918"
+  HREF="node2502.html">VM_parseVBOXdisk</A>
+<LI><A NAME="tex2html38919"
+  HREF="node2503.html">VM_parseVBOXstate</A>
+<LI><A NAME="tex2html38920"
+  HREF="node2504.html">VM_parseVBOXNic</A>
+<LI><A NAME="tex2html38921"
+  HREF="node2505.html">VM_parseStatus</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

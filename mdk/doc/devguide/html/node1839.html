@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_storableSelection</TITLE>
-<META NAME="description" CONTENT="HTML_storableSelection">
+<TITLE>HTML_setStatusBarStatusByID</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatusByID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1840.html">
 <LINK REL="previous" HREF="node1838.html">
-<LINK REL="up" HREF="node1798.html">
+<LINK REL="up" HREF="node1807.html">
 <LINK REL="next" HREF="node1840.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31138"
+<A NAME="tex2html31193"
   HREF="node1840.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31134"
-  HREF="node1798.html">
+<A NAME="tex2html31189"
+  HREF="node1807.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31128"
+<A NAME="tex2html31183"
   HREF="node1838.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31136"
+<A NAME="tex2html31191"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31139"
-  HREF="node1840.html">HTML_storableMultiSelection</A>
-<B> Up:</B> <A NAME="tex2html31135"
-  HREF="node1798.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html31129"
-  HREF="node1838.html">HTML_storableInput</A>
- &nbsp; <B>  <A NAME="tex2html31137"
+<B> Next:</B> <A NAME="tex2html31194"
+  HREF="node1840.html">HTML_setStatusBarStatus</A>
+<B> Up:</B> <A NAME="tex2html31190"
+  HREF="node1807.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31184"
+  HREF="node1838.html">HTML_setStatusBarStatusByName</A>
+ &nbsp; <B>  <A NAME="tex2html31192"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095741000000000000000">
-HTML_storableSelection</A>
+<H2><A NAME="SECTION0095732000000000000000">
+HTML_setStatusBarStatusByID</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of radio buttons or a selection with loading and storing the checking state to and from the session.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by status bar ID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlName: Name of the HTML element.
+<LI>id: ID of the status bar
 </LI>
-<LI>prefKey: Variable name of the preference the dialog element stands for.
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
 </LI>
-<LI>array: An array that hold the returned values (array keys) the naming for the elements (array values).
-</LI>
-<LI>type: SELTYPE_selection for a selection or SELTYPE_radio for radio buttons.
-</LI>
-<LI>vertical: Set to true if the radio buttons should be aligned vertically or to false for horizontal aligning. This parameter is ignored by selections.
-</LI>
-<LI>defaultSelection: The value of the item to select by default.
-</LI>
-<LI>storePointer: Additional pointer to the variable where to store the entered value.
-</LI>
-<LI>js: Here can JavaScript or other parameters be added.
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if the check box is checked.
+<LI>: false on parameter error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -88,7 +78,7 @@ HTML_storableSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

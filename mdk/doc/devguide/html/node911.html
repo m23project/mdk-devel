@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorageManager::getCOSI18NVariable</TITLE>
-<META NAME="description" CONTENT="CObjectStorageManager::getCOSI18NVariable">
+<TITLE>CObjectStorageManager::getObjectMethodReturnValue</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getObjectMethodReturnValue">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node912.html">
 <LINK REL="previous" HREF="node910.html">
-<LINK REL="up" HREF="node901.html">
+<LINK REL="up" HREF="node904.html">
 <LINK REL="next" HREF="node912.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19146"
+<A NAME="tex2html19194"
   HREF="node912.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19142"
-  HREF="node901.html">
+<A NAME="tex2html19190"
+  HREF="node904.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19136"
+<A NAME="tex2html19184"
   HREF="node910.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19144"
+<A NAME="tex2html19192"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19147"
-  HREF="node912.html">CObjectStorageManager::getCOSDescription</A>
-<B> Up:</B> <A NAME="tex2html19143"
-  HREF="node901.html">./inc/CObjectStorageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html19137"
-  HREF="node910.html">CObjectStorageManager::getCOSStatusHumanReadable</A>
- &nbsp; <B>  <A NAME="tex2html19145"
+<B> Next:</B> <A NAME="tex2html19195"
+  HREF="node912.html">CObjectStorageManager::getCOSStatus</A>
+<B> Up:</B> <A NAME="tex2html19191"
+  HREF="node904.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19185"
+  HREF="node910.html">CObjectStorageManager::deleteObject</A>
+ &nbsp; <B>  <A NAME="tex2html19193"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092610000000000000000">
-CObjectStorageManager::getCOSI18NVariable</A>
+<H2><A NAME="SECTION009267000000000000000">
+CObjectStorageManager::getObjectMethodReturnValue</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the contents of an I18N variable for the object (if it exists).
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if an objects implements a method, calls it and returns the return value. If the method is unimplemented, an error value will be returned.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>object: Object to use or null, if $this-<SPAN CLASS="MATH"></SPAN>object should be used.
+<LI>object: Object to use.
 </LI>
-<LI>varPostfix: String to add to the name of the I18N variable.
+<LI>fkt: Name of the function (method)
 </LI>
-<LI>errMsg: Die message to display if the I18N variable is not set.
+<LI>error: Error value to return, if the method is unimplemented.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Contents of the the I18N variable.
+<LI>Return value of the implemented method or given error value if unimplemented.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ CObjectStorageManager::getCOSI18NVariable</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

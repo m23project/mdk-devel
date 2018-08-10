@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_bootTypeToNewFormat</TITLE>
-<META NAME="description" CONTENT="DHCP_bootTypeToNewFormat">
+<TITLE>DHCP_getDynamicRanges</TITLE>
+<META NAME="description" CONTENT="DHCP_getDynamicRanges">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1136.html">
 <LINK REL="previous" HREF="node1134.html">
-<LINK REL="up" HREF="node1126.html">
+<LINK REL="up" HREF="node1129.html">
 <LINK REL="next" HREF="node1136.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22032"
+<A NAME="tex2html22080"
   HREF="node1136.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22028"
-  HREF="node1126.html">
+<A NAME="tex2html22076"
+  HREF="node1129.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22022"
+<A NAME="tex2html22070"
   HREF="node1134.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22030"
+<A NAME="tex2html22078"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22033"
-  HREF="node1136.html">DHCP_runScript</A>
-<B> Up:</B> <A NAME="tex2html22029"
-  HREF="node1126.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html22023"
-  HREF="node1134.html">DHCP_delDynamicRange</A>
- &nbsp; <B>  <A NAME="tex2html22031"
+<B> Next:</B> <A NAME="tex2html22081"
+  HREF="node1136.html">DHCP_getNetmaskOfDynamicRanges</A>
+<B> Up:</B> <A NAME="tex2html22077"
+  HREF="node1129.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html22071"
+  HREF="node1134.html">DHCP_addDynamicRange</A>
+ &nbsp; <B>  <A NAME="tex2html22079"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009389000000000000000">
-DHCP_bootTypeToNewFormat</A>
+<H2><A NAME="SECTION009386000000000000000">
+DHCP_getDynamicRanges</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Converts a boolean boot type to the new string format.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all dynamic IP ranges from the dhcpd.conf.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>bootType: Boolean or string format (e.g. "pxe") boot type.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>String format (e.g. "pxe") boot type.
+<LI>Associative array with the found IP ranges (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [netmask] =<SPAN CLASS="MATH"></SPAN> 255.255.255.0 [firstIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.10 [lastIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.200 [gateway] =<SPAN CLASS="MATH"></SPAN> 192.168.1.1 ) [1] =<SPAN CLASS="MATH"></SPAN> ...)) or empty array.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ DHCP_bootTypeToNewFormat</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

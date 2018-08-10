@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getQuestionnaireURL</TITLE>
-<META NAME="description" CONTENT="HTML_getQuestionnaireURL">
+<TITLE>HTML_AJAXAutoSubmit</TITLE>
+<META NAME="description" CONTENT="HTML_AJAXAutoSubmit">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1818.html">
 <LINK REL="previous" HREF="node1816.html">
-<LINK REL="up" HREF="node1798.html">
+<LINK REL="up" HREF="node1807.html">
 <LINK REL="next" HREF="node1818.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30874"
+<A NAME="tex2html30929"
   HREF="node1818.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30870"
-  HREF="node1798.html">
+<A NAME="tex2html30925"
+  HREF="node1807.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30864"
+<A NAME="tex2html30919"
   HREF="node1816.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30872"
+<A NAME="tex2html30927"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30875"
-  HREF="node1818.html">HTML_questionnaire</A>
-<B> Up:</B> <A NAME="tex2html30871"
-  HREF="node1798.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30865"
-  HREF="node1816.html">HTML_logArea</A>
- &nbsp; <B>  <A NAME="tex2html30873"
+<B> Next:</B> <A NAME="tex2html30930"
+  HREF="node1818.html">HTML_liveSpan</A>
+<B> Up:</B> <A NAME="tex2html30926"
+  HREF="node1807.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30920"
+  HREF="node1816.html">HTML_setOutputBuffer</A>
+ &nbsp; <B>  <A NAME="tex2html30928"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095719000000000000000">
-HTML_getQuestionnaireURL</A>
+<H2><A NAME="SECTION0095710000000000000000">
+HTML_AJAXAutoSubmit</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the complete URL to the m23 questionnaire in the language of the webinterface.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Defines AJAX code that clicks a submit button when the given URL returns 'submit'. The defined constant should be used as LAST part of the $extra parameter in the HTML_submit function.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Complete URL to the m23 questionnaire in the language of the webinterface.
+<LI>htmlNames: Name of the HTML submit element (button).
+</LI>
+<LI>url: The HTTP URL to poll.
+</LI>
+<LI>timeout: Time in milliseconds to poll the URL for new status.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Constant name to insert into $extra.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ HTML_getQuestionnaireURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

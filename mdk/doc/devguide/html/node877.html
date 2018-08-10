@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Cm23Admin::changePw</TITLE>
-<META NAME="description" CONTENT="Cm23Admin::changePw">
+<TITLE>Cm23Admin::__construct</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node878.html">
 <LINK REL="previous" HREF="node876.html">
-<LINK REL="up" HREF="node873.html">
+<LINK REL="up" HREF="node876.html">
 <LINK REL="next" HREF="node878.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18714"
+<A NAME="tex2html18762"
   HREF="node878.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18710"
-  HREF="node873.html">
+<A NAME="tex2html18758"
+  HREF="node876.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18704"
+<A NAME="tex2html18752"
   HREF="node876.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18712"
+<A NAME="tex2html18760"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18715"
-  HREF="node878.html">Cm23Admin::setCSS</A>
-<B> Up:</B> <A NAME="tex2html18711"
-  HREF="node873.html">./inc/Cm23Admin.php</A>
-<B> Previous:</B> <A NAME="tex2html18705"
-  HREF="node876.html">Cm23Admin::delete</A>
- &nbsp; <B>  <A NAME="tex2html18713"
+<B> Next:</B> <A NAME="tex2html18763"
+  HREF="node878.html">Cm23Admin::__destruct</A>
+<B> Up:</B> <A NAME="tex2html18759"
+  HREF="node876.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18753"
+  HREF="node876.html">./inc/Cm23Admin.php</A>
+ &nbsp; <B>  <A NAME="tex2html18761"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009244000000000000000">
-Cm23Admin::changePw</A>
+<H2><A NAME="SECTION009241000000000000000">
+Cm23Admin::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Changes the password of an m23 administrator in the password hash files for m23, backup, backuppc and phpmyldap.
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new Cm23Admin objects. The object holds all information about a single admin and loads values from the DB if the admin exists. If only name is given, an admin is loaded from the database, if name and password are given, an admin will be created, if nothing is given, the current admin is loaded and added to database if not already in.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>$oldpassword: Password entered by the user, must be correct to be able to change password
+<LI>name: login name of an existing admin (to load or to create).
 </LI>
-<LI>$newpassword: New password chosen by the user
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: True if password was changed successfully, false otherwise
+<LI>password: password of a new admin (to create).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +70,7 @@ Cm23Admin::changePw</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

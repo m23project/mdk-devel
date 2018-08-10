@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorageManager::getCOSStatus</TITLE>
-<META NAME="description" CONTENT="CObjectStorageManager::getCOSStatus">
+<TITLE>CObjectStorageManager::getByIdentClass</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getByIdentClass">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node910.html">
 <LINK REL="previous" HREF="node908.html">
-<LINK REL="up" HREF="node901.html">
+<LINK REL="up" HREF="node904.html">
 <LINK REL="next" HREF="node910.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19122"
+<A NAME="tex2html19170"
   HREF="node910.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19118"
-  HREF="node901.html">
+<A NAME="tex2html19166"
+  HREF="node904.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19112"
+<A NAME="tex2html19160"
   HREF="node908.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19120"
+<A NAME="tex2html19168"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19123"
-  HREF="node910.html">CObjectStorageManager::getCOSStatusHumanReadable</A>
-<B> Up:</B> <A NAME="tex2html19119"
-  HREF="node901.html">./inc/CObjectStorageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html19113"
-  HREF="node908.html">CObjectStorageManager::getObjectMethodReturnValue</A>
- &nbsp; <B>  <A NAME="tex2html19121"
+<B> Next:</B> <A NAME="tex2html19171"
+  HREF="node910.html">CObjectStorageManager::deleteObject</A>
+<B> Up:</B> <A NAME="tex2html19167"
+  HREF="node904.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19161"
+  HREF="node908.html">CObjectStorageManager::getByClass</A>
+ &nbsp; <B>  <A NAME="tex2html19169"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009268000000000000000">
-CObjectStorageManager::getCOSStatus</A>
+<H2><A NAME="SECTION009265000000000000000">
+CObjectStorageManager::getByIdentClass</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the status code of the object.
+<SPAN  CLASS="textbf">Description:</SPAN> Fetches an object from the DB that match an identifier and a class.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>object: Object to use or null, if $this-<SPAN CLASS="MATH"></SPAN>object should be used.
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>class: Class name of the objects to find.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Status code.
+<LI>Found object or null, if no matching object could be found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CObjectStorageManager::getCOSStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

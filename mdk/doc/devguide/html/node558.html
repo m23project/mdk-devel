@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::dev2VDiskVPart</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::dev2VDiskVPart">
+<TITLE>CFDiskIO::isDevValidDiskPartitionOrRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDevValidDiskPartitionOrRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node559.html">
 <LINK REL="previous" HREF="node557.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node559.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14693"
+<A NAME="tex2html14739"
   HREF="node559.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14689"
-  HREF="node544.html">
+<A NAME="tex2html14735"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14683"
+<A NAME="tex2html14729"
   HREF="node557.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14691"
+<A NAME="tex2html14737"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14694"
-  HREF="node559.html">CFDiskIO::getPreviousPartitionStep</A>
-<B> Up:</B> <A NAME="tex2html14690"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14684"
-  HREF="node557.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
- &nbsp; <B>  <A NAME="tex2html14692"
+<B> Next:</B> <A NAME="tex2html14740"
+  HREF="node559.html">CFDiskIO::dev2VDiskVPart</A>
+<B> Up:</B> <A NAME="tex2html14736"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14730"
+  HREF="node557.html">CFDiskIO::getpDiskAndpPartFromDev</A>
+ &nbsp; <B>  <A NAME="tex2html14738"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091514000000000000000">
-CFDiskIO::dev2VDiskVPart</A>
+<H2><A NAME="SECTION0091513000000000000000">
+CFDiskIO::isDevValidDiskPartitionOrRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Searches for a device (e.g. /dev/sda2) and writes the virtual disk and partition numbers to the variables. These values can be used to access the array $this-<SPAN CLASS="MATH"></SPAN>wantedPartitioning.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a given device name is a valid disk, partition or RAID device.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda2).
-</LI>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array) or false, if no matching (physical) disk number was found.
-</LI>
-<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array) or false, if no matching (physical) partition number was found.
+<LI>dev: The device to check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if the search worked otherwise false.
+<LI>true, if a given device name is a valid disk, partition or RAID device, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ CFDiskIO::dev2VDiskVPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

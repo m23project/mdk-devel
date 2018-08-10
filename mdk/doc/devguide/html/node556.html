@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getpDiskAndpPartFromDev</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getpDiskAndpPartFromDev">
+<TITLE>CFDiskIO::getPartAmount</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartAmount">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node557.html">
 <LINK REL="previous" HREF="node555.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node557.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14669"
+<A NAME="tex2html14715"
   HREF="node557.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14665"
-  HREF="node544.html">
+<A NAME="tex2html14711"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14659"
+<A NAME="tex2html14705"
   HREF="node555.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14667"
+<A NAME="tex2html14713"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14670"
-  HREF="node557.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
-<B> Up:</B> <A NAME="tex2html14666"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14660"
-  HREF="node555.html">CFDiskIO::getPartAmount</A>
- &nbsp; <B>  <A NAME="tex2html14668"
+<B> Next:</B> <A NAME="tex2html14716"
+  HREF="node557.html">CFDiskIO::getpDiskAndpPartFromDev</A>
+<B> Up:</B> <A NAME="tex2html14712"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14706"
+  HREF="node555.html">CFDiskIO::getDiskAmount</A>
+ &nbsp; <B>  <A NAME="tex2html14714"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091512000000000000000">
-CFDiskIO::getpDiskAndpPartFromDev</A>
+<H2><A NAME="SECTION0091511000000000000000">
+CFDiskIO::getPartAmount</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Splits a device (e.g. /dev/hda1) in the physical disk (/dev/hda) and the partition number (1).
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the of partitions of a given disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device to partition (e.g. /dev/hde1)
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>pDisk: The parameter, the physical disk is written to (e.g. /dev/hda).
-</LI>
-<LI>pPart: The parameter, the physical partition number (e.g. 1) or false (if there is no number in the dev) is written to.
-</LI>
-<LI>ignoreMD: Set to true, if a "partition number" from a MD should be received.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Amount of partitions of a given disk.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::getpDiskAndpPartFromDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

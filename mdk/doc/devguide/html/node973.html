@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPool::getConvertPackagesToRepositoryLogName</TITLE>
-<META NAME="description" CONTENT="CPool::getConvertPackagesToRepositoryLogName">
+<TITLE>./inc/CPool.php</TITLE>
+<META NAME="description" CONTENT="./inc/CPool.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,152 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node974.html">
+<LINK REL="next" HREF="node1020.html">
 <LINK REL="previous" HREF="node972.html">
-<LINK REL="up" HREF="node970.html">
+<LINK REL="up" HREF="node102.html">
 <LINK REL="next" HREF="node974.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19973"
+<A NAME="tex2html19975"
   HREF="node974.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19969"
-  HREF="node970.html">
+<A NAME="tex2html19971"
+  HREF="node102.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19963"
+<A NAME="tex2html19965"
   HREF="node972.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19971"
+<A NAME="tex2html19973"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19974"
-  HREF="node974.html">CPool::getConvertPackagesToRepositoryLogNewLines</A>
-<B> Up:</B> <A NAME="tex2html19970"
-  HREF="node970.html">./inc/CPool.php</A>
-<B> Previous:</B> <A NAME="tex2html19964"
-  HREF="node972.html">CPool::signRelease</A>
- &nbsp; <B>  <A NAME="tex2html19972"
+<B> Next:</B> <A NAME="tex2html19976"
+  HREF="node974.html">CPool::__construct</A>
+<B> Up:</B> <A NAME="tex2html19972"
+  HREF="node102.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html19966"
+  HREF="node972.html">./inc/CPoolLister.php</A>
+ &nbsp; <B>  <A NAME="tex2html19974"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009333000000000000000">
-CPool::getConvertPackagesToRepositoryLogName</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the full file name of the convert packages to repository log file.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Name the log file.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION009330000000000000000">
+./inc/CPool.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: GUI class for building pools.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html19977"
+  HREF="node974.html">CPool::__construct</A>
+<LI><A NAME="tex2html19978"
+  HREF="node975.html">CPool::signRelease</A>
+<LI><A NAME="tex2html19979"
+  HREF="node976.html">CPool::getConvertPackagesToRepositoryLogName</A>
+<LI><A NAME="tex2html19980"
+  HREF="node977.html">CPool::getConvertPackagesToRepositoryLogNewLines</A>
+<LI><A NAME="tex2html19981"
+  HREF="node978.html">CPool::isConvertPackagesToRepositoryRunning</A>
+<LI><A NAME="tex2html19982"
+  HREF="node979.html">CPool::convertPackagesToRepository</A>
+<LI><A NAME="tex2html19983"
+  HREF="node980.html">CPool::isPackageTaskRunning</A>
+<LI><A NAME="tex2html19984"
+  HREF="node981.html">CPool::isDownloadRunning</A>
+<LI><A NAME="tex2html19985"
+  HREF="node982.html">CPool::resetDownloadLog</A>
+<LI><A NAME="tex2html19986"
+  HREF="node983.html">CPool::getDownloadLogNewLines</A>
+<LI><A NAME="tex2html19987"
+  HREF="node984.html">CPool::getDownloadLogContents</A>
+<LI><A NAME="tex2html19988"
+  HREF="node985.html">CPool::getPoolImportedFromSourceslist</A>
+<LI><A NAME="tex2html19989"
+  HREF="node986.html">CPool::setPoolImportedFromSourceslist</A>
+<LI><A NAME="tex2html19990"
+  HREF="node987.html">CPool::hasPoolDownloadBasePackages</A>
+<LI><A NAME="tex2html19991"
+  HREF="node988.html">CPool::setPoolDownloadBasePackages</A>
+<LI><A NAME="tex2html19992"
+  HREF="node989.html">CPool::getPoolImportedPackageList</A>
+<LI><A NAME="tex2html19993"
+  HREF="node990.html">CPool::setPoolImportedPackageList</A>
+<LI><A NAME="tex2html19994"
+  HREF="node991.html">CPool::getPoolDistribution</A>
+<LI><A NAME="tex2html19995"
+  HREF="node992.html">CPool::setPoolDistribution</A>
+<LI><A NAME="tex2html19996"
+  HREF="node993.html">CPool::createBasicPool</A>
+<LI><A NAME="tex2html19997"
+  HREF="node994.html">CPool::getPoolDir</A>
+<LI><A NAME="tex2html19998"
+  HREF="node995.html">CPool::setPoolName</A>
+<LI><A NAME="tex2html19999"
+  HREF="node996.html">CPool::getPoolName</A>
+<LI><A NAME="tex2html20000"
+  HREF="node997.html">CPool::getPoolSourceslist</A>
+<LI><A NAME="tex2html20001"
+  HREF="node998.html">CPool::setPoolSourceslist</A>
+<LI><A NAME="tex2html20002"
+  HREF="node999.html">CPool::getPoolDescription</A>
+<LI><A NAME="tex2html20003"
+  HREF="node1000.html">CPool::setPoolDescription</A>
+<LI><A NAME="tex2html20004"
+  HREF="node1001.html">CPool::getPoolRelease</A>
+<LI><A NAME="tex2html20005"
+  HREF="node1002.html">CPool::setPoolRelease</A>
+<LI><A NAME="tex2html20006"
+  HREF="node1003.html">CPool::getPoolType</A>
+<LI><A NAME="tex2html20007"
+  HREF="node1004.html">CPool::setPoolType</A>
+<LI><A NAME="tex2html20008"
+  HREF="node1005.html">CPool::getPoolArch</A>
+<LI><A NAME="tex2html20009"
+  HREF="node1006.html">CPool::setPoolArch</A>
+<LI><A NAME="tex2html20010"
+  HREF="node1007.html">CPool::setProperty</A>
+<LI><A NAME="tex2html20011"
+  HREF="node1008.html">CPool::getProperty</A>
+<LI><A NAME="tex2html20012"
+  HREF="node1009.html">CPool::getPoolSize</A>
+<LI><A NAME="tex2html20013"
+  HREF="node1010.html">CPool::destroyPool</A>
+<LI><A NAME="tex2html20014"
+  HREF="node1011.html">CPool::checkForDistributionSpecificPackageFunction</A>
+<LI><A NAME="tex2html20015"
+  HREF="node1012.html">CPool::preparePool</A>
+<LI><A NAME="tex2html20016"
+  HREF="node1013.html">CPool::stopDownloadToPool</A>
+<LI><A NAME="tex2html20017"
+  HREF="node1014.html">CPool::downloadDebsFromClient</A>
+<LI><A NAME="tex2html20018"
+  HREF="node1015.html">CPool::startDownloadToPool</A>
+<LI><A NAME="tex2html20019"
+  HREF="node1016.html">CPool::getPoolStatusFileName</A>
+<LI><A NAME="tex2html20020"
+  HREF="node1017.html">CPool::addPoolStatusFileCommand</A>
+<LI><A NAME="tex2html20021"
+  HREF="node1018.html">CPool::getPoolStatusFileContents</A>
+<LI><A NAME="tex2html20022"
+  HREF="node1019.html">CPool::downloadPackagesAndCreatePool</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -13,7 +13,7 @@ then
 fi
 
 # Find mod directory in PHP 5 and 7
-config_dir="$(find /etc/php* -type d -name mods-available)"
+config_dir="$(find /etc/php* -type d -name mods-available | sort -n | head -1)"
 
 # Write configuration file for setting the profiling files store path
 cat > $config_dir/xhprof.ini << EOF

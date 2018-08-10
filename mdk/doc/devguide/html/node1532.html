@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_deleteLines</TITLE>
-<META NAME="description" CONTENT="EDIT_deleteLines">
+<TITLE>EDIT_insertAtLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAtLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1533.html">
 <LINK REL="previous" HREF="node1531.html">
-<LINK REL="up" HREF="node1511.html">
+<LINK REL="up" HREF="node1520.html">
 <LINK REL="next" HREF="node1533.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27148"
+<A NAME="tex2html27202"
   HREF="node1533.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27144"
-  HREF="node1511.html">
+<A NAME="tex2html27198"
+  HREF="node1520.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27138"
+<A NAME="tex2html27192"
   HREF="node1531.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27146"
+<A NAME="tex2html27200"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27149"
-  HREF="node1533.html">EDIT_deleteLinesAmount</A>
-<B> Up:</B> <A NAME="tex2html27145"
-  HREF="node1511.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html27139"
-  HREF="node1531.html">EDIT_restorePerms</A>
- &nbsp; <B>  <A NAME="tex2html27147"
+<B> Next:</B> <A NAME="tex2html27203"
+  HREF="node1533.html">EDIT_insertLineNumber</A>
+<B> Up:</B> <A NAME="tex2html27199"
+  HREF="node1520.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html27193"
+  HREF="node1531.html">EDIT_insertAfterLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html27201"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095121000000000000000">
-EDIT_deleteLines</A>
+<H2><A NAME="SECTION0095112000000000000000">
+EDIT_insertAtLineNumber</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes lines from a given line number to a given line number
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AT a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: the name to the file
+<LI>file: the name of the file
 </LI>
-<LI>from: start deleting at this line number
+<LI>lineNumber: reference line number for inserting
 </LI>
-<LI>to: end deleting at this line number
+<LI>insertText: text to insert
+</LI>
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +74,7 @@ EDIT_deleteLines</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MASS_readDBFile</TITLE>
-<META NAME="description" CONTENT="MASS_readDBFile">
+<TITLE>MASS_EGKradioBoxes</TITLE>
+<META NAME="description" CONTENT="MASS_EGKradioBoxes">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2017.html">
 <LINK REL="previous" HREF="node2015.html">
-<LINK REL="up" HREF="node2005.html">
+<LINK REL="up" HREF="node2015.html">
 <LINK REL="next" HREF="node2017.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33414"
+<A NAME="tex2html33469"
   HREF="node2017.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33410"
-  HREF="node2005.html">
+<A NAME="tex2html33465"
+  HREF="node2015.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33404"
+<A NAME="tex2html33459"
   HREF="node2015.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33412"
+<A NAME="tex2html33467"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33415"
-  HREF="node2017.html">MASS_readDBFileRaw</A>
-<B> Up:</B> <A NAME="tex2html33411"
-  HREF="node2005.html">./inc/massTools.php</A>
-<B> Previous:</B> <A NAME="tex2html33405"
-  HREF="node2015.html">MASS_openDBFile</A>
- &nbsp; <B>  <A NAME="tex2html33413"
+<B> Next:</B> <A NAME="tex2html33470"
+  HREF="node2017.html">MASS_FHradioBoxes</A>
+<B> Up:</B> <A NAME="tex2html33466"
+  HREF="node2015.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html33460"
+  HREF="node2015.html">./inc/massTools.php</A>
+ &nbsp; <B>  <A NAME="tex2html33468"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096311000000000000000">
-MASS_readDBFile</A>
+<H2><A NAME="SECTION009631000000000000000">
+MASS_EGKradioBoxes</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> reads a line from the DB file and returnes an associated array with the properties as key and the fields of the file as values.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing 3 elements, that can be each a "radio button", selection "disabled" or "always selected".
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: name of the DB file
+<LI>RB_name: name of the radio button
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Associative array with the values of the DB line or false, if the line was empty.
+<LI>arr: array with 3 values for [Enter,Generate,Keep]. Setting a value to "e" means that the user can select, "n" selection is disabled, "y" is always select.
+</LI>
+<LI>checkNr: the number of radio button that is enabled by default.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ MASS_readDBFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

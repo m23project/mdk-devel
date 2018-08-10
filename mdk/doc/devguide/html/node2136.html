@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_countJobs</TITLE>
-<META NAME="description" CONTENT="PKG_countJobs">
+<TITLE>PKG_addRecommendPackages</TITLE>
+<META NAME="description" CONTENT="PKG_addRecommendPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2137.html">
 <LINK REL="previous" HREF="node2135.html">
-<LINK REL="up" HREF="node2095.html">
+<LINK REL="up" HREF="node2107.html">
 <LINK REL="next" HREF="node2137.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35014"
+<A NAME="tex2html35071"
   HREF="node2137.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35010"
-  HREF="node2095.html">
+<A NAME="tex2html35067"
+  HREF="node2107.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35004"
+<A NAME="tex2html35061"
   HREF="node2135.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35012"
+<A NAME="tex2html35069"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35015"
-  HREF="node2137.html">PKG_hasOptions</A>
-<B> Up:</B> <A NAME="tex2html35011"
-  HREF="node2095.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35005"
-  HREF="node2135.html">PKG_countSelectedpackages</A>
- &nbsp; <B>  <A NAME="tex2html35013"
+<B> Next:</B> <A NAME="tex2html35072"
+  HREF="node2137.html">PKG_addPackageSelection</A>
+<B> Up:</B> <A NAME="tex2html35068"
+  HREF="node2107.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35062"
+  HREF="node2135.html">PKG_listRecommendSubPackages</A>
+ &nbsp; <B>  <A NAME="tex2html35070"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096841000000000000000">
-PKG_countJobs</A>
+<H2><A NAME="SECTION0096829000000000000000">
+PKG_addRecommendPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> counts all packages of a client with a given status
+<SPAN  CLASS="textbf">Description:</SPAN> adds recommeded packages to db
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: name of client
+<LI>amount: amount of selected packages
 </LI>
-<LI>status: status of the packages to be count or empty to count all jobs
+<LI>client: name of client to install packages on
+</LI>
+<LI>normalPackageType2: m23normal, m23normalRemove or orig: select if the packages should be (de)installed or use the saved action
+</LI>
+<LI>distr: Name of the distribution.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ PKG_countJobs</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

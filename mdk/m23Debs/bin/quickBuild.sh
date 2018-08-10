@@ -35,11 +35,22 @@ case $1 in
 		finishBuilding m23-ucs-extra
 		# Move the package to /mdk/ucs/debs, so it will net get installed by default
 		mkdir -p /mdk/ucs/debs
-		rm /mdk/ucs/debs/m23-ucs-extra*
+		#rm /mdk/ucs/debs/m23-ucs-extra*
 		mv /mdk/server/iso/pool/m23-ucs-extra* /mdk/ucs/debs
 		cd /mdk/ucs/debs
-		makePackages
-		#updatePackages
+		makePackages NOdeleteOldDoubles
+		updatePackages NOdeleteOldDoubles
+		exit;;
+
+	"m23-ucs-extra-4.3")
+		finishBuilding m23-ucs-extra-4.3
+		# Move the package to /mdk/ucs/debs, so it will net get installed by default
+		mkdir -p /mdk/ucs/debs
+		#rm /mdk/ucs/debs/m23-ucs-extra*
+		mv /mdk/server/iso/pool/m23-ucs-extra* /mdk/ucs/debs
+		cd /mdk/ucs/debs
+		makePackages NOdeleteOldDoubles
+		updatePackages NOdeleteOldDoubles
 		exit;;
 esac
 

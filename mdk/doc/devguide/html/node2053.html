@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/messageReceive.php</TITLE>
-<META NAME="description" CONTENT="./inc/messageReceive.php">
+<TITLE>MSG_showError</TITLE>
+<META NAME="description" CONTENT="MSG_showError">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,128 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2088.html">
-<LINK REL="previous" HREF="node2036.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node2054.html">
+<LINK REL="previous" HREF="node2052.html">
+<LINK REL="up" HREF="node2046.html">
 <LINK REL="next" HREF="node2054.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33871"
+<A NAME="tex2html33928"
   HREF="node2054.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33867"
-  HREF="node102.html">
+<A NAME="tex2html33924"
+  HREF="node2046.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33861"
+<A NAME="tex2html33918"
   HREF="node2052.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33869"
+<A NAME="tex2html33926"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33872"
-  HREF="node2054.html">MSR_decodeMessage</A>
-<B> Up:</B> <A NAME="tex2html33868"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html33862"
-  HREF="node2052.html">MSG_DeActivateBlogDialog</A>
- &nbsp; <B>  <A NAME="tex2html33870"
+<B> Next:</B> <A NAME="tex2html33929"
+  HREF="node2054.html">MSG_showWarning</A>
+<B> Up:</B> <A NAME="tex2html33925"
+  HREF="node2046.html">./inc/message.php</A>
+<B> Previous:</B> <A NAME="tex2html33919"
+  HREF="node2052.html">MSG_showInfo</A>
+ &nbsp; <B>  <A NAME="tex2html33927"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009660000000000000000">
-./inc/messageReceive.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for handling messages sent by m23 clients.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009657000000000000000">
+MSG_showError</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Shows the error block for the error messages.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>message: the text for the info message
+</LI>
+<LI>language: two character language description (e.g. de, en, fr,...)
+</LI>
+<LI>width: width of the box
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html33873"
-  HREF="node2054.html">MSR_decodeMessage</A>
-<LI><A NAME="tex2html33874"
-  HREF="node2055.html">MSR_curDynIPCommand</A>
-<LI><A NAME="tex2html33875"
-  HREF="node2056.html">MSR_buildPoolFromClientDebsCMD</A>
-<LI><A NAME="tex2html33876"
-  HREF="node2057.html">MSR_buildPoolFromClientDebs</A>
-<LI><A NAME="tex2html33877"
-  HREF="node2058.html">MSR_statusBarInc</A>
-<LI><A NAME="tex2html33878"
-  HREF="node2059.html">MSR_statusBarIncCommand</A>
-<LI><A NAME="tex2html33879"
-  HREF="node2060.html">MSR_statusBarCommand</A>
-<LI><A NAME="tex2html33880"
-  HREF="node2061.html">MSR_genericSendCommand</A>
-<LI><A NAME="tex2html33881"
-  HREF="node2062.html">MSR_statusBar</A>
-<LI><A NAME="tex2html33882"
-  HREF="node2063.html">MSR_curDynIP</A>
-<LI><A NAME="tex2html33883"
-  HREF="node2064.html">MSR_copyClientPackageStatus</A>
-<LI><A NAME="tex2html33884"
-  HREF="node2065.html">MSR_importDiffFile</A>
-<LI><A NAME="tex2html33885"
-  HREF="node2066.html">MSR_CommandCopyClientPackageStatus</A>
-<LI><A NAME="tex2html33886"
-  HREF="node2067.html">MSR_copyDiffFileFromClient</A>
-<LI><A NAME="tex2html33887"
-  HREF="node2068.html">MSR_markm23normalAsDone</A>
-<LI><A NAME="tex2html33888"
-  HREF="node2069.html">MSR_decodeClientSideBase64</A>
-<LI><A NAME="tex2html33889"
-  HREF="node2070.html">MSR_clientSideBase64Encode</A>
-<LI><A NAME="tex2html33890"
-  HREF="node2071.html">MSR_genSendBinayFileCommand</A>
-<LI><A NAME="tex2html33891"
-  HREF="node2072.html">MSR_m23ImagerMBR</A>
-<LI><A NAME="tex2html33892"
-  HREF="node2073.html">MSR_m23ImagerSize</A>
-<LI><A NAME="tex2html33893"
-  HREF="node2074.html">MSR_getm23clientIDCMD</A>
-<LI><A NAME="tex2html33894"
-  HREF="node2075.html">MSR_importPackageStatus</A>
-<LI><A NAME="tex2html33895"
-  HREF="node2076.html">MSR_importLog</A>
-<LI><A NAME="tex2html33896"
-  HREF="node2077.html">MSR_logCommand</A>
-<LI><A NAME="tex2html33897"
-  HREF="node2078.html">MSR_statusFileCommand</A>
-<LI><A NAME="tex2html33898"
-  HREF="node2079.html">MSR_importStatusFile</A>
-<LI><A NAME="tex2html33899"
-  HREF="node2080.html">MSR_genSendCommand</A>
-<LI><A NAME="tex2html33900"
-  HREF="node2081.html">MSR_clientChangeCommand</A>
-<LI><A NAME="tex2html33901"
-  HREF="node2082.html">MSR_clientChange</A>
-<LI><A NAME="tex2html33902"
-  HREF="node2083.html">MSR_partHwDataCommand</A>
-<LI><A NAME="tex2html33903"
-  HREF="node2084.html">MSR_importPartHwData</A>
-<LI><A NAME="tex2html33904"
-  HREF="node2085.html">MSR_getClientSettingsCommand</A>
-<LI><A NAME="tex2html33905"
-  HREF="node2086.html">MSR_clientSettings</A>
-<LI><A NAME="tex2html33906"
-  HREF="node2087.html">MSR_setOnline</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

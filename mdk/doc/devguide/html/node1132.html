@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_getDynamicRanges</TITLE>
-<META NAME="description" CONTENT="DHCP_getDynamicRanges">
+<TITLE>DHCP_addSubnetDefinition</TITLE>
+<META NAME="description" CONTENT="DHCP_addSubnetDefinition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1133.html">
 <LINK REL="previous" HREF="node1131.html">
-<LINK REL="up" HREF="node1126.html">
+<LINK REL="up" HREF="node1129.html">
 <LINK REL="next" HREF="node1133.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21996"
+<A NAME="tex2html22044"
   HREF="node1133.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21992"
-  HREF="node1126.html">
+<A NAME="tex2html22040"
+  HREF="node1129.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21986"
+<A NAME="tex2html22034"
   HREF="node1131.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21994"
+<A NAME="tex2html22042"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21997"
-  HREF="node1133.html">DHCP_getNetmaskOfDynamicRanges</A>
-<B> Up:</B> <A NAME="tex2html21993"
-  HREF="node1126.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html21987"
-  HREF="node1131.html">DHCP_addDynamicRange</A>
- &nbsp; <B>  <A NAME="tex2html21995"
+<B> Next:</B> <A NAME="tex2html22045"
+  HREF="node1133.html">DHCP_delSubnetDefinition</A>
+<B> Up:</B> <A NAME="tex2html22041"
+  HREF="node1129.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html22035"
+  HREF="node1131.html">DHCP_lineNumberAffterLastClient</A>
+ &nbsp; <B>  <A NAME="tex2html22043"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009386000000000000000">
-DHCP_getDynamicRanges</A>
+<H2><A NAME="SECTION009383000000000000000">
+DHCP_addSubnetDefinition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets all dynamic IP ranges from the dhcpd.conf.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds the subnet definition to the dhcpd.conf to let the DHCP server give out network information to clients to other subnets.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with the found IP ranges (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [netmask] =<SPAN CLASS="MATH"></SPAN> 255.255.255.0 [firstIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.10 [lastIP] =<SPAN CLASS="MATH"></SPAN> 192.168.1.200 [gateway] =<SPAN CLASS="MATH"></SPAN> 192.168.1.1 ) [1] =<SPAN CLASS="MATH"></SPAN> ...)) or empty array.
+<LI>subnet: The subnet.
+</LI>
+<LI>netmask: netmask for the ip
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ DHCP_getDynamicRanges</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

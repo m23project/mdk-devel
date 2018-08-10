@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Éditeur de scripts</TITLE>
-<META NAME="description" CONTENT="Éditeur de scripts">
+<TITLE>Clé GPG pour signer le paquet source</TITLE>
+<META NAME="description" CONTENT="Clé GPG pour signer le paquet source">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,112 +19,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="previous" HREF="node197.html">
-<LINK REL="up" HREF="node173.html">
+<LINK REL="previous" HREF="node200.html">
+<LINK REL="up" HREF="node198.html">
 <LINK REL="next" HREF="node202.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3118"
+<A NAME="tex2html3124"
   HREF="node202.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3114"
-  HREF="node173.html">
+<A NAME="tex2html3120"
+  HREF="node198.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3110"
+<A NAME="tex2html3116"
   HREF="node200.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3116"
+<A NAME="tex2html3122"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> suivant:</B> <A NAME="tex2html3119"
-  HREF="node202.html">Notez</A>
-<B> monter:</B> <A NAME="tex2html3115"
-  HREF="node173.html">Paquets</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3111"
-  HREF="node200.html">Clé GPG pour signer</A>
- &nbsp; <B>  <A NAME="tex2html3117"
+<B> suivant:</B> <A NAME="tex2html3125"
+  HREF="node202.html">Éditeur de scripts</A>
+<B> monter:</B> <A NAME="tex2html3121"
+  HREF="node198.html">Constructeur de paquets</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3117"
+  HREF="node200.html">BitTorrent</A>
+ &nbsp; <B>  <A NAME="tex2html3123"
   HREF="node1.html">Table des mati&#232;res</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001370000000000000000">
-&#201;diteur de scripts</A>
-</H1>
-<IMG
-  WIDTH="1104" HEIGHT="1186" ALIGN="BOTTOM" BORDER="0"
- SRC="./scriptEditor.png"
- ALT="Image scriptEditor"> 
+<H2><A NAME="SECTION001363000000000000000">
+Cl&#233; GPG pour signer le paquet source</A>
+</H2>
+Selectionnez la cl&#195;&#169; GPG priv&#195;&#169;e &#195;&nbsp; utiliser pour la signature des paquets sources devant &#195;^atres cr&#195;&#169;&#195;&#169;s par votre serveur m23. La cl&#195;&#169; publique correspondante sera transf&#195;&#169;r&#195;&#169;e sur les clients m23, ceci permettra de valider l'authenticit&#195;&#169; des paquets provenant de votre serveur m23.
 <BR>
-Les scripts simplifient l'ex&#233;cution de t&#226;ches r&#233;p&#233;titives sur vos postes clients en la rendant aussi facile que l'installation d'un paquet. En utilisant l'&#233;diteur, vous pouvez cr&#233;er vos propres scripts et profiter de toute l'&#233;tendue possible de l'environnement fourni par m23, pour g&#233;n&#233;rer le code BASH afin que ces scripts puissent &#234;tre ex&#233;cut&#233; sur les postes clients. Vous pouvez utiliser toutes les commandes BASH et tous les programmes install&#233;s sur les postes clients. L'index des commandes de m23 est consul dans le <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Development Guide<SPAN CLASS="MATH"></SPAN></SPAN>, dans le menu de gauche.
+Lorsque <SPAN  CLASS="textit">''Cl&#233; GPG en cours d'utilisation''</SPAN>, la cl&#195;&#169; en cours d'utilisation est affich&#195;&#169;e. Si aucune cl&#195;&#169; n'apparait, les paquets ne seront pas sign&#195;&#169;s.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Ouvrir des scripts existants:</SPAN> S&#233;lectionnez le script souhait&#233;e dans la liste sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>G&#233;rer les scripts<SPAN CLASS="MATH"></SPAN></SPAN> puis, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Charger<SPAN CLASS="MATH"></SPAN></SPAN>. Ensuite, le texte apparait dans la fen&#234;tre de l'&#233;diteur.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Enregistrer et effacer des scripts:</SPAN> Cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Enregistrer<SPAN CLASS="MATH"></SPAN></SPAN> ou sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Effacer<SPAN CLASS="MATH"></SPAN></SPAN>. Les actions se r&#233;f&#232;rent au script qui est actuellement charg&#233;e.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Sauvegardez le script sous un nom diff&#233;rent</SPAN>: Si vous souhaitez sauvegarder le script dans l'&#233;diteur sous un nouveau nom, saisisez ce nouveau nom dans <SPAN  CLASS="textit">''Sauvegarder en tant que''</SPAN> puis, cliquez sur <SPAN  CLASS="textit">''Enregistrer''</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Cr&#233;ation d'un nouveau script:</SPAN> Entrez un nom pour le nouveau script par <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Cr&#233;er une nouveau script<SPAN CLASS="MATH"></SPAN></SPAN> et confirmez-le en cliquant sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Cr&#233;er<SPAN CLASS="MATH"></SPAN></SPAN>. Un exemple de script court, que vous pouvez adapter &#224; vos besoins, sera affich&#233;e dans la fen&#234;tre de l'&#233;diteur.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">T&#233;l&#233;charger des scripts appartenant &#224; d'autres utilisateurs m23</SPAN>: Vous pouvez charger les scripts publi&#233;s par d'autres utilisateurs directement depuis l'&#233;diteur. Pour ce faire, mettez &#224; jour la liste des scripts disponibles en cliquant sur <SPAN  CLASS="textit">''Modifier la liste des scripts en ligne''</SPAN>. S&#233;lectionnez ensuite le script d&#233;sir&#233; en cliquant sur <SPAN  CLASS="textit">''T&#233;l&#233;charger le scripts''</SPAN> puis chargez le dans l'&#233;diteur en cliquant sur <SPAN  CLASS="textit">''Charger''</SPAN>
-</LI>
-<LI><SPAN  CLASS="textbf">Partagez vos scripts avec les autres utilisateurs de m23:</SPAN> L'&#233;diteur vous offre une possibilit&#233; simple de partager vos scripts avec des autres utilisateurs de m23 et par cons&#233;quent, d'en faire profiter un plus grande communaut&#233; d'utilisateurs. Tous ces scripts seront publi&#233;es sur le site web de m23 dans la rubrique <SPAN CLASS="MATH"></SPAN>Scripts of m23 users<SPAN CLASS="MATH"></SPAN>. Pour la publication de votre script, qui est actuellement charg&#233;e dans l'&#233;diteur, entrez une description de la fonction du script sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Description<SPAN CLASS="MATH"></SPAN></SPAN>. En outre, entrez votre code d'identification, nom ou un autre mot d'identification sous <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Auteur<SPAN CLASS="MATH"></SPAN></SPAN>. Ensuite, cliquez sur <SPAN  CLASS="textit"><SPAN CLASS="MATH"></SPAN>Publier le script sur m23.sf.net<SPAN CLASS="MATH"></SPAN></SPAN>. Votre script sera imm&#233;diatement charg&#233; et appara&#238;tra sur le site web de m23.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Examinez la sortie du script</SPAN>: Pour le premier test de votre script, vous pouvez v&#233;rifier ses r&#233;sultats, afin par exemple, de corriger les &#233;ventuelles erreurs de syntaxe. Pour ce faire, le script sera temporairement assign&#233; &#224; un client, et le Code-BASH r&#233;sultant affichera ce qui aurait du aparaitre dans la fen&#234;tre du client. S&#233;lectionnez le client dans la liste <SPAN  CLASS="textit">''Nom du poste client''</SPAN> ci-dessous <SPAN  CLASS="textit">''Visualiser le r&#233;sultat du script''</SPAN>puis cliquez sur <SPAN  CLASS="textit">''Ouvrir la visualisation du r&#233;sultat du script''</SPAN>.
-<BR></LI>
-</UL>
+Afin de pouvoir utiliser une cl&#195;&#169; GPG priv&#195;&#169;e, s&#195;&#169;lectionnez en une dans la liste puis cliquez sur <SPAN  CLASS="textit">''Choisir''</SPAN>. La cl&#195;&#169; GPG sera d&#195;&#168;s apr&#195;&#169;sent utilis&#195;&#169;e pour signer tous les paquets sources cr&#195;&#169;&#195;&#169;s ou modifi&#195;&#169;s; ces paquets seront par la m&#195;^ame occasion transf&#195;&#169;r&#195;&#169;s sur les clients.
+<BR>
+Si vous d&#195;&#169;sirez supprimer ou ajouter une cl&#195;&#169; GPG, cliquez sur <SPAN  CLASS="textit">''G&#233;rer les cl&#233;s GPG''</SPAN>.
+<BR>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html3120"
-  HREF="node202.html">Notez</A>
-<LI><A NAME="tex2html3121"
-  HREF="node203.html">Liste des raccourcis clavier</A>
-<LI><A NAME="tex2html3122"
-  HREF="node204.html">S&#233;lection de texte</A>
-<LI><A NAME="tex2html3123"
-  HREF="node205.html">Chercher et remplacer</A>
-<LI><A NAME="tex2html3124"
-  HREF="node206.html">Indentation</A>
-<LI><A NAME="tex2html3125"
-  HREF="node207.html">Undo and redo</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html3118"
-  HREF="node202.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3114"
-  HREF="node173.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3110"
-  HREF="node200.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3116"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> suivant:</B> <A NAME="tex2html3119"
-  HREF="node202.html">Notez</A>
-<B> monter:</B> <A NAME="tex2html3115"
-  HREF="node173.html">Paquets</A>
-<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html3111"
-  HREF="node200.html">Clé GPG pour signer</A>
- &nbsp; <B>  <A NAME="tex2html3117"
-  HREF="node1.html">Table des mati&#232;res</A></B> </DIV>
-<!--End of Navigation Panel-->
 <ADDRESS>
 root
-2018-01-11
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

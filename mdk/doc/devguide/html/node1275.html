@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/distr/imaging/clientConfigCommon.php</TITLE>
-<META NAME="description" CONTENT="./inc/distr/imaging/clientConfigCommon.php">
+<TITLE>pkgUpdateCacheOnServer</TITLE>
+<META NAME="description" CONTENT="pkgUpdateCacheOnServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,214 +19,61 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1353.html">
-<LINK REL="previous" HREF="node1267.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1276.html">
+<LINK REL="previous" HREF="node1274.html">
+<LINK REL="up" HREF="node1272.html">
 <LINK REL="next" HREF="node1276.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23823"
+<A NAME="tex2html23875"
   HREF="node1276.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23819"
-  HREF="node102.html">
+<A NAME="tex2html23871"
+  HREF="node1272.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23813"
+<A NAME="tex2html23865"
   HREF="node1274.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23821"
+<A NAME="tex2html23873"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23824"
-  HREF="node1276.html">CLCFG_addPAMtoDM</A>
-<B> Up:</B> <A NAME="tex2html23820"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html23814"
-  HREF="node1274.html">PKG_translateClientPackageStatus</A>
- &nbsp; <B>  <A NAME="tex2html23822"
+<B> Next:</B> <A NAME="tex2html23876"
+  HREF="node1276.html">PKG_listPackages</A>
+<B> Up:</B> <A NAME="tex2html23872"
+  HREF="node1272.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23866"
+  HREF="node1274.html">PKG_fastGetInstalledPackages</A>
+ &nbsp; <B>  <A NAME="tex2html23874"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009440000000000000000">
-./inc/distr/imaging/clientConfigCommon.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Common management funtions shared by Linux distributions.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009433000000000000000">
+pkgUpdateCacheOnServer</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>$1 (packagesourcename): Name der Paketquellenliste
+</LI>
+<LI>$2 (packagesource): Inhalt der Paketquellenliste
+</LI>
+<LI>$3 (force): set to true (1) if you want to update the package info and the time is not over
+</LI>
+<LI>$4 (arch): Architecture (amd64/i386) to get package infos for.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html23825"
-  HREF="node1276.html">CLCFG_addPAMtoDM</A>
-<LI><A NAME="tex2html23826"
-  HREF="node1277.html">CLCFG_disableSudoRootLogin</A>
-<LI><A NAME="tex2html23827"
-  HREF="node1278.html">CLCFG_installFirmware</A>
-<LI><A NAME="tex2html23828"
-  HREF="node1279.html">CLCFG_monoRemove</A>
-<LI><A NAME="tex2html23829"
-  HREF="node1280.html">CLCFG_setDebConfDM</A>
-<LI><A NAME="tex2html23830"
-  HREF="node1281.html">CLCFG_installXDM</A>
-<LI><A NAME="tex2html23831"
-  HREF="node1282.html">CLCFG_installSDDM</A>
-<LI><A NAME="tex2html23832"
-  HREF="node1283.html">CLCFG_installMintDM</A>
-<LI><A NAME="tex2html23833"
-  HREF="node1284.html">CLCFG_copyMBRToAllDevices</A>
-<LI><A NAME="tex2html23834"
-  HREF="node1285.html">CLCFG_activateBOOT_DEGRADED</A>
-<LI><A NAME="tex2html23835"
-  HREF="node1286.html">CLCFG_installLightDM</A>
-<LI><A NAME="tex2html23836"
-  HREF="node1287.html">CLCFG_setDebConfDirect</A>
-<LI><A NAME="tex2html23837"
-  HREF="node1288.html">TRINITY_installLoginManager</A>
-<LI><A NAME="tex2html23838"
-  HREF="node1289.html">TRINITY_install</A>
-<LI><A NAME="tex2html23839"
-  HREF="node1290.html">CLCFG_makeDev</A>
-<LI><A NAME="tex2html23840"
-  HREF="node1291.html">CLCFG_disablePlymouth</A>
-<LI><A NAME="tex2html23841"
-  HREF="node1292.html">CLCFG_disableAvahiDaemon</A>
-<LI><A NAME="tex2html23842"
-  HREF="node1293.html">CLCFG_configUpstartForNormalUsage</A>
-<LI><A NAME="tex2html23843"
-  HREF="node1294.html">CLCFG_configUpstartForChroot</A>
-<LI><A NAME="tex2html23844"
-  HREF="node1295.html">CLCFG_createScreenRC</A>
-<LI><A NAME="tex2html23845"
-  HREF="node1296.html">CLCFG_addGrubPassword</A>
-<LI><A NAME="tex2html23846"
-  HREF="node1297.html">CLCFG_addLiloPassword</A>
-<LI><A NAME="tex2html23847"
-  HREF="node1298.html">GNOME_prepare</A>
-<LI><A NAME="tex2html23848"
-  HREF="node1299.html">LXDE_install</A>
-<LI><A NAME="tex2html23849"
-  HREF="node1300.html">GNOME3_install</A>
-<LI><A NAME="tex2html23850"
-  HREF="node1301.html">GNOME_install</A>
-<LI><A NAME="tex2html23851"
-  HREF="node1302.html">GNOME_installLoginManager</A>
-<LI><A NAME="tex2html23852"
-  HREF="node1303.html">KDE_prepare</A>
-<LI><A NAME="tex2html23853"
-  HREF="node1304.html">KDE_install</A>
-<LI><A NAME="tex2html23854"
-  HREF="node1305.html">KDE_installLoginManager</A>
-<LI><A NAME="tex2html23855"
-  HREF="node1306.html">CLCFG_lilo2Grub</A>
-<LI><A NAME="tex2html23856"
-  HREF="node1307.html">CLCFG_getMbrPart</A>
-<LI><A NAME="tex2html23857"
-  HREF="node1308.html">CLCFG_setTimeZone</A>
-<LI><A NAME="tex2html23858"
-  HREF="node1309.html">CLCFG_writeHosts</A>
-<LI><A NAME="tex2html23859"
-  HREF="node1310.html">CLCFG_addUser</A>
-<LI><A NAME="tex2html23860"
-  HREF="node1311.html">CLCFG_createBootDeviceNode</A>
-<LI><A NAME="tex2html23861"
-  HREF="node1312.html">CLCFG_efi</A>
-<LI><A NAME="tex2html23862"
-  HREF="node1313.html">CLCFG_genFstab</A>
-<LI><A NAME="tex2html23863"
-  HREF="node1314.html">CLCFG_interfaces</A>
-<LI><A NAME="tex2html23864"
-  HREF="node1315.html">CLCFG_hostname</A>
-<LI><A NAME="tex2html23865"
-  HREF="node1316.html">CLCFG_resolvConf</A>
-<LI><A NAME="tex2html23866"
-  HREF="node1317.html">CLCFG_aptConf</A>
-<LI><A NAME="tex2html23867"
-  HREF="node1318.html">CLCFG_sourceslist</A>
-<LI><A NAME="tex2html23868"
-  HREF="node1319.html">CLCFG_sourceslistCreateConfigFiles</A>
-<LI><A NAME="tex2html23869"
-  HREF="node1320.html">CLCFG_hwdetect</A>
-<LI><A NAME="tex2html23870"
-  HREF="node1321.html">CLCFG_language</A>
-<LI><A NAME="tex2html23871"
-  HREF="node1322.html">CLCFG_setRootPassword</A>
-<LI><A NAME="tex2html23872"
-  HREF="node1323.html">CLCFG_setAuthorized_keys</A>
-<LI><A NAME="tex2html23873"
-  HREF="node1324.html">CLCFG_copyClientPackageStatus</A>
-<LI><A NAME="tex2html23874"
-  HREF="node1325.html">CLCFG_aptGet</A>
-<LI><A NAME="tex2html23875"
-  HREF="node1326.html">CLCFG_importLocalPoolKey</A>
-<LI><A NAME="tex2html23876"
-  HREF="node1327.html">CLCFG_installBasePackages</A>
-<LI><A NAME="tex2html23877"
-  HREF="node1328.html">CLCFG_setDebconf</A>
-<LI><A NAME="tex2html23878"
-  HREF="node1329.html">CLCFG_debootstrap</A>
-<LI><A NAME="tex2html23879"
-  HREF="node1330.html">CLCFG_downgradeExt</A>
-<LI><A NAME="tex2html23880"
-  HREF="node1331.html">CLCFG_mountRootDir</A>
-<LI><A NAME="tex2html23881"
-  HREF="node1332.html">CLCFG_activateDMA</A>
-<LI><A NAME="tex2html23882"
-  HREF="node1333.html">CLCFG_fetchm23BasicTools</A>
-<LI><A NAME="tex2html23883"
-  HREF="node1334.html">CLCFG_dialogGaugeProcPos</A>
-<LI><A NAME="tex2html23884"
-  HREF="node1335.html">CLCFG_dialogInfoBox</A>
-<LI><A NAME="tex2html23885"
-  HREF="node1336.html">CLCFG_dialogMsgBox</A>
-<LI><A NAME="tex2html23886"
-  HREF="node1337.html">CLCFG_dialogAllBox</A>
-<LI><A NAME="tex2html23887"
-  HREF="node1338.html">CLCFG_executeAfterChroot</A>
-<LI><A NAME="tex2html23888"
-  HREF="node1339.html">CLCFG_writeCrontabm23fetchjobEvery5Minutes</A>
-<LI><A NAME="tex2html23889"
-  HREF="node1340.html">CLCFG_writeM23fetchjob</A>
-<LI><A NAME="tex2html23890"
-  HREF="node1341.html">CLCFG_hideKernelWarnings</A>
-<LI><A NAME="tex2html23891"
-  HREF="node1342.html">CLCFG_getRootDeviceFS</A>
-<LI><A NAME="tex2html23892"
-  HREF="node1343.html">CLCFG_genFakeFstab</A>
-<LI><A NAME="tex2html23893"
-  HREF="node1344.html">CLCFG_copySSLCert</A>
-<LI><A NAME="tex2html23894"
-  HREF="node1345.html">CLCFG_changeUser</A>
-<LI><A NAME="tex2html23895"
-  HREF="node1346.html">CLCFG_patchNsswitchForLDAP</A>
-<LI><A NAME="tex2html23896"
-  HREF="node1347.html">CLCFG_enableNFSHome</A>
-<LI><A NAME="tex2html23897"
-  HREF="node1348.html">CLCFG_disableNFSHome</A>
-<LI><A NAME="tex2html23898"
-  HREF="node1349.html">CLCFG_installDesktopLanguagePackage</A>
-<LI><A NAME="tex2html23899"
-  HREF="node1350.html">CLCFG_installApplicationLanguagePackages</A>
-<LI><A NAME="tex2html23900"
-  HREF="node1351.html">CLCFG_updateDebootstrapScripts</A>
-<LI><A NAME="tex2html23901"
-  HREF="node1352.html">CLCFG_updateDebootstrapScriptsDebian</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

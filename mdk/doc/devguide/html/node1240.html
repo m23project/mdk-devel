@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
-<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
+<TITLE>PKG_getSearchCacheFileName</TITLE>
+<META NAME="description" CONTENT="PKG_getSearchCacheFileName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1241.html">
 <LINK REL="previous" HREF="node1239.html">
-<LINK REL="up" HREF="node1233.html">
+<LINK REL="up" HREF="node1238.html">
 <LINK REL="next" HREF="node1241.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23396"
+<A NAME="tex2html23446"
   HREF="node1241.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23392"
-  HREF="node1233.html">
+<A NAME="tex2html23442"
+  HREF="node1238.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23386"
+<A NAME="tex2html23436"
   HREF="node1239.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23394"
+<A NAME="tex2html23444"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23397"
-  HREF="node1241.html">PKG_preparePool</A>
-<B> Up:</B> <A NAME="tex2html23393"
-  HREF="node1233.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23387"
-  HREF="node1239.html">PKG_ncTarDebsFromClientToServer_Server</A>
- &nbsp; <B>  <A NAME="tex2html23395"
+<B> Next:</B> <A NAME="tex2html23447"
+  HREF="node1241.html">PKG_genPackageSearchCacheFileCMD</A>
+<B> Up:</B> <A NAME="tex2html23443"
+  HREF="node1238.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23437"
+  HREF="node1239.html">PKG_updatePackageSearchCacheFile</A>
+ &nbsp; <B>  <A NAME="tex2html23445"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009417000000000000000">
-PKG_rsyncDebsFromClientToServer</A>
+<H2><A NAME="SECTION009412000000000000000">
+PKG_getSearchCacheFileName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the full path to the compressed package search file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientIP: The IP of the client.
+<LI>dir: Directory where the package information is stored.
 </LI>
-<LI>poolDir: The directory on the server to store the Debian packages.
+<LI>arch: Architecture for the packages in the search file.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Full path to the compressed package search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ PKG_rsyncDebsFromClientToServer</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

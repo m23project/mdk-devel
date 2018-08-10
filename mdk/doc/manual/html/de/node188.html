@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Abläufe im Hintergrund</TITLE>
-<META NAME="description" CONTENT="Abläufe im Hintergrund">
+<TITLE>Aktualisierungszeiten und Clientgruppen löschen</TITLE>
+<META NAME="description" CONTENT="Aktualisierungszeiten und Clientgruppen löschen">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,83 +19,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node189.html">
 <LINK REL="previous" HREF="node187.html">
-<LINK REL="up" HREF="node184.html">
+<LINK REL="up" HREF="node185.html">
 <LINK REL="next" HREF="node189.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2951"
+<A NAME="tex2html2957"
   HREF="node189.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2947"
-  HREF="node184.html">
+<A NAME="tex2html2953"
+  HREF="node185.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2943"
+<A NAME="tex2html2947"
   HREF="node187.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2949"
+<A NAME="tex2html2955"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2952"
-  HREF="node189.html">Paketquellenliste bearbeiten</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2948"
-  HREF="node184.html">Automatisches Update</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2944"
-  HREF="node187.html">Aktualisierungszeiten und Clientgruppen löschen</A>
- &nbsp; <B>  <A NAME="tex2html2950"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html2958"
+  HREF="node189.html">Abläufe im Hintergrund</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html2954"
+  HREF="node185.html">Automatisches Update</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html2948"
+  HREF="node187.html">Aktualisierungszeiten und Clientgruppen festlegen</A>
+ &nbsp; <B>  <A NAME="tex2html2956"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001244000000000000000">
-Abl&#228;ufe im Hintergrund</A>
+<H2><A NAME="SECTION001243000000000000000">
+Aktualisierungszeiten und Clientgruppen l&#246;schen</A>
 </H2>
-Solange (mindestens) eine Aktualisierungsgruppe vorhanden ist, wird alle 15 Minuten ein Cronjob ausgef&#252;hrt, welcher &#252;berpr&#252;ft, ob gerade Clients aktualisiert werden sollen.
+Mit einem Klick auf das <SPAN  CLASS="textit">''rote x''</SPAN> hinter einem Zeitraum oder einer Clientgruppe k&#246;nnen Sie diese wieder aus der Aktualisierungsgruppe l&#246;schen. Zum L&#246;schen einer Aktualisierungsgruppe klicken Sie auf <SPAN  CLASS="textit">''L&#246;schen''</SPAN> in der jeweiligen Zeile der Gruppe.
 <BR>
-Hierbei werden solange neue Clients mit Aktialisierungsauftr&#228;gen gestartet, wie es die Anzahl bei <SPAN  CLASS="textit">''Gleichzeitige Aktualisierungen''</SPAN> zul&#228;&#223;t. Ist das Zeitfenster der gerade aktiven Aktualisierungsgruppe abgelaufen, so werden keine weiteren Clients aus dieser aktualisiert. Bereits laufende Aktualisierungen werden aber nicht abgebrochen.
-<BR>
-Au&#223;erdem wird &#252;berpr&#252;ft, ob f&#252;r die Aktualisierung vorgemerkte Clients wirklich ein Update ausf&#252;hren. Sollten diese nicht innerhalb von 30 Minuten (z.B. aufgrund nicht funktionierendem Wake on LANs) mit dem Aktualisieren beginnen, so werden bei diesen die Auftr&#228;ge f&#252;r die automatische Aktualisierung zur&#252;ckgezogen und f&#252;r 24 Stunden kein weiterer Versuch unternommen.
-<BR>
-Aktualisierungen werden bei bereits laufenden Clients im Hintergrund ausgef&#252;hrt. Clients, die per WOL gestartet wurden, werden nach der Aktualisierung wieder heruntergefahren.
-<BR>
-Sind alle Clients einer Aktualisierungsgruppe abgearbeitet (mit erfolgreicher oder fehlgeschlagener Aktualisierung), so wird die n&#228;chste Gruppe mit passendem Zeitbereich (falls vorhanden) aktiviert.
-<BR>
-Nach L&#246;schen der letzten Aktualisierungsgruppe wird auch der Cronjob wieder entfernt.
-<BR>
-In der Logdatei <SPAN  CLASS="textit">''/m23/log/autoUpdate.log''</SPAN> finden Sie Informationen zu den durchgef&#252;hrten Aktualisierungen.
-<BR>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2951"
-  HREF="node189.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2947"
-  HREF="node184.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2943"
-  HREF="node187.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2949"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html2952"
-  HREF="node189.html">Paketquellenliste bearbeiten</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html2948"
-  HREF="node184.html">Automatisches Update</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html2944"
-  HREF="node187.html">Aktualisierungszeiten und Clientgruppen löschen</A>
- &nbsp; <B>  <A NAME="tex2html2950"
-  HREF="node1.html">Inhalt</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 root
-2018-01-09
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

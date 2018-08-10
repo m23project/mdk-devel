@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Paketquellen-Architekt (Pakete von CD einlesen)</TITLE>
-<META NAME="description" CONTENT="Paketquellen-Architekt (Pakete von CD einlesen)">
+<TITLE>GPG-Paketquellen-Signierungsschlüssel</TITLE>
+<META NAME="description" CONTENT="GPG-Paketquellen-Signierungsschlüssel">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
-<LINK REL="next" HREF="node213.html">
-<LINK REL="previous" HREF="node209.html">
-<LINK REL="up" HREF="node208.html">
+<LINK REL="previous" HREF="node211.html">
+<LINK REL="up" HREF="node210.html">
 <LINK REL="next" HREF="node213.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3254"
+<A NAME="tex2html3258"
   HREF="node213.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3250"
-  HREF="node208.html">
+<A NAME="tex2html3254"
+  HREF="node210.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3244"
+<A NAME="tex2html3250"
   HREF="node211.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3252"
+<A NAME="tex2html3256"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> N&auml;chste Seite:</B> <A NAME="tex2html3255"
-  HREF="node213.html">Paketquellen-Architekt (Paket-Index erstellen)</A>
-<B> Aufw&auml;rts:</B> <A NAME="tex2html3251"
-  HREF="node208.html">Paketquellenarchitekt</A>
-<B> Vorherige Seite:</B> <A NAME="tex2html3245"
-  HREF="node211.html">GPG-Paketquellen-Signierungsschlüssel</A>
- &nbsp; <B>  <A NAME="tex2html3253"
+<B> N&auml;chste Seite:</B> <A NAME="tex2html3259"
+  HREF="node213.html">Paketquellen-Architekt (Pakete von CD</A>
+<B> Aufw&auml;rts:</B> <A NAME="tex2html3255"
+  HREF="node210.html">Paketquellen-Architekt (Paketquelle erstellen, editieren,</A>
+<B> Vorherige Seite:</B> <A NAME="tex2html3251"
+  HREF="node211.html">Hinweise</A>
+ &nbsp; <B>  <A NAME="tex2html3257"
   HREF="node1.html">Inhalt</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001320000000000000000">
-Paketquellen-Architekt (Pakete von CD einlesen)</A>
-</H1>
-<IMG
-  WIDTH="1186" HEIGHT="1264" ALIGN="BOTTOM" BORDER="0"
- SRC="./poolBuilderReadCD.png"
- ALT="Image poolBuilderReadCD"> 
+<H2><A NAME="SECTION001312000000000000000">
+GPG-Paketquellen-Signierungsschl&#252;ssel</A>
+</H2>
+Hier k&#246;nnen Sie den privaten GPG-Schl&#252;ssel ausw&#228;hlen, der zum Signieren der auf Ihrem m23-Server erstellten Paketquellen verwendet wird. Auf die m23-Clients wird der dazugeh&#246;rige &#246;ffentliche Schl&#252;ssel &#252;bertragen, damit diese die Unverf&#228;lschtheit der Pakete &#252;berpr&#252;fen k&#246;nnen.
 <BR>
-<UL>
-<LI><SPAN  CLASS="textbf">Medium w&#228;hlen</SPAN>: W&#228;hlen Sie den Mountpunkt aus, von dem Sie die Pakete kopieren wollen und klicken anschlie&#223;end auf <SPAN  CLASS="textit">''Laufwerk einlesen''</SPAN>.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Status</SPAN>: Mit einem Klick auf <SPAN  CLASS="textit">''Laufwerkstatus testen''</SPAN> k&#246;nnen Sie den akuellen Status des Laufwerkes und die Gr&#246;&#223;e der Paketquelle feststellen.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Zus&#228;tzliche Medien einlesen</SPAN>: Nach Abschlu&#223; des Kopierens k&#246;nnen Sie ein neues Medium einlegen und ebenfalls in die Paketquelle kopieren.
-<BR></LI>
-<LI><SPAN  CLASS="textbf">Index erstellen</SPAN>: Fahren Sie mit einem Klick auf <SPAN  CLASS="textit">''N&#228;chster Schritt (Paket-Index erstellen)''</SPAN> fort, wenn Sie alle Medien kopiert haben.
-<BR></LI>
-</UL>
+Unter <SPAN  CLASS="textit">''Aktuell verwendeter GPG-Schl&#252;ssel''</SPAN> sehen Sie den aktuell verwendeten Schl&#252;ssel. Sollte hier kein Schl&#252;ssel angegeben sein, so werden die Pakete auf Ihrem m23-Server aktuell nicht signiert.
+<BR>
+Zum Nutzen eines privaten GPG-Schl&#252;ssels w&#228;hlen Sie diesen aus der Liste aus und klicken Sie anschlie&#223;end auf <SPAN  CLASS="textit">''W&#228;hlen''</SPAN>. Der GPG-Schl&#252;ssel wird nun zum Signieren aller neu erstellten oder aktualisierten Paketquellen verwendet und auch auf neu angelegte oder wiederhergestellte m23-Clients &#252;bertragen.
+<BR>
+M&#246;chten Sie vorhandene GPG-Schl&#252;ssel entfernen oder neue hinzuf&#252;gen, so klicken Sie auf <SPAN  CLASS="textit">''GPG-Schl&#252;ssel verwalten''</SPAN>.
+<BR>
+M&#246;chten Sie den Index der aktuell geladenen Paketquelle (neu) erstellen und anschlie&#223;end (neu) signieren, so klicken Sie auf den Button <SPAN  CLASS="textit">''Paketquellenindex (neu) erstellen und (neu) signieren''</SPAN>.
+<BR>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-09
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

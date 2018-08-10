@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::virtualAddDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::virtualAddDisk">
+<TITLE>CFDiskIO::virtualAddPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::virtualAddPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node611.html">
 <LINK REL="previous" HREF="node609.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node611.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15317"
+<A NAME="tex2html15363"
   HREF="node611.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15313"
-  HREF="node544.html">
+<A NAME="tex2html15359"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15307"
+<A NAME="tex2html15353"
   HREF="node609.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15315"
+<A NAME="tex2html15361"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15318"
-  HREF="node611.html">CFDiskIO::getBelongingRaidDev</A>
-<B> Up:</B> <A NAME="tex2html15314"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15308"
-  HREF="node609.html">CFDiskIO::virtualAddPartition</A>
- &nbsp; <B>  <A NAME="tex2html15316"
+<B> Next:</B> <A NAME="tex2html15364"
+  HREF="node611.html">CFDiskIO::virtualAddDisk</A>
+<B> Up:</B> <A NAME="tex2html15360"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15354"
+  HREF="node609.html">CFDiskIO::getLowestValueOf</A>
+ &nbsp; <B>  <A NAME="tex2html15362"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091566000000000000000">
-CFDiskIO::virtualAddDisk</A>
+<H2><A NAME="SECTION0091565000000000000000">
+CFDiskIO::virtualAddPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new virtual disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new (virtual) partition on a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name of the new drive (e.g. /dev/md0)
+<LI>dev: The device (e.g. /dev/sda2).
 </LI>
-<LI>size: Size in MB of the new drive.
+<LI>start: Start position (in MB) of the partition to create.
+</LI>
+<LI>end: End position (in MB) of the partition to create.
+</LI>
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk of the new created virtual disk.
+<LI>Physical partition number of the new partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +80,7 @@ CFDiskIO::virtualAddDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

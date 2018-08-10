@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::nextLogicalDevNr</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::nextLogicalDevNr">
+<TITLE>CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getNextFreePhysicalVirtualPartitionNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node622.html">
 <LINK REL="previous" HREF="node620.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node622.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15449"
+<A NAME="tex2html15495"
   HREF="node622.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15445"
-  HREF="node544.html">
+<A NAME="tex2html15491"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15439"
+<A NAME="tex2html15485"
   HREF="node620.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15447"
+<A NAME="tex2html15493"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15450"
-  HREF="node622.html">CFDiskIO::nextPrimaryDevNr</A>
-<B> Up:</B> <A NAME="tex2html15446"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15440"
-  HREF="node620.html">CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</A>
- &nbsp; <B>  <A NAME="tex2html15448"
+<B> Next:</B> <A NAME="tex2html15496"
+  HREF="node622.html">CFDiskIO::nextLogicalDevNr</A>
+<B> Up:</B> <A NAME="tex2html15492"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15486"
+  HREF="node620.html">CFDiskIO::mayPartitioningBeChanged</A>
+ &nbsp; <B>  <A NAME="tex2html15494"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091577000000000000000">
-CFDiskIO::nextLogicalDevNr</A>
+<H2><A NAME="SECTION0091576000000000000000">
+CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the next free logical (physical) partition number.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the next physical and virtual partition numbers for a new partition of given type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Virtual (internally used) disk number.
 </LI>
+<LI>newPartNr: (physical) partition number for the partition to create.
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>start: Start position of the partition.
+</LI>
+<LI>end: End position of the partition.
+</LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Next free logical (physical) partition number.
+<LI>Virtual (internally used) partition number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +82,7 @@ CFDiskIO::nextLogicalDevNr</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

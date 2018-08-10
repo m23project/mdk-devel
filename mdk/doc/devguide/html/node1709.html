@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HS_sysChangeUser</TITLE>
-<META NAME="description" CONTENT="HS_sysChangeUser">
+<TITLE>HS_hookBeginAfterChroot</TITLE>
+<META NAME="description" CONTENT="HS_hookBeginAfterChroot">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1710.html">
 <LINK REL="previous" HREF="node1708.html">
-<LINK REL="up" HREF="node1681.html">
+<LINK REL="up" HREF="node1690.html">
 <LINK REL="next" HREF="node1710.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29463"
+<A NAME="tex2html29517"
   HREF="node1710.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29459"
-  HREF="node1681.html">
+<A NAME="tex2html29513"
+  HREF="node1690.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29453"
+<A NAME="tex2html29507"
   HREF="node1708.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29461"
+<A NAME="tex2html29515"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29464"
-  HREF="node1710.html">HS_netEnableSSHdAndImportKey</A>
-<B> Up:</B> <A NAME="tex2html29460"
-  HREF="node1681.html">./inc/halfSister.php</A>
-<B> Previous:</B> <A NAME="tex2html29454"
-  HREF="node1708.html">HS_sysAddUser</A>
- &nbsp; <B>  <A NAME="tex2html29462"
+<B> Next:</B> <A NAME="tex2html29518"
+  HREF="node1710.html">HS_hookEndAfterChroot</A>
+<B> Up:</B> <A NAME="tex2html29514"
+  HREF="node1690.html">./inc/halfSister.php</A>
+<B> Previous:</B> <A NAME="tex2html29508"
+  HREF="node1708.html">HS_netDisableNTP</A>
+ &nbsp; <B>  <A NAME="tex2html29516"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095428000000000000000">
-HS_sysChangeUser</A>
+<H2><A NAME="SECTION0095419000000000000000">
+HS_hookBeginAfterChroot</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> changes the settings of an useraccount on a client
+<SPAN  CLASS="textbf">Description:</SPAN> Scripts that should be run at the beginning of the afterChroot.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>userName: the (old) username for the account
+<LI>rootDevice: Device with partition where the os will be installed (e.g. /dev/hda1).
 </LI>
-<LI>password: the new unecrypted password for the account
+<LI>bootDevice: Device (with partition) where the bootmanager will be installed (e.g. /dev/hda).
 </LI>
-<LI>newUserName: the new username
+<LI>bootDeviceFS: Filesystem of the root device.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +72,7 @@ HS_sysChangeUser</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_sedSearchAddInsert</TITLE>
-<META NAME="description" CONTENT="EDIT_sedSearchAddInsert">
+<TITLE>PKG_getAptArchOptions</TITLE>
+<META NAME="description" CONTENT="PKG_getAptArchOptions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1513.html">
 <LINK REL="previous" HREF="node1511.html">
-<LINK REL="up" HREF="node1511.html">
+<LINK REL="up" HREF="node1493.html">
 <LINK REL="next" HREF="node1513.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26908"
+<A NAME="tex2html26938"
   HREF="node1513.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26904"
-  HREF="node1511.html">
+<A NAME="tex2html26934"
+  HREF="node1493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26898"
+<A NAME="tex2html26928"
   HREF="node1511.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26906"
+<A NAME="tex2html26936"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26909"
-  HREF="node1513.html">EDIT_writeToFile</A>
-<B> Up:</B> <A NAME="tex2html26905"
-  HREF="node1511.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html26899"
-  HREF="node1511.html">./inc/edit.php</A>
- &nbsp; <B>  <A NAME="tex2html26907"
+<B> Next:</B> <A NAME="tex2html26939"
+  HREF="node1513.html">PKG_addAPTConfigFiles</A>
+<B> Up:</B> <A NAME="tex2html26935"
+  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26929"
+  HREF="node1511.html">PKG_listPackages</A>
+ &nbsp; <B>  <A NAME="tex2html26937"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009511000000000000000">
-EDIT_sedSearchAddInsert</A>
+<H2><A NAME="SECTION0095019000000000000000">
+PKG_getAptArchOptions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a sed command line to insert text before (SED_insertBefore) or after (SED_insertAfter) a searched line.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates options to specify the architecture of a client that can be appended to an apt-get line.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: Name of the file to edit.
-</LI>
-<LI>search: Search pattern to find the line for inserting before or after.
-</LI>
-<LI>text: The text to insert.
-</LI>
-<LI>insertBeforeOrAfter: Parameter to select, if the new text should inserted before (SED_insertBefore) or after (SED_insertAfter) the found line
+<LI>arch: Architecture to get package infos for.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>sed code for inserting text before (SED_insertBefore) or after (SED_insertAfter) a searched line.
+<LI>: Parameter for architecture specific apt-get commands, if architecture is not i386.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ EDIT_sedSearchAddInsert</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

@@ -278,7 +278,7 @@ simpleBuild()
 updatePackages()
 {
 	cd $debPath
-	makePackages
+	makePackages $1
 	chown www-data.www-data $debPath -R
 }
 
@@ -388,7 +388,12 @@ last=""
 #creates the Debian package index (Packages, Packages.gz, Packages.bz2)
 makePackages()
 {
-	deleteOldDoubles
+	if [ $1 ] && [ $1 = 'NOdeleteOldDoubles' ]
+	then
+		nop=1
+	else
+		deleteOldDoubles
+	fi
 	rm *.gif *.htm* Packages.* 2> /dev/null
 	touch tempmkpackages
 
@@ -410,14 +415,16 @@ uploadClientPackagesToSF()
 	cd /mdk/m23Debs/debs/
 	makePackages
 	mkRelease
+
+	rsync `rsyncUploadSpeedLimit` -rzaPy --delete-after --delete * root@tux05:/var/www/m23debs/
+
 	#Upload to webspace
 	rsync `rsyncUploadSpeedLimit` -raPy -e ssh --delete-after --delete /mdk/m23Debs/debs/ hhabermann,m23@web.sourceforge.net:/home/project-web/m23/htdocs/m23debs/
 	#Upload to FRS
 	rsync `rsyncUploadSpeedLimit` -avPyrL -e ssh --delete-after --delete /mdk/m23Debs/debs/ "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23debs"
 	#Upload to backups
 	rsync `rsyncUploadSpeedLimit` -avPyrL -e ssh /mdk/m23Debs/debs/*.deb "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m/m2/m23/m23clientpackages"
-	
-	rsync `rsyncUploadSpeedLimit` -rzaPy --delete-after --delete * root@tux05:/var/www/m23debs/
+
 }
 
 

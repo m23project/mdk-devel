@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister">
+<TITLE>CFDiskIO::genManualFstab</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node659.html">
 <LINK REL="previous" HREF="node657.html">
-<LINK REL="up" HREF="node544.html">
+<LINK REL="up" HREF="node545.html">
 <LINK REL="next" HREF="node659.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15893"
+<A NAME="tex2html15939"
   HREF="node659.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15889"
-  HREF="node544.html">
+<A NAME="tex2html15935"
+  HREF="node545.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15883"
+<A NAME="tex2html15929"
   HREF="node657.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15891"
+<A NAME="tex2html15937"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15894"
-  HREF="node659.html">CFDiskIO::FDISK_genManualFstab</A>
-<B> Up:</B> <A NAME="tex2html15890"
-  HREF="node544.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15884"
-  HREF="node657.html">CFDiskIO::genManualFstab</A>
- &nbsp; <B>  <A NAME="tex2html15892"
+<B> Next:</B> <A NAME="tex2html15940"
+  HREF="node659.html">CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
+<B> Up:</B> <A NAME="tex2html15936"
+  HREF="node545.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15930"
+  HREF="node657.html">CFDiskIO::adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html15938"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00915114000000000000000">
-CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
+<H2><A NAME="SECTION00915113000000000000000">
+CFDiskIO::genManualFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the fstab entries in the old style array format that is used by HS_sysAddFstabEntries.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Fstab entries in the old style array format.
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
+</LI>
+<LI>sourceName: Name of the client's sources list.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if fstab data in new format is used on the client, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

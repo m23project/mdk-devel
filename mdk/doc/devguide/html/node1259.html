@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getDebootStrapBasePackages</TITLE>
-<META NAME="description" CONTENT="PKG_getDebootStrapBasePackages">
+<TITLE>PKG_preparePackageDir</TITLE>
+<META NAME="description" CONTENT="PKG_preparePackageDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,47 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node1260.html">
 <LINK REL="previous" HREF="node1258.html">
-<LINK REL="up" HREF="node1233.html">
+<LINK REL="up" HREF="node1238.html">
 <LINK REL="next" HREF="node1260.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23622"
+<A NAME="tex2html23674"
   HREF="node1260.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23618"
-  HREF="node1233.html">
+<A NAME="tex2html23670"
+  HREF="node1238.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23614"
+<A NAME="tex2html23664"
   HREF="node1258.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23620"
+<A NAME="tex2html23672"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23623"
-  HREF="node1260.html">./inc/distr/halfSister/clientConfig.php</A>
-<B> Up:</B> <A NAME="tex2html23619"
-  HREF="node1233.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23615"
-  HREF="node1258.html">PKG_downloadPool</A>
- &nbsp; <B>  <A NAME="tex2html23621"
+<B> Next:</B> <A NAME="tex2html23675"
+  HREF="node1260.html">PKG_updatePackageInfo</A>
+<B> Up:</B> <A NAME="tex2html23671"
+  HREF="node1238.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23665"
+  HREF="node1258.html">PKG_addAPTConfigFiles</A>
+ &nbsp; <B>  <A NAME="tex2html23673"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094126000000000000000">
-PKG_getDebootStrapBasePackages</A>
+<H2><A NAME="SECTION0094121000000000000000">
+PKG_preparePackageDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the list of base packages that are downloaded by debootstrap for a special release.
+<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>release: release name of the distribution version (e.g. sarge)
+<LI>dir: the directory to prepare
+</LI>
+<LI>packagesource: sources list
+</LI>
+<LI>logFile: Name of the file the messages from apt-get should be written to.
+</LI>
+<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>sourceName: The name of the package source list
+</LI>
+<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Error text on error or empty string on success.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -67,7 +86,7 @@ PKG_getDebootStrapBasePackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

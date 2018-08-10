@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getPackageDescriptionSize</TITLE>
-<META NAME="description" CONTENT="PKG_getPackageDescriptionSize">
+<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
+<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1501.html">
 <LINK REL="previous" HREF="node1499.html">
-<LINK REL="up" HREF="node1484.html">
+<LINK REL="up" HREF="node1493.html">
 <LINK REL="next" HREF="node1501.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26740"
+<A NAME="tex2html26794"
   HREF="node1501.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26736"
-  HREF="node1484.html">
+<A NAME="tex2html26790"
+  HREF="node1493.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26730"
+<A NAME="tex2html26784"
   HREF="node1499.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26738"
+<A NAME="tex2html26792"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26741"
-  HREF="node1501.html">PKG_printStatus</A>
-<B> Up:</B> <A NAME="tex2html26737"
-  HREF="node1484.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26731"
-  HREF="node1499.html">PKG_getLongPackageDescription</A>
- &nbsp; <B>  <A NAME="tex2html26739"
+<B> Next:</B> <A NAME="tex2html26795"
+  HREF="node1501.html">PKG_preparePool</A>
+<B> Up:</B> <A NAME="tex2html26791"
+  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26785"
+  HREF="node1499.html">PKG_ncTarDebsFromClientToServer_Server</A>
+ &nbsp; <B>  <A NAME="tex2html26793"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095016000000000000000">
-PKG_getPackageDescriptionSize</A>
+<H2><A NAME="SECTION009507000000000000000">
+PKG_rsyncDebsFromClientToServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes the description and size of a package
+<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the name of the distribution
+<LI>clientIP: The IP of the client.
 </LI>
-<LI>packagesource: the name of the package source list
-</LI>
-<LI>package: name if the package
+<LI>poolDir: The directory on the server to store the Debian packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ PKG_getPackageDescriptionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

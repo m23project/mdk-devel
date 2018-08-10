@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/distr/debian/packages.php</TITLE>
-<META NAME="description" CONTENT="./inc/distr/debian/packages.php">
+<TITLE>CLCFG_listDebianReleasesGeneric</TITLE>
+<META NAME="description" CONTENT="CLCFG_listDebianReleasesGeneric">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,112 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1260.html">
-<LINK REL="previous" HREF="node1225.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1234.html">
+<LINK REL="previous" HREF="node1232.html">
+<LINK REL="up" HREF="node1230.html">
 <LINK REL="next" HREF="node1234.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23286"
+<A NAME="tex2html23338"
   HREF="node1234.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23282"
-  HREF="node102.html">
+<A NAME="tex2html23334"
+  HREF="node1230.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23276"
+<A NAME="tex2html23328"
   HREF="node1232.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23284"
+<A NAME="tex2html23336"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23287"
-  HREF="node1234.html">PKG_updatePackageSearchCacheFile</A>
-<B> Up:</B> <A NAME="tex2html23283"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html23277"
-  HREF="node1232.html">CLIENT_enableLDAP</A>
- &nbsp; <B>  <A NAME="tex2html23285"
+<B> Next:</B> <A NAME="tex2html23339"
+  HREF="node1234.html">CLCFG_listDebianReleases</A>
+<B> Up:</B> <A NAME="tex2html23335"
+  HREF="node1230.html">./inc/distr/debian/clientConfig.php</A>
+<B> Previous:</B> <A NAME="tex2html23329"
+  HREF="node1232.html">CLCFG_listDebianReleasesGeneric</A>
+ &nbsp; <B>  <A NAME="tex2html23337"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009410000000000000000">
-./inc/distr/debian/packages.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Debian/Ubuntu specific package handling functions.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION009403000000000000000">
+CLCFG_listDebianReleasesGeneric</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> generates a selection of the different releases (e.g. sarge, sid, woody, potato) of a distribution.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>selName: the name of the selection
+</LI>
+<LI>first: the release to show first
+</LI>
+<LI>distr: distribution directory
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Selection with release names.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html23288"
-  HREF="node1234.html">PKG_updatePackageSearchCacheFile</A>
-<LI><A NAME="tex2html23289"
-  HREF="node1235.html">PKG_getSearchCacheFileName</A>
-<LI><A NAME="tex2html23290"
-  HREF="node1236.html">PKG_genPackageSearchCacheFileCMD</A>
-<LI><A NAME="tex2html23291"
-  HREF="node1237.html">PKG_searchPackageSearchCacheFileCMD</A>
-<LI><A NAME="tex2html23292"
-  HREF="node1238.html">PKG_ncTarDebsFromClientToServer_Client</A>
-<LI><A NAME="tex2html23293"
-  HREF="node1239.html">PKG_ncTarDebsFromClientToServer_Server</A>
-<LI><A NAME="tex2html23294"
-  HREF="node1240.html">PKG_rsyncDebsFromClientToServer</A>
-<LI><A NAME="tex2html23295"
-  HREF="node1241.html">PKG_preparePool</A>
-<LI><A NAME="tex2html23296"
-  HREF="node1242.html">PKG_convertPackagesToRepository</A>
-<LI><A NAME="tex2html23297"
-  HREF="node1243.html">PKG_fastGetInstalledPackages</A>
-<LI><A NAME="tex2html23298"
-  HREF="node1244.html">PKG_fastGetNewInstalledPackages</A>
-<LI><A NAME="tex2html23299"
-  HREF="node1245.html">PKG_searchFor</A>
-<LI><A NAME="tex2html23300"
-  HREF="node1246.html">PKG_getDescription</A>
-<LI><A NAME="tex2html23301"
-  HREF="node1247.html">PKG_getPackageName</A>
-<LI><A NAME="tex2html23302"
-  HREF="node1248.html">PKG_getLongPackageDescription</A>
-<LI><A NAME="tex2html23303"
-  HREF="node1249.html">PKG_getPackageDescriptionSize</A>
-<LI><A NAME="tex2html23304"
-  HREF="node1250.html">PKG_printStatus</A>
-<LI><A NAME="tex2html23305"
-  HREF="node1251.html">PKG_listPackages</A>
-<LI><A NAME="tex2html23306"
-  HREF="node1252.html">PKG_getAptArchOptions</A>
-<LI><A NAME="tex2html23307"
-  HREF="node1253.html">PKG_addAPTConfigFiles</A>
-<LI><A NAME="tex2html23308"
-  HREF="node1254.html">PKG_preparePackageDir</A>
-<LI><A NAME="tex2html23309"
-  HREF="node1255.html">PKG_updatePackageInfo</A>
-<LI><A NAME="tex2html23310"
-  HREF="node1256.html">PKG_previewInstall</A>
-<LI><A NAME="tex2html23311"
-  HREF="node1257.html">PKG_getKernels</A>
-<LI><A NAME="tex2html23312"
-  HREF="node1258.html">PKG_downloadPool</A>
-<LI><A NAME="tex2html23313"
-  HREF="node1259.html">PKG_getDebootStrapBasePackages</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

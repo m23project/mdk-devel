@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listDrivesAndPartitions</TITLE>
-<META NAME="description" CONTENT="FDISK_listDrivesAndPartitions">
+<TITLE>FDISK_fdiskSessionFreeSpaces</TITLE>
+<META NAME="description" CONTENT="FDISK_fdiskSessionFreeSpaces">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1570.html">
 <LINK REL="previous" HREF="node1568.html">
-<LINK REL="up" HREF="node1538.html">
+<LINK REL="up" HREF="node1547.html">
 <LINK REL="next" HREF="node1570.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27699"
+<A NAME="tex2html27753"
   HREF="node1570.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27695"
-  HREF="node1538.html">
+<A NAME="tex2html27749"
+  HREF="node1547.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27689"
+<A NAME="tex2html27743"
   HREF="node1568.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27697"
+<A NAME="tex2html27751"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27700"
-  HREF="node1570.html">FDISK_selectDrives</A>
-<B> Up:</B> <A NAME="tex2html27696"
-  HREF="node1538.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27690"
-  HREF="node1568.html">FDISK_getDrivesAndPartitions</A>
- &nbsp; <B>  <A NAME="tex2html27698"
+<B> Next:</B> <A NAME="tex2html27754"
+  HREF="node1570.html">FDISK_fdiskSessionReset</A>
+<B> Up:</B> <A NAME="tex2html27750"
+  HREF="node1547.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27744"
+  HREF="node1568.html">FDISK_fdiskSessionvDevInstall</A>
+ &nbsp; <B>  <A NAME="tex2html27752"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095231000000000000000">
-FDISK_listDrivesAndPartitions</A>
+<H2><A NAME="SECTION0095222000000000000000">
+FDISK_fdiskSessionFreeSpaces</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a selection that contains all drives and partitions of a given client.
+<SPAN  CLASS="textbf">Description:</SPAN> Stores the free space parts of the installation drive in the session or recalculates them for the current installation drive.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>newSpaces: The new free spaces to set or false for not changing.
 </LI>
-<LI>default: the drive to show first
-</LI>
-<LI>selName: the name the selection is called in PHP and HTML
-</LI>
-<LI>pathFilter: Set this to another value than false if you want only devices with a given string in it.
+<LI>reset: Re-calculate the free spaces, if set to true.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>String with the HTML selection.
+<LI>The current free spaces.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +76,7 @@ FDISK_listDrivesAndPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

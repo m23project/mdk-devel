@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>GPG key for signing the package source</TITLE>
-<META NAME="description" CONTENT="GPG key for signing the package source">
+<TITLE>BitTorrent</TITLE>
+<META NAME="description" CONTENT="BitTorrent">
 <META NAME="keywords" CONTENT="manual">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,54 +19,63 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="manual.css">
 
+<LINK REL="next" HREF="node208.html">
 <LINK REL="previous" HREF="node206.html">
-<LINK REL="up" HREF="node204.html">
+<LINK REL="up" HREF="node205.html">
 <LINK REL="next" HREF="node208.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html3218"
+<A NAME="tex2html3224"
   HREF="node208.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html3214"
-  HREF="node204.html">
+<A NAME="tex2html3220"
+  HREF="node205.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html3210"
+<A NAME="tex2html3214"
   HREF="node206.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html3216"
+<A NAME="tex2html3222"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html3219"
-  HREF="node208.html">Script editor</A>
-<B> Up:</B> <A NAME="tex2html3215"
-  HREF="node204.html">Package builder</A>
-<B> Previous:</B> <A NAME="tex2html3211"
-  HREF="node206.html">BitTorrent</A>
- &nbsp; <B>  <A NAME="tex2html3217"
+<B> Next:</B> <A NAME="tex2html3225"
+  HREF="node208.html">GPG key for signing</A>
+<B> Up:</B> <A NAME="tex2html3221"
+  HREF="node205.html">Package builder</A>
+<B> Previous:</B> <A NAME="tex2html3215"
+  HREF="node206.html">Hint</A>
+ &nbsp; <B>  <A NAME="tex2html3223"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION001273000000000000000">
-GPG key for signing the package source</A>
+<H2><A NAME="SECTION001272000000000000000">
+BitTorrent</A>
 </H2>
-Select the private GPG key that will be used to sign the package sources created with your m23 server here. The corresponding public key will be transferred to the m23 clients, so the authenticity of the packages can be checked.
+If you would like to distribute large files to many client computers, and would like to reduce the strain this puts on the server, you can use the BitTorrent functionality. BitTorrent makes it possible that the m23 clients share parts of already downloaded files among each other, which (in the ideal case) will result in the m23 server only transferring this file a single time.
 <BR>
-At <SPAN  CLASS="textit">''GPG key in use''</SPAN>, the key which is currently in use is displayed. If there is no key indicated, the packages will currently not be signed.
+To use Bittorrent, follow these steps:
 <BR>
-To be able to use a private GPG key, select one from the list and click on <SPAN  CLASS="textit">''Select''</SPAN>. The GPG key will now be used to sign all package sources that are created or updated, and will also be transferred to clients that are created or restored.
-<BR>
-If you would like to remove or add a GPG key, click on <SPAN  CLASS="textit">''Manage GPG keys''</SPAN>.
-<BR>
+<OL>
+<LI>Copy the file(s) you would like to transfer to the clients into the directory <SPAN  CLASS="textit">''/m23/data+scripts/extraDebs/''</SPAN> on your m23 server.
+<BR></LI>
+<LI>Click on the button labelled <SPAN  CLASS="textit">''Create .torrent''</SPAN> behind the corresponding file name.
+<BR></LI>
+<LI>In your own scripts, use the m23 function 
+<BR><PRE>
+BT\_dlFile($torrentFileName, $DestinationDirectoryOnClient)
+</PRE>
+.
+<BR></LI>
+</OL>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-09
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

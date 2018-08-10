@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::showColorDefinitions</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::showColorDefinitions">
+<TITLE>CFDiskGUI::getRaidTable</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getRaidTable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node541.html">
 <LINK REL="previous" HREF="node539.html">
-<LINK REL="up" HREF="node495.html">
+<LINK REL="up" HREF="node496.html">
 <LINK REL="next" HREF="node541.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14357"
+<A NAME="tex2html14403"
   HREF="node541.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14353"
-  HREF="node495.html">
+<A NAME="tex2html14399"
+  HREF="node496.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14347"
+<A NAME="tex2html14393"
   HREF="node539.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14355"
+<A NAME="tex2html14401"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14358"
-  HREF="node541.html">CFDiskGUI::fstabAddDialog</A>
-<B> Up:</B> <A NAME="tex2html14354"
-  HREF="node495.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14348"
-  HREF="node539.html">CFDiskGUI::getRaidTable</A>
- &nbsp; <B>  <A NAME="tex2html14356"
+<B> Next:</B> <A NAME="tex2html14404"
+  HREF="node541.html">CFDiskGUI::showColorDefinitions</A>
+<B> Up:</B> <A NAME="tex2html14400"
+  HREF="node496.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14394"
+  HREF="node539.html">CFDiskGUI::showAllPartTables</A>
+ &nbsp; <B>  <A NAME="tex2html14402"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091445000000000000000">
-CFDiskGUI::showColorDefinitions</A>
+<H2><A NAME="SECTION0091444000000000000000">
+CFDiskGUI::getRaidTable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows the color definitions for the supported filesystems.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Get informations about the assigned real disks/partitions of a RAID.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>raidDev: Device name of the new drive (e.g. /dev/md0)
+</LI>
+<LI>withDeleteButtons: If set to true, each line with a real disk/partition gets an extra button for deleting it from the RAID.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>HTML table with informations about the assigned real drives/partitions.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

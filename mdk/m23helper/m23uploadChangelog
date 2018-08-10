@@ -23,7 +23,7 @@ print($0);
 cp /tmp/changelog /tmp/changelogComplete
 
 #Copy long and short changelog to SFs
-scp -C /tmp/changelogComplete /tmp/changelogNew hhabermann,m23@web.sourceforge.net:/home/groups/m/m2/m23/htdocs/docs/
+/m23/bin/SFrsyncLoop /tmp/changelogComplete /tmp/changelogNew hhabermann,m23@web.sourceforge.net:/home/groups/m/m2/m23/htdocs/docs/
 
 #Post the development messages of the last day to Twitter and Facebook
 awk 'BEGIN {

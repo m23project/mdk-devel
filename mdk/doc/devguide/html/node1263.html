@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_listHSReleasesGeneric</TITLE>
-<META NAME="description" CONTENT="CLCFG_listHSReleasesGeneric">
+<TITLE>PKG_downloadPool</TITLE>
+<META NAME="description" CONTENT="PKG_downloadPool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1264.html">
 <LINK REL="previous" HREF="node1262.html">
-<LINK REL="up" HREF="node1260.html">
+<LINK REL="up" HREF="node1238.html">
 <LINK REL="next" HREF="node1264.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23676"
+<A NAME="tex2html23722"
   HREF="node1264.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23672"
-  HREF="node1260.html">
+<A NAME="tex2html23718"
+  HREF="node1238.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23666"
+<A NAME="tex2html23712"
   HREF="node1262.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23674"
+<A NAME="tex2html23720"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23677"
-  HREF="node1264.html">CLCFG_listHSReleases</A>
-<B> Up:</B> <A NAME="tex2html23673"
-  HREF="node1260.html">./inc/distr/halfSister/clientConfig.php</A>
-<B> Previous:</B> <A NAME="tex2html23667"
-  HREF="node1262.html">CLCFG_listHSReleasesGeneric</A>
- &nbsp; <B>  <A NAME="tex2html23675"
+<B> Next:</B> <A NAME="tex2html23723"
+  HREF="node1264.html">PKG_getDebootStrapBasePackages</A>
+<B> Up:</B> <A NAME="tex2html23719"
+  HREF="node1238.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23713"
+  HREF="node1262.html">PKG_getKernels</A>
+ &nbsp; <B>  <A NAME="tex2html23721"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009423000000000000000">
-CLCFG_listHSReleasesGeneric</A>
+<H2><A NAME="SECTION0094125000000000000000">
+PKG_downloadPool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a selection of the different releases (e.g. sarge, sid, woody, potato) of a distribution.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to download packages from a sources list to a directory.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>selName: the name of the selection
+<LI>destDir: the directory the packages should be downloaded to
 </LI>
-<LI>first: the release to show first
+<LI>sourceslist: package source list
 </LI>
-<LI>distr: distribution directory
+<LI>packagesArr: array of the lists that contain packages to download (seperated by blanks)
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Selection with release names.
+<LI>arch: CPU architecture to download the packages for.
+</LI>
+<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +76,7 @@ CLCFG_listHSReleasesGeneric</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

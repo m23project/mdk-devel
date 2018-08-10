@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+echo 'CacheDir: /var/cache/apt-cacher-ng
+
+LogDir: /var/log/apt-cacher-ng
+
+Port:2323
+
+ReportPage: acng-report.html
+
+ForceManaged: 0
+
+ExTreshold: 4
+
+PfilePattern = .*(.7z|.deb|.rpm|.exe|.dsc|.tar.gz.gpg|.tar.gz|.diff.gz|.diff.bz2|.jigdo|.template|changelog|copyright|.udeb|.diff/.*.gz|vmlinuz|initrd.gz|(Devel)?ReleaseAnnouncement(\?.*)?)$
+
+LocalDirs: acng-doc /usr/share/doc/apt-cacher-ng
+' > /etc/apt-cacher-ng/acng.conf
+
+
+# Open port 2323 in the UCS firewall
+ucr set security/packetfilter/package/m23/tcp/2323/all=ACCEPT
+ucr set security/packetfilter/package/m23/udp/2323/all=ACCEPT
+/etc/init.d/univention-firewall restart
+
+/etc/init.d/apt-cacher-ng restart
+
+for phpFile in `find /etc/php?/apache* /etc/php/7.0 2> /dev/null | grep php.ini` `find /etc/php?/cli | grep php.ini`
+do
+	#PHP settings
+	sed -i -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
+done
+
+
+# Disable systemd redirecting /tmp of PHP processes to separte directories
+sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /lib/systemd/system/apache*
+systemctl daemon-reload
+
+# Make sure, the Apache user gets a shell. Needed for sudo by www-data otherwise the '-i' in SERVER_runInBackground need to be removed
+chsh -s /bin/sh www-data
+
+/etc/init.d/apache2 restart
+
+db_stop

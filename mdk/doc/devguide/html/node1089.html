@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>encryptShadow</TITLE>
-<META NAME="description" CONTENT="encryptShadow">
+<TITLE>ip2longSafe</TITLE>
+<META NAME="description" CONTENT="ip2longSafe">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1090.html">
 <LINK REL="previous" HREF="node1088.html">
-<LINK REL="up" HREF="node1085.html">
+<LINK REL="up" HREF="node1088.html">
 <LINK REL="next" HREF="node1090.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21462"
+<A NAME="tex2html21510"
   HREF="node1090.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21458"
-  HREF="node1085.html">
+<A NAME="tex2html21506"
+  HREF="node1088.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21452"
+<A NAME="tex2html21500"
   HREF="node1088.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21460"
+<A NAME="tex2html21508"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21463"
-  HREF="node1090.html">getClientLanguage</A>
-<B> Up:</B> <A NAME="tex2html21459"
-  HREF="node1085.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html21453"
-  HREF="node1088.html">isMySQL3used</A>
- &nbsp; <B>  <A NAME="tex2html21461"
+<B> Next:</B> <A NAME="tex2html21511"
+  HREF="node1090.html">getArchList</A>
+<B> Up:</B> <A NAME="tex2html21507"
+  HREF="node1088.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html21501"
+  HREF="node1088.html">./inc/db.php</A>
+ &nbsp; <B>  <A NAME="tex2html21509"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009374000000000000000">
-encryptShadow</A>
+<H2><A NAME="SECTION009371000000000000000">
+ip2longSafe</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> encrypts a password for adding a user to the client
+<SPAN  CLASS="textbf">Description:</SPAN> Special version of ip2long that is safe on 32 bit machines.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>userName: the username for the account
+<LI>in: Input v4 IP (e.g. 192.168.1.23) or number.
 </LI>
-<LI>password: the unecrypted password to encrypt
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Unsigned long representation of the input IP or the input numer.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +74,7 @@ encryptShadow</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

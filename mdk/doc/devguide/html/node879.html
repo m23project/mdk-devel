@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Cm23Admin::getCSS</TITLE>
-<META NAME="description" CONTENT="Cm23Admin::getCSS">
+<TITLE>Cm23Admin::delete</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::delete">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node880.html">
 <LINK REL="previous" HREF="node878.html">
-<LINK REL="up" HREF="node873.html">
+<LINK REL="up" HREF="node876.html">
 <LINK REL="next" HREF="node880.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18738"
+<A NAME="tex2html18786"
   HREF="node880.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18734"
-  HREF="node873.html">
+<A NAME="tex2html18782"
+  HREF="node876.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18728"
+<A NAME="tex2html18776"
   HREF="node878.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18736"
+<A NAME="tex2html18784"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18739"
-  HREF="node880.html">Cm23Admin::setLanguage</A>
-<B> Up:</B> <A NAME="tex2html18735"
-  HREF="node873.html">./inc/Cm23Admin.php</A>
-<B> Previous:</B> <A NAME="tex2html18729"
-  HREF="node878.html">Cm23Admin::setCSS</A>
- &nbsp; <B>  <A NAME="tex2html18737"
+<B> Next:</B> <A NAME="tex2html18787"
+  HREF="node880.html">Cm23Admin::changePw</A>
+<B> Up:</B> <A NAME="tex2html18783"
+  HREF="node876.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18777"
+  HREF="node878.html">Cm23Admin::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html18785"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009246000000000000000">
-Cm23Admin::getCSS</A>
+<H2><A NAME="SECTION009243000000000000000">
+Cm23Admin::delete</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> finds the CSS file for the CSS the user has chosen, defines selection for themeChoice
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes an m23 administrator from the database and from the password hash files for m23, backup, backuppc and phpmyldap.
 <BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: name of CSS file
+<LI>: True if admin could be deleted, False if admin doesn't exist or cannot be deleted (one must remain, can't delete yourself, or errors with DB or files).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +68,7 @@ Cm23Admin::getCSS</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

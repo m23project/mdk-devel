@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorageManager::getCOSStatusHumanReadable</TITLE>
-<META NAME="description" CONTENT="CObjectStorageManager::getCOSStatusHumanReadable">
+<TITLE>CObjectStorageManager::deleteObject</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::deleteObject">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node911.html">
 <LINK REL="previous" HREF="node909.html">
-<LINK REL="up" HREF="node901.html">
+<LINK REL="up" HREF="node904.html">
 <LINK REL="next" HREF="node911.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19134"
+<A NAME="tex2html19182"
   HREF="node911.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19130"
-  HREF="node901.html">
+<A NAME="tex2html19178"
+  HREF="node904.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19124"
+<A NAME="tex2html19172"
   HREF="node909.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19132"
+<A NAME="tex2html19180"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19135"
-  HREF="node911.html">CObjectStorageManager::getCOSI18NVariable</A>
-<B> Up:</B> <A NAME="tex2html19131"
-  HREF="node901.html">./inc/CObjectStorageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html19125"
-  HREF="node909.html">CObjectStorageManager::getCOSStatus</A>
- &nbsp; <B>  <A NAME="tex2html19133"
+<B> Next:</B> <A NAME="tex2html19183"
+  HREF="node911.html">CObjectStorageManager::getObjectMethodReturnValue</A>
+<B> Up:</B> <A NAME="tex2html19179"
+  HREF="node904.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19173"
+  HREF="node909.html">CObjectStorageManager::getByIdentClass</A>
+ &nbsp; <B>  <A NAME="tex2html19181"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009269000000000000000">
-CObjectStorageManager::getCOSStatusHumanReadable</A>
+<H2><A NAME="SECTION009266000000000000000">
+CObjectStorageManager::deleteObject</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the human readable status of the object.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes an object from the DB that match an identifier and a class (given by the object itself).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>object: Object to use or null, if $this-<SPAN CLASS="MATH"></SPAN>object should be used.
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>object: The object to delete.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Human readable status.
+<LI>true, if it could be deleted. Otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CObjectStorageManager::getCOSStatusHumanReadable</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

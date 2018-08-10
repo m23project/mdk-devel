@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DISTR_listDistributions</TITLE>
-<META NAME="description" CONTENT="DISTR_listDistributions">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1388.html">
 <LINK REL="previous" HREF="node1386.html">
-<LINK REL="up" HREF="node1383.html">
+<LINK REL="up" HREF="node1363.html">
 <LINK REL="next" HREF="node1388.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25279"
+<A NAME="tex2html25320"
   HREF="node1388.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25275"
-  HREF="node1383.html">
+<A NAME="tex2html25316"
+  HREF="node1363.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25269"
+<A NAME="tex2html25310"
   HREF="node1386.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25277"
+<A NAME="tex2html25318"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25280"
-  HREF="node1388.html">DISTR_getDescriptionValues</A>
-<B> Up:</B> <A NAME="tex2html25276"
-  HREF="node1383.html">./inc/distr.php</A>
-<B> Previous:</B> <A NAME="tex2html25270"
-  HREF="node1386.html">DISTR_releaseVersionTranslator</A>
- &nbsp; <B>  <A NAME="tex2html25278"
+<B> Next:</B> <A NAME="tex2html25321"
+  HREF="node1388.html">PKG_downloadPool</A>
+<B> Up:</B> <A NAME="tex2html25317"
+  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25311"
+  HREF="node1386.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html25319"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009474000000000000000">
-DISTR_listDistributions</A>
+<H2><A NAME="SECTION0094624000000000000000">
+PKG_getKernels</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns a list of the directory names of the distributions
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>addEmpty: set to true if an empty fake distribution shoul be put on top of the list
+<LI>distr: the distribution name
+</LI>
+<LI>packagesource: name of the package source
+</LI>
+<LI>arch: Architecture to get package infos for.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>An array that contains the system names of all distributions.
+<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ DISTR_listDistributions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

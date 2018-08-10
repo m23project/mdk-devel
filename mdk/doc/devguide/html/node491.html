@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::deleteDeviceFromRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::deleteDeviceFromRaid">
+<TITLE>CFDiskBasic::assignDeviceToRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::assignDeviceToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,47 +28,47 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13723"
+<A NAME="tex2html13769"
   HREF="node492.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13719"
+<A NAME="tex2html13765"
   HREF="node464.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13713"
+<A NAME="tex2html13759"
   HREF="node490.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13721"
+<A NAME="tex2html13767"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13724"
-  HREF="node492.html">CFDiskBasic::deleteAllPartitionsOnDisk</A>
-<B> Up:</B> <A NAME="tex2html13720"
+<B> Next:</B> <A NAME="tex2html13770"
+  HREF="node492.html">CFDiskBasic::deleteDeviceFromRaid</A>
+<B> Up:</B> <A NAME="tex2html13766"
   HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13714"
-  HREF="node490.html">CFDiskBasic::assignDeviceToRaid</A>
- &nbsp; <B>  <A NAME="tex2html13722"
+<B> Previous:</B> <A NAME="tex2html13760"
+  HREF="node490.html">CFDiskBasic::deleteRaid</A>
+ &nbsp; <B>  <A NAME="tex2html13768"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION0091327000000000000000">
-CFDiskBasic::deleteDeviceFromRaid</A>
+CFDiskBasic::assignDeviceToRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a partition or disk from a RAID disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a partition or disk to a RAID disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>raidDev: Device name of the RAID (eg. /dev/md0)
 </LI>
-<LI>devToRemove: Partition or disk device name to remove.
+<LI>devToAdd: partition or disk device name to add.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the device could be removed, otherwise false.
+<LI>true, if the device could be added, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ CFDiskBasic::deleteDeviceFromRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-01-22
+2018-05-08
 </ADDRESS>
 </BODY>
 </HTML>

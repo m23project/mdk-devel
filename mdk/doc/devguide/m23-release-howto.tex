@@ -80,13 +80,7 @@
 		\item Enable root access (set password to test): "sudo passwd"
 		\item Enable root login for SSH in /etc/ssh/sshd\_config
 		\item Log out and log into it via SSH (user: root, password: test)
-		\item Remove the user pi: userdel -r -f pi
-		\item Copy /mdk/m23helper/addLocalm23ServerRepository to the RasPi and execute it there
-		\item Install the m23 server: apt-get install m23
-		\item Choose yes on all options and use "test" for all passwords.
-		\item After the failure edit /etc/default/tftpd-hpa: Adjust TFTP\_OPTIONS="-4 $--$secure"
-		\item Continue the installation with: apt-get install -f
-		\item Run /mdk/m23helper/Raspbian-RemoveUnneededPackages.sh
+		\item Use commands from /mdk/m23helper/copyPasteTestm23ServerInstall
 		\item /mdk/bin/prepareOSForCompression.
 		\item Compress the SD card: dd if=/dev/sdX | 7zr a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si m23server\_xx.y\_rock-RaPi.7z
 	\end{itemize}
