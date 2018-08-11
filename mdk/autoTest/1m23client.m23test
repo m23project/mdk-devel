@@ -16,12 +16,12 @@
 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
 			<action type="sel_typeInto" ID="ED_login">test</action>
 			<action type="sel_typeInto" ID="ED_client">testclient</action>
-			<action type="sel_typeInto" ID="ED_client">selclient</action>
+			<action type="sel_typeInto" ID="ED_client">${VM_NAME}</action>
 			<action type="sel_typeInto" ID="ED_name">vorname</action>
 			<action type="sel_typeInto" ID="ED_familyname">nachname</action>
 			<action type="sel_typeInto" name="ED_firstpw">testtest</action>
 			<action type="sel_typeInto" name="ED_rootpassword">testtest</action>
-			<action type="sel_typeInto" name="ED_mac">SEL_VM_MAC</action>
+			<action type="sel_typeInto" name="ED_mac">${SEL_VM_MAC}</action>
 			<action type="sel_selectFrom" ID="SEL_boottype">pxe</action>
 			<action type="sel_setCheck" name="CB_getSystemtimeByNTP">0</action>
 			<action type="sel_selectRadio" name="SEL_ldaptype">read</action>
@@ -33,19 +33,23 @@
 			<bad type="sel_sourcecontains">$I18N_no_clientname</bad>
 			<bad type="sel_sourcecontains">$I18N_addNewLoginToUCSLDAPError</bad>
 		</test>
-		<test timeout="180" description="VM erstellen und starten">
+		<test timeout="600" description="VM erstellen und starten">
 			<trigger type="true"></trigger>
 			<action type="fkt">AUTOTEST_VM_create</action>
 			<action type="fkt">AUTOTEST_VM_start</action>
+			<good type="ocr">|{Warte|minutes}</good>
 		</test>
-		<test timeout="600" description="Warte auf Ende der Hardwareerkennung">
-			<trigger type="ocr">$I18N_waiting_for_jobs</trigger>
-			<good type="ocr">$I18N_waiting_for_jobs</good>
-		</test>
-		<test timeout="180" description="VM erstellen und starten">
+		<test timeout="180" description="Partitionieren- und Formatieren-Dialog öffnen">
 			<trigger type="true"></trigger>
  			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=setup</action>
 			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=fdisk</action>
+			<good type="sel_sourcecontains">$I18N_clientPartitioningAndFormating</good>
+		</test>
+		<test timeout="600" description="Partitionieren">
+			<trigger type="true"></trigger>
+			<action type="sel_selectFrom" ID="SEL_partitionSchemes">1</action>
+			<action type="sel_clickButton" name="BUT_executeScheme"></action>
+			<good type="sel_sourcecontains">$I18N_add_new_partition</good>
 		</test>
 	</sequence>
 </testcase>

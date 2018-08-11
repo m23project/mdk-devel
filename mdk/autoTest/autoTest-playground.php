@@ -14,19 +14,17 @@ include('/m23/inc/CChecks.php');
 include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
+	$answer='|{Warte|minutes}';
+	
+	if (strpos($answer, '|{') === 0)
+	{
+		// eg. $answer = '|{Warte|minutes}';
+	
+		
+		print_r(explode('|', $answer));
+		
+		print($answer);
+	}
 
-define('TEST_M23_BASE_URL', 'https://god:m23@192.168.1.143/m23admin');
-
-
-print("$in\n");
-
-
-
-
-print("$in\n");
-
-// $htmlsource = file_get_contents('/tmp/selsource.html');
-// 
-// AUTOTEST_SEL_getURLByMatch($htmlsource, array('client=selclient', 'page=fdisk'));
 
 ?>
