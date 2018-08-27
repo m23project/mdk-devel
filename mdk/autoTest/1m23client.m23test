@@ -45,11 +45,38 @@
 			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=fdisk</action>
 			<good type="sel_sourcecontains">$I18N_clientPartitioningAndFormating</good>
 		</test>
-		<test timeout="600" description="Partitionieren">
+		<test timeout="600" description="Partitionsschema anwenden">
 			<trigger type="true"></trigger>
 			<action type="sel_selectFrom" ID="SEL_partitionSchemes">1</action>
 			<action type="sel_clickButton" name="BUT_executeScheme"></action>
-			<good type="sel_sourcecontains">$I18N_add_new_partition</good>
+			<good type="sel_sourcecontains">|{Range:|Interval:|Bereich:}</good>
+		</test>
+		<test timeout="600" description="Partitionierung abschließen">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_finalisePartitioningAndselectClientDistribution"></action>
+			<good type="sel_sourcecontains">$I18N_data_saved</good>
+		</test>
+		<test timeout="600" description="Weiter klicken">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_next"></action>
+			<good type="sel_sourcecontains">$I18N_select_client_distribution</good>
+		</test>
+		<test timeout="600" description="Paketquellenliste wählen">
+			<trigger type="true"></trigger>
+			<action type="sel_selectFrom" name="SEL_sourcename">${OS_PACKAGESOURCE}</action>
+			<action type="sel_clickButton" name="BUT_selectSourcesList"></action>
+			<good type="sel_sourcecontains">$I18N_userInterface</good>
+		</test>
+		<test timeout="600" description="Desktop wählen">
+			<trigger type="true"></trigger>
+			<action type="sel_selectFrom" name="SEL_desktop">${OS_DESKTOP}</action>
+			<action type="sel_clickButton" name="BUT_refresh"></action>
+			<good type="sel_sourcecontains">$I18N_MBRTarget</good>
+		</test>
+		<test timeout="600" description="Installation starten">
+			<trigger type="sel_sourcecontains"></trigger>
+			<action type="sel_clickButton" name="BUT_install"></action>
+			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
 	</sequence>
 </testcase>

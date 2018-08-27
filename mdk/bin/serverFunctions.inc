@@ -2,27 +2,14 @@
 #get the user Apache 1 or 2 is executed under
 getApacheUser()
 {
-	#get Apache user and group
-	if [ -f /etc/apache/httpd.conf ]
-	then
-		apacheUser=`grep "^User " /etc/apache/httpd.conf 2> /dev/null | cut -d' ' -f2`
-	else
-		apacheUser=`grep "APACHE_RUN_USER" /etc/apache2/envvars | cut -d'=' -f2`
-	fi
-	echo $apacheUser
+	/m23/bin/getApacheUser
 }
 
 
 #get the group Apache 1 or 2 is executed under
 getApacheGroup()
 {
-	if [ -f /etc/apache/httpd.conf ]
-	then
-		apacheGroup=`grep "^Group " /etc/apache/httpd.conf 2> /dev/null | cut -d' ' -f2`
-	else
-		apacheGroup=`grep "APACHE_RUN_GROUP" /etc/apache2/envvars | cut -d'=' -f2`
-	fi
-	echo $apacheGroup
+	/m23/bin/getApacheGroup
 }
 
 
@@ -96,9 +83,6 @@ mv /root/.* /tmp/m23root
 #move squid cache 
 	mv /var/spool/squid/ /tmp/
 
-#move MySQL
-#	mv /var/lib/mysql/ /tmp/
-
 cleanOSForCompressing
 
 #search for all directories and files to compress
@@ -151,9 +135,6 @@ umount /sys/
 #restore squid cache
 	mv /tmp/squid/ /var/spool/
 
-#restore MySQL DB
-	mv /tmp/mysql/ /var/lib/
-
 #restart squid
  /etc/init.d/squid start
 
@@ -187,7 +168,8 @@ createServerInstallISO()
 	cp $devguideDir/devguide.pdf $ISOBuildDir/doc/
 
 #get the server IP
-	serverIP=`grep address /etc/network/interfaces | cut -d's' -f3 | cut -d' ' -f2`
+	#serverIP=`grep address /etc/network/interfaces | cut -d's' -f3 | cut -d' ' -f2`
+	serverIP=`/m23/bin/serverInfoIP`
 
 #replace the server IP by the replacement word and store it in the config dir
 #	mkdir -p $ISOBuildDir/conf
@@ -250,18 +232,8 @@ exportDBInitTable()
 #cd $ISOBuildDir
 
 #fehlt: PHPObjectStorage, debconf, plugins, statusbar
-
-
-
-dbuser=`grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-dbadmpass=`grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1`
-
-if [ $dbadmpass ]
-then
-	dbpass="-p$dbadmpass"
-else
-	dbpass=''
-fi
+dbuserParam=`/m23/bin/getMySQL-UserParam.sh`
+dbpassParam=`/m23/bin/getMySQL-PasswordParam.sh`
 
 
 #-----------------database: m23
@@ -270,24 +242,24 @@ fi
 
 echo -n "Creating temporary database with the data of the m23 DB..."
 	#store the m23 database in /tmp/m23.sql
-	mysqldump -u$dbuser $dbpass m23 > /tmp/m23.sql
+	mysqldump $dbuserParam $dbpassParam m23 > /tmp/m23.sql
 	#make a new temporary database
-	mysql -u$dbuser $dbpass  -e "CREATE DATABASE m23temp"
+	mysql $dbuserParam $dbpassParam  -e "CREATE DATABASE m23temp"
 	#insert all entries from /tmp/m23.sql into the new "m23temp" database
-	cat /tmp/m23.sql | mysql -u$dbuser $dbpass m23temp
+	cat /tmp/m23.sql | mysql $dbuserParam $dbpassParam m23temp
 echo " done"
 
 echo -n "Cleaning temporary database..."
 #delete database data
-	for table in `mysqlshow -u$dbuser $dbpass m23temp | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--"` # | grep -v sourceslist
+	for table in `mysqlshow $dbuserParam $dbpassParam m23temp | grep -v Tables | grep -v "Database:" | cut -d' ' -f2 | grep -v "+--"` # | grep -v sourceslist
 	do
-		mysql -u$dbuser $dbpass m23temp -e "truncate $table"
+		mysql $dbuserParam $dbpassParam m23temp -e "truncate $table"
 	done
 echo " done"
 
 echo -n "Export package sources lists..."
 #store the cleaned m23 database in m23.sql
-	mysqldump --skip-add-drop-table -u$dbuser $dbpass m23temp | sed 's/ DEFAULT CHARSET=latin1//g' | sed 's/ AUTO_INCREMENT=[0-9]*//g' > m23.sql
+	mysqldump --skip-add-drop-table $dbuserParam $dbpassParam m23temp | sed 's/ DEFAULT CHARSET=latin1//g' | sed 's/ AUTO_INCREMENT=[0-9]*//g' > m23.sql
 
 #export sources lists
 	php /mdk/bin/exportDBsourceslist.php $@ >> m23.sql
@@ -302,30 +274,18 @@ echo -n "Saving SQL dump of the temporary DB..."
 echo " done"
 
 #drop the temporary database
-	mysql -u$dbuser $dbpass  -e "DROP DATABASE m23temp"
+	mysql $dbuserParam $dbpassParam  -e "DROP DATABASE m23temp"
 
 
 
 #-----------------database: m23captured
 #
 echo -n "Export database for generating screenshots..."
-	mysqldump --skip-add-drop-table -u$dbuser $dbpass m23captured | sed 's/ DEFAULT CHARSET=latin1//g' > m23captured.sql
+	mysqldump --skip-add-drop-table $dbuserParam $dbpassParam m23captured | sed 's/ DEFAULT CHARSET=latin1//g' > m23captured.sql
 	bzip2 -f m23captured.sql
 echo " done"
 
 echo "Are there error messages? Press \"Return\" to continue..."
-
-#write m23MySQL-Init.sh
-# 	echo "#!/bin/bash
-# dbuser=\`grep \"^user\" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2\`
-# dbpass=\`grep \"^password\" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2\`
-# 
-# echo \"CREATE DATABASE m23;\" | mysql -u\$dbuser -p\$dbpass
-# bzcat m23.sql.bz2 | mysql -u\$dbuser -p\$dbpass m23
-# 
-# echo \"CREATE DATABASE m23captured;\" | mysql -u\$dbuser -p\$dbpass
-# bzcat m23captured.sql.bz2 | mysql -u\$dbuser -p\$dbpass m23captured
-# " > m23MySQL-Init.sh
 }
 
 

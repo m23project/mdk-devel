@@ -14,17 +14,28 @@ include('/m23/inc/CChecks.php');
 include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
-	$answer='|{Warte|minutes}';
-	
-	if (strpos($answer, '|{') === 0)
-	{
-		// eg. $answer = '|{Warte|minutes}';
-	
-		
-		print_r(explode('|', $answer));
-		
-		print($answer);
-	}
+
+$serverNameOrIP = '192.168.1.143';
+$clientNameOrIP = 'seltest';
+
+$cmds = '
+for i in `seq 1 9`
+do
+	echo $i $(hostname)
+done
+whoami
+
+';
+
+$u = 'https://god:m23@192.168.1.143/m23admin';
+
+$ret = preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $u, $ips);
+print(serialize($ret));
+print_r($ips);
+
+// print(AUTOTEST_sshTunnelOverServer($serverNameOrIP, $clientNameOrIP, $cmds));
+
+
 
 
 ?>
