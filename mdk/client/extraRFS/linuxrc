@@ -221,17 +221,28 @@ then
 	showNetworkDialog
 fi
 
+#Try to download the first job and debug commands
+wget --no-check-certificate https://$server/work.php$m23Client -O work.php
+wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+
+# Check, if the work.php contains the required "bin/bash" line
+if [ $(grep -c 'bin/bash' work.php) -eq 0 ]
+then
+	# Ask for settings and try to download again
+	showNetworkDialog
+	wget --no-check-certificate https://$server/work.php$m23Client -O work.php
+	wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+fi
 
 startDropbear
 
-#Download and execute debug commands
-wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+# Execute debug commands
 chmod +x debug.sh
 ./debug.sh
 
-#Download the first job
-wget --no-check-certificate https://$server/work.php$m23Client -O work.php
+# Make work.php executable
 chmod +x work.php
 
+# Run work.php in screnn
 export SCREENRC="/etc/screenrc"
 screen -mS m23install ./work.php

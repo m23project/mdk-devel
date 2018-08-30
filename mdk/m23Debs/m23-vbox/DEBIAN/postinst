@@ -190,16 +190,19 @@ fi
 
 
 
-#Check if the m23 database is accessible (this is possible if the package is installed on the m23 server)
-echo "SELECT COUNT(*) FROM clients" | mysql -u $dbadmin $dbadmpassParam m23 1> /dev/null 2> /dev/null
-if [ $? -eq 0 ]
+#Check if the scripts are available (this is possible if the package is installed on the m23 server)
+if [ -f /m23/bin/getMySQL-UserParam.sh ]
 then
+	# Get MySQL/MariaDB user and password parameters
+	dbuser=`/m23/bin/getMySQL-UserParam.sh`
+	dbadmpassParam=`/m23/bin/getMySQL-PasswordParam.sh`
+
 	#Get the VNC password
 	pw=`grep vncpasswd /m23/inc/vncpasswd.php | cut -d'"' -f2`
 	#Make the server VBOX server by setting software type and virtualisation role
 # 	define('VM_SW_VBOX',1);
 # 	define('VM_ROLE_HOST',1);
-	echo "UPDATE clients SET vmVisualPassword = '$pw', vmSoftware = (vmSoftware | 1), vmRole = (vmRole | 1) WHERE client = 'localhost' LIMIT 1" | mysql -u $dbadmin $dbadmpassParam m23
+	echo "UPDATE clients SET vmVisualPassword = '$pw', vmSoftware = (vmSoftware | 1), vmRole = (vmRole | 1) WHERE client = 'localhost' LIMIT 1" | mysql $dbuser $dbadmpassParam m23
 else
 	db_get m23-vbox/m23server
 	##Check if the m23 server IP is not empty

@@ -78,5 +78,11 @@
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
+		<test timeout="600" description="Nach Installation von Festplatte gebootet">
+			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">Debian</trigger>
+			<good type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 9</good>
+			<warn type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 8</warn>
+			<bad type="ssh_commandoutput" cmd="cat /etc/issue">suse</bad>
+		</test>
 	</sequence>
 </testcase>

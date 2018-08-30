@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<testcase>
+	<constant>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</constant>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+	</cli>
+	<sequence>
+		<test timeout="600" description="Neustart nach Installation">
+			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">Debian</trigger>
+			<good type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 9</good>
+			<warn type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 8</warn>
+			<bad type="ssh_commandoutput" cmd="cat /etc/issue">suse</bad>
+		</test>
+	</sequence>
+</testcase>
