@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>XML-Beschreibung für autoTest - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#begriffserklärung">Begriffserklärung</a></li>
+<li><a href="#konstanten">Konstanten</a></li>
+<li><a href="#kommandozeile">Kommandozeile</a></li>
+<li><a href="#ersetzungen">Ersetzungen</a></li>
+<li><a href="#selenium">Selenium</a><ul>
+<li><a href="#triggergoodwarnbad">Trigger/good/warn/bad</a><ul>
+<li><a href="#sel_hostready-trigger">sel_hostReady (Trigger)</a></li>
+<li><a href="#sel_sourcecontains-triggergoodwarnbad">sel_sourcecontains (Trigger/good/warn/bad)</a></li>
+</ul></li>
+<li><a href="#action">Action</a><ul>
+<li><a href="#sel_clickbutton">sel_clickButton</a></li>
+<li><a href="#sel_open">sel_open</a></li>
+<li><a href="#sel_selectfrom">sel_selectFrom</a></li>
+<li><a href="#sel_selectradio">sel_selectRadio</a></li>
+<li><a href="#sel_setcheck">sel_setCheck</a></li>
+<li><a href="#sel_typeinto">sel_typeInto</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ssh">SSH</a><ul>
+<li><a href="#triggergoodwarnbad-1">Trigger/good/warn/bad</a><ul>
+<li><a href="#ssh_commandoutput">ssh_commandoutput</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="begriffserklärung">Begriffserklärung</h1>
+<p><code>&lt;action Attribut1=&quot;...&quot; Attribut2=&quot;...&quot;&gt;Parameter&lt;/action&gt;</code></p>
+<h1 id="konstanten">Konstanten</h1>
+<p>Die Konstanten und weitere Einstellungen stehen in der globalen Datei <code>settings.m23test</code>.</p>
+<ul>
+<li>TEST_SELENIUM_URL: Die URL, um auf die HTTP2SeleniumBridge zuzugreifen. z.B. <code>http://192.168.1.153:23080</code></li>
+<li>TEST_VBOX_HOST: Auflösbarer Hostname oder IP des Systems, auf dem die VirtualBoxen laufen sollen. z.B. <code>tuxedo</code></li>
+<li>TEST_VBOX_USER: Benutzer (muß in der Guppe <em>vboxusers</em> sein), der <code>vboxmanage</code> zum Erstellen, Starten, etc. aufruft.</li>
+<li>TEST_VBOX_NETDEV: Netzwerkschnittstelle, die der echten Netzwerkkarte entspricht und zum Anlegen der Netzwerbrücke verwendet werden soll. z.B. <code>enp3s0f1</code></li>
+<li>TEST_VBOX_IMAGE_DIR: Verzeichnis auf dem VirtualBox-Gastegebersystem, in dem die virtuellen Maschinen gespichert werden sollen. z.B. <code>/media/vms/</code></li>
+<li>TEST_M23_BASE_URL: Komplette URL mit Benutzer und Paßwort zur m23-Weboberfläche. z.B. <code>https://god:m23@192.168.1.143/m23admin</code></li>
+<li>TEST_M23_IP: Die aus <code>TEST_M23_BASE_URL</code> extrahierte IP-Adresse.</li>
+<li>TEST_VBOX_MAC: Beim Starten zufällig generierte MAC-Adresse mit &quot;:&quot; als Trenner nach jeweils zwei Zeichen. z.B. <code>aa:bb:cc:dd:ee:ff:00:11</code></li>
+<li>SEL_VM_MAC: Dieselbe Zufalls-MAC, allerdings ohne den Trenner. z.B. <code>aabbccddeeff0011</code></li>
+</ul>
+<h1 id="kommandozeile">Kommandozeile</h1>
+<pre><code>&lt;cli&gt;
+    &lt;VM_NAME description=&quot;Name der VM&quot;&gt;&lt;/VM_NAME&gt;
+    &lt;OS_PACKAGESOURCE description=&quot;Paketquellenliste&quot;&gt;&lt;/OS_PACKAGESOURCE&gt;
+    &lt;OS_DESKTOP description=&quot;Desktop&quot;&gt;&lt;/OS_DESKTOP&gt;
+&lt;/cli&gt;</code></pre>
+<h1 id="ersetzungen">Ersetzungen</h1>
+<p>Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden:</p>
+<ul>
+<li><code>${...}</code>: &quot;...&quot; wird durch den Wert einer vorher definierte Konstante ersetzt.</li>
+<li><code>|{str1|str2|str3}</code>: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.</li>
+<li><code>$I18N_...</code>: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen.</li>
+</ul>
+<h1 id="selenium">Selenium</h1>
+<h2 id="triggergoodwarnbad">Trigger/good/warn/bad</h2>
+<h3 id="sel_hostready-trigger">sel_hostReady (Trigger)</h3>
+<p>Wird ausgelöst, wenn HTTP2SeleniumBridge unter der <code>TEST_SELENIUM_URL</code> erreichbar ist</p>
+<h3 id="sel_sourcecontains-triggergoodwarnbad">sel_sourcecontains (Trigger/good/warn/bad)</h3>
+<p>Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers gefunden wird.</p>
+<ul>
+<li>Parameter: Zu suchender Text.</li>
+</ul>
+<h2 id="action">Action</h2>
+<p>Selenium-Aktionen benötigen (überwiegend) das Attribut <code>ID</code> oder <code>name</code> für die Identifikation des HTML-Element, auf das sie angewendet werden sollen.</p>
+<h3 id="sel_clickbutton">sel_clickButton</h3>
+<p>Klickt auf einen Button.</p>
+<ul>
+<li>Parameter: Nichts</li>
+</ul>
+<h3 id="sel_open">sel_open</h3>
+<p>Öffnet eine URL im Browser.</p>
+<ul>
+<li>Parameter: URL z.B. <code>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</code>. Hierbei müssen einige Zeichen URL-kodiert angeben werden (z.B: '&amp;' =&gt; '%26').</li>
+</ul>
+<h3 id="sel_selectfrom">sel_selectFrom</h3>
+<p>Wählt ein Element aus einer Drop-Down-Liste.</p>
+<ul>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+</ul>
+<h3 id="sel_selectradio">sel_selectRadio</h3>
+<p>Wählt ein Element eines Radiobuttons.</p>
+<ul>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+</ul>
+<h3 id="sel_setcheck">sel_setCheck</h3>
+<p>Setzt oder entfernt den Haken einer Checkbox.</p>
+<ul>
+<li>Parameter: 0 zum Entfernen des Hakens, 1 zum Setzen.</li>
+</ul>
+<h3 id="sel_typeinto">sel_typeInto</h3>
+Ersetzt den Text eines Eingabefeldes (
+<TEXTAREA></TEXTAREA>
+<p>, <INPUT type="text">...</INPUT>).</p>
+<ul>
+<li>Parameter: Einzugebender Text.</li>
+</ul>
+<h1 id="ssh">SSH</h1>
+<h2 id="triggergoodwarnbad-1">Trigger/good/warn/bad</h2>
+<h3 id="ssh_commandoutput">ssh_commandoutput</h3>
+<p>Führt auf dem</p>
+<ul>
+<li>Parameter: In der Ausgabe der SSH-Abfrage vorkommender Text.</li>
+<li>Attribut <code>cmd</code>: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
+</ul>
+</body>
+</html>
