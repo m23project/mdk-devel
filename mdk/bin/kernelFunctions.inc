@@ -60,7 +60,6 @@ checkKernelBranch()
 	else
 dialog --clear --title "Kernel version" \
         --menu "Please select the kernel version" 11 40 4 \
-"4.14" "Linux kernel v4.14" \
 "4.9" "Linux kernel v4.9" \
 "4.4" "Linux kernel v4.4" \
 "3.16" "Linux kernel v3.16" \

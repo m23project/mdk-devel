@@ -148,11 +148,11 @@ checkAlternativeM23Server()
 	touch /m23clientIDAdd
 
 	#wget -qq "http://$1/latest/availability-zone" -O /dev/null
-	wget -qq "http://$GATEINT/latest/public-ipv4" -O /tmp/csExternIp
+	wget -qq -T2 -t1 "http://$GATEINT/latest/public-ipv4" -O /tmp/csExternIp
 
 	if [ $? -eq 0 ] && [ -f /tmp/csExternIp ] && [ $(grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' -c /tmp/csExternIp) -eq 1 ]
 	then
-		wget -qq "http://$1/latest/user-data" -O /tmp/CSud
+		wget -qq  -T2 -t5 "http://$1/latest/user-data" -O /tmp/CSud
 		echo -n "?m23clientID=`hostname`" > /m23clientIDAdd
 		hostname > /m23clientID
 		grep m23server /tmp/CSud | cut -d'=' -f2
@@ -222,16 +222,16 @@ then
 fi
 
 #Try to download the first job and debug commands
-wget --no-check-certificate https://$server/work.php$m23Client -O work.php
-wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+wget --no-check-certificate -T2 -t0 https://$server/work.php$m23Client -O work.php
+wget --no-check-certificate -T2 -t0 https://$server/debugScreen.php$m23Client -O debug.sh
 
 # Check, if the work.php contains the required "bin/bash" line
 if [ $(grep -c 'bin/bash' work.php) -eq 0 ]
 then
 	# Ask for settings and try to download again
 	showNetworkDialog
-	wget --no-check-certificate https://$server/work.php$m23Client -O work.php
-	wget --no-check-certificate https://$server/debugScreen.php$m23Client -O debug.sh
+	wget --no-check-certificate -T2 -t0 https://$server/work.php$m23Client -O work.php
+	wget --no-check-certificate -T2 -t0 https://$server/debugScreen.php$m23Client -O debug.sh
 fi
 
 startDropbear

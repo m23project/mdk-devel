@@ -5,7 +5,7 @@ sfRsync()
 	false
 	while [ $? -ne 0 ]
 	do
-		rsync -razPy --delete-after -e ssh --timeout=5 $@
+		rsync -razPy --delete-after -e "ssh -o BatchMode=yes" --timeout=5 $@
 	done
 }
 
@@ -37,7 +37,7 @@ uploadFRS()
 	false
 	while [ $? -ne 0 ]
 	do
-		rsync -vPyrL -e ssh --timeout=5 "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m23/$category"
+		rsync -vPyrL -e "ssh -o BatchMode=yes"  --timeout=5 "$releaseDir" "hhabermann,m23@frs.sourceforge.net:/home/frs/project/m23/$category"
 	done
 
 	rm -r "$tempDir"
@@ -95,6 +95,22 @@ fi
 echo 'MD5 der Pakete: ok' | tee -a "$okLog"
 
 
+# Copy packages to the repo on goos-habermann.de
+(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+if [ $(cat /tmp/ret) -ne 0 ]
+then
+	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
+	".file_get_contents("/tmp/err"));'
+	echo "Kopieren-nach-/var/www/m23inst-Fehler"
+	exit 1
+fi
+chown -R www-data.www-data /var/www/m23inst
+echo 'Kopieren der m23-Pakete nach /var/www/m23inst: ok' | tee -a "$okLog"
+
+# Wait 30 seconds
+# echo "Waiting 30 seconds"
+# sleep 30
+
 
 
 (sfRsync *.deb hhabermann,m23@web.sourceforge.net:/home/project-web/m23/htdocs/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
@@ -140,15 +156,15 @@ echo 'Hochladen von *.info auf /home/project-web/m23/htdocs/m23patch/0.5.0/: ok'
 
 
 #ssh hhabermann@shell.sf.net '/home/groups/m23/bin/deleteOldDoubles /home/project-web/m23/htdocs/m23inst'
-(remoteDeleteOldDoubles 2>&1; echo $? > /tmp/ret) | tee /tmp/err
-if test `cat /tmp/ret` -ne 0
-then
-	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: Alte Pakete löschen", "Fehler: Alte Pakete löschen
-	".file_get_contents("/tmp/err"));'
-	echo "Fehler: Alte Pakete löschen"
-fi
-
-rm /tmp/err
+# (remoteDeleteOldDoubles 2>&1; echo $? > /tmp/ret) | tee /tmp/err
+# if test `cat /tmp/ret` -ne 0
+# then
+# 	php -r 'mail("hauke@goos-habermann.de", "Uploadfehler: Alte Pakete löschen", "Fehler: Alte Pakete löschen
+# 	".file_get_contents("/tmp/err"));'
+# 	echo "Fehler: Alte Pakete löschen"
+# fi
+# 
+# rm /tmp/err
 
 #making backups to the FRS
 for deb in `ls *.deb`
@@ -186,21 +202,6 @@ echo 'FRS-Hochladen: ok' | tee -a "$okLog"
 m23DuplicateToFRS
 
 
-# Copy packages to the repo on goos-habermann.de
-(cp -v /m23inst/m23*.deb /m23inst/Packages* /m23inst/*Release /var/www/m23inst 2>&1; echo $? > /tmp/ret) | tee /tmp/err
-if [ $(cat /tmp/ret) -ne 0 ]
-then
-	php -r 'mail("hauke@goos-habermann.de", "Fehler beim Kopieren der m23-Pakete nach /var/www/m23inst", "Kopieren-nach-/var/www/m23inst-Fehler:
-	".file_get_contents("/tmp/err"));'
-	echo "Kopieren-nach-/var/www/m23inst-Fehler"
-	exit 1
-fi
-chown -R www-data.www-data /var/www/m23inst
-echo 'Kopieren der m23-Pakete nach /var/www/m23inst: ok' | tee -a "$okLog"
-
-# Wait 30 seconds
-echo "Waiting 30 seconds"
-sleep 30
 
 #check if the pool works
 cd /m23test/

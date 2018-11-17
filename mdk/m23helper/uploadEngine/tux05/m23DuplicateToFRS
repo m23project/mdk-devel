@@ -6,8 +6,9 @@ ShellSFssh()
 	
 	while [ $ret -eq 255 ]
 	do
-		ssh -o ConnectTimeout=5 -o PasswordAuthentication=no hhabermann,m23@shell.sf.net $@
+		ssh -o ConnectTimeout=5 -o BatchMode=yes -o PubkeyAuthentication=yes -o PasswordAuthentication=no hhabermann,m23@shell.sf.net $@
 		ret=$?
+		echo $ret
 	done
 }
 

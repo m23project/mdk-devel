@@ -93,9 +93,6 @@ createRFScopyLib()
 			echo "Error: Library $lib needed by \"$neededBy\" not found!"
 			echo "lib: $lib fnamelib: $fnamelib libsrc: $libsrc extractedDebsDir: $extractedDebsDir"
 			read errkey
-			continue
-		else
-			continue
 		fi
 	fi
 
@@ -151,6 +148,16 @@ createRFSBins()
 		echo "Press enter to exit"
 		read lala
 		exit 1
+	fi
+	
+	
+	if [ ! -f "$(getKernelStoreDirWithArch)/bzImage" ]
+	then
+		echo "ERROR: No kernel ($(getKernelStoreDirWithArch)/bzImage) found!!!"
+		echo "Please select clientISO -> kernel -> Compile before building."
+		echo "Press enter to exit"
+		read lala
+		exit 2
 	fi
 	
 

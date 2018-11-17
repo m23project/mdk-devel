@@ -3,7 +3,6 @@
 use Getopt::Long;
 use XML::Writer;
 use XML::Parser;
-use IO;
 use Dumpvalue;
 
 sub help;
@@ -96,10 +95,10 @@ $he_class_id = $he_nomask;
 );
 @xml_values{@xml_names} = ( 0 .. 100 );
 
-( $tag_none, $tag_pci, $tag_eisa, $tag_usb, $tag_special, $tag_pcmcia ) = ( 0 .. 5 );
+( $tag_none, $tag_pci, $tag_eisa, $tag_usb, $tag_special, $tag_pcmcia, $tag_sdio ) = ( 0 .. 6 );
 
-@tag_name = ( "", "pci", "eisa", "usb", "special", "pcmcia" );
-@tag_values{@tag_name} = ( 0 .. 5 );
+@tag_name = ( "", "pci", "eisa", "usb", "special", "pcmcia", "sdio" );
+@tag_values{@tag_name} = ( 0 .. 6 );
 $tag_values{none} = 0;
 
 ( $flag_id, $flag_range, $flag_mask, $flag_string, $flag_regexp ) = ( 0 .. 4 );
@@ -350,7 +349,7 @@ sub num
 
 sub read_name_file
 {
-  my ( $file_name, $file, $line, $sax_version, $tag, $id, $val, $ent );
+  my ( $file_name, $file, $line, $sax_version, $tag, $id, $val, $ent, $tag_default );
   my ( @id0, @id1, @id2, @id3, @id4, $raw, $opt, $ext, $srv, $str );
   local $_;
 
@@ -422,10 +421,21 @@ sub read_name_file
   $line = 0;
   undef $sax_version;
 
+  $tag_default = $tag_pci;
+
   for (@$file) {
     $line++;
     chomp;
     s/\s*$//;
+
+    if(/^#\s*List of SDIO ID/) {
+      $tag_default = $tag_sdio;
+    }
+
+    if(/^#\s*List of USB ID/) {
+      $tag_default = $tag_usb;
+    }
+
     next if /^\s*[#;]/;
     next if /^$/;
 
@@ -493,7 +503,7 @@ sub read_name_file
 
     elsif(/^([0-9a-fA-F]{4})(\s+(.*?))?\s*$/) {
 
-      $rnf_add_vendor->($tag_pci, hex($1), $3);
+      $rnf_add_vendor->($tag_default, hex($1), $3);
 
     }
 
@@ -609,7 +619,7 @@ sub read_driver_file
   my $rdf_save_drv = sub
   {
     if($drv_type) {
-      push @hd, [ @drv ] if defined @drv;
+      push @hd, [ @drv ] if @drv;
       @drv = ( "$file_name($line)" );
       $drv[2][$he_driver] = [ $flag_string ];
       $drv_type = undef;
@@ -1165,6 +1175,19 @@ sub read_modinfo_file
         $3 == '*' && $4 == '*' && $5 == '*' &&
         $6 == '*' && $7 == '*' && $8 == '*' &&
         $9 == '*' && $10 == '*'
+      ) {
+        $key->[$he_vendor_id] = [ $flag_id, $tag, hex $1 ] if $1 ne '*';
+        $key->[$he_device_id] = [ $flag_id, $tag, hex $2 ] if $2 ne '*';
+
+        push @hd, [ "$file_name($line)", [ $key ], $val ];
+      }
+    }
+    elsif($spec =~ /^v($f)p($f)d($f)dc($f)dsc($f)dp($f)ic($f)isc($f)ip($f)$/ ) {
+
+      if(
+        $3 == '*' && $4 == '*' && $5 == '*' &&
+        $6 == '*' && $7 == '*' && $8 == '*' &&
+        $9 == '*'
       ) {
         $key->[$he_vendor_id] = [ $flag_id, $tag, hex $1 ] if $1 ne '*';
         $key->[$he_device_id] = [ $flag_id, $tag, hex $2 ] if $2 ne '*';
