@@ -38,9 +38,8 @@ done
 killall -9 dhclient
 
 #Configure random as non blocking random
-mv /dev/random /dev/random-blocks
-ln -s /dev/urandom /dev/random
-
+rm /dev/random
+mknod -m 444 /dev/random c 1 9
 
 for i in `seq 1 9`
 do
@@ -215,6 +214,8 @@ fi
 
 
 
+echo "(Pseudo)Random number generator is warimg up..."
+echo "This may cause a dalay of a few minutes. Please be patient."
 
 if [ -z $server ]
 then

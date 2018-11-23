@@ -23,7 +23,7 @@ checkKernelDir()
 dialog --clear --title "Kernel directory name" \
         --menu "Please select the kernel directory you want to use" 13 40 5 \' > /tmp/kernelDirMenu
  >> /tmp/kernelDirMenu
-ls $kernelStoreDir | grep -v ".tar.bz2" | sort -t'.' -n -k3 -r | awk '{print("\""$0"\" \"\" \\")}' >> /tmp/kernelDirMenu
+ls $kernelStoreDir | grep -v ".tar." | sort -t'.' -n -k3 -r | awk '{print("\""$0"\" \"\" \\")}' >> /tmp/kernelDirMenu
 echo -n '"" ""' >> /tmp/kernelDirMenu
 echo ' 2> /tmp/m23kernelDir
 retval=$?
@@ -281,24 +281,39 @@ compileKernel()
 	#delete old kernel modules
 	rm -r `getCompiledDirWithArch`/lib/modules/*
 
-	if [ `file init/main.o | grep x86-64 -c` -eq 1 ]
-	then
-		lastCompilationArch="x86-64"
-	else
-		lastCompilationArch="x86"
-	fi
 	
+	if [ -f init/main.o ]
+	then
+		if [ `file init/main.o | grep x86-64 -c` -eq 1 ]
+		then
+			lastCompilationArch="x86-64"
+		else
+			lastCompilationArch="x86"
+		fi
+	else
+		lastCompilationArch="none"
+	fi
+
+	# Clean out the compiled objects when the architecture is changed
+	if [ $lastCompilationArch != "none" ] && [ $lastCompilationArch != `getBuildArch` ]
+	then
+		cp .config /tmp
+		make INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
+		cp  /tmp/.config .
+	fi
 
 	if test `getBuildArch` == "x86"
 	then
-		if [ $lastCompilationArch != "x86" ]
-		then
-			cp .config /tmp
-			make INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
-			cp  /tmp/.config .
-		fi
-
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 dep
+	
+# 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 dep
+# 		
+# 		cp .config /tmp
+# 			make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 mrproper
+# 		cp  /tmp/.config .
+		
+		# Fix compile error
+		EDIT_commentOut .config "^CONFIG_DRM_AMDGPU" "#"
+		EDIT_addIfNotExists .config "^CONFIG_DRM_AMDGPU=n" "CONFIG_DRM_AMDGPU=n"
 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 bzImage
 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules
 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules_install
