@@ -15,8 +15,8 @@ include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
 
-$serverNameOrIP = '192.168.1.143';
-$clientNameOrIP = 'seltestXX';
+/*$serverNameOrIP = '192.168.1.143';
+$clientNameOrIP = 'seltestXX';*/
 // 
 // $cmds = '
 // for i in `seq 1 9`
@@ -33,9 +33,9 @@ $clientNameOrIP = 'seltestXX';
 // print(serialize($ret));
 // print_r($ips);
 
-print(AUTOTEST_sshTunnelOverServer($serverNameOrIP, $clientNameOrIP, 'cat /etc/issue'));
+// print(AUTOTEST_sshTunnelOverServer($serverNameOrIP, $clientNameOrIP, 'cat /etc/issue'));
 
-
+$AutoTestO = new CAutoTest('bla', $argv);
 
 
 ?>

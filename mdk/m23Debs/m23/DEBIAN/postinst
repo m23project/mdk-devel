@@ -72,9 +72,9 @@ updateDB()
 	if [ -d /tmp/m23-install ]
 	then
 		# Add the entries of the main database
-		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql $dbParams m23
+		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql -f $dbParams m23
 		# Add the entries of the m23captured database
-		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql $dbParams m23captured
+		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql -f $dbParams m23captured
 	fi
 
 	#Make sure the i18n table is always empty
@@ -249,7 +249,7 @@ else
 	oldversion=$2
 fi
 echo "oldversion: $oldversion" >> /m23.log
-oldversionint=`echo $2 | sed 's/[.-]//g'`
+oldversionint=`echo $oldversion | sed 's/[.-]//g'`
 echo "oldversionint: $oldversionint" >> /m23.log
 
 
@@ -1252,6 +1252,7 @@ sRet=1
 while [ -f /tmp/squidName ] && [ $sRet -ne 0 ] && [ ! -e /tmp/oldsys ]
 do
 	/etc/init.d/$(cat /tmp/squidName) restart
+	sleep 60
 	http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
 	sRet=$?
 done

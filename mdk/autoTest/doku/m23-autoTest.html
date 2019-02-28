@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Hauke Goos-Habermann" />
+  <title>m23 autoTest</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">m23 autoTest</h1>
+<h2 class="author">Hauke Goos-Habermann</h2>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#einleitung">Einleitung</a></li>
+<li><a href="#autotest-umgebung-installation-und-konfiguration">autoTest-Umgebung: Installation und Konfiguration</a><ul>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#autotest-steuersystem">autoTest-Steuersystem</a></li>
+<li><a href="#virtualisierungsserver">Virtualisierungsserver</a></li>
+<li><a href="#http2seleniumbridge">HTTP2SeleniumBridge</a></li>
+<li><a href="#zu-testender-m23-server">Zu testender m23-Server</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#http2seleniumbridge-beispiele-und-installation">HTTP2SeleniumBridge: Beispiele und Installation</a><ul>
+<li><a href="#beispiele">Beispiele</a></li>
+<li><a href="#installation-4">Installation</a><ul>
+<li><a href="#installation-der-distribution">Installation der Distribution</a></li>
+<li><a href="#nach-der-installation-der-distribution">Nach der Installation der Distribution</a></li>
+<li><a href="#hinweis-zu-http2seleniumbridge.py">Hinweis zu HTTP2SeleniumBridge.py</a></li>
+<li><a href="#hinweis-zum-http2seleniumbridge-paket">Hinweis zum HTTP2SeleniumBridge-Paket</a></li>
+</ul></li>
+<li><a href="#fehlendes">Fehlendes</a></li>
+</ul></li>
+<li><a href="#autotest.php-kommandozeile-und-xml-definition">autoTest.php-Kommandozeile und XML-Definition</a><ul>
+<li><a href="#installation-und-konfiguration">Installation und Konfiguration</a></li>
+<li><a href="#autotest-starten">autoTest starten</a></li>
+<li><a href="#testbeschreibungsdateien">Testbeschreibungsdateien</a><ul>
+<li><a href="#allgemeiner-aufbau">Allgemeiner Aufbau</a></li>
+<li><a href="#begriffserklärung">Begriffserklärung</a></li>
+<li><a href="#konstanten">Konstanten</a></li>
+<li><a href="#testblöcke">Testblöcke</a></li>
+<li><a href="#kommandozeilenparameter">Kommandozeilenparameter</a></li>
+<li><a href="#ersetzungen">Ersetzungen</a></li>
+</ul></li>
+<li><a href="#selenium-funktionen">Selenium-Funktionen</a><ul>
+<li><a href="#triggergoodwarnbad">Trigger/good/warn/bad</a></li>
+<li><a href="#action">Action</a></li>
+</ul></li>
+<li><a href="#ssh-funktionen">SSH-Funktionen</a><ul>
+<li><a href="#triggergoodwarnbad-1">Trigger/good/warn/bad</a></li>
+</ul></li>
+<li><a href="#virtualbox-funktionen">VirtualBox-Funktionen</a><ul>
+<li><a href="#action-1">Action</a></li>
+<li><a href="#triggergoodwarnbad-2">Trigger/good/warn/bad</a></li>
+</ul></li>
+<li><a href="#funktionen-zum-aufrufen-anderer-funktionen">Funktionen zum Aufrufen anderer Funktionen</a><ul>
+<li><a href="#action-2">Action</a></li>
+</ul></li>
+<li><a href="#sonstige-funktionen">Sonstige Funktionen</a><ul>
+<li><a href="#trigger">Trigger</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p></p>
+<h1 id="einleitung">Einleitung</h1>
+<p><em>m23 autoTest</em> wurde entwickelt, um m23-Funktionen (Client anlegen, partitionieren und formatieren, Distribution mit Desktop installieren, ...) durch <em>Fernsteuerung</em> der m23-Weboberfläche automatisch zu testen. Zum Testen der clientseitigen Funktionen werden virtuelle Maschinen dynamisch angelegt. Desweiteren kann die Installation des m23-Servers von einem ISO in VirtualBox automatisiert durchgeführt werden, indem autoTest Bildschirmausgaben per OCR erkennt und Tastendrücke emuliert.</p>
+<p>Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch für andere Projekte nützlich sein.</p>
+<p>Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes <code>autoTest.php</code>.</p>
+<div class="figure">
+<img src="autoTest-Schema.png" title="autoTest-Schema" style="width:75.0%" />
+
+</div>
+<p></p>
+<h1 id="autotest-umgebung-installation-und-konfiguration">autoTest-Umgebung: Installation und Konfiguration</h1>
+<h2 id="installation">Installation</h2>
+<p>Die folgende Auflistung beschreibt die Funktionen der einzelnen Komponenten, die benötigt werden, um m23-Funktionen automatisiert mit autoTest durchzuführen. Bis auf den Virtualisierungsserver können die Komponenten in VMs installiert werden. Prinzipiell könnten z.B. Virtualisierungsserver, HTTP2SeleniumBridge und der autoTest-Steuersystem auf derselben (physikalischen) Maschine laufen.</p>
+<h3 id="autotest-steuersystem">autoTest-Steuersystem</h3>
+<p>Ein m23-Server, der autoTest ausführt und die anderen Systeme (Virtualisierungsserver, HTTP2SeleniumBridge und (indirekt) den zu testenden m23-Server) steuert.</p>
+<h4 id="installation-1">Installation</h4>
+<ul>
+<li>Ein normal installierter m23-Server</li>
+<li>Einen autoTest-Skript-Benutzer anlegen mit zugehörigem SSH-Schlüssel anlegen, der die autoTest-Skripte ausführen soll</li>
+<li><code>settings.m23test</code> anpassen</li>
+</ul>
+<h3 id="virtualisierungsserver">Virtualisierungsserver</h3>
+<p>Ein Server, mit ausreichenden Kapazitäten (RAM, CPUs, Festplattenplatz), auf dem VirtualBox skriptgesteuert ausgeführt werden kann.</p>
+<h4 id="installation-2">Installation</h4>
+<ul>
+<li>Debian oder Ubuntu in 64-Bit-Version installieren</li>
+<li>VirtualBox und gocr installieren</li>
+<li>Einen Benutzer anlegen, der über <code>VBoxManage</code> virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe <code>vboxusers</code> aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren.</li>
+<li>(Optional) x2go installieren</li>
+</ul>
+<p>m23-Server: paßwortloser Zugriff vom autoTest-ausführenden Benutzer auf root per SSH oder sudo?</p>
+<h3 id="http2seleniumbridge">HTTP2SeleniumBridge</h3>
+<h3 id="zu-testender-m23-server">Zu testender m23-Server</h3>
+<p>Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird von der HTTP2SeleniumBridge über die m23-Weboberfläche gesteuert.</p>
+<h4 id="installation-3">Installation</h4>
+<ul>
+<li>Ein normal installierter m23-Server</li>
+</ul>
+<p></p>
+<h1 id="http2seleniumbridge-beispiele-und-installation">HTTP2SeleniumBridge: Beispiele und Installation</h1>
+<p><em>HTTP2SeleniumBridge.py</em> ist ein Python-Skript, das einen Webserver auf Port 23080 öffnet, um ausgewählte Selenium-Befehle via REST-API auszuführen. Der Funktionsumfang beinhaltet alles, was nötig ist, um die m23-Oberfläche zu steuern (z.B. m23-Clients anlegen und Betriebssysteme installieren). <em>HTTP2SeleniumBridge.py</em> kann zwar auch <em>eigenständig</em> verwendet werden, wurde aber konzipiert, um über die PHP-AUTOTEST-Funktionen bzw. CAutoTest-Klassenmethoden von m23 aufgerufen zu werden.</p>
+<h2 id="beispiele">Beispiele</h2>
+<p>Die Beispiele gehen davon aus, daß HTTP2SeleniumBridge auf einem Rechner mit der IP 192.168.1.153 läuft. Das Ergebnis jeder Operation wird in die Datei <code>s.log</code> geschrieben.</p>
+<div class="sourceCode" id="mycode"><table class="sourceCode bash numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="co"># Freie Selenium-Webdriver-ID abfragen. Muß bei jedem weiteren Aufruf angegeben werden!</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/nextdriverid&#39;</span> -O s.log
+<span class="co"># Öffnen der m23-Oberflächenseite</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=open&amp;url=https://god:m23@192.168.1.143/m23admin/\</span>
+<span class="st">index.php&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Auswählen von &quot;de&quot; aus der Liste verfügbarer Sprachen</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=selectFrom&amp;ID=LB_language&amp;val=de&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Klick auf den Button</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=clickButton&amp;name=BUT_lang&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Simulieren der Texteingabe in das Feld &quot;ED_name&quot;</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=typeInto&amp;ID=ED_name&amp;text=vorname&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Haken beim NTP-Checkbutton entfernen</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=setCheck&amp;name=CB_getSystemtimeByNTP&amp;checked=0\</span>
+<span class="st">&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Beim LDAP-Radiobutton &quot;write&quot; auswählen</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=selectRadio&amp;name=SEL_ldaptype&amp;val=write\</span>
+<span class="st">&amp;driverid=ID&#39;</span> -O s.log
+<span class="co"># Aktuellen HTML-Quelltext herunterladen</span>
+<span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=getsource&amp;driverid=ID&#39;</span> -O s.log</code></pre></td></tr></table></div>
+<h2 id="installation-4">Installation</h2>
+<p>Die Installation wurde unter einem mit m23 aufgesetzen 64-Bit-m23-Client mit Ubuntu 18.04 und Budgie-Desktop getestet. Prinzipell spricht nichts dagegen, daß HTTP2SeleniumBridge.py und das HTTP2SeleniumBridge-Paket auch unter anderen Distributionen und Desktops funktioniert. Das dazugehörige HTTP2SeleniumBridge-Debian-Paket richtet das System so ein, daß HTTP2SeleniumBridge unter dem Benutzer <em>&quot;sel&quot;</em> automatisch bei jedem Systemstart gestartet wird.</p>
+<h3 id="installation-der-distribution">Installation der Distribution</h3>
+<p>Es wird <strong>nachdrücklich</strong> empfolen, für HTTP2SeleniumBridge eine eigene VM zu verwenden und die Distribution mit folgenden Parametern zu installieren:</p>
+<ul>
+<li>64-Bit-Ubuntu 18.04 (z.B. über m23) installieren</li>
+<li>Als Anmeldungsname &quot;sel&quot; für den Hauptbenutzer wählen</li>
+<li>Optional x2go (z.B. über m23) mitinstallieren</li>
+</ul>
+<h3 id="nach-der-installation-der-distribution">Nach der Installation der Distribution</h3>
+<ul>
+<li>GeckoDriver von https://github.com/mozilla/geckodriver/releases/latest herunterladen (z.B. geckodriver-v0.23.0-linux64.tar.gz) und installieren:</li>
+</ul>
+<div class="sourceCode" id="mycode"><table class="sourceCode bash numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="fu">wget</span> https://github.com/mozilla/geckodriver/releases/download/v0.23.0/\
+geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
+<span class="fu">tar</span> xfvz geckodriver.tar.gz
+<span class="fu">mv</span> geckodriver /usr/bin/</code></pre></td></tr></table></div>
+<ul>
+<li>Das HTTP2SeleniumBridge-Debian-Paket von https://sourceforge.net/projects/dodger-tools/files/debs/20XX-YY-ZZ/HTTP2SeleniumBridge_..._all.deb nach /tmp herunterladen und installieren mit:</li>
+</ul>
+<div class="sourceCode" id="mycode"><table class="sourceCode bash numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="ex">adduser</span> sel
+
+<span class="bu">export</span> <span class="va">DEBIAN_FRONTEND=</span>noninteractive
+<span class="bu">echo</span> <span class="st">&#39;lightdm shared/default-x-display-manager select nodm</span>
+<span class="st">nodm nodm/daemon_name string /usr/sbin/nodm</span>
+<span class="st">nodm nodm/enabled boolean true</span>
+<span class="st">nodm nodm/first_vt string 7</span>
+<span class="st">nodm nodm/min_session_time string 60</span>
+<span class="st">nodm nodm/user string sel</span>
+<span class="st">nodm nodm/x_options string -nolisten tcp</span>
+<span class="st">nodm nodm/xsession string /etc/X11/Xsession</span>
+<span class="st">nodm nodm/x_timeout string 300</span>
+<span class="st">nodm shared/default-x-display-manager select nodm&#39;</span> <span class="kw">|</span> <span class="ex">debconf-set-selections</span>
+
+<span class="bu">echo</span> /usr/sbin/nodm <span class="op">&gt;</span> /etc/X11/default-display-manager
+
+<span class="ex">apt</span> install -y /tmp/HTTP2SeleniumBridge_1.00-*_all.deb
+
+<span class="ex">apt</span> remove -y gnome-screensaver
+
+<span class="ex">reboot</span></code></pre></td></tr></table></div>
+<h3 id="hinweis-zu-http2seleniumbridge.py">Hinweis zu HTTP2SeleniumBridge.py</h3>
+<p>HTTP2SeleniumBridge.py verwendet das Selenium-Modul aus dem pip3-Repository. Dieses kommuniziert über den GeckoDriver mit Firefox. Jedes dieser Einzelteile kann plötzlich und unvorhergesehen so geändert (z.B. durch Aktualisierung) werden, daß es allein oder mit den anderen zusammen nicht mehr funktioniert. Daher sollte die virtuelle Maschine nach erfolgreicher Installation <strong>unbedingt gesichert</strong> werden.</p>
+<h3 id="hinweis-zum-http2seleniumbridge-paket">Hinweis zum HTTP2SeleniumBridge-Paket</h3>
+<p>Das HTTP2SeleniumBridge-Paket funktioniert nur, wenn es einen Benutzer mit dem Namen <em>&quot;sel&quot;</em> gibt, da es das System so konfiguriert, daß sich <em>&quot;sel&quot;</em> automatisch über <code>nodm</code> anmeldet. Ein Autostart-.desktop-Datei sorgt wiederum dafür, daß HTTP2SeleniumBridge.py nach dem Anmelden gestartet und jedesmal neu gestartet wird, wenn HTTP2SeleniumBridge.py abstürzt.</p>
+<h2 id="fehlendes">Fehlendes</h2>
+<p>In HTTP2SeleniumBridge.py sind zusätzlich folgende Kommandos implementiert, die aber nicht in CAutoTest.php verwendet werden:</p>
+<ul>
+<li>close</li>
+<li>deselectFrom</li>
+<li>quit</li>
+</ul>
+<p></p>
+<h1 id="autotest.php-kommandozeile-und-xml-definition">autoTest.php-Kommandozeile und XML-Definition</h1>
+<h2 id="installation-und-konfiguration">Installation und Konfiguration</h2>
+<p>Für autoTest.php wird eine Testumgebung benötigt. Deren Installation und Konfiguration wird weiter in den vorigen Abschnitten beschrieben.</p>
+<h2 id="autotest-starten">autoTest starten</h2>
+<p>Das Starten von autoTest geschieht über das Skript <code>autoTest.php</code>, welches auf jedem m23-Server vorhanden ist:</p>
+<div class="sourceCode" id="m23testxml"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">/mdk/autoTest/autoTest.php</span> <span class="op">&lt;</span>Testbeschreibungsdatei (.m23test)<span class="op">&gt;</span> <span class="op">&lt;</span><span class="ex">Parameter</span><span class="op">&gt;</span></code></pre></div>
+<p>Der Ablauf einer jeden Installation ist in einer Testbeschreibungsdatei beschrieben, die zusätzliche Parameter über die Kommandozeile anfordern kann.</p>
+<h2 id="testbeschreibungsdateien">Testbeschreibungsdateien</h2>
+<p>Die Testbeschreibungsdateien mit der Endung <em>&quot;.m23test&quot;</em> beinhalten Testblöcke, die die einzelnen Schritte (z.B. Anlegen der virtuellen Maschine, in der m23-Oberfläche einzugebende Werte bzw. anzuklickende Elemente, ...) und (erwartete) Ergebnisse zum Installieren eines m23-Clients oder -Servers enthalten. Andere Teile der Datei definieren die Parameter, die über die Kommandozeile angeben werden und die Dimensionierung der anzulegenden virtuellen Maschine.</p>
+<h3 id="allgemeiner-aufbau">Allgemeiner Aufbau</h3>
+<div class="sourceCode" id="m23testxml"><table class="sourceCode xml numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="sourceCode"><pre><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; standalone=&quot;yes&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;testcase&gt;</span>
+    <span class="kw">&lt;constant&gt;</span>
+    <span class="kw">&lt;TEST_TYPE&gt;</span>VM<span class="kw">&lt;/TEST_TYPE&gt;</span>
+        <span class="kw">&lt;VM_RAM&gt;</span>1024<span class="kw">&lt;/VM_RAM&gt;</span>
+        <span class="kw">&lt;VM_HDSIZE&gt;</span>8192<span class="kw">&lt;/VM_HDSIZE&gt;</span>
+    <span class="kw">&lt;/constant&gt;</span>
+    <span class="kw">&lt;cli&gt;</span>
+        <span class="kw">&lt;VM_NAME</span><span class="ot"> description=</span><span class="st">&quot;Name der VM&quot;</span><span class="kw">&gt;&lt;/VM_NAME&gt;</span>
+        <span class="kw">&lt;OS_PACKAGESOURCE</span><span class="ot"> description=</span><span class="st">&quot;Paketquellenliste&quot;</span><span class="kw">&gt;&lt;/OS_PACKAGESOURCE&gt;</span>
+        <span class="kw">&lt;OS_DESKTOP</span><span class="ot"> description=</span><span class="st">&quot;Desktop&quot;</span><span class="kw">&gt;&lt;/OS_DESKTOP&gt;</span>
+    <span class="kw">&lt;/cli&gt;</span>
+    <span class="kw">&lt;sequence&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client anlegen&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;sel_hostReady&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_open&quot;</span><span class="kw">&gt;</span>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_typeInto&quot;</span><span class="ot"> ID=</span><span class="st">&quot;ED_login&quot;</span><span class="kw">&gt;</span>test<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_selectFrom&quot;</span><span class="ot"> ID=</span><span class="st">&quot;SEL_boottype&quot;</span><span class="kw">&gt;</span>pxe<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_setCheck&quot;</span><span class="ot"> name=</span><span class="st">&quot;CB_getSystemtimeByNTP&quot;</span><span class="kw">&gt;</span>0<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_selectRadio&quot;</span><span class="ot"> name=</span><span class="st">&quot;SEL_ldaptype&quot;</span><span class="kw">&gt;</span>read<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_clickButton&quot;</span><span class="ot"> name=</span><span class="st">&quot;BUT_submit&quot;</span><span class="kw">&gt;&lt;/action&gt;</span>
+            <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="kw">&gt;</span>$I18N_client_added<span class="kw">&lt;/good&gt;</span>
+            <span class="kw">&lt;warn</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="kw">&gt;</span>unwichtig<span class="kw">&lt;/warn&gt;</span>
+            <span class="kw">&lt;bad</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="kw">&gt;</span>$I18N_addNewLoginToUCSLDAPError<span class="kw">&lt;/bad&gt;</span>
+        <span class="kw">&lt;/test&gt;</span>
+        <span class="kw">&lt;include&gt;</span>langDe.m23testinc<span class="kw">&lt;/include&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;VM erstellen und starten&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;fkt&quot;</span><span class="kw">&gt;</span>AUTOTEST_VM_create<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;fkt&quot;</span><span class="kw">&gt;</span>AUTOTEST_VM_start<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;ocr&quot;</span><span class="kw">&gt;</span>|{Warte|minutes}<span class="kw">&lt;/good&gt;</span>
+        <span class="kw">&lt;/test&gt;</span>
+    <span class="kw">&lt;/sequence&gt;</span>
+<span class="kw">&lt;/testcase&gt;</span></code></pre></td></tr></table></div>
+<h3 id="begriffserklärung">Begriffserklärung</h3>
+<p>Die einzelnen Zeilen sind folgendermaßen aufgebaut, wobei die Begriffe <em>Tag</em>, <em>Attribut</em> und <em>Parameter</em> verwendet werden:</p>
+<div class="sourceCode" id="m23test-attribute"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;Tag</span><span class="ot"> Attribut1=</span><span class="st">&quot;...&quot;</span><span class="ot"> Attribut2=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span>Parameter<span class="kw">&lt;/Tag&gt;</span></code></pre></div>
+<h3 id="konstanten">Konstanten</h3>
+<p>Die Konstanten und weitere Einstellungen stehen in der globalen Datei <code>settings.m23test</code> sowie in der aktuellen m23test-Datei. <code>settings.m23test</code> wird zuerst im Heimatverzeichnis des Benutzer gesucht, der <code>autoTest.php</code> startet. Wird <code>settings.m23test</code> nicht gefunden, wird die Datei im aktuellen Verzeichnis gesucht.</p>
+<p>Intern verwendete Konstanten:</p>
+<ul>
+<li>TEST_SELENIUM_URL: Die URL, um auf die HTTP2SeleniumBridge zuzugreifen. z.B. http://192.168.1.153:23080</li>
+<li>TEST_VBOX_HOST: Auflösbarer Hostname oder IP des Systems, auf dem die VirtualBoxen laufen sollen. z.B. <code>tuxedo</code></li>
+<li>TEST_VBOX_USER: Benutzer (muß in der Guppe <em>vboxusers</em> sein), der <code>vboxmanage</code> zum Erstellen, Starten, etc. aufruft.</li>
+<li>TEST_VBOX_NETDEV: Netzwerkschnittstelle, die der echten Netzwerkkarte entspricht und zum Anlegen der Netzwerbrücke verwendet werden soll. z.B. <code>enp1s0f0</code></li>
+<li>TEST_VBOX_IMAGE_DIR: Verzeichnis auf dem VirtualBox-Gastegebersystem, in dem die virtuellen Maschinen gespichert werden sollen. z.B. <code>/media/vms/</code></li>
+<li>TEST_M23_BASE_URL: Komplette URL mit Benutzer und Paßwort zur m23-Weboberfläche. z.B. <code>https://god:m23@192.168.1.143/m23admin</code></li>
+<li>TEST_M23_IP: Die aus <code>TEST_M23_BASE_URL</code> extrahierte IP-Adresse.</li>
+<li>TEST_VBOX_MAC: Beim Starten zufällig generierte MAC-Adresse mit &quot;:&quot; als Trenner nach jeweils zwei Zeichen. z.B. <code>aa:bb:cc:dd:ee:ff:00:11</code></li>
+<li>SEL_VM_MAC: Dieselbe Zufalls-MAC, allerdings ohne den Trenner. z.B. <code>aabbccddeeff0011</code></li>
+<li>TEST_TYPE: &quot;VM&quot;, wenn VirtualBox verwendet wird. Soll nur die m23-Oberfläche getestet werden: &quot;webinterface&quot;.</li>
+<li>VM_RAM: RAM-Größe der VM in MB.</li>
+<li>VM_HDSIZE: Größe der virtuellen Festplatte in MB.</li>
+</ul>
+<p>In der <code>settings.m23test</code> sollten minimal folgende Konstanten gesetzt sein:</p>
+<div class="sourceCode" id="m23test-VM-Parameter"><table class="sourceCode xml numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="sourceCode"><pre><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; standalone=&quot;yes&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;settings&gt;</span>
+    <span class="kw">&lt;constant&gt;</span>
+        <span class="kw">&lt;VM_RAM&gt;</span>1024<span class="kw">&lt;/VM_RAM&gt;</span>
+        <span class="kw">&lt;VM_HDSIZE&gt;</span>8192<span class="kw">&lt;/VM_HDSIZE&gt;</span>
+        <span class="kw">&lt;TEST_VBOX_HOST&gt;</span>vmhost<span class="kw">&lt;/TEST_VBOX_HOST&gt;</span>
+        <span class="kw">&lt;TEST_VBOX_USER&gt;</span>vboxbenutzer<span class="kw">&lt;/TEST_VBOX_USER&gt;</span>
+        <span class="kw">&lt;TEST_VBOX_NETDEV&gt;</span>enp1s0f0<span class="kw">&lt;/TEST_VBOX_NETDEV&gt;</span>
+        <span class="kw">&lt;TEST_VBOX_IMAGE_DIR&gt;</span>/media/vms/<span class="kw">&lt;/TEST_VBOX_IMAGE_DIR&gt;</span>
+        <span class="kw">&lt;TEST_SELENIUM_URL&gt;</span>http://192.168.1.153:23080<span class="kw">&lt;/TEST_SELENIUM_URL&gt;</span>
+        <span class="kw">&lt;TEST_M23_BASE_URL&gt;</span>http://god:m23@192.168.1.143/m23admin<span class="kw">&lt;/TEST_M23_BASE_URL&gt;</span>
+    <span class="kw">&lt;/constant&gt;</span>
+<span class="kw">&lt;/settings&gt;</span></code></pre></td></tr></table></div>
+<h3 id="testblöcke">Testblöcke</h3>
+<p>Ein Testblock umfaßt immer alle Teile eines Tests, die folgendermaßen abgearbeitet werden:</p>
+<ol style="list-style-type: decimal">
+<li>Die Bedingung des trigger-Tags wird solange wiederkehrend überprüft, bis diese zutrifft oder das Zeitlimit überschritten ist. Bei einem Überschreiten wird das Skript abgebrochen.</li>
+<li>Die einzelnen action-Tags werden in der angegbenen Reihenfolge abgearbeitet, wenn die Bedingung des trigger-Tags zutraf.</li>
+<li>Die good/warn/bad-Tags werden immer wieder durchlaufen, bis eine Bedingung zutrifft. <code>bad</code> führt zum Abbruch, die anderen (nur) zu einem Eintrag in die Logdatei und Ausführen des nächsten Testblocks.</li>
+</ol>
+<p><code>timeout</code> (in Sekunden) gibt an, wie lange auf den Trigger und das Abschließen durch ein good-Tag gewartet werden soll. Nach Überschreiten um mehr als zwei Minuten wird eine Warnung ausgegeben, nach mehr als 5 Minuten wird das Skript mit einem Fehler abgebrochen.</p>
+<p><code>description</code> ist die Beschreibung, die in den Logdateien vermerkt wird.</p>
+<div class="sourceCode" id="m23test-testblock"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;VM erstellen und starten&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
+        <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;fkt&quot;</span><span class="kw">&gt;</span>AUTOTEST_VM_create<span class="kw">&lt;/action&gt;</span>
+        <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;fkt&quot;</span><span class="kw">&gt;</span>AUTOTEST_VM_start<span class="kw">&lt;/action&gt;</span>
+        <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;ocr&quot;</span><span class="kw">&gt;</span>|{Warte|minutes}<span class="kw">&lt;/good&gt;</span>
+    <span class="kw">&lt;/test&gt;</span></code></pre></div>
+<h3 id="kommandozeilenparameter">Kommandozeilenparameter</h3>
+<p>Die im <code>cli</code>-Block definierten Tags müssen in derselben Reihenfolge auf der Kommandozeile angegeben werden. Der jeweilige Tag-Name wird als Konstante gespeichert und kann in den Ersetzungen verwendet werden. <code>VM_NAME</code> wird intern für die Aufrufe von einige Funktionen z.B. <code>AUTOTEST_VM_keyboardWrite</code> oder <code>AUTOTEST_sshTunnelOverServer</code> verwendet und muß in den meisten Fällen angegebn werden.</p>
+<p>Das Attribut <code>description</code> ist die Beschreibung des jeweiligen Tags/Kommandozeilenparameters, die ausgegeben wird, wenn nicht die korrekte Anzahl an Parametern übergeben wird.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="m23test-CLI-Parameter"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;cli&gt;</span>
+        <span class="kw">&lt;VM_NAME</span><span class="ot"> description=</span><span class="st">&quot;Name der VM&quot;</span><span class="kw">&gt;&lt;/VM_NAME&gt;</span>
+        <span class="kw">&lt;OS_PACKAGESOURCE</span><span class="ot"> description=</span><span class="st">&quot;Paketquellenliste&quot;</span><span class="kw">&gt;&lt;/OS_PACKAGESOURCE&gt;</span>
+        <span class="kw">&lt;OS_DESKTOP</span><span class="ot"> description=</span><span class="st">&quot;Desktop&quot;</span><span class="kw">&gt;&lt;/OS_DESKTOP&gt;</span>
+    <span class="kw">&lt;/cli&gt;</span></code></pre></div>
+<h3 id="ersetzungen">Ersetzungen</h3>
+<p>Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden:</p>
+<ul>
+<li><code>${...}</code>: &quot;...&quot; wird durch den Wert einer vorher definierte Konstante ersetzt.</li>
+<li><code>|{str1|str2|str3}</code>: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.</li>
+<li><code>$I18N_...</code>: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.</li>
+<li><code>&lt;include&gt;DATEI&lt;/include&gt;</code>: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.</li>
+</ul>
+<h2 id="selenium-funktionen">Selenium-Funktionen</h2>
+<p>Hier sind trigger- und action-Tags aufgelistet, die über die HTTP2SeleniumBridge Selenium-Befehle ausführen.</p>
+<h3 id="triggergoodwarnbad">Trigger/good/warn/bad</h3>
+<h4 id="sel_hostready-trigger">sel_hostReady (Trigger)</h4>
+<p>Wird ausgelöst, wenn HTTP2SeleniumBridge unter der <code>TEST_SELENIUM_URL</code> erreichbar ist</p>
+<h4 id="sel_sourcecontains-triggergoodwarnbad">sel_sourcecontains (Trigger/good/warn/bad)</h4>
+<p>Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers gefunden wird.</p>
+<ul>
+<li>Parameter: Zu suchender Text.</li>
+</ul>
+<h3 id="action">Action</h3>
+<p>Selenium-Aktionen benötigen (überwiegend) das Attribut <code>ID</code> oder <code>name</code> für die Identifikation des HTML-Elementes, auf das sie angewendet werden sollen.</p>
+<h4 id="sel_clickbutton">sel_clickButton</h4>
+<p>Klickt auf einen Button.</p>
+<ul>
+<li>Parameter: Nichts</li>
+</ul>
+<h4 id="sel_open">sel_open</h4>
+<p>Öffnet eine URL im Browser.</p>
+<ul>
+<li>Parameter: URL z.B. <code>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</code>. Hierbei müssen einige Zeichen URL-kodiert angeben werden (z.B: '&amp;' =&gt; '%26').</li>
+</ul>
+<h4 id="sel_selectfrom">sel_selectFrom</h4>
+<p>Wählt ein Element aus einer Drop-Down-Liste.</p>
+<ul>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+</ul>
+<h4 id="sel_selectradio">sel_selectRadio</h4>
+<p>Wählt ein Element eines Radiobuttons.</p>
+<ul>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+</ul>
+<h4 id="sel_setcheck">sel_setCheck</h4>
+<p>Setzt oder entfernt den Haken einer Checkbox.</p>
+<ul>
+<li>Parameter: 0 zum Entfernen des Hakens, 1 zum Setzen.</li>
+</ul>
+<h4 id="sel_typeinto">sel_typeInto</h4>
+<p>Ersetzt den Text eines Eingabefeldes (<code>&lt;TEXTAREA&gt;&lt;/TEXTAREA&gt;, &lt;INPUT type=&quot;text&quot;&gt;...&lt;/INPUT&gt;</code>).</p>
+<ul>
+<li>Parameter: Einzugebender Text.</li>
+</ul>
+<h2 id="ssh-funktionen">SSH-Funktionen</h2>
+<h3 id="triggergoodwarnbad-1">Trigger/good/warn/bad</h3>
+<h4 id="ssh_commandoutput">ssh_commandoutput</h4>
+<p>Führt über den Umweg über den m23-Server (Konstante: <code>TEST_M23_IP</code>) auf der VM (Konstante: <code>VM_NAME</code>) einen Befehl aus und überprüft, ob in der Ausgabe der gewünschte Text vorhanden ist.</p>
+<ul>
+<li>Parameter: In der Ausgabe der SSH-Abfrage vorkommender Text.</li>
+<li>Attribut <code>cmd</code>: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
+</ul>
+<h2 id="virtualbox-funktionen">VirtualBox-Funktionen</h2>
+<h3 id="action-1">Action</h3>
+<h4 id="key">key</h4>
+<p>Sendet eine Tastensequenz (Text) an die VM (Konstante: <code>VM_NAME</code>). Nichtdruckbare Tasten (z.B. <code>Enter</code>) werden in &quot;°&quot; eingeschlossen. z.B. °enter°.</p>
+<ul>
+<li>Parameter: Zu sendender Text.</li>
+</ul>
+<h3 id="triggergoodwarnbad-2">Trigger/good/warn/bad</h3>
+<h4 id="ocr">ocr</h4>
+<p>Erstellt einen Screenshot der laufenden VM (Konstante: <code>VM_NAME</code>) und versucht den Text mit verschiednene <code>gocr</code>-Parametern zu erkennen. Wird im erkannten Text der Parameter gefunden, so wird der Trigger ausgelöst bzw. eine Nachricht gesendet.</p>
+<ul>
+<li>Parameter: Gewünschter Text.</li>
+</ul>
+<h2 id="funktionen-zum-aufrufen-anderer-funktionen">Funktionen zum Aufrufen anderer Funktionen</h2>
+<h3 id="action-2">Action</h3>
+<h4 id="fkt">fkt</h4>
+<p>Führt unter CAutoTest::executePHPFunction aufgelistete Funktionen aus.</p>
+<ul>
+<li>Parameter: Name der unter CAutoTest::executePHPFunction aufgelisteten Funktion.</li>
+</ul>
+<h2 id="sonstige-funktionen">Sonstige Funktionen</h2>
+<h3 id="trigger">Trigger</h3>
+<h4 id="true">true</h4>
+<p>Wird sofort ausgelöst.</p>
+<h4 id="wait">wait</h4>
+<p>Löst erst nach einer gewissen Zeit aus ausgelöst.</p>
+<ul>
+<li>Parameter: Zeit in Sekunden, die bis zum Auslösen gewartet werden soll.</li>
+</ul>
+</body>
+</html>

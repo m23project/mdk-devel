@@ -1,0 +1,59 @@
+		<test timeout="180" description="Client in Installationsliste suchen">
+			<trigger type="true"></trigger>
+ 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=install</action>
+			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=installpackages</action>
+			<good type="sel_sourcecontains">$I18N_preselected_packages</good>
+		</test>
+		<test timeout="600" description="Paket suchen">
+			<trigger type="true"></trigger>
+			<action type="sel_typeInto" name="ED_search">mc</action>
+			<action type="sel_clickButton" name="BUT_search"></action>
+			<action type="sel_clickButton" name="BUT_search"></action>
+			<bad type="sel_sourcecontains">$I18N_sourceslist_update_error</bad>
+			<bad type="sel_sourcecontains">I18N_pleaseEnterASearchTerm</bad>
+			<bad type="sel_sourcecontains">$I18N_packageSearchReturnedNoResultUpdatePackageSearchIndex</bad>
+			<good type="sel_sourcecontains">Midnight Commander</good>
+		</test>
+		<test timeout="60" description="Paket zum Installieren markieren">
+			<trigger type="true"></trigger>
+			<action type="sel_setCheck" ID="CBID_mc">1</action>
+			<action type="sel_clickButton" name="BUT_mark"></action>
+			<good type="sel_sourcecontains">$I18N_preselected / $I18N_preselected</good>
+		</test>
+		<test timeout="60" description="Paket installieren">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_acceptJobs"></action>
+			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
+		</test>
+		<test timeout="600" description="Warten auf Abschluß der Installation">
+			<trigger type="true"></trigger>
+			<good type="ssh_commandoutput" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d %22[:blank:]%22 | sed %22s/install$//g%22 |  grep %22^mc$%22 -c">1</good>
+		</test>
+		<test timeout="180" description="Client in Installationsliste suchen">
+			<trigger type="true"></trigger>
+ 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=deinstall</action>
+			<action type="sel_clickMatchingURL">client=${VM_NAME}°action=deinstall</action>
+			<good type="sel_sourcecontains">$I18N_deinstall_packages</good>
+		</test>
+		<test timeout="600" description="Paket suchen">
+			<trigger type="true"></trigger>
+			<action type="sel_typeInto" name="ED_search">mc</action>
+			<action type="sel_clickButton" name="BUT_search"></action>
+			<good type="sel_sourcecontains">mc-data</good>
+		</test>
+		<test timeout="60" description="Paket zum Deinstallieren markieren">
+			<trigger type="true"></trigger>
+			<action type="sel_setCheck" ID="CBID_mc">1</action>
+			<action type="sel_setCheck" ID="CBID_mc-data">1</action>
+			<action type="sel_clickButton" name="BUT_mark"></action>
+			<good type="sel_sourcecontains">$I18N_preselected / $I18N_preselected</good>
+		</test>
+		<test timeout="60" description="Paket deinstallieren">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_acceptJobs"></action>
+			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
+		</test>
+		<test timeout="600" description="Warten auf Abschluß der Denstallation">
+			<trigger type="true"></trigger>
+			<good type="ssh_commandoutput" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d %22[:blank:]%22 | sed %22s/install$//g%22 |  grep %22^mc$%22 -c">0</good>
+		</test>

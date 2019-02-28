@@ -14,9 +14,15 @@ include('/m23/inc/CChecks.php');
 include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
+
+
+if (!isset($argv[1]) || !file_exists($argv[1]))
+	die("$argv[0] <Test description file (.m23test)> <parameters>\n");
+
 $xmlFile = $argv[1];
 array_shift($argv);
 $AutoTestO = new CAutoTest($xmlFile, $argv);
+global $AutoTestO;
 
 $AutoTestO->run();
 ?>

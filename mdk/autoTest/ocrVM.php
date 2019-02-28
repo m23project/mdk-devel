@@ -9,7 +9,7 @@ include('/m23/inc/checks.php');
 include('/m23/inc/autoTest.php');
 include('/m23/inc/CAutoTest.php');
 
-define('TEST_VBOX_HOST', 'lc');
+define('TEST_VBOX_HOST', 'tuxedo');
 define('TEST_VBOX_USER', 'dodger');
 define('TEST_VBOX_NETDEV', 'eth0');
 define('TEST_VBOX_IMAGE_DIR', '/home/'.TEST_VBOX_USER);

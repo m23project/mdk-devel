@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<testcase>
+	<constant>
+		<TEST_TYPE>webinterface</TEST_TYPE>
+	</constant>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+	</cli>
+	<sequence>
+		<test timeout="180" description="Client in Löschliste suchen">
+			<trigger type="true"></trigger>
+ 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete</action>
+			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=deleteclient</action>
+			<good type="sel_sourcecontains">$I18N_get_deleted</good>
+		</test>
+		<test timeout="600" description="Client löschen">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_delete"></action>
+			<good type="sel_sourcecontains">$I18N_was_deleted</good>
+		</test>
+	</sequence>
+</testcase>

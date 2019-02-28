@@ -9,11 +9,13 @@
 		<VM_NAME description="Name der VM"></VM_NAME>
 	</cli>
 	<sequence>
+		<test timeout="3600" description="Anmeldemanager erkennen">
+			<trigger type="ocr">|{Anmelden|Log In|password}</trigger>
+			<good type="ocr">|{Anmelden|Log In|password}</good>
+		</test>
 		<test timeout="600" description="Neustart nach Installation">
-			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">Debian</trigger>
-			<good type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 9</good>
-			<warn type="ssh_commandoutput" cmd="cat /etc/issue">Debian GNU/Linux 8</warn>
-			<bad type="ssh_commandoutput" cmd="cat /etc/issue">suse</bad>
+			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</trigger>
+			<good type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</good>
 		</test>
 	</sequence>
 </testcase>

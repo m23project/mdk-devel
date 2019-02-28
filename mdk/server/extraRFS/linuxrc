@@ -5,8 +5,10 @@ mount -o remount,rw /dev/ram0 /
 
 /bin/HWMiniInit.sh
 
-mv /dev/random /dev/random-blocks
-ln -s /dev/urandom /dev/random
+rm /dev/random
+mknod -m 444 /dev/random c 1 9
+
+haveged
 
 echo "0" > /proc/sys/kernel/printk
 
