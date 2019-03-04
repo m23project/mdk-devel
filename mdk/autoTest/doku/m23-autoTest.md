@@ -104,7 +104,7 @@ HTTP2SeleniumBridge: Beispiele und Installation
 
 Die Beispiele gehen davon aus, daß HTTP2SeleniumBridge auf einem Rechner mit der IP 192.168.1.153 läuft. Das Ergebnis jeder Operation wird in die Datei `s.log` geschrieben.
 
-~~~~ {#mycode .bash .numberLines}
+~~~~ {#Beispiele .bash .numberLines}
 # Freie Selenium-Webdriver-ID abfragen. Muß bei jedem weiteren Aufruf angegeben werden!
 wget 'http://192.168.1.153:23080/nextdriverid' -O s.log
 # Öffnen der m23-Oberflächenseite
@@ -315,7 +315,7 @@ Intern verwendete Konstanten:
 * TEST_M23_IP: Die aus `TEST_M23_BASE_URL` extrahierte IP-Adresse.
 * TEST_VBOX_MAC: Beim Starten zufällig generierte MAC-Adresse mit ":" als Trenner nach jeweils zwei Zeichen. z.B. `aa:bb:cc:dd:ee:ff:00:11`
 * SEL_VM_MAC: Dieselbe Zufalls-MAC, allerdings ohne den Trenner. z.B. `aabbccddeeff0011`
-* TEST_TYPE: "VM", wenn VirtualBox verwendet wird. Soll nur die m23-Oberfläche getestet werden: "webinterface".
+* TEST_TYPE: "VM", wenn VirtualBox verwendet wird. Soll nur die m23-Oberfläche getestet werden: "webinterface". Zum alleinigen Testen der XML-Testbeschreibungsdatei: "xmltest".
 * VM_RAM: RAM-Größe der VM in MB.
 * VM_HDSIZE: Größe der virtuellen Festplatte in MB.
 
@@ -390,6 +390,50 @@ Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden
 * `|{str1|str2|str3}`: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.
 * `$I18N_...`: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.
 * `<include>DATEI</include>`: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.
+
+
+
+
+
+### Bedingtes Ausführen von Blöcken
+üüüüüü
+
+~~~~ {#autoTest.php .bash .numberLines}
+AT_deleteClient=1 ./autoTest.php 1VariablenKonstanten-test.m23test blasadkfbasldfkb
+~~~~
+
+
+~~~~ {#m23test-CLI-Parameter .xml}
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<testcase>
+	<constant>
+		<TEST_TYPE>webinterface</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</constant>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+	</cli>
+	<sequence>
+		<test timeout="180" description="Client in Löschliste suchen" runIf="AT_deleteClient==1">
+			<trigger type="true"></trigger>
+ 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete</action>
+			<good type="sel_sourcecontains" setVar="INT_deleteClient=1">client=${VM_NAME}</good>
+			<warn type="sel_sourcenotcontains" setVar="INT_deleteClient=0">client=${VM_NAME}</warn>
+		</test>
+		<test timeout="180" description="Client löschen wenn gefunden" runIf="INT_deleteClient==1">
+			<trigger type="true"></trigger>
+			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=deleteclient</action>
+			<good type="sel_sourcecontains">$I18N_get_deleted</good>
+		</test>
+		<test timeout="600" description="Client löschen" runIf="INT_deleteClient==1">
+			<trigger type="true"></trigger>
+			<action type="sel_clickButton" name="BUT_delete"></action>
+			<good type="sel_sourcecontains">$I18N_was_deleted</good>
+		</test>
+	</sequence>
+</testcase>
+~~~~
 
 
 

@@ -378,7 +378,7 @@ ddns-update-style none;\
 	#Squeeze
 	if [ -f /etc/default/isc-dhcp-server ]
 	then
-		netDevices=`grep ':' /proc/net/dev | cut -d':' -f1 | tr -d '[:blank:]' | awk -v ORS=' ' '{print}'`
+		netDevices=`grep ':' /proc/net/dev | cut -d':' -f1 | tr -d '[:blank:]' | grep -v lo | awk -v ORS=' ' '{print}'`
 		mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.beforem23
 		ln -s /m23/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
 		sed -i "s/INTERFACES=.*/INTERFACES=\"$netDevices\"/g" /etc/default/isc-dhcp-server
@@ -574,6 +574,8 @@ refresh_pattern .deb$         525600 0% 525600 override-lastmod ignore-reload re
 refresh_pattern .tar.7z$     525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
 refresh_pattern .dsc$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
 refresh_pattern .rpm$         525600 0% 525600 override-lastmod ignore-reload reload-into-ims ignore-no-cache
+
+shutdown_lifetime 5 seconds
 EOFSQUID3
 fi
 
@@ -788,16 +790,16 @@ echo "	<VirtualHost *:443>
 		if [ -e /etc/php/7.0 ]
 		then
 			sed -i -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 0/g' $phpFile
+		else
+			#activate MySQL support in php.ini (obsolete on PHP 7, remove when there are no supported distributons with PHP 5.x anymore)
+			if test `grep -c "^extension=mysql.so" $phpFile` -eq 0
+			then
+				echo "extension=mysql.so" >> $phpFile
+			fi
 		fi
 
 		chown root.root $phpFile
 		chmod 644 $phpFile
-	
-		#activate MySQL support in php.ini
-		if test `grep -c "^extension=mysql.so" $phpFile` -eq 0
-		then
-			echo "extension=mysql.so" >> $phpFile
-		fi
 	done
 
 	#Sets the phpver and phpini variables to the version of php that are installed.
