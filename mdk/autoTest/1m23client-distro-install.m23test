@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert einen m23-Clienten in einer neuen VM (löscht ggf. eine zuvor vorhandene VM mit selben Namen nebst dazugehörigem Eintrag aus der m23-Weboberfläche) mit grafischer Oberfläche. Erkennt den Login-Manager und installiert und deinstalliert den Midnight Commander. -->
 <testcase>
-	<constant>
+	<variables>
 		<TEST_TYPE>VM</TEST_TYPE>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
-	</constant>
+	</variables>
 	<cli>
 		<VM_NAME description="Name der VM"></VM_NAME>
 		<OS_PACKAGESOURCE description="Paketquellenliste"></OS_PACKAGESOURCE>
 		<OS_DESKTOP description="Desktop"></OS_DESKTOP>
 	</cli>
 	<sequence>
+		<include>inc/deleteClientFromDB.m23test</include>
 		<test timeout="180" description="Client anlegen">
 			<trigger type="sel_hostReady"></trigger>
 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
@@ -86,14 +88,7 @@
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
-		<test timeout="3600" description="Anmeldemanager erkennen">
-			<trigger type="ocr">|{Anmelden|Log In|password}</trigger>
-			<good type="ocr">|{Anmelden|Log In|password}</good>
-		</test>
-		<test timeout="600" description="Distribution überprüfen">
-			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</trigger>
-			<good type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</good>
-		</test>
+		<include>inc/detectLoginManager.m23test</include>
 		<include>inc/installDeinstallMidnightCommander.m23test</include>
 	</sequence>
 </testcase>

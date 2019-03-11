@@ -1,0 +1,22 @@
+		<test timeout="180" description="Weboberfläche testen (IP)" runIf="VM_IP!=NULL">
+			<trigger type="true"></trigger>
+			<action type="sel_open">https://god:m23@${VM_IP}/m23admin/index.php</action>
+			<good type="sel_sourcecontains">Welcome to m23</good>
+		</test>
+		<test timeout="180" description="Weboberfläche testen (TEST_M23_BASE_URL)" runIf="VM_IP==NULL">
+			<trigger type="true"></trigger>
+			<action type="sel_open">${TEST_M23_BASE_URL}/index.php</action>
+			<good type="sel_sourcecontains">Welcome to m23</good>
+		</test>
+		<test timeout="600" description="Pakete aktualisieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+				ps -A | grep squid -q; echo -n "S$?S" > /tmp/m.status
+				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
+				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
+			</action>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="Squid ausgefallen">S1S</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="MySQL/MariaDB ausgefallen">M1M</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="OpenLDAP ausgefallen">L1L</bad>
+			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Komponenten laufen">S0SM0ML0L</good>
+		</test>

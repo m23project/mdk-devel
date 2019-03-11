@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert die m23-Server-Pakete von 192.168.1.77 auf einer gesicherten VM (Sicherungspunkt "vor"). -->
+<testcase>
+	<variables>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</variables>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_IP description="IP der VM"></VM_IP>
+	</cli>
+	<sequence>
+		<include>inc/restoreVMStateVor.m23test</include>
+		<include>inc/closeTextmodeScreensaver.m23test</include>
+		<include>inc/checkForRunningDebian.m23test</include>
+		<include>inc/addM23SeverDebsFrom77.m23test</include>
+
+		<test timeout="600" description="Pakete aktualisieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+				echo "
+slapd slapd/internal/generated_adminpw password test
+slapd slapd/password1 password test
+slapd slapd/password2 password test
+slapd slapd/internal/adminpw password test
+
+m23-ldap m23-ldap/LDAPpass string test
+m23-ldap m23-ldap/LDAPhint note
+m23 m23/configDHCP boolean true
+m23 m23/configMySQL boolean true
+m23 m23/configureApache boolean true
+m23 m23/configureBackupPC boolean true
+m23 m23/configureSquid boolean true
+m23 m23/configureSSH boolean true
+m23 m23/configureSSL boolean true
+m23 m23/configureSudo boolean true
+m23 m23/experimentalWarn note
+m23 m23/warnDHCP note
+m23-tftp m23-tftp/configureTFTP boolean true
+" > /tmp/debconf-setting
+
+debconf-set-selections /tmp/debconf-setting
+DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get install m23 --allow-unauthenticated -y 2>&1 | tee /tmp/update.log; echo $? > /tmp/update.ret
+			</action>
+
+			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/update.ret" description="m23 installiert">0</good>
+		</test>
+		<include>inc/m23serverBasicTest.m23test</include>
+	</sequence>
+</testcase>

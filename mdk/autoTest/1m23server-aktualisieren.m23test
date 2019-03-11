@@ -1,46 +1,29 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Aktualisiert die m23-Server-Pakete von 192.168.1.77 auf einer zuvor gesicherten VM (Sicherungspunkt "vor"). -->
 <testcase>
-	<constant>
+	<variables>
 		<TEST_TYPE>VM</TEST_TYPE>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
-	</constant>
+	</variables>
 	<cli>
 		<VM_NAME description="Name der VM"></VM_NAME>
 		<VM_IP description="IP der VM"></VM_IP>
 	</cli>
 	<sequence>
-		<test timeout="600" description="VM zurücksetzen">
-			<trigger type="true"></trigger>
-			<action type="fkt">AUTOTEST_VM_restoreSnapshot°vor</action>
-			<action type="fkt">AUTOTEST_VM_start</action>
-			<good type="true"></good>
-		</test>
-		<test timeout="180" description="Bildschirmschoner nach Booten deaktivieren">
-			<trigger type="wait">5</trigger>
-			<action type="key">°enter°</action>
-			<good type="ocr">GNU/Linux</good>
-		</test>-->
-
-		<test timeout="600" description="Distribution überprüfen">
-			<trigger type="true"></trigger>
-			<good type="ssh_commandoutput" password="a" cmd="cat /etc/issue">Debian</good>
-		</test>
-		
-		<test timeout="600" description="Paketquellen eintragen und aktualisieren">
-			<trigger type="true"></trigger>
-			<action type="ssh_command" password="a">echo 'deb http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list; echo 192.168.1.77 m23debs >> /etc/hosts</action>
-			<good type="ssh_commandoutput" password="a" cmd="apt-get update; echo X$?X">X0X</good>
-		</test>
+		<include>inc/restoreVMStateVor.m23test</include>
+		<include>inc/closeTextmodeScreensaver.m23test</include>
+		<include>inc/checkForRunningDebian.m23test</include>
+		<include>inc/addM23SeverDebsFrom77.m23test</include>
 
 		<test timeout="600" description="Pakete aktualisieren">
 			<trigger type="true"></trigger>
-			<action type="ssh_command" password="a">DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get dist-upgrade -y 2>&1 | tee /tmp/update.log; echo $? > /tmp/update.ret; x=$(grep "^0 upgraded" -c /tmp/update.log); echo -n "X${x}Y" > /tmp/update.combi; cat /tmp/update.ret >> /tmp/update.combi</action>
+			<action type="ssh_command" password="test">DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get dist-upgrade -y 2>&1 | tee /tmp/update.log; echo $? > /tmp/update.ret; x=$(grep "^0 upgraded" -c /tmp/update.log); echo -n "X${x}Y" > /tmp/update.combi; cat /tmp/update.ret >> /tmp/update.combi</action>
 
-			<bad type="ssh_commandoutput" password="a" cmd="cat /tmp/update.combi" description="Keine Pakete zu aktualisieren">X1Y</bad>
-			<good type="ssh_commandoutput" password="a" cmd="cat /tmp/update.combi" description="Pakete aktualisiert">Y0</good>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/update.combi" description="Keine Pakete zu aktualisieren">X1Y</bad>
+			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/update.combi" description="Pakete aktualisiert">Y0</good>
 		</test>
 	</sequence>
 </testcase>
 
-<!-- 			<good type="ssh_commandoutput" password="a" cmd="cat /tmp/update.ret">0</good> -->
+<!-- 			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/update.ret">0</good> -->

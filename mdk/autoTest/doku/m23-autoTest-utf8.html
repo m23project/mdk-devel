@@ -78,12 +78,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#autotest-starten">autoTest starten</a></li>
 <li><a href="#testbeschreibungsdateien">Testbeschreibungsdateien</a><ul>
 <li><a href="#allgemeiner-aufbau">Allgemeiner Aufbau</a></li>
-<li><a href="#begriffserklärung">Begriffserklärung</a></li>
+<li><a href="#begriffserklÃ¤rung">BegriffserklÃ¤rung</a></li>
 <li><a href="#variablen-und-konstanten">Variablen und Konstanten</a></li>
-<li><a href="#testblöcke">Testblöcke</a></li>
+<li><a href="#testblÃ¶cke">TestblÃ¶cke</a></li>
 <li><a href="#kommandozeilenparameter">Kommandozeilenparameter</a></li>
 <li><a href="#ersetzungen">Ersetzungen</a></li>
-<li><a href="#bedingtes-ausführen-von-test-blöcken">Bedingtes Ausführen von test-Blöcken</a></li>
+<li><a href="#bedingtes-ausfÃ¼hren-von-test-blÃ¶cken">Bedingtes AusfÃ¼hren von test-BlÃ¶cken</a></li>
 </ul></li>
 <li><a href="#selenium-funktionen">Selenium-Funktionen</a><ul>
 <li><a href="#triggergoodwarnbad">Trigger/good/warn/bad</a></li>
@@ -108,8 +108,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <p></p>
 <h1 id="einleitung">Einleitung</h1>
-<p><em>m23 autoTest</em> wurde entwickelt, um m23-Funktionen (Client anlegen, partitionieren und formatieren, Distribution mit Desktop installieren, ...) durch <em>Fernsteuerung</em> der m23-Weboberfläche automatisch zu testen. Zum Testen der clientseitigen Funktionen werden virtuelle Maschinen dynamisch angelegt. Desweiteren kann die Installation des m23-Servers von einem ISO in VirtualBox automatisiert durchgeführt werden, indem autoTest Bildschirmausgaben per OCR erkennt und Tastendrücke emuliert.</p>
-<p>Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch für andere Projekte nützlich sein.</p>
+<p><em>m23 autoTest</em> wurde entwickelt, um m23-Funktionen (Client anlegen, partitionieren und formatieren, Distribution mit Desktop installieren, ...) durch <em>Fernsteuerung</em> der m23-WeboberflÃ¤che automatisch zu testen. Zum Testen der clientseitigen Funktionen werden virtuelle Maschinen dynamisch angelegt. Desweiteren kann die Installation des m23-Servers von einem ISO in VirtualBox automatisiert durchgefÃ¼hrt werden, indem autoTest Bildschirmausgaben per OCR erkennt und TastendrÃ¼cke emuliert.</p>
+<p>Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch fÃ¼r andere Projekte nÃ¼tzlich sein.</p>
 <p>Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes <code>autoTest.php</code>.</p>
 <div class="figure">
 <img src="autoTest-Schema.png" title="autoTest-Schema" style="width:75.0%" />
@@ -118,28 +118,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p></p>
 <h1 id="autotest-umgebung-installation-und-konfiguration">autoTest-Umgebung: Installation und Konfiguration</h1>
 <h2 id="installation">Installation</h2>
-<p>Die folgende Auflistung beschreibt die Funktionen der einzelnen Komponenten, die benötigt werden, um m23-Funktionen automatisiert mit autoTest durchzuführen. Bis auf den Virtualisierungsserver können die Komponenten in VMs installiert werden. Prinzipiell könnten z.B. Virtualisierungsserver, HTTP2SeleniumBridge und der autoTest-Steuersystem auf derselben (physikalischen) Maschine laufen.</p>
+<p>Die folgende Auflistung beschreibt die Funktionen der einzelnen Komponenten, die benÃ¶tigt werden, um m23-Funktionen automatisiert mit autoTest durchzufÃ¼hren. Bis auf den Virtualisierungsserver kÃ¶nnen die Komponenten in VMs installiert werden. Prinzipiell kÃ¶nnten z.B. Virtualisierungsserver, HTTP2SeleniumBridge und der autoTest-Steuersystem auf derselben (physikalischen) Maschine laufen.</p>
 <h3 id="autotest-steuersystem">autoTest-Steuersystem</h3>
-<p>Ein m23-Server, der autoTest ausführt und die anderen Systeme (Virtualisierungsserver, HTTP2SeleniumBridge und (indirekt) den zu testenden m23-Server) steuert.</p>
+<p>Ein m23-Server, der autoTest ausfÃ¼hrt und die anderen Systeme (Virtualisierungsserver, HTTP2SeleniumBridge und (indirekt) den zu testenden m23-Server) steuert.</p>
 <h4 id="installation-1">Installation</h4>
 <ul>
 <li>Ein normal installierter m23-Server</li>
-<li>Einen autoTest-Skript-Benutzer anlegen mit zugehörigem SSH-Schlüssel anlegen, der die autoTest-Skripte ausführen soll</li>
+<li>Einen autoTest-Skript-Benutzer anlegen mit zugehÃ¶rigem SSH-SchlÃ¼ssel anlegen, der die autoTest-Skripte ausfÃ¼hren soll</li>
 <li><code>settings.m23test</code> anpassen</li>
 </ul>
 <h3 id="virtualisierungsserver">Virtualisierungsserver</h3>
-<p>Ein Server, mit ausreichenden Kapazitäten (RAM, CPUs, Festplattenplatz), auf dem VirtualBox skriptgesteuert ausgeführt werden kann.</p>
+<p>Ein Server, mit ausreichenden KapazitÃ¤ten (RAM, CPUs, Festplattenplatz), auf dem VirtualBox skriptgesteuert ausgefÃ¼hrt werden kann.</p>
 <h4 id="installation-2">Installation</h4>
 <ul>
 <li>Debian oder Ubuntu in 64-Bit-Version installieren</li>
 <li>VirtualBox und gocr installieren</li>
-<li>Einen Benutzer anlegen, der über <code>VBoxManage</code> virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe <code>vboxusers</code> aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren.</li>
+<li>Einen Benutzer anlegen, der Ã¼ber <code>VBoxManage</code> virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe <code>vboxusers</code> aufnehmen. Den SSH-SchlÃ¼ssel des autoTest-Skript-Benutzers importieren.</li>
 <li>(Optional) x2go installieren</li>
 </ul>
-<p>m23-Server: paßwortloser Zugriff vom autoTest-ausführenden Benutzer auf root per SSH oder sudo?</p>
+<p>m23-Server: paÃŸwortloser Zugriff vom autoTest-ausfÃ¼hrenden Benutzer auf root per SSH oder sudo?</p>
 <h3 id="http2seleniumbridge">HTTP2SeleniumBridge</h3>
 <h3 id="zu-testender-m23-server">Zu testender m23-Server</h3>
-<p>Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird von der HTTP2SeleniumBridge über die m23-Weboberfläche gesteuert.</p>
+<p>Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird von der HTTP2SeleniumBridge Ã¼ber die m23-WeboberflÃ¤che gesteuert.</p>
 <h4 id="installation-3">Installation</h4>
 <ul>
 <li>Ein normal installierter m23-Server</li>
@@ -148,7 +148,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Debian-32Bit und Debian-64Bit VMs in VirtualBox anlegen:
 <ul>
-<li>Netzwerkbrücke</li>
+<li>NetzwerkbrÃ¼cke</li>
 <li>keine Soundkarte</li>
 <li>15GB Festplatte</li>
 <li>PAE/NX bei i386 aktivieren</li>
@@ -157,12 +157,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>IP nach dem Schema: 192.168.1.<Debian-Version>&lt;32Bit = 3, 64Bit = 64&gt;<br />
 z.B. Debian 9 32Bit: 192.168.1.93</li>
-<li>Paßwort immer &quot;test&quot;. Benutzer &quot;test&quot;</li>
+<li>PaÃŸwort immer &quot;test&quot;. Benutzer &quot;test&quot;</li>
 <li>Softwareauswahl <em>NUR</em>: SSH und Standardwerkzeuge</li>
 </ul></li>
-<li>Nach Abschluß der Installation die VM neu starten</li>
+<li>Nach AbschluÃŸ der Installation die VM neu starten</li>
 <li>In <code>/etc/ssh/sshd_config</code> &quot;PermitRootLogin yes&quot; setzen</li>
-<li>Festplatte säubern:
+<li>Festplatte sÃ¤ubern:
 <ul>
 <li><code>apt-get clean; dd if=/dev/zero of=/z; rm /z; poweroff</code></li>
 </ul></li>
@@ -176,7 +176,7 @@ z.B. Debian 9 32Bit: 192.168.1.93</li>
 <ul>
 <li>Debian-64Bit VM in VirtualBox anlegen:
 <ul>
-<li>Netzwerkbrücke</li>
+<li>NetzwerkbrÃ¼cke</li>
 <li>keine Soundkarte</li>
 <li>50GB Festplatte</li>
 </ul></li>
@@ -184,12 +184,12 @@ z.B. Debian 9 32Bit: 192.168.1.93</li>
 <ul>
 <li>IP nach dem Schema: 192.168.1.1<UCS-Version ohne Punkt><br />
 z.B. UCS 4.4: 192.168.1.144</li>
-<li>Paßwort (temporär) &quot;testtest&quot;.</li>
-<li>Konfiguration: Neue Domäne, keine Dienste installieren</li>
+<li>PaÃŸwort (temporÃ¤r) &quot;testtest&quot;.</li>
+<li>Konfiguration: Neue DomÃ¤ne, keine Dienste installieren</li>
 </ul></li>
-<li>Nach Abschluß der Installation die VM neu starten</li>
-<li>Als root einloggen und per <code>passwd</code> das Paßwort auf &quot;test&quot; setzen</li>
-<li>Festplatte säubern:
+<li>Nach AbschluÃŸ der Installation die VM neu starten</li>
+<li>Als root einloggen und per <code>passwd</code> das PaÃŸwort auf &quot;test&quot; setzen</li>
+<li>Festplatte sÃ¤ubern:
 <ul>
 <li><code>apt-get clean; dd if=/dev/zero of=/z; rm /z; poweroff</code></li>
 </ul></li>
@@ -201,9 +201,9 @@ z.B. UCS 4.4: 192.168.1.144</li>
 </ul>
 <p></p>
 <h1 id="http2seleniumbridge-beispiele-und-installation">HTTP2SeleniumBridge: Beispiele und Installation</h1>
-<p><em>HTTP2SeleniumBridge.py</em> ist ein Python-Skript, das einen Webserver auf Port 23080 öffnet, um ausgewählte Selenium-Befehle via REST-API auszuführen. Der Funktionsumfang beinhaltet alles, was nötig ist, um die m23-Oberfläche zu steuern (z.B. m23-Clients anlegen und Betriebssysteme installieren). <em>HTTP2SeleniumBridge.py</em> kann zwar auch <em>eigenständig</em> verwendet werden, wurde aber konzipiert, um über die PHP-AUTOTEST-Funktionen bzw. CAutoTest-Klassenmethoden von m23 aufgerufen zu werden.</p>
+<p><em>HTTP2SeleniumBridge.py</em> ist ein Python-Skript, das einen Webserver auf Port 23080 Ã¶ffnet, um ausgewÃ¤hlte Selenium-Befehle via REST-API auszufÃ¼hren. Der Funktionsumfang beinhaltet alles, was nÃ¶tig ist, um die m23-OberflÃ¤che zu steuern (z.B. m23-Clients anlegen und Betriebssysteme installieren). <em>HTTP2SeleniumBridge.py</em> kann zwar auch <em>eigenstÃ¤ndig</em> verwendet werden, wurde aber konzipiert, um Ã¼ber die PHP-AUTOTEST-Funktionen bzw. CAutoTest-Klassenmethoden von m23 aufgerufen zu werden.</p>
 <h2 id="beispiele">Beispiele</h2>
-<p>Die Beispiele gehen davon aus, daß HTTP2SeleniumBridge auf einem Rechner mit der IP 192.168.1.153 läuft. Das Ergebnis jeder Operation wird in die Datei <code>s.log</code> geschrieben.</p>
+<p>Die Beispiele gehen davon aus, daÃŸ HTTP2SeleniumBridge auf einem Rechner mit der IP 192.168.1.153 lÃ¤uft. Das Ergebnis jeder Operation wird in die Datei <code>s.log</code> geschrieben.</p>
 <div class="sourceCode" id="Beispiele"><table class="sourceCode bash numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -223,12 +223,12 @@ z.B. UCS 4.4: 192.168.1.144</li>
 17
 18
 19
-</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="co"># Freie Selenium-Webdriver-ID abfragen. Muß bei jedem weiteren Aufruf angegeben werden!</span>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="co"># Freie Selenium-Webdriver-ID abfragen. MuÃŸ bei jedem weiteren Aufruf angegeben werden!</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/nextdriverid&#39;</span> -O s.log
-<span class="co"># Öffnen der m23-Oberflächenseite</span>
+<span class="co"># Ã–ffnen der m23-OberflÃ¤chenseite</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=open&amp;url=https://god:m23@192.168.1.143/m23admin/\</span>
 <span class="st">index.php&amp;driverid=ID&#39;</span> -O s.log
-<span class="co"># Auswählen von &quot;de&quot; aus der Liste verfügbarer Sprachen</span>
+<span class="co"># AuswÃ¤hlen von &quot;de&quot; aus der Liste verfÃ¼gbarer Sprachen</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=selectFrom&amp;ID=LB_language&amp;val=de&amp;driverid=ID&#39;</span> -O s.log
 <span class="co"># Klick auf den Button</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=clickButton&amp;name=BUT_lang&amp;driverid=ID&#39;</span> -O s.log
@@ -237,19 +237,19 @@ z.B. UCS 4.4: 192.168.1.144</li>
 <span class="co"># Haken beim NTP-Checkbutton entfernen</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=setCheck&amp;name=CB_getSystemtimeByNTP&amp;checked=0\</span>
 <span class="st">&amp;driverid=ID&#39;</span> -O s.log
-<span class="co"># Beim LDAP-Radiobutton &quot;write&quot; auswählen</span>
+<span class="co"># Beim LDAP-Radiobutton &quot;write&quot; auswÃ¤hlen</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=selectRadio&amp;name=SEL_ldaptype&amp;val=write\</span>
 <span class="st">&amp;driverid=ID&#39;</span> -O s.log
 <span class="co"># Aktuellen HTML-Quelltext herunterladen</span>
 <span class="fu">wget</span> <span class="st">&#39;http://192.168.1.153:23080/run?cmd=getsource&amp;driverid=ID&#39;</span> -O s.log</code></pre></td></tr></table></div>
 <h2 id="installation-4">Installation</h2>
-<p>Die Installation wurde unter einem mit m23 aufgesetzen 64-Bit-m23-Client mit Ubuntu 18.04 und Budgie-Desktop getestet. Prinzipell spricht nichts dagegen, daß HTTP2SeleniumBridge.py und das HTTP2SeleniumBridge-Paket auch unter anderen Distributionen und Desktops funktioniert. Das dazugehörige HTTP2SeleniumBridge-Debian-Paket richtet das System so ein, daß HTTP2SeleniumBridge unter dem Benutzer <em>&quot;sel&quot;</em> automatisch bei jedem Systemstart gestartet wird.</p>
+<p>Die Installation wurde unter einem mit m23 aufgesetzen 64-Bit-m23-Client mit Ubuntu 18.04 und Budgie-Desktop getestet. Prinzipell spricht nichts dagegen, daÃŸ HTTP2SeleniumBridge.py und das HTTP2SeleniumBridge-Paket auch unter anderen Distributionen und Desktops funktioniert. Das dazugehÃ¶rige HTTP2SeleniumBridge-Debian-Paket richtet das System so ein, daÃŸ HTTP2SeleniumBridge unter dem Benutzer <em>&quot;sel&quot;</em> automatisch bei jedem Systemstart gestartet wird.</p>
 <h3 id="installation-der-distribution">Installation der Distribution</h3>
-<p>Es wird <strong>nachdrücklich</strong> empfolen, für HTTP2SeleniumBridge eine eigene VM zu verwenden und die Distribution mit folgenden Parametern zu installieren:</p>
+<p>Es wird <strong>nachdrÃ¼cklich</strong> empfolen, fÃ¼r HTTP2SeleniumBridge eine eigene VM zu verwenden und die Distribution mit folgenden Parametern zu installieren:</p>
 <ul>
-<li>64-Bit-Ubuntu 18.04 (z.B. über m23) installieren</li>
-<li>Als Anmeldungsname &quot;sel&quot; für den Hauptbenutzer wählen</li>
-<li>Optional x2go (z.B. über m23) mitinstallieren</li>
+<li>64-Bit-Ubuntu 18.04 (z.B. Ã¼ber m23) installieren</li>
+<li>Als Anmeldungsname &quot;sel&quot; fÃ¼r den Hauptbenutzer wÃ¤hlen</li>
+<li>Optional x2go (z.B. Ã¼ber m23) mitinstallieren</li>
 </ul>
 <h3 id="nach-der-installation-der-distribution">Nach der Installation der Distribution</h3>
 <ul>
@@ -309,11 +309,11 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 
 <span class="ex">reboot</span></code></pre></td></tr></table></div>
 <h3 id="hinweis-zu-http2seleniumbridge.py">Hinweis zu HTTP2SeleniumBridge.py</h3>
-<p>HTTP2SeleniumBridge.py verwendet das Selenium-Modul aus dem pip3-Repository. Dieses kommuniziert über den GeckoDriver mit Firefox. Jedes dieser Einzelteile kann plötzlich und unvorhergesehen so geändert (z.B. durch Aktualisierung) werden, daß es allein oder mit den anderen zusammen nicht mehr funktioniert. Daher sollte die virtuelle Maschine nach erfolgreicher Installation <strong>unbedingt gesichert</strong> werden.</p>
+<p>HTTP2SeleniumBridge.py verwendet das Selenium-Modul aus dem pip3-Repository. Dieses kommuniziert Ã¼ber den GeckoDriver mit Firefox. Jedes dieser Einzelteile kann plÃ¶tzlich und unvorhergesehen so geÃ¤ndert (z.B. durch Aktualisierung) werden, daÃŸ es allein oder mit den anderen zusammen nicht mehr funktioniert. Daher sollte die virtuelle Maschine nach erfolgreicher Installation <strong>unbedingt gesichert</strong> werden.</p>
 <h3 id="hinweis-zum-http2seleniumbridge-paket">Hinweis zum HTTP2SeleniumBridge-Paket</h3>
-<p>Das HTTP2SeleniumBridge-Paket funktioniert nur, wenn es einen Benutzer mit dem Namen <em>&quot;sel&quot;</em> gibt, da es das System so konfiguriert, daß sich <em>&quot;sel&quot;</em> automatisch über <code>nodm</code> anmeldet. Ein Autostart-.desktop-Datei sorgt wiederum dafür, daß HTTP2SeleniumBridge.py nach dem Anmelden gestartet und jedesmal neu gestartet wird, wenn HTTP2SeleniumBridge.py abstürzt.</p>
+<p>Das HTTP2SeleniumBridge-Paket funktioniert nur, wenn es einen Benutzer mit dem Namen <em>&quot;sel&quot;</em> gibt, da es das System so konfiguriert, daÃŸ sich <em>&quot;sel&quot;</em> automatisch Ã¼ber <code>nodm</code> anmeldet. Ein Autostart-.desktop-Datei sorgt wiederum dafÃ¼r, daÃŸ HTTP2SeleniumBridge.py nach dem Anmelden gestartet und jedesmal neu gestartet wird, wenn HTTP2SeleniumBridge.py abstÃ¼rzt.</p>
 <h2 id="fehlendes">Fehlendes</h2>
-<p>In HTTP2SeleniumBridge.py sind zusätzlich folgende Kommandos implementiert, die aber nicht in CAutoTest.php verwendet werden:</p>
+<p>In HTTP2SeleniumBridge.py sind zusÃ¤tzlich folgende Kommandos implementiert, die aber nicht in CAutoTest.php verwendet werden:</p>
 <ul>
 <li>close</li>
 <li>deselectFrom</li>
@@ -322,13 +322,13 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <p></p>
 <h1 id="autotest.php-kommandozeile-und-xml-definition">autoTest.php-Kommandozeile und XML-Definition</h1>
 <h2 id="installation-und-konfiguration">Installation und Konfiguration</h2>
-<p>Für autoTest.php wird eine Testumgebung benötigt. Deren Installation und Konfiguration wird weiter in den vorigen Abschnitten beschrieben.</p>
+<p>FÃ¼r autoTest.php wird eine Testumgebung benÃ¶tigt. Deren Installation und Konfiguration wird weiter in den vorigen Abschnitten beschrieben.</p>
 <h2 id="autotest-starten">autoTest starten</h2>
-<p>Das Starten von autoTest geschieht über das Skript <code>autoTest.php</code>, welches auf jedem m23-Server vorhanden ist:</p>
+<p>Das Starten von autoTest geschieht Ã¼ber das Skript <code>autoTest.php</code>, welches auf jedem m23-Server vorhanden ist:</p>
 <div class="sourceCode" id="m23testxml"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">/mdk/autoTest/autoTest.php</span> <span class="op">&lt;</span>Testbeschreibungsdatei (.m23test)<span class="op">&gt;</span> <span class="op">&lt;</span><span class="ex">Parameter</span><span class="op">&gt;</span></code></pre></div>
-<p>Der Ablauf einer jeden Installation ist in einer Testbeschreibungsdatei beschrieben, die zusätzliche Parameter über die Kommandozeile anfordern kann.</p>
+<p>Der Ablauf einer jeden Installation ist in einer Testbeschreibungsdatei beschrieben, die zusÃ¤tzliche Parameter Ã¼ber die Kommandozeile anfordern kann.</p>
 <h2 id="testbeschreibungsdateien">Testbeschreibungsdateien</h2>
-<p>Die Testbeschreibungsdateien mit der Endung <em>&quot;.m23test&quot;</em> beinhalten Testblöcke, die die einzelnen Schritte (z.B. Anlegen der virtuellen Maschine, in der m23-Oberfläche einzugebende Werte bzw. anzuklickende Elemente, ...) und (erwartete) Ergebnisse zum Installieren eines m23-Clients oder -Servers enthalten. Andere Teile der Datei definieren die Parameter, die über die Kommandozeile angeben werden und die Dimensionierung der anzulegenden virtuellen Maschine.</p>
+<p>Die Testbeschreibungsdateien mit der Endung <em>&quot;.m23test&quot;</em> beinhalten TestblÃ¶cke, die die einzelnen Schritte (z.B. Anlegen der virtuellen Maschine, in der m23-OberflÃ¤che einzugebende Werte bzw. anzuklickende Elemente, ...) und (erwartete) Ergebnisse zum Installieren eines m23-Clients oder -Servers enthalten. Andere Teile der Datei definieren die Parameter, die Ã¼ber die Kommandozeile angeben werden und die Dimensionierung der anzulegenden virtuellen Maschine.</p>
 <h3 id="allgemeiner-aufbau">Allgemeiner Aufbau</h3>
 <div class="sourceCode" id="m23testxml"><table class="sourceCode xml numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -402,26 +402,26 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
         <span class="kw">&lt;/test&gt;</span>
     <span class="kw">&lt;/sequence&gt;</span>
 <span class="kw">&lt;/testcase&gt;</span></code></pre></td></tr></table></div>
-<h3 id="begriffserklärung">Begriffserklärung</h3>
-<p>Die einzelnen Zeilen sind folgendermaßen aufgebaut, wobei die Begriffe <em>Tag</em>, <em>Attribut</em> und <em>Parameter</em> verwendet werden:</p>
+<h3 id="begriffserklÃ¤rung">BegriffserklÃ¤rung</h3>
+<p>Die einzelnen Zeilen sind folgendermaÃŸen aufgebaut, wobei die Begriffe <em>Tag</em>, <em>Attribut</em> und <em>Parameter</em> verwendet werden:</p>
 <div class="sourceCode" id="m23test-attribute"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;Tag</span><span class="ot"> Attribut1=</span><span class="st">&quot;...&quot;</span><span class="ot"> Attribut2=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span>Parameter<span class="kw">&lt;/Tag&gt;</span></code></pre></div>
 <h3 id="variablen-und-konstanten">Variablen und Konstanten</h3>
 <p>Grundlegende Test-Einstellungen stehen in der globalen Datei <code>settings.m23test</code> sowie in der aktuellen m23test-Datei. <code>settings.m23test</code> wird zuerst im Heimatverzeichnis des Benutzer gesucht, der <code>autoTest.php</code> startet. Wird <code>settings.m23test</code> nicht gefunden, wird die Datei im aktuellen Verzeichnis gesucht.</p>
-<p>Die Einstellungen werden als internen autoTest-Variablen <em>und</em> als Konstanten (für Rückwärtskompatibilität) gespeichert. Die Dopplung wird aktuell benötigt, damit die Werte in den Bedingungen der <code>runIf</code>-Attribute verwendet werden können.</p>
+<p>Die Einstellungen werden als internen autoTest-Variablen <em>und</em> als Konstanten (fÃ¼r RÃ¼ckwÃ¤rtskompatibilitÃ¤t) gespeichert. Die Dopplung wird aktuell benÃ¶tigt, damit die Werte in den Bedingungen der <code>runIf</code>-Attribute verwendet werden kÃ¶nnen.</p>
 <p>Intern verwendete Variablennamen:</p>
 <ul>
 <li>TEST_SELENIUM_URL: Die URL, um auf die HTTP2SeleniumBridge zuzugreifen. z.B. http://192.168.1.153:23080</li>
-<li>TEST_VBOX_HOST: Auflösbarer Hostname oder IP des Systems, auf dem die VirtualBoxen laufen sollen. z.B. <code>tuxedo</code></li>
-<li>TEST_VBOX_USER: Benutzer (muß in der Guppe <em>vboxusers</em> sein), der <code>vboxmanage</code> zum Erstellen, Starten, etc. aufruft.</li>
-<li>TEST_VBOX_NETDEV: Netzwerkschnittstelle, die der echten Netzwerkkarte entspricht und zum Anlegen der Netzwerbrücke verwendet werden soll. z.B. <code>enp1s0f0</code></li>
+<li>TEST_VBOX_HOST: AuflÃ¶sbarer Hostname oder IP des Systems, auf dem die VirtualBoxen laufen sollen. z.B. <code>tuxedo</code></li>
+<li>TEST_VBOX_USER: Benutzer (muÃŸ in der Guppe <em>vboxusers</em> sein), der <code>vboxmanage</code> zum Erstellen, Starten, etc. aufruft.</li>
+<li>TEST_VBOX_NETDEV: Netzwerkschnittstelle, die der echten Netzwerkkarte entspricht und zum Anlegen der NetzwerbrÃ¼cke verwendet werden soll. z.B. <code>enp1s0f0</code></li>
 <li>TEST_VBOX_IMAGE_DIR: Verzeichnis auf dem VirtualBox-Gastegebersystem, in dem die virtuellen Maschinen gespichert werden sollen. z.B. <code>/media/vms/</code></li>
-<li>TEST_M23_BASE_URL: Komplette URL mit Benutzer und Paßwort zur m23-Weboberfläche. z.B. <code>https://god:m23@192.168.1.143/m23admin</code></li>
+<li>TEST_M23_BASE_URL: Komplette URL mit Benutzer und PaÃŸwort zur m23-WeboberflÃ¤che. z.B. <code>https://god:m23@192.168.1.143/m23admin</code></li>
 <li>TEST_M23_IP: Die aus <code>TEST_M23_BASE_URL</code> extrahierte IP-Adresse.</li>
-<li>TEST_VBOX_MAC: Beim Starten zufällig generierte MAC-Adresse mit &quot;:&quot; als Trenner nach jeweils zwei Zeichen. z.B. <code>aa:bb:cc:dd:ee:ff:00:11</code></li>
+<li>TEST_VBOX_MAC: Beim Starten zufÃ¤llig generierte MAC-Adresse mit &quot;:&quot; als Trenner nach jeweils zwei Zeichen. z.B. <code>aa:bb:cc:dd:ee:ff:00:11</code></li>
 <li>SEL_VM_MAC: Dieselbe Zufalls-MAC, allerdings ohne den Trenner. z.B. <code>aabbccddeeff0011</code></li>
-<li>TEST_TYPE: &quot;VM&quot;, wenn VirtualBox verwendet wird. Soll nur die m23-Oberfläche getestet werden: &quot;webinterface&quot;. Zum alleinigen Testen der XML-Testbeschreibungsdatei: &quot;xmltest&quot;.</li>
-<li>VM_RAM: RAM-Größe der VM in MB.</li>
-<li>VM_HDSIZE: Größe der virtuellen Festplatte in MB.</li>
+<li>TEST_TYPE: &quot;VM&quot;, wenn VirtualBox verwendet wird. Soll nur die m23-OberflÃ¤che getestet werden: &quot;webinterface&quot;. Zum alleinigen Testen der XML-Testbeschreibungsdatei: &quot;xmltest&quot;.</li>
+<li>VM_RAM: RAM-GrÃ¶ÃŸe der VM in MB.</li>
+<li>VM_HDSIZE: GrÃ¶ÃŸe der virtuellen Festplatte in MB.</li>
 <li>VM_IP: IP-Adresse, die genutzt werden soll, um die VM per SSH anzusprechen. Ansonsten wird der Name der VM (VM_NAME) als Hostname verwendet.</li>
 <li>VM_NAME: Name der VM und ggf. Hostname zum Ansprechen der VM per SSH.</li>
 </ul>
@@ -452,14 +452,14 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
         <span class="kw">&lt;TEST_M23_BASE_URL&gt;</span>http://god:m23@192.168.1.143/m23admin<span class="kw">&lt;/TEST_M23_BASE_URL&gt;</span>
     <span class="kw">&lt;/variables&gt;</span>
 <span class="kw">&lt;/settings&gt;</span></code></pre></td></tr></table></div>
-<h3 id="testblöcke">Testblöcke</h3>
-<p>Ein Testblock umfaßt immer alle Teile eines Tests, die folgendermaßen abgearbeitet werden:</p>
+<h3 id="testblÃ¶cke">TestblÃ¶cke</h3>
+<p>Ein Testblock umfaÃŸt immer alle Teile eines Tests, die folgendermaÃŸen abgearbeitet werden:</p>
 <ol style="list-style-type: decimal">
-<li>Die Bedingung des trigger-Tags wird solange wiederkehrend überprüft, bis diese zutrifft oder das Zeitlimit überschritten ist. Bei einem Überschreiten wird das Skript abgebrochen.</li>
+<li>Die Bedingung des trigger-Tags wird solange wiederkehrend Ã¼berprÃ¼ft, bis diese zutrifft oder das Zeitlimit Ã¼berschritten ist. Bei einem Ãœberschreiten wird das Skript abgebrochen.</li>
 <li>Die einzelnen action-Tags werden in der angegbenen Reihenfolge abgearbeitet, wenn die Bedingung des trigger-Tags zutraf.</li>
-<li>Die good/warn/bad-Tags werden immer wieder durchlaufen, bis eine Bedingung zutrifft. <code>bad</code> führt zum Abbruch, die anderen (nur) zu einem Eintrag in die Logdatei und Ausführen des nächsten Testblocks.</li>
+<li>Die good/warn/bad-Tags werden immer wieder durchlaufen, bis eine Bedingung zutrifft. <code>bad</code> fÃ¼hrt zum Abbruch, die anderen (nur) zu einem Eintrag in die Logdatei und AusfÃ¼hren des nÃ¤chsten Testblocks.</li>
 </ol>
-<p><code>timeout</code> (in Sekunden) gibt an, wie lange auf den Trigger und das Abschließen durch ein good-Tag gewartet werden soll. Nach Überschreiten um mehr als zwei Minuten wird eine Warnung ausgegeben, nach mehr als 5 Minuten wird das Skript mit einem Fehler abgebrochen.</p>
+<p><code>timeout</code> (in Sekunden) gibt an, wie lange auf den Trigger und das AbschlieÃŸen durch ein good-Tag gewartet werden soll. Nach Ãœberschreiten um mehr als zwei Minuten wird eine Warnung ausgegeben, nach mehr als 5 Minuten wird das Skript mit einem Fehler abgebrochen.</p>
 <p><code>description</code> ist die Beschreibung, die in den Logdateien vermerkt wird.</p>
 <div class="sourceCode" id="m23test-testblock"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;VM erstellen und starten&quot;</span><span class="kw">&gt;</span>
         <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
@@ -468,8 +468,8 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
         <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;ocr&quot;</span><span class="kw">&gt;</span>|{Warte|minutes}<span class="kw">&lt;/good&gt;</span>
     <span class="kw">&lt;/test&gt;</span></code></pre></div>
 <h3 id="kommandozeilenparameter">Kommandozeilenparameter</h3>
-<p>Die im <code>cli</code>-Block definierten Tags müssen in derselben Reihenfolge auf der Kommandozeile angegeben werden. Der jeweilige Tag-Name wird als Konstante gespeichert und kann in den Ersetzungen verwendet werden. <code>VM_NAME</code> wird intern für die Aufrufe von einige Funktionen z.B. <code>AUTOTEST_VM_keyboardWrite</code> oder <code>AUTOTEST_sshTunnelOverServer</code> verwendet und muß in den meisten Fällen angegebn werden.</p>
-<p>Das Attribut <code>description</code> ist die Beschreibung des jeweiligen Tags/Kommandozeilenparameters, die ausgegeben wird, wenn nicht die korrekte Anzahl an Parametern übergeben wird.</p>
+<p>Die im <code>cli</code>-Block definierten Tags mÃ¼ssen in derselben Reihenfolge auf der Kommandozeile angegeben werden. Der jeweilige Tag-Name wird als Konstante gespeichert und kann in den Ersetzungen verwendet werden. <code>VM_NAME</code> wird intern fÃ¼r die Aufrufe von einige Funktionen z.B. <code>AUTOTEST_VM_keyboardWrite</code> oder <code>AUTOTEST_sshTunnelOverServer</code> verwendet und muÃŸ in den meisten FÃ¤llen angegebn werden.</p>
+<p>Das Attribut <code>description</code> ist die Beschreibung des jeweiligen Tags/Kommandozeilenparameters, die ausgegeben wird, wenn nicht die korrekte Anzahl an Parametern Ã¼bergeben wird.</p>
 <p>Beispiel:</p>
 <div class="sourceCode" id="m23test-CLI-Parameter"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;cli&gt;</span>
         <span class="kw">&lt;VM_NAME</span><span class="ot"> description=</span><span class="st">&quot;Name der VM&quot;</span><span class="kw">&gt;&lt;/VM_NAME&gt;</span>
@@ -477,35 +477,35 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
         <span class="kw">&lt;OS_DESKTOP</span><span class="ot"> description=</span><span class="st">&quot;Desktop&quot;</span><span class="kw">&gt;&lt;/OS_DESKTOP&gt;</span>
     <span class="kw">&lt;/cli&gt;</span></code></pre></div>
 <h3 id="ersetzungen">Ersetzungen</h3>
-<p>Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden:</p>
+<p>Innerhalb des Parameters kÃ¶nnen Teile ersetzt oder fÃ¼r Suchen verwendet werden:</p>
 <ul>
 <li><code>${...}</code>: &quot;...&quot; wird durch den Wert einer vorher definierte Konstante ersetzt.</li>
-<li><code>|{str1|str2|str3}</code>: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.</li>
-<li><code>$I18N_...</code>: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.</li>
-<li><code>&lt;include&gt;DATEI&lt;/include&gt;</code>: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.</li>
+<li><code>|{str1|str2|str3}</code>: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine Ã¼bereinstimmen muÃŸ.</li>
+<li><code>$I18N_...</code>: Wird nacheinander durch die Ãœbersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muÃŸ nur eine Ãœbersetzung Ã¼bereinstimmen.</li>
+<li><code>&lt;include&gt;DATEI&lt;/include&gt;</code>: FÃ¼gt den Inhalt der angegebene Datei an der Stelle dynamisch ein.</li>
 </ul>
-<h3 id="bedingtes-ausführen-von-test-blöcken">Bedingtes Ausführen von test-Blöcken</h3>
-<p>m23-autoTest bietet die Möglichkeit, test-Blöcke nur dann auszuführen, wenn interne Variablen oder Umgebungsvariablen einen bestimmten Wert haben.</p>
+<h3 id="bedingtes-ausfÃ¼hren-von-test-blÃ¶cken">Bedingtes AusfÃ¼hren von test-BlÃ¶cken</h3>
+<p>m23-autoTest bietet die MÃ¶glichkeit, test-BlÃ¶cke nur dann auszufÃ¼hren, wenn interne Variablen oder Umgebungsvariablen einen bestimmten Wert haben.</p>
 <p>Das Setzen der internen Variablen geschieht auf zwei Wegen:</p>
 <ol style="list-style-type: decimal">
-<li>Mittels des Attributes <code>setVar</code> beim Auslösen eines good/warn/bad-Ereignisses</li>
+<li>Mittels des Attributes <code>setVar</code> beim AuslÃ¶sen eines good/warn/bad-Ereignisses</li>
 <li>Durch (BASH-)Umgebungsvariablen beim Aufruf von <code>autoTest.php</code>, die, falls sie mit &quot;AT_&quot; beginnen, in den internen Variablenspeicher importiert werden.</li>
 </ol>
-<p>test-Blöcke werden ausgeführt wenn:</p>
+<p>test-BlÃ¶cke werden ausgefÃ¼hrt wenn:</p>
 <ol style="list-style-type: decimal">
 <li>sie kein <code>runIf</code>-Attribut besitzen</li>
 <li>die Bedingung des <code>runIf</code>-Attributes zutriff</li>
 </ol>
 <p>Bedingungen sind die folgenden Vergleichsoperationen:</p>
 <ul>
-<li><code>&gt;</code>: Interne Variable größer als Vergleichswert (Zahl)</li>
-<li><code>&gt;=</code>: Interne Variable größer als oder gleich dem Vergleichswert (Zahl)</li>
+<li><code>&gt;</code>: Interne Variable grÃ¶ÃŸer als Vergleichswert (Zahl)</li>
+<li><code>&gt;=</code>: Interne Variable grÃ¶ÃŸer als oder gleich dem Vergleichswert (Zahl)</li>
 <li><code>==</code>: Interne Variable und Vergleichswert sind identisch (Zahl oder Zeichenkette)</li>
 <li><code>&lt;</code>: Interne Variable kleiner als Vergleichswert (Zahl)</li>
 <li><code>&lt;=</code>: Interne Variable kleiner oder gleich dem Vergleichswert (Zahl)</li>
 <li><code>!=</code>: Interne Variable ungleich dem Vergleichswert (Zahl oder Zeichenkette)
 <ul>
-<li><strong>Sonderfall</strong>: Ist der Vergleichswert &quot;NULL&quot;, so wird nur überprüft, ob die interne Variable gesetzt ist.<br />
+<li><strong>Sonderfall</strong>: Ist der Vergleichswert &quot;NULL&quot;, so wird nur Ã¼berprÃ¼ft, ob die interne Variable gesetzt ist.<br />
 Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
 </ul></li>
 </ul>
@@ -524,18 +524,18 @@ Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
         <span class="kw">&lt;VM_NAME</span><span class="ot"> description=</span><span class="st">&quot;Name der VM&quot;</span><span class="kw">&gt;&lt;/VM_NAME&gt;</span>
     <span class="kw">&lt;/cli&gt;</span>
     <span class="kw">&lt;sequence&gt;</span>
-        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client in Löschliste suchen&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;AT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client in LÃ¶schliste suchen&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;AT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
             <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
             <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_open&quot;</span><span class="kw">&gt;</span>${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete<span class="kw">&lt;/action&gt;</span>
             <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="ot"> setVar=</span><span class="st">&quot;INT_deleteClient=1&quot;</span><span class="kw">&gt;</span>client=${VM_NAME}<span class="kw">&lt;/good&gt;</span>
             <span class="kw">&lt;warn</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcenotcontains&quot;</span><span class="ot"> setVar=</span><span class="st">&quot;INT_deleteClient=0&quot;</span><span class="kw">&gt;</span>client=${VM_NAME}<span class="kw">&lt;/warn&gt;</span>
         <span class="kw">&lt;/test&gt;</span>
-        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client löschen wenn gefunden&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;INT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client lÃ¶schen wenn gefunden&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;INT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
             <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
-            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_clickMatchingURL&quot;</span><span class="kw">&gt;</span>client=${VM_NAME}°page=deleteclient<span class="kw">&lt;/action&gt;</span>
+            <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_clickMatchingURL&quot;</span><span class="kw">&gt;</span>client=${VM_NAME}Â°page=deleteclient<span class="kw">&lt;/action&gt;</span>
             <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="kw">&gt;</span>$I18N_get_deleted<span class="kw">&lt;/good&gt;</span>
         <span class="kw">&lt;/test&gt;</span>
-        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client löschen&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;INT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client lÃ¶schen&quot;</span><span class="ot"> runIf=</span><span class="st">&quot;INT_deleteClient==1&quot;</span><span class="kw">&gt;</span>
             <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
             <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_clickButton&quot;</span><span class="ot"> name=</span><span class="st">&quot;BUT_delete&quot;</span><span class="kw">&gt;&lt;/action&gt;</span>
             <span class="kw">&lt;good</span><span class="ot"> type=</span><span class="st">&quot;sel_sourcecontains&quot;</span><span class="kw">&gt;</span>$I18N_was_deleted<span class="kw">&lt;/good&gt;</span>
@@ -543,41 +543,41 @@ Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
     <span class="kw">&lt;/sequence&gt;</span>
 <span class="kw">&lt;/testcase&gt;</span></code></pre></div>
 <h2 id="selenium-funktionen">Selenium-Funktionen</h2>
-<p>Hier sind trigger- und action-Tags aufgelistet, die über die HTTP2SeleniumBridge Selenium-Befehle ausführen.</p>
+<p>Hier sind trigger- und action-Tags aufgelistet, die Ã¼ber die HTTP2SeleniumBridge Selenium-Befehle ausfÃ¼hren.</p>
 <h3 id="triggergoodwarnbad">Trigger/good/warn/bad</h3>
 <h4 id="sel_hostready-trigger">sel_hostReady (Trigger)</h4>
-<p>Wird ausgelöst, wenn HTTP2SeleniumBridge unter der <code>TEST_SELENIUM_URL</code> erreichbar ist</p>
+<p>Wird ausgelÃ¶st, wenn HTTP2SeleniumBridge unter der <code>TEST_SELENIUM_URL</code> erreichbar ist</p>
 <h4 id="sel_sourcecontains-triggergoodwarnbad">sel_sourcecontains (Trigger/good/warn/bad)</h4>
-<p>Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers gefunden wird.</p>
+<p>Wird ausgelÃ¶st bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers gefunden wird.</p>
 <ul>
 <li>Parameter: Zu suchender Text.</li>
 </ul>
 <h4 id="sel_sourcenotcontains-triggergoodwarnbad">sel_sourcenotcontains (Trigger/good/warn/bad)</h4>
-<p>Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers NICHT gefunden wird.</p>
+<p>Wird ausgelÃ¶st bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers NICHT gefunden wird.</p>
 <ul>
 <li>Parameter: Zu suchender Text.</li>
 </ul>
 <h3 id="action">Action</h3>
-<p>Selenium-Aktionen benötigen (überwiegend) das Attribut <code>ID</code> oder <code>name</code> für die Identifikation des HTML-Elementes, auf das sie angewendet werden sollen.</p>
+<p>Selenium-Aktionen benÃ¶tigen (Ã¼berwiegend) das Attribut <code>ID</code> oder <code>name</code> fÃ¼r die Identifikation des HTML-Elementes, auf das sie angewendet werden sollen.</p>
 <h4 id="sel_clickbutton">sel_clickButton</h4>
 <p>Klickt auf einen Button.</p>
 <ul>
 <li>Parameter: Nichts</li>
 </ul>
 <h4 id="sel_open">sel_open</h4>
-<p>Öffnet eine URL im Browser.</p>
+<p>Ã–ffnet eine URL im Browser.</p>
 <ul>
-<li>Parameter: URL z.B. <code>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</code>. Hierbei müssen einige Zeichen URL-kodiert angeben werden (z.B: '&amp;' =&gt; '%26').</li>
+<li>Parameter: URL z.B. <code>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</code>. Hierbei mÃ¼ssen einige Zeichen URL-kodiert angeben werden (z.B: '&amp;' =&gt; '%26').</li>
 </ul>
 <h4 id="sel_selectfrom">sel_selectFrom</h4>
-<p>Wählt ein Element aus einer Drop-Down-Liste.</p>
+<p>WÃ¤hlt ein Element aus einer Drop-Down-Liste.</p>
 <ul>
-<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwÃ¤hlenden Elements.</li>
 </ul>
 <h4 id="sel_selectradio">sel_selectRadio</h4>
-<p>Wählt ein Element eines Radiobuttons.</p>
+<p>WÃ¤hlt ein Element eines Radiobuttons.</p>
 <ul>
-<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwählenden Elements.</li>
+<li>Parameter: Der Wert (nicht der angezeigte Text) des auszuwÃ¤hlenden Elements.</li>
 </ul>
 <h4 id="sel_setcheck">sel_setCheck</h4>
 <p>Setzt oder entfernt den Haken einer Checkbox.</p>
@@ -592,53 +592,53 @@ Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
 <h2 id="ssh-funktionen">SSH-Funktionen</h2>
 <h3 id="triggergoodwarnbad-1">Trigger/good/warn/bad</h3>
 <h4 id="ssh_commandoutput">ssh_commandoutput</h4>
-<p>Führt einen Befehl per SSH aus und überprüft, ob in der Ausgabe der gewünschte Text vorhanden ist. Sind autoTest-System (lokale IP) und m23-Server (Konstante: <code>TEST_M23_IP</code>) identisch, so wird der SSH-Client direkt vom autoTest-System aus aufgerufen. Ansonsten wird der Befehl mit Umweg über den m23-Server ausgeführt. Ist die Konstante <code>VM_IP</code> gesetzt, so wird die darin hinterlegte IP bzw. der Hostname zu Kontaktieren des Zielsystems verwendet. Ansonsten wird verwendet, was in der Konstante <code>VM_NAME</code> gespeichert ist.</p>
+<p>FÃ¼hrt einen Befehl per SSH aus und Ã¼berprÃ¼ft, ob in der Ausgabe der gewÃ¼nschte Text vorhanden ist. Sind autoTest-System (lokale IP) und m23-Server (Konstante: <code>TEST_M23_IP</code>) identisch, so wird der SSH-Client direkt vom autoTest-System aus aufgerufen. Ansonsten wird der Befehl mit Umweg Ã¼ber den m23-Server ausgefÃ¼hrt. Ist die Konstante <code>VM_IP</code> gesetzt, so wird die darin hinterlegte IP bzw. der Hostname zu Kontaktieren des Zielsystems verwendet. Ansonsten wird verwendet, was in der Konstante <code>VM_NAME</code> gespeichert ist.</p>
 <ul>
 <li>Parameter: In der Ausgabe der SSH-Abfrage vorkommender Text.</li>
-<li>Attribut <code>cmd</code>: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
-<li>Optionales Attribut <code>password</code>: SSH-Paßwort, wenn kein SSH-Schlüssel verwendet werden soll.</li>
-<li>Optionales Attribut <code>description</code>: Beschreibung, die ausgegeben und ins Protokoll geschrieben wird, wenn good/warn/bad ausgelöst wird.</li>
+<li>Attribut <code>cmd</code>: Kommando, das auf dem Zielsystem ausgefÃ¼hrt werden soll.</li>
+<li>Optionales Attribut <code>password</code>: SSH-PaÃŸwort, wenn kein SSH-SchlÃ¼ssel verwendet werden soll.</li>
+<li>Optionales Attribut <code>description</code>: Beschreibung, die ausgegeben und ins Protokoll geschrieben wird, wenn good/warn/bad ausgelÃ¶st wird.</li>
 </ul>
 <p>~<sub>~</sub> {ssh_commandoutput-Parameter .xml .numberLines} <good type="ssh_commandoutput" password="a" cmd="cat /tmp/y">0</good> <bad type="ssh_commandoutput" password="a" cmd="cat /tmp/x" description="Keine Pakete zu aktualisieren">X1Y</bad> <sub>~</sub>~~</p>
 <h3 id="action-1">Action</h3>
 <h4 id="ssh_command">ssh_command</h4>
-<p>Funktioniert prinzipiell wie <code>ssh_commandoutput</code> mit dem Unterschied, daß nichts überprüft wird und der Befehl als XML-Parameter und nicht als Attribut übergeben wird.</p>
+<p>Funktioniert prinzipiell wie <code>ssh_commandoutput</code> mit dem Unterschied, daÃŸ nichts Ã¼berprÃ¼ft wird und der Befehl als XML-Parameter und nicht als Attribut Ã¼bergeben wird.</p>
 <ul>
-<li>Parameter: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
-<li>Optionales Attribut <code>password</code>: SSH-Paßwort, wenn kein SSH-Schlüssel verwendet werden soll.</li>
+<li>Parameter: Kommando, das auf dem Zielsystem ausgefÃ¼hrt werden soll.</li>
+<li>Optionales Attribut <code>password</code>: SSH-PaÃŸwort, wenn kein SSH-SchlÃ¼ssel verwendet werden soll.</li>
 </ul>
 <p>~<sub>~</sub> {ssh_commandoutput-Parameter .xml .numberLines} <action type="ssh_command" password="a">LC_ALL=C apt-get dist-upgrade -u &amp;&gt; /tmp/update.log;<br />
-echo <span class="math inline">?;m>t</em><em>m</em><em>p</em>/<em>u</em><em>p</em><em>d</em><em>a</em><em>t</em><em>e</em>.<em>r</em><em>e</em><em>t</em>;>x</em>=</span>(grep &quot;^0 upgraded&quot; -c /tmp/update.log);<br />
+echo <span class="math inline">?â€„&gt;â€„/<em>t</em><em>m</em><em>p</em>/<em>u</em><em>p</em><em>d</em><em>a</em><em>t</em><em>e</em>.<em>r</em><em>e</em><em>t</em>;â€†<em>x</em>=</span>(grep &quot;^0 upgraded&quot; -c /tmp/update.log);<br />
 echo -n &quot;X${x}Y&quot; &gt; /tmp/update.combi;<br />
 cat /tmp/update.ret &gt;&gt; /tmp/update.combi</action> <sub>~</sub>~~</p>
 <h2 id="virtualbox-funktionen">VirtualBox-Funktionen</h2>
 <h3 id="action-2">Action</h3>
 <h4 id="key">key</h4>
-<p>Sendet eine Tastensequenz (Text) an die VM (Konstante: <code>VM_NAME</code>). Nichtdruckbare Tasten (z.B. <code>Enter</code>) werden in &quot;°&quot; eingeschlossen. z.B. °enter°.</p>
+<p>Sendet eine Tastensequenz (Text) an die VM (Konstante: <code>VM_NAME</code>). Nichtdruckbare Tasten (z.B. <code>Enter</code>) werden in &quot;Â°&quot; eingeschlossen. z.B. Â°enterÂ°.</p>
 <ul>
 <li>Parameter: Zu sendender Text.</li>
 </ul>
 <h3 id="triggergoodwarnbad-2">Trigger/good/warn/bad</h3>
 <h4 id="ocr">ocr</h4>
-<p>Erstellt einen Screenshot der laufenden VM (Konstante: <code>VM_NAME</code>) und versucht den Text mit verschiednene <code>gocr</code>-Parametern zu erkennen. Wird im erkannten Text der Parameter gefunden, so wird der Trigger ausgelöst bzw. eine Nachricht gesendet.</p>
+<p>Erstellt einen Screenshot der laufenden VM (Konstante: <code>VM_NAME</code>) und versucht den Text mit verschiednene <code>gocr</code>-Parametern zu erkennen. Wird im erkannten Text der Parameter gefunden, so wird der Trigger ausgelÃ¶st bzw. eine Nachricht gesendet.</p>
 <ul>
-<li>Parameter: Gewünschter Text.</li>
+<li>Parameter: GewÃ¼nschter Text.</li>
 </ul>
 <h2 id="funktionen-zum-aufrufen-anderer-funktionen">Funktionen zum Aufrufen anderer Funktionen</h2>
 <h3 id="action-3">Action</h3>
 <h4 id="fkt">fkt</h4>
-<p>Führt unter CAutoTest::executePHPFunction aufgelistete Funktionen aus.</p>
+<p>FÃ¼hrt unter CAutoTest::executePHPFunction aufgelistete Funktionen aus.</p>
 <ul>
 <li>Parameter: Name der unter CAutoTest::executePHPFunction aufgelisteten Funktion.</li>
 </ul>
 <h2 id="sonstige-funktionen">Sonstige Funktionen</h2>
 <h3 id="triggergoodwarnbad-3">Trigger/good/warn/bad</h3>
 <h4 id="true">true</h4>
-<p>Wird sofort ausgelöst.</p>
+<p>Wird sofort ausgelÃ¶st.</p>
 <h4 id="wait">wait</h4>
-<p>Löst erst nach einer gewissen Zeit aus ausgelöst.</p>
+<p>LÃ¶st erst nach einer gewissen Zeit aus ausgelÃ¶st.</p>
 <ul>
-<li>Parameter: Zeit in Sekunden, die bis zum Auslösen gewartet werden soll.</li>
+<li>Parameter: Zeit in Sekunden, die bis zum AuslÃ¶sen gewartet werden soll.</li>
 </ul>
 </body>
 </html>

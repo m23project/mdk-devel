@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert das m23-Server-Installations-ISO in einer VM. -->
 <testcase>
-	<constant>
+	<variables>
 		<TEST_TYPE>VM</TEST_TYPE>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
-	</constant>
+	</variables>
 	<cli>
 		<VM_NAME description="Name der VM"></VM_NAME>
 		<VM_ISO description="ISO-Boot-CD-Dateiname (inkl. Pfad)"></VM_ISO>
+		<VM_IP description="IP der VM"></VM_IP>
 	</cli>
 	<sequence>
 		<test timeout="600" description="VM erstellen und starten">
@@ -28,12 +30,12 @@
 		</test>
 		<test timeout="60" description="root-PW">
 			<trigger type="ocr">Bitte geben Sie das root-Passwort fuer</trigger>
-			<action type="key">a°enter°</action>
+			<action type="key">test°enter°</action>
 			<good type="ocr">Bitte wiederholen Sie das root-Passwort</good>
 		</test>
 		<test timeout="60" description="root-PW wiederholen">
 			<trigger type="ocr">Bitte wiederholen Sie das root-Passwort</trigger>
-			<action type="key">a°enter°</action>
+			<action type="key">test°enter°</action>
 			<good type="ocr">Bitte geben Sie den Hostnamen des neuen Servers</good>
 		</test>
 		<test timeout="60" description="Hostnamen eingeben">
@@ -43,7 +45,7 @@
 		</test>
 		<test timeout="60" description="IP eingeben">
 			<trigger type="ocr">Bitte geben Sie die IP des neuen Servers ein</trigger>
-			<action type="key">192.168.1.23°enter°</action>
+			<action type="key">${VM_IP}°enter°</action>
 			<good type="ocr">Bitte geben Sie die Netzwerkmaske ein</good>
 		</test>
 		<test timeout="60" description="Netzwerkmaske eingeben">
@@ -103,10 +105,7 @@
 			<good type="ocr">Bitte entfernen Sie die Installations-CD</good>
 			<good type="ocr">GNU/Linux</good>
 		</test>
-		<test timeout="180" description="Weboberfläche testen">
-			<trigger type="wait">120</trigger>
- 			<action type="sel_open">https://god:m23@192.168.1.23/m23admin/index.php</action>
-			<good type="sel_sourcecontains">Welcome to m23</good>
-		</test>
+		<include>inc/wait2Minutes.m23test</include>
+		<include>inc/m23serverBasicTest.m23test</include>
 	</sequence>
 </testcase>

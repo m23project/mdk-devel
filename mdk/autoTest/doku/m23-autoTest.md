@@ -84,6 +84,48 @@ Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird vo
 
 
 
+### (Optional) Debian-Minimal-VMs zum Testen der m23-Server-Pakate
+
+* Debian-32Bit und Debian-64Bit VMs in VirtualBox anlegen:
+    * Netzwerkbrücke
+    * keine Soundkarte
+    * 15GB Festplatte
+    * PAE/NX bei i386 aktivieren
+* Die beiden VMs mittels der Debian-Netinst-ISOs installieren
+    * IP nach dem Schema: 192.168.1.<Debian-Version><32Bit = 3, 64Bit = 64>\
+ z.B. Debian 9 32Bit: 192.168.1.93
+    * Paßwort immer "test". Benutzer "test"
+    * Softwareauswahl *NUR*: SSH und Standardwerkzeuge
+* Nach Abschluß der Installation die VM neu starten
+* In `/etc/ssh/sshd_config` "PermitRootLogin yes" setzen
+* Festplatte säubern:
+    * `apt-get clean; dd if=/dev/zero of=/z; rm /z; poweroff`
+* Sicherungspunkt mit Namen "vor" erstellen
+    * Beschreibung: Standard-Debian<Nr>-Netzwerinstallation (nur SSH und Standardwerkzeuge)
+* VMs als OVA exportieren
+
+
+
+### (Optional) UCS-VM zum Testen der m23-Server-Pakate
+
+* Debian-64Bit VM in VirtualBox anlegen:
+    * Netzwerkbrücke
+    * keine Soundkarte
+    * 50GB Festplatte
+* Die VM mittels des UCS-ISOs installieren
+    * IP nach dem Schema: 192.168.1.1<UCS-Version ohne Punkt>\
+ z.B. UCS 4.4: 192.168.1.144
+    * Paßwort (temporär) "testtest".
+    * Konfiguration: Neue Domäne, keine Dienste installieren
+* Nach Abschluß der Installation die VM neu starten
+* Als root einloggen und per `passwd` das Paßwort auf "test" setzen
+* Festplatte säubern:
+    * `apt-get clean; dd if=/dev/zero of=/z; rm /z; poweroff`
+* Sicherungspunkt mit Namen "vor" erstellen
+    * Beschreibung: UCS X.Y frisch installiert
+* VMs als OVA exportieren
+
+
 
 
 \pagebreak
@@ -252,15 +294,17 @@ Die Testbeschreibungsdateien mit der Endung *".m23test"* beinhalten Testblöcke,
 ~~~~ {#m23testxml .xml .numberLines}
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <testcase>
-	<constant>
+	<variables>
 	<TEST_TYPE>VM</TEST_TYPE>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
-	</constant>
+	</variables>
 	<cli>
 		<VM_NAME description="Name der VM"></VM_NAME>
 		<OS_PACKAGESOURCE description="Paketquellenliste"></OS_PACKAGESOURCE>
 		<OS_DESKTOP description="Desktop"></OS_DESKTOP>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_IP description="IP der VM"></VM_IP>
 	</cli>
 	<sequence>
 		<test timeout="180" description="Client anlegen">
@@ -300,11 +344,13 @@ Die einzelnen Zeilen sind folgendermaßen aufgebaut, wobei die Begriffe *Tag*, *
 
 
 
-### Konstanten
+### Variablen und Konstanten
 
-Die Konstanten und weitere Einstellungen stehen in der globalen Datei `settings.m23test` sowie in der aktuellen m23test-Datei. `settings.m23test` wird zuerst im Heimatverzeichnis des Benutzer gesucht, der `autoTest.php` startet. Wird `settings.m23test` nicht gefunden, wird die Datei im aktuellen Verzeichnis gesucht.
+Grundlegende Test-Einstellungen stehen in der globalen Datei `settings.m23test` sowie in der aktuellen m23test-Datei. `settings.m23test` wird zuerst im Heimatverzeichnis des Benutzer gesucht, der `autoTest.php` startet. Wird `settings.m23test` nicht gefunden, wird die Datei im aktuellen Verzeichnis gesucht.
 
-Intern verwendete Konstanten:
+Die Einstellungen werden als internen autoTest-Variablen *und* als Konstanten (für Rückwärtskompatibilität) gespeichert. Die Dopplung wird aktuell benötigt, damit die Werte in den Bedingungen der `runIf`-Attribute verwendet werden können.
+
+Intern verwendete Variablennamen:
 
 * TEST_SELENIUM_URL: Die URL, um auf die HTTP2SeleniumBridge zuzugreifen. z.B. http://192.168.1.153:23080
 * TEST_VBOX_HOST: Auflösbarer Hostname oder IP des Systems, auf dem die VirtualBoxen laufen sollen. z.B. `tuxedo`
@@ -318,13 +364,16 @@ Intern verwendete Konstanten:
 * TEST_TYPE: "VM", wenn VirtualBox verwendet wird. Soll nur die m23-Oberfläche getestet werden: "webinterface". Zum alleinigen Testen der XML-Testbeschreibungsdatei: "xmltest".
 * VM_RAM: RAM-Größe der VM in MB.
 * VM_HDSIZE: Größe der virtuellen Festplatte in MB.
+* VM_IP: IP-Adresse, die genutzt werden soll, um die VM per SSH anzusprechen. Ansonsten wird der Name der VM (VM_NAME) als Hostname verwendet.
+* VM_NAME: Name der VM und ggf. Hostname zum Ansprechen der VM per SSH.
+* AT_debug: Gesetzt, wenn autoTest im Debug-Modus ist und zusätzliche Informationen ausgeben soll.
 
 In der `settings.m23test` sollten minimal folgende Konstanten gesetzt sein:
 
 ~~~~ {#m23test-VM-Parameter .xml .numberLines}
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <settings>
-	<constant>
+	<variables>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
 		<TEST_VBOX_HOST>vmhost</TEST_VBOX_HOST>
@@ -333,7 +382,7 @@ In der `settings.m23test` sollten minimal folgende Konstanten gesetzt sein:
 		<TEST_VBOX_IMAGE_DIR>/media/vms/</TEST_VBOX_IMAGE_DIR>
 		<TEST_SELENIUM_URL>http://192.168.1.153:23080</TEST_SELENIUM_URL>
 		<TEST_M23_BASE_URL>http://god:m23@192.168.1.143/m23admin</TEST_M23_BASE_URL>
-	</constant>
+	</variables>
 </settings>
 ~~~~~
 
@@ -395,22 +444,48 @@ Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden
 
 
 
-### Bedingtes Ausführen von Blöcken
-üüüüüü
+### Bedingtes Ausführen von test-Blöcken
+m23-autoTest bietet die Möglichkeit, test-Blöcke nur dann auszuführen, wenn interne Variablen oder Umgebungsvariablen einen bestimmten Wert haben.
 
-~~~~ {#autoTest.php .bash .numberLines}
+Das Setzen der internen Variablen geschieht auf zwei Wegen:
+
+1. Mittels des Attributes `setVar` beim Auslösen eines good/warn/bad-Ereignisses
+2. Durch (BASH-)Umgebungsvariablen beim Aufruf von `autoTest.php`, die, falls sie mit "AT_" beginnen, in den internen Variablenspeicher importiert werden.
+
+test-Blöcke werden ausgeführt wenn:
+
+1. sie kein `runIf`-Attribut besitzen
+2. die Bedingung des `runIf`-Attributes zutriff
+
+Bedingungen sind die folgenden Vergleichsoperationen:
+
+* `>`: Interne Variable größer als Vergleichswert (Zahl)
+* `>=`: Interne Variable größer als oder gleich dem Vergleichswert (Zahl)
+* `==`: Interne Variable und Vergleichswert sind identisch (Zahl oder Zeichenkette)
+    * **Sonderfall**: Ist der Vergleichswert "NULL", so wird nur überprüft, ob die interne *nicht* Variable gesetzt ist.\
+    Beispiel: `runIf="AT_test==NULL"` (Ausführen, wenn AT_test *nicht* einen Wert hat)
+* `<`: Interne Variable kleiner als Vergleichswert (Zahl)
+* `<=`: Interne Variable kleiner oder gleich dem Vergleichswert (Zahl)
+* `!=`: Interne Variable ungleich dem Vergleichswert (Zahl oder Zeichenkette)
+    * **Sonderfall**: Ist der Vergleichswert "NULL", so wird nur überprüft, ob die interne Variable gesetzt ist.\
+    Beispiel: `runIf="AT_test!=NULL"` (Ausführen, wenn AT_test einen Wert hat)
+
+#### Beispiel: Aufruf von autoTest.php mit Umgebungsvariablen
+
+~~~~ {#autoTest.php-mit-Variablen .bash .numberLines}
 AT_deleteClient=1 ./autoTest.php 1VariablenKonstanten-test.m23test blasadkfbasldfkb
 ~~~~
 
+#### Beispiel: XML-Testbeschreibung mit Variablen und Bedingungen
 
-~~~~ {#m23test-CLI-Parameter .xml}
+~~~~ {#XML-Testbeschreibung-mit-Variablen .xml}
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <testcase>
-	<constant>
+	<variables>
 		<TEST_TYPE>webinterface</TEST_TYPE>
 		<VM_RAM>1024</VM_RAM>
 		<VM_HDSIZE>8192</VM_HDSIZE>
-	</constant>
+	</variables>
 	<cli>
 		<VM_NAME description="Name der VM"></VM_NAME>
 	</cli>
@@ -456,6 +531,14 @@ Wird ausgelöst, wenn HTTP2SeleniumBridge unter der `TEST_SELENIUM_URL` erreichb
 Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers gefunden wird.
 
 * Parameter: Zu suchender Text.
+
+
+
+#### sel_sourcenotcontains (Trigger/good/warn/bad)
+Wird ausgelöst bzw. sendet eine Nachricht, wenn der Parameter im aktuellen HTML-Quelltext des Selenium-Browsers NICHT gefunden wird.
+
+* Parameter: Zu suchender Text.
+
 
 
 

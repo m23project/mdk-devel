@@ -1,0 +1,5 @@
+		<test timeout="600" description="Paketquellen eintragen und aktualisieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">echo 'deb http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list; echo 192.168.1.77 m23debs >> /etc/hosts</action>
+			<good type="ssh_commandoutput" password="test" cmd="apt-get update; echo X$?X">X0X</good>
+		</test>

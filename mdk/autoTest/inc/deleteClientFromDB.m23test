@@ -1,17 +1,6 @@
-<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
-<testcase>
-	<variables>
-		<TEST_TYPE>webinterface</TEST_TYPE>
-		<VM_RAM>1024</VM_RAM>
-		<VM_HDSIZE>8192</VM_HDSIZE>
-	</variables>
-	<cli>
-		<VM_NAME description="Name der VM"></VM_NAME>
-	</cli>
-	<sequence>
-		<test timeout="180" description="Client in Löschliste suchen" runIf="AT_deleteClient==1">
+		<test timeout="180" description="Client in Löschliste suchen">
 			<trigger type="true"></trigger>
- 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete</action>
+			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete</action>
 			<good type="sel_sourcecontains" setVar="INT_deleteClient=1">client=${VM_NAME}</good>
 			<warn type="sel_sourcenotcontains" setVar="INT_deleteClient=0">client=${VM_NAME}</warn>
 		</test>
@@ -25,14 +14,3 @@
 			<action type="sel_clickButton" name="BUT_delete"></action>
 			<good type="sel_sourcecontains">$I18N_was_deleted</good>
 		</test>
-	</sequence>
-</testcase>
-
-
-<!--XXX nicht im Quelltext gefunden
-
-
-runIf="AT_detectManager>0" : Gesetzt und Zahlenwert > 0
-runIf="AT_deleteClient==1" : Gesetzt und gleich 1
-
-neu: sel_sourceNotContains-->
