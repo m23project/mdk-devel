@@ -1,0 +1,14 @@
+		<test timeout="600" description="m23-Dämonen überprüfen">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+				ps -A | grep squid -q; echo -n "S$?S" > /tmp/m.status
+				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
+				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
+				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
+			</action>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="Squid ausgefallen">S1S</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="MySQL/MariaDB ausgefallen">M1M</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="OpenLDAP ausgefallen">L1L</bad>
+<!--			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="DHCP-Server ausgefallen">D1D</bad> -->
+			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Komponenten laufen">S0SM0ML0L</good>
+		</test>

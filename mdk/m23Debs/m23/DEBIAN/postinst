@@ -140,63 +140,10 @@ fi
 
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
-#DNS=`cat /etc/resolv.conf | head -n 1 | cut -d' ' -f2`
 DNS=`/m23/bin/serverInfoDNS`
-
-#BROADINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^broadcast | cut -d ' ' -f2 | head -1`
-#if [ -z $BROADINT ]
-#then
-#	BROADINT=`LC_ALL=C; ifconfig | grep broadcast | sed 's/.*broadcast //'`
-#fi
 BROADINT=`/m23/bin/serverInfoBroadcast`
-
-#IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1 | sed 's#/.*##'`
 IPINT=`/m23/bin/serverInfoIP`
-
-#GATEINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^gateway | cut -d ' ' -f2 | head -1`
 GATEINT=`/m23/bin/serverInfoGateway`
-
-
-#dbadmin=`showDBAdmUser`
-#dbadmpassParam=`showDBAdmPasswordParameter`
-#dbadmpass=`showDBAdmPassword`
-
-
-
-
-
-#name getIfconfigSetting
-#description Gets network information from ifconfig.
-#parameter If there is a non empty value, it will be given back
-#parameter ifconfig query string, to find the line holding the information.
-getIfconfigSetting()
-{
-	if [ -z "$1" ]
-	then
-		LC_ALL="C"
-		ifconfig eth0 | sed 's/  /\n/g' | grep "^$2" | cut -d':' -f2
-	else
-		echo -n $1
-	fi
-}
-
-
-
-
-
-#name getIpGateway
-#description Gets gateway from ip.
-#parameter If there is a non empty value, it will be given back
-getIpGateway()
-{
-	if [ -z "$1" ]
-	then
-		LC_ALL="C"
-		ip route show default | awk '/default/ {print $3}'
-	else
-		echo -n $1
-	fi
-}
 
 
 
@@ -224,9 +171,6 @@ getCSExternIP()
 
 
 
-IPINT=$(getIfconfigSetting "$IPINT" 'inet addr')
-BROADINT=$(getIfconfigSetting "$BROADINT" 'Bcast')
-GATEINT=$(getIpGateway "$GATEINT")
 
 
 

@@ -2,3 +2,7 @@
 			<trigger type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</trigger>
 			<good type="ssh_commandoutput" cmd="cat /etc/issue">|{Debian|Ubuntu|Mint}</good>
 		</test>
+		<test timeout="3600" description="Anmeldemanager erkennen">
+			<trigger type="ocr">|{Anmelden|Log In|password|Log_n}</trigger>
+			<good type="ocr">|{Anmelden|Log In|password|Log_n}</good>
+		</test>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert die m23-Server-Pakete von 192.168.1.77 auf einer gesicherten UCS-VM (Sicherungspunkt "vor"). -->
+<testcase>
+	<variables>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</variables>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_IP description="IP der VM"></VM_IP>
+	</cli>
+	<sequence>
+		<include>inc/restoreVMStateVor.m23test</include>
+		<include>inc/checkForRunningUCS.m23test</include>
+		<include>inc/addUCSm23SeverDebsFrom77.m23test</include>
+		<test timeout="600" description="Pakete aktualisieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+export DEBIAN_FRONTEND=noninteractive
+export LC_ALL=C
+apt-get install --yes --force-yes m23-ucs-extra; echo -n "A$?A" > /tmp/m.status
+dpkg --list | grep '^ii' | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
+
+/mdk/ucs/check-UCS-unmaintained
+			</action>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="APT-Fehler">A1A</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Paket NICHT installiert">D1D</bad>
+			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23 installiert">A0AD0D</good>
+		</test>
+		<include>inc/m23serverTestWebinterface.m23test</include>
+		<include>inc/m23serverCheckDaemonsOnUCS.m23test</include>
+	</sequence>
+</testcase>

@@ -367,6 +367,7 @@ Intern verwendete Variablennamen:
 * VM_IP: IP-Adresse, die genutzt werden soll, um die VM per SSH anzusprechen. Ansonsten wird der Name der VM (VM_NAME) als Hostname verwendet.
 * VM_NAME: Name der VM und ggf. Hostname zum Ansprechen der VM per SSH.
 * AT_debug: Gesetzt, wenn autoTest im Debug-Modus ist und zusätzliche Informationen ausgeben soll.
+* AT_M23_SSH_PASSWORD: Das Paßwort, um den m23-Server per SSH als Benutzer root zu erreichen.
 
 In der `settings.m23test` sollten minimal folgende Konstanten gesetzt sein:
 
