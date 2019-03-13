@@ -439,6 +439,9 @@ Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden
 * `${...}`: "..." wird durch den Wert einer vorher definierte Konstante ersetzt.
 * `|{str1|str2|str3}`: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.
 * `$I18N_...`: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.
+* `!`: Bei `good/warn/bad` kann die Bedingung durch ein vorgestelltes "!" umgekehrt werden.\
+	Die folgende Bedingung trifft zu, wenn die Zeichenkette "C0C" NICHT gefunden wurde:
+	`<bad type="ssh_commandoutput" cmd="cat m" description="Ausfall">!C0C</bad>`
 * `<include>DATEI</include>`: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.
 
 

@@ -294,3 +294,308 @@ DEBUGArray
     [VM_HDSIZE] => 8192
 )
 
+19-03-13 09:21:13
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:81:b7:eb:4a:09
+    [SEL_VM_MAC] => 0081b7eb4a09
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+)
+
+19-03-13 09:21:13
+DEBUGAUTOTEST_VM_restoreSnapshot°vor
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => fkt
+)
+
+19-03-13 09:21:13
+DEBUGAUTOTEST_VM_start
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => fkt
+)
+
+19-03-13 09:21:13
+DEBUG
+				export DEBIAN_FRONTEND=noninteractive
+				export LC_ALL=C
+
+				echo 'deb [trusted=yes] http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list
+				echo 'deb [trusted=yes] http://m23ucs ./' >> /etc/apt/sources.list.d/m23debs.list
+				echo '192.168.1.77 m23debs' >> /etc/hosts
+				echo '192.168.1.77 m23ucs' >> /etc/hosts
+echo "
+mysql-server-5.5 mysql-server/root_password_again password test
+mysql-server-5.5 mysql-server/root_password password test
+" > /tmp/debconf-setting
+
+debconf-set-selections /tmp/debconf-setting; echo -n "D$?D" > /tmp/m.status
+ucr set repository/online/unmaintained="yes"; echo -n "U$?U" >> /tmp/m.status
+apt-get update; echo -n "A$?A" >> /tmp/m.status
+
+			
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:13
+DEBUG
+export DEBIAN_FRONTEND=noninteractive
+export LC_ALL=C
+apt-get install --yes --force-yes m23-ucs-extra; echo -n "A$?A" > /tmp/m.status
+dpkg --list | grep '^ii' | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
+
+/mdk/ucs/check-UCS-unmaintained
+			
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:13
+DEBUGhttps://god:m23@${VM_IP}/m23admin/index.php
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 09:21:13
+DEBUG${TEST_M23_BASE_URL}/index.php
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 09:21:13
+DEBUG
+				ps -A | grep apt-cacher-ng -q; echo -n "C$?C" > /tmp/m.status
+				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
+				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
+				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
+			
+19-03-13 09:21:13
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:13
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:81:b7:eb:4a:09
+    [SEL_VM_MAC] => 0081b7eb4a09
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+    [VM_NAME] => UCS 4.4 - Lokales Testrepo
+    [VM_IP] => 192.168.1.144
+    [TEST_TYPE] => VM
+    [VM_RAM] => 1024
+    [VM_HDSIZE] => 8192
+)
+
+19-03-13 09:21:23
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:db:e2:f9:4a:87
+    [SEL_VM_MAC] => 00dbe2f94a87
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+)
+
+19-03-13 09:21:23
+DEBUGAUTOTEST_VM_restoreSnapshot°vor
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => fkt
+)
+
+19-03-13 09:21:23
+DEBUGAUTOTEST_VM_start
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => fkt
+)
+
+19-03-13 09:21:23
+DEBUG
+				export DEBIAN_FRONTEND=noninteractive
+				export LC_ALL=C
+
+				echo 'deb [trusted=yes] http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list
+				echo 'deb [trusted=yes] http://m23ucs ./' >> /etc/apt/sources.list.d/m23debs.list
+				echo '192.168.1.77 m23debs' >> /etc/hosts
+				echo '192.168.1.77 m23ucs' >> /etc/hosts
+echo "
+mysql-server-5.5 mysql-server/root_password_again password test
+mysql-server-5.5 mysql-server/root_password password test
+" > /tmp/debconf-setting
+
+debconf-set-selections /tmp/debconf-setting; echo -n "D$?D" > /tmp/m.status
+ucr set repository/online/unmaintained="yes"; echo -n "U$?U" >> /tmp/m.status
+apt-get update; echo -n "A$?A" >> /tmp/m.status
+
+			
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:23
+DEBUG
+export DEBIAN_FRONTEND=noninteractive
+export LC_ALL=C
+apt-get install --yes --force-yes m23-ucs-extra; echo -n "A$?A" > /tmp/m.status
+dpkg --list | grep '^ii' | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
+
+/mdk/ucs/check-UCS-unmaintained
+			
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:23
+DEBUGhttps://god:m23@${VM_IP}/m23admin/index.php
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 09:21:23
+DEBUG${TEST_M23_BASE_URL}/index.php
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 09:21:23
+DEBUG
+				ps -A | grep apt-cacher-ng -q; echo -n "C$?C" > /tmp/m.status
+				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
+				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
+				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
+			
+19-03-13 09:21:23
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 09:21:23
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:db:e2:f9:4a:87
+    [SEL_VM_MAC] => 00dbe2f94a87
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+    [VM_NAME] => UCS 4.4 - Lokales Testrepo
+    [VM_IP] => 192.168.1.144
+    [TEST_TYPE] => VM
+    [VM_RAM] => 1024
+    [VM_HDSIZE] => 8192
+)
+
+19-03-13 10:48:38
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:d4:d8:0c:1b:eb
+    [SEL_VM_MAC] => 00d4d80c1beb
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+)
+
+19-03-13 10:48:39
+DEBUGhttps://god:m23@${VM_IP}/m23admin/index.php
+19-03-13 10:48:39
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 10:48:39
+DEBUG${TEST_M23_BASE_URL}/index.php
+19-03-13 10:48:39
+DEBUGArray
+(
+    [type] => sel_open
+)
+
+19-03-13 10:48:39
+DEBUG
+				ps -A | grep apt-cacher-ng -q; echo -n "C$?C" > /tmp/m.status
+				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
+				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
+				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
+			
+19-03-13 10:48:39
+DEBUGArray
+(
+    [type] => ssh_command
+    [password] => test
+)
+
+19-03-13 10:48:39
+DEBUGArray
+(
+    [TEST_VBOX_MAC] => 00:d4:d8:0c:1b:eb
+    [SEL_VM_MAC] => 00d4d80c1beb
+    [AT_debug] => 1
+    [TEST_VBOX_HOST] => tuxedo
+    [TEST_VBOX_USER] => dodger
+    [TEST_VBOX_NETDEV] => enp3s0f1
+    [TEST_VBOX_IMAGE_DIR] => /ssd/vms/
+    [TEST_SELENIUM_URL] => http://192.168.1.153:23080
+    [TEST_M23_BASE_URL] => http://Iengahm7ooD5ohge:Aite8wa9ui5kaeMo@192.168.1.77/m23admin
+    [VM_NAME] => UCS 4.4 - Lokales Testrepo
+    [VM_IP] => 192.168.1.144
+    [TEST_TYPE] => VM
+    [VM_RAM] => 1024
+    [VM_HDSIZE] => 8192
+)
+

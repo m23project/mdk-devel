@@ -28,3 +28,4 @@ AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.93/m23ad
 
 
 AT_debug=1 ./autoTest.php 1m23server-auf-UCS-installieren.m23test 'UCS 4.4 - Lokales Testrepo' 192.168.1.144
+AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23sATstretchKDE stretch Debian8KdeFull

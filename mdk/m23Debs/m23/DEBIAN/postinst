@@ -612,7 +612,7 @@ then
 		find /m23/inc/help -type f | xargs -n1 recode ISO-8859-1..utf-8
 		find /m23/inc/i18n -type f | xargs -n1 recode ISO-8859-1..utf-8
 		find /m23/inc -type f | grep info.txt$ | xargs -n1 recode ISO-8859-1..utf-8
-		sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php
+		sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php /m23/data+scripts/m23admin/index.php
 	fi
 
 	for phpFile in `find /etc/php?/apache* /etc/php/7.0 2> /dev/null | grep php.ini` `find /etc/php?/cli | grep php.ini`

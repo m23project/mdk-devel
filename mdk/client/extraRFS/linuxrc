@@ -225,8 +225,8 @@ fi
 haveged
 
 #Try to download the first job and debug commands
-wget --no-check-certificate -d -T2 -t0 https://$server/work.php$m23Client -O work.php -o work.php.log
-wget --no-check-certificate -d -T2 -t0 https://$server/debugScreen.php$m23Client -O debug.sh -o debug.sh.log
+wget --no-check-certificate -d -T600 -t2 https://$server/work.php$m23Client -O work.php -o work.php.log
+wget --no-check-certificate -d -T600 -t2 https://$server/debugScreen.php$m23Client -O debug.sh -o debug.sh.log
 
 #########DEBUG##########
 
@@ -235,8 +235,8 @@ if [ $(grep -c 'bin/bash' work.php) -eq 0 ]
 then
 	# Ask for settings and try to download again
 	showNetworkDialog
-	wget --no-check-certificate -T2 -t0 https://$server/work.php$m23Client -O work.php
-	wget --no-check-certificate -T2 -t0 https://$server/debugScreen.php$m23Client -O debug.sh
+	wget --no-check-certificate -T600 -t0 https://$server/work.php$m23Client -O work.php
+	wget --no-check-certificate -T600 -t0 https://$server/debugScreen.php$m23Client -O debug.sh
 fi
 
 startDropbear

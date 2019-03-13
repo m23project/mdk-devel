@@ -24,8 +24,8 @@ dpkg --list | grep '^ii' | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
 
 /mdk/ucs/check-UCS-unmaintained
 			</action>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="APT-Fehler">A1A</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Paket NICHT installiert">D1D</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="APT-Fehler">!A0A</bad>
+			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Paket NICHT installiert">!D0D</bad>
 			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23 installiert">A0AD0D</good>
 		</test>
 		<include>inc/m23serverTestWebinterface.m23test</include>
