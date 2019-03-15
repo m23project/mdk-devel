@@ -1,8 +1,8 @@
 		<test timeout="180" description="Client in Löschliste suchen">
 			<trigger type="true"></trigger>
 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=delete</action>
-			<good type="sel_sourcecontains" setVar="INT_deleteClient=1">client=${VM_NAME}</good>
-			<warn type="sel_sourcenotcontains" setVar="INT_deleteClient=0">client=${VM_NAME}</warn>
+			<good type="sel_sourcecontains" description="Client gefunden" setVar="INT_deleteClient=1">client=${VM_NAME}</good>
+			<warn type="sel_sourcenotcontains" description="Client nicht gefunden" setVar="INT_deleteClient=0">client=${VM_NAME}</warn>
 		</test>
 		<test timeout="180" description="Client löschen wenn gefunden" runIf="INT_deleteClient==1">
 			<trigger type="true"></trigger>
@@ -12,5 +12,5 @@
 		<test timeout="600" description="Client löschen" runIf="INT_deleteClient==1">
 			<trigger type="true"></trigger>
 			<action type="sel_clickButton" name="BUT_delete"></action>
-			<good type="sel_sourcecontains">$I18N_was_deleted</good>
+			<good type="sel_sourcecontains" description="Client gelöscht">$I18N_was_deleted</good>
 		</test>
