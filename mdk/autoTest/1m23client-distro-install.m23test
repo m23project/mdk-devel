@@ -13,6 +13,7 @@
 	</cli>
 	<sequence>
 		<include>inc/deleteClientFromDB.m23test</include>
+		<include>inc/doubleAddLDAPAccount.m23test</include>
 		<test timeout="180" description="Client anlegen">
 			<trigger type="sel_hostReady"></trigger>
 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
@@ -90,5 +91,10 @@
 		</test>
 		<include>inc/detectLoginManager.m23test</include>
 		<include>inc/installDeinstallMidnightCommander.m23test</include>
+		<test timeout="600" description="LDAP-Benutzer auf Client suchen">
+			<trigger type="true"></trigger>
+			<good type="ssh_commandoutput" description="LDAP-Benutzer gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">0</good>
+			<bad type="ssh_commandoutput" description="LDAP-Benutzer NICHT gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">1</bad>
+		</test>
 	</sequence>
 </testcase>

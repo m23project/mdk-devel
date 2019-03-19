@@ -12,98 +12,10 @@
 		<OS_DESKTOP description="Desktop"></OS_DESKTOP>
 	</cli>
 	<sequence>
-		<include>inc/deleteClientFromDB.m23test</include>
-		<test timeout="180" description="Clientbasisinfos eingeben">
-			<trigger type="sel_hostReady"></trigger>
-			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
-			<action type="sel_typeInto" ID="ED_login">test</action>
-			<action type="sel_typeInto" ID="ED_client">testclient</action>
-			<action type="sel_typeInto" ID="ED_client">${VM_NAME}</action>
-			<action type="sel_typeInto" ID="ED_name">vorname</action>
-			<action type="sel_typeInto" ID="ED_familyname">nachname</action>
-			<action type="sel_typeInto" name="ED_firstpw">testtest</action>
-			<action type="sel_typeInto" name="ED_rootpassword">testtest</action>
-			<action type="sel_typeInto" name="ED_mac">${SEL_VM_MAC}</action>
-			<action type="sel_selectFrom" ID="SEL_boottype">pxe</action>
-			<action type="sel_setCheck" name="CB_getSystemtimeByNTP">0</action>
-			<good type="true"></good>
-		</test>
-		<test timeout="180" description="Client anlegen">
-			<action type="sel_selectRadio" name="SEL_ldaptype">write</action>
-			
-			
-			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=autoTestHacks</action>
-			
-			Already exists
-			LDAP account created
-			Object created
-			Object exists
-			
-			
-		</test>
-		<test timeout="180" description="Client anlegen">
-			<action type="sel_clickButton" name="BUT_submit"></action>
-			<good type="sel_sourcecontains">$I18N_client_added</good>
-			<bad type="sel_sourcecontains">$I18N_mac_exists</bad>
-			<bad type="sel_sourcecontains">$I18N_client_exists</bad>
-			<bad type="sel_sourcecontains">$I18N_no_mac</bad>
-			<bad type="sel_sourcecontains">$I18N_no_clientname</bad>
-			<bad type="sel_sourcecontains">$I18N_addNewLoginToUCSLDAPError</bad>
-		</test>
-<!--		<test timeout="600" description="VM erstellen und starten">
+		<test timeout="600" description="LDAP-Benutzer auf Client suchen">
 			<trigger type="true"></trigger>
-			<action type="fkt">AUTOTEST_VM_create</action>
-			<action type="fkt">AUTOTEST_VM_start</action>
-			<good type="ocr">|{Warte|minutes}</good>
+			<good type="ssh_commandoutput" description="LDAP-Benutzer gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">0</good>
+			<bad type="ssh_commandoutput" description="LDAP-Benutzer NICHT gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">1</bad>
 		</test>
-		<test timeout="180" description="Partitionieren- und Formatieren-Dialog öffnen">
-			<trigger type="true"></trigger>
- 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=setup</action>
-			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=fdisk</action>
-			<good type="sel_sourcecontains">$I18N_clientPartitioningAndFormating</good>
-		</test>
-		<test timeout="600" description="Partitionsschema anwenden">
-			<trigger type="true"></trigger>
-			<action type="sel_selectFrom" ID="SEL_partitionSchemes">1</action>
-			<action type="sel_clickButton" name="BUT_executeScheme"></action>
-			<good type="sel_sourcecontains">|{Range:|Interval:|Bereich:}</good>
-		</test>
-		<test timeout="600" description="Partitionierung abschließen">
-			<trigger type="true"></trigger>
-			<action type="sel_clickButton" name="BUT_finalisePartitioningAndselectClientDistribution"></action>
-			<good type="sel_sourcecontains">$I18N_data_saved</good>
-		</test>
-		<test timeout="600" description="Weiter klicken">
-			<trigger type="true"></trigger>
-			<action type="sel_clickButton" name="BUT_next"></action>
-			<good type="sel_sourcecontains">$I18N_select_client_distribution</good>
-		</test>
-		<test timeout="600" description="Paketquellenliste wählen">
-			<trigger type="true"></trigger>
-			<action type="sel_selectFrom" name="SEL_sourcename">${OS_PACKAGESOURCE}</action>
-			<action type="sel_clickButton" name="BUT_selectSourcesList"></action>
-			<good type="sel_sourcecontains">$I18N_userInterface</good>
-		</test>
-		<test timeout="600" description="Desktop wählen">
-			<trigger type="true"></trigger>
-			<action type="sel_selectFrom" name="SEL_desktop">${OS_DESKTOP}</action>
-			<action type="sel_clickButton" name="BUT_refresh"></action>
-			<good type="sel_sourcecontains">$I18N_MBRTarget</good>
-		</test>
-		<test timeout="600" description="Warten vor Installation">
-			<trigger type="wait">10</trigger>
-			<good type="sel_sourcecontains">$I18N_install_distribution</good>
-		</test>
-		<test timeout="600" description="Installation starten">
-			<trigger type="sel_sourcecontains">$I18N_install_distribution</trigger>
-			<action type="sel_clickButton" name="BUT_install"></action>
-			<action type="sel_clickButton" name="BUT_install"></action>
-			<action type="sel_clickButton" name="BUT_install"></action>
-			<action type="sel_clickButton" name="BUT_install"></action>
-			<action type="sel_clickButton" name="BUT_install"></action>
-			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
-		</test>
-		<include>inc/detectLoginManager.m23test</include>
-		<include>inc/installDeinstallMidnightCommander.m23test</include>-->
 	</sequence>
 </testcase>

@@ -1,0 +1,34 @@
+		<test timeout="60" description="LDAP-Testbenutzer und -Gruppe anlegen">
+			<trigger type="true"></trigger>
+			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=autoTestHacks</action>
+			<action type="sel_clickButton" name="BUT_createLDAPUserAndGroup">BUT_createLDAPUserAndGroup</action>
+			<good type="sel_sourcecontains">Already exists</good>
+			<good type="sel_sourcecontains">LDAP account created</good>
+			<good type="sel_sourcecontains">Object created</good>
+			<good type="sel_sourcecontains">Object exists</good>
+		</test>
+
+		<test timeout="180" description="Versuch einen bereits existierenden LDAP-Benutzer erneut anzulegen">
+			<trigger type="sel_hostReady"></trigger>
+			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
+			<action type="sel_typeInto" ID="ED_login">atldapuser</action>
+			<action type="sel_typeInto" ID="ED_client">testclient</action>
+			<action type="sel_typeInto" ID="ED_client">${VM_NAME}</action>
+			<action type="sel_typeInto" ID="ED_name">vorname</action>
+			<action type="sel_typeInto" ID="ED_familyname">nachname</action>
+			<action type="sel_typeInto" name="ED_firstpw">testtest</action>
+			<action type="sel_typeInto" name="ED_rootpassword">testtest</action>
+			<action type="sel_typeInto" name="ED_mac">${SEL_VM_MAC}</action>
+			<action type="sel_selectFrom" ID="SEL_boottype">pxe</action>
+			<action type="sel_setCheck" name="CB_getSystemtimeByNTP">0</action>
+			<action type="sel_selectRadio" name="SEL_ldaptype">write</action>
+			<action type="sel_clickButton" name="BUT_submit"></action>
+			<bad type="sel_sourcecontains">$I18N_client_added</bad>
+			<bad type="sel_sourcecontains">$I18N_mac_exists</bad>
+			<bad type="sel_sourcecontains">$I18N_client_exists</bad>
+			<bad type="sel_sourcecontains">$I18N_no_mac</bad>
+			<bad type="sel_sourcecontains">$I18N_no_clientname</bad>
+			<bad type="sel_sourcecontains">$I18N_addNewLoginToUCSLDAPError</bad>
+			<good type="sel_sourcecontains">Already exists</good>
+			<good type="sel_sourcecontains">Object exists</good>
+		</test>
