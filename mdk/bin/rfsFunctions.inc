@@ -46,9 +46,16 @@ getNextLoop()
 disconnectLoop()
 {
 	loopSearch="$1"
-	echo ">>>> disconnectLoop:"
+	# Check first if anything is reported by 'losetup -a'
+	losetup -a | grep "$loopSearch" > /dev/null 2>&1
+	# Action only if something is setup
+	if [ $? -eq 0 ]; then
+	      echo ">>>> disconnectLoop: $loopSearch"
 	losetup -a
 	losetup -a | grep "$loopSearch" | cut -d':' -f1 | xargs -n1 losetup -d
+	else
+	      echo ">>>> disconnectLoop: NOP"
+	fi
 }
 
 
@@ -64,7 +71,7 @@ createRFScopyLib()
 
 	if [ -z $neededBy ]
 	then
-		neededBy="Added statically"
+		neededBy="Added_manually"
 	fi
 
 	#get the filename of the library without the path
@@ -88,15 +95,29 @@ createRFScopyLib()
 
 	if [ -z $libsrc ]
 	then
-		if [ `echo -n $lib  | grep -v 'required by' | egrep -v ^not$ | grep -v linux-gate | grep -v linux-vdso | grep -v '\t'` ] && [ $neededBy ]
+		echo -n $lib  | grep -v 'required by' | egrep -v ^not$ | grep -v linux-gate | grep -v linux-vdso | grep -v '\t' > /dev/null 2>&1
+		if [ $? -eq 1 ]
 		then
+			# ignore this lib
+			#continue
+			return
+		elif [ $neededBy == "Added_manually" ]
+		then
+			echo "Error: library $lib added manually but is not found!"
+			echo "lib: $lib fnamelib: $fnamelib extractedDebsDir: $extractedDebsDir"
+			read errkey
+			#continue
+			return
+		else
 			echo "Error: Library $lib needed by \"$neededBy\" not found!"
 			echo "lib: $lib fnamelib: $fnamelib libsrc: $libsrc extractedDebsDir: $extractedDebsDir"
 			read errkey
+			#continue
+			return
 		fi
 	fi
 
-	#link and filename sperated with ?
+	#link and filename separated with ?
 	linkAndFile=`find $libsrc -printf "%l?%f"`
 #	echo "ööölinkAndFile: $linkAndFile"
 	
@@ -217,20 +238,33 @@ createRFSBins()
 
 			basenameLink=$( basename "$link" )
 
-			#Make a link to the the binary
+			#Make a link to the binary
 			binSource=$( readlink "$link" )
 			ln -s "$binSource" "bin/$basenameLink"
 			echo "+lnk $basenameLink"
 
 			# Make sure, the found file is from the temp directory and not the local root filesystem
 			# e.g. /bin/modinfo => /bin/kmod => /mdk/client+server/tmpRoot/i386/bin/kmod
-			binSource=$( find $extractedDebsDir | grep "/$binSource$" | grep -v klibc | head -1 )
+			#binSource=$( find $extractedDebsDir | grep "/$binSource$" | grep -v klibc | head -1 )
+			# FABR: for the case $binSource == /bin/kmod grep is searching for //bin/kmod
+			#       which will never succeed. IMHO the '/' must be removed in the pattern.
+			binSource=$( find $extractedDebsDir | grep "$binSource$" | grep -v klibc | head -1 )
+			
+			# Check
+			if [ -z $binSource ]
+			then
+				echo "FIXTHIS: binSource empty for link=$link"
+			fi
 		fi
 		
 		echo "+bin $binSource"
 
 		#copy the found file or link
-		cp -f $binSource bin
+		# Check
+		if [ -n $binSource ]
+		then
+			cp -f $binSource bin
+		fi
 		
 		echo $bin > /tmp/mdk-createRFSBins.txt
 
@@ -256,20 +290,37 @@ createRFSBins()
 				createRFScopyLib $lib $bin
 			done
 		else
-			for possibleObjdump in /usr/bin/x86_64-linux-gnu-objdump /usr/x86_64-unknown-linux-gnu/bin/x86_64-unknown-linux-gnu-objdump /usr/bin/objdump
-			do
-				if [ -f $possibleObjdump ]
+			# FABR: problem with objdump
+			# /usr/bin/x86_64-linux-gnu-objdump on 32bit debian machines does not seem to regognize ELF 64"
+			# However, the default binary /usr/bin/objdump does.
+			# Thus, we prefer /usr/bin/objdump on 32bit debian 9 machines.
+			our_arch=`arch`
+			if [ $our_arch == "i686" -a -f /usr/bin/i686-linux-gnu-objdump ]
 				then
-					export objdump=$possibleObjdump
-					break
+				objdump="/usr/bin/i686-linux-gnu-objdump"
+			elif [ -f /usr/bin/x86_64-linux-gnu-objdump ]
+			then
+				objdump="/usr/bin/x86_64-linux-gnu-objdump"
+			else
+				objdump="/usr/x86_64-unknown-linux-gnu/bin/x86_64-unknown-linux-gnu-objdump"
 				fi
-			done
 
 			bin=`cat /tmp/mdk-createRFSBins.txt`
 
 			# Get the needed libs by objdump and ldd
 			$objdump -x bin/$bin | grep NEEDED | tr -s [:blank:] | cut -d' ' -f3 | grep -v '(0x' > /tmp/mdk-createRFSLibs.txt
-			ldd bin/$bin 2> /dev/null | grep -v 'required by' | cut -d " " -f1 | tr -d [:blank:] | grep -v '(0x' >> /tmp/mdk-createRFSLibs.txt
+			# FABR: problem with ldd
+			# On a 32bit machine the command
+			#   ldd /mdk/client+server/tmpRoot/amd64/usr/bin/x86_64-linux-gnu-ar
+			# yields
+			#   'not a dynamic executable' and exit code 1
+			# We need to cope with this, below
+
+			ldd bin/$bin &> /dev/null
+			if [ $? -eq 0 ]  # ldd found something
+			then
+				ldd bin/$bin 2> /dev/null | grep -v 'required by' | cut -d " " -f1 | tr -d [:blank:] | grep -v '(0x' >> /tmp/mdk-createRFSLibs.txt
+			fi
 
 			#special method for amd64
 			for lib in `sort -u /tmp/mdk-createRFSLibs.txt`
@@ -317,7 +368,7 @@ createRFSBins()
 	createRFScopyLib libx86emu.so.1				# for hwinfo
 # 	createRFScopyLib libpcre.so.3
 # 	createRFScopyLib libisccfg-export.so.90
-	createRFScopyLib libicuuc.so.52				# wget i386
+#	createRFScopyLib libicuuc.so.52				# wget i386; removed by FABR
 	createRFScopyLib libtasn1.so.6				# wget amd64 Debian 9
 	createRFScopyLib libhogweed.so.4			# wget amd64 Debian 9
 	createRFScopyLib libidn2.so.0				# wget amd64 Debian 9
@@ -676,7 +727,7 @@ deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 
 localArchAptUpdate
 
-localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk haveged
+localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk haveged libhal1-flash
 
 # module-init-tools
 

@@ -35,11 +35,18 @@
 			<action type="sel_clickMatchingURL">client=${VM_NAME}°action=deinstall</action>
 			<good type="sel_sourcecontains">$I18N_deinstall_packages</good>
 		</test>
-		<test timeout="600" description="Paket suchen">
+		<test timeout="600" description="mc-data in der Liste der installierten Pakete suchen">
 			<trigger type="true"></trigger>
 			<action type="sel_typeInto" name="ED_search">mc</action>
 			<action type="sel_clickButton" name="BUT_search"></action>
-			<good type="sel_sourcecontains" description="mc-data in der Liste der installierten Pakete gefunden">mc-data</good>
+			<good type="sel_sourcecontains" description="mc-data gefunden">mc-data</good>
+			<warn type="sel_sourcenotcontains" description="mc-data nicht gefunden" setVar="INT_mcNotFound=1">mc-data</warn>
+		</test>
+		<test timeout="180" description="mc-data nochmals nach 2 Minuten Pase suchen (warten auf Übertragung des Paketstatus)" runIf="INT_mcNotFound==1">
+			<trigger type="wait">120</trigger>
+			<action type="sel_clickButton" name="BUT_search"></action>
+			<good type="sel_sourcecontains" description="mc-data gefunden">mc-data</good>
+			<bad type="sel_sourcenotcontains" description="mc-data nicht gefunden">mc-data</bad>
 		</test>
 		<test timeout="60" description="Paket zum Deinstallieren markieren">
 			<trigger type="true"></trigger>

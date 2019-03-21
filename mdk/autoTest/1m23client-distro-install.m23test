@@ -91,10 +91,6 @@
 		</test>
 		<include>inc/detectLoginManager.m23test</include>
 		<include>inc/installDeinstallMidnightCommander.m23test</include>
-		<test timeout="600" description="LDAP-Benutzer auf Client suchen">
-			<trigger type="true"></trigger>
-			<good type="ssh_commandoutput" description="LDAP-Benutzer gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">0</good>
-			<bad type="ssh_commandoutput" description="LDAP-Benutzer NICHT gefunden" cmd="[ $(getent passwd | grep ldap -c) -gt 0 ]; echo $?">1</bad>
-		</test>
+		<include>inc/checkLDAPUserOnClient.m23test</include>
 	</sequence>
 </testcase>

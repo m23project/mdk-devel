@@ -4,7 +4,7 @@
 			<good type="sel_sourcecontains" description="Client gefunden" setVar="INT_deleteClient=1">client=${VM_NAME}</good>
 			<warn type="sel_sourcenotcontains" description="Client nicht gefunden" setVar="INT_deleteClient=0">client=${VM_NAME}</warn>
 		</test>
-		<test timeout="180" description="Client löschen wenn gefunden" runIf="INT_deleteClient==1">
+		<test timeout="180" description="Client löschen, wenn gefunden" runIf="INT_deleteClient==1">
 			<trigger type="true"></trigger>
 			<action type="sel_clickMatchingURL">client=${VM_NAME}°page=deleteclient</action>
 			<good type="sel_sourcecontains">$I18N_get_deleted</good>

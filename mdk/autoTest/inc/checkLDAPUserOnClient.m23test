@@ -1,0 +1,10 @@
+		<test timeout="600" description="LDAP-Benutzer auf Client suchen">
+			<trigger type="true"></trigger>
+			<good type="ssh_commandoutput" description="LDAP-Benutzer gefunden" cmd="[ $(getent passwd | grep atldapuser -c) -gt 0 ]; echo $?">0</good>
+			<bad type="ssh_commandoutput" description="LDAP-Benutzer NICHT gefunden" cmd="[ $(getent passwd | grep atldapuser -c) -gt 0 ]; echo $?">1</bad>
+		</test>
+		<test timeout="600" description="Überprüfen, ob LDAP-Benutzer kein lokaler Benutzer ist">
+			<trigger type="true"></trigger>
+			<good type="ssh_commandoutput" description="LDAP-Benutzer ist kein lokaler Benutzer" cmd="grep atldapuser /etc/passwd -c">0</good>
+			<bad type="ssh_commandoutput" description="LDAP-Benutzer ist LOKALER Benutzer" cmd="grep atldapuser /etc/passwd -c">1</bad>
+		</test>

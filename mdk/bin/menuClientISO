@@ -89,19 +89,30 @@ case $choice in
 	#build new netBootImage (Etherboot/PXE) + ISO
 	"build")
 		oldPath=`pwd`
+		echo "INFO: Calling function createRFSImage"
 		createRFSImage
+		echo "INFO: Calling function createRFSBins"
 		createRFSBins
+		echo "INFO: Calling functions createRFSCopyExtraFilesAndDirs"
 		createRFSCopyExtraFilesAndDirs
+		echo "INFO: Calling function createRFSBinLinks"
 		createRFSBinLinks
+		echo "INFO: Calling function createRFSDevs"
 		createRFSDevs
+		echo "INFO: Calling function createRFSFinishInitrd"
 		createRFSFinishInitrd
+		echo "INFO: Calling function createRFSISO"
 		createRFSISO
 		if [ -d /m23/data+scripts/m23shared/bootMedia ]
 		then
+			echo "INFO: Calling function createRFSISO m23shared.goos-habermann.de"
 			createRFSISO m23shared.goos-habermann.de /m23/data+scripts/m23shared/bootMedia/
 		fi
+		#echo "INFO: Calling function createRFSEtherboot"
 		#createRFSEtherboot
+		echo "INFO: Calling function createRFSPXE"
 		createRFSPXE
+		echo "Done"
 		cd $oldPath
 
 		echo "Are there any error messages?"
