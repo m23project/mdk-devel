@@ -42,7 +42,7 @@
 			<good type="sel_sourcecontains" description="mc-data gefunden">mc-data</good>
 			<warn type="sel_sourcenotcontains" description="mc-data nicht gefunden" setVar="INT_mcNotFound=1">mc-data</warn>
 		</test>
-		<test timeout="180" description="mc-data nochmals nach 2 Minuten Pase suchen (warten auf Übertragung des Paketstatus)" runIf="INT_mcNotFound==1">
+		<test timeout="180" description="mc-data nochmals nach 2 Minuten Pause suchen (warten auf Übertragung des Paketstatus)" runIf="INT_mcNotFound==1">
 			<trigger type="wait">120</trigger>
 			<action type="sel_clickButton" name="BUT_search"></action>
 			<good type="sel_sourcecontains" description="mc-data gefunden">mc-data</good>
@@ -60,7 +60,7 @@
 			<action type="sel_clickButton" name="BUT_acceptJobs"></action>
 			<good type="sel_sourcecontains" description="Deinstallationsauftrag vermerkt">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
-		<test timeout="600" description="Warten auf Abschluß der Denstallation">
+		<test timeout="600" description="Warten auf Abschluß der Deinstallation">
 			<trigger type="true"></trigger>
 			<good type="ssh_commandoutput" description="Paket ist deinstalliert (dpkg --get-selections)" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d %22[:blank:]%22 | sed %22s/install$//g%22 |  grep %22^mc$%22 -c">0</good>
 		</test>

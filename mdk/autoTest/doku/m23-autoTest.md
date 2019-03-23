@@ -57,8 +57,8 @@ Ein Server, mit ausreichenden Kapazitäten (RAM, CPUs, Festplattenplatz), auf de
 #### Installation
 
 * Debian oder Ubuntu in 64-Bit-Version installieren
-* VirtualBox und gocr installieren
-* Einen Benutzer anlegen, der über `VBoxManage` virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe `vboxusers` aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren.
+* VirtualBox, tesseract, convert (ImageMagicl) und gocr installieren
+* Einen Benutzer anlegen, der über `VBoxManage` virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe `vboxusers` aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren. Zum Ausführen von Tests muß dieser Benutzer grafisch (lokal oder per x2go) eingeloggt sein. In der X-Sitzung dieses Benutzers werden die VirtualBox-Fenster gestartet. Der Benutzer darf nur einmalig grafisch eingeloggt werden, da ansonsten die zu verwendenden X-Sitzung nicht zuverlässig erkannt werden kann.
 * (Optional) x2go installieren
 
 

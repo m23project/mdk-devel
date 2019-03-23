@@ -30,7 +30,7 @@ desktop="$3"
 
 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.93/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23sATstretchKDE stretch Debian8KdeFull
 
-AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.93/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23TessaXfce 'LinuxMint 19.1 Tessa' Mint19Xfce
+>>>>>> AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.93/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23TessaXfce 'LinuxMint 19.1 Tessa' Mint19Xfce
 
 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.93/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23Budgie Ubuntu-Bionic UbuntuBudgie1804
 
@@ -47,13 +47,13 @@ TEST_TYPE=xmltest AT_debug=1 ./autoTest.php 1m23server-auf-UCS-installieren.m23t
 
 ./autoTest.php 1m23server-auf-UCS-installieren.m23test 'UCS 4.4 - Lokales Testrepo' 192.168.1.144
  
- AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23sATstretchMate stretch Debian8Mate
+AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23sATstretchMate stretch Debian8Mate
  
 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23JessieGnome jessie Debian8GnomeFull
 
 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23TessaCinnamon 'LinuxMint 19.1 Tessa' Mint19Cinnamon
 
-AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23Bionic Ubuntu-Bionic Ubuntudesktop1804
+AT_debug=1 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.144/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23Bionic Ubuntu-Bionic Ubuntudesktop1804
 
 
 
