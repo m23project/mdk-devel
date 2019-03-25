@@ -21377,3 +21377,557 @@ TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-22 17:16:47
     
 
 [GOOD] (LDAP-Benutzer ist kein lokaler Benutzer) 19-03-22 17:16:47 := 0
+[WARN] (Client nicht gefunden) 19-03-24 13:07:43 := client=${VM_NAME}
+
+=====  19-03-24 13:07:43 Client löschen, wenn gefunden =====
+
+=====  19-03-24 13:07:45 Client löschen =====
+
+=====  19-03-24 13:07:45 LDAP-Testbenutzer und -Gruppe anlegen =====
+[GOOD] 19-03-24 13:07:50 := Object exists
+
+=====  19-03-24 13:07:50 Versuch einen bereits existierenden LDAP-Benutzer erneut anzulegen =====
+[GOOD] 19-03-24 13:08:04 := Object exists
+
+=====  19-03-24 13:08:04 Client anlegen =====
+[GOOD] 19-03-24 13:08:18 := $I18N_client_added
+
+=====  19-03-24 13:08:18 VM erstellen und starten =====
+[GOOD] 19-03-24 13:09:12 := |{Warte|minutes}
+
+=====  19-03-24 13:09:12 Partitionieren- und Formatieren-Dialog öffnen =====
+[GOOD] 19-03-24 13:09:20 := $I18N_clientPartitioningAndFormating
+
+=====  19-03-24 13:09:20 Partitionsschema anwenden =====
+[GOOD] 19-03-24 13:09:25 := |{Range:|Interval:|Bereich:}
+
+=====  19-03-24 13:09:25 Partitionierung abschließen =====
+[GOOD] 19-03-24 13:09:30 := $I18N_data_saved
+
+=====  19-03-24 13:09:30 Weiter klicken =====
+[GOOD] 19-03-24 13:09:35 := $I18N_select_client_distribution
+
+=====  19-03-24 13:09:35 Paketquellenliste wählen =====
+[GOOD] 19-03-24 13:09:50 := $I18N_userInterface
+
+=====  19-03-24 13:09:50 Desktop wählen =====
+[GOOD] 19-03-24 13:10:04 := $I18N_MBRTarget
+
+=====  19-03-24 13:10:04 Warten vor Installation =====
+[GOOD] 19-03-24 13:10:18 := $I18N_install_distribution
+
+=====  19-03-24 13:10:18 Installation starten =====
+[GOOD] 19-03-24 13:10:40 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-24 13:10:40 Distribution überprüfen =====
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-24 13:10:44 
+    m23 client rescue console
+    
+    	username: root
+    	password: root or netboot password set by m23
+                  Go to the m23 webinterface to check the current netboot
+                  password, please.
+    
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-24 13:12:04 
+    Permission denied, please try again.
+    Permission denied, please try again.
+    Permission denied (publickey,password).
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-24 13:32:57 
+    Permission denied, please try again.
+    Permission denied, please try again.
+    Authentication failed.
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-24 13:33:00 
+    Debian GNU/Linux 9 \n \l
+    
+    
+    
+    
+
+[GOOD] 19-03-24 13:33:03 := |{Debian|Ubuntu|Mint}
+
+=====  19-03-24 13:33:03 Anmeldemanager erkennen =====
+[GOOD] (Anmeldemanager gefunden (Schlüsselwort)) 19-03-24 13:33:14 := |{Anmelden|Log In|password|Log_n|Nichlaufgefuhr|Nocli5ced?|Login|Password}
+
+=====  19-03-24 13:33:14 Client in Installationsliste suchen =====
+[GOOD] 19-03-24 13:33:22 := $I18N_preselected_packages
+
+=====  19-03-24 13:33:22 Paket suchen =====
+[GOOD] (Midnight Commander im Paketindex gefunden) 19-03-24 13:33:31 := Midnight Commander
+
+=====  19-03-24 13:33:31 Paket zum Installieren markieren =====
+[GOOD] (Paket zum Installieren vorgemerkt) 19-03-24 13:33:37 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-24 13:33:37 Paket installieren =====
+[GOOD] (Installationsauftrag vermerkt) 19-03-24 13:33:43 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-24 13:33:43 Warten auf Abschluß der Installation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-24 13:33:48 
+    0
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-24 13:34:00 
+    1
+    
+    
+    
+
+[GOOD] (Paket ist installiert (dpkg --get-selections)) 19-03-24 13:34:00 := 1
+
+=====  19-03-24 13:34:00 Client in Installationsliste suchen =====
+[GOOD] 19-03-24 13:34:07 := $I18N_deinstall_packages
+
+=====  19-03-24 13:34:07 mc-data in der Liste der installierten Pakete suchen =====
+[GOOD] (mc-data gefunden) 19-03-24 13:34:12 := mc-data
+
+=====  19-03-24 13:34:12 mc-data nochmals nach 2 Minuten Pause suchen (warten auf Übertragung des Paketstatus) =====
+
+=====  19-03-24 13:34:14 Paket zum Deinstallieren markieren =====
+[GOOD] (Paket zum Deinstallieren vorgemerkt) 19-03-24 13:34:17 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-24 13:34:17 Paket deinstallieren =====
+[GOOD] (Deinstallationsauftrag vermerkt) 19-03-24 13:34:23 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-24 13:34:23 Warten auf Abschluß der Deinstallation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-24 13:34:27 
+    1
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-24 13:34:36 
+    0
+    
+    
+    
+
+[GOOD] (Paket ist deinstalliert (dpkg --get-selections)) 19-03-24 13:34:36 := 0
+
+=====  19-03-24 13:34:36 LDAP-Benutzer auf Client suchen =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-24 13:34:41 
+    1
+    
+    
+    
+
+[BAD] (LDAP-Benutzer NICHT gefunden) 19-03-24 13:34:42 := 1
+[WARN] (Client nicht gefunden) 19-03-25 15:58:53 := client=${VM_NAME}
+
+=====  19-03-25 15:58:53 Client löschen, wenn gefunden =====
+
+=====  19-03-25 15:58:55 Client löschen =====
+
+=====  19-03-25 15:58:55 LDAP-Testbenutzer und -Gruppe anlegen =====
+[GOOD] 19-03-25 15:58:58 := LDAP account created
+
+=====  19-03-25 15:58:58 Versuch einen bereits existierenden LDAP-Benutzer erneut anzulegen =====
+[GOOD] 19-03-25 15:59:06 := Already exists
+
+=====  19-03-25 15:59:06 Client anlegen =====
+[GOOD] 19-03-25 15:59:17 := $I18N_client_added
+
+=====  19-03-25 15:59:17 VM erstellen und starten =====
+[GOOD] 19-03-25 15:59:52 := |{Warte|minutes}
+
+=====  19-03-25 15:59:52 Partitionieren- und Formatieren-Dialog öffnen =====
+[GOOD] 19-03-25 16:00:01 := $I18N_clientPartitioningAndFormating
+
+=====  19-03-25 16:00:01 Partitionsschema anwenden =====
+[GOOD] 19-03-25 16:00:06 := |{Range:|Interval:|Bereich:}
+
+=====  19-03-25 16:00:06 Partitionierung abschließen =====
+[GOOD] 19-03-25 16:00:10 := $I18N_data_saved
+
+=====  19-03-25 16:00:10 Weiter klicken =====
+[GOOD] 19-03-25 16:00:15 := $I18N_select_client_distribution
+
+=====  19-03-25 16:00:15 Paketquellenliste wählen =====
+[GOOD] 19-03-25 16:00:20 := $I18N_userInterface
+
+=====  19-03-25 16:00:20 Desktop wählen =====
+[GOOD] 19-03-25 16:00:29 := $I18N_MBRTarget
+
+=====  19-03-25 16:00:29 Warten vor Installation =====
+[GOOD] 19-03-25 16:00:43 := $I18N_install_distribution
+
+=====  19-03-25 16:00:43 Installation starten =====
+[GOOD] 19-03-25 16:01:04 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 16:01:04 Distribution überprüfen =====
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 16:01:07 
+    
+    
+    
+    m23 client rescue console
+    
+    	username: root
+    	password: root or netboot password set by m23
+                  Go to the m23 webinterface to check the current netboot
+                  password, please.
+    
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 16:02:30 
+    
+    
+    
+    Permission denied, please try again.
+    Permission denied, please try again.
+    Permission denied (publickey,password).
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 16:26:33 
+    
+    
+    
+    Authentication failed.
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 16:26:37 
+    
+    
+    ssh: connect to host atm23satstretchkde port 22: Connection refused
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 16:26:40 
+    
+    
+    
+    
+    Debian GNU/Linux 9 \n \l
+    
+    
+    
+    
+
+[GOOD] 19-03-25 16:26:43 := |{Debian|Ubuntu|Mint}
+
+=====  19-03-25 16:26:43 Anmeldemanager erkennen =====
+[GOOD] (Anmeldemanager gefunden (Schlüsselwort)) 19-03-25 16:26:51 := |{Anmelden|Log In|password|Log_n|Nichlaufgefuhr|Nocli5ced?|Login|Password}
+
+=====  19-03-25 16:26:51 Client in Installationsliste suchen =====
+[GOOD] 19-03-25 16:26:58 := $I18N_preselected_packages
+
+=====  19-03-25 16:26:58 Paket suchen =====
+[WARN] (Die Suche nach mc lieferte kein Ergebnis) 19-03-25 16:27:07 := $I18N_packageSearchReturnedNoResultUpdatePackageSearchIndex
+
+=====  19-03-25 16:27:07 Paket zum Installieren markieren =====
+[GOOD] (Paket zum Installieren vorgemerkt) 19-03-25 16:27:15 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-25 16:27:15 Paket installieren =====
+[GOOD] (Installationsauftrag vermerkt) 19-03-25 16:27:19 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 16:27:19 Warten auf Abschluß der Installation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:27:25 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:27:33 
+    
+    
+    
+    
+    1
+    
+    
+    
+
+[GOOD] (Paket ist installiert (dpkg --get-selections)) 19-03-25 16:27:33 := 1
+
+=====  19-03-25 16:27:33 Client in Installationsliste suchen =====
+[GOOD] 19-03-25 16:27:39 := $I18N_deinstall_packages
+
+=====  19-03-25 16:27:39 mc-data in der Liste der installierten Pakete suchen =====
+[GOOD] (mc-data gefunden) 19-03-25 16:27:44 := mc-data
+
+=====  19-03-25 16:27:44 mc-data nochmals nach 2 Minuten Pause suchen (warten auf Übertragung des Paketstatus) =====
+
+=====  19-03-25 16:27:46 Paket zum Deinstallieren markieren =====
+[GOOD] (Paket zum Deinstallieren vorgemerkt) 19-03-25 16:27:49 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-25 16:27:49 Paket deinstallieren =====
+[GOOD] (Deinstallationsauftrag vermerkt) 19-03-25 16:27:53 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 16:27:53 Warten auf Abschluß der Deinstallation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:27:58 
+    
+    
+    
+    
+    1
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:28:01 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (Paket ist deinstalliert (dpkg --get-selections)) 19-03-25 16:28:01 := 0
+
+=====  19-03-25 16:28:01 LDAP-Benutzer auf Client suchen =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:28:06 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (LDAP-Benutzer gefunden) 19-03-25 16:28:06 := 0
+
+=====  19-03-25 16:28:06 Überprüfen, ob LDAP-Benutzer kein lokaler Benutzer ist =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 16:28:11 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (LDAP-Benutzer ist kein lokaler Benutzer) 19-03-25 16:28:11 := 0
+
+=====  19-03-25 16:28:11 VM stoppen =====
+[GOOD] 19-03-25 16:28:17 := 1
+[WARN] (Client nicht gefunden) 19-03-25 20:56:43 := client=${VM_NAME}
+
+=====  19-03-25 20:56:43 Client löschen, wenn gefunden =====
+
+=====  19-03-25 20:56:45 Client löschen =====
+
+=====  19-03-25 20:56:45 LDAP-Testbenutzer und -Gruppe anlegen =====
+[GOOD] 19-03-25 20:56:48 := LDAP account created
+
+=====  19-03-25 20:56:48 Versuch einen bereits existierenden LDAP-Benutzer erneut anzulegen =====
+[GOOD] 19-03-25 20:56:55 := Already exists
+
+=====  19-03-25 20:56:55 Client anlegen =====
+[GOOD] 19-03-25 20:57:08 := $I18N_client_added
+
+=====  19-03-25 20:57:08 VM erstellen und starten =====
+[GOOD] 19-03-25 20:57:46 := |{Warte|minutes}
+
+=====  19-03-25 20:57:46 Partitionieren- und Formatieren-Dialog öffnen =====
+[GOOD] 19-03-25 20:57:52 := $I18N_clientPartitioningAndFormating
+
+=====  19-03-25 20:57:52 Partitionsschema anwenden =====
+[GOOD] 19-03-25 20:57:57 := |{Range:|Interval:|Bereich:}
+
+=====  19-03-25 20:57:57 Partitionierung abschließen =====
+[GOOD] 19-03-25 20:58:01 := $I18N_data_saved
+
+=====  19-03-25 20:58:01 Weiter klicken =====
+[GOOD] 19-03-25 20:58:06 := $I18N_select_client_distribution
+
+=====  19-03-25 20:58:06 Paketquellenliste wählen =====
+[GOOD] 19-03-25 20:58:11 := $I18N_userInterface
+
+=====  19-03-25 20:58:11 Desktop wählen =====
+[GOOD] 19-03-25 20:58:20 := $I18N_MBRTarget
+
+=====  19-03-25 20:58:20 Warten vor Installation =====
+[GOOD] 19-03-25 20:58:34 := $I18N_install_distribution
+
+=====  19-03-25 20:58:34 Installation starten =====
+[GOOD] 19-03-25 20:58:55 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 20:58:55 Distribution überprüfen =====
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 20:58:58 
+    
+    
+    
+    m23 client rescue console
+    
+    	username: root
+    	password: root or netboot password set by m23
+                  Go to the m23 webinterface to check the current netboot
+                  password, please.
+    
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 21:00:12 
+    
+    
+    
+    Permission denied, please try again.
+    Permission denied, please try again.
+    Permission denied (publickey,password).
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 21:22:38 
+    
+    
+    ssh: connect to host atm23satstretchkde port 22: Connection timed out
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 21:23:26 
+    
+    
+    ssh: connect to host atm23satstretchkde port 22: Connection refused
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (waitForTrigger): 
+ 19-03-25 21:23:28 
+    
+    
+    
+    
+    Debian GNU/Linux 9 \n \l
+    
+    
+    
+    
+
+[GOOD] 19-03-25 21:23:31 := |{Debian|Ubuntu|Mint}
+
+=====  19-03-25 21:23:31 Anmeldemanager erkennen =====
+[GOOD] (Anmeldemanager gefunden (Schlüsselwort)) 19-03-25 21:23:39 := |{Anmelden|Log In|password|Log_n|Nichlaufgefuhr|Nocli5ced?|Login|Password}
+
+=====  19-03-25 21:23:39 Client in Installationsliste suchen =====
+[GOOD] 19-03-25 21:23:45 := $I18N_preselected_packages
+
+=====  19-03-25 21:23:45 Paket suchen =====
+[WARN] (Die Suche nach mc lieferte kein Ergebnis) 19-03-25 21:23:55 := $I18N_packageSearchReturnedNoResultUpdatePackageSearchIndex
+
+=====  19-03-25 21:23:55 Paket zum Installieren markieren =====
+[GOOD] (Paket zum Installieren vorgemerkt) 19-03-25 21:24:01 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-25 21:24:01 Paket installieren =====
+[GOOD] (Installationsauftrag vermerkt) 19-03-25 21:24:06 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 21:24:06 Warten auf Abschluß der Installation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 21:24:10 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 21:24:16 
+    
+    
+    
+    
+    1
+    
+    
+    
+
+[GOOD] (Paket ist installiert (dpkg --get-selections)) 19-03-25 21:24:16 := 1
+
+=====  19-03-25 21:24:16 Client in Installationsliste suchen =====
+[GOOD] 19-03-25 21:24:22 := $I18N_deinstall_packages
+
+=====  19-03-25 21:24:22 mc-data in der Liste der installierten Pakete suchen =====
+[GOOD] (mc-data gefunden) 19-03-25 21:24:26 := mc-data
+
+=====  19-03-25 21:24:26 mc-data nochmals nach 2 Minuten Pause suchen (warten auf Übertragung des Paketstatus) =====
+
+=====  19-03-25 21:24:28 Paket zum Deinstallieren markieren =====
+[GOOD] (Paket zum Deinstallieren vorgemerkt) 19-03-25 21:24:31 := $I18N_preselected / $I18N_preselected
+
+=====  19-03-25 21:24:31 Paket deinstallieren =====
+[GOOD] (Deinstallationsauftrag vermerkt) 19-03-25 21:24:35 := $I18N_additional_jobs_from_package_selection_were_added
+
+=====  19-03-25 21:24:35 Warten auf Abschluß der Deinstallation =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 21:24:40 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (Paket ist deinstalliert (dpkg --get-selections)) 19-03-25 21:24:40 := 0
+
+=====  19-03-25 21:24:40 LDAP-Benutzer auf Client suchen =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 21:24:45 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (LDAP-Benutzer gefunden) 19-03-25 21:24:45 := 0
+
+=====  19-03-25 21:24:45 Überprüfen, ob LDAP-Benutzer kein lokaler Benutzer ist =====
+TRIGGER_SSH_COMMANDOUTPUT (checkTriggerResult) 19-03-25 21:24:49 
+    
+    
+    
+    
+    0
+    
+    
+    
+
+[GOOD] (LDAP-Benutzer ist kein lokaler Benutzer) 19-03-25 21:24:49 := 0
+
+=====  19-03-25 21:24:49 VM stoppen =====
+[GOOD] 19-03-25 21:24:54 := 1
