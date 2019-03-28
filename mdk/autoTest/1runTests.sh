@@ -57,4 +57,11 @@ AT_debug=1 AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168
 
 
 
+UCS 4.3
+=======
 
+AT_debug=1 ./autoTest.php 1m23server-auf-UCS-installieren.m23test 'UCS 4.3 - Lokales Testrepo' 192.168.1.143
+
+AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.143/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23sATstretchKDE stretch Debian8KdeFull
+
+AT_M23_SSH_PASSWORD='test' TEST_M23_BASE_URL='https://god:m23@192.168.1.143/m23admin' ./autoTest.php 1m23client-distro-install.m23test aTm23TessaCinnamon 'LinuxMint 19.1 Tessa' Mint19Cinnamon
