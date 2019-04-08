@@ -1131,8 +1131,10 @@ rm -r /tmp/m23-install 2> /dev/null
 
 # Make sure the www-data user has a normal login (needed for sudo, e.g. package index creation)
 usermod -s /bin/bash www-data
+
+rpw="$(cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=64 count=1 2> /dev/null)"
 # Set a random password
-usermod -p $(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64};echo;) www-data
+usermod -p $rpw www-data
 
 #Make sure that there is no user test
 userdel -r -f test 2> /dev/null

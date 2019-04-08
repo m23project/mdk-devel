@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /mdk/client+server/compiled
+
+find -printf "%h/%f#%l\n" -xtype f | grep 'busybox' | sort | cut -d'#' -f1 > /tmp/bb.l
+tar cvzf /mdk/m23helper/tarBusyBox-compiled+symlinks.tar.gz -T /tmp/bb.l

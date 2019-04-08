@@ -153,7 +153,7 @@ fi
 
 
 #check if there is an m23-LDAP entry
-if test ! -f /m23/data+scripts/m23admin/phpldapadmin/config.php || test `grep m23-LDAP /m23/data+scripts/m23admin/phpldapadmin/config.php -c` -eq 0
+if test ! -f /m23/data+scripts/m23admin/phpldapadmin/config/config.php || test `grep m23-LDAP /m23/data+scripts/m23admin/phpldapadmin/config/config.php -c` -eq 0
 then
 #if not => add it
 #IPINT=`cat /etc/network/interfaces | tr -d "\t" | tr -s " " | sed 's/^[ ]*//g' | grep ^address | cut -d ' ' -f2 | head -1 | sed 's#/.*##'`
@@ -174,14 +174,14 @@ fi
 
 
 
-#fix code for exchanging \' with ' in /m23/data+scripts/m23admin/phpldapadmin/config.php
-if test `grep "\\\'" /m23/data+scripts/m23admin/phpldapadmin/config.php -c` -gt 0
+#fix code for exchanging \' with ' in /m23/data+scripts/m23admin/phpldapadmin/config/config.php
+if [ `grep "\\\'" /m23/data+scripts/m23admin/phpldapadmin/config/config.php -c` -gt 0 ]
 then
-	userGroup=`find /m23/data+scripts/m23admin/phpldapadmin/config.php -printf 'chown %u.%g /m23/data+scripts/m23admin/phpldapadmin/config.php'`
-	perm=`find /m23/data+scripts/m23admin/phpldapadmin/config.php -printf 'chmod %m /m23/data+scripts/m23admin/phpldapadmin/config.php'`
+	userGroup=`find /m23/data+scripts/m23admin/phpldapadmin/config/config.php -printf 'chown %u.%g /m23/data+scripts/m23admin/phpldapadmin/config/config.php'`
+	perm=`find /m23/data+scripts/m23admin/phpldapadmin/config/config.php -printf 'chmod %m /m23/data+scripts/m23admin/phpldapadmin/config/config.php'`
 
-	sed "s/\\\'/\'/g" /m23/data+scripts/m23admin/phpldapadmin/config.php > /tmp/ldapconf.php
-	mv /tmp/ldapconf.php /m23/data+scripts/m23admin/phpldapadmin/config.php
+	sed "s/\\\'/\'/g" /m23/data+scripts/m23admin/phpldapadmin/config/config.php > /tmp/ldapconf.php
+	mv /tmp/ldapconf.php /m23/data+scripts/m23admin/phpldapadmin/config/config.php
 
 	$userGroup
 	$perm

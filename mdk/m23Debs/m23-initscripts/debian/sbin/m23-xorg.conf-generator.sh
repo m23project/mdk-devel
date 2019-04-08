@@ -138,6 +138,7 @@ xorgThereSoStop()
 		touch /etc/sysconfig/vbox /etc/sysconfig2/vbox
 		echo ">>>>Adding /tmp/reboot" >> /var/log/m23-xorg.conf-generator.log
 		echo "yes" > /tmp/reboot
+		checkNoXorgConfNeeded
 		exit 0
 	fi
 }

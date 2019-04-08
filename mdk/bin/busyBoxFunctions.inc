@@ -252,6 +252,22 @@ backupbusyBoxConfig()
 
 
 
+
+# dpkg --print-architecture
+# dpkg --print-foreign-architectures
+# dpkg --add-architecture i386
+# dpkg --print-foreign-architectures
+# apt-get update
+# apt-get install -y lib32ncurses5 lib32z1 gcc-multilib g++-multilib
+# 
+# 
+# cd ~/Downloads/BusyBox-OnX64forX86-GCC/busybox-1.21.0
+# 
+# make distclean
+# make ARCH=i386 CC="gcc -m32" defconfig
+# make ARCH=i386 CC="gcc -m32"
+
+
 #compiles BusyBox for the selected architecture and copies the binary and links to the compiled directory
 compileBusyBox()
 {
@@ -264,15 +280,34 @@ compileBusyBox()
 
 	make clean
 	rm -r _install
+	
+# dpkg --add-architecture i386
+# apt-get update
+# apt-get -y build-dep -a i386 busybox
+# apt-get install -y libc6-dev:i386 libgcc-6-dev:i386 gcc-multilib g++-multilib
+# CC="gcc -m32" CXX="g++ -m32" LDFLAGS="-L /usr/lib/gcc/i686-linux-gnu/6 -m elf_i386" make CROSS_COMPILE=x86_32-unknown-linux-gnu- ARCH=i386
+# CC="gcc -m32" CXX="g++ -m32" CFLAGS="-O2 -march=i686" CXXFLAGS="-O2 -march=i686"
 
-	if test `getBuildArch` == "x86_64"
+	if [ "$(uname -m)" == "$(getBuildArch)" ]
 	then
-		checkForx86_64Toolchain
-		make CROSS_COMPILE=x86_64-unknown-linux-gnu- ARCH=x86_64
-		make CROSS_COMPILE=x86_64-unknown-linux-gnu- ARCH=x86_64 install
-	else
+		make distclean
 		make
 		make install
+	else
+		checkForCrossGCC
+		
+		if [ "x86_64" == "$(getBuildArch)" ]
+		then
+			cARCH="amd64"
+			cCC="gcc -m64"
+		else
+			cARCH="i386"
+			cCC="gcc -m32"
+		fi
+
+		make distclean
+		make ARCH="$cARCH" CC="$cCC" defconfig
+		make ARCH="$cARCH" CC="$cCC"
 	fi
 
 	#create the directory for storing the BusyBox binary and links

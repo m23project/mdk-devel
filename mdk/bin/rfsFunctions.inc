@@ -344,10 +344,10 @@ createRFSBins()
 	#This is needed for authentification in dropbear.
 	createRFScopyLib libnss_compat.so.2
 
-	if [ `getBuildArch` == "x86_64" ]
-	then
-		createRFScopyLib ld-linux-x86-64.so.2
-	fi
+# 	if [ `getBuildArch` == "x86_64" ]			# 2019-04-18
+# 	then
+# 		createRFScopyLib ld-linux-x86-64.so.2
+# 	fi
 
 	#Needed for lspci (but seems not to be detected on amd64)
 	createRFScopyLib libresolv.so.2
@@ -356,7 +356,7 @@ createRFSBins()
 	createRFScopyLib libicudata.so.48
 
 	createRFScopyLib libdbus-1.so.3
-	createRFScopyLib libhal.so.1
+#	createRFScopyLib libhal.so.1				# 2019-04-18
 	createRFScopyLib libudev.so.0
 	createRFScopyLib libtinfo.so.5
 	createRFScopyLib libtasn1.so.3

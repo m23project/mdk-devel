@@ -256,6 +256,14 @@ In HTTP2SeleniumBridge.py sind zusätzlich folgende Kommandos implementiert, die
 
 
 
+Testparcours mit autoTestScriptGenerator.php erstellen
+======================================================
+
+Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian amd64 oder i386, UCS, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Mit der jeweiligen Plattform werden eine Reihe von m23-Clients mit den unterstützten Distributionen und jeweils zwei zufällig ausgewählten Desktops installiert. Nach der Clientinstallation werden weitere Tests durchgenommen.
+
+
+
+
 \pagebreak
 
 autoTest.php-Kommandozeile und XML-Definition

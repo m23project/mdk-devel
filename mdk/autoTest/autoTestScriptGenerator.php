@@ -101,7 +101,10 @@ class CATSG
 		
 			foreach (SRCLST_getDesktopList($sourceName) as $desktop)
 			{
+			
 				if (('Textmode' == $desktop) || ('X' == $desktop) || ('' == $desktop)) continue;
+
+// 				print("desktop: $desktop\n");
 
 				$this->clients[$i]['desktops'][$d++] = $desktop;
 			}
@@ -152,7 +155,7 @@ class CATSG
 
 		// Use all replacement rules
 		foreach ($fromToA as $from => $to)
-			$in = str_ireplace($from, $to, $in);
+			$in = str_replace($from, $to, $in);
 
 		// Optionally remove all digits
 		if ($removeDigits)
@@ -246,25 +249,18 @@ class CATSG
 **parameter exit: If set to true, the BASH script will exit when a failure exit is emitted.
 **returns BASH filename.
 **/
-	private function log($bash, $serverName, $exit = false)
+	private function log($bash, $serverName, $heading, $exit = false)
 	{
-		if ($exit)
-			$exit = 'exit $ret';
-		else
-			$exit = '';
+// 		print("#1$bash#2\n");
+		
+		$heading = "\n\n### $heading\n";
 	
-		return($bash.'
-			ret=$?
-
-			echo -n "'.$bash.' => " >> '.$this->getLogFile($serverName).'
-
-			if [ $ret -ne 0 ]
-			then
-				echo FAIL
-				'.$exit.'
-			else
-				echo OK
-			fi
+		if ($exit)
+			$exit = 'exit $ret; ';
+		else
+			$exit = ' ';
+	
+		return("$heading$bash\n".'ret=$?; date +"%Y_%m_%d-%H_%M" >> '.$this->getLogFile($serverName).'; echo -n "'.$bash.' => " >> '.$this->getLogFile($serverName).';if [ $ret -ne 0 ]; then echo FAIL >> '.$this->getLogFile($serverName).';'.$exit.'else echo OK >> '.$this->getLogFile($serverName).'; fi
 			');
 	}
 
@@ -285,7 +281,7 @@ class CATSG
 			echo("$bashFile\n");
 
 			// Header of the BASH file
-			$allBash = "#!/bin/bash\n";
+			$allBash = "#!/bin/bash\nLC_ALL=C\n";
 
 			// BASH code for restoring or ISO-installing the m23 server
 			switch($server['scr'])
@@ -296,7 +292,7 @@ class CATSG
 				default:
 					$bash = "./autoTest.php $server[scr] '$server[name]' $server[ip] ";
 			}
-			$allBash .= $this->log($bash, $server['name'], true);
+			$allBash .= $this->log($bash, $server['name'], $server['name'], true);
 
 			// Run thru the sources lists and clients desktops
 			foreach ($this->clients as $client)
@@ -305,9 +301,9 @@ class CATSG
 				{
 					$vmName = $this->getVMName($server['name'], $client['name'], $desktop);
 
-					$bash = "AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin' ./autoTest.php $client[scr] $vmName $client[name] $desktop";
+					$bash = "AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin' ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
 
-					$allBash .= $this->log($bash, $server['name']);
+					$allBash .= $this->log($bash, $server['name'], $vmName);
 				}
 			}
 

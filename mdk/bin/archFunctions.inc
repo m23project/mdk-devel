@@ -93,6 +93,53 @@ localArchAptSource()
 
 
 
+# Not used, but stays for documentary purpose
+crossCompileLandley()
+{
+	ccArch="i686"
+	ccName="cross-compiler-$ccArch"
+	ccTar="$ccName.tar.gz"
+	ccDir="/usr/$ccName"
+	binDir="$ccDir/bin"
+	ccPrefix="$binDir/$ccArch-"
+	tmpTar="/tmp/$ccTar"
+	URL="http://landley.net/aboriginal/downloads/binaries/$ccTar"
+
+	if [ ! -d "$ccDir" ]
+	then
+		wget -T 10 -c "$URL" -O "$tmpTar"
+		cd /usr
+		tar xfvz "$tmpTar"
+	fi
+
+	make CROSS_COMPILE="$ccPrefix" defconfig
+	make CROSS_COMPILE="$ccPrefix"
+}
+
+
+
+
+
+# Checks, if DPKG extra architecture and packages for cross compiling (i386 <=> amd64) are installed
+checkForCrossGCC()
+{
+	if [ $(dpkg --print-architecture) == "amd64" ]
+	then
+		foreignArch='i386'
+	else
+		foreignArch='amd64'
+	fi
+
+	dpkg --add-architecture $foreignArch
+
+	apt-get update
+	apt-get install -y lib32ncurses5 lib32z1 gcc-multilib g++-multilib
+}
+
+
+
+
+
 #checks if the toolchain for cross compiling to x86_64 is installed
 checkForx86_64Toolchain()
 {
