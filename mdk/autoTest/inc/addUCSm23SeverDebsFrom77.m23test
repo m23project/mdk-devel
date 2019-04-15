@@ -1,6 +1,8 @@
 		<test timeout="600" description="Paketquellen eintragen und aktualisieren">
 			<trigger type="true"></trigger>
 			<action type="ssh_command" password="test">
+				while [ $(ps -A | grep apt -c -i) -gt 0 ]; do sleep 5; echo Waiting for exit of foreign APT run; done
+				
 				export DEBIAN_FRONTEND=noninteractive
 				export LC_ALL=C
 
