@@ -135,8 +135,16 @@ createRFScopyLib()
 		
 #		echo "ööörealFile: $realFile"
 
+		# Filter out 32 or 64 bit libs depending on the build architecture
+		if [ `getBuildArch` == "x86_64" ]
+		then
+			foundLib="$(find $extractedDebsDir -name $realFile -xtype f | grep lib | grep -v lib32 | sort | tail -1)"
+		else
+			foundLib="$(find $extractedDebsDir -name $realFile -xtype f | grep lib | grep -v x86_64 | sort | tail -1)"
+		fi
+
 		#copy the real library to the bootimage lib dir
-		cp -v -u `find $extractedDebsDir -name $realFile -xtype f | grep lib | sort | tail -1` lib
+		cp -v -u $foundLib lib
 
 		#create a symlink from the requested library name to the real library (like it was in the extracted debs dir)
 		cd lib
@@ -211,7 +219,7 @@ createRFSBins()
 	#not needed?: grub grub-install grub-md5-crypt
 
 	#halt: Now in BusyBox
-	for bin in wget ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar  MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo gptsync mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs kmod sgdisk haveged #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount
+	for bin in wget ar bzip2 cryptsetup dhclient dialog dmidecode dmraid dropbear dropbearkey e2fsck find hdparm install-mbr losetup lspci mdadm mke2fs mkfs mkfs.minix mkfs.msdos mkfs.vfat mkreiserfs mkswap mtools nano parted partimage partprobe pivot_root scanlogd setterm testdisk ddcxinfo-knoppix hwsetup cfdisk tar  MAKEDEV getty ping md5sum discover discover-modprobe discover-pkginstall discover-config badblocks sfdisk tset hwinfo rsync mkntfs ntfscat ntfsclone ntfscluster ntfscmp ntfscp ntfsfix ntfsinfo ntfslabel ntfsls ntfsresize ntfsundelete ntfs-3g ntfs-3g.probe mount bash mkfifo mountpoint gawk modinfo blockdev scp partclone.btrfs partclone.extfs partclone.fat partclone.dd partclone.ntfs partclone.ntfsfixboot partclone.reiser4 partclone.restore resize_reiserfs resize2fs xfs_growfs kmod sgdisk haveged #lvchange lvconvert lvcreate lvdisplay lvextend lvm lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit #lvmiopversion #mount.ntfs-3g ms-sys ntfsmount gptsync
 	do
 		foundBins=$[ $(find $extractedDebsDir -name $bin -xtype f | grep bin -c) + $(find $extractedDebsDir -name $bin -type l | grep bin -c) ]
 
@@ -344,10 +352,29 @@ createRFSBins()
 	#This is needed for authentification in dropbear.
 	createRFScopyLib libnss_compat.so.2
 
-# 	if [ `getBuildArch` == "x86_64" ]			# 2019-04-18
-# 	then
-# 		createRFScopyLib ld-linux-x86-64.so.2
-# 	fi
+	if [ `getBuildArch` == "x86_64" ]
+	then
+		createRFScopyLib ld-linux-x86-64.so.2
+	fi
+
+
+	if [ `getBuildArch` == "x86" ]
+	then
+		createRFScopyLib libicuuc.so.52				# wget i386
+	fi
+
+
+	# 2019-04-11 begin
+	createRFScopyLib libaudit.so.1
+	createRFScopyLib libaudit.so.1.0.0
+	createRFScopyLib libgcrypt.so.20
+	createRFScopyLib libgcrypt.so.20.1.6
+	createRFScopyLib libgpg-error.so.0.21.0
+	createRFScopyLib libgpg-error.so.0
+	createRFScopyLib libcap-ng.so.0
+	createRFScopyLib libcap-ng.so.0.0.0
+	# 2019-04-11 begin
+
 
 	#Needed for lspci (but seems not to be detected on amd64)
 	createRFScopyLib libresolv.so.2
@@ -357,7 +384,7 @@ createRFSBins()
 
 	createRFScopyLib libdbus-1.so.3
 #	createRFScopyLib libhal.so.1				# 2019-04-18
-	createRFScopyLib libudev.so.0
+#	createRFScopyLib libudev.so.0				# 2019-04-18
 	createRFScopyLib libtinfo.so.5
 	createRFScopyLib libtasn1.so.3
 	createRFScopyLib libncurses.so.5
@@ -368,26 +395,28 @@ createRFSBins()
 	createRFScopyLib libx86emu.so.1				# for hwinfo
 # 	createRFScopyLib libpcre.so.3
 # 	createRFScopyLib libisccfg-export.so.90
-#	createRFScopyLib libicuuc.so.52				# wget i386; removed by FABR
+	
 	createRFScopyLib libtasn1.so.6				# wget amd64 Debian 9
 	createRFScopyLib libhogweed.so.4			# wget amd64 Debian 9
 	createRFScopyLib libidn2.so.0				# wget amd64 Debian 9
 	createRFScopyLib libunistring.so.0			# wget amd64 Debian 9
 	createRFScopyLib libffi.so.6				# wget amd64 Debian 9
 
+# Disabled usage of allLibs.txt
+
 	# Store all libraries used for the bootimage, if it's the same as the CPU architecture of the m23 server
-	if [ `getBuildArch` == `uname -m` ]
-	then
-		sort -u /tmp/mdk-createRFSAllLibs.txt | grep -v ':' > /mdk/client+server/allLibs.txt
-	else
-		if [ -f /mdk/client+server/allLibs.txt ]
-		then
-			for lib in `cat /mdk/client+server/allLibs.txt`
-			do
-				createRFScopyLib $lib
-			done
-		fi
-	fi
+# 	if [ `getBuildArch` == `uname -m` ]
+# 	then
+# 		sort -u /tmp/mdk-createRFSAllLibs.txt | grep -v ':' > /mdk/client+server/allLibs.txt
+# 	else
+# 		if [ -f /mdk/client+server/allLibs.txt ]
+# 		then
+# 			for lib in `cat /mdk/client+server/allLibs.txt`
+# 			do
+# 				createRFScopyLib $lib
+# 			done
+# 		fi
+# 	fi
 	
 	
 	echo "done"
@@ -721,17 +750,13 @@ echo "deb http://ftp.de.debian.org/debian/ stretch main non-free contrib
 deb http://security.debian.org/ stretch/updates main contrib non-free
 deb http://ftp.de.debian.org/debian/ jessie main non-free contrib
 deb http://security.debian.org/ jessie/updates main contrib non-free
-deb http://ftp.de.debian.org/debian/ wheezy main non-free contrib
-deb http://security.debian.org/ wheezy/updates main contrib non-free
 deb http://dodger-tools.sourceforge.net/debs ./"> ./sources.list
 
 localArchAptUpdate
 
-localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g ntfsprogs bash mktemp gptsync initscripts gawk dmsetup libudev0 openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk haveged libhal1-flash
+localArchAptDownload lvm2 binutils bzip2 grub busybox cryptsetup isc-dhcp-client dialog dmidecode dmraid dropbear e2fsprogs findutils mdadm hdparm sysvinit mbr mount pciutils makedev util-linux dosfstools reiserfsprogs lilo mtools nano coreutils partimage scanlogd snarf tar wget libblkid1 libc6 libbz2-1.0 libuuid1 libselinux1 libsepol1 libpopt0 libpci3 libdebian-installer4 e2fslibs libgcc1 libncurses5 libgcc1 makedev testdisk iputils-ping dmtools parted p7zip discover lsb-base ncurses-bin discover-data hwinfo libdbus-1-3 rsync ntfs-3g  bash mktemp  initscripts gawk dmsetup openssh-client firmware-linux-nonfree kmod partclone xfsprogs jfsutils gdisk haveged libhal1-flash
 
-# module-init-tools
-
-# libpcre3 libisccfg-export90 libtasn1-6 libhogweed2
+# ntfsprogs gptsync libudev0
 
 #hwdata-knoppix ddcxinfo-knoppix hwsetup m23hwscanner  #directly extracted from the MDK deb directory
 # Not in Wheezy: ms-sys libntfs-3g31 

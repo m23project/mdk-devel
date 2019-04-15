@@ -1192,11 +1192,12 @@ startBaseInstallation()
 	configureNetwork
 	configureMySQLmycnf
 	setRootPwd
-	
-	ldappw=`pwgen -s 23 1`
 
+# Use existing LDAP database
+#	ldappw=`pwgen -s 23 1`
+#m23-ldap m23-ldap/LDAPpass string $ldappw
 	echo "
-m23-ldap m23-ldap/LDAPpass string $ldappw
+
 m23-ldap m23-ldap/LDAPhint note
 m23 m23/configDHCP boolean true
 m23 m23/configMySQL boolean true
@@ -1235,21 +1236,26 @@ m23-tftp m23-tftp/configureTFTP boolean true
 	#create the needed spool dirs for Squid
 	squid -z
 
+# Use existing LDAP database
+
 	#starting with an empty LDAP database
-	rm -rf /var/lib/ldap
+# 	rm -rf /var/lib/ldap
+# 
+# 	rm /tmp/debconf-setting 2> /dev/null
+# 	echo "
+# slapd slapd/internal/adminpw  password $ldappw
+# slapd slapd/password1 password $ldappw
+# slapd slapd/password2 password $ldappw
+# m23-ldap m23-ldap/LDAPpass string $ldappw
+# " > /tmp/debconf-setting
+# 
+# 	debconf-set-selections /tmp/debconf-setting
+# 
+# 
+# 	dpkg-reconfigure slapd
+# 	dpkg-reconfigure m23-ldap
 
-	rm /tmp/debconf-setting 2> /dev/null
-	echo "
-slapd slapd/internal/adminpw  password $ldappw
-slapd slapd/password1 password $ldappw
-slapd slapd/password2 password $ldappw
-m23-ldap m23-ldap/LDAPpass string $ldappw
-" > /tmp/debconf-setting
 
-	debconf-set-selections /tmp/debconf-setting
-	
-	dpkg-reconfigure slapd
-	dpkg-reconfigure m23-ldap
 	#dpkg-reconfigure m23
 
 	#Updates locales

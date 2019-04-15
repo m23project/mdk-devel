@@ -21,7 +21,7 @@ update-rc.d -f restoreBTServer defaults
 
 
 #Remove bad SSH keys
-if [ -f /tmp/badSSH/root.pub ]
+if [ -f /tmp/badSSH/root.pub ] && [ -f /root/.ssh/authorized_keys ]
 then
 	cat /tmp/badSSH/root.pub | while read badSSHKey
 	do
@@ -38,7 +38,7 @@ fi
 
 
 
-if [ -f /tmp/badSSH/backuppc.pub ]
+if [ -f /tmp/badSSH/backuppc.pub ] && [ -f /m23/data+scripts/packages/baseSys/authorized_keys ]
 then
 	cat /tmp/badSSH/backuppc.pub | while read badSSHKey
 	do
@@ -333,7 +333,7 @@ fi
 
 
 db_get m23/configureSSH
-if [ "$RET" = "true" ] || [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ]
+if [ "$RET" = "true" ] || [ ! -f /m23/data+scripts/packages/baseSys/authorized_keys ] || [ $(find /m23/data+scripts/packages/baseSys/authorized_keys -printf "%s") -eq 0 ]
 then
 #	if test -e /root/.ssh/id_dsa.pub
 	if test -e /root/.ssh/id_rsa.pub

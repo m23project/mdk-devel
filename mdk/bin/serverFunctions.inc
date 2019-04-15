@@ -39,7 +39,7 @@ rm -r /var/www/squid-reports/*
 # Use traditional network interface names
 	sed -i 's/\(GRUB_CMDLINE_LINUX_DEFAULT="\)\([^"]*\)"/\1\2 net.ifnames=0"/' /etc/default/grub
 	update-grub
-	sed -i 's/enp[^ ]*/eth0/g' /etc/network/interfaces
+	sed -i 's/enp[^ ]*/eth0/g' /etc/network/interfaces /etc/default/isc-dhcp-server
 
 
 #remove backups

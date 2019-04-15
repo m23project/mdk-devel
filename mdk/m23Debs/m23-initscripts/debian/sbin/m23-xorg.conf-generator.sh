@@ -138,7 +138,6 @@ xorgThereSoStop()
 		touch /etc/sysconfig/vbox /etc/sysconfig2/vbox
 		echo ">>>>Adding /tmp/reboot" >> /var/log/m23-xorg.conf-generator.log
 		echo "yes" > /tmp/reboot
-		checkNoXorgConfNeeded
 		exit 0
 	fi
 }
@@ -504,6 +503,13 @@ then
 	grep -v force-confnew /etc/dpkg/dpkg.cfg > /tmp/dpkg.cfg
 	cat /tmp/dpkg.cfg > /etc/dpkg/dpkg.cfg
 	rm /tmp/dpkg.cfg
+	
+	checkNoXorgConfNeeded
+	if [ $? -eq 0 ]
+	then
+		touch /etc/sysconfig/disableConfig
+		exit 0
+	fi
 
 	#Disable writing of xorg.conf on LinuxMint 18, because X will report "no screens found"
 	if [ $(grep xenial -c /etc/apt/sources.list) -gt 0 ] && [ $(lsb_release -i -s) = 'LinuxMint' ]
@@ -647,12 +653,23 @@ sed "s/XORGdriver/$XDriver/g" /etc/X11/xorg.conf.beforeSed | sed "s/XKEYBOARD/$X
 
 
 
-#Checks, if Xorg will run well without an xorg.conf
+#Checks, if the installed Xorg version will run well without a xorg.conf
 checkNoXorgConfNeeded()
 {
 	#Check, if Xorg is version 1.11.3 or higher
 	dpkg --compare-versions $(Xorg -version 2>&1 | grep -i server | grep -i 'x.org' | cut -d' ' -f4) ">=" 1.11.3
+	return $?
+}
 
+
+
+
+
+#Removes xorg.conf, if the installed Xorg version will run well without a xorg.conf
+removeNotNeededXorgConf()
+{
+	checkNoXorgConfNeeded
+	
 	#If yes, no xorg.conf is needed
 	if [ $? -eq 0 ]
 	then
@@ -673,7 +690,7 @@ configXOrgVBox
 xorgThereSoStop
 configXOrgVMware
 xorgThereSoStop
-checkNoXorgConfNeeded
+removeNotNeededXorgConf
 configXOrgconfigure
 xorgThereSoStop
 configXOrgDebconf

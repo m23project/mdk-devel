@@ -196,6 +196,16 @@ makeLinks()
 
 
 
+#Shows the native CPU architecture of the distribution
+getCPUDebianArch()
+{
+	dpkg-architecture -q DEB_BUILD_ARCH_CPU
+}
+
+
+
+
+
 #shows the current build architecture for m23 kernel, bootimage, rootFS
 getBuildArch()
 {

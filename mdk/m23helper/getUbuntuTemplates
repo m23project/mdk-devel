@@ -1,0 +1,96 @@
+#!/bin/sh
+
+if test $# -lt 1
+then
+	echo "Downloads and extracts the templates of all Debian packages of a release and distribution."
+	echo "usage $0 <release> [arch=i386] [mirror=ftp://ftp.de.debian.org/debian || http://de.archive.ubuntu.com/ubuntu]"
+	exit
+fi
+
+
+tempDir="/tmp/getDebianTemplates$$"
+
+#Try to get the architecture
+if [ $2 ]
+then
+	arch=$2
+else
+	arch="i386"
+fi
+
+#Try to get the mirror
+if [ $3 ]
+then
+	mirror=$3
+else
+	mirror="http://de.archive.ubuntu.com/ubuntu"
+fi
+
+
+release=$1
+templateDir="`pwd`/templates-$release-$arch"
+
+mkdir -p $tempDir $templateDir
+
+
+
+
+
+#Get the list of all packages for a release and store in getDebianTemplates.filelist
+getFileList()
+{
+	rm getDebianTemplates.filelist 2> /dev/null
+	for branch in main multiverse restricted universe
+	do
+		wget $mirror/dists/$release/$branch/binary-$arch/Packages.gz -O "$tempDir/Packages.gz"
+		gunzip -d -c "$tempDir/Packages.gz" | grep Filename | cut -d' ' -f2 >> getDebianTemplates.filelist
+	done
+}
+
+
+
+
+
+#Download and extract the templates of all Debian packages listed in getDebianTemplates.filelist
+getTemplates()
+{
+	for package in `cat getDebianTemplates.filelist`
+	do
+		rm "$tempDir/*" 2> /dev/null
+		name=`basename $package .deb`
+		templateFile="$templateDir/$name.templates"
+
+		if [ ! -e $templateFile ]
+		then
+			echo ">>> $name"
+
+			wget -q "$mirror/$package" -O "$tempDir/cur.deb"
+			ar x "$tempDir/cur.deb"
+			tar -xz -C$tempDir -f control.tar.gz
+			if [ -e "$tempDir/templates" ]
+			then
+				mv "$tempDir/templates" $templateFile
+			else
+				touch $templateFile
+			fi
+			rm control.tar.gz data.tar.* debian-binary
+		fi
+	done
+}
+
+
+
+
+
+#Removes all template files that are empty
+cleanZeroFiles()
+{
+	cd $templateDir
+	find -size 0 | xargs rm
+}
+
+getFileList
+getTemplates
+cleanZeroFiles
+
+rm -r $tempDir

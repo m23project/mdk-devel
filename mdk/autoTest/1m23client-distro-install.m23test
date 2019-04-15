@@ -81,12 +81,18 @@
 			<trigger type="wait">10</trigger>
 			<good type="sel_sourcecontains">$I18N_install_distribution</good>
 		</test>
-		<test timeout="600" description="Installation starten">
+		<test timeout="60" description="Installation starten">
 			<trigger type="sel_sourcecontains">$I18N_install_distribution</trigger>
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<action type="sel_clickButton" name="BUT_install"></action>
+			<action type="sel_clickButton" name="BUT_install"></action>
+			<warn type="sel_sourcenotcontains" description="BUT_install nicht gefunden" setVar="INT_installNotStarted=1">mc-$I18N_additional_jobs_from_package_selection_were_added</warn>
+			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
+		</test>
+		<test timeout="180" description="BUT_install nochmals nach einer Minute anklicken" runIf="INT_installNotStarted==1">
+			<trigger type="wait">60</trigger>
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>

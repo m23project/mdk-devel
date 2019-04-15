@@ -27,9 +27,9 @@
 		</test>
 		<test timeout="600" description="Warten auf Abschluß der Installation">
 			<trigger type="true"></trigger>
-			<good type="ssh_commandoutput" description="Paket ist installiert (dpkg --get-selections)" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d %22[:blank:]%22 | sed %22s/install$//g%22 |  grep %22^mc$%22 -c">1</good>
+			<good type="ssh_commandoutput" description="Paket ist installiert (dpkg --get-selections)" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g' | grep '^mc$' -c">2</good>
 		</test>
-		<test timeout="180" description="Client in Installationsliste suchen">
+		<test timeout="180" description="Client in Deinstallationsliste suchen">
 			<trigger type="true"></trigger>
  			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=deinstall</action>
 			<action type="sel_clickMatchingURL">client=${VM_NAME}°action=deinstall</action>
@@ -41,6 +41,12 @@
 			<action type="sel_clickButton" name="BUT_search"></action>
 			<good type="sel_sourcecontains" description="mc-data gefunden">mc-data</good>
 			<warn type="sel_sourcenotcontains" description="mc-data nicht gefunden" setVar="INT_mcNotFound=1">mc-data</warn>
+		</test>
+		<test timeout="180" description="Client nochmals nach 2 Minuten Pause in Deinstallationsliste suchen (warten auf Übertragung des Paketstatus)" runIf="INT_mcNotFound==1">
+			<trigger type="wait">120</trigger>
+ 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=clientsoverview%26action=deinstall</action>
+			<action type="sel_clickMatchingURL">client=${VM_NAME}°action=deinstall</action>
+			<good type="sel_sourcecontains">$I18N_deinstall_packages</good>
 		</test>
 		<test timeout="180" description="mc-data nochmals nach 2 Minuten Pause suchen (warten auf Übertragung des Paketstatus)" runIf="INT_mcNotFound==1">
 			<trigger type="wait">120</trigger>
@@ -62,5 +68,5 @@
 		</test>
 		<test timeout="600" description="Warten auf Abschluß der Deinstallation">
 			<trigger type="true"></trigger>
-			<good type="ssh_commandoutput" description="Paket ist deinstalliert (dpkg --get-selections)" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d %22[:blank:]%22 | sed %22s/install$//g%22 |  grep %22^mc$%22 -c">0</good>
+			<good type="ssh_commandoutput" description="Paket ist deinstalliert (dpkg --get-selections)" cmd="dpkg --get-selections | grep -v deinstall$ | tr -d '[:blank:]' | sed 's/install$//g' | grep '^mc$' -c">0</good>
 		</test>
