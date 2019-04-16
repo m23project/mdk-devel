@@ -139,8 +139,20 @@ createRFScopyLib()
 		if [ `getBuildArch` == "x86_64" ]
 		then
 			foundLib="$(find $extractedDebsDir -name $realFile -xtype f | grep lib | grep -v lib32 | sort | tail -1)"
+			
+			if [ $(file "$foundLib" | grep 'ELF 64-bit' -c) -eq 0 ]
+			then
+				echo "ERROR: $foundLib isn't a 64-bit shared object!"
+				read lala
+			fi
 		else
 			foundLib="$(find $extractedDebsDir -name $realFile -xtype f | grep lib | grep -v x86_64 | sort | tail -1)"
+
+			if [ $(file "$foundLib" | grep 'ELF 32-bit' -c) -eq 0 ]
+			then
+				echo "ERROR: $foundLib isn't a 32-bit shared object!"
+				read lala
+			fi
 		fi
 
 		#copy the real library to the bootimage lib dir
