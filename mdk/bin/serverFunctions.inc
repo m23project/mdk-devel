@@ -74,7 +74,27 @@ rm -r /var/www/squid-reports/*
 
 
 
-#creates a tar.bz2 image of the currently installed m23 server
+
+
+# Creates a tar.7z image of the currently installed (non m23) system
+nonM23CreateOSImage()
+{
+	apt-get update
+	apt-get -y upgrade
+	apt-get -y install p7zip parted dialog
+	export ISOBuildDir=/tmp
+
+	createOSImage
+
+	echo "Copy to the m23 server (call this on the m23 server):"
+	echo "scp root@$(hostname -i):$(ls $ISOBuildDir/*.tar.7z) /mdk/server/iso"
+}
+
+
+
+
+
+#creates a tar.7z image of the currently installed m23 server
 createOSImage()
 {
 . /tmp/menuVars

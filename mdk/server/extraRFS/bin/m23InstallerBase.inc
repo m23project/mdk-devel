@@ -94,7 +94,7 @@ auto eth$ethnr\
 
 iface eth$ethnr inet static\
 
-    address $ip \
+    address $ip\
 
     netmask $submask\
 
@@ -1025,6 +1025,51 @@ installDebs()
 
 
 
+fixSourcesList()
+{
+	# Remove any additional lists
+	rm /etc/apt/sources.list.d/*.list 2> /dev/null
+
+	#Remove m23debs (test sources)
+	grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
+	cat /tmp/sources.list > /etc/apt/sources.list
+
+	#Remove old SF web repository
+	grep -v "m23.sourceforge.net/m23inst" /etc/apt/sources.list > /tmp/sources.list
+
+	#Add the URL for server update if missing
+	if [ `grep "http://m23inst.goos-habermann.de" /tmp/sources.list | grep ^deb -c` -eq 0 ]
+	then
+		echo "deb http://m23inst.goos-habermann.de ./" >> /tmp/sources.list
+	fi
+	cat /tmp/sources.list > /etc/apt/sources.list
+}
+
+
+copyDebs()
+{
+	fixSourcesList
+
+	mkdir -p /mnt/cdrom
+	mountInstMedium
+
+	mkdir -p /m23debs
+	cp -v /mnt/cdrom/pool/* /m23debs
+	cp -v /mnt/cdrom/afterRebootSetup.sh /usr/sbin
+	chmod +x /usr/sbin/afterRebootSetup.sh
+	
+	echo "deb file:/m23debs ./" >> /etc/apt/sources.list.d/localm23debs.list
+
+	rm /m23/data+scripts/packages/baseSys/authorized_keys
+
+	#Make sure GPG will be configured and there are no keys stored
+	rm /home/grdmgpg/.gnupg/*
+
+	umount /mnt/cdrom
+}
+
+
+
 
 
 extractPools()
@@ -1227,14 +1272,15 @@ m23-tftp m23-tftp/configureTFTP boolean true
 	fi
 	export DEBIAN_FRONTEND=noninteractive
 
-	installDebs
+#	installDebs			2019-04-17
+	copyDebs
 
 	extractPools
 	correctPoolIPs
 
-	/m23/bin/fix-permissions
+#	/m23/bin/fix-permissions			2019-04-17
 	#create the needed spool dirs for Squid
-	squid -z
+#	squid -z			2019-04-17
 
 # Use existing LDAP database
 
@@ -1324,7 +1370,7 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 	dpkg-reconfigure keyboard-configuration
 
 	#force creating a new certificate
-	/m23/bin/mkCert.sh
+#	/m23/bin/mkCert.sh			2019-04-17
 
 	#Remove possibly existing APT proxy
 	grep -v "Acquire::http::Proxy" /etc/apt/apt.conf > /tmp/apt.conf
@@ -1333,9 +1379,9 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 
 	addExtModulesToInitramfsConf
 
-	updateSystem
+#	updateSystem				2019-04-17
 
 	umount /mnt/cdrom
-	setSystemdInitMySQL
+#	setSystemdInitMySQL			2019-04-17
 	installGrub
 }

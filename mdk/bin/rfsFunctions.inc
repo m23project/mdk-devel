@@ -370,10 +370,10 @@ createRFSBins()
 	fi
 
 
-	if [ `getBuildArch` == "x86" ]
-	then
-		createRFScopyLib libicuuc.so.52				# wget i386
-	fi
+# 	if [ `getBuildArch` == "x86" ]			2019-04-17
+# 	then
+# 		createRFScopyLib libicuuc.so.52				# wget i386
+# 	fi
 
 
 	# 2019-04-11 begin

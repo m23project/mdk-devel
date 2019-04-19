@@ -65,21 +65,21 @@ updateDB()
 	dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
 	#create database m23
-	mysql $dbParams -e "CREATE DATABASE m23"
+	mysql $dbParams -e "CREATE DATABASE m23" 2>> /m23/log/m23PostinstSQL.log
 	#create database m23captured
-	mysql $dbParams -e "CREATE DATABASE m23captured"
+	mysql $dbParams -e "CREATE DATABASE m23captured" 2>> /m23/log/m23PostinstSQL.log
 
 	if [ -d /tmp/m23-install ]
 	then
 		# Add the entries of the main database
-		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql -f $dbParams m23
+		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql -f $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 		# Add the entries of the m23captured database
-		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql -f $dbParams m23captured
+		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql -f $dbParams m23captured 2>> /m23/log/m23PostinstSQL.log
 	fi
 
 	#Make sure the i18n table is always empty
-	mysql $dbParams m23 -e "delete from i18n"
-	mysql $dbParams m23captured -e "delete from i18n"
+	mysql $dbParams m23 -e "delete from i18n" 2>> /m23/log/m23PostinstSQL.log
+	mysql $dbParams m23captured -e "delete from i18n" 2>> /m23/log/m23PostinstSQL.log
 }
 
 
@@ -101,7 +101,7 @@ updateSQLIfOlder()
 	then
 		dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-		echo "$sql" | mysql $dbParams m23
+		echo "$sql" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 	fi
 }
 
@@ -249,18 +249,18 @@ then
 
 	updateDB
 
-	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 
-	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 
 	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
-	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql $dbParams m23
+	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 
 	#Make the groupname unique
-	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql $dbParams m23
+	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 
 	#Make sure that a default group exists
-	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql $dbParams m23
+	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 fi
 
 
@@ -954,6 +954,7 @@ if [ -n "$oldversionint" ] && [ $oldversionint -lt 057100154 ]
 then
 php -r "
 	include(\"/m23/inc/db.php\");
+	include(\"/m23/inc/checks.php\");
 	include(\"/m23/inc/client.php\");
 	include(\"/m23/inc/capture.php\");
 
@@ -961,14 +962,14 @@ php -r "
 
 	\$results = CLIENT_query(\"\",\"\",\"\",\"\");
 
-	while(\$data = mysql_fetch_array(\$results))
+	while(\$data = mysqli_fetch_array(\$results))
 	{
-		\$opt=CLIENT_getAllOptions(\$data[client]);
+		\$opt=CLIENT_getAllOptions(\$data['client']);
 
-		if (!isset(\$opt[arch]))
+		if (!isset(\$opt['arch']))
 		{
-			\$opt[arch]=\"i386\";
-			CLIENT_setAllOptions(\$data[client],\$opt);
+			\$opt['arch']=\"i386\";
+			CLIENT_setAllOptions(\$data['client'],\$opt);
 		}
 	}
 "
@@ -976,15 +977,15 @@ fi
 
 dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql $dbParams m23" > /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" > /m23serverinst.log
 ps -A >> /m23serverinst.log
 
 echo 'ergkompl' >> /m23serverinst.log
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 >> /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log >> /m23serverinst.log
 echo 'erge' >> /m23serverinst.log
 
 #Add the server to the list of clients if it's missing
-localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 | tail -1`
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log | tail -1`
 
 echo "erge2: $localhostCount" >> /m23serverinst.log
 
@@ -997,11 +998,11 @@ then
 	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
 	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
 
-	echo "DELETE FROM clients WHERE client='localhost' | mysql $dbParams m23" >> /m23serverinst.log
-	echo "DELETE FROM clients WHERE client='localhost'" | mysql $dbParams m23
+	echo "DELETE FROM clients WHERE client='localhost' | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" >> /m23serverinst.log
+	echo "DELETE FROM clients WHERE client='localhost'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql $dbParams m23" >> /m23serverinst.log	
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql $dbParams m23
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" >> /m23serverinst.log	
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
 fi
 
 #Increased the size of the fields "cpu" and "MHz" in the table "clients".
@@ -1208,7 +1209,10 @@ done
 
 mkdir -p /m23/m23customPatch
 cd /m23/m23customPatch
-ls | xargs -n1 /m23/bin/m23customPatch.php
+if [ $(ls | wc -l) -gt 0 ]
+then
+	ls | xargs -n1 /m23/bin/m23customPatch.php
+fi
 
 chmod 777 -R /m23/tmp
 
