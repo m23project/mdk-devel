@@ -55,8 +55,8 @@ isover=`cat $ISOBuildDir/ISO.info`
 
 bootCDOption=`bootCDOption 2>/dev/null` || bootCDOption=/tmp/bootCDOption$$
 dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 Server ISO builder" \
-	--menu "Build architecture: `getBuildArch`" 14 75 7 \
-	"kernel" "download and make kernel" \
+	--menu "Build architecture: x86 (immutable)
+See ../clientISO to compile BusyBox + Linux and download the RFS" 14 75 7 \
 	"osimage" "Make server OS image ($imagever)"\
 	"transfer" "=> Transfer the osimage to 192.168.1.77"\
 	"iso" "build new ISO image ($isover)"\

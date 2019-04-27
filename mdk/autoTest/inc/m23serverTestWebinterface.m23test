@@ -1,6 +1,7 @@
 		<test timeout="180" description="Weboberfläche testen (IP)" runIf="VM_IP!=NULL">
 			<trigger type="true"></trigger>
 			<action type="sel_open">https://god:m23@${VM_IP}/m23admin/index.php</action>
+			<bad type="sel_sourcecontains" description="Datenbank ausgefallen">Could not connect to database server</bad>
 			<good type="sel_sourcecontains" description="m23-Weboberflächenstartseite verfügbar">Welcome to m23</good>
 		</test>
 		<test timeout="180" description="Weboberfläche testen (TEST_M23_BASE_URL)" runIf="VM_IP==NULL">

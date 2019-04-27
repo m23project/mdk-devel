@@ -3,16 +3,20 @@ m23 deb package builder
 
 == m23 extra packages ==
 
-Knoppix: Rebuild the needed Knoppix Debian packages as static compiled
-versions to make it install under woody.
+Knoppix: Rebuild the Knoppix Debian packages as static compiled versions.
 
 m23extra: Build all m23 extra packages that are needed for special jobs.
 
-packages: Generate an index of the build Debian packages that is needed, if
-you want to upload the packages and make them available for installation with
-apt.
+upload: Uploads the Debian packages to the repository server.
 
-upload: Uploads the Debian packages and Packages* to SourceForge.
+squidcl: Removes the package index files (Packages*) from the local Squid
+
+emptysquid: Removes ALL files from the local Squid
+
+Hint
+----
+Removing files from Squid may be needed sometimes, if outdated version of
+files are still delivered by Squid.
 
 == m23 server installation packages ==
 
@@ -20,6 +24,11 @@ build: All files corresponding to a packages are checked for changes. If
 there are new, delected or changed files the Debian package will be recreated.
 This ensures that the newest file releases are includes in the packages.
 
-uplinst: Uploads the packages to SF.
+directuplinst: Uploads the STABLE packages to the repository server.
 
-directuplinst: Uploads the packages to SF without my internal server.
+uploadtesting: Uploads the TESTING packages to the repository server.
+
+Hint
+----
+The upload options will not work for you as they are meant for the maintainer
+only.

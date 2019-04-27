@@ -695,8 +695,9 @@ Führt unter CAutoTest::executePHPFunction aufgelistete Funktionen aus.
 #### true
 Wird sofort ausgelöst.
 
+### Trigger/Action
 
 #### wait
-Löst erst nach einer gewissen Zeit aus ausgelöst.
+Löst erst nach einer gewissen Zeit aus.
 
 * Parameter: Zeit in Sekunden, die bis zum Auslösen gewartet werden soll.

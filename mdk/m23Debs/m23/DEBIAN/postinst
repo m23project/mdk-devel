@@ -3,6 +3,8 @@
 # Source debconf library.
 . /usr/share/debconf/confmodule
 
+mkdir -p /m23/tmp /m23/log
+
 # Returns 0, if run on UCS
 UCS_detect()
 {
@@ -65,21 +67,21 @@ updateDB()
 	dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
 	#create database m23
-	mysql $dbParams -e "CREATE DATABASE m23" 2>> /m23/log/m23PostinstSQL.log
+	mysql $dbParams -e "CREATE DATABASE m23"
 	#create database m23captured
-	mysql $dbParams -e "CREATE DATABASE m23captured" 2>> /m23/log/m23PostinstSQL.log
+	mysql $dbParams -e "CREATE DATABASE m23captured"
 
 	if [ -d /tmp/m23-install ]
 	then
 		# Add the entries of the main database
-		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql -f $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+		bunzip2 -d -c /tmp/m23-install/m23.sql.bz2 | mysql -f $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 		# Add the entries of the m23captured database
-		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql -f $dbParams m23captured 2>> /m23/log/m23PostinstSQL.log
+		bunzip2 -d -c /tmp/m23-install/m23captured.sql.bz2 | mysql -f $dbParams m23captured 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	fi
 
 	#Make sure the i18n table is always empty
-	mysql $dbParams m23 -e "delete from i18n" 2>> /m23/log/m23PostinstSQL.log
-	mysql $dbParams m23captured -e "delete from i18n" 2>> /m23/log/m23PostinstSQL.log
+	mysql $dbParams m23 -e "delete from i18n" 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
+	mysql $dbParams m23captured -e "delete from i18n" 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 }
 
 
@@ -101,7 +103,7 @@ updateSQLIfOlder()
 	then
 		dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-		echo "$sql" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+		echo "$sql" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	fi
 }
 
@@ -116,7 +118,7 @@ for daemon in dhcp dhcp3-server isc-dhcp-server
 do
 	if [ -e "/etc/init.d/$daemon" ]
 	then
-		/etc/init.d/$daemon restart
+		/etc/init.d/$daemon restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	fi
 done
 }
@@ -249,18 +251,18 @@ then
 
 	updateDB
 
-	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo  "GRANT SELECT , INSERT , UPDATE , DELETE , FILE, TRIGGER ON * . * TO 'm23dbuser'@'localhost' IDENTIFIED BY 'm23secret' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
-	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "GRANT SELECT , INSERT , UPDATE , DELETE , CREATE , DROP , FILE , INDEX , ALTER , CREATE TEMPORARY TABLES , LOCK TABLES , TRIGGER ON * . * TO 'm23dbroot'@'localhost' IDENTIFIED BY 'm23secretroot' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 ;" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	#Delete all unused "defaut" groups (every configuration adds a new instance of the default group => if they don't get deleted there will be lots of unused default groups where no client is in. Only the first occurrance of the default group should have clients in it.)
-	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "DELETE FROM groups WHERE id NOT IN (SELECT id FROM (SELECT groups.id FROM clientgroups, groups WHERE clientgroups.groupid = groups.id) as temp)" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	#Make the groupname unique
-	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "ALTER TABLE groups ADD UNIQUE (groupname); ALTER TABLE groups DROP INDEX groupname" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	#Make sure that a default group exists
-	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "INSERT INTO groups (id , groupname) VALUES ('1', 'default')" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 
@@ -756,7 +758,9 @@ echo "	<VirtualHost *:443>
 	. /usr/share/wwwconfig-common/apache-php.sh
 
 	# Disable systemd redirecting /tmp of PHP processes to separte directories
-	sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /lib/systemd/system/apache*
+	cp -a /lib/systemd/system/apache* /etc/systemd/system/
+	sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /etc/systemd/system/apache*
+	#sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /lib/systemd/system/apache*
 	systemctl daemon-reload
 
 	/etc/init.d/apache$apacheV restart
@@ -977,15 +981,15 @@ fi
 
 dbParams=$(/m23/bin/serverInfoMySQLAccessParams)
 
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" > /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT' | mysql $dbParams m23" > /m23serverinst.log
 ps -A >> /m23serverinst.log
 
 echo 'ergkompl' >> /m23serverinst.log
-echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log >> /m23serverinst.log
+echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 >> /m23serverinst.log 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 echo 'erge' >> /m23serverinst.log
 
 #Add the server to the list of clients if it's missing
-localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log | tail -1`
+localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND ip='$IPINT'" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log | tail -1`
 
 echo "erge2: $localhostCount" >> /m23serverinst.log
 
@@ -998,11 +1002,11 @@ then
 	cpu=`grep name /proc/cpuinfo | cut -d':' -f2`
 	mhz=`grep MHz /proc/cpuinfo | cut -d':' -f2 | cut -d' ' -f2`
 
-	echo "DELETE FROM clients WHERE client='localhost' | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" >> /m23serverinst.log
-	echo "DELETE FROM clients WHERE client='localhost'" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "DELETE FROM clients WHERE client='localhost' | mysql $dbParams m23" >> /m23serverinst.log
+	echo "DELETE FROM clients WHERE client='localhost'" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log" >> /m23serverinst.log	
-	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql $dbParams m23 2>> /m23/log/m23PostinstSQL.log
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz') | mysql $dbParams m23" >> /m23serverinst.log	
+	echo "INSERT INTO clients (client,ip,installdate,lastmodify,status,cpu,MHz) VALUES ('localhost','$IPINT','$ts','$ts','2','$cpu','$mhz')" | mysql $dbParams m23 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 #Increased the size of the fields "cpu" and "MHz" in the table "clients".

@@ -26,10 +26,12 @@
 			<action type="sel_typeInto" name="ED_rootpassword">testtest</action>
 			<action type="sel_typeInto" name="ED_mac">${SEL_VM_MAC}</action>
 			<action type="sel_selectFrom" ID="SEL_boottype">pxe</action>
+			<action type="sel_selectFrom" ID="SEL_arch">${AT_CLARCH}</action>
 			<action type="sel_setCheck" name="CB_getSystemtimeByNTP">0</action>
 			<action type="sel_selectRadio" name="SEL_ldaptype">read</action>
 			<action type="sel_clickButton" name="BUT_submit"></action>
 			<good type="sel_sourcecontains">$I18N_client_added</good>
+			<bad type="sel_sourcecontains" description="Datenbank ausgefallen">Could not connect to database server</bad>
 			<bad type="sel_sourcecontains">$I18N_mac_exists</bad>
 			<bad type="sel_sourcecontains">$I18N_client_exists</bad>
 			<bad type="sel_sourcecontains">$I18N_no_mac</bad>
@@ -88,12 +90,14 @@
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<action type="sel_clickButton" name="BUT_install"></action>
 			<action type="sel_clickButton" name="BUT_install"></action>
+			<bad type="sel_sourcecontains">$I18N_errorNoKernelSelected</bad>
 			<warn type="sel_sourcenotcontains" description="BUT_install nicht gefunden" setVar="INT_installNotStarted=1">mc-$I18N_additional_jobs_from_package_selection_were_added</warn>
 			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
 		<test timeout="180" description="BUT_install nochmals nach einer Minute anklicken" runIf="INT_installNotStarted==1">
 			<trigger type="wait">60</trigger>
 			<action type="sel_clickButton" name="BUT_install"></action>
+			<bad type="sel_sourcecontains">$I18N_errorNoKernelSelected</bad>
 			<good type="sel_sourcecontains">$I18N_additional_jobs_from_package_selection_were_added</good>
 		</test>
 		<include>inc/detectLoginManager.m23test</include>

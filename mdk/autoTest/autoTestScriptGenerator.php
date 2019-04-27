@@ -22,6 +22,7 @@ dbConnect();
 define('SV_UCS_SCR', '1m23server-auf-UCS-installieren.m23test');
 define('SV_DEB_SCR', '1m23server-auf-debian-installieren.m23test');
 define('SV_ISO_SCR', '1m23server-iso-install.m23test');
+define('SV_NONE_SCR', false);
 define('CL_DISTR_INST_SCR', '1m23client-distro-install.m23test');
 
 define('M23SERVER_SSH_PASSWORD', 'test');
@@ -32,7 +33,8 @@ class CATSG
 {
 	private $servers = array(),
 			$clients = array(),
-			$desktopPickAmount = 2;
+			$desktopPickAmount = 2,
+			$clientArch = 'amd64';
 
 
 
@@ -70,6 +72,11 @@ class CATSG
 		$this->servers[$i]['ip'] = '192.168.1.24';
 		$this->servers[$i]['iso'] = '/crypto/iso/m23server_19.1_rock-devel.iso';
 		$this->servers[$i++]['scr'] = SV_ISO_SCR;
+
+		// local m23 server
+		$this->servers[$i]['name'] = 'local';
+		$this->servers[$i]['ip'] = false;
+		$this->servers[$i++]['scr'] = SV_NONE_SCR;
 	}
 
 
@@ -187,7 +194,7 @@ class CATSG
 		$sourceName = $this->simplifyNames($sourceName, false);
 		$desktop = $this->simplifyNames($desktop, true);
 	
-		return("aT$server$sourceName$desktop");
+		return("aT$server-$sourceName-$desktop-".$this->clientArch);
 	}
 
 
@@ -269,6 +276,39 @@ class CATSG
 
 
 /**
+**name CATSG::toggleClientArch()
+**description Toggles the client's architecture from amd64 to i386 and reverse.
+**/
+	private function toggleClientArch()
+	{
+		if ($this->clientArch == 'amd64')
+			$this->clientArch = 'i386';
+		else
+			$this->clientArch = 'amd64';
+	}
+
+
+
+
+
+/**
+**name CATSG::getClientArchEnvironmentVariable()
+**description Returnes command line environment variable to create an i386 client or nothing, if the client's architecture should be amd64.
+**returns Command line environment variable to create an i386 client or nothing, if the client's architecture should be amd64.
+**/
+	private function getClientArchEnvironmentVariable()
+	{
+		if ($this->clientArch == 'i386')
+			return("AT_CLARCH='i386'");
+		else
+			return('');
+	}
+
+
+
+
+
+/**
 **name CATSG::generate()
 **description Generates BASH scripts (seperated by m23 serverss) to run the tests for different distributions and desktops.
 **/
@@ -279,6 +319,8 @@ class CATSG
 		{
 			$bashFile = $this->getBashFile($server['name']);
 			echo("$bashFile\n");
+			
+			$localm23 = false;
 
 			// Header of the BASH file
 			$allBash = "#!/bin/bash\nLC_ALL=C\n";
@@ -289,10 +331,17 @@ class CATSG
 				case SV_ISO_SCR:
 					$bash = "./autoTest.php $server[scr] '$server[name]' ".M23SERVER_ISO." $server[ip] ";
 					break;
+				case SV_NONE_SCR:
+					$bash = false;
+					$localm23 = true;
+					break;
 				default:
 					$bash = "./autoTest.php $server[scr] '$server[name]' $server[ip] ";
 			}
-			$allBash .= $this->log($bash, $server['name'], $server['name'], true);
+
+			// Skip creation of server VM, if the local m23 server is used
+			if ($bash != false)
+				$allBash .= $this->log($bash, $server['name'], $server['name'], true);
 
 			// Run thru the sources lists and clients desktops
 			foreach ($this->clients as $client)
@@ -301,9 +350,17 @@ class CATSG
 				{
 					$vmName = $this->getVMName($server['name'], $client['name'], $desktop);
 
-					$bash = "AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin' ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
+					// Use credentials if a m23 server should be used that is not located on the local machine
+					if ($localm23)
+						$serverCredentials = $this->getClientArchEnvironmentVariable();
+					else
+						$serverCredentials = $this->getClientArchEnvironmentVariable()." AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin'";
+
+					$bash = "$serverCredentials ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
 
 					$allBash .= $this->log($bash, $server['name'], $vmName);
+
+					$this->toggleClientArch();
 				}
 			}
 
