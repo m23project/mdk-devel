@@ -323,7 +323,7 @@ class CATSG
 			$localm23 = false;
 
 			// Header of the BASH file
-			$allBash = "#!/bin/bash\nLC_ALL=C\n";
+			$allBash = "#!/bin/bash\nLC_ALL=C\n#AT_debug=1\n";
 
 			// BASH code for restoring or ISO-installing the m23 server
 			switch($server['scr'])
