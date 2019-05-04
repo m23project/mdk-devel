@@ -9,14 +9,15 @@ pathLocal=$(echo $dev | sed 's/[0-9]//g')
 #The partition number e.g. 1
 partNr=$(echo $dev | sed 's/[^0-9]//g')
 
-#Check, if there is a partition number or of the whole disk should be saved
+#Check, if there is a partition number or if the whole disk should be saved
 if [ -z $partNr ]
 then
 	#Get the size of the whole device in MB
 	size=$(echo No | parted -m -s "$dev" unit MB print | grep "$dev" | cut -d':' -f2 | sed 's/MB//')
 	#Store it in the dd format
 	echo "$size+0 records out" > /tmp/m23ImagerSize2
-	partclone.dd -F -L /dev/null -c -d -s $dev -o -
+        # FABR: partclone.dd has no option '-c'
+	partclone.dd -F -L /dev/null -d -s $dev -o -
 	exit 0
 fi
 
@@ -24,7 +25,12 @@ fi
 info=$(echo No | parted "$pathLocal" -s unit MB print | tr -s '[:blank:]' | sed 's/ /#/g' | sed 's/^#*//g' | grep ^[0-9] | sed 's/,[0-9]*MB//g' | sed 's/MB//g' | grep "^$partNr#")
 
 #Get the file system
-fs=$(echo "$info" | cut -d'#' -f6)
+# parted (GNU parted) 3.2 : filesystem is in column 5
+# Number  Start     End       Size      File system     Name            Flags
+# 1      4.19MB    508MB     503MB     fat32           P4-508          boot, esp
+#
+#fs=$(echo "$info" | cut -d'#' -f6)
+fs=$(echo "$info" | cut -d'#' -f5)
 
 if [ -z $fs ]
 then
@@ -69,5 +75,6 @@ then
 	exit 0
 fi
 
-partclone.dd -F -L /dev/null -c -d -s $dev -o -
+# FABR: partclone.dd has no option '-c'
+partclone.dd -F -L /dev/null -d -s $dev -o -
 exit 0

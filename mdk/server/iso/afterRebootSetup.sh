@@ -33,6 +33,8 @@ m23-tftp m23-tftp/configureTFTP boolean true
 
 debconf-set-selections /tmp/debconf-setting
 
-#dpkg-reconfigure slapd
+dpkg-reconfigure slapd
 
 apt-get install m23 --allow-unauthenticated -y
+
+sed -i '/afterRebootSetup/d' /etc/rc.local

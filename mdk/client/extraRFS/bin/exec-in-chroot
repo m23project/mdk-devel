@@ -1,0 +1,72 @@
+#!/bin/bash
+# Execute a command on the clients root file system (including efi)
+# Author: FABR
+
+# Process command line
+if [ $# -lt 3 ]; then
+   echo "To few arguments"
+   echo ""
+   echo "Usage:"
+   echo "$0 root_part efi_part command [args]"
+   echo ""
+   echo "Examples:"
+   echo "$0 /dev/sda2 /dev/sda1 cat /etc/lsb-release"
+   echo "$0 /dev/sda2 /dev/sda1 efibootmgr         // check boot order"
+   echo "$0 /dev/sda2 /dev/sda1 efibootmgr -o 0,3  // set boot order"
+   echo "$0 /dev/sda2 /dev/sda1 efibootmgr -n 3    // set next boot, only"
+   exit 1
+fi
+
+root_part=$1; shift
+efi_part=$1; shift
+cmd="$*"
+
+echo "root_part=$root_part"
+echo "efi_part=$efi_part"
+echo "command=$cmd"
+
+#---------
+# Prepare chroot
+
+mkdir -p /chroot
+
+mount $root_part /chroot
+if [ $? -ne 0 ]; then
+   echo "UUPS: unable to mount root partion $root_part"
+   exit 1
+fi
+
+mount $efi_part /chroot/boot/efi
+if [ $? -ne 0 ]; then
+   echo "UUPS: unable to mount efi partion $efi_part"
+   umount /chroot
+   exit 1
+fi
+
+# mount some file systems we need inside the chroot environment
+
+mount -o bind /dev /chroot/dev
+mount -t sysfs none /chroot/sys
+mount -t proc none /chroot/proc
+mount -t devpts none /chroot/dev/pts
+
+# Now, change root and execute the command
+
+cat << EOF | chroot /chroot
+$cmd
+EOF
+
+# cleanup
+sync
+
+for i in dev/pts proc sys dev
+do
+    umount /chroot/$i
+done
+
+umount /chroot/boot/efi
+umount /chroot
+rmdir /chroot
+
+exit 0
+

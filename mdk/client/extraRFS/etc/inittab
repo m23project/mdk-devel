@@ -1,17 +1,18 @@
+# See https://git.busybox.net/busybox/tree/examples/inittab
 ::sysinit:/linuxrc
 
 ::askfirst:-/bin/sh
 tty2::askfirst:-/bin/sh
 tty3::askfirst:-/bin/sh
-tty4::askfirst:-/bin/sh
 
 # /sbin/getty invocations for selected ttys
-tty4::respawn:/sbin/getty 38400 tty5
-tty5::respawn:/sbin/getty 38400 tty6
+#tty4::respawn:/sbin/getty 38400 tty4
+#tty5::respawn:/sbin/getty 38400 tty5
 
-::restart:/sbin/init
+::restart:/bin/init
 
 # Stuff to do before rebooting
-::ctrlaltdel:/sbin/reboot
-::shutdown:/bin/umount -a -r
-::shutdown:/sbin/swapoff -a
+::ctrlaltdel:/bin/reboot
+::shutdown:/bin/umount -r
+::shutdown:/bin/swapoff -a
+

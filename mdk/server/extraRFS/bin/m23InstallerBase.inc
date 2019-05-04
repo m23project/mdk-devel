@@ -667,7 +667,8 @@ mountInstMedium()
 				hdparm -c1 $dev 2> /dev/null
 				break
 			else
-				umount /mnt/cdrom 2> /dev/null
+				umount /mnt/cdrom &>> /eject.log
+				echo "1:$?" >> /eject.log
 			fi
 		done
 		
@@ -884,7 +885,8 @@ installGrub()
 
 	showDialog "$I18N_windowheader" "$I18N_windowheader" msgbox 14 45 "$I18N_installationfinishedtext"
 
-	eject /mnt/cdrom
+	eject /mnt/cdrom &>> /eject.log
+	echo "e1:$?" >> /eject.log
 
 	/sbin/reboot -f 2> /dev/null
 	reboot -f 2> /dev/null
@@ -1020,7 +1022,8 @@ installDebs()
 	fi
 
 	mv /tmp/sources.list /etc/apt
-	umount /mnt/cdrom
+	umount /mnt/cdrom &>> /eject.log
+	echo "2:$?" >> /eject.log
 }
 
 
@@ -1058,6 +1061,13 @@ copyDebs()
 	cp -v /mnt/cdrom/afterRebootSetup.sh /usr/sbin
 	chmod +x /usr/sbin/afterRebootSetup.sh
 	
+	
+	if [ ! -e /etc/rc.local] || [ $( grep afterRebootSetup -c /etc/rc.local) -eq 0 ]
+	then
+		echo /usr/sbin/afterRebootSetup.sh >> /etc/rc.local
+	fi
+	
+	
 	echo "deb file:/m23debs ./" >> /etc/apt/sources.list.d/localm23debs.list
 
 	rm /m23/data+scripts/packages/baseSys/authorized_keys
@@ -1065,7 +1075,9 @@ copyDebs()
 	#Make sure GPG will be configured and there are no keys stored
 	rm /home/grdmgpg/.gnupg/*
 
-	umount /mnt/cdrom
+	umount /mnt/cdrom &>> /eject.log
+	echo "3:$?" >> /eject.log
+	
 }
 
 
@@ -1239,7 +1251,7 @@ startBaseInstallation()
 	setRootPwd
 
 # Use existing LDAP database
-#	ldappw=`pwgen -s 23 1`
+	ldappw=`pwgen -s 23 1`
 #m23-ldap m23-ldap/LDAPpass string $ldappw
 	echo "
 
@@ -1272,15 +1284,15 @@ m23-tftp m23-tftp/configureTFTP boolean true
 	fi
 	export DEBIAN_FRONTEND=noninteractive
 
-#	installDebs			2019-04-17
-	copyDebs
+	installDebs								# install-debs-during-installation mode
+#	copyDebs								# install-debs-after-installation mode
 
 	extractPools
 	correctPoolIPs
 
-#	/m23/bin/fix-permissions			2019-04-17
+	/m23/bin/fix-permissions				# install-debs-during-installation mode
 	#create the needed spool dirs for Squid
-#	squid -z			2019-04-17
+	squid -z								# install-debs-during-installation mode
 
 # Use existing LDAP database
 
@@ -1302,7 +1314,7 @@ m23-tftp m23-tftp/configureTFTP boolean true
 # 	dpkg-reconfigure m23-ldap
 
 
-	#dpkg-reconfigure m23
+	dpkg-reconfigure m23
 
 	#Updates locales
 	echo 'de_DE ISO-8859-1
@@ -1370,7 +1382,7 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 	dpkg-reconfigure keyboard-configuration
 
 	#force creating a new certificate
-#	/m23/bin/mkCert.sh			2019-04-17
+	/m23/bin/mkCert.sh						# install-debs-during-installation mode
 
 	#Remove possibly existing APT proxy
 	grep -v "Acquire::http::Proxy" /etc/apt/apt.conf > /tmp/apt.conf
@@ -1379,9 +1391,10 @@ keyboard-configuration keyboard-configuration/variantcode string' > /tmp/keyboar
 
 	addExtModulesToInitramfsConf
 
-#	updateSystem				2019-04-17
+	updateSystem							# install-debs-during-installation mode
 
-	umount /mnt/cdrom
-#	setSystemdInitMySQL			2019-04-17
+	umount /mnt/cdrom &>> /eject.log
+	echo "4:$?" >> /eject.log
+	setSystemdInitMySQL						# install-debs-during-installation mode
 	installGrub
 }

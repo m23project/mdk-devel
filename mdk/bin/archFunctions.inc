@@ -187,7 +187,11 @@ makeLinks()
  	then
 		for linkDst in $@
 		do
+                        if [ -e $linkDst ]; then
+                                echo "INFO: Destination exists; skipping creation of link $linkDst -> $linkSrc"
+                        else
 			ln -s $linkSrc $linkDst
+                        fi
 		done
 	fi
 }

@@ -499,6 +499,13 @@ case `cat /tmp/kernelMenuSelectionm23` in
 			make menuconfig ARCH=x86_64
 		fi
 		
+		# Give us a chance to see error messages from 'make menuconfig'
+		# E.g. Your display is too small to run Menuconfig!
+		#      It must be at least 19 lines by 80 columns.
+
+		echo "Press a key to continue"
+		read somekey
+		
 		backupKernelConfig
 		menuKernelBuilder
 		exit;;

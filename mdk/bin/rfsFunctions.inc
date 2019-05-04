@@ -447,7 +447,7 @@ createRFSDevs()
 
 	cd $rootFSDir
 	rm -r dev 2> /dev/null
-	mkdir dev
+	mkdir -p dev
 	
 	if [ $? -ne 0 ]
 	then
@@ -555,10 +555,10 @@ createRFSImage()
 			echo "Here we need root access"
 			su -c "cp /tmp/kernelRamDisk.inc > /m23/inc/kernelRamDisk.inc; chown www-data.www-data /m23/inc/kernelRamDisk.inc; chmod 644 /m23/inc/kernelRamDisk.inc"
 		fi
-		rm /tmp/kernelRamDisk.inc
+		rm -f /tmp/kernelRamDisk.inc
 	fi
 
-	rm initrd*
+	rm -f initrd*
 
 	echo -n "Creating empty $ramdiskSize bytes image file..."
 	#create an empty image file for storing the root file system
@@ -711,7 +711,7 @@ createRFSISO()
 	if [ $m23server ]
 	then
 		cat /tmp/isolinux.cfg-createRFSISO.bak > isolinux/isolinux.cfg
-		rm /tmp/isolinux.cfg-createRFSISO.bak
+		rm -f /tmp/isolinux.cfg-createRFSISO.bak
 	fi
 }
 
