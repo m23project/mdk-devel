@@ -33,6 +33,9 @@ WHITE="${ESC}[1;37m"
 
 echo "${BLUE}Starting linuxrc${NORMAL}"
 
+# Suppress kernel and modules messages (except panic) from appearing on the console
+dmesg -n 1
+
 #For UEFI
 mount -o remount,rw /dev/ram0 /
 

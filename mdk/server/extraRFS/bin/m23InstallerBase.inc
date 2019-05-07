@@ -989,6 +989,7 @@ installDebs()
 	#Remove m23debs (test sources)
 	grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list
 	cat /tmp/sources.list > /etc/apt/sources.list
+	rm /etc/apt/sources.list.d/m23debs.list 2> /dev/null
 
 	#Remove old SF web repository
 	grep -v "m23.sourceforge.net/m23inst" /etc/apt/sources.list > /tmp/sources.list

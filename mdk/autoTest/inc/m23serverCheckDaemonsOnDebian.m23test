@@ -6,9 +6,9 @@
 				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
 				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
 			</action>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="Squid ausgefallen">S1S</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="MySQL/MariaDB ausgefallen">M1M</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="OpenLDAP ausgefallen">L1L</bad>
-<!--			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="DHCP-Server ausgefallen">D1D</bad> -->
-			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Komponenten laufen">S0SM0ML0L</good>
+			<bad type="ssh_commandoutput" password="test" sshanswer="S1S" description="Squid ausgefallen">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="M1M" description="MySQL/MariaDB ausgefallen">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="L1L" description="OpenLDAP ausgefallen">cat /tmp/m.status</bad>
+<!--			<bad type="ssh_commandoutput" password="test" sshanswer="D1D" description="DHCP-Server ausgefallen">cat /tmp/m.status</bad> -->
+			<good type="ssh_commandoutput" password="test" sshanswer="S0SM0ML0L" description="m23-Komponenten laufen">cat /tmp/m.status</good>
 		</test>

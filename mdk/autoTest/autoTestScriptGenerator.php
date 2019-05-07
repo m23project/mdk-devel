@@ -29,12 +29,66 @@ define('M23SERVER_SSH_PASSWORD', 'test');
 define('M23SERVER_ISO', '/crypto/iso/m23server_19.1_rock-devel.iso');
 
 
+
+
 class CATSG
 {
 	private $servers = array(),
 			$clients = array(),
 			$desktopPickAmount = 2,
-			$clientArch = 'amd64';
+			$clientArch = 'amd64',
+			$webinterfaceLangArray = array(),
+			$webinterfaceLangActive = 0;
+
+
+
+
+
+
+
+
+/**
+**name CATSG::nextWebinterfaceLang()
+**description Sets the language of the m23 webinterface to the next (or first) available language in the language array.
+**/
+	private function nextWebinterfaceLang()
+	{
+		$this->webinterfaceLangActive ++;
+
+		if (!isset($this->webinterfaceLangArray[$this->webinterfaceLangActive]))
+			$this->webinterfaceLangActive = 0;
+	}
+
+
+
+
+
+/**
+**name CATSG::getEnvironmentWebinterfaceLang()
+**description Returnes command line environment variable to set the language of the m23 webinterface.
+**returns Command line environment to set the language of the m23 webinterface.
+**/
+	private function getEnvironmentWebinterfaceLang()
+	{
+		return("AT_WEBLANG='".$this->webinterfaceLangArray[$this->webinterfaceLangActive]."'");
+	}
+
+
+
+
+
+/**
+**name CATSG::initWebinterfaceLangArray()
+**description Generates an array with information about the languages of the m23 webinterface.
+**returns Array with information about the languages of the m23 webinterface.
+**/
+	private function initLangArray()
+	{
+		$i = 0;
+	
+		foreach (I18N_getAllCachedLanguages(true) as $sl => $ll)
+			$this->webinterfaceLangArray[$i++] = $sl;
+	}
 
 
 
@@ -352,15 +406,16 @@ class CATSG
 
 					// Use credentials if a m23 server should be used that is not located on the local machine
 					if ($localm23)
-						$serverCredentials = $this->getClientArchEnvironmentVariable();
+						$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable();
 					else
-						$serverCredentials = $this->getClientArchEnvironmentVariable()." AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin'";
+						$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable()." AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin'";
 
 					$bash = "$serverCredentials ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
 
 					$allBash .= $this->log($bash, $server['name'], $vmName);
 
 					$this->toggleClientArch();
+					$this->nextWebinterfaceLang();
 				}
 			}
 
@@ -373,6 +428,7 @@ class CATSG
 	
 	public function __construct()
 	{
+		$this->initLangArray();
 		$this->initServerArray();
 		$this->initClientsArray();
 	}

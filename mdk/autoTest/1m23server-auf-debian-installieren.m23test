@@ -44,7 +44,7 @@ debconf-set-selections /tmp/debconf-setting
 DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get install m23 --allow-unauthenticated -y 2>&1 | tee /tmp/update.log; echo $? > /tmp/update.ret
 			</action>
 
-			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/update.ret" description="m23 installiert">0</good>
+			<good type="ssh_commandoutput" password="test" sshanswer="0" description="m23 installiert">cat /tmp/update.ret</good>
 		</test>
 		<include>inc/m23serverTestWebinterface.m23test</include>
 		<include>inc/m23serverCheckDaemonsOnDebian.m23test</include>

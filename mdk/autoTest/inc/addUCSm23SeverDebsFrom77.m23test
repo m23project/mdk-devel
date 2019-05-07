@@ -6,10 +6,10 @@
 				export DEBIAN_FRONTEND=noninteractive
 				export LC_ALL=C
 
-				echo 'deb [trusted=yes] http://m23debs ./' > /etc/apt/sources.list.d/m23debs.list
-				echo 'deb [trusted=yes] http://m23ucs ./' >> /etc/apt/sources.list.d/m23debs.list
-				echo '192.168.1.77 m23debs' >> /etc/hosts
-				echo '192.168.1.77 m23ucs' >> /etc/hosts
+				echo "deb [trusted=yes] http://m23debs ./" > /etc/apt/sources.list.d/m23debs.list
+				echo "deb [trusted=yes] http://m23ucs ./" >> /etc/apt/sources.list.d/m23debs.list
+				echo "192.168.1.77 m23debs" >> /etc/hosts
+				echo "192.168.1.77 m23ucs" >> /etc/hosts
 echo "
 mysql-server-5.5 mysql-server/root_password_again password test
 mysql-server-5.5 mysql-server/root_password password test
@@ -20,9 +20,9 @@ ucr set repository/online/unmaintained="yes"; echo -n "U$?U" >> /tmp/m.status
 apt-get update; echo -n "A$?A" >> /tmp/m.status
 
 			</action>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="debconf-Fehler">A1A</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="Fehler beim Aktivieren von unmaintained">A1A</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="apt-get update Fehler">A1A</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="apt-get lock-Fehler">A100A</bad>
-			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Paketquelle vorbereitet">D0DU0UA0A</good>
+			<bad type="ssh_commandoutput" password="test" sshanswer="D1D" description="debconf-Fehler">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="U1U" description="Fehler beim Aktivieren von unmaintained">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="A1A" description="apt-get update Fehler">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="A100A" description="apt-get lock-Fehler">cat /tmp/m.status</bad>
+			<good type="ssh_commandoutput" password="test" sshanswer="D0DU0UA0A" description="m23-Paketquelle vorbereitet">cat /tmp/m.status</good>
 		</test>

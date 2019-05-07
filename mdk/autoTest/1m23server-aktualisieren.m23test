@@ -20,8 +20,8 @@
 			<trigger type="true"></trigger>
 			<action type="ssh_command" password="test">DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get dist-upgrade -y 2>&1 | tee /tmp/update.log; echo $? > /tmp/update.ret; x=$(grep "^0 upgraded" -c /tmp/update.log); echo -n "X${x}Y" > /tmp/update.combi; cat /tmp/update.ret >> /tmp/update.combi</action>
 
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/update.combi" description="Keine Pakete zu aktualisieren">X1Y</bad>
-			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/update.combi" description="Pakete aktualisiert">Y0</good>
+			<bad type="ssh_commandoutput" password="test" sshanswer="X1Y" description="Keine Pakete zu aktualisieren">cat /tmp/update.combi</bad>
+			<good type="ssh_commandoutput" password="test" sshanswer="Y0" description="Pakete aktualisiert">cat /tmp/update.combi</good>
 		</test>
 	</sequence>
 </testcase>

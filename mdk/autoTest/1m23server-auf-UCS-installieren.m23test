@@ -20,13 +20,13 @@
 export DEBIAN_FRONTEND=noninteractive
 export LC_ALL=C
 apt-get install --yes --force-yes m23-ucs-extra; echo -n "A$?A" > /tmp/m.status
-dpkg --list | grep '^ii' | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
+dpkg --list | grep "^ii" | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
 
 /mdk/ucs/check-UCS-unmaintained
 			</action>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="APT-Fehler">!A0A</bad>
-			<bad type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23-Paket NICHT installiert">!D0D</bad>
-			<good type="ssh_commandoutput" password="test" cmd="cat /tmp/m.status" description="m23 installiert">A0AD0D</good>
+			<bad type="ssh_commandoutput" password="test" sshanswer="!A0A" description="APT-Fehler">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="!D0D" description="m23-Paket NICHT installiert">cat /tmp/m.status</bad>
+			<good type="ssh_commandoutput" password="test" sshanswer="A0AD0D" description="m23 installiert">cat /tmp/m.status</good>
 		</test>
 		<include>inc/m23serverTestWebinterface.m23test</include>
 		<include>inc/m23serverCheckDaemonsOnUCS.m23test</include>

@@ -449,7 +449,7 @@ Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden
 * `$I18N_...`: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.
 * `!`: Bei `good/warn/bad` kann die Bedingung durch ein vorgestelltes "!" umgekehrt werden.\
 	Die folgende Bedingung trifft zu, wenn die Zeichenkette "C0C" NICHT gefunden wurde:
-	`<bad type="ssh_commandoutput" cmd="cat m" description="Ausfall">!C0C</bad>`
+	`<bad type="ssh_commandoutput" answer="!C0C" description="Ausfall">cat m</bad>`
 * `<include>DATEI</include>`: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.
 
 
@@ -614,14 +614,14 @@ Ersetzt den Text eines Eingabefeldes (`<TEXTAREA></TEXTAREA>, <INPUT type="text"
 
 Führt einen Befehl per SSH aus und überprüft, ob in der Ausgabe der gewünschte Text vorhanden ist. Sind autoTest-System (lokale IP) und m23-Server (Konstante: `TEST_M23_IP`) identisch, so wird der SSH-Client direkt vom autoTest-System aus aufgerufen. Ansonsten wird der Befehl mit Umweg über den m23-Server ausgeführt. Ist die Konstante `VM_IP` gesetzt, so wird die darin hinterlegte IP bzw. der Hostname zu Kontaktieren des Zielsystems verwendet. Ansonsten wird verwendet, was in der Konstante `VM_NAME` gespeichert ist.
 
-* Parameter: In der Ausgabe der SSH-Abfrage vorkommender Text.
-* Attribut `cmd`: Kommando, das auf dem Zielsystem ausgeführt werden soll.
+* Parameter: Kommando, das auf dem Zielsystem ausgeführt werden soll.
+* Attribut `sshanswer`: In der Ausgabe der SSH-Abfrage vorkommender Text.
 * Optionales Attribut `password`: SSH-Paßwort, wenn kein SSH-Schlüssel verwendet werden soll.
 * Optionales Attribut `description`: Beschreibung, die ausgegeben und ins Protokoll geschrieben wird, wenn good/warn/bad ausgelöst wird.
 
 ~~~~ {ssh_commandoutput-Parameter .xml .numberLines}
-<good type="ssh_commandoutput" password="a" cmd="cat /tmp/y">0</good>
-<bad type="ssh_commandoutput" password="a" cmd="cat /tmp/x" description="Keine Pakete zu aktualisieren">X1Y</bad>
+<good type="ssh_commandoutput" password="a" sshanswer="0">cat /tmp/y</good>
+<bad type="ssh_commandoutput" password="a" sshanswer="X1Y" description="Keine Pakete zu aktualisieren">cat /tmp/x</bad>
 ~~~~~
 
 
