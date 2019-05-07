@@ -231,7 +231,7 @@ then
 		sed -i 's/utf8mb4/latin1/g' /etc/mysql/mariadb.conf.d/*
 	fi
 
-	/etc/init.d/mysql restart
+	/etc/init.d/mysql restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	# Start MySQL/MariaDB server without init system
 # 	if [ $(ps -A | grep mysql -c) -eq 0 ]
@@ -247,7 +247,7 @@ then
 
 
 	#create database m23
-	. /usr/share/wwwconfig-common/mysql-createdb.sh
+	. /usr/share/wwwconfig-common/mysql-createdb.sh 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	updateDB
 
@@ -541,9 +541,9 @@ fi
 	squidName=$(ls /etc/init.d/ | grep squid | head -1)
 
 	#restarting squid
-	/etc/init.d/$squidName stop
+	/etc/init.d/$squidName stop 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	$squidName -z
-	/etc/init.d/$squidName start
+	/etc/init.d/$squidName start 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 	echo $squidName > /tmp/squidName
 fi
@@ -623,7 +623,7 @@ then
 		sed -i -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
 	done
 
-	/etc/init.d/apache2 restart
+	/etc/init.d/apache2 restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 
@@ -763,7 +763,7 @@ echo "	<VirtualHost *:443>
 	#sed -i 's/PrivateTmp=true/PrivateTmp=false/g' /lib/systemd/system/apache*
 	systemctl daemon-reload
 
-	/etc/init.d/apache$apacheV restart
+	/etc/init.d/apache$apacheV restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	
 	#Create a script that "knows" how to control the Apache 1.x/2.x process.
 	echo "/etc/init.d/apache$apacheV \$1" > /tmp/apachectl
@@ -836,7 +836,7 @@ then
 	chmod u+s /usr/share/backuppc/cgi-bin/index.cgi
 
 	#Restart the Apache 1.x/2.x
-	/tmp/apachectl restart
+	/tmp/apachectl restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 
@@ -993,7 +993,7 @@ localhostCount=`echo "SELECT COUNT(*) FROM clients WHERE client='localhost' AND 
 
 echo "erge2: $localhostCount" >> /m23serverinst.log
 
-if [ $localhostCount -eq 0 ]
+if [ -z $localhostCount ] || [ $localhostCount -eq 0 ]
 then
 	#Add the server to the list of clients as "localhost"
 	ts=`date +%s`
@@ -1185,7 +1185,7 @@ then
 fi
 
 # Needed on Debian 8
-/etc/init.d/mysql restart
+/etc/init.d/mysql restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 
 # Start MySQL/MariaDB server without init system
 # if [ $(ps -A | grep mysql -c) -eq 0 ]
@@ -1204,7 +1204,7 @@ fi
 sRet=1
 while [ -f /tmp/squidName ] && [ $sRet -ne 0 ] && [ ! -e /tmp/oldsys ]
 do
-	/etc/init.d/$(cat /tmp/squidName) restart
+	/etc/init.d/$(cat /tmp/squidName) restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 	sleep 60
 	http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
 	sRet=$?

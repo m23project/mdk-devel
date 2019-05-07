@@ -71,7 +71,7 @@ index   dc                      eq' >> /etc/ldap/slapd.conf
 /etc/init.d/slapd stop
 slapindex
 chown -R openldap:openldap /var/lib/ldap
-/etc/init.d/slapd start
+/etc/init.d/slapd start 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 fi
@@ -105,8 +105,8 @@ $perm
 
 killall -9 slapd
 
-/etc/init.d/slapd start
-/etc/init.d/slapd restart
+/etc/init.d/slapd start 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
+/etc/init.d/slapd restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 
@@ -140,12 +140,12 @@ rm /tmp/ldap.ldif
 
 if [ -f /etc/init.d/apache ]
 then
-	/etc/init.d/apache restart
+	/etc/init.d/apache restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 if [ -f /etc/init.d/apache2 ]
 then
-	/etc/init.d/apache2 restart
+	/etc/init.d/apache2 restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
 

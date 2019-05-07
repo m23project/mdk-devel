@@ -1012,8 +1012,8 @@ installDebs()
 # read lala
 
 	
-	apt-get -y --force-yes install m23-vbox
-	dpkg-reconfigure m23-vbox
+#	apt-get -y --force-yes install m23-vbox
+#	dpkg-reconfigure m23-vbox
 
 
 	#Add the URL for server update if missing
