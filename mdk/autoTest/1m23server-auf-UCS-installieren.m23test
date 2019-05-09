@@ -19,7 +19,19 @@
 			<action type="ssh_command" password="test">
 export DEBIAN_FRONTEND=noninteractive
 export LC_ALL=C
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
 apt-get install --yes --force-yes m23-ucs-extra; echo -n "A$?A" > /tmp/m.status
+
+while [ $(ps -A | grep apt-get -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
 dpkg --list | grep "^ii" | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
 
 /mdk/ucs/check-UCS-unmaintained

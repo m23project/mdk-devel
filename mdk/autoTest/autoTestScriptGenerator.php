@@ -64,13 +64,26 @@ class CATSG
 
 
 /**
+**name CATSG::getWebinterfaceLang()
+**description Gets the language of the m23 webinterface.
+**/
+	private function getWebinterfaceLang()
+	{
+		return($this->webinterfaceLangArray[$this->webinterfaceLangActive]);
+	}
+
+
+
+
+
+/**
 **name CATSG::getEnvironmentWebinterfaceLang()
 **description Returnes command line environment variable to set the language of the m23 webinterface.
 **returns Command line environment to set the language of the m23 webinterface.
 **/
 	private function getEnvironmentWebinterfaceLang()
 	{
-		return("AT_WEBLANG='".$this->webinterfaceLangArray[$this->webinterfaceLangActive]."'");
+		return("AT_WEBLANG='".$this->getWebinterfaceLang()."'");
 	}
 
 
@@ -138,15 +151,18 @@ class CATSG
 
 
 /**
-**name CATSG::initClientsArray()
+**name CATSG::nextClientsArray()
 **description Generates an array with information about client distributions including available desktops.
 **returns Array with information about client distributions including available desktops.
 **/
-	private function initClientsArray()
+	private function nextClientsArray()
 	{
 		$i = 0;
 		
-		foreach (SRCLST_getExportedListNames() as $sourceName)
+		$sourceNamesA = SRCLST_getExportedListNames();
+		shuffle($sourceNamesA);
+		
+		foreach ($sourceNamesA as $sourceName)
 		{
 			// Filter out all halfSister distributions and elementary OS
 			if ((strpos($sourceName, 'imaging') === 0) ||
@@ -212,7 +228,7 @@ class CATSG
 	private function simplifyNames($in, $removeDigits)
 	{
 		// Define replacement rules
-		$fromToA = array('-' => '', ' ' => '', '.' => '', 'Ubuntu' => '', 'Debian' => 'deb', 'LinuxMint' => 'LM', 'Mint' => '', 'atISOm23Server' => 'iso');
+		$fromToA = array('-' => '', ' ' => '', '.' => '', 'Ubuntu' => '', 'Debian' => 'deb', 'LinuxMint' => 'LM', 'Mint' => '', 'atISOm23Server' => 'iso', 'amd64' => 'x64', 'i386' => 'x32');
 
 		// Use all replacement rules
 		foreach ($fromToA as $from => $to)
@@ -248,7 +264,7 @@ class CATSG
 		$sourceName = $this->simplifyNames($sourceName, false);
 		$desktop = $this->simplifyNames($desktop, true);
 	
-		return("aT$server-$sourceName-$desktop-".$this->clientArch);
+		return($this->simplifyNames("aT$server-$sourceName$desktop".$this->clientArch.$this->getWebinterfaceLang(), false));
 	}
 
 
@@ -288,6 +304,21 @@ class CATSG
 
 
 /**
+**name CATSG::getStopFile($serverName)
+**description Get the name of the stop file.
+**parameter serverName: Name of the m23 server.
+**returns Name of the stop file.
+**/
+	private function getStopFile($serverName)
+	{
+		return($this->getFileName($serverName, 'stop'));
+	}
+
+
+
+
+
+/**
 **name CATSG::getBashFile($serverName)
 **description Get the name of the BASH file that contains the full test set for an m23 server.
 **parameter serverName: Name of the m23 server.
@@ -313,8 +344,10 @@ class CATSG
 	private function log($bash, $serverName, $heading, $exit = false)
 	{
 // 		print("#1$bash#2\n");
+
+		$pad = str_repeat('#',strlen("### $heading"));
 		
-		$heading = "\n\n### $heading\n";
+		$heading = "$pad\n### $heading\n$pad\n";
 	
 		if ($exit)
 			$exit = 'exit $ret; ';
@@ -371,6 +404,11 @@ class CATSG
 		// Run thru all m23 server profiles
 		foreach ($this->servers as $server)
 		{
+			$this->nextClientsArray();
+
+			$logFile = $this->getLogFile($server['name']);
+			$stopFile = $this->getStopFile($server['name']);
+
 			$bashFile = $this->getBashFile($server['name']);
 			echo("$bashFile\n");
 			
@@ -412,7 +450,15 @@ class CATSG
 
 					$bash = "$serverCredentials ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
 
-					$allBash .= $this->log($bash, $server['name'], $vmName);
+					$allBash .= "\n\nif [ $(grep '$vmName' '$logFile' | grep -c 'OK$') -eq 0 ]
+then
+".$this->log($bash, $server['name'], $vmName)."
+fi
+if [ -f '$stopFile' ]
+then
+	exit 0
+fi
+\n";
 
 					$this->toggleClientArch();
 					$this->nextWebinterfaceLang();
@@ -430,7 +476,6 @@ class CATSG
 	{
 		$this->initLangArray();
 		$this->initServerArray();
-		$this->initClientsArray();
 	}
 }
 
