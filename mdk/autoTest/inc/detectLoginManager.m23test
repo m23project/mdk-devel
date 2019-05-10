@@ -5,8 +5,7 @@
 		<test timeout="7200" description="Anmeldemanager erkennen">
 			<trigger type="true"></trigger>
 			<action type="key">a</action>
-			<good type="ocr" description="Anmeldemanager gefunden (Schlüsselwort)">|{Anmelden|Log In|password|Log_n|Nichlaufgefuhr|Nocli5ced?|Not listed?|Login|Password|L09In|Other...|Fy user|ubuntu GNOME|Montag|Monday|Dienstag|Tuesday|Mittwoch|Wednesday|Donnerstag|Thursday|Freitag|Friday|Samstag|Saturday|Sonntag|Sunday|Suspendre}</good>
-			<good type="ssh_commandoutput" description="mdmwebkit läuft" password="test" sshanswer="1">ps -A | grep mdmwebkit -c</good>
-			<good type="ssh_commandoutput" description="xdm läuft" password="test" sshanswer="0">ps -A | grep xdm -q; echo $?</good>
+			<good type="ocr" description="Anmeldemanager gefunden (Schlüsselwort)">|{Anmelden|Log In|password|Log_n|Nichlaufgefuhr|Nocli5ced?|Not listed?|Login|Password|L09In|Other...|Fy user|ubuntu GNOME|Montag|Monday|Dienstag|Tuesday|Mittwoch|Wednesday|Donnerstag|Thursday|Freitag|Friday|Samstag|Saturday|Sonntag|Sunday|Suspendre|Se connecter}</good>
+			<good type="ssh_commandoutput" description="Xorg läuft" password="test" sshanswer="1">ps -A | grep -i xorg -c</good>
 			<good type="ocr" description="Anmeldemanager gefunden (VM_NAME)">${VM_NAME}</good>
 		</test>
