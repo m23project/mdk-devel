@@ -1,4 +1,4 @@
-% m23 autoTest
+% m23-autoTest
 % Hauke Goos-Habermann
 
 
@@ -10,11 +10,22 @@
 Einleitung
 ==========
 
-*m23 autoTest* wurde entwickelt, um m23-Funktionen (Client anlegen, partitionieren und formatieren, Distribution mit Desktop installieren, ...) durch *Fernsteuerung* der m23-Weboberfläche automatisch zu testen. Zum Testen der clientseitigen Funktionen werden virtuelle Maschinen dynamisch angelegt. Desweiteren kann die Installation des m23-Servers von einem ISO in VirtualBox automatisiert durchgeführt werden, indem autoTest Bildschirmausgaben per OCR erkennt und Tastendrücke emuliert.
+*m23-autoTest* wurde entwickelt, um m23-Funktionen automatisch in vielen Kombinationen aus m23-Client- und m23-Server-Konfigurationen massenhaft zu testen.
+
+Mit *m23-autoTest* konnten erstmals m23-Server auf verschiedenen Plattformen (Debian 9 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO) mit m23-Clients aller unterstützten Clientdistributionen systematisch untersucht werden. So konnten auch Fehler gefunden werden, die nur sporadisch auftreten.
+
+m23-autoTest simuliert hierbei das Verhalten eines menschlichen Administrators durch *Fernsteuerung* ([Selenium](https://de.wikipedia.org/wiki/Selenium "Selenium")) der m23-Weboberfläche. So geschieht z.B. das Anlegen von m23-Clients, das Partitionieren und Formatieren oder das Installieren von Distributionen mit grafischen Oberflächen über das automatische Ausfüllen der Formulare in den dazugehörigen Dialogen.
+
+Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
+
+Alle Test werden - für eine schnelle Durchführung und Wiederholbarkeit - in virtuellen Maschinen vorgenommen. Über diverse *Meßpunkte* (z.B. Meldungen auf dem Bildschirm der VM, die durch Texterkennung identifiziert werden, Nachrichten in der m23-Oberfläche oder Rückgabewerte von in der VM ausgeführten Kommandos) wird laufend der *Installationstatus überprüft und bewertet*. Diese ermöglichen es m23-autoTest, auf Ereignisse z.B. mit simulierten Tastendrücken oder Aktionen in der m23-Weboberfläche zu reagieren. Im Falle von kritischen Fehlern (z.B. nichtlaufende Serverdienste) kann m23-autoTest den Testlauf auch ganz abbrechen. Für die *anschließende Analyse* wird der Bildschirm der VM in einer *Videodatei* aufgezeichnet, sowie ein *Installationsprotokoll* geschrieben, welches im Debug-Modus viele zusätzliche Informationen enthält.
 
 Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch für andere Projekte nützlich sein.
 
-Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes `autoTest.php`.
+Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes `autoTest.php` nebst Erläuterung des Datenformates der *XML-Testbeschreibungsdateien*. Diese Testbeschreibungsdateien bündeln alle Aktionen, Kommandos und erwarteten Ergebnisse, die für einen kompletten Testlauf (z.B. Installation eines m23-Debian-Clients mit Mate-Deskop und französischen Spracheinstellungen, anschließender Nachinstallation des Midnight Commanders und Überprüfung eines LDAP-Benutzers) benötigt werden.
+
+
+
 
 ![](autoTest-Schema.png "autoTest-Schema"){ width=75% }
 
@@ -259,8 +270,13 @@ In HTTP2SeleniumBridge.py sind zusätzlich folgende Kommandos implementiert, die
 Testparcours mit autoTestScriptGenerator.php erstellen
 ======================================================
 
-Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian amd64 oder i386, UCS, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Mit der jeweiligen Plattform werden eine Reihe von m23-Clients mit den unterstützten Distributionen und jeweils zwei zufällig ausgewählten Desktops installiert. Nach der Clientinstallation werden weitere Tests durchgenommen.
+Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
 
+## Zusätzliche Eigenschaften der BASH-Skripte
+
+
+* Die so generierten BASH-Skripte erzeugen Logdateien, die bis auf die Dateiendung (`.log` statt `.sh`) wie die BASH-Skripte heißen. 
+* Gibt es im Verzeichnis eines BASH-Skriptes eine Stop-Datei (Dateiendung `.stop`), so wird die aktuell laufende Clientinstallation bis zum Ende ausgeführt, aber keine neue mehr begonnen.
 
 
 

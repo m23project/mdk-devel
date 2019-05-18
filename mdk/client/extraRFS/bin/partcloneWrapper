@@ -29,8 +29,8 @@ info=$(echo No | parted "$pathLocal" -s unit MB print | tr -s '[:blank:]' | sed 
 # Number  Start     End       Size      File system     Name            Flags
 # 1      4.19MB    508MB     503MB     fat32           P4-508          boot, esp
 #
-#fs=$(echo "$info" | cut -d'#' -f6)
-fs=$(echo "$info" | cut -d'#' -f5)
+
+fs=$(echo "$info" | cut -d'#' -f6)
 
 if [ -z $fs ]
 then
