@@ -37,20 +37,21 @@ info=$(echo No | parted "$pathLocal" -s unit MB print | tr -s '[:blank:]' | sed 
 echo "Partition info is $info"
 #Get the file system
 fs=$(echo "$info" | cut -d'#' -f6)
-echo "Filesystem is $fs"
-#Get the start of the file system
-partstart=$(echo "$info" | cut -d'#' -f2)
-echo "Partition starts at $partstart"
-#Get the end of the file system
-partending=$(echo "$info" | cut -d'#' -f3)
-echo "Partition ends at $partending"
 
-if [ -z $fs ]
+if [ -z $fs ] || [ -d /sys/firmware/efi ]
 then
 	fs=$(echo "$info" | cut -d'#' -f5 | awk '/primary|extended|logical/ {print(""); exit 0}
 {print}')
-	echo "Filesystem is not in field 6. It is $fs"
 fi
+
+
+echo "Filesystem is $fs"
+#Get the start of the file system
+partstart=$(echo "$info" | cut -d'#' -f2 | cut -d'.' -f1)
+echo "Partition starts at $partstart"
+#Get the end of the file system
+partending=$(echo "$info" | cut -d'#' -f3 | cut -d'.' -f1)
+echo "Partition ends at $partending"
 
 
 
@@ -63,33 +64,37 @@ echo "Device Mounted: $devMounted"
 #STEP 4 - depending on filesystem and mount status, mount or unmount device, make sure that device is mounted in specified directory
 #make sure ext2, ext3, ext4, reiserfs, ntfs and fat filesystems are unmounted, and everything else (xfs, jfs, (btrfs - does not work)) is mounted
 # and check the filesystem for errors
-if [ $(echo $fs | grep -i -c "ext\|reiser\|ntfs\|fat") -gt 0 ]
+
+if [ $(echo $fs | grep -i -c "ext") -eq 0 ]
 then
-	echo "Filesystem is one out of ext, reiser, ntfs or vfat"
-	if [ $devMounted -gt 0 ]
+	if [ $(echo $fs | grep -i -c "reiser\|ntfs\|fat") -gt 0 ]
 	then
-		umount $dev
-		echo "Device was unmounted"
-	fi
-else 
-	echo "Filesystem is not ext, reiser, ntfs or vfat"
-	if [ $devMounted -gt 0 ]
-	then
-		umount $dev
-		echo "Device was unmounted"
-		echo "Going to check filesystem on $dev"
-		fsck -t $fs -a $dev
-		mkdir /media/tempdir
-		echo "Created tempdir"
-		mount -t $fs $dev /media/tempdir
-		echo "Device was mounted into tempdir"
-	else
-		echo "Going to check filesystem on $dev"
-		fsck -t $fs -a $dev
-		mkdir /media/tempdir
-		echo "Created tempdir"
-		mount -t $fs $dev /media/tempdir
-		echo "Device was mounted into tempdir"
+		echo "Filesystem is one out of ext, reiser, ntfs or vfat"
+		if [ $devMounted -gt 0 ]
+		then
+			umount $dev
+			echo "Device was unmounted"
+		fi
+	else 
+		echo "Filesystem is not ext, reiser, ntfs or vfat"
+		if [ $devMounted -gt 0 ]
+		then
+			umount $dev
+			echo "Device was unmounted"
+			echo "Going to check filesystem on $dev"
+			fsck -t $fs -a $dev
+			mkdir /media/tempdir
+			echo "Created tempdir"
+			mount -t $fs $dev /media/tempdir
+			echo "Device was mounted into tempdir"
+		else
+			echo "Going to check filesystem on $dev"
+			fsck -t $fs -a $dev
+			mkdir /media/tempdir
+			echo "Created tempdir"
+			mount -t $fs $dev /media/tempdir
+			echo "Device was mounted into tempdir"
+		fi
 	fi
 fi
 

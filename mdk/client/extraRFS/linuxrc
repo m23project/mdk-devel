@@ -337,12 +337,12 @@ if [ $(head -5 work.php 2>/dev/null | grep -c '/bin/bash') -eq 0 ]
 then
 	echo ""
 	echo "${RED}FATAL ERROR${NORMAL}"
-	echo "${RED}work.php does not contain expected shebang in line 1${NORMAL}"
+	echo "${RED}work.php does NOT contain expected shebang${NORMAL}"
 	echo ""
 	exit 1
 else
 	echo ""
-	echo "${GREEN}work.php contains expected shebang in line 1${NORMAL}"
+	echo "${GREEN}work.php contains expected shebang${NORMAL}"
         sleep 5
 #	echo "EXIT DEBUG"
 #	exit 0

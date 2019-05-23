@@ -15,9 +15,11 @@ mysql-server-5.5 mysql-server/root_password_again password test
 mysql-server-5.5 mysql-server/root_password password test
 " > /tmp/debconf-setting
 
-debconf-set-selections /tmp/debconf-setting; echo -n "D$?D" > /tmp/m.status
-ucr set repository/online/unmaintained="yes"; echo -n "U$?U" >> /tmp/m.status
-apt-get update; echo -n "A$?A" >> /tmp/m.status
+				debconf-set-selections /tmp/debconf-setting; echo -n "D$?D" > /tmp/m.status
+				while [ $(ps -A | grep apt -c -i) -gt 0 ]; do sleep 5; echo Waiting for exit of foreign APT run; done
+				ucr set repository/online/unmaintained="yes"; echo -n "U$?U" >> /tmp/m.status
+				while [ $(ps -A | grep apt -c -i) -gt 0 ]; do sleep 5; echo Waiting for exit of foreign APT run; done
+				apt-get update; echo -n "A$?A" >> /tmp/m.status
 
 			</action>
 			<bad type="ssh_commandoutput" password="test" sshanswer="D1D" description="debconf-Fehler">cat /tmp/m.status</bad>

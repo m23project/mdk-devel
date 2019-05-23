@@ -32,11 +32,13 @@ info=$(echo No | parted "$pathLocal" -s unit MB print | tr -s '[:blank:]' | sed 
 
 fs=$(echo "$info" | cut -d'#' -f6)
 
-if [ -z $fs ]
+if [ -z $fs ] || [ -d /sys/firmware/efi ]
 then
 	fs=$(echo "$info" | cut -d'#' -f5 | awk '/primary|extended|logical/ {print(""); exit 0}
 {print}')
 fi
+
+
 
 
 #Get the size of the partition in MB
