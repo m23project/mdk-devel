@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_incStatusBarPercentByName</TITLE>
-<META NAME="description" CONTENT="HTML_incStatusBarPercentByName">
+<TITLE>HTML_storableCheckBox</TITLE>
+<META NAME="description" CONTENT="HTML_storableCheckBox">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1837.html">
 <LINK REL="previous" HREF="node1835.html">
-<LINK REL="up" HREF="node1807.html">
+<LINK REL="up" HREF="node1792.html">
 <LINK REL="next" HREF="node1837.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31157"
+<A NAME="tex2html31172"
   HREF="node1837.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31153"
-  HREF="node1807.html">
+<A NAME="tex2html31168"
+  HREF="node1792.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31147"
+<A NAME="tex2html31162"
   HREF="node1835.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31155"
+<A NAME="tex2html31170"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31158"
-  HREF="node1837.html">HTML_setStatusBarPercentPointByName</A>
-<B> Up:</B> <A NAME="tex2html31154"
-  HREF="node1807.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html31148"
-  HREF="node1835.html">HTML_jQueryMenuEnd</A>
- &nbsp; <B>  <A NAME="tex2html31156"
+<B> Next:</B> <A NAME="tex2html31173"
+  HREF="node1837.html">HTML_getElementValue</A>
+<B> Up:</B> <A NAME="tex2html31169"
+  HREF="node1792.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31163"
+  HREF="node1835.html">HTML_storableMultiSelection</A>
+ &nbsp; <B>  <A NAME="tex2html31171"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095729000000000000000">
-HTML_incStatusBarPercentByName</A>
+<H2><A NAME="SECTION0065744000000000000000">
+HTML_storableCheckBox</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Increments the status bar percent by a given amount.
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a check box with label with loading and storing the checking state to and from the session.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>statusBarName: The name of the status bar.
+<LI>htmlName: Name of the HTML element.
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>label: Label of the element.
 </LI>
-<LI>percent: Percent value of the current job.
+<LI>prefKey: Variable name of the preference the dialog element stands for.
+</LI>
+<LI>defaultCheck: Set to true if the check box should be checked if no HTML value is given.
+</LI>
+<LI>storePointer: Additional pointer to the variable where to store the entered value.
+</LI>
+<LI>checkedValue: The value that should be stored into $storePointer if the check box is checked.
+</LI>
+<LI>unCheckedValue: The value that should be stored into $storePointer if the check box is NOT checked.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the check box is checked.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +86,7 @@ HTML_incStatusBarPercentByName</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

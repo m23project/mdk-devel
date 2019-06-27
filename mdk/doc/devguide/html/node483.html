@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createInstallPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createInstallPartition">
+<TITLE>CFDiskGUI::getDiskLayoutEntryFileSystem</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getDiskLayoutEntryFileSystem">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node484.html">
 <LINK REL="previous" HREF="node482.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node484.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13673"
+<A NAME="tex2html13725"
   HREF="node484.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13669"
-  HREF="node464.html">
+<A NAME="tex2html13721"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13663"
+<A NAME="tex2html13715"
   HREF="node482.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13671"
+<A NAME="tex2html13723"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13674"
-  HREF="node484.html">CFDiskBasic::createSwapPartition</A>
-<B> Up:</B> <A NAME="tex2html13670"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13664"
-  HREF="node482.html">CFDiskBasic::deleteAllPartitions</A>
- &nbsp; <B>  <A NAME="tex2html13672"
+<B> Next:</B> <A NAME="tex2html13726"
+  HREF="node484.html">CFDiskGUI::getFileSystemTranslator</A>
+<B> Up:</B> <A NAME="tex2html13722"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13716"
+  HREF="node482.html">CFDiskGUI::getDiskLayoutEntryType</A>
+ &nbsp; <B>  <A NAME="tex2html13724"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091319000000000000000">
-CFDiskBasic::createInstallPartition</A>
+<H2><A NAME="SECTION0061411000000000000000">
+CFDiskGUI::getDiskLayoutEntryFileSystem</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates and formats an installation partition and makes it bootable. The created partition is stored in the client parameters as installation partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the filesystem of a disk layout entry.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>diskDev: The disk device (e.g. /dev/hda) where the installation partition should be created on.
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>instStart: Start position of the installation partition (in MB).
+<LI>layoutNr: Number of the disk layout entry.
 </LI>
-<LI>instEnd: End position of the installation partition (in MB).
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Filesystem of a disk layout entry or dies, if not set.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +76,7 @@ CFDiskBasic::createInstallPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

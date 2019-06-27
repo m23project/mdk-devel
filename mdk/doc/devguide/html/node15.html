@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>clientpackages</TITLE>
-<META NAME="description" CONTENT="clientpackages">
+<TITLE>m23customPatch</TITLE>
+<META NAME="description" CONTENT="m23customPatch">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,92 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node16.html">
-<LINK REL="previous" HREF="node14.html">
-<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="devguide.html">
 <LINK REL="next" HREF="node16.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5194"
+<A NAME="tex2html5178"
   HREF="node16.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5190"
-  HREF="node12.html">
+<A NAME="tex2html5174"
+  HREF="devguide.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5184"
+<A NAME="tex2html5168"
   HREF="node14.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5192"
+<A NAME="tex2html5176"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5195"
-  HREF="node16.html">clientpreferences</A>
-<B> Up:</B> <A NAME="tex2html5191"
-  HREF="node12.html">the tables</A>
-<B> Previous:</B> <A NAME="tex2html5185"
-  HREF="node14.html">clientlogs</A>
- &nbsp; <B>  <A NAME="tex2html5193"
+<B> Next:</B> <A NAME="tex2html5179"
+  HREF="node16.html">Indicating patchable areas in</A>
+<B> Up:</B> <A NAME="tex2html5175"
+  HREF="devguide.html">m23 Development Guide for</A>
+<B> Previous:</B> <A NAME="tex2html5169"
+  HREF="node14.html">example</A>
+ &nbsp; <B>  <A NAME="tex2html5177"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00523000000000000000">
-clientpackages</A>
-</H2>
+<H1><A NAME="SECTION00500000000000000000"></A>
+<A NAME="m23customPatch"></A>
+<BR>
+m23customPatch
+</H1>
+The patch system "m23customPatch" makes it easy to change parts of m23 with user specific code. In the m23 source code are some m23customPatch range markers who define that this portion of code may be deleted or changes by a m23customPatch file.
 
-<UL>
-<LI>clientname: name of the client, the package is installed on
-</LI>
-<LI>package: name of the package
-</LI>
-<LI>version: version of the package
-</LI>
-<LI>status: is status status and can be "install ok installed", "deinstall ok config-files" and every other status, debian packages can have.
-</LI>
-<LI>action: action tells what should be done with the package. Possible actions can be: none, remove and reinstall.
-</LI>
-</UL>
+<P>
+If you need additional patchable areas in m23 feel free to contact me via http://goos-habermann.de or http://m23.sf.net .
+
+<P>
+Here is a short example of the file "/m23/data+scripts/m23admin/head/head.php" where the logo and link are replaced.
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html5180"
+  HREF="node16.html">Indicating patchable areas in the source code</A>
+<UL>
+<LI><A NAME="tex2html5181"
+  HREF="node17.html">Start position of a patchable area</A>
+<LI><A NAME="tex2html5182"
+  HREF="node18.html">End position of a patchable area</A>
+<LI><A NAME="tex2html5183"
+  HREF="node19.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html5184"
+  HREF="node20.html">m23customPatch file format</A>
+<UL>
+<LI><A NAME="tex2html5185"
+  HREF="node21.html">Example (logo.php.m23customPatch)</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html5186"
+  HREF="node22.html">/m23/bin/m23customPatch</A>
+<UL>
+<LI><A NAME="tex2html5187"
+  HREF="node23.html">Return/error codes</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html5188"
+  HREF="node24.html">Applying patches on m23 update</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

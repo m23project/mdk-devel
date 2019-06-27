@@ -20,13 +20,20 @@ dbConnect();
 
 
 define('SV_UCS_SCR', '1m23server-auf-UCS-installieren.m23test');
+define('SV_UCSUnivention_SCR', '1m23server-auf-UCS-mit-UCS-Testrepoinstallieren.m23test');
 define('SV_DEB_SCR', '1m23server-auf-debian-installieren.m23test');
+define('SV_RASP_SCR', '1m23server-auf-raspbian-installieren.m23test');
 define('SV_ISO_SCR', '1m23server-iso-install.m23test');
+define('SV_OVA_FROM_ISO_SCR', '1m23server-OVA_aus_ISO.m23test');
+define('SV_RASPBERRYPI_SD', '1m23server-RaspBerryPi-SD-vorbereiten.m23test');
+
 define('SV_NONE_SCR', false);
 define('CL_DISTR_INST_SCR', '1m23client-distro-install.m23test');
 
 define('M23SERVER_SSH_PASSWORD', 'test');
-define('M23SERVER_ISO', '/crypto/iso/m23server_19.1_rock-devel.iso');
+define('M23SERVER_ISO', '/crypto/iso/m23server_19.1_rock.iso');
+
+define('OVA_EXPORT_DIR', '/crypto/iso/');
 
 
 
@@ -120,11 +127,19 @@ class CATSG
 		$this->servers[$i]['name'] = 'UCS 4.3 - Lokales Testrepo';
 		$this->servers[$i]['ip'] = '192.168.1.143';
 		$this->servers[$i++]['scr'] = SV_UCS_SCR;
-		
+
+		$this->servers[$i]['name'] = 'UCS 4.3 - UCS-Repo';
+		$this->servers[$i]['ip'] = '192.168.1.143';
+		$this->servers[$i++]['scr'] = SV_UCSUnivention_SCR;
+
 		$this->servers[$i]['name'] = 'UCS 4.4 - Lokales Testrepo';
 		$this->servers[$i]['ip'] = '192.168.1.144';
 		$this->servers[$i++]['scr'] = SV_UCS_SCR;
-		
+
+		$this->servers[$i]['name'] = 'UCS 4.4 - UCS-Repo';
+		$this->servers[$i]['ip'] = '192.168.1.144';
+		$this->servers[$i++]['scr'] = SV_UCSUnivention_SCR;
+
 		// Debian VMs with snapshots
 		$this->servers[$i]['name'] = 'Debian9-amd64';
 		$this->servers[$i]['ip'] = '192.168.1.96';
@@ -133,12 +148,34 @@ class CATSG
 		$this->servers[$i]['name'] = 'Debian9-i386';
 		$this->servers[$i]['ip'] = '192.168.1.93';
 		$this->servers[$i++]['scr'] = SV_DEB_SCR;
+
+		$this->servers[$i]['name'] = 'Debian8-amd64';
+		$this->servers[$i]['ip'] = '192.168.1.86';
+		$this->servers[$i++]['scr'] = SV_DEB_SCR;
 		
+		$this->servers[$i]['name'] = 'Debian8-i386';
+		$this->servers[$i]['ip'] = '192.168.1.83';
+		$this->servers[$i++]['scr'] = SV_DEB_SCR;
+
+		// Raspberry Pi
+		$this->servers[$i]['name'] = 'Pi';
+		$this->servers[$i]['ip'] = '192.168.1.122';
+		$this->servers[$i++]['scr'] = SV_RASP_SCR;
+		
+		$this->servers[$i]['name'] = 'PiSDVorbereiten';
+		$this->servers[$i]['ip'] = '192.168.1.122';
+		$this->servers[$i++]['scr'] = SV_RASPBERRYPI_SD;
+
 		// m23 server installation ISO
 		$this->servers[$i]['name'] = 'atISOm23Server';
 		$this->servers[$i]['ip'] = '192.168.1.24';
-		$this->servers[$i]['iso'] = '/crypto/iso/m23server_19.1_rock-devel.iso';
+		$this->servers[$i]['iso'] = M23SERVER_ISO;
 		$this->servers[$i++]['scr'] = SV_ISO_SCR;
+
+		$this->servers[$i]['name'] = 'OVAfromISO';
+		$this->servers[$i]['ip'] = '192.168.1.23';
+		$this->servers[$i]['iso'] = M23SERVER_ISO;
+		$this->servers[$i++]['scr'] = SV_OVA_FROM_ISO_SCR;
 
 		// local m23 server
 		$this->servers[$i]['name'] = 'local';
@@ -411,8 +448,9 @@ class CATSG
 
 			$bashFile = $this->getBashFile($server['name']);
 			echo("$bashFile\n");
-			
+
 			$localm23 = false;
+			$generateClientCode = true;
 
 			// Header of the BASH file
 			$allBash = "#!/bin/bash\nLC_ALL=C\n#AT_debug=1\n";
@@ -423,10 +461,30 @@ class CATSG
 				case SV_ISO_SCR:
 					$bash = "./autoTest.php $server[scr] '$server[name]' ".M23SERVER_ISO." $server[ip] ";
 					break;
+
+				case SV_OVA_FROM_ISO_SCR:
+					include('/m23/inc/version.php');
+					$serverName = "m23server_${m23_version}_${m23_codename}";
+					$bash = "AT_OVA_EXPORT_DIR='".OVA_EXPORT_DIR."' ./autoTest.php $server[scr] '$serverName' ".M23SERVER_ISO." $server[ip] ";
+					$generateClientCode = false;
+					break;
+
 				case SV_NONE_SCR:
 					$bash = false;
 					$localm23 = true;
 					break;
+
+				case SV_RASPBERRYPI_SD:
+					$bash = "./autoTest.php $server[scr] '$server[name]' $server[ip] ";
+					$generateClientCode = false;
+					break;
+
+				case SV_UCSUnivention_SCR:
+					include('/m23/inc/version.php');
+					$m23UCSVer = "$m23_version-".substr($server['ip'], -2);
+					$bash = "AT_M23UCSVER='$m23UCSVer' ./autoTest.php $server[scr] '$server[name]' $server[ip] ";
+					break;
+
 				default:
 					$bash = "./autoTest.php $server[scr] '$server[name]' $server[ip] ";
 			}
@@ -436,21 +494,23 @@ class CATSG
 				$allBash .= $this->log($bash, $server['name'], $server['name'], true);
 
 			// Run thru the sources lists and clients desktops
-			foreach ($this->clients as $client)
+			if ($generateClientCode)
 			{
-				foreach ($this->pickDesktops($client) as $desktop)
+				foreach ($this->clients as $client)
 				{
-					$vmName = $this->getVMName($server['name'], $client['name'], $desktop);
-
-					// Use credentials if a m23 server should be used that is not located on the local machine
-					if ($localm23)
-						$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable();
-					else
-						$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable()." AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin'";
-
-					$bash = "$serverCredentials ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
-
-					$allBash .= "\n\nif [ $(grep '$vmName' '$logFile' | grep -c 'OK$') -eq 0 ]
+					foreach ($this->pickDesktops($client) as $desktop)
+					{
+						$vmName = $this->getVMName($server['name'], $client['name'], $desktop);
+	
+						// Use credentials if a m23 server should be used that is not located on the local machine
+						if ($localm23)
+							$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable();
+						else
+							$serverCredentials = $this->getEnvironmentWebinterfaceLang().' '.$this->getClientArchEnvironmentVariable()." AT_M23_SSH_PASSWORD='".M23SERVER_SSH_PASSWORD."' TEST_M23_BASE_URL='https://god:m23@$server[ip]/m23admin'";
+	
+						$bash = "$serverCredentials ./autoTest.php '$client[scr]' '$vmName' '$client[name]' '$desktop'";
+	
+						$allBash .= "\n\nif [ $(grep '$vmName' '$logFile' | grep -c 'OK$') -eq 0 ]
 then
 ".$this->log($bash, $server['name'], $vmName)."
 fi
@@ -459,9 +519,10 @@ then
 	exit 0
 fi
 \n";
-
-					$this->toggleClientArch();
-					$this->nextWebinterfaceLang();
+	
+						$this->toggleClientArch();
+						$this->nextWebinterfaceLang();
+					}
 				}
 			}
 

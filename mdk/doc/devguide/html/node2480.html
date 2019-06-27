@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_activateNetboot</TITLE>
-<META NAME="description" CONTENT="VM_activateNetboot">
+<TITLE>VM_statusIcons</TITLE>
+<META NAME="description" CONTENT="VM_statusIcons">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2481.html">
 <LINK REL="previous" HREF="node2479.html">
-<LINK REL="up" HREF="node2436.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2481.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39448"
+<A NAME="tex2html39468"
   HREF="node2481.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39444"
-  HREF="node2436.html">
+<A NAME="tex2html39464"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39438"
+<A NAME="tex2html39458"
   HREF="node2479.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39446"
+<A NAME="tex2html39466"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39449"
-  HREF="node2481.html">VM_convertSwitchStatusInfo</A>
-<B> Up:</B> <A NAME="tex2html39445"
-  HREF="node2436.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39439"
-  HREF="node2479.html">VM_getHTMLStatusBlock</A>
- &nbsp; <B>  <A NAME="tex2html39447"
+<B> Next:</B> <A NAME="tex2html39469"
+  HREF="node2481.html">VM_createDiskImage</A>
+<B> Up:</B> <A NAME="tex2html39465"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39459"
+  HREF="node2479.html">VM_setGuestInDB</A>
+ &nbsp; <B>  <A NAME="tex2html39467"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098044000000000000000">
-VM_activateNetboot</A>
+<H2><A NAME="SECTION0068055000000000000000">
+VM_statusIcons</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> (De)Activates network booting of a VM.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns HTML codes that include the VM status icons of the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vmName: Name of the VM.
+<LI>clientName: Name of the m23 client
 </LI>
-<LI>activate: true for booting from network, false for booting from the HD.
+<LI>id: ID of the m23 client
+</LI>
+<LI>vmRole: Role of the m23 client (host, guest, no virtualisation)
+</LI>
+<LI>vmSoftware: Number of the used virtualisation software.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The message of the VM management tool or false if it's not a VM.
+<LI>HTML codes with included status icons.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +80,7 @@ VM_activateNetboot</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

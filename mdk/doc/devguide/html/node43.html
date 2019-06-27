@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>lilo.conf</TITLE>
-<META NAME="description" CONTENT="lilo.conf">
+<TITLE>AUTOTEST_sshTunnelOverServer</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_sshTunnelOverServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node44.html">
 <LINK REL="previous" HREF="node42.html">
-<LINK REL="up" HREF="node41.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node44.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5610"
+<A NAME="tex2html8039"
   HREF="node44.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5606"
-  HREF="node41.html">
+<A NAME="tex2html8035"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5600"
+<A NAME="tex2html8029"
   HREF="node42.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5608"
+<A NAME="tex2html8037"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5611"
-  HREF="node44.html">sources.list</A>
-<B> Up:</B> <A NAME="tex2html5607"
-  HREF="node41.html">editing files</A>
-<B> Previous:</B> <A NAME="tex2html5601"
-  HREF="node42.html">fstab</A>
- &nbsp; <B>  <A NAME="tex2html5609"
+<B> Next:</B> <A NAME="tex2html8040"
+  HREF="node44.html">AUTOTEST_getSeleniumSafeString</A>
+<B> Up:</B> <A NAME="tex2html8036"
+  HREF="node40.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html8030"
+  HREF="node42.html">AUTOTEST_isDebug</A>
+ &nbsp; <B>  <A NAME="tex2html8038"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00642200000000000000">
-lilo.conf</A>
-</H3>
-You can use your current lilo.conf and edit some values like <SPAN  CLASS="textit">root</SPAN>. You may choose a different kernel than in your current system so you have to adjust the <SPAN  CLASS="textit">image</SPAN> parameter too. But first it is essetial to have a lilo.conf with the correct <SPAN  CLASS="textit">root</SPAN> value, <SPAN  CLASS="textit">image</SPAN> doesn't matter at the moment.
-<PRE>
-boot=/dev/hda
-map=/boot/map
-install=/boot/boot-menu.b
-compact
-prompt
-vga=normal
-delay=10
-timeout=20
-
-default=m23Server3
-
-image=/boot/vmlinuz-2.4.20-1-386-sec
-        root=/dev/hda3
-        label=m23Server3
-        append="hdb=scsi-ide"
-        initrd=/initrd.img
-</PRE>
-
+<H2><A NAME="SECTION00633000000000000000">
+AUTOTEST_sshTunnelOverServer</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Executes commands on a client indirectly, that is reachable over an m23 server only. SSH connections require root user on the m23 server and the client.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>serverNameOrIP: The name of the m23 server or its IP.
+</LI>
+<LI>clientNameOrIP: The name of the client or its IP.
+</LI>
+<LI>cmds: The commands to execute on the client 
+</LI>
+<LI>password: Parameter to set the SSH password or NULL to use SSH keys only.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The output of the client's screen.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

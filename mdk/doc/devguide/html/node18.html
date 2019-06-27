@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>ftpusers</TITLE>
-<META NAME="description" CONTENT="ftpusers">
+<TITLE>End position of a patchable area</TITLE>
+<META NAME="description" CONTENT="End position of a patchable area">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,71 +21,75 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node19.html">
 <LINK REL="previous" HREF="node17.html">
-<LINK REL="up" HREF="node12.html">
+<LINK REL="up" HREF="node16.html">
 <LINK REL="next" HREF="node19.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5230"
+<A NAME="tex2html5226"
   HREF="node19.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5226"
-  HREF="node12.html">
+<A NAME="tex2html5222"
+  HREF="node16.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5220"
+<A NAME="tex2html5216"
   HREF="node17.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5228"
+<A NAME="tex2html5224"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5231"
-  HREF="node19.html">groups</A>
-<B> Up:</B> <A NAME="tex2html5227"
-  HREF="node12.html">the tables</A>
-<B> Previous:</B> <A NAME="tex2html5221"
-  HREF="node17.html">clients</A>
- &nbsp; <B>  <A NAME="tex2html5229"
+<B> Next:</B> <A NAME="tex2html5227"
+  HREF="node19.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
+<B> Up:</B> <A NAME="tex2html5223"
+  HREF="node16.html">Indicating patchable areas in</A>
+<B> Previous:</B> <A NAME="tex2html5217"
+  HREF="node17.html">Start position of a</A>
+ &nbsp; <B>  <A NAME="tex2html5225"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00526000000000000000">
-ftpusers</A>
+<H2><A NAME="SECTION00512000000000000000">
+End position of a patchable area</A>
 </H2>
-This table can store information about ftpusers with their permissions.
+
+<P>
 
 <UL>
-<LI>Password: password for th user
+<LI>HTML notation: "&lt;!<SPAN CLASS="MATH"></SPAN>m23customPatchEnd id=logo<SPAN CLASS="MATH"></SPAN>&gt;"
 </LI>
-<LI>Uid: user ID
+<LI>PHP notation: "/*m23customPatchEnd id=logo*/"
 </LI>
-<LI>Gid: group ID
+<LI>PHP notation (alternativ): "//m23customPatchEnd id=logo"
 </LI>
-<LI>Dir: directory for the user
-</LI>
-<LI>QuotaFiles: quota for the amount of files.
-</LI>
-<LI>QuotaSize: quota for the whole size of all files
-</LI>
-<LI>ULRatio / DLRatio: ratio for upload to download, you have to set both values
-</LI>
-<LI>ULBandwidth: max speed for upload
-</LI>
-<LI>DLBandwidth: max speed for download
-</LI>
-<LI>User: name of the FTP user
+<LI>BASH notation: #m23customPatchEnd id=logo"
 </LI>
 </UL>
+
+<P>
+The parameter "type" defines how the contents between start and end position may be changed:
+
+<P>
+
+<UL>
+<LI>change: By running the m23customPatch file here, all code lines between the start and end position of a patchable area are replaced by the code lines of the m23customPatch file.
+</LI>
+<LI>del: By running the m23customPatch file here, all code lines between the start and end position will be deleted.
+</LI>
+</UL>
+
+<P>
+The parameter "id" is a unique identifier to find the correct patchable area. The ID may be uses only once in each source file and is written in the m23customPatch file too. This way, the patchable area and m23customPatch file are "linked".
 
 <P>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

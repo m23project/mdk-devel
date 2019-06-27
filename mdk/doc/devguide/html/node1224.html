@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_enableNFSHome</TITLE>
-<META NAME="description" CONTENT="CLCFG_enableNFSHome">
+<TITLE>PKG_preparePool</TITLE>
+<META NAME="description" CONTENT="PKG_preparePool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1225.html">
 <LINK REL="previous" HREF="node1223.html">
-<LINK REL="up" HREF="node1150.html">
+<LINK REL="up" HREF="node1216.html">
 <LINK REL="next" HREF="node1225.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23225"
+<A NAME="tex2html23262"
   HREF="node1225.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23221"
-  HREF="node1150.html">
+<A NAME="tex2html23258"
+  HREF="node1216.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23215"
+<A NAME="tex2html23252"
   HREF="node1223.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23223"
+<A NAME="tex2html23260"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23226"
-  HREF="node1225.html">CLCFG_disableNFSHome</A>
-<B> Up:</B> <A NAME="tex2html23222"
-  HREF="node1150.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html23216"
-  HREF="node1223.html">CLCFG_patchNsswitchForLDAP</A>
- &nbsp; <B>  <A NAME="tex2html23224"
+<B> Next:</B> <A NAME="tex2html23263"
+  HREF="node1225.html">PKG_convertPackagesToRepository</A>
+<B> Up:</B> <A NAME="tex2html23259"
+  HREF="node1216.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23253"
+  HREF="node1223.html">PKG_rsyncDebsFromClientToServer</A>
+ &nbsp; <B>  <A NAME="tex2html23261"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093974000000000000000">
-CLCFG_enableNFSHome</A>
+<H2><A NAME="SECTION006418000000000000000">
+PKG_preparePool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> enables storing of home directories on a NFS server
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the needed configuration file for reprepro.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>nfsURL: URL to the NFS storage (e.g. 192.168.1.23:/nfs-homes)
+<LI>release: Release of the pool.
+</LI>
+<LI>distr: Distribution of the pool.
+</LI>
+<LI>arch: Architecture of the pool (POOL_ARCH_I386 or CPoolLister::POOL_ARCH_AMD64).
+</LI>
+<LI>poolName: Name of the pool (if a pool with the given name exists =<SPAN CLASS="MATH"></SPAN> load)
+</LI>
+<LI>poolDir: Directory of the pool with full path.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CLCFG_enableNFSHome</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

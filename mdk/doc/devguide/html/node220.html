@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoUpdate::addSet</TITLE>
-<META NAME="description" CONTENT="CAutoUpdate::addSet">
+<TITLE>CAutoUpdate::startNewClients</TITLE>
+<META NAME="description" CONTENT="CAutoUpdate::startNewClients">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node221.html">
 <LINK REL="previous" HREF="node219.html">
-<LINK REL="up" HREF="node217.html">
+<LINK REL="up" HREF="node191.html">
 <LINK REL="next" HREF="node221.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10282"
+<A NAME="tex2html10286"
   HREF="node221.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10278"
-  HREF="node217.html">
+<A NAME="tex2html10282"
+  HREF="node191.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10272"
+<A NAME="tex2html10276"
   HREF="node219.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10280"
+<A NAME="tex2html10284"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10283"
-  HREF="node221.html">CAutoUpdate::setParallelUpdates</A>
-<B> Up:</B> <A NAME="tex2html10279"
-  HREF="node217.html">./inc/CAutoUpdate.php</A>
-<B> Previous:</B> <A NAME="tex2html10273"
-  HREF="node219.html">CAutoUpdate::getActiveSet</A>
- &nbsp; <B>  <A NAME="tex2html10281"
+<B> Next:</B> <A NAME="tex2html10287"
+  HREF="node221.html">CAutoUpdate::run</A>
+<B> Up:</B> <A NAME="tex2html10283"
+  HREF="node191.html">./inc/CAutoUpdate.php</A>
+<B> Previous:</B> <A NAME="tex2html10277"
+  HREF="node219.html">CAutoUpdate::getAllClientnames</A>
+ &nbsp; <B>  <A NAME="tex2html10285"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00993000000000000000">
-CAutoUpdate::addSet</A>
+<H2><A NAME="SECTION006929000000000000000">
+CAutoUpdate::startNewClients</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds an entry to the schedule.
+<SPAN  CLASS="textbf">Description:</SPAN> Starts auto update on a given amount of clients that haven't run auto update for at least one day.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>startsEnds: Array with the start and end times
-</LI>
-<LI>groups: Array with the groups.
-</LI>
-<LI>type: Type of update (CAutoUpdate::UPDATE_FULL or CAutoUpdate::UPDATE_NORMAL)
-</LI>
-<LI>parallelUpdates: Amount of clients that should be updated in parallel.
+<LI>clientAmount: Amount of clients to start.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: true, on successfully insert, otherwise false.
+<LI>Amount of new started clients.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ CAutoUpdate::addSet</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

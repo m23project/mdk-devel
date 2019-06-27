@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CRON_addJobBasic</TITLE>
-<META NAME="description" CONTENT="CRON_addJobBasic">
+<TITLE>CScredit::updateOnlineScriptInfo</TITLE>
+<META NAME="description" CONTENT="CScredit::updateOnlineScriptInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1024.html">
 <LINK REL="previous" HREF="node1022.html">
-<LINK REL="up" HREF="node1020.html">
+<LINK REL="up" HREF="node1016.html">
 <LINK REL="next" HREF="node1024.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20637"
+<A NAME="tex2html20661"
   HREF="node1024.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20633"
-  HREF="node1020.html">
+<A NAME="tex2html20657"
+  HREF="node1016.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20627"
+<A NAME="tex2html20651"
   HREF="node1022.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20635"
+<A NAME="tex2html20659"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20638"
-  HREF="node1024.html">CRON_rmJob</A>
-<B> Up:</B> <A NAME="tex2html20634"
-  HREF="node1020.html">./inc/cron.php</A>
-<B> Previous:</B> <A NAME="tex2html20628"
-  HREF="node1022.html">CRON_addJobMinutely</A>
- &nbsp; <B>  <A NAME="tex2html20636"
+<B> Next:</B> <A NAME="tex2html20662"
+  HREF="node1024.html">CScredit::getNextOnlineScriptInfo</A>
+<B> Up:</B> <A NAME="tex2html20658"
+  HREF="node1016.html">./inc/CScredit.php</A>
+<B> Previous:</B> <A NAME="tex2html20652"
+  HREF="node1022.html">CScredit::getLocalScriptFilenames</A>
+ &nbsp; <B>  <A NAME="tex2html20660"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009343000000000000000">
-CRON_addJobBasic</A>
+<H2><A NAME="SECTION006357000000000000000">
+CScredit::updateOnlineScriptInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a command to the crontab.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Downloads the information about online available scripts.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>min: Minute or * for every minute to execute the cron job. (0-59)
-</LI>
-<LI>hour: Hour or * for every hour to execute the cron job. (0-23)
-</LI>
-<LI>dayOfMonth: The day in the month or * for all days to execute the cron job. (1-31)
-</LI>
-<LI>month: The month or * for every months to execute the cron job. (1-12)
-</LI>
-<LI>dayOfWeek: The day in the week or * for every week days to execute the cron job. (0-7 (0 or 7 is Sun))
-</LI>
-<LI>user: The user the cron job should be run under.
-</LI>
-<LI>cmd: The command to exectute.
-</LI>
-<LI>identifier: A string to identify the cron entry (for deletion)
-</LI>
-<LI>runInScreen: Set to true if the command should be run in a screen.
+<LI>true, if the information could be fetched, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -84,7 +68,7 @@ CRON_addJobBasic</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

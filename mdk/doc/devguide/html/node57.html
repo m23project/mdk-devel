@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>compresses the m23 files</TITLE>
-<META NAME="description" CONTENT="compresses the m23 files">
+<TITLE>AUTOTEST_VM_insertBootISO</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_VM_insertBootISO">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node58.html">
 <LINK REL="previous" HREF="node56.html">
-<LINK REL="up" HREF="node54.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node58.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5781"
+<A NAME="tex2html8207"
   HREF="node58.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5777"
-  HREF="node54.html">
+<A NAME="tex2html8203"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5771"
+<A NAME="tex2html8197"
   HREF="node56.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5779"
+<A NAME="tex2html8205"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5782"
-  HREF="node58.html">generating the ISO image</A>
-<B> Up:</B> <A NAME="tex2html5778"
-  HREF="node54.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5772"
-  HREF="node56.html">compress operating system</A>
- &nbsp; <B>  <A NAME="tex2html5780"
+<B> Next:</B> <A NAME="tex2html8208"
+  HREF="node58.html">AUTOTEST_VM_rebootFromHD</A>
+<B> Up:</B> <A NAME="tex2html8204"
+  HREF="node40.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html8198"
+  HREF="node56.html">AUTOTEST_VM_start</A>
+ &nbsp; <B>  <A NAME="tex2html8206"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652300000000000000">
-compresses the m23 files</A>
-</H3>
-The whole /m23 directory is compressed to /mdk/bootCD/iso/m23.tb2, if this file allready exists the /m23 system isn't recompressed. To force recompress simply delete /mdk/bootCD/iso/m23.tb2. Before compression you should clean the /m23 directory from test scripts, dhcp config files and database from all entries.
-<BR>
-For cleaning the m23 database: Delete all *.MYD files in /m23/db/m23/ and replace them with empty files. (touch tablename.MYD).
+<H2><A NAME="SECTION006317000000000000000">
+AUTOTEST_VM_insertBootISO</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Inserts a bootable ISO into a VM.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>vmName: Name of the VM.
+</LI>
+<LI>iso: ISO file with full path.
+</LI>
+<LI>VMinsertBootISOMessage: Variable where the VirtualBox (error) messages will be written to.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

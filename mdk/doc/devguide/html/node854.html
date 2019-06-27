@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_HTMLBackToDetails</TITLE>
-<META NAME="description" CONTENT="CLIENT_HTMLBackToDetails">
+<TITLE>Cm23Admin::__construct</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node855.html">
 <LINK REL="previous" HREF="node853.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node853.html">
 <LINK REL="next" HREF="node855.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18475"
+<A NAME="tex2html18493"
   HREF="node855.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18471"
-  HREF="node766.html">
+<A NAME="tex2html18489"
+  HREF="node853.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18465"
+<A NAME="tex2html18483"
   HREF="node853.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18473"
+<A NAME="tex2html18491"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18476"
-  HREF="node855.html">CLIENT_getId</A>
-<B> Up:</B> <A NAME="tex2html18472"
-  HREF="node766.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html18466"
-  HREF="node853.html">CLIENT_getToDetailsURL</A>
- &nbsp; <B>  <A NAME="tex2html18474"
+<B> Next:</B> <A NAME="tex2html18494"
+  HREF="node855.html">Cm23Admin::__destruct</A>
+<B> Up:</B> <A NAME="tex2html18490"
+  HREF="node853.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18484"
+  HREF="node853.html">./inc/Cm23Admin.php</A>
+ &nbsp; <B>  <A NAME="tex2html18492"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0092288000000000000000">
-CLIENT_HTMLBackToDetails</A>
+<H2><A NAME="SECTION006241000000000000000">
+Cm23Admin::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates HTML code for returning to the client controll center page
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new Cm23Admin objects. The object holds all information about a single admin and loads values from the DB if the admin exists. If only name is given, an admin is loaded from the database, if name and password are given, an admin will be created, if nothing is given, the current admin is loaded and added to database if not already in.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: the name of the client
+<LI>name: login name of an existing admin (to load or to create).
 </LI>
-<LI>id: the id of the client
-</LI>
-<LI>section: section to jump on the page
+<LI>password: password of a new admin (to create).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +70,7 @@ CLIENT_HTMLBackToDetails</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setOutputBuffer</TITLE>
-<META NAME="description" CONTENT="HTML_setOutputBuffer">
+<TITLE>HTML_JSMenuOpener</TITLE>
+<META NAME="description" CONTENT="HTML_JSMenuOpener">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1817.html">
 <LINK REL="previous" HREF="node1815.html">
-<LINK REL="up" HREF="node1807.html">
+<LINK REL="up" HREF="node1792.html">
 <LINK REL="next" HREF="node1817.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30917"
+<A NAME="tex2html30932"
   HREF="node1817.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30913"
-  HREF="node1807.html">
+<A NAME="tex2html30928"
+  HREF="node1792.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30907"
+<A NAME="tex2html30922"
   HREF="node1815.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30915"
+<A NAME="tex2html30930"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30918"
-  HREF="node1817.html">HTML_AJAXAutoSubmit</A>
-<B> Up:</B> <A NAME="tex2html30914"
-  HREF="node1807.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30908"
-  HREF="node1815.html">HTML_getOutputBuffer</A>
- &nbsp; <B>  <A NAME="tex2html30916"
+<B> Next:</B> <A NAME="tex2html30933"
+  HREF="node1817.html">HTML_jQueryMenu</A>
+<B> Up:</B> <A NAME="tex2html30929"
+  HREF="node1792.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30923"
+  HREF="node1815.html">HTML_JSMenuCloseAllEntries</A>
+ &nbsp; <B>  <A NAME="tex2html30931"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009579000000000000000">
-HTML_setOutputBuffer</A>
+<H2><A NAME="SECTION0065724000000000000000">
+HTML_JSMenuOpener</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets (replaces) the complete (previously rendered) HTML output buffer, that will be sent to the webbrowser.
+<SPAN  CLASS="textbf">Description:</SPAN> Opens a menu entry when moving the mouse over the title and closes all other entries of the same menu.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>HTMLOutputBuffer: New HTML codes that should replace the complete current output buffer.
+<LI>menuName: Name of the complete menu. This name must be the same on all entries belonging to the same menu.
+</LI>
+<LI>entryName: Name of the entry. This name must be unique.
+</LI>
+<LI>title: Title for the menu entry.
+</LI>
+<LI>html: HTML code of the menu entry. Here can stand all that is expressable with HTML. This part is shown and hidden.
+</LI>
+<LI>titleCSS: CSS class for marking the title.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The HTML code for displaying the menu entry.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +82,7 @@ HTML_setOutputBuffer</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

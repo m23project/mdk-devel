@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_efi</TITLE>
-<META NAME="description" CONTENT="CLCFG_efi">
+<TITLE>CLCFG_dialogGaugeProcPos</TITLE>
+<META NAME="description" CONTENT="CLCFG_dialogGaugeProcPos">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1190.html">
 <LINK REL="previous" HREF="node1188.html">
-<LINK REL="up" HREF="node1150.html">
+<LINK REL="up" HREF="node1127.html">
 <LINK REL="next" HREF="node1190.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22805"
+<A NAME="tex2html22813"
   HREF="node1190.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22801"
-  HREF="node1150.html">
+<A NAME="tex2html22809"
+  HREF="node1127.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22795"
+<A NAME="tex2html22803"
   HREF="node1188.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22803"
+<A NAME="tex2html22811"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22806"
-  HREF="node1190.html">CLCFG_genFstab</A>
-<B> Up:</B> <A NAME="tex2html22802"
-  HREF="node1150.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22796"
-  HREF="node1188.html">CLCFG_createBootDeviceNode</A>
- &nbsp; <B>  <A NAME="tex2html22804"
+<B> Next:</B> <A NAME="tex2html22814"
+  HREF="node1190.html">CLCFG_dialogInfoBox</A>
+<B> Up:</B> <A NAME="tex2html22810"
+  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22804"
+  HREF="node1188.html">CLCFG_fetchm23BasicTools</A>
+ &nbsp; <B>  <A NAME="tex2html22812"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093939000000000000000">
-CLCFG_efi</A>
+<H2><A NAME="SECTION0063962000000000000000">
+CLCFG_dialogGaugeProcPos</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Configures the client for UEFI booting.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the BASH code for showing a dialog with status bar that uses /proc/pid/fdinfo for current file position
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>CFDiskIOO: Object to with partition information for the calling client.
+<LI>backtitle: title on top of the screen
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if the client uses EFI, otherwise false.
+<LI>title: message title
+</LI>
+<LI>message: message to show over the status bar
+</LI>
+<LI>infofilecmd: BASH code to figure out the needed status file in the proc filesystem
+</LI>
+<LI>fullsize: The full size of the file that should be written.
+</LI>
+<LI>force: Forces showing of the dialog box
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ CLCFG_efi</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -12,13 +12,13 @@ Einleitung
 
 *m23-autoTest* wurde entwickelt, um m23-Funktionen automatisch in vielen Kombinationen aus m23-Client- und m23-Server-Konfigurationen massenhaft zu testen.
 
-Mit *m23-autoTest* konnten erstmals m23-Server auf verschiedenen Plattformen (Debian 9 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO) mit m23-Clients aller unterstützten Clientdistributionen systematisch untersucht werden. So konnten auch Fehler gefunden werden, die nur sporadisch auftreten.
+Mit *m23-autoTest* konnten erstmals m23-Server auf verschiedenen Plattformen (Debian 9 und 8 (jeweils 32- und 64-Bit), UCS 4.3, UCS 4.4, lokales m23-Entwicklungssytem, Raspberry Pi, m23-Installations-ISO) mit m23-Clients aller unterstützten Clientdistributionen systematisch untersucht werden. So konnten auch Fehler gefunden werden, die nur sporadisch auftreten.
 
 m23-autoTest simuliert hierbei das Verhalten eines menschlichen Administrators durch *Fernsteuerung* ([Selenium](https://de.wikipedia.org/wiki/Selenium "Selenium")) der m23-Weboberfläche. So geschieht z.B. das Anlegen von m23-Clients, das Partitionieren und Formatieren oder das Installieren von Distributionen mit grafischen Oberflächen über das automatische Ausfüllen der Formulare in den dazugehörigen Dialogen.
 
 Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
 
-Alle Test werden - für eine schnelle Durchführung und Wiederholbarkeit - in virtuellen Maschinen vorgenommen. Über diverse *Meßpunkte* (z.B. Meldungen auf dem Bildschirm der VM, die durch Texterkennung identifiziert werden, Nachrichten in der m23-Oberfläche oder Rückgabewerte von in der VM ausgeführten Kommandos) wird laufend der *Installationstatus überprüft und bewertet*. Diese ermöglichen es m23-autoTest, auf Ereignisse z.B. mit simulierten Tastendrücken oder Aktionen in der m23-Weboberfläche zu reagieren. Im Falle von kritischen Fehlern (z.B. nichtlaufende Serverdienste) kann m23-autoTest den Testlauf auch ganz abbrechen. Für die *anschließende Analyse* wird der Bildschirm der VM in einer *Videodatei* aufgezeichnet, sowie ein *Installationsprotokoll* geschrieben, welches im Debug-Modus viele zusätzliche Informationen enthält.
+Alle Test werden - für eine schnelle Durchführung und Wiederholbarkeit - in virtuellen Maschinen vorgenommen. Über diverse *Meßpunkte* (z.B. Meldungen auf dem Bildschirm der VM, die durch Texterkennung identifiziert werden, Nachrichten in der m23-Oberfläche oder Rückgabewerte von in der VM ausgeführten Kommandos) wird laufend der *Installationstatus überprüft und bewertet*. Diese ermöglichen es m23-autoTest, auf Ereignisse z.B. mit simulierten Tastendrücken oder Aktionen in der m23-Weboberfläche zu reagieren. Im Falle von kritischen Fehlern (z.B. nichtlaufende Serverdienste) kann m23-autoTest den Testlauf auch ganz abbrechen. Für die *anschließende Analyse* wird das Geschehen auf dem Bildschirm der VM in einer *Videodatei* aufgezeichnet, sowie ein *Installationsprotokoll* geschrieben, welches im Debug-Modus viele zusätzliche Informationen enthält.
 
 Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch für andere Projekte nützlich sein.
 
@@ -137,6 +137,21 @@ Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird vo
 * VMs als OVA exportieren
 
 
+
+### (Optional) Raspberry Pi
+
+* Partitionen aus dem Abbild auf Gerätedateien umlenken: `kpartx -a -v 20XX-YY-ZZ-raspbian-stretch-lite.img`
+* Boot-Partition einhängen: `mount /dev/mapper/loop0p1 /mnt/loop/`
+* SSH-Server beim Booten aktivieren: `touch /mnt/loop/ssh`
+* System-Partition einhängen: `mount /dev/mapper/loop0p2 /mnt/loop/`
+* In `/mnt/loop/etc/ssh/sshd_config` "PermitRootLogin yes" setzen
+* In `/mnt/loop/etc/shadow` die bestehende "root"-Zeile ersetzen durch:
+
+    root:$6$Lc6S7BJt$/Rc4cLBYjzK012BxttQOnPpa9Sh3IEuxEAyzf/oKcfwwQKOqvadHI0uEhDrkeQRsarJuqP3d0I1Z0/Yjq1l641:17964:0:99999:7:::
+
+* Zweite Partition aushängen: `umount /mnt/loop`
+* Umlenkung aufheben: `kpartx -d -v 20XX-YY-ZZ-raspbian-stretch-lite.img`
+* Abbild komprimieren: `bzip2 -9 20XX-YY-ZZ-raspbian-stretch-lite.img`
 
 
 \pagebreak
@@ -270,13 +285,14 @@ In HTTP2SeleniumBridge.py sind zusätzlich folgende Kommandos implementiert, die
 Testparcours mit autoTestScriptGenerator.php erstellen
 ======================================================
 
-Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
+Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 und 8 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
 
 ## Zusätzliche Eigenschaften der BASH-Skripte
 
 
 * Die so generierten BASH-Skripte erzeugen Logdateien, die bis auf die Dateiendung (`.log` statt `.sh`) wie die BASH-Skripte heißen. 
 * Gibt es im Verzeichnis eines BASH-Skriptes eine Stop-Datei (Dateiendung `.stop`), so wird die aktuell laufende Clientinstallation bis zum Ende ausgeführt, aber keine neue mehr begonnen.
+
 
 
 
@@ -310,6 +326,16 @@ Der Ablauf einer jeden Installation ist in einer Testbeschreibungsdatei beschrie
 ## Testbeschreibungsdateien
 
 Die Testbeschreibungsdateien mit der Endung *".m23test"* beinhalten Testblöcke, die die einzelnen Schritte (z.B. Anlegen der virtuellen Maschine, in der m23-Oberfläche einzugebende Werte bzw. anzuklickende Elemente, ...) und (erwartete) Ergebnisse zum Installieren eines m23-Clients oder -Servers enthalten. Andere Teile der Datei definieren die Parameter, die über die Kommandozeile angeben werden und die Dimensionierung der anzulegenden virtuellen Maschine.
+
+
+### Mitgelieferte Testbeschreibungsdateien
+
+Im Verzeichnis `/mdk/autoTest/` befinden sich auf dem m23-Server diverse Testbeschreibungsdateien. Beispielhaft seien die folgenden erwähnt:
+
+* `1m23client-distro-install.m23test`: Installiert einen m23-Clienten in einer neuen VM (löscht ggf. eine zuvor vorhandene VM mit selben Namen nebst dazugehörigem Eintrag aus der m23-Weboberfläche) mit grafischer Oberfläche. Erkennt den Login-Manager und installiert und deinstalliert den Midnight Commander.
+* `1m23server-auf-debian-installieren.m23test`: Installiert die m23-Server-Pakete von 192.168.1.77 auf einer gesicherten VM (Sicherungspunkt "vor").
+* `1m23server-iso-install.m23test`: Installiert das m23-Server-Installations-ISO in einer VM.
+
 
 
 
@@ -465,7 +491,7 @@ Innerhalb des Parameters können Teile ersetzt oder für Suchen verwendet werden
 * `$I18N_...`: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.
 * `!`: Bei `good/warn/bad` kann die Bedingung durch ein vorgestelltes "!" umgekehrt werden.\
 	Die folgende Bedingung trifft zu, wenn die Zeichenkette "C0C" NICHT gefunden wurde:
-	`<bad type="ssh_commandoutput" answer="!C0C" description="Ausfall">cat m</bad>`
+	`<bad type="ssh_commandoutput" password="test" sshanswer="!C0C" description="Ausfall">cat m</bad>`
 * `<include>DATEI</include>`: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.
 
 
@@ -642,6 +668,13 @@ Führt einen Befehl per SSH aus und überprüft, ob in der Ausgabe der gewünsch
 
 
 
+#### vsssh_commandoutput
+
+Wie `ssh_commandoutput`, nur daß das Kommando auf dem Virtualisierungsserver ausgeführt wird.
+
+
+
+
 
 ### Action
 
@@ -658,6 +691,14 @@ echo $? > /tmp/update.ret; x=$(grep "^0 upgraded" -c /tmp/update.log);\
 echo -n "X${x}Y" > /tmp/update.combi;\
 cat /tmp/update.ret >> /tmp/update.combi</action>
 ~~~~~
+
+
+
+#### vsssh_command
+
+Wie `ssh_command`, nur daß das Kommando auf dem Virtualisierungsserver ausgeführt wird.
+
+
 
 
 

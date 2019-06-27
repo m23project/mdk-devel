@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::__destruct</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::__destruct">
+<TITLE>CFDiskGUI::updateDiskLayout</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::updateDiskLayout">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node499.html">
 <LINK REL="previous" HREF="node497.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node499.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13899"
+<A NAME="tex2html13905"
   HREF="node499.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13895"
-  HREF="node496.html">
+<A NAME="tex2html13901"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13889"
+<A NAME="tex2html13895"
   HREF="node497.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13897"
+<A NAME="tex2html13903"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13900"
-  HREF="node499.html">CFDiskGUI::fdiskSessionSetter</A>
-<B> Up:</B> <A NAME="tex2html13896"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13890"
-  HREF="node497.html">CFDiskBasic::__construct</A>
- &nbsp; <B>  <A NAME="tex2html13898"
+<B> Next:</B> <A NAME="tex2html13906"
+  HREF="node499.html">CFDiskGUI::showCombinedFdiskGUIDialog</A>
+<B> Up:</B> <A NAME="tex2html13902"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13896"
+  HREF="node497.html">CFDiskGUI::newDiskLayout</A>
+ &nbsp; <B>  <A NAME="tex2html13904"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009142000000000000000">
-CFDiskGUI::__destruct</A>
+<H2><A NAME="SECTION0061426000000000000000">
+CFDiskGUI::updateDiskLayout</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Destructor for a CFDiskGUI object. Before the object is removed from the RAM, all settings are written to the DB.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Updates the disk layout for a given disk, if it is not in the cache.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk layout was calculated, false, if it is in the cache 
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

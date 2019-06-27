@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_writeHosts</TITLE>
-<META NAME="description" CONTENT="CLCFG_writeHosts">
+<TITLE>CLCFG_debootstrap</TITLE>
+<META NAME="description" CONTENT="CLCFG_debootstrap">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1441.html">
 <LINK REL="previous" HREF="node1439.html">
-<LINK REL="up" HREF="node1404.html">
+<LINK REL="up" HREF="node1383.html">
 <LINK REL="next" HREF="node1441.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26044"
+<A NAME="tex2html26054"
   HREF="node1441.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26040"
-  HREF="node1404.html">
+<A NAME="tex2html26050"
+  HREF="node1383.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26034"
+<A NAME="tex2html26044"
   HREF="node1439.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26042"
+<A NAME="tex2html26052"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26045"
-  HREF="node1441.html">CLCFG_addUser</A>
-<B> Up:</B> <A NAME="tex2html26041"
-  HREF="node1404.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html26035"
-  HREF="node1439.html">CLCFG_setTimeZone</A>
- &nbsp; <B>  <A NAME="tex2html26043"
+<B> Next:</B> <A NAME="tex2html26055"
+  HREF="node1441.html">CLCFG_downgradeExt</A>
+<B> Up:</B> <A NAME="tex2html26051"
+  HREF="node1383.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html26045"
+  HREF="node1439.html">CLCFG_setDebconf</A>
+ &nbsp; <B>  <A NAME="tex2html26053"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094836000000000000000">
-CLCFG_writeHosts</A>
+<H2><A NAME="SECTION0064857000000000000000">
+CLCFG_debootstrap</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> writes the /etc/hosts file for the client
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> bootstraps a Debian system
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>suite: select the Debian suite (sarge, sid, woody, potato)
+</LI>
+<LI>DNSServers: DNS server for resolving the names of the installation server
+</LI>
+<LI>gateway: gateway for fetching the packages
+</LI>
+<LI>packageProxy: the ip of the proxy the packages should be fetched from
+</LI>
+<LI>packagePort: the proxy port
+</LI>
+<LI>mirror: the Debian mirror the packages should be fetched from
+</LI>
+<LI>arch: the computer architecture of the client
+</LI>
+<LI>exclude: packages to exclude (as comma-seperated list)
+</LI>
+<LI>include: additional packages to include
+</LI>
+<LI>isCritical: selects if debootstrap errors should be critical
+</LI>
+<LI>additionalPackages: space seperated list of additional packages that should be installed during bootstrapping
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Using new Debian/Ubuntu releases with m23</TITLE>
-<META NAME="description" CONTENT="Using new Debian/Ubuntu releases with m23">
+<TITLE>Applying patches on m23 update</TITLE>
+<META NAME="description" CONTENT="Applying patches on m23 update">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,61 +19,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node27.html">
-<LINK REL="previous" HREF="node23.html">
-<LINK REL="up" HREF="node23.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node15.html">
 <LINK REL="next" HREF="node25.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5360"
+<A NAME="tex2html5292"
   HREF="node25.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5356"
-  HREF="node23.html">
+<A NAME="tex2html5288"
+  HREF="node15.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5350"
+<A NAME="tex2html5284"
   HREF="node23.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5358"
+<A NAME="tex2html5290"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5361"
-  HREF="node25.html">Test and development</A>
-<B> Up:</B> <A NAME="tex2html5357"
-  HREF="node23.html">HowTos</A>
-<B> Previous:</B> <A NAME="tex2html5351"
-  HREF="node23.html">HowTos</A>
- &nbsp; <B>  <A NAME="tex2html5359"
+<B> Next:</B> <A NAME="tex2html5293"
+  HREF="node25.html">m23 API reference</A>
+<B> Up:</B> <A NAME="tex2html5289"
+  HREF="node15.html">m23customPatch</A>
+<B> Previous:</B> <A NAME="tex2html5285"
+  HREF="node23.html">Return/error codes</A>
+ &nbsp; <B>  <A NAME="tex2html5291"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00610000000000000000">
-Using new Debian/Ubuntu releases with m23</A>
-</H1>
-To fully support a new Debian/Ubuntu release a few steps are needed. The following guide shows a generic approach to not miss an important step. The total time and difficulty of a new release depends on the changes the distribution made between the last release supported by m23 and new release and if there are new desktops etc. that should be supported.
-
+<H1><A NAME="SECTION00540000000000000000">
+Applying patches on m23 update</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+After an update of the m23 software, the patches need to be re-applied again. To automatise this step, you can place a BASH script with the needed calls to m23cutomPatch under /m23/bin/postinstHook.sh. This script will be called when the m23 package is configured. This happens during installation or during update.
+</SMALL></SMALL>
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5362"
-  HREF="node25.html">Test and development</A>
-<LI><A NAME="tex2html5363"
-  HREF="node26.html">Building the packages</A>
-</UL>
-<!--End of Table of Child-Links-->
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

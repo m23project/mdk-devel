@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getDiskLayoutEntryFileSystem</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getDiskLayoutEntryFileSystem">
+<TITLE>CFDiskGUI::getPartTableEntryNr</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getPartTableEntryNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node508.html">
 <LINK REL="previous" HREF="node506.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node508.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14007"
+<A NAME="tex2html14013"
   HREF="node508.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14003"
-  HREF="node496.html">
+<A NAME="tex2html14009"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13997"
+<A NAME="tex2html14003"
   HREF="node506.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14005"
+<A NAME="tex2html14011"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14008"
-  HREF="node508.html">CFDiskGUI::getFileSystemTranslator</A>
-<B> Up:</B> <A NAME="tex2html14004"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13998"
-  HREF="node506.html">CFDiskGUI::getDiskLayoutEntryType</A>
- &nbsp; <B>  <A NAME="tex2html14006"
+<B> Next:</B> <A NAME="tex2html14014"
+  HREF="node508.html">CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
+<B> Up:</B> <A NAME="tex2html14010"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14004"
+  HREF="node506.html">CFDiskGUI::getHTMLColorForFilesystemOrType</A>
+ &nbsp; <B>  <A NAME="tex2html14012"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091411000000000000000">
-CFDiskGUI::getDiskLayoutEntryFileSystem</A>
+<H2><A NAME="SECTION0061435000000000000000">
+CFDiskGUI::getPartTableEntryNr</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the filesystem of a disk layout entry.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a unique number for the partitions and free spaces on a disk bar and for the partition table (used in JavaScript).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>layoutNr: Number of the disk layout entry.
+<LI>start: Start position of the partition / free space.
+</LI>
+<LI>end: End position of the partition / free space.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Filesystem of a disk layout entry or dies, if not set.
+<LI>Unique number
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ CFDiskGUI::getDiskLayoutEntryFileSystem</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

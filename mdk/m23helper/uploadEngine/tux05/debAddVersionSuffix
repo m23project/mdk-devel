@@ -1,0 +1,40 @@
+#!/bin/bash
+
+debFile="$1"
+suffix="$2"
+
+rm -r deb 2> /dev/null
+
+# Create directories for data and control files
+mkdir -p deb/control
+cd deb
+
+# Extract the tars from the Debian package
+ar x "$debFile"
+
+# Extract the control parts
+cd control
+tar xfz ../control.tar.gz
+
+# Add suffix to version number
+sed -i "s/\(Version: .*\)/\1$suffix/" control
+
+newVersion=$(grep Version: control | cut -d' ' -f2)
+
+# Create new control tar
+rm ../control.tar.gz
+tar cfz ../control.tar.gz .
+cd ..
+rm -r control
+
+# Exchange the version number in the Debian package name
+newDebFile=$(basename $debFile | sed "s/\([^_]*_\)\([^_]*\)\(.*\)/\1$newVersion\3/")
+
+# Create a new Debian package
+ar r ../$newDebFile debian-binary control.tar.gz data.tar.*
+
+# Clean up
+cd ..
+rm -r deb
+
+echo $newDebFile

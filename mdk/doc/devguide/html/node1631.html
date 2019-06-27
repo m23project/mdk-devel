@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_getFreeSpaces</TITLE>
-<META NAME="description" CONTENT="FDISK_getFreeSpaces">
+<TITLE>FDISK_buildRaidDialog</TITLE>
+<META NAME="description" CONTENT="FDISK_buildRaidDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1632.html">
 <LINK REL="previous" HREF="node1630.html">
-<LINK REL="up" HREF="node1547.html">
+<LINK REL="up" HREF="node1527.html">
 <LINK REL="next" HREF="node1632.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28497"
+<A NAME="tex2html28507"
   HREF="node1632.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28493"
-  HREF="node1547.html">
+<A NAME="tex2html28503"
+  HREF="node1527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28487"
+<A NAME="tex2html28497"
   HREF="node1630.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28495"
+<A NAME="tex2html28505"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28498"
-  HREF="node1632.html">FDISK_autoPart</A>
-<B> Up:</B> <A NAME="tex2html28494"
-  HREF="node1547.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28488"
-  HREF="node1630.html">FDISK_countPartitions</A>
- &nbsp; <B>  <A NAME="tex2html28496"
+<B> Next:</B> <A NAME="tex2html28508"
+  HREF="node1632.html">FDISK_addRaidJobs</A>
+<B> Up:</B> <A NAME="tex2html28504"
+  HREF="node1527.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28498"
+  HREF="node1630.html">FDISK_addDrivePartitionToRaid</A>
+ &nbsp; <B>  <A NAME="tex2html28506"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095284000000000000000">
-FDISK_getFreeSpaces</A>
+<H2><A NAME="SECTION00652104000000000000000">
+FDISK_buildRaidDialog</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> get free spaces as array
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for creating RAIDs of different types and assign real drives or partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>param: parameter string containing status informations about the harddisks
+<LI>param: parameter string containing status information about the harddisks
 </LI>
-<LI>dev: selected device (e.g. hda)
+<LI>partJobs: associative array with partition jobs
+</LI>
+<LI>currentDrive: the current drive to work on (e.g. hda)
+</LI>
+<LI>helpPage: Name of the help page to show.
+</LI>
+<LI>partitionDrive: Partition or drive to add (e.g. /dev/hdc)
+</LI>
+<LI>partMethod: partition method (used for the partition/format dialog). The next step will depend on this value.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the RAID has the minimum amount of assigned drives/partitions and otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +84,7 @@ FDISK_getFreeSpaces</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

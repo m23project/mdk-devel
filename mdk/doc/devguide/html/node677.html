@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::checkConsistencyDiskKey</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::checkConsistencyDiskKey">
+<TITLE>CFDiskTest::randomCreateRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskTest::randomCreateRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node678.html">
 <LINK REL="previous" HREF="node676.html">
-<LINK REL="up" HREF="node668.html">
+<LINK REL="up" HREF="node644.html">
 <LINK REL="next" HREF="node678.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16202"
+<A NAME="tex2html16208"
   HREF="node678.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16198"
-  HREF="node668.html">
+<A NAME="tex2html16204"
+  HREF="node644.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16192"
+<A NAME="tex2html16198"
   HREF="node676.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16200"
+<A NAME="tex2html16206"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16203"
-  HREF="node678.html">CFDiskTest::checkConsistencyvDiskvPartKey</A>
-<B> Up:</B> <A NAME="tex2html16199"
-  HREF="node668.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html16193"
-  HREF="node676.html">CFDiskTest::checkBothSetKey</A>
- &nbsp; <B>  <A NAME="tex2html16201"
+<B> Next:</B> <A NAME="tex2html16209"
+  HREF="node678.html">CFDiskTest::randomDeleteRaid</A>
+<B> Up:</B> <A NAME="tex2html16205"
+  HREF="node644.html">./inc/CFDiskTest.php</A>
+<B> Previous:</B> <A NAME="tex2html16199"
+  HREF="node676.html">CFDiskTest::areThereEnoughFreePartitionsToBuildTheRaid</A>
+ &nbsp; <B>  <A NAME="tex2html16207"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009169000000000000000">
-CFDiskTest::checkConsistencyDiskKey</A>
+<H2><A NAME="SECTION0061633000000000000000">
+CFDiskTest::randomCreateRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks for consistancy of $vDisk keys between virtual calculation and actual client partitioning. Differences will be inserted into $this-<SPAN CLASS="MATH"></SPAN>diffConsistency.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
-</LI>
-<LI>key: The key to check for.
-</LI>
-<LI>bothUnsetAllowed: Set to true, if both values may be unset (used for the loop).
-</LI>
-<LI>tolerance: Maximal allowerd difference between the (numeric) values.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true if virtual calculation and actual client value are equal and both present, otherwise false.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Tries to create a new RAID with randomly choosen partitions and with random RAID level.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

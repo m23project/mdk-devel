@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_showDiskDefine</TITLE>
-<META NAME="description" CONTENT="FDISK_showDiskDefine">
+<TITLE>FDISK_raidJob</TITLE>
+<META NAME="description" CONTENT="FDISK_raidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1635.html">
 <LINK REL="previous" HREF="node1633.html">
-<LINK REL="up" HREF="node1547.html">
+<LINK REL="up" HREF="node1527.html">
 <LINK REL="next" HREF="node1635.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28533"
+<A NAME="tex2html28543"
   HREF="node1635.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28529"
-  HREF="node1547.html">
+<A NAME="tex2html28539"
+  HREF="node1527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28523"
+<A NAME="tex2html28533"
   HREF="node1633.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28531"
+<A NAME="tex2html28541"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28534"
-  HREF="node1635.html">FDISK_defineDrive</A>
-<B> Up:</B> <A NAME="tex2html28530"
-  HREF="node1547.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28524"
-  HREF="node1633.html">FDISK_printColorDefinitions</A>
- &nbsp; <B>  <A NAME="tex2html28532"
+<B> Next:</B> <A NAME="tex2html28544"
+  HREF="node1635.html">FDISK_virtualDeleteDrive</A>
+<B> Up:</B> <A NAME="tex2html28540"
+  HREF="node1527.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28534"
+  HREF="node1633.html">FDISK_addRaidBeforeFormat</A>
+ &nbsp; <B>  <A NAME="tex2html28542"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095287000000000000000">
-FDISK_showDiskDefine</A>
+<H2><A NAME="SECTION00652107000000000000000">
+FDISK_raidJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows a dialog for defining the type and size of the fake drive for the clientBuilder
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a job to create a RAID on given drives/partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: client name
+<LI>raidDev: RAID device (e.g. /dev/md0)
+</LI>
+<LI>devList: Space separated list of devices to create the RAID on top (e.g. /dev/sda1 /dev/hda /dev/sbd5).
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ FDISK_showDiskDefine</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

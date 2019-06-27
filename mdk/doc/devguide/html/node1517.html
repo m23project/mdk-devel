@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getKernels</TITLE>
-<META NAME="description" CONTENT="PKG_getKernels">
+<TITLE>EDIT_replace</TITLE>
+<META NAME="description" CONTENT="EDIT_replace">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1518.html">
 <LINK REL="previous" HREF="node1516.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1500.html">
 <LINK REL="next" HREF="node1518.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26998"
+<A NAME="tex2html27032"
   HREF="node1518.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26994"
-  HREF="node1493.html">
+<A NAME="tex2html27028"
+  HREF="node1500.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26988"
+<A NAME="tex2html27022"
   HREF="node1516.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26996"
+<A NAME="tex2html27030"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26999"
-  HREF="node1518.html">PKG_downloadPool</A>
-<B> Up:</B> <A NAME="tex2html26995"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26989"
-  HREF="node1516.html">PKG_previewInstall</A>
- &nbsp; <B>  <A NAME="tex2html26997"
+<B> Next:</B> <A NAME="tex2html27033"
+  HREF="node1518.html">EDIT_prepareStr</A>
+<B> Up:</B> <A NAME="tex2html27029"
+  HREF="node1500.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html27023"
+  HREF="node1516.html">EDIT_searchNextLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html27031"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095024000000000000000">
-PKG_getKernels</A>
+<H2><A NAME="SECTION0065117000000000000000">
+EDIT_replace</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
+<SPAN  CLASS="textbf">Description:</SPAN> replaces $searchLine with $replaceText
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the distribution name
+<LI>file: the name of the file
 </LI>
-<LI>packagesource: name of the package source
+<LI>searchLine: line to search
 </LI>
-<LI>arch: Architecture to get package infos for.
+<LI>repaceText: text to replace with
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
+<LI>mode: can be "g" to replace all matching lines. Any other value will only replace the first occurrence.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ PKG_getKernels</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

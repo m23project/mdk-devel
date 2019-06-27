@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HS_wrapperHS_wrapperReturn</TITLE>
-<META NAME="description" CONTENT="HS_wrapperHS_wrapperReturn">
+<TITLE>HELPER_xargsRecursive</TITLE>
+<META NAME="description" CONTENT="HELPER_xargsRecursive">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1745.html">
 <LINK REL="previous" HREF="node1743.html">
-<LINK REL="up" HREF="node1690.html">
+<LINK REL="up" HREF="node1727.html">
 <LINK REL="next" HREF="node1745.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29937"
+<A NAME="tex2html30004"
   HREF="node1745.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29933"
-  HREF="node1690.html">
+<A NAME="tex2html30000"
+  HREF="node1727.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29927"
+<A NAME="tex2html29994"
   HREF="node1743.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29935"
+<A NAME="tex2html30002"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29938"
-  HREF="node1745.html">HS_wrapper</A>
-<B> Up:</B> <A NAME="tex2html29934"
-  HREF="node1690.html">./inc/halfSister.php</A>
-<B> Previous:</B> <A NAME="tex2html29928"
-  HREF="node1743.html">HS_pkgDeinstall</A>
- &nbsp; <B>  <A NAME="tex2html29936"
+<B> Next:</B> <A NAME="tex2html30005"
+  HREF="node1745.html">HELPER_resetNewLogLines</A>
+<B> Up:</B> <A NAME="tex2html30001"
+  HREF="node1727.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html29995"
+  HREF="node1743.html">HELPER_trimValue</A>
+ &nbsp; <B>  <A NAME="tex2html30003"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095454000000000000000">
-HS_wrapperHS_wrapperReturn</A>
+<H2><A NAME="SECTION0065517000000000000000">
+HELPER_xargsRecursive</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a m23HSAdmin action with parameters and returns the result.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a BASH command with a list of arguments. If the BASH command fails, the argument list is split in two parts and recursively executed again.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Multiple parameters with the desired action as first parameter followed by the parameters of the action.
+<LI>cmd: BASH command
+</LI>
+<LI>argsA: Array of commands for the BASH command.
+</LI>
+<LI>tabAmount: Amount of identing to start with.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Recursive calls of the BASH command with error checking.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ HS_wrapperHS_wrapperReturn</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

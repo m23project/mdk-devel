@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFirewall::show</TITLE>
-<META NAME="description" CONTENT="CFirewall::show">
+<TITLE>CHECK_deviceName</TITLE>
+<META NAME="description" CONTENT="CHECK_deviceName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,68 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node722.html">
 <LINK REL="previous" HREF="node720.html">
-<LINK REL="up" HREF="node706.html">
+<LINK REL="up" HREF="node715.html">
 <LINK REL="next" HREF="node722.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16741"
+<A NAME="tex2html16781"
   HREF="node722.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16737"
-  HREF="node706.html">
+<A NAME="tex2html16777"
+  HREF="node715.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16733"
+<A NAME="tex2html16771"
   HREF="node720.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16739"
+<A NAME="tex2html16779"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16742"
-  HREF="node722.html">./inc/CGPGSign.php</A>
-<B> Up:</B> <A NAME="tex2html16738"
-  HREF="node706.html">./inc/CFirewall.php</A>
-<B> Previous:</B> <A NAME="tex2html16734"
-  HREF="node720.html">CFirewall::getSatusIconHTML</A>
- &nbsp; <B>  <A NAME="tex2html16740"
+<B> Next:</B> <A NAME="tex2html16782"
+  HREF="node722.html">CHECK_mointPoint</A>
+<B> Up:</B> <A NAME="tex2html16778"
+  HREF="node715.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html16772"
+  HREF="node720.html">CHECK_FW</A>
+ &nbsp; <B>  <A NAME="tex2html16780"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091715000000000000000">
-CFirewall::show</A>
+<H2><A NAME="SECTION006196000000000000000">
+CHECK_deviceName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog for (de)activating the firewall and changing the rules.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a valid device name for a HD drive or partition or a RAID.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>devName: Device name to check.
+</LI>
+<LI>partition: Set to true if you want to check for a partition.
+</LI>
+<LI>diskOrPartition: Set to true, if a disk or partition should be valid. This overwrites the parameter "partition".
+</LI>
+<LI>raidAllowed: Set to true, if RAIDs are allowed too.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The input value is a valid drive, partition or RAID or false on an error.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

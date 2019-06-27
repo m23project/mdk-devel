@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::getNetworkBootTypesArrayForSelection</TITLE>
-<META NAME="description" CONTENT="CClient::getNetworkBootTypesArrayForSelection">
+<TITLE>CFDiskBasic::createRaidJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createRaidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node447.html">
 <LINK REL="previous" HREF="node445.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node447.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13200"
+<A NAME="tex2html13235"
   HREF="node447.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13196"
-  HREF="node335.html">
+<A NAME="tex2html13231"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13190"
+<A NAME="tex2html13225"
   HREF="node445.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13198"
+<A NAME="tex2html13233"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13201"
-  HREF="node447.html">CClient::startInstall</A>
-<B> Up:</B> <A NAME="tex2html13197"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13191"
-  HREF="node445.html">CClient::setBootType</A>
- &nbsp; <B>  <A NAME="tex2html13199"
+<B> Next:</B> <A NAME="tex2html13236"
+  HREF="node447.html">CFDiskBasic::deleteRaidJob</A>
+<B> Up:</B> <A NAME="tex2html13232"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13226"
+  HREF="node445.html">CFDiskBasic::formatJob</A>
+ &nbsp; <B>  <A NAME="tex2html13234"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912111000000000000000">
-CClient::getNetworkBootTypesArrayForSelection</A>
+<H2><A NAME="SECTION006138000000000000000">
+CFDiskBasic::createRaidJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an array with all avaialable network boot types for using it in a selection.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a RAID creation job and adds it to the list of partition steps.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all avaialable network boot types (depends on the usage of m23shared) for using it in a selection.
+<LI>dev: RAID device to create (e.g. /dev/md0)
+</LI>
+<LI>devsBuildingDiskArray: Array with the devices that build the RAID.
+</LI>
+<LI>level: RAID level.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CClient::getNetworkBootTypesArrayForSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

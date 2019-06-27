@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getSearchCacheFileName</TITLE>
-<META NAME="description" CONTENT="PKG_getSearchCacheFileName">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1241.html">
 <LINK REL="previous" HREF="node1239.html">
-<LINK REL="up" HREF="node1238.html">
+<LINK REL="up" HREF="node1216.html">
 <LINK REL="next" HREF="node1241.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23446"
+<A NAME="tex2html23454"
   HREF="node1241.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23442"
-  HREF="node1238.html">
+<A NAME="tex2html23450"
+  HREF="node1216.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23436"
+<A NAME="tex2html23444"
   HREF="node1239.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23444"
+<A NAME="tex2html23452"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23447"
-  HREF="node1241.html">PKG_genPackageSearchCacheFileCMD</A>
-<B> Up:</B> <A NAME="tex2html23443"
-  HREF="node1238.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23437"
-  HREF="node1239.html">PKG_updatePackageSearchCacheFile</A>
- &nbsp; <B>  <A NAME="tex2html23445"
+<B> Next:</B> <A NAME="tex2html23455"
+  HREF="node1241.html">PKG_downloadPool</A>
+<B> Up:</B> <A NAME="tex2html23451"
+  HREF="node1216.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23445"
+  HREF="node1239.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html23453"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009412000000000000000">
-PKG_getSearchCacheFileName</A>
+<H2><A NAME="SECTION0064124000000000000000">
+PKG_getKernels</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the full path to the compressed package search file.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: Directory where the package information is stored.
+<LI>distr: the distribution name
 </LI>
-<LI>arch: Architecture for the packages in the search file.
+<LI>packagesource: name of the package source
+</LI>
+<LI>arch: Architecture to get package infos for.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Full path to the compressed package search file.
+<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ PKG_getSearchCacheFileName</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

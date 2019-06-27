@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
-<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
+<TITLE>CLCFG_listHSReleasesGeneric</TITLE>
+<META NAME="description" CONTENT="CLCFG_listHSReleasesGeneric">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1246.html">
 <LINK REL="previous" HREF="node1244.html">
-<LINK REL="up" HREF="node1238.html">
+<LINK REL="up" HREF="node1243.html">
 <LINK REL="next" HREF="node1246.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23506"
+<A NAME="tex2html23518"
   HREF="node1246.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23502"
-  HREF="node1238.html">
+<A NAME="tex2html23514"
+  HREF="node1243.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23496"
+<A NAME="tex2html23508"
   HREF="node1244.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23504"
+<A NAME="tex2html23516"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23507"
-  HREF="node1246.html">PKG_preparePool</A>
-<B> Up:</B> <A NAME="tex2html23503"
-  HREF="node1238.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23497"
-  HREF="node1244.html">PKG_ncTarDebsFromClientToServer_Server</A>
- &nbsp; <B>  <A NAME="tex2html23505"
+<B> Next:</B> <A NAME="tex2html23519"
+  HREF="node1246.html">CLCFG_listHSReleasesGeneric</A>
+<B> Up:</B> <A NAME="tex2html23515"
+  HREF="node1243.html">./inc/distr/halfSister/clientConfig.php</A>
+<B> Previous:</B> <A NAME="tex2html23509"
+  HREF="node1244.html">CLCFG_copyClientPackageStatus</A>
+ &nbsp; <B>  <A NAME="tex2html23517"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009417000000000000000">
-PKG_rsyncDebsFromClientToServer</A>
+<H2><A NAME="SECTION006422000000000000000">
+CLCFG_listHSReleasesGeneric</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an array of the different releases (e.g. sarge, sid, woody, potato) of a distribution.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientIP: The IP of the client.
+<LI>selName: the name of the selection
 </LI>
-<LI>poolDir: The directory on the server to store the Debian packages.
+<LI>first: the release to show first
+</LI>
+<LI>distr: distribution directory
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Array with release names.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ PKG_rsyncDebsFromClientToServer</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

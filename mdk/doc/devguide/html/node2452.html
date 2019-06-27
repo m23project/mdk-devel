@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_CloudStackNetBootActivate</TITLE>
-<META NAME="description" CONTENT="VM_CloudStackNetBootActivate">
+<TITLE>VM_rebootChangeBootDevice</TITLE>
+<META NAME="description" CONTENT="VM_rebootChangeBootDevice">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2453.html">
 <LINK REL="previous" HREF="node2451.html">
-<LINK REL="up" HREF="node2436.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2453.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39112"
+<A NAME="tex2html39132"
   HREF="node2453.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39108"
-  HREF="node2436.html">
+<A NAME="tex2html39128"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39102"
+<A NAME="tex2html39122"
   HREF="node2451.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39110"
+<A NAME="tex2html39130"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39113"
-  HREF="node2453.html">VM_CloudStackCreateVM</A>
-<B> Up:</B> <A NAME="tex2html39109"
-  HREF="node2436.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39103"
-  HREF="node2451.html">VM_CloudStackClientName2ClientID</A>
- &nbsp; <B>  <A NAME="tex2html39111"
+<B> Next:</B> <A NAME="tex2html39133"
+  HREF="node2453.html">VM_getVBoxVersion</A>
+<B> Up:</B> <A NAME="tex2html39129"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39123"
+  HREF="node2451.html">VM_shutdownAndDisableNetboot</A>
+ &nbsp; <B>  <A NAME="tex2html39131"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098016000000000000000">
-VM_CloudStackNetBootActivate</A>
+<H2><A NAME="SECTION0068027000000000000000">
+VM_rebootChangeBootDevice</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> attaches/exchanges or removes (if any) a network boot ISO to or from the client
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command to reboot an VM and to disable network booting.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientname: CloudStack name of the instance / name of the m23 client.
+<LI>type: VM_SW_VBOX for VirtualBox OSE
 </LI>
-<LI>activate: TRUE for attaching ISO, FALSE for removing
+<LI>vmname: Name of the VM.
 </LI>
-<LI>nBASuccess: is set to True if action succeeded, false otherwise
+<LI>visual: If set to true, the VM should be run in visual mode otherwise in headless mode.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>textmessage about result (errormessage or success message) and sets nBASuccess to True if action succeeded, false otherwise
+<LI>BASH code to reboot an VM and to disable network booting.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ VM_CloudStackNetBootActivate</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

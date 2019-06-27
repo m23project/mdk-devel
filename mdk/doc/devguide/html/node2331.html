@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_addToHtpasswd</TITLE>
-<META NAME="description" CONTENT="SERVER_addToHtpasswd">
+<TITLE>SERVER_programmStatus</TITLE>
+<META NAME="description" CONTENT="SERVER_programmStatus">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2332.html">
 <LINK REL="previous" HREF="node2330.html">
-<LINK REL="up" HREF="node2303.html">
+<LINK REL="up" HREF="node2291.html">
 <LINK REL="next" HREF="node2332.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37535"
+<A NAME="tex2html37553"
   HREF="node2332.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37531"
-  HREF="node2303.html">
+<A NAME="tex2html37549"
+  HREF="node2291.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37525"
+<A NAME="tex2html37543"
   HREF="node2330.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37533"
+<A NAME="tex2html37551"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37536"
-  HREF="node2332.html">SERVER_dhcpServerInNetWarn</A>
-<B> Up:</B> <A NAME="tex2html37532"
-  HREF="node2303.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html37526"
-  HREF="node2330.html">SERVER_delFromHtpasswd</A>
- &nbsp; <B>  <A NAME="tex2html37534"
+<B> Next:</B> <A NAME="tex2html37554"
+  HREF="node2332.html">SERVER_apacheInfo</A>
+<B> Up:</B> <A NAME="tex2html37550"
+  HREF="node2291.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37544"
+  HREF="node2330.html">SERVER_installToolInBackground</A>
+ &nbsp; <B>  <A NAME="tex2html37552"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097628000000000000000">
-SERVER_addToHtpasswd</A>
+<H2><A NAME="SECTION0067640000000000000000">
+SERVER_programmStatus</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new user with password to a htpasswd file.
+<SPAN  CLASS="textbf">Description:</SPAN> shows a row with information about the status of a certain program, with the possibillity to start, stop or restart the program.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+<LI>progname: the name of the programm (e.g. "apache" for the Apache web server)
 </LI>
-<LI>: username: Name of the new user to add
+<LI>daemonScript: set it to the script that should be used for starting, stopping and restarting. If the script name isn't set, this is a normal tool and NOT a daemon.
 </LI>
-<LI>: password: The according password for the new user
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: True if the new user was added sucessfully.
+<LI>canBeInstalled: set to "true" if the programm can be installed by the package name
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +72,7 @@ SERVER_addToHtpasswd</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

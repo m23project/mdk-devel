@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Starting the MDK menue system</TITLE>
-<META NAME="description" CONTENT="Starting the MDK menue system">
+<TITLE>what is mdoc?</TITLE>
+<META NAME="description" CONTENT="what is mdoc?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node10.html">
 <LINK REL="previous" HREF="node8.html">
-<LINK REL="up" HREF="node7.html">
+<LINK REL="up" HREF="node8.html">
 <LINK REL="next" HREF="node10.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5102"
+<A NAME="tex2html5108"
   HREF="node10.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5098"
-  HREF="node7.html">
+<A NAME="tex2html5104"
+  HREF="node8.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5094"
+<A NAME="tex2html5098"
   HREF="node8.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5100"
+<A NAME="tex2html5106"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5103"
-  HREF="node10.html">database</A>
-<B> Up:</B> <A NAME="tex2html5099"
-  HREF="node7.html">MDK menue system</A>
-<B> Previous:</B> <A NAME="tex2html5095"
-  HREF="node8.html">Introduction</A>
- &nbsp; <B>  <A NAME="tex2html5101"
+<B> Next:</B> <A NAME="tex2html5109"
+  HREF="node10.html">how to make your</A>
+<B> Up:</B> <A NAME="tex2html5105"
+  HREF="node8.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html5099"
+  HREF="node8.html">mdoc</A>
+ &nbsp; <B>  <A NAME="tex2html5107"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00420000000000000000">
-Starting the MDK menue system</A>
-</H1>
-All you have to do is to run the following command from a console:
+<H2><A NAME="SECTION00411000000000000000">
+what is mdoc?</A>
+</H2>
+mdoc creates documentation in latex format out of comments in your source files. Special marked lines in the source code are extracted and converted to a documentation file. For an example of the generated documentation see the "m23 API reference" included in this document. mdoc can scan PHP and C/C++ files and other files that allow "/**" and "**/" for begin and end of comments or don't care about these kind of strings. If you want to use mdoc for files that don't allow these strings, put the comment sequence used for the file type before the mdoc lines. e.g. for BASH scripts you will put a '#' in front of each mdoc line:
 <PRE>
-/mdk/bin/menuStart
+#/**
+#**name helloworld.sh
+#**description shows a hello world
+#**parameter none
+#**/
+echo hello world
 </PRE>
-<SPAN ID="txt573">Hint</SPAN>: If this doesn't work install the <SPAN  CLASS="textbf">dialog</SPAN> package, that is needed to draw the menues.
-
-<P>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

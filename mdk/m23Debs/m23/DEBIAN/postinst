@@ -366,26 +366,46 @@ db_get m23/configureSquid
 if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
 then
 
-	if [ -d /etc/squid3 ]
+# 	if [ -d /etc/squid3 ]
+# 	then
+# 		squidName='squid3'
+# 		squidConf="/etc/squid3/squid.conf"
+# 		
+# 	else
+# 		squidName='squid'
+# 		squidConf="/etc/squid/squid.conf"
+# 	fi
+# 
+# 	# Special handling for Squid 3 that used squid.conf
+# 	if [ -f /usr/sbin/squid3 ]
+# 	then
+# 		squidName='squid3'
+# 		squidConf="/etc/squid/squid.conf"
+# 
+# 		# Create the spool and log directories
+# 		mkdir /var/spool/squid3 /var/log/squid3
+# 		chown -R proxy:proxy /var/spool/squid3 /var/log/squid3
+# 	fi
+
+	mkdir /var/spool/squid3 /var/log/squid3 /var/spool/squid /var/log/squid
+	chown -R proxy:proxy /var/spool/squid3 /var/log/squid3 /var/spool/squid /var/log/squid
+
+
+	if [ -f /etc/init.d/squid3 ]
 	then
 		squidName='squid3'
+	else
+		squidName='squid'
+	fi
+
+	if [ -d /etc/squid3 ]
+	then
 		squidConf="/etc/squid3/squid.conf"
 		
 	else
-		squidName='squid'
 		squidConf="/etc/squid/squid.conf"
 	fi
 
-	# Special handling for Squid 3 that used squid.conf
-	if [ -f /usr/sbin/squid3 ]
-	then
-		squidName='squid3'
-		squidConf="/etc/squid/squid.conf"
-
-		# Create the spool and log directories
-		mkdir /var/spool/squid3 /var/log/squid3
-		chown -R proxy:proxy /var/spool/squid3 /var/log/squid3
-	fi
 
 	rm $squidConf 2> /dev/null
 

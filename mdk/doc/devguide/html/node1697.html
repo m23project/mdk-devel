@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HS_pkgUpdateCacheOnServer</TITLE>
-<META NAME="description" CONTENT="HS_pkgUpdateCacheOnServer">
+<TITLE>HS_sysAddUser</TITLE>
+<META NAME="description" CONTENT="HS_sysAddUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1698.html">
 <LINK REL="previous" HREF="node1696.html">
-<LINK REL="up" HREF="node1690.html">
+<LINK REL="up" HREF="node1670.html">
 <LINK REL="next" HREF="node1698.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29373"
+<A NAME="tex2html29383"
   HREF="node1698.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29369"
-  HREF="node1690.html">
+<A NAME="tex2html29379"
+  HREF="node1670.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29363"
+<A NAME="tex2html29373"
   HREF="node1696.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29371"
+<A NAME="tex2html29381"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29374"
-  HREF="node1698.html">HS_fetchAndExtractOSImage</A>
-<B> Up:</B> <A NAME="tex2html29370"
-  HREF="node1690.html">./inc/halfSister.php</A>
-<B> Previous:</B> <A NAME="tex2html29364"
-  HREF="node1696.html">HS_getPackageCacheName</A>
- &nbsp; <B>  <A NAME="tex2html29372"
+<B> Next:</B> <A NAME="tex2html29384"
+  HREF="node1698.html">HS_sysChangeUser</A>
+<B> Up:</B> <A NAME="tex2html29380"
+  HREF="node1670.html">./inc/halfSister.php</A>
+<B> Previous:</B> <A NAME="tex2html29374"
+  HREF="node1696.html">HS_sysHWsetup</A>
+ &nbsp; <B>  <A NAME="tex2html29382"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009547000000000000000">
-HS_pkgUpdateCacheOnServer</A>
+<H2><A NAME="SECTION0065427000000000000000">
+HS_sysAddUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> updates the package list on the server ( for editing package selections ) and saves it gzipped in /m23/data+scripts/distr/halfSister/packages-$packagesourcename-$arch.gz
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new user with home directoy and sets password.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>packagesourcename: name of the package source
+<LI>username: Name of the user to add.
 </LI>
-<LI>force: force the update (or not)
+<LI>password: The password of the user to add.
 </LI>
-<LI>arch: CPU architecture of the client.
+<LI>uid: User ID to give the new user.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The name of the package cache.
+<LI>gid: Group ID to give the new user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ HS_pkgUpdateCacheOnServer</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

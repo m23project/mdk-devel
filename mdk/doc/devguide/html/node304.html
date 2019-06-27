@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClientLister::sortLines</TITLE>
-<META NAME="description" CONTENT="CClientLister::sortLines">
+<TITLE>CClientLister::isMatchingClientPresent</TITLE>
+<META NAME="description" CONTENT="CClientLister::isMatchingClientPresent">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node305.html">
 <LINK REL="previous" HREF="node303.html">
-<LINK REL="up" HREF="node290.html">
+<LINK REL="up" HREF="node264.html">
 <LINK REL="next" HREF="node305.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11370"
+<A NAME="tex2html11374"
   HREF="node305.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11366"
-  HREF="node290.html">
+<A NAME="tex2html11370"
+  HREF="node264.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11360"
+<A NAME="tex2html11364"
   HREF="node303.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11368"
+<A NAME="tex2html11372"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11371"
-  HREF="node305.html">CClientLister::getAscDescHeader</A>
-<B> Up:</B> <A NAME="tex2html11367"
-  HREF="node290.html">./inc/CClientLister.php</A>
-<B> Previous:</B> <A NAME="tex2html11361"
-  HREF="node303.html">CClientLister::cmpArrayElements</A>
- &nbsp; <B>  <A NAME="tex2html11369"
+<B> Next:</B> <A NAME="tex2html11375"
+  HREF="node305.html">CClientLister::getAllAutoUpdateClientNames</A>
+<B> Up:</B> <A NAME="tex2html11371"
+  HREF="node264.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html11365"
+  HREF="node303.html">CClientLister::getAllMatchingClients</A>
+ &nbsp; <B>  <A NAME="tex2html11373"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091114000000000000000">
-CClientLister::sortLines</A>
+<H2><A NAME="SECTION0061140000000000000000">
+CClientLister::isMatchingClientPresent</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Does extra line sorting of special fields, that could not be sorted by SQL.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if at least one clients with a given key-value-combination is found.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>lines: Array with the lines to sort.
+<LI>key: The key to search for (e.g. office)
+</LI>
+<LI>val: The value to search for (e.g. home)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if at least one client is found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CClientLister::sortLines</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

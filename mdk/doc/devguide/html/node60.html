@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>AUTOTEST_executePHPFunction</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_executePHPFunction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,68 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node61.html">
 <LINK REL="previous" HREF="node59.html">
-<LINK REL="up" HREF="node59.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node61.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5820"
+<A NAME="tex2html8243"
   HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5816"
-  HREF="node59.html">
+<A NAME="tex2html8239"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5810"
+<A NAME="tex2html8233"
   HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5818"
+<A NAME="tex2html8241"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5821"
-  HREF="node61.html">creating a new bootimage</A>
-<B> Up:</B> <A NAME="tex2html5817"
-  HREF="node59.html">How to make network</A>
-<B> Previous:</B> <A NAME="tex2html5811"
-  HREF="node59.html">How to make network</A>
- &nbsp; <B>  <A NAME="tex2html5819"
+<B> Next:</B> <A NAME="tex2html8244"
+  HREF="node61.html">AUTOTEST_VM_keyboardWrite</A>
+<B> Up:</B> <A NAME="tex2html8240"
+  HREF="node40.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html8234"
+  HREF="node59.html">AUTOTEST_VM_restoreSnapshot</A>
+ &nbsp; <B>  <A NAME="tex2html8242"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00661000000000000000">
-Introduction</A>
-</H2>
-What are bootimages? Bootimages are used to boot up a client over the network. The bootimage contains a Linux kernel, an initial ramdisk and a script for fetching the jobs for the client.
-<BR>
-A client runs for first start up thru the following sequence:
-<BR>
+<H2><A NAME="SECTION006320000000000000000">
+AUTOTEST_executePHPFunction</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Executes a PHP function with (optional) parameters.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
 <UL>
-<LI>get IP, netmask, bootimage name, ... from the m23 DHCP server
+<LI>vmName: Name of the VM.
 </LI>
-<LI>fetch the bootimage from the server with TFTP protocoll
+<LI>params: Parameter string with function name as 1st part and its parameters concenated by "^&cir#circ;".
 </LI>
-<LI>load and extract the image to the client memory
-</LI>
-<LI>start the contained kernel
-</LI>
-<LI>kernel loades the included initrd
-</LI>
-<LI>start up script fetches IP, netmask, etc. from the server again
-</LI>
-<LI>the script fetches the first job for the client and saves the job script file
-</LI>
-<LI>the script is executed and the next job will be fetched from the server
-</LI>
-</UL> 
-This technology makes it possible to install angelOne Linux on an empty computer. No installed operating system is needed for partition, format or installation.
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

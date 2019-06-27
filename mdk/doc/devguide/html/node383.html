@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::setInstallPrinter</TITLE>
-<META NAME="description" CONTENT="CClient::setInstallPrinter">
+<TITLE>CClient::getProperty</TITLE>
+<META NAME="description" CONTENT="CClient::getProperty">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node384.html">
 <LINK REL="previous" HREF="node382.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node309.html">
 <LINK REL="next" HREF="node384.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html12444"
+<A NAME="tex2html12448"
   HREF="node384.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html12440"
-  HREF="node335.html">
+<A NAME="tex2html12444"
+  HREF="node309.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html12434"
+<A NAME="tex2html12438"
   HREF="node382.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html12442"
+<A NAME="tex2html12446"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html12445"
-  HREF="node384.html">CClient::getInstallPrinter</A>
-<B> Up:</B> <A NAME="tex2html12441"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html12435"
-  HREF="node382.html">CClient::setBoolProperty</A>
- &nbsp; <B>  <A NAME="tex2html12443"
+<B> Next:</B> <A NAME="tex2html12449"
+  HREF="node384.html">CClient::getSourcesList</A>
+<B> Up:</B> <A NAME="tex2html12445"
+  HREF="node309.html">./inc/CClient.php</A>
+<B> Previous:</B> <A NAME="tex2html12439"
+  HREF="node382.html">CClient::save</A>
+ &nbsp; <B>  <A NAME="tex2html12447"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091248000000000000000">
-CClient::setInstallPrinter</A>
+<H2><A NAME="SECTION0061274000000000000000">
+CClient::getProperty</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets, if the local printer should be detected/installed.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets a client property from $this-<SPAN CLASS="MATH"></SPAN>clientInfo and dies (or returns an error value), if this property is not set.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>setIt: Set to true, if the local printer should be detected/installed, otherwise false.
+<LI>key: Name of the property.
+</LI>
+<LI>dieMessage: Message to show before dying.
+</LI>
+<LI>return: This will returned in case of an error, if set to another value, than 'null'.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true on sucessfully setting.
+<LI>Value of the property (or error value).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ CClient::setInstallPrinter</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

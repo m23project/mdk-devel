@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_preparePackageDir</TITLE>
-<META NAME="description" CONTENT="PKG_preparePackageDir">
+<TITLE>EDIT_searchLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_searchLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1515.html">
 <LINK REL="previous" HREF="node1513.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1500.html">
 <LINK REL="next" HREF="node1515.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26962"
+<A NAME="tex2html26996"
   HREF="node1515.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26958"
-  HREF="node1493.html">
+<A NAME="tex2html26992"
+  HREF="node1500.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26952"
+<A NAME="tex2html26986"
   HREF="node1513.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26960"
+<A NAME="tex2html26994"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26963"
-  HREF="node1515.html">PKG_updatePackageInfo</A>
-<B> Up:</B> <A NAME="tex2html26959"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26953"
-  HREF="node1513.html">PKG_addAPTConfigFiles</A>
- &nbsp; <B>  <A NAME="tex2html26961"
+<B> Next:</B> <A NAME="tex2html26997"
+  HREF="node1515.html">EDIT_searchLastLineNumber</A>
+<B> Up:</B> <A NAME="tex2html26993"
+  HREF="node1500.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html26987"
+  HREF="node1513.html">EDIT_insertLineNumber</A>
+ &nbsp; <B>  <A NAME="tex2html26995"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095021000000000000000">
-PKG_preparePackageDir</A>
+<H2><A NAME="SECTION0065114000000000000000">
+EDIT_searchLineNumber</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
+<SPAN  CLASS="textbf">Description:</SPAN> searches for the first line that contains "searchLine" and stores the line number in the BASH variable "m23searchLine"
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: the directory to prepare
+<LI>file: the name of the file
 </LI>
-<LI>packagesource: sources list
+<LI>searchLine: line to search
 </LI>
-<LI>logFile: Name of the file the messages from apt-get should be written to.
-</LI>
-<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
-</LI>
-<LI>arch: Architecture to get package infos for.
-</LI>
-<LI>sourceName: The name of the package source list
-</LI>
-<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Error text on error or empty string on success.
+<LI>startFrom: the line number to start searching from
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -86,7 +72,7 @@ PKG_preparePackageDir</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

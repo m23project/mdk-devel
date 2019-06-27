@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::sshFetchJob</TITLE>
-<META NAME="description" CONTENT="CClient::sshFetchJob">
+<TITLE>CFDiskBasic::deletePartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::deletePartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node455.html">
 <LINK REL="previous" HREF="node453.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node455.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13296"
+<A NAME="tex2html13331"
   HREF="node455.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13292"
-  HREF="node335.html">
+<A NAME="tex2html13327"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13286"
+<A NAME="tex2html13321"
   HREF="node453.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13294"
+<A NAME="tex2html13329"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13297"
-  HREF="node455.html">CClient::executeBySSH</A>
-<B> Up:</B> <A NAME="tex2html13293"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13287"
-  HREF="node453.html">CClient::isPingable</A>
- &nbsp; <B>  <A NAME="tex2html13295"
+<B> Next:</B> <A NAME="tex2html13332"
+  HREF="node455.html">CFDiskBasic::formatPartition</A>
+<B> Up:</B> <A NAME="tex2html13328"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13322"
+  HREF="node453.html">CFDiskBasic::createUEFIPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13330"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912119000000000000000">
-CClient::sshFetchJob</A>
+<H2><A NAME="SECTION0061316000000000000000">
+CFDiskBasic::deletePartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Connects to the client via SSH and lets the next job fetch and execute it in a screen (named "m23install").
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a partition from a disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: The device (e.g. /dev/sda).
+</LI>
+<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
+</LI>
+<LI>massInstallMode: Adds the job to the beginning of the partitionSteps and partitionStepsForShift arrays and doesn't unset installation and swap partition.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::__construct</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::__construct">
+<TITLE>CFDiskGUI::newDiskLayout</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::newDiskLayout">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node498.html">
 <LINK REL="previous" HREF="node496.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node498.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13887"
+<A NAME="tex2html13893"
   HREF="node498.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html13889"
+  HREF="node472.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html13883"
   HREF="node496.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13877"
-  HREF="node496.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13885"
+<A NAME="tex2html13891"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13888"
-  HREF="node498.html">CFDiskGUI::__destruct</A>
-<B> Up:</B> <A NAME="tex2html13884"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13878"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
- &nbsp; <B>  <A NAME="tex2html13886"
+<B> Next:</B> <A NAME="tex2html13894"
+  HREF="node498.html">CFDiskGUI::updateDiskLayout</A>
+<B> Up:</B> <A NAME="tex2html13890"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13884"
+  HREF="node496.html">CFDiskGUI::addDiskLayoutEntry</A>
+ &nbsp; <B>  <A NAME="tex2html13892"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009141000000000000000">
-CFDiskBasic::__construct</A>
+<H2><A NAME="SECTION0061425000000000000000">
+CFDiskGUI::newDiskLayout</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new CFDiskGUI objects. The object holds all information about the partitioning (of a client and loads the values from the DB).
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new disk layout for a given disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Name of an existing client (to load) or data of an empty disk.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the disk layout will be calculated, false, if it is in the cache 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CFDiskBasic::__construct</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_fastGetInstalledPackages</TITLE>
-<META NAME="description" CONTENT="PKG_fastGetInstalledPackages">
+<TITLE>DISTR_listDistributions</TITLE>
+<META NAME="description" CONTENT="DISTR_listDistributions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1374.html">
 <LINK REL="previous" HREF="node1372.html">
-<LINK REL="up" HREF="node1363.html">
+<LINK REL="up" HREF="node1369.html">
 <LINK REL="next" HREF="node1374.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25152"
+<A NAME="tex2html25172"
   HREF="node1374.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25148"
-  HREF="node1363.html">
+<A NAME="tex2html25168"
+  HREF="node1369.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25142"
+<A NAME="tex2html25162"
   HREF="node1372.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25150"
+<A NAME="tex2html25170"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25153"
-  HREF="node1374.html">PKG_fastGetNewInstalledPackages</A>
-<B> Up:</B> <A NAME="tex2html25149"
-  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html25143"
-  HREF="node1372.html">PKG_convertPackagesToRepository</A>
- &nbsp; <B>  <A NAME="tex2html25151"
+<B> Next:</B> <A NAME="tex2html25173"
+  HREF="node1374.html">DISTR_getDescriptionValues</A>
+<B> Up:</B> <A NAME="tex2html25169"
+  HREF="node1369.html">./inc/distr.php</A>
+<B> Previous:</B> <A NAME="tex2html25163"
+  HREF="node1372.html">DISTR_releaseVersionTranslator</A>
+ &nbsp; <B>  <A NAME="tex2html25171"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094610000000000000000">
-PKG_fastGetInstalledPackages</A>
+<H2><A NAME="SECTION006474000000000000000">
+DISTR_listDistributions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets a list of all installed packages (faster than dpkg -get-selections).
+<SPAN  CLASS="textbf">Description:</SPAN> returns a list of the directory names of the distributions
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>storeFile: File name to store the list of installed on the client or empty if the list should be outputted to stdout.
+<LI>addEmpty: set to true if an empty fake distribution shoul be put on top of the list
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>An array that contains the system names of all distributions.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ PKG_fastGetInstalledPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

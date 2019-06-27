@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::deleteAllPartitions</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::deleteAllPartitions">
+<TITLE>CFDiskGUI::getDiskLayoutEntryType</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getDiskLayoutEntryType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node483.html">
 <LINK REL="previous" HREF="node481.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node483.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13661"
+<A NAME="tex2html13713"
   HREF="node483.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13657"
-  HREF="node464.html">
+<A NAME="tex2html13709"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13651"
+<A NAME="tex2html13703"
   HREF="node481.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13659"
+<A NAME="tex2html13711"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13662"
-  HREF="node483.html">CFDiskBasic::createInstallPartition</A>
-<B> Up:</B> <A NAME="tex2html13658"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13652"
-  HREF="node481.html">CFDiskBasic::formatPartition</A>
- &nbsp; <B>  <A NAME="tex2html13660"
+<B> Next:</B> <A NAME="tex2html13714"
+  HREF="node483.html">CFDiskGUI::getDiskLayoutEntryFileSystem</A>
+<B> Up:</B> <A NAME="tex2html13710"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13704"
+  HREF="node481.html">CFDiskGUI::getDiskLayoutEntrySize</A>
+ &nbsp; <B>  <A NAME="tex2html13712"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091318000000000000000">
-CFDiskBasic::deleteAllPartitions</A>
+<H2><A NAME="SECTION0061410000000000000000">
+CFDiskGUI::getDiskLayoutEntryType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes all partitions on a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the type of a disk layout entry.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>diskDev: The device (e.g. /dev/sda).
+<LI>vDisk: Virtual (internally used) device number.
+</LI>
+<LI>layoutNr: Number of the disk layout entry.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Type of a disk layout entry or dies, if not set.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskBasic::deleteAllPartitions</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

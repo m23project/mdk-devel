@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>plugins</TITLE>
-<META NAME="description" CONTENT="plugins">
+<TITLE>m23customPatch file format</TITLE>
+<META NAME="description" CONTENT="m23customPatch file format">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,69 +19,59 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node21.html">
-<LINK REL="previous" HREF="node19.html">
-<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
 <LINK REL="next" HREF="node21.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5254"
+<A NAME="tex2html5248"
   HREF="node21.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5250"
-  HREF="node12.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html5244"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html5238"
   HREF="node19.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5252"
+<A NAME="tex2html5246"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5255"
-  HREF="node21.html">recommendpackages</A>
-<B> Up:</B> <A NAME="tex2html5251"
-  HREF="node12.html">the tables</A>
-<B> Previous:</B> <A NAME="tex2html5245"
-  HREF="node19.html">groups</A>
- &nbsp; <B>  <A NAME="tex2html5253"
+<B> Next:</B> <A NAME="tex2html5249"
+  HREF="node21.html">Example (logo.php.m23customPatch)</A>
+<B> Up:</B> <A NAME="tex2html5245"
+  HREF="node15.html">m23customPatch</A>
+<B> Previous:</B> <A NAME="tex2html5239"
+  HREF="node19.html">Example (/m23/data+scripts/m23admin/head/head.php)</A>
+ &nbsp; <B>  <A NAME="tex2html5247"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00528000000000000000">
-plugins</A>
-</H2>
-With plugins you can enrich you m23 admin console with additional functionalities. Plugins are a bundle of PHP/Bash and other files showing one or more dialogs in the m23 admin, that are designed for a special purpose. E.g. you can write a backup plugin that lets you backup all m23 clients. For more information abou plugins see the "How to develop plugins for m23?" chapter.
-
-<UL>
-<LI>name: name of the plugin
-</LI>
-<LI>author: who had done it?
-</LI>
-<LI>version: version number
-</LI>
-<LI>updateurl: where to get the update file. An update file contains information about the new plugin and the plugin data itself.
-</LI>
-<LI>clientRequires: packages that have to be installed on the client before you can use the plugin. E.g. if you install a backup plugin there shoulb be installed the backup software on the client.
-</LI>
-<LI>deinstall: here is stored the uninstall script, this is normaly a Bash script.
-</LI>
-<LI>files: the file names included in the plugin, this is saved for clean uninstall.
-</LI>
-<LI>installdate: when was it installed?
-</LI>
-</UL>
-
+<H1><A NAME="SECTION00520000000000000000">
+m23customPatch file format</A>
+</H1><SMALL CLASS="FOOTNOTESIZE">
+The m23customPatch defines the ID to find the correct patchable area in the source file. For each patchable area a distinct m23customPatch file is required. The first line of a m23customPatch file contains the string "!m23customPatch" only. Lines 2 and 3 are containing the name of the source file (with full path) and the unique identifier (paramter "id"). The following lines are copied to a patchable area if its type is "change". In case of a "del" type area all lines in a m23customPatch file from the 4th on are ignored.
+</SMALL>
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html5250"
+  HREF="node21.html">Example (logo.php.m23customPatch)</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientsWithPackage</TITLE>
-<META NAME="description" CONTENT="PKG_getClientsWithPackage">
+<TITLE>PKG_showAllPackageSelections</TITLE>
+<META NAME="description" CONTENT="PKG_showAllPackageSelections">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2192.html">
 <LINK REL="previous" HREF="node2190.html">
-<LINK REL="up" HREF="node2107.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2192.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35731"
+<A NAME="tex2html35749"
   HREF="node2192.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35727"
-  HREF="node2107.html">
+<A NAME="tex2html35745"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35721"
+<A NAME="tex2html35739"
   HREF="node2190.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35729"
+<A NAME="tex2html35747"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35732"
-  HREF="node2192.html">PKG_getClientsWithWaitingJobs</A>
-<B> Up:</B> <A NAME="tex2html35728"
-  HREF="node2107.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35722"
-  HREF="node2190.html">PKG_rmAllSpecialPackagesByName</A>
- &nbsp; <B>  <A NAME="tex2html35730"
+<B> Next:</B> <A NAME="tex2html35750"
+  HREF="node2192.html">PKG_getPackageParams</A>
+<B> Up:</B> <A NAME="tex2html35746"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35740"
+  HREF="node2190.html">PKG_multiPackageSelectionsSelection</A>
+ &nbsp; <B>  <A NAME="tex2html35748"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096884000000000000000">
-PKG_getClientsWithPackage</A>
+<H2><A NAME="SECTION0066896000000000000000">
+PKG_showAllPackageSelections</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific package installed (or with another status).
+<SPAN  CLASS="textbf">Description:</SPAN> returns all package selection as HTML selection
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>packageName: Name of the package.
+<LI>selName: name of the selection
 </LI>
-<LI>status: The status the package should have.
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Array with all clients that have the specific package installed (or with another status).
+<LI>addEmpty: set to true to add an empty entry at the beginning.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +72,7 @@ PKG_getClientsWithPackage</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

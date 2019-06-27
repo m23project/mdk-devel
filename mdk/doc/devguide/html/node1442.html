@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_createBootDeviceNode</TITLE>
-<META NAME="description" CONTENT="CLCFG_createBootDeviceNode">
+<TITLE>CLCFG_mountRootDir</TITLE>
+<META NAME="description" CONTENT="CLCFG_mountRootDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1443.html">
 <LINK REL="previous" HREF="node1441.html">
-<LINK REL="up" HREF="node1404.html">
+<LINK REL="up" HREF="node1383.html">
 <LINK REL="next" HREF="node1443.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26068"
+<A NAME="tex2html26078"
   HREF="node1443.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26064"
-  HREF="node1404.html">
+<A NAME="tex2html26074"
+  HREF="node1383.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26058"
+<A NAME="tex2html26068"
   HREF="node1441.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26066"
+<A NAME="tex2html26076"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26069"
-  HREF="node1443.html">CLCFG_efi</A>
-<B> Up:</B> <A NAME="tex2html26065"
-  HREF="node1404.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html26059"
-  HREF="node1441.html">CLCFG_addUser</A>
- &nbsp; <B>  <A NAME="tex2html26067"
+<B> Next:</B> <A NAME="tex2html26079"
+  HREF="node1443.html">CLCFG_activateDMA</A>
+<B> Up:</B> <A NAME="tex2html26075"
+  HREF="node1383.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html26069"
+  HREF="node1441.html">CLCFG_downgradeExt</A>
+ &nbsp; <B>  <A NAME="tex2html26077"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094838000000000000000">
-CLCFG_createBootDeviceNode</A>
+<H2><A NAME="SECTION0064859000000000000000">
+CLCFG_mountRootDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Makes sure the needed device nodes for the boot device are created.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> create a new directory for mounting the root partition of the client, mount the installation directory to this mount point and create a temp directory
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>rootDev: the root device (e.g. /dev/hda1)
+</LI>
+<LI>mountPoint: directory under /mnt to mount the device in
+</LI>
+<LI>CFDiskIOO: Client object (used for mounting the EFI boot partition).
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

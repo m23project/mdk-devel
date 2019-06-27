@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::rereadPartTable</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::rereadPartTable">
+<TITLE>CFDiskGUI::fdiskSessionSetter</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::fdiskSessionSetter">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node476.html">
 <LINK REL="previous" HREF="node474.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node476.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13577"
+<A NAME="tex2html13629"
   HREF="node476.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13573"
-  HREF="node464.html">
+<A NAME="tex2html13625"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13567"
+<A NAME="tex2html13619"
   HREF="node474.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13575"
+<A NAME="tex2html13627"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13578"
-  HREF="node476.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
-<B> Up:</B> <A NAME="tex2html13574"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13568"
-  HREF="node474.html">CFDiskBasic::makeInstOrEFIPartBootable</A>
- &nbsp; <B>  <A NAME="tex2html13576"
+<B> Next:</B> <A NAME="tex2html13630"
+  HREF="node476.html">CFDiskGUI::fdiskSessionPage</A>
+<B> Up:</B> <A NAME="tex2html13626"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13620"
+  HREF="node474.html">CFDiskGUI::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html13628"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091311000000000000000">
-CFDiskBasic::rereadPartTable</A>
+<H2><A NAME="SECTION006143000000000000000">
+CFDiskGUI::fdiskSessionSetter</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
+<SPAN  CLASS="textbf">Description:</SPAN> Generic function to store values in the client partition and format session or loads them.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device that was changed/created (e.g. /dev/sda5).
+<LI>newVal: The value to set or false for not changing.
+</LI>
+<LI>varName: The name the value should be stored under in the client partition and format session.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The current value.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskBasic::rereadPartTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

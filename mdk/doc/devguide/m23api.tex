@@ -3,6 +3,9 @@
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Installatio routines shared among distributions.\\
 
+\subsection{CIR\_rootInRamdiskOrExit}
+\textbf{Description:} Checks, if root is stored on the ramdisk and exits the script, if not.\\
+
 \subsection{CIR\_setDateAndTimeTemorarily}
 \textbf{Description:} Sets the date and time by calling 'date' temporarily.\\
 
@@ -55,6 +58,82 @@
 \newpage\section{./inc/autoTest.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Functions for test automation.\\
+
+\subsection{AUTOTEST\_createLDAPUserAndGroup}
+\textbf{Description:} Creates an LDAP user and group on the local LDAD server and shows an info message, if creation was sucessfully or a warning with the direct message from the LDAP server.\\
+
+\subsection{AUTOTEST\_isDebug}
+\textbf{Description:} Checks, if autoTest is in debug mode (constant AT\_debug is set).\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if autoTest is in debug mode, otherwise false.
+\end{itemize}
+
+\subsection{AUTOTEST\_sshTunnelOverServer}
+\textbf{Description:} Executes commands on a client indirectly, that is reachable over an m23 server only. SSH connections require root user on the m23 server and the client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item serverNameOrIP: The name of the m23 server or its IP.
+\item clientNameOrIP: The name of the client or its IP.
+\item cmds: The commands to execute on the client 
+\item password: Parameter to set the SSH password or NULL to use SSH keys only.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The output of the client's screen.
+\end{itemize}
+
+\subsection{AUTOTEST\_getSeleniumSafeString}
+\textbf{Description:} Replaces characters in a string to make it safe for usage in Selenium and SimpleXMLElement.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input string. eg. "\&page=fdisk" becomes "%26page=fdisk"
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Safe made string.
+\end{itemize}
+
+\subsection{AUTOTEST\_getSeleniumSafeString}
+\textbf{Description:} Urldecodes characters that were made it safe for usage in Selenium and SimpleXMLElement.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input string. eg. "%26page=fdisk" becomes "\&page=fdisk"
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Unsafe made string.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_hostSanityCheck}
+\textbf{Description:} Checks the existence of tools on the VM host.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true or dies with an error message.
+\end{itemize}
+
+\subsection{AUTOTEST\_replaceConstantsInString}
+\textbf{Description:} Searches for variable declarations in a string and replaces them with the values of according constants.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input string. eg. "name=\${VM\_NAME}" may become "name=debianVM"
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The input string with replaced variable declarations.
+\end{itemize}
+
+\subsection{AUTOTEST\_SEL\_getURLByMatch}
+\textbf{Description:} Searches for one URL in the given HTML code that must contain all search terms.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item htmlsource: The HTML code.
+\item searchA: Array with the search terms.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The one matching URL or NULL if there is none matching.
+\end{itemize}
 
 \subsection{AUTOTEST\_getKey}
 \textbf{Description:} Generates the needed scan codes to produce a given character.\\
@@ -117,8 +196,16 @@
 \textbf{Description:} Deletes a VM and its virtual hard drive from VirtualBox.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item VMDeletionMessage: Variable where the VirtualBox (error) messages will be written to.
 \item vmName: Name of the VM.
+\item VMDeletionMessage: Variable where the VirtualBox (error) messages will be written to.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_stop}
+\textbf{Description:} Stops a VM.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item VMStopMessage: Variable where the VirtualBox (error) messages will be written to.
 \end{itemize}
 
 \subsection{AUTOTEST\_VM\_start}
@@ -145,12 +232,20 @@
 \item vmName: Name of the VM.
 \end{itemize}
 
-\subsection{AUTOTEST\_executePHPFunction}
-\textbf{Description:} Executes a PHP function with (optionall) parameters.\\
+\subsection{AUTOTEST\_VM\_restoreSnapshot}
+\textbf{Description:} Stops a VM and restores a snapshot.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item vmName: Name of the VM.
-\item params: [0] function name, [1...] parameters for the PHP function.
+\item snapshotName: Name of the snapshot to restore.
+\end{itemize}
+
+\subsection{AUTOTEST\_executePHPFunction}
+\textbf{Description:} Executes a PHP function with (optional) parameters.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item params: Parameter string with function name as 1st part and its parameters concenated by "°".
 \end{itemize}
 
 \subsection{AUTOTEST\_VM\_keyboardWrite}
@@ -192,6 +287,192 @@
 \textbf{Returns:}
 \begin{itemize}
 \item true, when the VM is powered on, otherwise false.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_exec}
+\textbf{Description:} Runs a command on the HTTP2SeleniumBridge.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item bridgeURL: URL to the HTTP2SeleniumBridge server (eg. http://192.168.1.153:23080)
+\item cmd: The command to execute (eg. typeInto)
+\item ID or name: ID or name of the HTML element to 
+\item additional parameters: Additional parameters with variable name first, value second.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_open}
+\textbf{Description:} Opens a website on the HTTP2SeleniumBridge.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item url: The URL to open (with "http(s)://" at the beginning and possible "$<$user$>$:$<$password$>$@"
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_selectFromID}
+\textbf{Description:} Selects an option from a selection choosen by selection ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the selection
+\item val: The value of the option to select
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_selectFromName}
+\textbf{Description:} Selects an option from a selection choosen by selection name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the selection
+\item val: The value of the option to select
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_deselectFromID}
+\textbf{Description:} Deselects an option from a selection choosen by selection ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the selection
+\item val: The value of the option to deselect
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_deselectFromName}
+\textbf{Description:} Deselects an option from a selection choosen by selection name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the selection
+\item val: The value of the option to deselect
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_clickButtonID}
+\textbf{Description:} Clicks a button choosen by button ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the button
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_clickButtonName}
+\textbf{Description:} Clicks a button choosen by button name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the button
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_typeIntoID}
+\textbf{Description:} Types into an editline or textarea choosen by its ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the editline or textarea
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_typeIntoName}
+\textbf{Description:} Types into an editline or textarea choosen by its name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the editline or textarea
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_setCheckID}
+\textbf{Description:} (Un)Ticks a checkbox choosen by its ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the checkbox
+\item checked: true for activating the checkbox, false for unticking it
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_setCheckName}
+\textbf{Description:} (Un)Ticks a checkbox choosen by its name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the checkbox
+\item checked: true for activating the checkbox, false for unticking it
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_selectRadioID}
+\textbf{Description:} Selects a radio button choosen by its ID.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item ID: ID of the radio button
+\item val: The value of the radio button to select
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_selectRadioName}
+\textbf{Description:} Selects a radio button choosen by its name.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item name: Name of the radio button
+\item val: The value of the radio button to select
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_getsource}
+\textbf{Description:} Gets the current page source of the selenium browser into the output page.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current page source
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_close}
+\textbf{Description:} Closes the browser window\\
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{AUTOTEST\_SELENIUM\_quit}
+\textbf{Description:} Closes the browser and webserver and quits HTTP2SeleniumBridge.\\
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
 \end{itemize}
 
 \newpage\section{./inc/backup.php}
@@ -466,71 +747,79 @@
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Class for test automation.\\
 
-\subsection{CClient::\_\_construct}
-\textbf{Description:} Constructor for new CClient objects. The object holds all information about a single client and loads the values from the DB.\\
+\subsection{CAutoTest::\_\_construct}
+\textbf{Description:} Constructor for new CAutoTest objects.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item in: ID of an existing client (to load), name of an existing or nonexisting (to create) client or associative array of parameters.
-\item checkMode: Check for the input variable.
+\item xmlFile: Name of the XML file to open.
+\item argv: Arguments from the command line (without the script name as 0th element) as array
 \end{itemize}
 
-\subsection{CAutoTest::readAndDefineOrDieXML}
-\textbf{Description:} Checks, is a given variable has a value that is not NULL (it was read via XML) or let the programm die with an error.\\
+\subsection{CAutoTest::\_\_destruct}
+\textbf{Description:} Destructor for this CAutoTest object.\\
+
+\subsection{CAutoTest::internalVariablesToConstants}
+\textbf{Description:} Maps internal variables to constants (for backward compatibility).\\
+
+\subsection{CAutoTest::importEnvironmentVariables}
+\textbf{Description:} Imports environment variables starting with 'AT\_' into the runtime variables array.\\
+
+\subsection{CAutoTest::loadXMLFile}
+\textbf{Description:} Loads an XML file, replaces problematic characters and includes other files.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item constant: Name of the constant to define.
-\item val: Value read from the XML to check.
+\item xmlFile: Name of the XML file to open.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item SimpleXMLElement object with the loaded XML file.
 \end{itemize}
 
 \subsection{CAutoTest::readSettings}
 \textbf{Description:} Reads basic settings from settings.m23test and sets them as constants.\\
 
+\subsection{CAutoTest::internalValuesFromXML}
+\textbf{Description:} Reads the variables section of an XML file and imports the variables into the array with runtime variables.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item xmlO: Prased XML structure pointing to the trigger.
+\end{itemize}
+
 \subsection{CAutoTest::VMCreate}
 \textbf{Description:} Creates a new VM with virtual hard drive in VirtualBox and (optionally) inserts a bootable ISO into a VM.\\
+
+\subsection{CAutoTest::VMStop}
+\textbf{Description:} Stops a virtual machine.\\
 
 \subsection{CAutoTest::VMStart}
 \textbf{Description:} Starts a virtual machine in an existing X session.\\
 
-\subsection{CAutoTest::setISO}
-\textbf{Description:} Sets the filename and path of the ISO image for booting.\\
+\subsection{CAutoTest::VMRestoreSnapshot}
+\textbf{Description:} Stops a VM and restores a snapshot.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item isoFile: Filename and path of the ISO image for booting.
+\item snapshotName: Name of the snapshot to restore.
 \end{itemize}
 
 \subsection{CAutoTest::getISO}
 \textbf{Description:} Get the filename and path to the ISO image for booting.\\
 \textbf{Returns:}
 \begin{itemize}
-\item Filename and path to the ISO image for booting.
+\item Filename and path to the ISO image for booting or NULL, if no ISO is used.
 \end{itemize}
 
 \subsection{CAutoTest::isVM}
-\textbf{Description:} Check, if the the test should be run in a VM.\\
+\textbf{Description:} Check, if the test should be run in a VM.\\
 \textbf{Returns:}
 \begin{itemize}
 \item true, when the test should be run in a VM, otherwise false.
 \end{itemize}
 
-\subsection{CAutoTest::getVM\_hdsize}
-\textbf{Description:} Get the hard disk size of the virtual machine (to create).\\
+\subsection{CAutoTest::isXMLTEST}
+\textbf{Description:} Check, if the only the XML should be parsed.\\
 \textbf{Returns:}
 \begin{itemize}
-\item Hard disk size of the VM.
-\end{itemize}
-
-\subsection{CAutoTest::getVMRam}
-\textbf{Description:} Get the ram size of the virtual machine (to create).\\
-\textbf{Returns:}
-\begin{itemize}
-\item Ram size of the VM.
-\end{itemize}
-
-\subsection{CAutoTest::getMachine}
-\textbf{Description:} Get the name of the (real or virtual) machine, the test is run on.\\
-\textbf{Returns:}
-\begin{itemize}
-\item Name of the (real or virtual) machine, the test is run on.
+\item true, when the test should be run in a VM, otherwise false.
 \end{itemize}
 
 \subsection{CAutoTest::getMovieFileName}
@@ -544,7 +833,7 @@
 \textbf{Description:} Get the file name for the log file.\\
 \textbf{Returns:}
 \begin{itemize}
-\item Log file name (with full path).
+\item Log file name.
 \end{itemize}
 
 \subsection{CAutoTest::addToLogFile}
@@ -594,8 +883,11 @@
 \item answersA: Associative array with the answers and parameters.
 \item execType: Type of action (CAutoTest::EXEC\_*), that will be executed when the trigger is hit.
 \item execParam: Parameter for the action (e.g. keys to press, when in CAutoTest::EXEC\_KEY mode).
+\item execAttributes: Additional attributes (parameters) (eg. name/ID for Selenium calls)
 \item timeout: Time to wait (in seconds) until the element of sequence will become a failure.
 \item description: Description for the test.
+\item triggerAttributes: Trigger attribute(s). Can hold additional parameters. (Result is written to this pointer)
+\item runIf: Value of the runIf attribute.
 \end{itemize}
 
 \subsection{CAutoTest::matchArray}
@@ -620,6 +912,13 @@
 \item Trigger type of the current sequence element.
 \end{itemize}
 
+\subsection{CAutoTest::getTriggerAttributes}
+\textbf{Description:} Returns the attributes (additional parameters) for execution of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Attributes (additional parameters) for execution of the current sequence element.
+\end{itemize}
+
 \subsection{CAutoTest::getTriggerParams}
 \textbf{Description:} Returns the trigger parameter of the current sequence element.\\
 \textbf{Returns:}
@@ -641,8 +940,34 @@
 \item Parameter for execution of the current sequence element.
 \end{itemize}
 
+\subsection{CAutoTest::getExecAttributes}
+\textbf{Description:} Returns the attributes (additional parameters) for execution of the current sequence element.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Attributes (additional parameters) for execution of the current sequence element.
+\end{itemize}
+
 \subsection{CAutoTest::checkTriggerResult}
 \textbf{Description:} Checks, if the result (e.g. from AUTOTEST\_VM\_ocrScreen) is found in the good, warn or bad array and executes the matching element finish handler.\\
+
+\subsection{CAutoTest::isAnswerFoundInTriggerResult}
+\textbf{Description:} Checks, if a trigger result contains an answer.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item triggerResult: A text (eg. extracted by OCR or from HTML source) that may contain answers.
+\item answer: A normal string or an \$I18N\_ variable. In case of a variable all translations will be searched in the trigger result. If it begins with "!", the answer should NOT be found in the result.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the answer (or its translation) was (NOT) found in the trigger result.
+\end{itemize}
+
+\subsection{CAutoTest::executePHPFunction}
+\textbf{Description:} Executes a PHP function with (optional) parameters.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item params: Parameter string with function name as 1st part and its parameters concenated by "°".
+\end{itemize}
 
 \subsection{CAutoTest::executeTriggerAction}
 \textbf{Description:} Executes the action of the current sequence element.\\
@@ -660,33 +985,90 @@
 \subsection{CAutoTest::nextCurElement}
 \textbf{Description:} Increments the current sequence element number.\\
 
+\subsection{CAutoTest::isConsecutiveIdenticalMessage}
+\textbf{Description:} Checks, if an identical message was assigned in the last call.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message to check.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if an identical message was assigned in the last call, otherwise false.
+\end{itemize}
+
 \subsection{CAutoTest::showAndLogMessage}
 \textbf{Description:} Shows a message and logs it to the log file.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item msg: Message to show in the console and the log file.
 \item prefix: A prefix show before the message to indicate the type of the message.
+\item ignoreConsecutiveIdenticalMessages: If set to true, consecutive identical messages are not given shown or logged, but 
 \end{itemize}
 
-\subsection{CAutoTest::elemOk}
+\subsection{CAutoTest::debugPrint}
+\textbf{Description:} Shows a message (, array or object in human readable form) and logs it to the log file, if autoTest is in debug mode.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item msg: Message (, array or object in human readable form) to show in the console and the log file.
+\item prefix: A prefix show before the message to indicate the type of the message.
+\end{itemize}
+
+\subsection{CAutoTest::isDebug}
+\textbf{Description:} Checks, if autoTest is in debug mode (variable AT\_debug is set).\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if autoTest is in debug mode (variable AT\_debug is set), otherwise false.
+\end{itemize}
+
+\subsection{CAutoTest::getStatusDescriptionInBraces}
+\textbf{Description:} Returns a status string with optional description in braces.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item status: The status.
+\item description: Optional description.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Status string with optional description in braces.
+\end{itemize}
+
+\subsection{CAutoTest::evaluateRunIf}
+\textbf{Description:} Checks, if the condition of the runIf attribute is met.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the condition of the runIf attribute is met, otherwise false.
+\end{itemize}
+
+\subsection{CAutoTest::evaluateSetVar}
+\textbf{Description:} Parses the value of an "setVar" attribute from an aarray with information about the answer and sets it to the runtime variables array, if it seems to be valid.\\
+
+\subsection{CAutoTest::elemGood}
 \textbf{Description:} The current sequence elements was finished sucessfully.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item msg: Message to show in the console and the log file.
+\item answer: Array with information about the answer.
 \end{itemize}
 
 \subsection{CAutoTest::elemWarn}
 \textbf{Description:} The current sequence elements was finished with a warning.\\
 \textbf{Parameter:}
 \begin{itemize}
+\item answer: Array with information about the answer.
+\end{itemize}
+
+\subsection{CAutoTest::elemGoodOrWarn}
+\textbf{Description:} The current sequence elements was finished sucessfully or with a warning. The result is shown and written to the log file.\\
+\textbf{Parameter:}
+\begin{itemize}
 \item msg: Message to show in the console and the log file.
+\item prefix: A prefix show before the message to indicate the type of the message.
 \end{itemize}
 
 \subsection{CAutoTest::elemBad}
 \textbf{Description:} There was an error in the current sequence element, so the execution must bestopped.\\
 \textbf{Parameter:}
 \begin{itemize}
-\item msg: Message to show in the console and the log file.
+\item answer: Array with information about the answer.
 \end{itemize}
 
 \subsection{CAutoTest::setVariableFromXML}
@@ -720,6 +1102,7 @@
 \item testDescription: Description of the test.
 \item testTrigger: Trigger parameter. (Result is written to this pointer)
 \item testTriggerType: Trigger type. (Result is written to this pointer)
+\item testTriggerAttributes: Trigger attribute(s). Can hold additional parameters. (Result is written to this pointer)
 \end{itemize}
 
 \subsection{CAutoTest::parseActionFromXML}
@@ -729,7 +1112,76 @@
 \item xmlO: Prased XML structure pointing to the action.
 \item testDescription: Description of the test.
 \item testAction: Action parameter. (Result is written to this pointer)
-\item testActionType: Action type. (Result is written to this pointer)
+\item testActionType: Action type(s). (Result is written to this pointer)
+\item testActionAttributes: Action attribute(s). Can hold additional parameters. (Result is written to this pointer)
+\end{itemize}
+
+\subsection{CAutoTest::seleniumReload}
+\textbf{Description:} Reloads the currently loaded page\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current page source
+\end{itemize}
+
+\subsection{CAutoTest::seleniumGetSource}
+\textbf{Description:} Gets the current page source of the selenium browser into the output page.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Current page source
+\end{itemize}
+
+\subsection{CAutoTest::seleniumExec}
+\textbf{Description:} Runs a command on the HTTP2SeleniumBridge.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item args: Array with the arguments.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{CAutoTest::seleniumExecExtra}
+\textbf{Description:} Runs an action on the HTTP2SeleniumBridge.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item action: Name of the action (eg. nextdriverid or free)
+\item args: Array with the arguments.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item HTTP output of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{CAutoTest::gotSeleniumDriverID}
+\textbf{Description:} Returnes true, if a Selenium webdriver ID was acquired.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if a Selenium webdriver ID was acquired, otherwise false.
+\end{itemize}
+
+\subsection{CAutoTest::getSeleniumDriverID}
+\textbf{Description:} Gives the Selenium webdriver ID this instance should use or let the programm die, if all are used.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Selenium webdriver ID.
+\end{itemize}
+
+\subsection{CAutoTest::freeSeleniumDriverID}
+\textbf{Description:} Frees the used Selenium webdriver ID.\\
+
+\subsection{CAutoTest::seleniumGetStatus}
+\textbf{Description:} Gets the status message(s) of the HTTP2SeleniumBridge.\\
+\textbf{Returns:}
+\begin{itemize}
+\item Status message(s) of the HTTP2SeleniumBridge call.
+\end{itemize}
+
+\subsection{CAutoTest::seleniumHostRunning}
+\textbf{Description:} Checks, if the HTTP2SeleniumBridge is running.\\
+\textbf{Returns:}
+\begin{itemize}
+\item true, if the HTTP2SeleniumBridge is running, otherwise false.
 \end{itemize}
 
 \subsection{CAutoTest::parseAnswersFromXML}
@@ -2938,6 +3390,17 @@
 \item instEnd: End position of the swap partition (in MB).
 \end{itemize}
 
+\subsection{CFDiskBasic::createFormatPartition}
+\textbf{Description:} Creates and formats a partition.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item diskDev: The disk device (e.g. /dev/hda) where the installation partition should be created on.
+\item instStart: Start position of the installation partition (in MB).
+\item instEnd: End position of the installation partition (in MB).
+\item fileSystem: Type of the file system (eg. ext4)
+\item partType: Type of the partition (eg. CFDiskIO::PT\_PRIMARY)
+\end{itemize}
+
 \subsection{CFDiskBasic::autoPartitionDisk}
 \textbf{Description:} Automatically partitions and formats a disk.\\
 \textbf{Parameter:}
@@ -2949,6 +3412,13 @@
 
 \subsection{CFDiskBasic::PM\_auto2Disk1SysSwap2Home}
 \textbf{Description:} Automatically partitions two disks (1st for system + swap, 2nd for /home).\\
+
+\subsection{CFDiskBasic::PM\_auto500GBsysSwapData}
+\textbf{Description:} Automatically partitions and formats the first 500GB a disk. It creates a system, swap and data partition.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item diskDev: The disk device (e.g. /dev/hda) that should be partitionated and formated automatically.
+\end{itemize}
 
 \subsection{CFDiskBasic::createAllRaidJobs}
 \textbf{Description:} Generates the jobs to create all RAIDs.\\
@@ -5643,6 +6113,15 @@
 \textbf{Returns:}
 \begin{itemize}
 \item Associtative array with active network cards (e.g. Array ( [0] =$>$ Array ( [dev] =$>$ eth0 [type] =$>$ encap:Ethernet [mac] =$>$ 00:52:66:23:00:23 ) [1] =$>$ Array ( [dev] =$>$ venet0 [type] =$>$ encap:UNSPEC [mac] =$>$ 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 ) )
+\end{itemize}
+
+\subsection{CLIENT\_getSSHKeyorPasswordOptions}
+\textbf{Description:} Generates SSH options for using sshpass (password given) or SSH public key (no password given).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item password: Password to use, if it's not NULL or empty.
+\item sshPass: sshpass commands are written here, if a password is given.
+\item sshPubkeyOnlyOptions: SSH options are written here, if no password is given.
 \end{itemize}
 
 \subsection{CLIENT\_executeOnClientOrIP}
@@ -8341,6 +8820,13 @@
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_executeNextWorkEveryMinute}
+\textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item lang: language for the messages
+\end{itemize}
+
 \subsection{CLCFG\_setSystime}
 \textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
 
@@ -8547,11 +9033,14 @@
 \end{itemize}
 
 \subsection{CLCFG\_genFstab}
-\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file\\
+\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager\\
 \textbf{Parameter:}
 \begin{itemize}
 \item bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
 \item rootDevice: the path to the installation partition (e.g. /dev/hda1)
+\item bootloader: Name of the boot loader to install and configure (actually grub only)
+\item ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+\item isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
 \end{itemize}
 
 \subsection{CLCFG\_interfaces}
@@ -9300,6 +9789,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_executeNextWorkEveryMinute}
+\textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item lang: language for the messages
+\end{itemize}
+
 \subsection{CLCFG\_setSystime}
 \textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
 
@@ -9506,11 +10002,14 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{CLCFG\_genFstab}
-\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file\\
+\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager\\
 \textbf{Parameter:}
 \begin{itemize}
 \item bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
 \item rootDevice: the path to the installation partition (e.g. /dev/hda1)
+\item bootloader: Name of the boot loader to install and configure (actually grub only)
+\item ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+\item isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
 \end{itemize}
 
 \subsection{CLCFG\_interfaces}
@@ -10192,6 +10691,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_executeNextWorkEveryMinute}
+\textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item lang: language for the messages
+\end{itemize}
+
 \subsection{CLCFG\_setSystime}
 \textbf{Description:} Sets the system time of the client to about the same time of the m23 server.\\
 
@@ -10398,11 +10904,14 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{CLCFG\_genFstab}
-\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file\\
+\textbf{Description:} generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager\\
 \textbf{Parameter:}
 \begin{itemize}
 \item bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
 \item rootDevice: the path to the installation partition (e.g. /dev/hda1)
+\item bootloader: Name of the boot loader to install and configure (actually grub only)
+\item ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+\item isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
 \end{itemize}
 
 \subsection{CLCFG\_interfaces}
@@ -11542,6 +12051,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item default: the drive to show first
 \item selName: the name the selection is called in PHP and HTML
 \item pathFilter: Set this to another value than false if you want only devices with a given string in it.
+\item partitionsOnly: Set to true, if only partitions should be listed.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -12913,6 +13423,57 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Helper functions that did not fit into another include file.\\
 
+\subsection{HELPER\_getClientNameAndID}
+\textbf{Description:} Gets client ID and name from the \$\_POST or \$\_GET array.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item client: Variable to write the client name to.
+\item id: Variable to write the client ID to.
+\end{itemize}
+
+\subsection{HELPER\_indentLines}
+\textbf{Description:} Intents all lines by putting an intent string in front of them.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input text.
+\item intent: Text tu put in front of all lines.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Text with intented lines.
+\end{itemize}
+
+\subsection{HELPER\_filterOutUnwantedSSHOutputs}
+\textbf{Description:} Filters out unwanted lines from SSH client.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item text: Text to filter.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Text with all lines removed that are containing unwanted lines from SSH client.
+\end{itemize}
+
+\subsection{dieWithExitCode}
+\textbf{Description:} Let the script die with a message on stderr and exit code.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item exitMessage: Message to show on exit.
+\item exitCode: The exit code of the script.
+\end{itemize}
+
+\subsection{HELPER\_str\_equal\_UTF8ISO}
+\textbf{Description:} Checks, if two strings are equal independent from their encodings (UTF-8 or ISO).\\
+\textbf{Parameter:}
+\begin{itemize}
+\item a: First string to compare.
+\item b: Second string to compare.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item true, if both strings "mean" the same, otherwise false.
+\end{itemize}
+
 \subsection{HELPER\_logToFile}
 \textbf{Description:} Adds text to an exclusively opened log file.\\
 \textbf{Parameter:}
@@ -13005,6 +13566,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \begin{itemize}
 \item url: The URL to download.
 \item range: If set, a part of the file will be downloaded. (e.g. 0-500 will download the first 500 kb)
+\item useProxy: If set to true, the system wide proxy will be used, otherwise a direct connection is attempted.
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
@@ -14255,6 +14817,28 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: functions for multi language handling in m23.\\
 
+\subsection{I18N\_getAllTranslationsForAllVariables}
+\textbf{Description:} Translates all I18N variables (in all languages) to their language dependent strings.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item in: Input text.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Associative array with all languages as keys and the I18N variables translated to their language dependent strings.
+\end{itemize}
+
+\subsection{I18N\_getAllTranslationsForVariable}
+\textbf{Description:} Returns all translations for a given variable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item var: Name of the variable (without "\$")
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item All translations for a given variable.
+\end{itemize}
+
 \subsection{I18N\_getHumanReadableDayHourMinute}
 \textbf{Description:} Converts a combined numeric day and hour/minute string into a human readable day and hour/minute string.\\
 \textbf{Parameter:}
@@ -14564,7 +15148,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item base: the base DN (e.g. dc=m23, dc=de)
 \end{itemize}
 
-\newpage\section{./inc/m23shared/m23shared.php}
+\newpage\section{./inc/m23shared/m23shared-raus.php}
  Author: Hauke Goos-Habermann (HHabermann@goos-habermann.de)\\
  Description: database functions, open, close the database, get ip of the calling client\\
 
@@ -15592,6 +16176,15 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \item width: width of the box
 \end{itemize}
 
+\subsection{MSG\_showEmergencyError}
+\textbf{Description:} Shows the ermergency error message with a JavaScript "back" button and stops the script afterwards.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item message: the text for the info message
+\item language: two character language description (e.g. de, en, fr,...)
+\item width: width of the box
+\end{itemize}
+
 \subsection{MSG\_showWarning}
 \textbf{Description:} Shows the warning block for the warning messages.\\
 \textbf{Parameter:}
@@ -15793,7 +16386,7 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \end{itemize}
 
 \subsection{MSR\_clientSideBase64Encode}
-\textbf{Description:} Encodes a given file to (a slighly different, + is converted to - for sending it as post variable via wget) base64 format and appends the output to statusdata.post. There are two methods for generating the base64 output. First the native uuencode tool that is very fast and second a plattform idependent implementation of base64 encode in AWK taken from the HylaFAX package.\\
+\textbf{Description:} Encodes a given file to (a slighly different, + is converted to - for sending it as post variable via wget) base64 format and appends the output to statusdata.post. There are three methods for generating the base64 output. First and second the native uuencode and base64 tools that are very fast and third a plattform idependent implementation of base64 encode in AWK taken from the HylaFAX package.\\
 \textbf{Parameter:}
 \begin{itemize}
 \item fileName: name of the file
@@ -15978,6 +16571,7 @@ Description: basic package operations (search, add,...)\\
 \item groups: Array of groups the user should be added.
 \item uid: Optional user ID of the new user.
 \item gid: Optional group ID of the new user.
+\item debianAndUbuntu: If set to true, groups for Debian and Ubuntu systems are added and the job chooses the groups when it is executed on the system.
 \end{itemize}
 
 \subsection{PKG\_cleanPackageLine}
@@ -17831,6 +18425,7 @@ Description: basic package operations (search, add,...)\\
 \item cmds: the commands of the script 
 \item user: user the script should be run under
 \item runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+\item redirectStdErr: Set to true if stderr should be redirected and not shown on in the console.
 \end{itemize}
 
 \subsection{SERVER\_runningInBackground}
@@ -17994,6 +18589,13 @@ Description: basic package operations (search, add,...)\\
 \newpage\section{./inc/sourceslist.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: function to generate the sources.list for the client\\
+
+\subsection{SRCLST\_getExportedListNames}
+\textbf{Description:} Generates an array with all sources lists that are exported by /mdk/bin/exportDBsourceslist.php.\\
+\textbf{Returns:}
+\begin{itemize}
+\item : Array with all sources lists that are exported by /mdk/bin/exportDBsourceslist.php.
+\end{itemize}
 
 \subsection{SRCLST\_getAddToFile}
 \textbf{Description:} Returns addToFile paramters from the given sources list as an associative array, where file name and file contents are seperated.\\
@@ -19206,7 +19808,20 @@ Description: basic package operations (search, add,...)\\
 \end{itemize}
 \textbf{Returns:}
 \begin{itemize}
-\item BASH code to delete a virtual machine.
+\item BASH code to (de)activate network booting of a VM.
+\end{itemize}
+
+\subsection{VM\_restoreSnapshot}
+\textbf{Description:} Restores a snapshot.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item type: VM\_SW\_VBOX for VirtualBox OSE
+\item vmName: Name of the VM.
+\item snapshotName: Name of the snapshot to restore.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item BASH code to restore a snapshot.
 \end{itemize}
 
 \subsection{VM\_createVM}
@@ -19278,6 +19893,7 @@ Description: basic package operations (search, add,...)\\
 \textbf{Parameter:}
 \begin{itemize}
 \item vmName: Name of the VM.
+\item cmd: Bash code to stop the VM.
 \end{itemize}
 
 \subsection{VM\_status}

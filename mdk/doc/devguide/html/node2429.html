@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UCS_udmSuccessOrErrorMessage</TITLE>
-<META NAME="description" CONTENT="UCS_udmSuccessOrErrorMessage">
+<TITLE>VM_isCloudStackClient</TITLE>
+<META NAME="description" CONTENT="VM_isCloudStackClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2430.html">
 <LINK REL="previous" HREF="node2428.html">
-<LINK REL="up" HREF="node2406.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2430.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38769"
+<A NAME="tex2html38856"
   HREF="node2430.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38765"
-  HREF="node2406.html">
+<A NAME="tex2html38852"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38759"
+<A NAME="tex2html38846"
   HREF="node2428.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38767"
+<A NAME="tex2html38854"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38770"
-  HREF="node2430.html">UCS_getUsedIPs</A>
-<B> Up:</B> <A NAME="tex2html38766"
-  HREF="node2406.html">./inc/ucs.php</A>
-<B> Previous:</B> <A NAME="tex2html38760"
-  HREF="node2428.html">UCS_enableClientLDAP</A>
- &nbsp; <B>  <A NAME="tex2html38768"
+<B> Next:</B> <A NAME="tex2html38857"
+  HREF="node2430.html">VM_CloudStackCheckConstants</A>
+<B> Up:</B> <A NAME="tex2html38853"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html38847"
+  HREF="node2428.html">VM_CloudStackDeleteClientVM</A>
+ &nbsp; <B>  <A NAME="tex2html38855"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097823000000000000000">
-UCS_udmSuccessOrErrorMessage</A>
+<H2><A NAME="SECTION006804000000000000000">
+VM_isCloudStackClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Takes the output from an udm command and checks for the return code (must be a single number in the last line). If the return code is non-zero, all lines above the last line are treated as error message and written to $errorMessage.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the client is run in CloudStack
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ret: The complete message block with return code (must be a single number in the last line)
-</LI>
-<LI>errorMessage: The variable, the error message may be written to.
+<LI>clientname: CloudStack name of the instance / name of the m23 client.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the udm command returned a success return code (0), otherwise false.
+<LI>true, when the client is run in CloudStack otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ UCS_udmSuccessOrErrorMessage</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

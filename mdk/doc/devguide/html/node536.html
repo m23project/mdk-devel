@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getDiskInfoString</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getDiskInfoString">
+<TITLE>CFDiskIO::getPreviousPartitionStep</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPreviousPartitionStep">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node537.html">
 <LINK REL="previous" HREF="node535.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node537.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14355"
+<A NAME="tex2html14481"
   HREF="node537.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14351"
-  HREF="node496.html">
+<A NAME="tex2html14477"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14345"
+<A NAME="tex2html14471"
   HREF="node535.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14353"
+<A NAME="tex2html14479"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14356"
-  HREF="node537.html">CFDiskGUI::getDriveInfoIcon</A>
-<B> Up:</B> <A NAME="tex2html14352"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14346"
-  HREF="node535.html">CFDiskGUI::getPartInfoString</A>
- &nbsp; <B>  <A NAME="tex2html14354"
+<B> Next:</B> <A NAME="tex2html14482"
+  HREF="node537.html">CFDiskIO::backToPreviousPartitionStep</A>
+<B> Up:</B> <A NAME="tex2html14478"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14472"
+  HREF="node535.html">CFDiskIO::dev2VDiskVPart</A>
+ &nbsp; <B>  <A NAME="tex2html14480"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091440000000000000000">
-CFDiskGUI::getDiskInfoString</A>
+<H2><A NAME="SECTION0061515000000000000000">
+CFDiskIO::getPreviousPartitionStep</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an info string, that shows information about the device name of the drive and bolonging to a RAID.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Get the previous partition steps and wanted partitioning from the last action.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Info string.
+<LI>Associative array with wanted partitioning as key 'wp' and the partition steps under key 'ps' from the last action or NULL, if there are no undo steps.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ CFDiskGUI::getDiskInfoString</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

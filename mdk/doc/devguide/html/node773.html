@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getNextFreeIp</TITLE>
-<META NAME="description" CONTENT="CLIENT_getNextFreeIp">
+<TITLE>CLIENT_executeOnClientOrIP</TITLE>
+<META NAME="description" CONTENT="CLIENT_executeOnClientOrIP">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node774.html">
 <LINK REL="previous" HREF="node772.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node742.html">
 <LINK REL="next" HREF="node774.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17503"
+<A NAME="tex2html17510"
   HREF="node774.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17499"
-  HREF="node766.html">
+<A NAME="tex2html17506"
+  HREF="node742.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17493"
+<A NAME="tex2html17500"
   HREF="node772.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17501"
+<A NAME="tex2html17508"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17504"
-  HREF="node774.html">CLIENT_getAllAsRes</A>
-<B> Up:</B> <A NAME="tex2html17500"
-  HREF="node766.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html17494"
-  HREF="node772.html">CLIENT_touchLiveLogFile</A>
- &nbsp; <B>  <A NAME="tex2html17502"
+<B> Next:</B> <A NAME="tex2html17511"
+  HREF="node774.html">CLIENT_isBasesystemInstalledFromImage</A>
+<B> Up:</B> <A NAME="tex2html17507"
+  HREF="node742.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html17501"
+  HREF="node772.html">CLIENT_getSSHKeyorPasswordOptions</A>
+ &nbsp; <B>  <A NAME="tex2html17509"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009227000000000000000">
-CLIENT_getNextFreeIp</A>
+<H2><A NAME="SECTION0062231000000000000000">
+CLIENT_executeOnClientOrIP</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Get the next free IP address that can be used as m23 client.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background or under a plain BASH under a given user. The script can be executed on the local machine "localhost" or a remote client that is accessible via SSH with a public key and without a password.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Next free IP address.
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
+</LI>
+<LI>jobName: name of the job screen should show
+</LI>
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The output of the screen (only available on direct output if $runInScreen is false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +82,7 @@ CLIENT_getNextFreeIp</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

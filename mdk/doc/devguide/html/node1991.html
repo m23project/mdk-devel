@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_isAccountBlocked</TITLE>
-<META NAME="description" CONTENT="m23SHARED_isAccountBlocked">
+<TITLE>MAIL_gpgSignClear</TITLE>
+<META NAME="description" CONTENT="MAIL_gpgSignClear">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1992.html">
 <LINK REL="previous" HREF="node1990.html">
-<LINK REL="up" HREF="node1924.html">
+<LINK REL="up" HREF="node1983.html">
 <LINK REL="next" HREF="node1992.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33129"
+<A NAME="tex2html33162"
   HREF="node1992.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33125"
-  HREF="node1924.html">
+<A NAME="tex2html33158"
+  HREF="node1983.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33119"
+<A NAME="tex2html33152"
   HREF="node1990.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33127"
+<A NAME="tex2html33160"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33130"
-  HREF="node1992.html">m23SHARED_showAddExtraBillDialog</A>
-<B> Up:</B> <A NAME="tex2html33126"
-  HREF="node1924.html">./inc/m23shared/m23shared.php</A>
-<B> Previous:</B> <A NAME="tex2html33120"
-  HREF="node1990.html">m23SHARED_blockAccount</A>
- &nbsp; <B>  <A NAME="tex2html33128"
+<B> Next:</B> <A NAME="tex2html33163"
+  HREF="node1992.html">MAIL_gpgSign</A>
+<B> Up:</B> <A NAME="tex2html33159"
+  HREF="node1983.html">./inc/mail.php</A>
+<B> Previous:</B> <A NAME="tex2html33153"
+  HREF="node1990.html">MAIL_gpgSignDetached</A>
+ &nbsp; <B>  <A NAME="tex2html33161"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096167000000000000000">
-m23SHARED_isAccountBlocked</A>
+<H2><A NAME="SECTION006628000000000000000">
+MAIL_gpgSignClear</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if an account is blocked.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a clear text signature file for a given private GPG key ID and input file.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: True if the account is blocked, false if not.
+<LI>gpgID: ID of the private GPG key.
+</LI>
+<LI>inFile: The file to create a signature for.
+</LI>
+<LI>outFile: The file with the detached signature.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: true, if the signature file was created and the input file exists, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ m23SHARED_isAccountBlocked</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_setVisualURL</TITLE>
-<META NAME="description" CONTENT="VM_setVisualURL">
+<TITLE>VM_startVM</TITLE>
+<META NAME="description" CONTENT="VM_startVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2489.html">
 <LINK REL="previous" HREF="node2487.html">
-<LINK REL="up" HREF="node2436.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2489.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39544"
+<A NAME="tex2html39564"
   HREF="node2489.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39540"
-  HREF="node2436.html">
+<A NAME="tex2html39560"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39534"
+<A NAME="tex2html39554"
   HREF="node2487.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39542"
+<A NAME="tex2html39562"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39545"
-  HREF="node2489.html">VM_setHostInDB</A>
-<B> Up:</B> <A NAME="tex2html39541"
-  HREF="node2436.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39535"
-  HREF="node2487.html">VM_getAllVMHosts</A>
- &nbsp; <B>  <A NAME="tex2html39543"
+<B> Next:</B> <A NAME="tex2html39565"
+  HREF="node2489.html">VM_startVMCommandFile</A>
+<B> Up:</B> <A NAME="tex2html39561"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39555"
+  HREF="node2487.html">VM_startVMInExistingXSession</A>
+ &nbsp; <B>  <A NAME="tex2html39563"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098052000000000000000">
-VM_setVisualURL</A>
+<H2><A NAME="SECTION0068063000000000000000">
+VM_startVM</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the URL to connect to the visual management console.
+<SPAN  CLASS="textbf">Description:</SPAN> Starts a virtual machine.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>VMguest: Name of the guest that is run in the virtualisation software.
+<LI>type: VM_SW_VBOX for VirtualBox OSE
 </LI>
-<LI>url: The URL to connect to the visual management console (e.g. 192.168.1.23:23 with VNC).
+<LI>vmName: Name of the VM.
+</LI>
+<LI>vnc: Set to true if the VM should be accessible since the booting via VNC.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>MySQL resource or false on error.
+<LI>BASH code to start a virtual machine.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ VM_setVisualURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

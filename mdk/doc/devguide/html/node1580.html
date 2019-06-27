@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_printAllBars</TITLE>
-<META NAME="description" CONTENT="FDISK_printAllBars">
+<TITLE>FDISK_getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="FDISK_getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1581.html">
 <LINK REL="previous" HREF="node1579.html">
-<LINK REL="up" HREF="node1547.html">
+<LINK REL="up" HREF="node1527.html">
 <LINK REL="next" HREF="node1581.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27885"
+<A NAME="tex2html27895"
   HREF="node1581.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27881"
-  HREF="node1547.html">
+<A NAME="tex2html27891"
+  HREF="node1527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27875"
+<A NAME="tex2html27885"
   HREF="node1579.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27883"
+<A NAME="tex2html27893"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27886"
-  HREF="node1581.html">FDISK_getFirstDrive</A>
-<B> Up:</B> <A NAME="tex2html27882"
-  HREF="node1547.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27876"
-  HREF="node1579.html">FDISK_selectDrives</A>
- &nbsp; <B>  <A NAME="tex2html27884"
+<B> Next:</B> <A NAME="tex2html27896"
+  HREF="node1581.html">FDISK_delPart</A>
+<B> Up:</B> <A NAME="tex2html27892"
+  HREF="node1527.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27886"
+  HREF="node1579.html">FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html27894"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095233000000000000000">
-FDISK_printAllBars</A>
+<H2><A NAME="SECTION0065253000000000000000">
+FDISK_getBelongingRaidDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> showes the partitions bars of all available drives
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
+</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>fstabA: Associative array with fstab information
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ FDISK_printAllBars</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

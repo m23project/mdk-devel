@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_liveLogArea</TITLE>
-<META NAME="description" CONTENT="HTML_liveLogArea">
+<TITLE>HTML_setStatusBarStatusByName</TITLE>
+<META NAME="description" CONTENT="HTML_setStatusBarStatusByName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1824.html">
 <LINK REL="previous" HREF="node1822.html">
-<LINK REL="up" HREF="node1807.html">
+<LINK REL="up" HREF="node1792.html">
 <LINK REL="next" HREF="node1824.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31001"
+<A NAME="tex2html31016"
   HREF="node1824.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30997"
-  HREF="node1807.html">
+<A NAME="tex2html31012"
+  HREF="node1792.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30991"
+<A NAME="tex2html31006"
   HREF="node1822.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30999"
+<A NAME="tex2html31014"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31002"
-  HREF="node1824.html">HTML_checkboxChangerButtons</A>
-<B> Up:</B> <A NAME="tex2html30998"
-  HREF="node1807.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30992"
-  HREF="node1822.html">HTML_hiddenVar</A>
- &nbsp; <B>  <A NAME="tex2html31000"
+<B> Next:</B> <A NAME="tex2html31017"
+  HREF="node1824.html">HTML_setStatusBarStatusByID</A>
+<B> Up:</B> <A NAME="tex2html31013"
+  HREF="node1792.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31007"
+  HREF="node1822.html">HTML_setStatusBarPercentPointByName</A>
+ &nbsp; <B>  <A NAME="tex2html31015"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095716000000000000000">
-HTML_liveLogArea</A>
+<H2><A NAME="SECTION0065731000000000000000">
+HTML_setStatusBarStatusByName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a log area that updates itself via AJAX by polling from a given URL.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by clientname AND status bar name.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlNames: Name of the log area.
+<LI>statusBarName: The name of the status bar.
 </LI>
-<LI>width: The width in characters of the log area.
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
 </LI>
-<LI>height: The height in characters of the log area.
+<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
 </LI>
-<LI>url: The HTTP URL to poll.
+<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
 </LI>
-<LI>timeout: Time in milliseconds to poll the URL for new status.
-</LI>
-<LI>maxLines: Maximum amount of lines to show in the log area (older lines are removed, when there are too many).
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: false on parameter error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +80,7 @@ HTML_liveLogArea</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

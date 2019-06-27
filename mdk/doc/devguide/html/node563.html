@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::discardUndo</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::discardUndo">
+<TITLE>CFDiskIO::getPartitionAmountOfType</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPartitionAmountOfType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node564.html">
 <LINK REL="previous" HREF="node562.html">
-<LINK REL="up" HREF="node545.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node564.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14799"
+<A NAME="tex2html14805"
   HREF="node564.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14795"
-  HREF="node545.html">
+<A NAME="tex2html14801"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14789"
+<A NAME="tex2html14795"
   HREF="node562.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14797"
+<A NAME="tex2html14803"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14800"
-  HREF="node564.html">CFDiskIO::updateUndoMd5</A>
-<B> Up:</B> <A NAME="tex2html14796"
-  HREF="node545.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14790"
-  HREF="node562.html">CFDiskIO::findAndSetEFIBootPartDev</A>
- &nbsp; <B>  <A NAME="tex2html14798"
+<B> Next:</B> <A NAME="tex2html14806"
+  HREF="node564.html">CFDiskIO::getExtendedVPart</A>
+<B> Up:</B> <A NAME="tex2html14802"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14796"
+  HREF="node562.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+ &nbsp; <B>  <A NAME="tex2html14804"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091518000000000000000">
-CFDiskIO::discardUndo</A>
+<H2><A NAME="SECTION0061542000000000000000">
+CFDiskIO::getPartitionAmountOfType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Discards all undo steps.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Count all partitions of a selected type on a disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

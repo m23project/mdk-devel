@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::__destruct</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::__destruct">
+<TITLE>CFDiskBasic::deleteRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::deleteRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node467.html">
 <LINK REL="previous" HREF="node465.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node467.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13469"
+<A NAME="tex2html13475"
   HREF="node467.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13465"
-  HREF="node464.html">
+<A NAME="tex2html13471"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13459"
+<A NAME="tex2html13465"
   HREF="node465.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13467"
+<A NAME="tex2html13473"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13470"
-  HREF="node467.html">CFDiskBasic::deletePartitionJob</A>
-<B> Up:</B> <A NAME="tex2html13466"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13460"
-  HREF="node465.html">CFDiskBasic::__construct</A>
- &nbsp; <B>  <A NAME="tex2html13468"
+<B> Next:</B> <A NAME="tex2html13476"
+  HREF="node467.html">CFDiskBasic::assignDeviceToRaid</A>
+<B> Up:</B> <A NAME="tex2html13472"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13466"
+  HREF="node465.html">CFDiskBasic::createRaid</A>
+ &nbsp; <B>  <A NAME="tex2html13474"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009132000000000000000">
-CFDiskBasic::__destruct</A>
+<H2><A NAME="SECTION0061328000000000000000">
+CFDiskBasic::deleteRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Destructor for a CFDiskBasic object. Before the object is removed from the RAM, all settings are written to the DB.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a RAID disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: Device name for the RAID (eg. /dev/md0)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if deleting of the RAID works, otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_commentoutInsert</TITLE>
-<META NAME="description" CONTENT="EDIT_commentoutInsert">
+<TITLE>EDIT_replaceLineElseAdd</TITLE>
+<META NAME="description" CONTENT="EDIT_replaceLineElseAdd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1526.html">
 <LINK REL="previous" HREF="node1524.html">
-<LINK REL="up" HREF="node1520.html">
+<LINK REL="up" HREF="node1500.html">
 <LINK REL="next" HREF="node1526.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27118"
+<A NAME="tex2html27128"
   HREF="node1526.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27114"
-  HREF="node1520.html">
+<A NAME="tex2html27124"
+  HREF="node1500.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27108"
+<A NAME="tex2html27118"
   HREF="node1524.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27116"
+<A NAME="tex2html27126"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27119"
-  HREF="node1526.html">EDIT_commentoutAll</A>
-<B> Up:</B> <A NAME="tex2html27115"
-  HREF="node1520.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html27109"
-  HREF="node1524.html">EDIT_genClientm23Random</A>
- &nbsp; <B>  <A NAME="tex2html27117"
+<B> Next:</B> <A NAME="tex2html27129"
+  HREF="node1526.html">EDIT_appendToFile</A>
+<B> Up:</B> <A NAME="tex2html27125"
+  HREF="node1500.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html27119"
+  HREF="node1524.html">EDIT_deleteMatching</A>
+ &nbsp; <B>  <A NAME="tex2html27127"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009515000000000000000">
-EDIT_commentoutInsert</A>
+<H2><A NAME="SECTION0065125000000000000000">
+EDIT_replaceLineElseAdd</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Comments out a matched line and inserts a new line after it.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all lines, that match regular expression, afterwards adds a given line
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: the name of the file
+<LI>file: the name to the file
 </LI>
-<LI>search: Search string to match the line to comment out.
+<LI>search: regular expression to search
 </LI>
-<LI>lineToInsert: The text of the line to insert.
-</LI>
-<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
+<LI>replace: line to add
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ EDIT_commentoutInsert</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

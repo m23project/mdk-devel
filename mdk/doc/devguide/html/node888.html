@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CMessageManager.php</TITLE>
-<META NAME="description" CONTENT="./inc/CMessageManager.php">
+<TITLE>CObjectStorageManager::getObjectMethodReturnValue</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getObjectMethodReturnValue">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,90 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node904.html">
-<LINK REL="previous" HREF="node876.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node889.html">
+<LINK REL="previous" HREF="node887.html">
+<LINK REL="up" HREF="node881.html">
 <LINK REL="next" HREF="node889.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18892"
+<A NAME="tex2html18925"
   HREF="node889.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18888"
-  HREF="node102.html">
+<A NAME="tex2html18921"
+  HREF="node881.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18882"
+<A NAME="tex2html18915"
   HREF="node887.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18890"
+<A NAME="tex2html18923"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18893"
-  HREF="node889.html">CMessageManager::addMessage</A>
-<B> Up:</B> <A NAME="tex2html18889"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html18883"
-  HREF="node887.html">Cm23Admin::delFromPwFiles</A>
- &nbsp; <B>  <A NAME="tex2html18891"
+<B> Next:</B> <A NAME="tex2html18926"
+  HREF="node889.html">CObjectStorageManager::getCOSStatus</A>
+<B> Up:</B> <A NAME="tex2html18922"
+  HREF="node881.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html18916"
+  HREF="node887.html">CObjectStorageManager::deleteObject</A>
+ &nbsp; <B>  <A NAME="tex2html18924"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009250000000000000000">
-./inc/CMessageManager.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for managing messages in the m23 webinterface.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION006267000000000000000">
+CObjectStorageManager::getObjectMethodReturnValue</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if an objects implements a method, calls it and returns the return value. If the method is unimplemented, an error value will be returned.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>object: Object to use.
+</LI>
+<LI>fkt: Name of the function (method)
+</LI>
+<LI>error: Error value to return, if the method is unimplemented.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Return value of the implemented method or given error value if unimplemented.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html18894"
-  HREF="node889.html">CMessageManager::addMessage</A>
-<LI><A NAME="tex2html18895"
-  HREF="node890.html">CMessageManager::addInfoMessage</A>
-<LI><A NAME="tex2html18896"
-  HREF="node891.html">CMessageManager::addWarningMessage</A>
-<LI><A NAME="tex2html18897"
-  HREF="node892.html">CMessageManager::addErrorMessage</A>
-<LI><A NAME="tex2html18898"
-  HREF="node893.html">CMessageManager::popInfoMessagesHTML</A>
-<LI><A NAME="tex2html18899"
-  HREF="node894.html">CMessageManager::popWarningMessagesHTML</A>
-<LI><A NAME="tex2html18900"
-  HREF="node895.html">CMessageManager::popErrorMessagesHTML</A>
-<LI><A NAME="tex2html18901"
-  HREF="node896.html">CMessageManager::deleteAllMessages</A>
-<LI><A NAME="tex2html18902"
-  HREF="node897.html">CMessageManager::hasInfos</A>
-<LI><A NAME="tex2html18903"
-  HREF="node898.html">CMessageManager::hasWarnings</A>
-<LI><A NAME="tex2html18904"
-  HREF="node899.html">CMessageManager::hasErrors</A>
-<LI><A NAME="tex2html18905"
-  HREF="node900.html">CMessageManager::showInfo</A>
-<LI><A NAME="tex2html18906"
-  HREF="node901.html">CMessageManager::showWarning</A>
-<LI><A NAME="tex2html18907"
-  HREF="node902.html">CMessageManager::showError</A>
-<LI><A NAME="tex2html18908"
-  HREF="node903.html">CMessageManager::showMessages</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

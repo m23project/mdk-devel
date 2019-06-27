@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getHDSizes</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getHDSizes">
+<TITLE>CFDiskIO::addPartitionStepBeforeFormat</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::addPartitionStepBeforeFormat">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,53 +19,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node545.html">
 <LINK REL="previous" HREF="node543.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node545.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14449"
+<A NAME="tex2html14577"
   HREF="node545.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14445"
-  HREF="node496.html">
+<A NAME="tex2html14573"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14441"
+<A NAME="tex2html14567"
   HREF="node543.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14447"
+<A NAME="tex2html14575"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14450"
-  HREF="node545.html">./inc/CFDiskIO.php</A>
-<B> Up:</B> <A NAME="tex2html14446"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14442"
-  HREF="node543.html">CFDiskGUI::getFstabTable</A>
- &nbsp; <B>  <A NAME="tex2html14448"
+<B> Next:</B> <A NAME="tex2html14578"
+  HREF="node545.html">CFDiskIO::addPartitionStepBeforeFormatArray</A>
+<B> Up:</B> <A NAME="tex2html14574"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14568"
+  HREF="node543.html">CFDiskIO::addPartitionStepAtTheBeginning</A>
+ &nbsp; <B>  <A NAME="tex2html14576"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091448000000000000000">
-CFDiskGUI::getHDSizes</A>
+<H2><A NAME="SECTION0061523000000000000000">
+CFDiskIO::addPartitionStepBeforeFormat</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes the sizes of all harddisks in a string, sperated by given line separator.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a step to the partitionSteps and partitionStepsForShift arrays before the formating of the RAID device (given in the $partJob).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>lineSeparator: String to separate the output entries in the output string.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Sizes of all harddisks in a string, sperated by given line separator.
+<LI>partJob: The RAID creation commands to add.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -73,7 +68,7 @@ CFDiskGUI::getHDSizes</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

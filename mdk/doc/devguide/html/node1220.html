@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_genFakeFstab</TITLE>
-<META NAME="description" CONTENT="CLCFG_genFakeFstab">
+<TITLE>PKG_searchPackageSearchCacheFileCMD</TITLE>
+<META NAME="description" CONTENT="PKG_searchPackageSearchCacheFileCMD">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1221.html">
 <LINK REL="previous" HREF="node1219.html">
-<LINK REL="up" HREF="node1150.html">
+<LINK REL="up" HREF="node1216.html">
 <LINK REL="next" HREF="node1221.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23177"
+<A NAME="tex2html23214"
   HREF="node1221.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23173"
-  HREF="node1150.html">
+<A NAME="tex2html23210"
+  HREF="node1216.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23167"
+<A NAME="tex2html23204"
   HREF="node1219.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23175"
+<A NAME="tex2html23212"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23178"
-  HREF="node1221.html">CLCFG_copySSLCert</A>
-<B> Up:</B> <A NAME="tex2html23174"
-  HREF="node1150.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html23168"
-  HREF="node1219.html">CLCFG_getRootDeviceFS</A>
- &nbsp; <B>  <A NAME="tex2html23176"
+<B> Next:</B> <A NAME="tex2html23215"
+  HREF="node1221.html">PKG_ncTarDebsFromClientToServer_Client</A>
+<B> Up:</B> <A NAME="tex2html23211"
+  HREF="node1216.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23205"
+  HREF="node1219.html">PKG_genPackageSearchCacheFileCMD</A>
+ &nbsp; <B>  <A NAME="tex2html23213"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093970000000000000000">
-CLCFG_genFakeFstab</A>
+<H2><A NAME="SECTION006414000000000000000">
+PKG_searchPackageSearchCacheFileCMD</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a fake /etc/fstab that only contains the lines for proc and the root partition (this is used to make the kernel install correctly)
+<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH commands to search a compressed package search file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>rootDevice: the device, the kernel should be installed on
+<LI>dir: Directory where the package information is stored.
 </LI>
-<LI>clientName: the name of the client
+<LI>arch: Architecture for the packages in the search file.
+</LI>
+<LI>search: Search terms.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>BASH commands to search a compressed package search file.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ CLCFG_genFakeFstab</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

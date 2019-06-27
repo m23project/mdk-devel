@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPool::getPoolDistribution</TITLE>
-<META NAME="description" CONTENT="CPool::getPoolDistribution">
+<TITLE>CPool::downloadDebsFromClient</TITLE>
+<META NAME="description" CONTENT="CPool::downloadDebsFromClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node992.html">
 <LINK REL="previous" HREF="node990.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node950.html">
 <LINK REL="next" HREF="node992.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20237"
+<A NAME="tex2html20244"
   HREF="node992.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20233"
-  HREF="node973.html">
+<A NAME="tex2html20240"
+  HREF="node950.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20227"
+<A NAME="tex2html20234"
   HREF="node990.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20235"
+<A NAME="tex2html20242"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20238"
-  HREF="node992.html">CPool::setPoolDistribution</A>
-<B> Up:</B> <A NAME="tex2html20234"
-  HREF="node973.html">./inc/CPool.php</A>
-<B> Previous:</B> <A NAME="tex2html20228"
-  HREF="node990.html">CPool::setPoolImportedPackageList</A>
- &nbsp; <B>  <A NAME="tex2html20236"
+<B> Next:</B> <A NAME="tex2html20245"
+  HREF="node992.html">CPool::startDownloadToPool</A>
+<B> Up:</B> <A NAME="tex2html20241"
+  HREF="node950.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html20235"
+  HREF="node990.html">CPool::stopDownloadToPool</A>
+ &nbsp; <B>  <A NAME="tex2html20243"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093318000000000000000">
-CPool::getPoolDistribution</A>
+<H2><A NAME="SECTION0063341000000000000000">
+CPool::downloadDebsFromClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the distribution value of the pool.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if all pre-requirements for downloading packages to the pool are satisfied. Then starts the routine to download the packages directly from the client.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: Distribution of the pool.
+<LI>clientName: Name of the client to download the packages from.
+</LI>
+<LI>returnCommands: If set to true, the commands for downloading the packages will be returned instead of executed.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the download was started otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CPool::getPoolDistribution</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

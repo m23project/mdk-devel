@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>clientjobs</TITLE>
-<META NAME="description" CONTENT="clientjobs">
+<TITLE>using mdoc</TITLE>
+<META NAME="description" CONTENT="using mdoc">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,87 +21,55 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node14.html">
 <LINK REL="previous" HREF="node12.html">
-<LINK REL="up" HREF="node12.html">
+<LINK REL="up" HREF="node8.html">
 <LINK REL="next" HREF="node14.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5170"
+<A NAME="tex2html5156"
   HREF="node14.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5166"
-  HREF="node12.html">
+<A NAME="tex2html5152"
+  HREF="node8.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5160"
+<A NAME="tex2html5146"
   HREF="node12.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5168"
+<A NAME="tex2html5154"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5171"
-  HREF="node14.html">clientlogs</A>
-<B> Up:</B> <A NAME="tex2html5167"
-  HREF="node12.html">the tables</A>
-<B> Previous:</B> <A NAME="tex2html5161"
-  HREF="node12.html">the tables</A>
- &nbsp; <B>  <A NAME="tex2html5169"
+<B> Next:</B> <A NAME="tex2html5157"
+  HREF="node14.html">example</A>
+<B> Up:</B> <A NAME="tex2html5153"
+  HREF="node8.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html5147"
+  HREF="node12.html">example for a mdoc</A>
+ &nbsp; <B>  <A NAME="tex2html5155"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00521000000000000000">
-clientjobs</A>
+<H2><A NAME="SECTION00415000000000000000">
+using mdoc</A>
 </H2>
-If you install or deinstall software on the client, this (de)install job will be saved in the clientjobs table. The new job is added with the status "waiting" and after succesful finish it will get the status "done". Every job can have serveral parameters, e.g. if you want to format a partition, the format job should know which partition to format. This infomation is stored as the parameter. And of course each job should know the name of the client it is for. To get the jobs in the correct execution order, there are two values: id and priority. Priority has to do with the type of the job, a special job like the "hardware scan" gets the priority 0 and should be executed before all other jobs. With the priority the order of execution is set, lower priorities are executed earlier. The second value "id" is the order of job creation. Jobs of the same priority will get executed in the order of creation. Remember: priority is mightier than the id value. If the priority is lower the job will be executed earlier while the id might be higher.
+<PRE>
+usage:  mdoc &lt;start directory&gt; &lt;tex output file&gt;
+</PRE>
 
 <UL>
-<LI>id: the id of the job
+<LI>start directory: directory to start search for files that should be scanned for comments.
 </LI>
-<LI>client: name of the client, the job is for.
-</LI>
-<LI>package: name of the package
-</LI>
-<LI>priority: the priority of the package
-</LI>
-<LI>status: status of the job: waiting, done
-</LI>
-<LI>params: the parameters for the job
+<LI>tex output file: filename the latex output file should be saved to
 </LI>
 </UL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html5170"
-  HREF="node14.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5166"
-  HREF="node12.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5160"
-  HREF="node12.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5168"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html5171"
-  HREF="node14.html">clientlogs</A>
-<B> Up:</B> <A NAME="tex2html5167"
-  HREF="node12.html">the tables</A>
-<B> Previous:</B> <A NAME="tex2html5161"
-  HREF="node12.html">the tables</A>
- &nbsp; <B>  <A NAME="tex2html5169"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

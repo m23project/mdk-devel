@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/dhcp.php</TITLE>
-<META NAME="description" CONTENT="./inc/dhcp.php">
+<TITLE>CLCFG_setSystime</TITLE>
+<META NAME="description" CONTENT="CLCFG_setSystime">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,100 +19,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1150.html">
-<LINK REL="previous" HREF="node1088.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1130.html">
+<LINK REL="previous" HREF="node1128.html">
+<LINK REL="up" HREF="node1127.html">
 <LINK REL="next" HREF="node1130.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21988"
+<A NAME="tex2html22093"
   HREF="node1130.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21984"
-  HREF="node102.html">
+<A NAME="tex2html22089"
+  HREF="node1127.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21978"
+<A NAME="tex2html22083"
   HREF="node1128.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21986"
+<A NAME="tex2html22091"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21989"
-  HREF="node1130.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
-<B> Up:</B> <A NAME="tex2html21985"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html21979"
-  HREF="node1128.html">DB_changeAllCollations</A>
- &nbsp; <B>  <A NAME="tex2html21987"
+<B> Next:</B> <A NAME="tex2html22094"
+  HREF="node1130.html">CLCFG_disableAptSystemdDaily</A>
+<B> Up:</B> <A NAME="tex2html22090"
+  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22084"
+  HREF="node1128.html">CLCFG_executeNextWorkEveryMinute</A>
+ &nbsp; <B>  <A NAME="tex2html22092"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009380000000000000000">
-./inc/dhcp.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: functions to add and remove a client to/from the dhcp server list.
+<H2><A NAME="SECTION006392000000000000000">
+CLCFG_setSystime</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the system time of the client to about the same time of the m23 server.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html21990"
-  HREF="node1130.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
-<LI><A NAME="tex2html21991"
-  HREF="node1131.html">DHCP_lineNumberAffterLastClient</A>
-<LI><A NAME="tex2html21992"
-  HREF="node1132.html">DHCP_addSubnetDefinition</A>
-<LI><A NAME="tex2html21993"
-  HREF="node1133.html">DHCP_delSubnetDefinition</A>
-<LI><A NAME="tex2html21994"
-  HREF="node1134.html">DHCP_addDynamicRange</A>
-<LI><A NAME="tex2html21995"
-  HREF="node1135.html">DHCP_getDynamicRanges</A>
-<LI><A NAME="tex2html21996"
-  HREF="node1136.html">DHCP_getNetmaskOfDynamicRanges</A>
-<LI><A NAME="tex2html21997"
-  HREF="node1137.html">DHCP_delDynamicRange</A>
-<LI><A NAME="tex2html21998"
-  HREF="node1138.html">DHCP_bootTypeToNewFormat</A>
-<LI><A NAME="tex2html21999"
-  HREF="node1139.html">DHCP_runScript</A>
-<LI><A NAME="tex2html22000"
-  HREF="node1140.html">DHCP_addClient</A>
-<LI><A NAME="tex2html22001"
-  HREF="node1141.html">DHCP_addLineToDHCPDConf</A>
-<LI><A NAME="tex2html22002"
-  HREF="node1142.html">DHCP_restartDHCPserver</A>
-<LI><A NAME="tex2html22003"
-  HREF="node1143.html">DHCP_rmClient</A>
-<LI><A NAME="tex2html22004"
-  HREF="node1144.html">DHCP_setBootimage</A>
-<LI><A NAME="tex2html22005"
-  HREF="node1145.html">DHCP_activateBoot</A>
-<LI><A NAME="tex2html22006"
-  HREF="node1146.html">DHCP_calcPXEIP</A>
-<LI><A NAME="tex2html22007"
-  HREF="node1147.html">DHCP_writePXEcfg</A>
-<LI><A NAME="tex2html22008"
-  HREF="node1148.html">DHCP_removePXEcfg</A>
-<LI><A NAME="tex2html22009"
-  HREF="node1149.html">DHCP_isNetworkBootingActive</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

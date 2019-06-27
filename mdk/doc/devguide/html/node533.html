@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::printAllBars</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::printAllBars">
+<TITLE>CFDiskIO::getpDiskAndpPartFromDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getpDiskAndpPartFromDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node534.html">
 <LINK REL="previous" HREF="node532.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node534.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14319"
+<A NAME="tex2html14445"
   HREF="node534.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14315"
-  HREF="node496.html">
+<A NAME="tex2html14441"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14309"
+<A NAME="tex2html14435"
   HREF="node532.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14317"
+<A NAME="tex2html14443"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14320"
-  HREF="node534.html">CFDiskGUI::getPartInfoIcon</A>
-<B> Up:</B> <A NAME="tex2html14316"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14310"
-  HREF="node532.html">CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
- &nbsp; <B>  <A NAME="tex2html14318"
+<B> Next:</B> <A NAME="tex2html14446"
+  HREF="node534.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
+<B> Up:</B> <A NAME="tex2html14442"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14436"
+  HREF="node532.html">CFDiskIO::getPartAmount</A>
+ &nbsp; <B>  <A NAME="tex2html14444"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091437000000000000000">
-CFDiskGUI::printAllBars</A>
+<H2><A NAME="SECTION0061512000000000000000">
+CFDiskIO::getpDiskAndpPartFromDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows the partition bars of all disks specified for the current client.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Splits a device (e.g. /dev/hda1) in the physical disk (/dev/hda) and the partition number (1).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: The device to partition (e.g. /dev/hde1)
+</LI>
+<LI>pDisk: The parameter, the physical disk is written to (e.g. /dev/hda).
+</LI>
+<LI>pPart: The parameter, the physical partition number (e.g. 1) or false (if there is no number in the dev) is written to.
+</LI>
+<LI>ignoreMD: Set to true, if a "partition number" from a MD should be received.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

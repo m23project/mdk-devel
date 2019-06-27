@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getPartInfoIcon</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getPartInfoIcon">
+<TITLE>CFDiskIO::isDevValidDiskPartitionOrRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDevValidDiskPartitionOrRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node535.html">
 <LINK REL="previous" HREF="node533.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node535.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14331"
+<A NAME="tex2html14457"
   HREF="node535.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14327"
-  HREF="node496.html">
+<A NAME="tex2html14453"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14321"
+<A NAME="tex2html14447"
   HREF="node533.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14329"
+<A NAME="tex2html14455"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14332"
-  HREF="node535.html">CFDiskGUI::getPartInfoString</A>
-<B> Up:</B> <A NAME="tex2html14328"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14322"
-  HREF="node533.html">CFDiskGUI::printAllBars</A>
- &nbsp; <B>  <A NAME="tex2html14330"
+<B> Next:</B> <A NAME="tex2html14458"
+  HREF="node535.html">CFDiskIO::dev2VDiskVPart</A>
+<B> Up:</B> <A NAME="tex2html14454"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14448"
+  HREF="node533.html">CFDiskIO::getpDiskAndpPartFromDev</A>
+ &nbsp; <B>  <A NAME="tex2html14456"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091438000000000000000">
-CFDiskGUI::getPartInfoIcon</A>
+<H2><A NAME="SECTION0061513000000000000000">
+CFDiskIO::isDevValidDiskPartitionOrRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive or partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a given device name is a valid disk, partition or RAID device.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
-</LI>
-<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1) and if set to false, the icon and the status information will be generated for a drive and not for a partition.
+<LI>dev: The device to check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>HTML code for showing an icon with status information about the drive or partition.
+<LI>true, if a given device name is a valid disk, partition or RAID device, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CFDiskGUI::getPartInfoIcon</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPool::getPoolDescription</TITLE>
-<META NAME="description" CONTENT="CPool::getPoolDescription">
+<TITLE>CRON_addJobMinutely</TITLE>
+<META NAME="description" CONTENT="CRON_addJobMinutely">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1000.html">
 <LINK REL="previous" HREF="node998.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node997.html">
 <LINK REL="next" HREF="node1000.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20333"
+<A NAME="tex2html20356"
   HREF="node1000.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20329"
-  HREF="node973.html">
+<A NAME="tex2html20352"
+  HREF="node997.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20323"
+<A NAME="tex2html20346"
   HREF="node998.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20331"
+<A NAME="tex2html20354"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20334"
-  HREF="node1000.html">CPool::setPoolDescription</A>
-<B> Up:</B> <A NAME="tex2html20330"
-  HREF="node973.html">./inc/CPool.php</A>
-<B> Previous:</B> <A NAME="tex2html20324"
-  HREF="node998.html">CPool::setPoolSourceslist</A>
- &nbsp; <B>  <A NAME="tex2html20332"
+<B> Next:</B> <A NAME="tex2html20357"
+  HREF="node1000.html">CRON_addJobBasic</A>
+<B> Up:</B> <A NAME="tex2html20353"
+  HREF="node997.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20347"
+  HREF="node998.html">CRON_genCronEntry</A>
+ &nbsp; <B>  <A NAME="tex2html20355"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093326000000000000000">
-CPool::getPoolDescription</A>
+<H2><A NAME="SECTION006342000000000000000">
+CRON_addJobMinutely</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the description value of the pool.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every N minutes.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: Description of the pool.
+<LI>intervall: Amount of minutes to wait between calls.
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CPool::getPoolDescription</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

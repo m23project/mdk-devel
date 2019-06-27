@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_deleteFile</TITLE>
-<META NAME="description" CONTENT="SERVER_deleteFile">
+<TITLE>SERVER_multiMkDir</TITLE>
+<META NAME="description" CONTENT="SERVER_multiMkDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2354.html">
 <LINK REL="previous" HREF="node2352.html">
-<LINK REL="up" HREF="node2303.html">
+<LINK REL="up" HREF="node2291.html">
 <LINK REL="next" HREF="node2354.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37799"
+<A NAME="tex2html37817"
   HREF="node2354.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37795"
-  HREF="node2303.html">
+<A NAME="tex2html37813"
+  HREF="node2291.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37789"
+<A NAME="tex2html37807"
   HREF="node2352.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37797"
+<A NAME="tex2html37815"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37800"
-  HREF="node2354.html">SERVER_getFileContents</A>
-<B> Up:</B> <A NAME="tex2html37796"
-  HREF="node2303.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html37790"
-  HREF="node2352.html">SERVER_addLineToFile</A>
- &nbsp; <B>  <A NAME="tex2html37798"
+<B> Next:</B> <A NAME="tex2html37818"
+  HREF="node2354.html">SERVER_commandAvailable</A>
+<B> Up:</B> <A NAME="tex2html37814"
+  HREF="node2291.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37808"
+  HREF="node2352.html">SERVER_checkKernel</A>
+ &nbsp; <B>  <A NAME="tex2html37816"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097650000000000000000">
-SERVER_deleteFile</A>
+<H2><A NAME="SECTION0067662000000000000000">
+SERVER_multiMkDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a file from the server.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a directory and all needed directories on the way to the destination path.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: Name of the file to delete.
+<LI>path: The complete path to create.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: true on successfully execution otherwise false.
+<LI>mode: The access mode of the path to create (should start with "0" e.g. 0777)
+</LI>
+<LI>user: User name to create the directory for. If no name is given, the directory will be created for the Apache user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ SERVER_deleteFile</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_isExecutedOnUCS</TITLE>
-<META NAME="description" CONTENT="HELPER_isExecutedOnUCS">
+<TITLE>HELPER_createSelfSignedCAAndServerCertificate</TITLE>
+<META NAME="description" CONTENT="HELPER_createSelfSignedCAAndServerCertificate">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1757.html">
 <LINK REL="previous" HREF="node1755.html">
-<LINK REL="up" HREF="node1747.html">
+<LINK REL="up" HREF="node1727.html">
 <LINK REL="next" HREF="node1757.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30133"
+<A NAME="tex2html30148"
   HREF="node1757.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30129"
-  HREF="node1747.html">
+<A NAME="tex2html30144"
+  HREF="node1727.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30123"
+<A NAME="tex2html30138"
   HREF="node1755.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30131"
+<A NAME="tex2html30146"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30134"
-  HREF="node1757.html">HELPER_getContentFromURL</A>
-<B> Up:</B> <A NAME="tex2html30130"
-  HREF="node1747.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html30124"
-  HREF="node1755.html">HELPER_isExecutedInCLI</A>
- &nbsp; <B>  <A NAME="tex2html30132"
+<B> Next:</B> <A NAME="tex2html30149"
+  HREF="node1757.html">HELPER_arrayReOrderKeynumbers</A>
+<B> Up:</B> <A NAME="tex2html30145"
+  HREF="node1727.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html30139"
+  HREF="node1755.html">HELPER_randomUsername</A>
+ &nbsp; <B>  <A NAME="tex2html30147"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009559000000000000000">
-HELPER_isExecutedOnUCS</A>
+<H2><A NAME="SECTION0065529000000000000000">
+HELPER_createSelfSignedCAAndServerCertificate</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if it is run on UCS.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a selfsigned CA and a server certificate.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>True, when run on UCS otherwise false.
+<LI>CADn: Information about the CA.
+</LI>
+<LI>serverDn: Information about the server.
+</LI>
+<LI>password: Password for the private server key.
+</LI>
+<LI>expirationDate: Expiration of the certificates in days.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the certificate of the CA, the certificate and private key of the server.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +80,7 @@ HELPER_isExecutedOnUCS</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

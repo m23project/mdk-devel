@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_setStatusBarStatusByName</TITLE>
-<META NAME="description" CONTENT="HTML_setStatusBarStatusByName">
+<TITLE>HTML_listSelection</TITLE>
+<META NAME="description" CONTENT="HTML_listSelection">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1839.html">
 <LINK REL="previous" HREF="node1837.html">
-<LINK REL="up" HREF="node1807.html">
+<LINK REL="up" HREF="node1792.html">
 <LINK REL="next" HREF="node1839.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31181"
+<A NAME="tex2html31196"
   HREF="node1839.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31177"
-  HREF="node1807.html">
+<A NAME="tex2html31192"
+  HREF="node1792.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31171"
+<A NAME="tex2html31186"
   HREF="node1837.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31179"
+<A NAME="tex2html31194"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31182"
-  HREF="node1839.html">HTML_setStatusBarStatusByID</A>
-<B> Up:</B> <A NAME="tex2html31178"
-  HREF="node1807.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html31172"
-  HREF="node1837.html">HTML_setStatusBarPercentPointByName</A>
- &nbsp; <B>  <A NAME="tex2html31180"
+<B> Next:</B> <A NAME="tex2html31197"
+  HREF="node1839.html">HTML_showTableHeader</A>
+<B> Up:</B> <A NAME="tex2html31193"
+  HREF="node1792.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31187"
+  HREF="node1837.html">HTML_getElementValue</A>
+ &nbsp; <B>  <A NAME="tex2html31195"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095731000000000000000">
-HTML_setStatusBarStatusByName</A>
+<H2><A NAME="SECTION0065746000000000000000">
+HTML_listSelection</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text by clientname AND status bar name.
+<SPAN  CLASS="textbf">Description:</SPAN> shows a selection with options stored in an array
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>statusBarName: The name of the status bar.
+<LI>selName: name of the selection
 </LI>
-<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+<LI>list: array with the entries. The array can be a simple numeric array or an associative array with discrete entries for the shown name and the value. e.g. : $l[name0]="public"; $l[val0]="internal"; $l[name1]="public1"; $l[val1]="internal1"; public and public1 will be shown the user in the webbrowser, while internal and internal1 are the values that are transfered to the server.
 </LI>
-<LI>percent: Percent value to write into the DB (may be false, if it should not be changed).
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
 </LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be false, if it should not be changed).
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: false on parameter error.
+<LI>firstName: if you want to use the associative array variant and a first value, you need to set the name that should be shown to the user. This name is stored in firstName
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ HTML_setStatusBarStatusByName</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

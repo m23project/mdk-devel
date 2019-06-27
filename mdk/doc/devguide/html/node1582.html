@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_formatPart</TITLE>
-<META NAME="description" CONTENT="FDISK_formatPart">
+<TITLE>FDISK_addPart</TITLE>
+<META NAME="description" CONTENT="FDISK_addPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1583.html">
 <LINK REL="previous" HREF="node1581.html">
-<LINK REL="up" HREF="node1547.html">
+<LINK REL="up" HREF="node1527.html">
 <LINK REL="next" HREF="node1583.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27909"
+<A NAME="tex2html27919"
   HREF="node1583.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27905"
-  HREF="node1547.html">
+<A NAME="tex2html27915"
+  HREF="node1527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27899"
+<A NAME="tex2html27909"
   HREF="node1581.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27907"
+<A NAME="tex2html27917"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27910"
-  HREF="node1583.html">FDISK_getBiggestValueOf</A>
-<B> Up:</B> <A NAME="tex2html27906"
-  HREF="node1547.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27900"
-  HREF="node1581.html">FDISK_getFirstDrive</A>
- &nbsp; <B>  <A NAME="tex2html27908"
+<B> Next:</B> <A NAME="tex2html27920"
+  HREF="node1583.html">FDISK_listPartitions</A>
+<B> Up:</B> <A NAME="tex2html27916"
+  HREF="node1527.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27910"
+  HREF="node1581.html">FDISK_delPart</A>
+ &nbsp; <B>  <A NAME="tex2html27918"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095235000000000000000">
-FDISK_formatPart</A>
+<H2><A NAME="SECTION0065255000000000000000">
+FDISK_addPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> formats a partition
+<SPAN  CLASS="textbf">Description:</SPAN> adds a partition to the param string and generates the parted commands
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>dev: partition to format (e.g. /dev/hda1)
-</LI>
-<LI>type: type of filesystem
-</LI>
 <LI>partJobs: parted commands
+</LI>
+<LI>vDev: virtuell internal used device number.
+</LI>
+<LI>start: start position for the search
+</LI>
+<LI>end: end position for the search
+</LI>
+<LI>type: type of the partition (primary, extended, logical)
+</LI>
+<LI>freeSpaces: array of the free space information
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Changed param string.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +86,7 @@ FDISK_formatPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

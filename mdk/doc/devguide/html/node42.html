@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>fstab</TITLE>
-<META NAME="description" CONTENT="fstab">
+<TITLE>AUTOTEST_isDebug</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_isDebug">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node43.html">
 <LINK REL="previous" HREF="node41.html">
-<LINK REL="up" HREF="node41.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node43.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5598"
+<A NAME="tex2html8027"
   HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5594"
-  HREF="node41.html">
+<A NAME="tex2html8023"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5588"
+<A NAME="tex2html8017"
   HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5596"
+<A NAME="tex2html8025"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5599"
-  HREF="node43.html">lilo.conf</A>
-<B> Up:</B> <A NAME="tex2html5595"
-  HREF="node41.html">editing files</A>
-<B> Previous:</B> <A NAME="tex2html5589"
-  HREF="node41.html">editing files</A>
- &nbsp; <B>  <A NAME="tex2html5597"
+<B> Next:</B> <A NAME="tex2html8028"
+  HREF="node43.html">AUTOTEST_sshTunnelOverServer</A>
+<B> Up:</B> <A NAME="tex2html8024"
+  HREF="node40.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html8018"
+  HREF="node41.html">AUTOTEST_createLDAPUserAndGroup</A>
+ &nbsp; <B>  <A NAME="tex2html8026"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00642100000000000000">
-fstab</A>
-</H3>
-Copy your existing /etc/fstab to the new /etc/ directory. Adjust the line for your boot device, e.g. your new boot device is hda3 so you have to change <SPAN  CLASS="textit">/dev/hda2       /               ext3   defaults           0       0</SPAN> to <SPAN  CLASS="textit">/dev/hda1       /               ext3   defaults           0       0</SPAN> .
-Your new fstab may look like this:
-<PRE>
-# /etc/fstab file system info, created by the m23 project
-#  &lt;file system&gt; &lt;mount point&gt;  &lt;type&gt; &lt;options&gt;     &lt;dump&gt;  &lt;pass&gt;
-proc             /proc          proc   defaults      0       0
-/dev/hda1        none           swap    sw           0       0
-/dev/hda3       /               ext3   defaults           0       0
-/dev/cdrom      /mnt/cdrom      auto    ro,noauto,user,exec     0 0
-/dev/fd0        /mnt/floppy     auto    user,noauto             0 0
-</PRE> 
-
+<H2><A NAME="SECTION00632000000000000000">
+AUTOTEST_isDebug</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if autoTest is in debug mode (constant AT_debug is set).
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if autoTest is in debug mode, otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

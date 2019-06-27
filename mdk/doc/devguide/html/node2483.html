@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_getStatus</TITLE>
-<META NAME="description" CONTENT="VM_getStatus">
+<TITLE>VM_activateNetbootCMD</TITLE>
+<META NAME="description" CONTENT="VM_activateNetbootCMD">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2484.html">
 <LINK REL="previous" HREF="node2482.html">
-<LINK REL="up" HREF="node2436.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2484.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39484"
+<A NAME="tex2html39504"
   HREF="node2484.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39480"
-  HREF="node2436.html">
+<A NAME="tex2html39500"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39474"
+<A NAME="tex2html39494"
   HREF="node2482.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39482"
+<A NAME="tex2html39502"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39485"
-  HREF="node2484.html">VM_GUIstepCreateGuest</A>
-<B> Up:</B> <A NAME="tex2html39481"
-  HREF="node2436.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39475"
-  HREF="node2482.html">VM_getSWandHost</A>
- &nbsp; <B>  <A NAME="tex2html39483"
+<B> Next:</B> <A NAME="tex2html39505"
+  HREF="node2484.html">VM_restoreSnapshot</A>
+<B> Up:</B> <A NAME="tex2html39501"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39495"
+  HREF="node2482.html">VM_delVMCMD</A>
+ &nbsp; <B>  <A NAME="tex2html39503"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098047000000000000000">
-VM_getStatus</A>
+<H2><A NAME="SECTION0068058000000000000000">
+VM_activateNetbootCMD</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the current status of a VM guest.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a BASH command line to (de)activate network booting of a VM.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: Name of the virtualised client.
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
+<LI>vmName: Name of the VM.
+</LI>
+<LI>activate: true for booting from network, false for booting from the HD.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the current state of the VM or false is the client is no VM guest.
+<LI>BASH code to (de)activate network booting of a VM.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ VM_getStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

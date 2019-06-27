@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getFileSystemTranslator</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getFileSystemTranslator">
+<TITLE>CFDiskGUI::getJSSelectPartTypeForNewPartitions</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getJSSelectPartTypeForNewPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node509.html">
 <LINK REL="previous" HREF="node507.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node509.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14019"
+<A NAME="tex2html14025"
   HREF="node509.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14015"
-  HREF="node496.html">
+<A NAME="tex2html14021"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14009"
+<A NAME="tex2html14015"
   HREF="node507.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14017"
+<A NAME="tex2html14023"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14020"
-  HREF="node509.html">CFDiskGUI::getPartitionTypeTranslator</A>
-<B> Up:</B> <A NAME="tex2html14016"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14010"
-  HREF="node507.html">CFDiskGUI::getDiskLayoutEntryFileSystem</A>
- &nbsp; <B>  <A NAME="tex2html14018"
+<B> Next:</B> <A NAME="tex2html14026"
+  HREF="node509.html">CFDiskGUI::printAllBars</A>
+<B> Up:</B> <A NAME="tex2html14022"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14016"
+  HREF="node507.html">CFDiskGUI::getPartTableEntryNr</A>
+ &nbsp; <B>  <A NAME="tex2html14024"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091412000000000000000">
-CFDiskGUI::getFileSystemTranslator</A>
+<H2><A NAME="SECTION0061436000000000000000">
+CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Translates the filesystem names.
+<SPAN  CLASS="textbf">Description:</SPAN> Get the first entry of the list of partition types that can be created in a range on a disk as selectPartTypeForNewPartitions JavaScript function.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fs: Filesystem to translate.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>start: Start position (in MB) of the partition to create.
+</LI>
+<LI>end: End position (in MB) of the partition to create.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Translated filesystem.
+<LI>Call for selectPartTypeForNewPartitions with partition type that can be created or empty, if there no partion can be created.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +78,7 @@ CFDiskGUI::getFileSystemTranslator</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

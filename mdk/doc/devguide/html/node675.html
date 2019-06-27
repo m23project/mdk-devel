@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::getRadomStartEnd</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::getRadomStartEnd">
+<TITLE>CFDiskTest::deleteRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskTest::deleteRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node676.html">
 <LINK REL="previous" HREF="node674.html">
-<LINK REL="up" HREF="node668.html">
+<LINK REL="up" HREF="node644.html">
 <LINK REL="next" HREF="node676.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16178"
+<A NAME="tex2html16184"
   HREF="node676.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16174"
-  HREF="node668.html">
+<A NAME="tex2html16180"
+  HREF="node644.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16168"
+<A NAME="tex2html16174"
   HREF="node674.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16176"
+<A NAME="tex2html16182"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16179"
-  HREF="node676.html">CFDiskTest::checkBothSetKey</A>
-<B> Up:</B> <A NAME="tex2html16175"
-  HREF="node668.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html16169"
-  HREF="node674.html">CFDiskTest::getRandomPartitionDev</A>
- &nbsp; <B>  <A NAME="tex2html16177"
+<B> Next:</B> <A NAME="tex2html16185"
+  HREF="node676.html">CFDiskTest::areThereEnoughFreePartitionsToBuildTheRaid</A>
+<B> Up:</B> <A NAME="tex2html16181"
+  HREF="node644.html">./inc/CFDiskTest.php</A>
+<B> Previous:</B> <A NAME="tex2html16175"
+  HREF="node674.html">CFDiskTest::getRandomUsedMD</A>
+ &nbsp; <B>  <A NAME="tex2html16183"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009167000000000000000">
-CFDiskTest::getRadomStartEnd</A>
+<H2><A NAME="SECTION0061631000000000000000">
+CFDiskTest::deleteRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets random start / end positions (in MB) for e.g. creating new partitions on the test disk.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a RAID disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: Device name for the RAID (eg. /dev/md0)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if deleting of the RAID works, otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

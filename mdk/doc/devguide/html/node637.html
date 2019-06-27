@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::isRaidComplete</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::isRaidComplete">
+<TITLE>CFDiskIO::fdiskGetFstabArray</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::fdiskGetFstabArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node638.html">
 <LINK REL="previous" HREF="node636.html">
-<LINK REL="up" HREF="node545.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node638.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15687"
+<A NAME="tex2html15693"
   HREF="node638.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15683"
-  HREF="node545.html">
+<A NAME="tex2html15689"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15677"
+<A NAME="tex2html15683"
   HREF="node636.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15685"
+<A NAME="tex2html15691"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15688"
-  HREF="node638.html">CFDiskIO::maximumDevicesForRaidReached</A>
-<B> Up:</B> <A NAME="tex2html15684"
-  HREF="node545.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15678"
-  HREF="node636.html">CFDiskIO::getRaidCompleteParameters</A>
- &nbsp; <B>  <A NAME="tex2html15686"
+<B> Next:</B> <A NAME="tex2html15694"
+  HREF="node638.html">CFDiskIO::getPartitionStepsArray</A>
+<B> Up:</B> <A NAME="tex2html15690"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15684"
+  HREF="node636.html">CFDiskIO::FDISK_genManualFstab</A>
+ &nbsp; <B>  <A NAME="tex2html15692"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091592000000000000000">
-CFDiskIO::isRaidComplete</A>
+<H2><A NAME="SECTION00615116000000000000000">
+CFDiskIO::fdiskGetFstabArray</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if there are too less or too much devices building the RAID or if the amount is not a multiple of needed devices.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the fstab of a client as array.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vrDisk: Virtual (internally used) RAID disk number.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if all requirements for building the RAID are met or it is not a RAID.
+<LI>Array with the fstab (each line of the fstab as item).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +68,7 @@ CFDiskIO::isRaidComplete</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

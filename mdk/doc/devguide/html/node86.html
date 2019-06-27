@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>what is mdoc?</TITLE>
-<META NAME="description" CONTENT="what is mdoc?">
+<TITLE>BACKUP_getAdmins</TITLE>
+<META NAME="description" CONTENT="BACKUP_getAdmins">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node87.html">
 <LINK REL="previous" HREF="node85.html">
-<LINK REL="up" HREF="node85.html">
+<LINK REL="up" HREF="node82.html">
 <LINK REL="next" HREF="node87.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html6146"
+<A NAME="tex2html8559"
   HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html6142"
-  HREF="node85.html">
+<A NAME="tex2html8555"
+  HREF="node82.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html6136"
+<A NAME="tex2html8549"
   HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html6144"
+<A NAME="tex2html8557"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html6147"
-  HREF="node87.html">how to make your</A>
-<B> Up:</B> <A NAME="tex2html6143"
-  HREF="node85.html">mdoc</A>
-<B> Previous:</B> <A NAME="tex2html6137"
-  HREF="node85.html">mdoc</A>
- &nbsp; <B>  <A NAME="tex2html6145"
+<B> Next:</B> <A NAME="tex2html8560"
+  HREF="node87.html">BACKUP_addAdmin</A>
+<B> Up:</B> <A NAME="tex2html8556"
+  HREF="node82.html">./inc/backup.php</A>
+<B> Previous:</B> <A NAME="tex2html8550"
+  HREF="node85.html">BACKUP_saveBackupDirs</A>
+ &nbsp; <B>  <A NAME="tex2html8558"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00711000000000000000">
-what is mdoc?</A>
-</H2>
-mdoc creates documentation in latex format out of comments in your source files. Special marked lines in the source code are extracted and converted to a documentation file. For an example of the generated documentation see the "m23 API reference" included in this document. mdoc can scan PHP and C/C++ files and other files that allow "/**" and "**/" for begin and end of comments or don't care about these kind of strings. If you want to use mdoc for files that don't allow these strings, put the comment sequence used for the file type before the mdoc lines. e.g. for BASH scripts you will put a '#' in front of each mdoc line:
-<PRE>
-#/**
-#**name helloworld.sh
-#**description shows a hello world
-#**parameter none
-#**/
-echo hello world
-</PRE>
+<H2><A NAME="SECTION00644000000000000000">
+BACKUP_getAdmins</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Stores informations about known administrators in the BackupPC configuration file in variables.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>adminLine: The current line in config.pl that stores the dsmin informations.
+</LI>
+<LI>admins: Array with all admins.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

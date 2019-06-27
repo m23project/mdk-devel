@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createRaid">
+<TITLE>CFDiskGUI::showFreeSpaceBarBlock</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::showFreeSpaceBarBlock">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node490.html">
 <LINK REL="previous" HREF="node488.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node490.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13745"
+<A NAME="tex2html13797"
   HREF="node490.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13741"
-  HREF="node464.html">
+<A NAME="tex2html13793"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13735"
+<A NAME="tex2html13787"
   HREF="node488.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13743"
+<A NAME="tex2html13795"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13746"
-  HREF="node490.html">CFDiskBasic::deleteRaid</A>
-<B> Up:</B> <A NAME="tex2html13742"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13736"
-  HREF="node488.html">CFDiskBasic::createRaidJobForRaid</A>
- &nbsp; <B>  <A NAME="tex2html13744"
+<B> Next:</B> <A NAME="tex2html13798"
+  HREF="node490.html">CFDiskGUI::showEmptyDiskTable</A>
+<B> Up:</B> <A NAME="tex2html13794"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13788"
+  HREF="node488.html">CFDiskGUI::getFreeSpaceHTMLColor</A>
+ &nbsp; <B>  <A NAME="tex2html13796"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091325000000000000000">
-CFDiskBasic::createRaid</A>
+<H2><A NAME="SECTION0061417000000000000000">
+CFDiskGUI::showFreeSpaceBarBlock</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new RAID disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a block for with free space in the bar visualising the partitioning of a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name for the RAID (eg. /dev/md0)
+<LI>pDisk: The physical device name of the disk (eg. /dev/sda)
 </LI>
-<LI>level: RAID level.
+<LI>start: Start point of the partition (in MB)
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Virtual RAID disk number, if the device string is suitable for a RAID, otherwise false.
+<LI>end: End point of the partition (in MB)
+</LI>
+<LI>width: The width of the block in percent (without 
+</LI>
+<LI>type: Type of the partition.
+</LI>
+<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +78,7 @@ CFDiskBasic::createRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_fdiskSessionInstallDrive</TITLE>
-<META NAME="description" CONTENT="FDISK_fdiskSessionInstallDrive">
+<TITLE>FDISK_correctLogical</TITLE>
+<META NAME="description" CONTENT="FDISK_correctLogical">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1568.html">
 <LINK REL="previous" HREF="node1566.html">
-<LINK REL="up" HREF="node1547.html">
+<LINK REL="up" HREF="node1527.html">
 <LINK REL="next" HREF="node1568.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html27729"
+<A NAME="tex2html27739"
   HREF="node1568.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html27725"
-  HREF="node1547.html">
+<A NAME="tex2html27735"
+  HREF="node1527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html27719"
+<A NAME="tex2html27729"
   HREF="node1566.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html27727"
+<A NAME="tex2html27737"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html27730"
-  HREF="node1568.html">FDISK_fdiskSessionvDevInstall</A>
-<B> Up:</B> <A NAME="tex2html27726"
-  HREF="node1547.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html27720"
-  HREF="node1566.html">FDISK_fdiskSessionParam</A>
- &nbsp; <B>  <A NAME="tex2html27728"
+<B> Next:</B> <A NAME="tex2html27740"
+  HREF="node1568.html">FDISK_findDevNrPosition</A>
+<B> Up:</B> <A NAME="tex2html27736"
+  HREF="node1527.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html27730"
+  HREF="node1566.html">FDISK_nextPrimaryDevNr</A>
+ &nbsp; <B>  <A NAME="tex2html27738"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095220000000000000000">
-FDISK_fdiskSessionInstallDrive</A>
+<H2><A NAME="SECTION0065240000000000000000">
+FDISK_correctLogical</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Stores the installation drive in the session.
+<SPAN  CLASS="textbf">Description:</SPAN> corrects the order of the logical partitions after deleting $devNr.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>newDrive: The new installation drive to set or false for not changing.
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The current installation drive.
+<LI>vDev: Virtual (internally used) device number.
+</LI>
+<LI>devNr: the real device number to delete
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ FDISK_fdiskSessionInstallDrive</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>I18N_cacheWebinterfaceLanguages</TITLE>
-<META NAME="description" CONTENT="I18N_cacheWebinterfaceLanguages">
+<TITLE>LDAP_addPosix</TITLE>
+<META NAME="description" CONTENT="LDAP_addPosix">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,72 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1893.html">
 <LINK REL="previous" HREF="node1891.html">
-<LINK REL="up" HREF="node1883.html">
+<LINK REL="up" HREF="node1885.html">
 <LINK REL="next" HREF="node1893.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31849"
+<A NAME="tex2html31889"
   HREF="node1893.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31845"
-  HREF="node1883.html">
+<A NAME="tex2html31885"
+  HREF="node1885.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31839"
+<A NAME="tex2html31879"
   HREF="node1891.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31847"
+<A NAME="tex2html31887"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31850"
-  HREF="node1893.html">I18N_getAllCachedLanguages</A>
-<B> Up:</B> <A NAME="tex2html31846"
-  HREF="node1883.html">./inc/i18n.php</A>
-<B> Previous:</B> <A NAME="tex2html31840"
-  HREF="node1891.html">I18N_countCachedLanguages</A>
- &nbsp; <B>  <A NAME="tex2html31848"
+<B> Next:</B> <A NAME="tex2html31890"
+  HREF="node1893.html">LDAP_fqdn2dn</A>
+<B> Up:</B> <A NAME="tex2html31886"
+  HREF="node1885.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html31880"
+  HREF="node1891.html">LDAP_loadServer</A>
+ &nbsp; <B>  <A NAME="tex2html31888"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009599000000000000000">
-I18N_cacheWebinterfaceLanguages</A>
+<H2><A NAME="SECTION006607000000000000000">
+LDAP_addPosix</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Caches the language information from the language.info files to the DB.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the LDAP server and encrypts the password with MD5.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>ldapServer: name of the LDAP server stored in the configuration file
+</LI>
+<LI>account: the login name
+</LI>
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true or error message string in case of an error.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

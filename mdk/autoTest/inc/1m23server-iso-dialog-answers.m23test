@@ -1,0 +1,93 @@
+		<test timeout="600" description="VM erstellen und starten">
+			<trigger type="true"></trigger>
+			<action type="fkt">AUTOTEST_VM_create</action>
+			<action type="fkt">AUTOTEST_VM_start</action>
+			<good type="ocr">Installation language/Installationssprache</good>
+		</test>
+		<test timeout="60" description="Sprachauswahl">
+			<trigger type="ocr">Installation language/Installationssprache</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Dieses Setup begleitet Sie durch die Installation Ihres</good>
+		</test>
+		<test timeout="60" description="Info abnicken">
+			<trigger type="ocr">Dieses Setup begleitet Sie durch die Installation Ihres</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte geben Sie das root-Passwort fuer</good>
+		</test>
+		<test timeout="60" description="root-PW">
+			<trigger type="ocr">Bitte geben Sie das root-Passwort fuer</trigger>
+			<action type="key">test°enter°</action>
+			<good type="ocr">Bitte wiederholen Sie das root-Passwort</good>
+		</test>
+		<test timeout="60" description="root-PW wiederholen">
+			<trigger type="ocr">Bitte wiederholen Sie das root-Passwort</trigger>
+			<action type="key">test°enter°</action>
+			<good type="ocr">Bitte geben Sie den Hostnamen des neuen Servers</good>
+		</test>
+		<test timeout="60" description="Hostnamen eingeben">
+			<trigger type="ocr">Bitte geben Sie den Hostnamen des neuen Servers</trigger>
+			<action type="key">m23s°enter°</action>
+			<good type="ocr">Bitte geben Sie die IP des neuen Servers ein</good>
+		</test>
+		<test timeout="60" description="IP eingeben">
+			<trigger type="ocr">Bitte geben Sie die IP des neuen Servers ein</trigger>
+			<action type="key">${VM_IP}°enter°</action>
+			<good type="ocr">Bitte geben Sie die Netzwerkmaske ein</good>
+		</test>
+		<test timeout="60" description="Netzwerkmaske eingeben">
+			<trigger type="ocr">Bitte geben Sie die Netzwerkmaske ein</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte geben Sie die IP des Netzwerkes ein</good>
+		</test>
+		<test timeout="60" description="Netzwerk eingeben">
+			<trigger type="ocr">Bitte geben Sie die IP des Netzwerkes ein</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte geben Sie die IP des Broadcasts ein</good>
+		</test>
+		<test timeout="60" description="Broadcasts eingeben">
+			<trigger type="ocr">Bitte geben Sie die IP des Broadcasts ein</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte geben Sie Ihren Standard-Gateway ein</good>
+		</test>
+		<test timeout="60" description="Standard-Gateway eingeben">
+			<trigger type="ocr">Bitte geben Sie Ihren Standard-Gateway ein</trigger>
+			<action type="key">192.168.1.5°enter°</action>
+			<good type="ocr">Bitte geben Sie einen DNS-Nameserver an</good>
+		</test>
+		<test timeout="60" description="DNS-Nameserver eingeben">
+			<trigger type="ocr">Bitte geben Sie einen DNS-Nameserver an</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte ueberpruefen Sie Ihre Angaben</good>
+		</test>
+		<test timeout="60" description="Eingaben überprüfen">
+			<trigger type="ocr">Bitte ueberpruefen Sie Ihre Angaben</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">An dieser Stelle der Installation muss die Festplatte partitioniert</good>
+		</test>
+		<test timeout="60" description="Automatische Partitionierung">
+			<trigger type="ocr">An dieser Stelle der Installation muss die Festplatte partitioniert</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Alle Daten gehen verloren!</good>
+		</test>
+		<test timeout="1500" description="Automatische Partitionierung - Warnung">
+			<trigger type="ocr">Alle Daten gehen verloren!</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Soll der m23-Server jetzt online aktualisiert werden</good>
+		</test>
+		<test timeout="1500" description="Serveraktualisierung">
+			<trigger type="ocr">Soll der m23-Server jetzt online aktualisiert werden</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Experte: Server ist nicht bootfaehig</good>
+		</test>
+		<test timeout="1200" description="Grub einrichten">
+			<trigger type="ocr">Experte: Server ist nicht bootfaehig</trigger>
+			<action type="key">°enter°</action>
+			<good type="ocr">Bitte entfernen Sie die Installations-CD</good>
+		</test>
+		<test timeout="1200" description="CD entfernen">
+			<trigger type="ocr">Bitte entfernen Sie die Installations-CD</trigger>
+			<action type="key">°enter°</action>
+			<action type="fkt">AUTOTEST_VM_rebootFromHD</action>
+			<good type="ocr">Bitte entfernen Sie die Installations-CD</good>
+			<good type="ocr">GNU/Linux</good>
+		</test>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::isNetbootActive</TITLE>
-<META NAME="description" CONTENT="CClient::isNetbootActive">
+<TITLE>CFDiskBasic::createPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node453.html">
 <LINK REL="previous" HREF="node451.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node453.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13272"
+<A NAME="tex2html13307"
   HREF="node453.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13268"
-  HREF="node335.html">
+<A NAME="tex2html13303"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13262"
+<A NAME="tex2html13297"
   HREF="node451.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13270"
+<A NAME="tex2html13305"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13273"
-  HREF="node453.html">CClient::isPingable</A>
-<B> Up:</B> <A NAME="tex2html13269"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13263"
-  HREF="node451.html">CClient::wol</A>
- &nbsp; <B>  <A NAME="tex2html13271"
+<B> Next:</B> <A NAME="tex2html13308"
+  HREF="node453.html">CFDiskBasic::createUEFIPartition</A>
+<B> Up:</B> <A NAME="tex2html13304"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13298"
+  HREF="node451.html">CFDiskBasic::genPartedCommands</A>
+ &nbsp; <B>  <A NAME="tex2html13306"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912117000000000000000">
-CClient::isNetbootActive</A>
+<H2><A NAME="SECTION0061314000000000000000">
+CFDiskBasic::createPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Check, if network booting is active for the client.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new partition on a disk (if possible).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true when network booting is active otherwise false.
+<LI>dev: The device (e.g. /dev/sda).
+</LI>
+<LI>start: Start position (in MB) of the partition to create.
+</LI>
+<LI>end: End position (in MB) of the partition to create.
+</LI>
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL)
+</LI>
+<LI>bootable: Set to true, if the partition should be made bootable.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The physical partition number of the newly created partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +82,7 @@ CClient::isNetbootActive</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

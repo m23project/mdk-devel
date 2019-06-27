@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_removeServerCache</TITLE>
-<META NAME="description" CONTENT="CLIENT_removeServerCache">
+<TITLE>CLIENT_getActiveNetDevices</TITLE>
+<META NAME="description" CONTENT="CLIENT_getActiveNetDevices">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node772.html">
 <LINK REL="previous" HREF="node770.html">
-<LINK REL="up" HREF="node766.html">
+<LINK REL="up" HREF="node742.html">
 <LINK REL="next" HREF="node772.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17479"
+<A NAME="tex2html17486"
   HREF="node772.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17475"
-  HREF="node766.html">
+<A NAME="tex2html17482"
+  HREF="node742.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17469"
+<A NAME="tex2html17476"
   HREF="node770.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17477"
+<A NAME="tex2html17484"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17480"
-  HREF="node772.html">CLIENT_touchLiveLogFile</A>
-<B> Up:</B> <A NAME="tex2html17476"
-  HREF="node766.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html17470"
-  HREF="node770.html">CLIENT_addClientlogsUnknown</A>
- &nbsp; <B>  <A NAME="tex2html17478"
+<B> Next:</B> <A NAME="tex2html17487"
+  HREF="node772.html">CLIENT_getSSHKeyorPasswordOptions</A>
+<B> Up:</B> <A NAME="tex2html17483"
+  HREF="node742.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html17477"
+  HREF="node770.html">CLIENT_getClientID</A>
+ &nbsp; <B>  <A NAME="tex2html17485"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009225000000000000000">
-CLIENT_removeServerCache</A>
+<H2><A NAME="SECTION0062229000000000000000">
+CLIENT_getActiveNetDevices</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Removes the client cache on the m23 server.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks for active network devices on a client or localhost.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>client: Name of the client.
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
+</LI>
+<LI>skipLoop: Skip loopdevices in the output array, if set to true.
+</LI>
+<LI>skipEQL: Skip eqldevices in the output array, if set to true.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associtative array with active network cards (e.g. Array ( [0] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> eth0 [type] =<SPAN CLASS="MATH"></SPAN> encap:Ethernet [mac] =<SPAN CLASS="MATH"></SPAN> 00:52:66:23:00:23 ) [1] =<SPAN CLASS="MATH"></SPAN> Array ( [dev] =<SPAN CLASS="MATH"></SPAN> venet0 [type] =<SPAN CLASS="MATH"></SPAN> encap:UNSPEC [mac] =<SPAN CLASS="MATH"></SPAN> 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00 ) )
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CLIENT_removeServerCache</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

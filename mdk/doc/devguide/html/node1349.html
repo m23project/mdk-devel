@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_getRootDeviceFS</TITLE>
-<META NAME="description" CONTENT="CLCFG_getRootDeviceFS">
+<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
+<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1350.html">
 <LINK REL="previous" HREF="node1348.html">
-<LINK REL="up" HREF="node1280.html">
+<LINK REL="up" HREF="node1342.html">
 <LINK REL="next" HREF="node1350.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24840"
+<A NAME="tex2html24873"
   HREF="node1350.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24836"
-  HREF="node1280.html">
+<A NAME="tex2html24869"
+  HREF="node1342.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24830"
+<A NAME="tex2html24863"
   HREF="node1348.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24838"
+<A NAME="tex2html24871"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24841"
-  HREF="node1350.html">CLCFG_genFakeFstab</A>
-<B> Up:</B> <A NAME="tex2html24837"
-  HREF="node1280.html">./inc/distr/imaging/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html24831"
-  HREF="node1348.html">CLCFG_hideKernelWarnings</A>
- &nbsp; <B>  <A NAME="tex2html24839"
+<B> Next:</B> <A NAME="tex2html24874"
+  HREF="node1350.html">PKG_preparePool</A>
+<B> Up:</B> <A NAME="tex2html24870"
+  HREF="node1342.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24864"
+  HREF="node1348.html">PKG_ncTarDebsFromClientToServer_Server</A>
+ &nbsp; <B>  <A NAME="tex2html24872"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094469000000000000000">
-CLCFG_getRootDeviceFS</A>
+<H2><A NAME="SECTION006467000000000000000">
+PKG_rsyncDebsFromClientToServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the filesystem of the root device.
+<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>rootDevice: the device, the kernel should be installed on
+<LI>clientIP: The IP of the client.
 </LI>
-<LI>clientName: the name of the client
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Filesystem of the root device.
+<LI>poolDir: The directory on the server to store the Debian packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +70,7 @@ CLCFG_getRootDeviceFS</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

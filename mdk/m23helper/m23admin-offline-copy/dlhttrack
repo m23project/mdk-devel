@@ -1,5 +1,9 @@
 #!/bin/bash
 
+t="/tmp/dlhttrack$$"
+mkdir -p "$t"
+cd "$t"
+
 for lang in de en fr
 do
 	#Set the language
@@ -25,8 +29,11 @@ do
 	cd ..
 
 	# Upload the dump
-	rsync -rzaPy --delete-after $lang hhabermann@web.sf.net:/home/groups/m/m2/m23/htdocs/offline-copy/html/
+	dt_sf_rsyncWrapper -rzaPy --delete-after $lang hhabermann@web.sf.net:/home/groups/m/m2/m23/htdocs/offline-copy/html/
 
 	# Remove the dump
 	rm -r $lang
 done
+
+cd /
+rm -r "$t"

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_makeDev</TITLE>
-<META NAME="description" CONTENT="CLCFG_makeDev">
+<TITLE>CLCFG_addUser</TITLE>
+<META NAME="description" CONTENT="CLCFG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1422.html">
 <LINK REL="previous" HREF="node1420.html">
-<LINK REL="up" HREF="node1404.html">
+<LINK REL="up" HREF="node1383.html">
 <LINK REL="next" HREF="node1422.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25816"
+<A NAME="tex2html25826"
   HREF="node1422.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25812"
-  HREF="node1404.html">
+<A NAME="tex2html25822"
+  HREF="node1383.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25806"
+<A NAME="tex2html25816"
   HREF="node1420.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25814"
+<A NAME="tex2html25824"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25817"
-  HREF="node1422.html">CLCFG_disablePlymouth</A>
-<B> Up:</B> <A NAME="tex2html25813"
-  HREF="node1404.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html25807"
-  HREF="node1420.html">TRINITY_install</A>
- &nbsp; <B>  <A NAME="tex2html25815"
+<B> Next:</B> <A NAME="tex2html25827"
+  HREF="node1422.html">CLCFG_createBootDeviceNode</A>
+<B> Up:</B> <A NAME="tex2html25823"
+  HREF="node1383.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html25817"
+  HREF="node1420.html">CLCFG_writeHosts</A>
+ &nbsp; <B>  <A NAME="tex2html25825"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094817000000000000000">
-CLCFG_makeDev</A>
+<H2><A NAME="SECTION0064838000000000000000">
+CLCFG_addUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates the device nodes in /dev by downloading and extracting an archive containing the device nodes and if this fails running MAKEDEV.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to add a user on the client. it adds the user account, creates a home directory, copies the m23 skel files and sets the
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>userName: the username for the account
+</LI>
+<LI>password: the unecrypted password for the account
+</LI>
+<LI>groups: the groups the user should be added to
+</LI>
+<LI>skelDir: directory to the skeleton files
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

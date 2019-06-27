@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getSearchCacheFileName</TITLE>
-<META NAME="description" CONTENT="PKG_getSearchCacheFileName">
+<TITLE>PKG_updatePackageInfo</TITLE>
+<META NAME="description" CONTENT="PKG_updatePackageInfo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1496.html">
 <LINK REL="previous" HREF="node1494.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1473.html">
 <LINK REL="next" HREF="node1496.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26734"
+<A NAME="tex2html26744"
   HREF="node1496.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26730"
-  HREF="node1493.html">
+<A NAME="tex2html26740"
+  HREF="node1473.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26724"
+<A NAME="tex2html26734"
   HREF="node1494.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26732"
+<A NAME="tex2html26742"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26735"
-  HREF="node1496.html">PKG_genPackageSearchCacheFileCMD</A>
-<B> Up:</B> <A NAME="tex2html26731"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26725"
-  HREF="node1494.html">PKG_updatePackageSearchCacheFile</A>
- &nbsp; <B>  <A NAME="tex2html26733"
+<B> Next:</B> <A NAME="tex2html26745"
+  HREF="node1496.html">PKG_previewInstall</A>
+<B> Up:</B> <A NAME="tex2html26741"
+  HREF="node1473.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26735"
+  HREF="node1494.html">PKG_preparePackageDir</A>
+ &nbsp; <B>  <A NAME="tex2html26743"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009502000000000000000">
-PKG_getSearchCacheFileName</A>
+<H2><A NAME="SECTION0065022000000000000000">
+PKG_updatePackageInfo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the full path to the compressed package search file.
+<SPAN  CLASS="textbf">Description:</SPAN> Updates the package information to make it searchable.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: Directory where the package information is stored.
+<LI>distr: the distribution name
 </LI>
-<LI>arch: Architecture for the packages in the search file.
+<LI>packagesource: name of the package source
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Full path to the compressed package search file.
+<LI>force: set to true if you want to update the package info and the time is not over
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>changeTime: Writes the time when the status file was last modified to.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ PKG_getSearchCacheFileName</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::deletePartitionJob</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::deletePartitionJob">
+<TITLE>CFDiskBasic::assignDeviceToRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::assignDeviceToRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node468.html">
 <LINK REL="previous" HREF="node466.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node468.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13481"
+<A NAME="tex2html13487"
   HREF="node468.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13477"
-  HREF="node464.html">
+<A NAME="tex2html13483"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13471"
+<A NAME="tex2html13477"
   HREF="node466.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13479"
+<A NAME="tex2html13485"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13482"
-  HREF="node468.html">CFDiskBasic::createPartitionJob</A>
-<B> Up:</B> <A NAME="tex2html13478"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13472"
-  HREF="node466.html">CFDiskBasic::__destruct</A>
- &nbsp; <B>  <A NAME="tex2html13480"
+<B> Next:</B> <A NAME="tex2html13488"
+  HREF="node468.html">CFDiskBasic::deleteDeviceFromRaid</A>
+<B> Up:</B> <A NAME="tex2html13484"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13478"
+  HREF="node466.html">CFDiskBasic::deleteRaid</A>
+ &nbsp; <B>  <A NAME="tex2html13486"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009133000000000000000">
-CFDiskBasic::deletePartitionJob</A>
+<H2><A NAME="SECTION0061329000000000000000">
+CFDiskBasic::assignDeviceToRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a partition removal job and adds it to the list of partition steps.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a partition or disk to a RAID disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: selected device (e.g. hda)
+<LI>raidDev: Device name of the RAID (eg. /dev/md0)
 </LI>
-<LI>pPart: Physical partition number, minor number in parted
+<LI>devToAdd: partition or disk device name to add.
 </LI>
-<LI>addAtTheBeginning: Adds the job to the beginning of the partitionSteps and partitionStepsForShift arrays.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the device could be added, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +76,7 @@ CFDiskBasic::deletePartitionJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

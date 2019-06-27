@@ -16,6 +16,7 @@ include('/m23/inc/server.php');
 
 
 
+
 if (!isset($argv[1]) || !file_exists($argv[1]))
 	die("$argv[0] <Test description file (.m23test)> <parameters>\n");
 

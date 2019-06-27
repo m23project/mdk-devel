@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::showFreeSpaceBarBlock</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::showFreeSpaceBarBlock">
+<TITLE>CFDiskGUI::getDriveInfoIcon</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getDriveInfoIcon">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node514.html">
 <LINK REL="previous" HREF="node512.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node514.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14079"
+<A NAME="tex2html14085"
   HREF="node514.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14075"
-  HREF="node496.html">
+<A NAME="tex2html14081"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14069"
+<A NAME="tex2html14075"
   HREF="node512.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14077"
+<A NAME="tex2html14083"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14080"
-  HREF="node514.html">CFDiskGUI::showEmptyDiskTable</A>
-<B> Up:</B> <A NAME="tex2html14076"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14070"
-  HREF="node512.html">CFDiskGUI::getFreeSpaceHTMLColor</A>
- &nbsp; <B>  <A NAME="tex2html14078"
+<B> Next:</B> <A NAME="tex2html14086"
+  HREF="node514.html">CFDiskGUI::listPartJobs</A>
+<B> Up:</B> <A NAME="tex2html14082"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14076"
+  HREF="node512.html">CFDiskGUI::getDiskInfoString</A>
+ &nbsp; <B>  <A NAME="tex2html14084"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091417000000000000000">
-CFDiskGUI::showFreeSpaceBarBlock</A>
+<H2><A NAME="SECTION0061441000000000000000">
+CFDiskGUI::getDriveInfoIcon</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a block for with free space in the bar visualising the partitioning of a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates HTML code for showing an icon with status information about a drive.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>pDisk: The physical device name of the disk (eg. /dev/sda)
+<LI>vDisk: Virtual (internally used) device number.
 </LI>
-<LI>start: Start point of the partition (in MB)
-</LI>
-<LI>end: End point of the partition (in MB)
-</LI>
-<LI>width: The width of the block in percent (without 
-</LI>
-<LI>type: Type of the partition.
-</LI>
-<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>HTML code for showing an icon with status information about the drive.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +74,7 @@ CFDiskGUI::showFreeSpaceBarBlock</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

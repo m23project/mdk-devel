@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>initrd</TITLE>
-<META NAME="description" CONTENT="initrd">
+<TITLE>AUTOTEST_VM_stop</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_VM_stop">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node56.html">
 <LINK REL="previous" HREF="node54.html">
-<LINK REL="up" HREF="node54.html">
+<LINK REL="up" HREF="node40.html">
 <LINK REL="next" HREF="node56.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5757"
+<A NAME="tex2html8183"
   HREF="node56.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5753"
-  HREF="node54.html">
+<A NAME="tex2html8179"
+  HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5747"
+<A NAME="tex2html8173"
   HREF="node54.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5755"
+<A NAME="tex2html8181"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5758"
-  HREF="node56.html">compress operating system</A>
-<B> Up:</B> <A NAME="tex2html5754"
-  HREF="node54.html">what does the makeCD</A>
-<B> Previous:</B> <A NAME="tex2html5748"
-  HREF="node54.html">what does the makeCD</A>
- &nbsp; <B>  <A NAME="tex2html5756"
+<B> Next:</B> <A NAME="tex2html8184"
+  HREF="node56.html">AUTOTEST_VM_start</A>
+<B> Up:</B> <A NAME="tex2html8180"
+  HREF="node40.html">./inc/autoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html8174"
+  HREF="node54.html">AUTOTEST_VM_delete</A>
+ &nbsp; <B>  <A NAME="tex2html8182"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A NAME="SECTION00652100000000000000">
-initrd</A>
-</H3>
-While booting from the CD the kernel is started, if the kernel starts up it loads an initial file system from a file, this is the initrd (here called rescue). This file is compressed and will be extracted to the memory and mounted as root file system. All needed files like basic commands (ls,cp) and the install script are contained in this root file system.
-<BR>
-In the /mdk/bootCD/root are all files needed for the initrd. If you want to make changes to the start up process of the boot CD you should edit the /mdk/bootCD/root directory. The mkRescue.sh script makes an empty initrd file, formats it with ext2 file system, copies needed files to initrd and compresses it to rescue.gz. For further information have a look at the mkRescue.sh script.
+<H2><A NAME="SECTION006315000000000000000">
+AUTOTEST_VM_stop</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Stops a VM.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>vmName: Name of the VM.
+</LI>
+<LI>VMStopMessage: Variable where the VirtualBox (error) messages will be written to.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

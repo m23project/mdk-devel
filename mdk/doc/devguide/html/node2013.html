@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MAIL_sendMail</TITLE>
-<META NAME="description" CONTENT="MAIL_sendMail">
+<TITLE>MASS_readDBFile</TITLE>
+<META NAME="description" CONTENT="MASS_readDBFile">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2014.html">
 <LINK REL="previous" HREF="node2012.html">
-<LINK REL="up" HREF="node1996.html">
+<LINK REL="up" HREF="node2002.html">
 <LINK REL="next" HREF="node2014.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33409"
+<A NAME="tex2html33450"
   HREF="node2014.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33405"
-  HREF="node1996.html">
+<A NAME="tex2html33446"
+  HREF="node2002.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33399"
+<A NAME="tex2html33440"
   HREF="node2012.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33407"
+<A NAME="tex2html33448"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33410"
-  HREF="node2014.html">MAIL_cryptMailServer</A>
-<B> Up:</B> <A NAME="tex2html33406"
-  HREF="node1996.html">./inc/mail.php</A>
-<B> Previous:</B> <A NAME="tex2html33400"
-  HREF="node2012.html">MAIL_manageGPGKeysDialog</A>
- &nbsp; <B>  <A NAME="tex2html33408"
+<B> Next:</B> <A NAME="tex2html33451"
+  HREF="node2014.html">MASS_readDBFileRaw</A>
+<B> Up:</B> <A NAME="tex2html33447"
+  HREF="node2002.html">./inc/massTools.php</A>
+<B> Previous:</B> <A NAME="tex2html33441"
+  HREF="node2012.html">MASS_openDBFile</A>
+ &nbsp; <B>  <A NAME="tex2html33449"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096217000000000000000">
-MAIL_sendMail</A>
+<H2><A NAME="SECTION0066311000000000000000">
+MASS_readDBFile</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sends a mail, that may be GPG encrypted and contain an attachement via the cryptmail gateway.
+<SPAN  CLASS="textbf">Description:</SPAN> reads a line from the DB file and returnes an associated array with the properties as key and the fields of the file as values.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>eMail: eMail address of the recipient.
+<LI>fileName: name of the DB file
 </LI>
-<LI>message: The message text.
-</LI>
-<LI>subject: The subject of the eMail.
-</LI>
-<LI>file: The file name (with full path) to attach or empty if no file should be attached.
-</LI>
-<LI>from: The sender's email address.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the values of the DB line or false, if the line was empty.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ MAIL_sendMail</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

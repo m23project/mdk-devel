@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert die m23-Server-Pakete von 192.168.1.77 auf einer gesicherten UCS-VM (Sicherungspunkt "vor"). -->
+<testcase>
+	<variables>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</variables>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_IP description="IP der VM"></VM_IP>
+	</cli>
+	<sequence>
+		<include>inc/restoreVMStateVor.m23test</include>
+		<include>inc/checkForRunningUCS.m23test</include>
+		<test timeout="600" description="m23-Pakete installieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+export DEBIAN_FRONTEND=noninteractive
+export LC_ALL=C
+
+ret=1
+while [ $ret -ne 0 ]
+do
+	ping -c1 -q -n -w1 updates-test.software-univention.de
+	ret=$?
+	sleep 2
+done
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
+ucr set repository/app_center/server=appcenter-test.software-univention.de
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
+ucr set update/secure_apt=no
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
+ucr set appcenter/index/verify=no
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
+univention-install univention-appcenter-dev
+
+while [ $(ps -A | grep apt -c) -gt 0 ] || [ $(ps -A | grep dpkg -c) -gt 0 ]
+do
+	sleep 1
+done
+
+univention-app dev-use-test-appcenter
+
+univention-app list | grep m23 -q; echo -n "L$?L" >> /tmp/m.status
+
+univention-app list | grep m23 -A3 | grep version | grep -q ${AT_M23UCSVER}; echo -n "V$?V" >> /tmp/m.status
+
+yes | univention-app install m23
+
+dpkg --list | grep "^ii" | grep m23 -q; echo -n "D$?D" >> /tmp/m.status
+					
+			</action>
+			<bad type="ssh_commandoutput" password="test" sshanswer="!L0L" description="m23-Paket NICHT in Liste gefunden">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="!D0D" description="m23-App NICHT installiert">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="!V0V" description="Falsche m23-App-Version in Liste">cat /tmp/m.status</bad>
+			<good type="ssh_commandoutput" password="test" sshanswer="L0LV0VD0D" description="m23 installiert">cat /tmp/m.status</good>
+		</test>
+		<include>inc/m23serverTestWebinterface.m23test</include>
+		<include>inc/m23serverCheckDaemonsOnUCS.m23test</include>
+	</sequence>
+</testcase>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CChecks::checkProxy</TITLE>
-<META NAME="description" CONTENT="CChecks::checkProxy">
+<TITLE>CClientLister::isVisibleByPingableFilter</TITLE>
+<META NAME="description" CONTENT="CClientLister::isVisibleByPingableFilter">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node270.html">
 <LINK REL="previous" HREF="node268.html">
-<LINK REL="up" HREF="node249.html">
+<LINK REL="up" HREF="node264.html">
 <LINK REL="next" HREF="node270.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10908"
+<A NAME="tex2html10954"
   HREF="node270.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10904"
-  HREF="node249.html">
+<A NAME="tex2html10950"
+  HREF="node264.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10898"
+<A NAME="tex2html10944"
   HREF="node268.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10906"
+<A NAME="tex2html10952"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10909"
-  HREF="node270.html">CChecks::checkOffice</A>
-<B> Up:</B> <A NAME="tex2html10905"
-  HREF="node249.html">./inc/CChecks.php</A>
-<B> Previous:</B> <A NAME="tex2html10899"
-  HREF="node268.html">CChecks::checkLogin</A>
- &nbsp; <B>  <A NAME="tex2html10907"
+<B> Next:</B> <A NAME="tex2html10955"
+  HREF="node270.html">CClientLister::setVisibleByPingableFilter</A>
+<B> Up:</B> <A NAME="tex2html10951"
+  HREF="node264.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html10945"
+  HREF="node268.html">CClientLister::getCheckedClientNames</A>
+ &nbsp; <B>  <A NAME="tex2html10953"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091020000000000000000">
-CChecks::checkProxy</A>
+<H2><A NAME="SECTION006115000000000000000">
+CClientLister::isVisibleByPingableFilter</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks the IP and port of the package proxy.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if only clients that can (not) be pinged should be shown and if the given client matches the filter rule.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>proxyIP: The IP of the package proxy.
-</LI>
-<LI>proxyPort: The port of the package proxy.
+<LI>CClientO: Object to the client to check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the package IP and port are valid otherwise false.
+<LI>true, if there is no pingable filter rule, or if the client matches the filter rule.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CChecks::checkProxy</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

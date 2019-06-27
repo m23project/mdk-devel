@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::generateHTMLWaitingAllJobsBar</TITLE>
-<META NAME="description" CONTENT="CClient::generateHTMLWaitingAllJobsBar">
+<TITLE>CFDiskBasic::createSwapPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createSwapPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node459.html">
 <LINK REL="previous" HREF="node457.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node459.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13344"
+<A NAME="tex2html13379"
   HREF="node459.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13340"
-  HREF="node335.html">
+<A NAME="tex2html13375"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13334"
+<A NAME="tex2html13369"
   HREF="node457.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13342"
+<A NAME="tex2html13377"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13345"
-  HREF="node459.html">CClient::generateHTMLWaitingAllJobsBar</A>
-<B> Up:</B> <A NAME="tex2html13341"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13335"
-  HREF="node457.html">CClient::generateHTMLPackagesBar</A>
- &nbsp; <B>  <A NAME="tex2html13343"
+<B> Next:</B> <A NAME="tex2html13380"
+  HREF="node459.html">CFDiskBasic::createFormatPartition</A>
+<B> Up:</B> <A NAME="tex2html13376"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13370"
+  HREF="node457.html">CFDiskBasic::createInstallPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13378"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912123000000000000000">
-CClient::generateHTMLWaitingAllJobsBar</A>
+<H2><A NAME="SECTION0061320000000000000000">
+CFDiskBasic::createSwapPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates an URL with the amount of the client's waiting jobs and all jobs linking to the change jobs page.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates and formats a swap partition. The created partition is stored in the client parameters as swap partition.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>URL with the amount of the client's packages linking to the client packages page.
+<LI>diskDev: The disk device (e.g. /dev/hda) where the swap partition should be created on.
+</LI>
+<LI>instStart: Start position of the swap partition (in MB).
+</LI>
+<LI>instEnd: End position of the swap partition (in MB).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CClient::generateHTMLWaitingAllJobsBar</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

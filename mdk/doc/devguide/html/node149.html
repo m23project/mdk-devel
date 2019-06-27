@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>BT_createTorrent</TITLE>
-<META NAME="description" CONTENT="BT_createTorrent">
+<TITLE>CAutoTest::addToSequence</TITLE>
+<META NAME="description" CONTENT="CAutoTest::addToSequence">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node150.html">
 <LINK REL="previous" HREF="node148.html">
-<LINK REL="up" HREF="node138.html">
+<LINK REL="up" HREF="node126.html">
 <LINK REL="next" HREF="node150.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9346"
+<A NAME="tex2html9405"
   HREF="node150.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9342"
-  HREF="node138.html">
+<A NAME="tex2html9401"
+  HREF="node126.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9336"
+<A NAME="tex2html9395"
   HREF="node148.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9344"
+<A NAME="tex2html9403"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9347"
-  HREF="node150.html">BT_startClient</A>
-<B> Up:</B> <A NAME="tex2html9343"
-  HREF="node138.html">./inc/bittorrent.php</A>
-<B> Previous:</B> <A NAME="tex2html9337"
-  HREF="node148.html">BT_updateWhitelist</A>
- &nbsp; <B>  <A NAME="tex2html9345"
+<B> Next:</B> <A NAME="tex2html9406"
+  HREF="node150.html">CAutoTest::matchArray</A>
+<B> Up:</B> <A NAME="tex2html9402"
+  HREF="node126.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html9396"
+  HREF="node148.html">CAutoTest::decTimeout</A>
+ &nbsp; <B>  <A NAME="tex2html9404"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009511000000000000000">
-BT_createTorrent</A>
+<H2><A NAME="SECTION006823000000000000000">
+CAutoTest::addToSequence</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a torrent file and adds it to the white list.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds an element to the sequence.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileToShare: The file (in the Bittorrent share directory) to create a torrent file for.
+<LI>triggerType: Type of the trigger (CAutoTest::TRIGGER_*) or the type event, that should happen to begin with the given element of the sequence.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: true, when the torrent file was created successfully otherwise false.
+<LI>triggerParam: Parameter for the trigger (e.g. string that should be read from the screen when in CAutoTest::TRIGGER_OCR mode).
+</LI>
+<LI>answersA: Associative array with the answers and parameters.
+</LI>
+<LI>execType: Type of action (CAutoTest::EXEC_*), that will be executed when the trigger is hit.
+</LI>
+<LI>execParam: Parameter for the action (e.g. keys to press, when in CAutoTest::EXEC_KEY mode).
+</LI>
+<LI>execAttributes: Additional attributes (parameters) (eg. name/ID for Selenium calls)
+</LI>
+<LI>timeout: Time to wait (in seconds) until the element of sequence will become a failure.
+</LI>
+<LI>description: Description for the test.
+</LI>
+<LI>triggerAttributes: Trigger attribute(s). Can hold additional parameters. (Result is written to this pointer)
+</LI>
+<LI>runIf: Value of the runIf attribute.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +86,7 @@ BT_createTorrent</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

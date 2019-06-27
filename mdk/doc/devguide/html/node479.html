@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createUEFIPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createUEFIPartition">
+<TITLE>CFDiskGUI::getDiskLayoutEntryStart</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getDiskLayoutEntryStart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node480.html">
 <LINK REL="previous" HREF="node478.html">
-<LINK REL="up" HREF="node464.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node480.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13625"
+<A NAME="tex2html13677"
   HREF="node480.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13621"
-  HREF="node464.html">
+<A NAME="tex2html13673"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13615"
+<A NAME="tex2html13667"
   HREF="node478.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13623"
+<A NAME="tex2html13675"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13626"
-  HREF="node480.html">CFDiskBasic::deletePartition</A>
-<B> Up:</B> <A NAME="tex2html13622"
-  HREF="node464.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13616"
-  HREF="node478.html">CFDiskBasic::createPartition</A>
- &nbsp; <B>  <A NAME="tex2html13624"
+<B> Next:</B> <A NAME="tex2html13678"
+  HREF="node480.html">CFDiskGUI::getDiskLayoutEntryEnd</A>
+<B> Up:</B> <A NAME="tex2html13674"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13668"
+  HREF="node478.html">CFDiskGUI::fdiskSessionHelpPage</A>
+ &nbsp; <B>  <A NAME="tex2html13676"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091315000000000000000">
-CFDiskBasic::createUEFIPartition</A>
+<H2><A NAME="SECTION006147000000000000000">
+CFDiskGUI::getDiskLayoutEntryStart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new UEFI partition with a size of 512 MB at the start of the disk (if possible).
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the start position of a disk layout entry.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda).
+<LI>vDisk: Virtual (internally used) device number.
+</LI>
+<LI>layoutNr: Number of the disk layout entry.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The physical partition number of the newly created partition.
+<LI>Start position of a disk layout entry or dies, if not set.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CFDiskBasic::createUEFIPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

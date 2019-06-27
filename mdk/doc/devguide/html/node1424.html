@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_configUpstartForNormalUsage</TITLE>
-<META NAME="description" CONTENT="CLCFG_configUpstartForNormalUsage">
+<TITLE>CLCFG_genFstab</TITLE>
+<META NAME="description" CONTENT="CLCFG_genFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1425.html">
 <LINK REL="previous" HREF="node1423.html">
-<LINK REL="up" HREF="node1404.html">
+<LINK REL="up" HREF="node1383.html">
 <LINK REL="next" HREF="node1425.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25852"
+<A NAME="tex2html25862"
   HREF="node1425.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25848"
-  HREF="node1404.html">
+<A NAME="tex2html25858"
+  HREF="node1383.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25842"
+<A NAME="tex2html25852"
   HREF="node1423.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25850"
+<A NAME="tex2html25860"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25853"
-  HREF="node1425.html">CLCFG_configUpstartForChroot</A>
-<B> Up:</B> <A NAME="tex2html25849"
-  HREF="node1404.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html25843"
-  HREF="node1423.html">CLCFG_disableAvahiDaemon</A>
- &nbsp; <B>  <A NAME="tex2html25851"
+<B> Next:</B> <A NAME="tex2html25863"
+  HREF="node1425.html">CLCFG_interfaces</A>
+<B> Up:</B> <A NAME="tex2html25859"
+  HREF="node1383.html">./inc/distr/ubuntu/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html25853"
+  HREF="node1423.html">CLCFG_efi</A>
+ &nbsp; <B>  <A NAME="tex2html25861"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094820000000000000000">
-CLCFG_configUpstartForNormalUsage</A>
+<H2><A NAME="SECTION0064841000000000000000">
+CLCFG_genFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Configures upstart for normal running in an installed system.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
+</LI>
+<LI>rootDevice: the path to the installation partition (e.g. /dev/hda1)
+</LI>
+<LI>bootloader: Name of the boot loader to install and configure (actually grub only)
+</LI>
+<LI>ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+</LI>
+<LI>isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>POOL_download</TITLE>
-<META NAME="description" CONTENT="POOL_download">
+<TITLE>PREF_getClientPreferences</TITLE>
+<META NAME="description" CONTENT="PREF_getClientPreferences">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2264.html">
 <LINK REL="previous" HREF="node2262.html">
-<LINK REL="up" HREF="node2249.html">
+<LINK REL="up" HREF="node2257.html">
 <LINK REL="next" HREF="node2264.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html36636"
+<A NAME="tex2html36664"
   HREF="node2264.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html36632"
-  HREF="node2249.html">
+<A NAME="tex2html36660"
+  HREF="node2257.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html36626"
+<A NAME="tex2html36654"
   HREF="node2262.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html36634"
+<A NAME="tex2html36662"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html36637"
-  HREF="node2264.html">POOL_showDownloadStatus</A>
-<B> Up:</B> <A NAME="tex2html36633"
-  HREF="node2249.html">./inc/pool.php</A>
-<B> Previous:</B> <A NAME="tex2html36627"
-  HREF="node2262.html">POOL_getDir</A>
- &nbsp; <B>  <A NAME="tex2html36635"
+<B> Next:</B> <A NAME="tex2html36665"
+  HREF="node2264.html">PREF_getValue</A>
+<B> Up:</B> <A NAME="tex2html36661"
+  HREF="node2257.html">./inc/preferences.php</A>
+<B> Previous:</B> <A NAME="tex2html36655"
+  HREF="node2262.html">PREF_loadAllPreferenceValues</A>
+ &nbsp; <B>  <A NAME="tex2html36663"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097114000000000000000">
-POOL_download</A>
+<H2><A NAME="SECTION006726000000000000000">
+PREF_getClientPreferences</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
+<SPAN  CLASS="textbf">Description:</SPAN> list all preferences
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>poolName: name of the pool
+<LI>default: The name of the preference to list first
 </LI>
-<LI>distr: name of the distribution
+<LI>directOutput: If enabled the preference names will be given out as a HTML option list. If disabled an array with the preference names as key and value will be returned.
 </LI>
-<LI>sourceslist: list of the package sources
-</LI>
-<LI>release: release branch of the choosen distribution to download the packages from
-</LI>
-<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
-</LI>
-<LI>arch: download the packages for a specific CPU architecture
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with the preference names or nothing on enabled directOutput.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +76,7 @@ POOL_download</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

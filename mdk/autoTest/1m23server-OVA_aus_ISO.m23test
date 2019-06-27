@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert das m23-Server-Installations-ISO in einer VM, säubert die Festplatte und exportiert die VM als OVA. -->
+<testcase>
+	<variables>
+		<TEST_TYPE>VM</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>16384</VM_HDSIZE>
+	</variables>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_ISO description="ISO-Boot-CD-Dateiname (inkl. Pfad)"></VM_ISO>
+		<VM_IP description="IP der VM"></VM_IP>
+	</cli>
+	<sequence>
+		<include>inc/1m23server-iso-dialog-answers.m23test</include>
+		<include>inc/wait2Minutes.m23test</include>
+		<include>inc/m23serverCheckDaemonsOnDebian.m23test</include>
+		<test timeout="600" description="VM als OVA exportieren">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+				/mdk/bin/prepareOSForCompression
+				sync
+				sleep 60
+				poweroff
+			</action>
+			<action type="fkt">AUTOTEST_VM_exportm23ServerISOasOVA</action>
+			<bad type="vsssh_commandoutput" sshanswer="!R0R" description="Exportieren der VM fehlgeschlagen">cat /tmp/AUTOTEST_VM_export_m23ServerISO_as_OVA.ret</bad>
+			<bad type="vsssh_commandoutput" sshanswer="!O0O" description="OVA-Datei fehlt!">cat /tmp/AUTOTEST_VM_export_m23ServerISO_as_OVA.ret</bad>
+			<bad type="vsssh_commandoutput" sshanswer="!Z0Z" description="Fehler beim Erstellen der 7-Zip-Datei!">cat /tmp/AUTOTEST_VM_export_m23ServerISO_as_OVA.ret</bad>
+			<good type="vsssh_commandoutput" sshanswer="R0RO0OZ0Z" description="VM als OVA erfolgreich exportiert und mit 7-Zip komprimiert">cat /tmp/AUTOTEST_VM_export_m23ServerISO_as_OVA.ret</good>
+		</test>
+	</sequence>
+</testcase>

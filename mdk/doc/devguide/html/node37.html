@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>translating the messages</TITLE>
-<META NAME="description" CONTENT="translating the messages">
+<TITLE>ASSI_addClient</TITLE>
+<META NAME="description" CONTENT="ASSI_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,57 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node38.html">
 <LINK REL="previous" HREF="node36.html">
-<LINK REL="up" HREF="node34.html">
+<LINK REL="up" HREF="node35.html">
 <LINK REL="next" HREF="node38.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5524"
+<A NAME="tex2html7928"
   HREF="node38.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5520"
-  HREF="node34.html">
+<A NAME="tex2html7924"
+  HREF="node35.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5514"
+<A NAME="tex2html7918"
   HREF="node36.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5522"
+<A NAME="tex2html7926"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5525"
-  HREF="node38.html">translating the help texts</A>
-<B> Up:</B> <A NAME="tex2html5521"
-  HREF="node34.html">How to translate m23?</A>
-<B> Previous:</B> <A NAME="tex2html5515"
-  HREF="node36.html">generate the language file</A>
- &nbsp; <B>  <A NAME="tex2html5523"
+<B> Next:</B> <A NAME="tex2html7929"
+  HREF="node38.html">ASSI_addUbuntuRoot</A>
+<B> Up:</B> <A NAME="tex2html7925"
+  HREF="node35.html">./inc/assimilate.php</A>
+<B> Previous:</B> <A NAME="tex2html7919"
+  HREF="node36.html">ASSI_showClientAddDialog</A>
+ &nbsp; <B>  <A NAME="tex2html7927"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00633000000000000000">
-translating the messages</A>
-</H2>
-Simply copy the m23base.php file from your preferredly understood language to the directory of your translation. e.g. if you want to translate the english version to german: copy /m23/inc/i18n/en/m23base.php to /m23/inc/i18n/de/m23base.php.
-<BR>
-Now translate the text between the ' " 's.
-e.g.
-<PRE>
-$I18N_help="Help";
-</PRE>
-becomes
-<PRE>
-$I18N_help="Hilfe";
-</PRE>
-Please don't delete any other text and make changes only between the ' " ' letters. Don't translate something like $I18N_help to $I18N_hilfe. If you do so, m23 can't find it and will leave the place, the text should be appear empty. For your information: m23 stores the texts as variables that are inserted at the right places in the m23admin interface.
+<H2><A NAME="SECTION00622000000000000000">
+ASSI_addClient</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Adds needed data for assimilating a client.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>client: name of the client
+</LI>
+<LI>ip: IP of the client
+</LI>
+<LI>password: root password on Debian systems or combines user/root password on Ubuntu systems
+</LI>
+<LI>ubuntuuser: name of the Ubuntu user or empty if a Debian system is meant.
+</LI>
+<LI>clientUsesDynamicIP: if set to true, the client uses a dynamic IP address
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<P>
+<SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

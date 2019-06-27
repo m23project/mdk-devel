@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CHECK_strAlphaNum</TITLE>
-<META NAME="description" CONTENT="CHECK_strAlphaNum">
+<TITLE>CLIENT_getAllAsRes</TITLE>
+<META NAME="description" CONTENT="CLIENT_getAllAsRes">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node751.html">
 <LINK REL="previous" HREF="node749.html">
-<LINK REL="up" HREF="node739.html">
+<LINK REL="up" HREF="node742.html">
 <LINK REL="next" HREF="node751.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17123"
+<A NAME="tex2html17234"
   HREF="node751.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17119"
-  HREF="node739.html">
+<A NAME="tex2html17230"
+  HREF="node742.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17113"
+<A NAME="tex2html17224"
   HREF="node749.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17121"
+<A NAME="tex2html17232"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17124"
-  HREF="node751.html">CHECK_letFWDie</A>
-<B> Up:</B> <A NAME="tex2html17120"
-  HREF="node739.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html17114"
-  HREF="node749.html">CHECK_strAlpha</A>
- &nbsp; <B>  <A NAME="tex2html17122"
+<B> Next:</B> <A NAME="tex2html17235"
+  HREF="node751.html">CLIENT_touchLogFile</A>
+<B> Up:</B> <A NAME="tex2html17231"
+  HREF="node742.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html17225"
+  HREF="node749.html">CLIENT_getNextFreeIp</A>
+ &nbsp; <B>  <A NAME="tex2html17233"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091911000000000000000">
-CHECK_strAlphaNum</A>
+<H2><A NAME="SECTION006228000000000000000">
+CLIENT_getAllAsRes</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and digits and shuts down the application if not.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates and executes an SQL statement for getting all values of all clients.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>val: Input value to check.
-</LI>
-<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
-</LI>
-<LI>allowEmpty: Set to true if you want to allow empty strings.
-</LI>
-<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
+<LI>order: Name of the field to order the results by.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The input value if it contains only characters and digits or stops (or false, if $returnNoDie is true) the program on an error.
+<LI>MySQL resource ID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ CHECK_strAlphaNum</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

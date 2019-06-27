@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_printStatus</TITLE>
-<META NAME="description" CONTENT="PKG_printStatus">
+<TITLE>EDIT_commentout</TITLE>
+<META NAME="description" CONTENT="EDIT_commentout">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1511.html">
 <LINK REL="previous" HREF="node1509.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1500.html">
 <LINK REL="next" HREF="node1511.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26914"
+<A NAME="tex2html26948"
   HREF="node1511.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26910"
-  HREF="node1493.html">
+<A NAME="tex2html26944"
+  HREF="node1500.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26904"
+<A NAME="tex2html26938"
   HREF="node1509.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26912"
+<A NAME="tex2html26946"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26915"
-  HREF="node1511.html">PKG_listPackages</A>
-<B> Up:</B> <A NAME="tex2html26911"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26905"
-  HREF="node1509.html">PKG_getPackageDescriptionSize</A>
- &nbsp; <B>  <A NAME="tex2html26913"
+<B> Next:</B> <A NAME="tex2html26949"
+  HREF="node1511.html">EDIT_insertAfterLineNumber</A>
+<B> Up:</B> <A NAME="tex2html26945"
+  HREF="node1500.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html26939"
+  HREF="node1509.html">EDIT_uncomment</A>
+ &nbsp; <B>  <A NAME="tex2html26947"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095017000000000000000">
-PKG_printStatus</A>
+<H2><A NAME="SECTION0065110000000000000000">
+EDIT_commentout</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> prints the package status, e.g. amount of packages,...
+<SPAN  CLASS="textbf">Description:</SPAN> comments out lines in range or matching lines
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the name of the distribution
+<LI>file: the name of the file
 </LI>
-<LI>packagesource: the name of the package source list
+<LI>from: start commenting out from this line
+</LI>
+<LI>to: stop commenting out at this line
+</LI>
+<LI>commentStr: string to comment out (e.g. "#" for BASH or "//" for C/C++ style)
+</LI>
+<LI>match: 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ PKG_printStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

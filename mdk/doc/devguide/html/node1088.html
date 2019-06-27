@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/db.php</TITLE>
-<META NAME="description" CONTENT="./inc/db.php">
+<TITLE>deleteClientLogs</TITLE>
+<META NAME="description" CONTENT="deleteClientLogs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,140 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1129.html">
-<LINK REL="previous" HREF="node1059.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1089.html">
+<LINK REL="previous" HREF="node1087.html">
+<LINK REL="up" HREF="node1065.html">
 <LINK REL="next" HREF="node1089.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21458"
+<A NAME="tex2html21505"
   HREF="node1089.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21454"
-  HREF="node102.html">
+<A NAME="tex2html21501"
+  HREF="node1065.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21448"
+<A NAME="tex2html21495"
   HREF="node1087.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21456"
+<A NAME="tex2html21503"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21459"
-  HREF="node1089.html">ip2longSafe</A>
-<B> Up:</B> <A NAME="tex2html21455"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html21449"
-  HREF="node1087.html">CSystemProxy::getUserPasswordString</A>
- &nbsp; <B>  <A NAME="tex2html21457"
+<B> Next:</B> <A NAME="tex2html21506"
+  HREF="node1089.html">workPhpName</A>
+<B> Up:</B> <A NAME="tex2html21502"
+  HREF="node1065.html">./inc/db.php</A>
+<B> Previous:</B> <A NAME="tex2html21496"
+  HREF="node1087.html">sendClientLogStatus</A>
+ &nbsp; <B>  <A NAME="tex2html21504"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009370000000000000000">
-./inc/db.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: database functions, open, close the database, get ip of the calling client
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0063723000000000000000">
+deleteClientLogs</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> deletes the installation logs
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>clientName: name of the client to delete all logs
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html21460"
-  HREF="node1089.html">ip2longSafe</A>
-<LI><A NAME="tex2html21461"
-  HREF="node1090.html">getArchList</A>
-<LI><A NAME="tex2html21462"
-  HREF="node1091.html">isMySQL3used</A>
-<LI><A NAME="tex2html21463"
-  HREF="node1092.html">encryptShadow</A>
-<LI><A NAME="tex2html21464"
-  HREF="node1093.html">getClientLanguage</A>
-<LI><A NAME="tex2html21465"
-  HREF="node1094.html">getInstDev</A>
-<LI><A NAME="tex2html21466"
-  HREF="node1095.html">DB_getConnection</A>
-<LI><A NAME="tex2html21467"
-  HREF="node1096.html">DB_setConnection</A>
-<LI><A NAME="tex2html21468"
-  HREF="node1097.html">DB_isConnectionValid</A>
-<LI><A NAME="tex2html21469"
-  HREF="node1098.html">dbConnect</A>
-<LI><A NAME="tex2html21470"
-  HREF="node1099.html">dbClose</A>
-<LI><A NAME="tex2html21471"
-  HREF="node1100.html">DB_getSuperUserName</A>
-<LI><A NAME="tex2html21472"
-  HREF="node1101.html">DB_getSuperUserPassword</A>
-<LI><A NAME="tex2html21473"
-  HREF="node1102.html">getServerIP</A>
-<LI><A NAME="tex2html21474"
-  HREF="node1103.html">getServerNetmask</A>
-<LI><A NAME="tex2html21475"
-  HREF="node1104.html">getServerNetwork</A>
-<LI><A NAME="tex2html21476"
-  HREF="node1105.html">getDNSServers</A>
-<LI><A NAME="tex2html21477"
-  HREF="node1106.html">getServerGateway</A>
-<LI><A NAME="tex2html21478"
-  HREF="node1107.html">sendClientStatus</A>
-<LI><A NAME="tex2html21479"
-  HREF="node1108.html">sendClientStageStatus</A>
-<LI><A NAME="tex2html21480"
-  HREF="node1109.html">returnClientStageStatus</A>
-<LI><A NAME="tex2html21481"
-  HREF="node1110.html">sendClientLogStatus</A>
-<LI><A NAME="tex2html21482"
-  HREF="node1111.html">deleteClientLogs</A>
-<LI><A NAME="tex2html21483"
-  HREF="node1112.html">workPhpName</A>
-<LI><A NAME="tex2html21484"
-  HREF="node1113.html">executeNextWork</A>
-<LI><A NAME="tex2html21485"
-  HREF="node1114.html">DB_query</A>
-<LI><A NAME="tex2html21486"
-  HREF="node1115.html">DB_queryNoDie</A>
-<LI><A NAME="tex2html21487"
-  HREF="node1116.html">DB_genPassword</A>
-<LI><A NAME="tex2html21488"
-  HREF="node1117.html">getClientIP</A>
-<LI><A NAME="tex2html21489"
-  HREF="node1118.html">implodeAssoc</A>
-<LI><A NAME="tex2html21490"
-  HREF="node1119.html">explodeAssoc</A>
-<LI><A NAME="tex2html21491"
-  HREF="node1120.html">sedSearchReplace</A>
-<LI><A NAME="tex2html21492"
-  HREF="node1121.html">isProgrammInstalled</A>
-<LI><A NAME="tex2html21493"
-  HREF="node1122.html">pingIP</A>
-<LI><A NAME="tex2html21494"
-  HREF="node1123.html">delFromArray</A>
-<LI><A NAME="tex2html21495"
-  HREF="node1124.html">delValuesFromArray</A>
-<LI><A NAME="tex2html21496"
-  HREF="node1125.html">DB_getLikeableColumns</A>
-<LI><A NAME="tex2html21497"
-  HREF="node1126.html">DB_getArrayAssoc</A>
-<LI><A NAME="tex2html21498"
-  HREF="node1127.html">DB_getTableColumns</A>
-<LI><A NAME="tex2html21499"
-  HREF="node1128.html">DB_changeAllCollations</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

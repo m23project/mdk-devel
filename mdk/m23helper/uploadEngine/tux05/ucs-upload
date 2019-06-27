@@ -10,13 +10,20 @@ debdir='aktuelles-m23Deb'
 rm -r $debdir 2> /dev/null
 mkdir $debdir
 cd $debdir
+
+if [ ! -f ../m23-Pakete-fuer-ucs.tar.gz ]
+then
+	echo "../m23-Pakete-fuer-ucs.tar.gz is MISSING!"
+	exit 1
+fi
+
 m23DebFile=$(tar xfvz ../m23-Pakete-fuer-ucs.tar.gz --wildcards --no-anchored m23_*.deb)
 m23Deb="$(pwd)/$m23DebFile"
 cd ..
 
 
-#for ucsVer in 4.3 4.2 4.1
-for ucsVer in 4.3
+for ucsVer in 4.3 4.4
+#for ucsVer in 4.3
 do
 	univention-selfservice upload $ucsVer/m23 m23-Pakete-fuer-ucs.tar.gz
 
@@ -25,6 +32,10 @@ do
 	neuDeb=$(./debAddVersionSuffix $m23Deb "ucs$debVer")
 	univention-selfservice upload $ucsVer/m23 $neuDeb
 	
+	unmaintainedTar="$(ls ucs-$ucsVer-unmaintained-m23*.tar.gz | sort -n | tail -1)"
+
+	univention-selfservice upload $ucsVer/m23 "$unmaintainedTar"
+
 	if [ $debVer -gt 42 ]
 	then
 		univention-selfservice upload $ucsVer/m23 m23-ucs-extra_18.2-101114_all.deb

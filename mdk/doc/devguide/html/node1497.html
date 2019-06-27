@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_searchPackageSearchCacheFileCMD</TITLE>
-<META NAME="description" CONTENT="PKG_searchPackageSearchCacheFileCMD">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1498.html">
 <LINK REL="previous" HREF="node1496.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1473.html">
 <LINK REL="next" HREF="node1498.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26758"
+<A NAME="tex2html26768"
   HREF="node1498.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26754"
-  HREF="node1493.html">
+<A NAME="tex2html26764"
+  HREF="node1473.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26748"
+<A NAME="tex2html26758"
   HREF="node1496.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26756"
+<A NAME="tex2html26766"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26759"
-  HREF="node1498.html">PKG_ncTarDebsFromClientToServer_Client</A>
-<B> Up:</B> <A NAME="tex2html26755"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26749"
-  HREF="node1496.html">PKG_genPackageSearchCacheFileCMD</A>
- &nbsp; <B>  <A NAME="tex2html26757"
+<B> Next:</B> <A NAME="tex2html26769"
+  HREF="node1498.html">PKG_downloadPool</A>
+<B> Up:</B> <A NAME="tex2html26765"
+  HREF="node1473.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26759"
+  HREF="node1496.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html26767"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009504000000000000000">
-PKG_searchPackageSearchCacheFileCMD</A>
+<H2><A NAME="SECTION0065024000000000000000">
+PKG_getKernels</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates BASH commands to search a compressed package search file.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: Directory where the package information is stored.
+<LI>distr: the distribution name
 </LI>
-<LI>arch: Architecture for the packages in the search file.
+<LI>packagesource: name of the package source
 </LI>
-<LI>search: Search terms.
+<LI>arch: Architecture to get package infos for.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>BASH commands to search a compressed package search file.
+<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ PKG_searchPackageSearchCacheFileCMD</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

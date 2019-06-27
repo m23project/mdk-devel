@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!-- Installiert die m23-Server-Pakete von 192.168.1.77 auf einem Raspbian. -->
+<testcase>
+	<variables>
+		<TEST_TYPE>webinterface</TEST_TYPE>
+		<VM_RAM>1024</VM_RAM>
+		<VM_HDSIZE>8192</VM_HDSIZE>
+	</variables>
+	<cli>
+		<VM_NAME description="Name der VM"></VM_NAME>
+		<VM_IP description="IP der VM"></VM_IP>
+	</cli>
+	<sequence>
+		<include>inc/checkForRunningRaspbian.m23test</include>
+		<include>inc/addM23SeverDebsFrom77.m23test</include>
+		<include>inc/1m23server-install-debs-on-raspbian.m23test</include>
+		<include>inc/m23serverTestWebinterface.m23test</include>
+		<include>inc/m23serverCheckDaemonsOnDebian.m23test</include>
+	</sequence>
+</testcase>

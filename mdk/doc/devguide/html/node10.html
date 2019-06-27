@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>database</TITLE>
-<META NAME="description" CONTENT="database">
+<TITLE>how to make your source code mdoc compatible?</TITLE>
+<META NAME="description" CONTENT="how to make your source code mdoc compatible?">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,79 +19,57 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node23.html">
-<LINK REL="previous" HREF="node7.html">
-<LINK REL="up" HREF="devguide.html">
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node8.html">
 <LINK REL="next" HREF="node11.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html5114"
+<A NAME="tex2html5120"
   HREF="node11.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html5110"
-  HREF="devguide.html">
+<A NAME="tex2html5116"
+  HREF="node8.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html5104"
+<A NAME="tex2html5110"
   HREF="node9.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html5112"
+<A NAME="tex2html5118"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html5115"
-  HREF="node11.html">overview</A>
-<B> Up:</B> <A NAME="tex2html5111"
-  HREF="devguide.html">m23 Development Guide for</A>
-<B> Previous:</B> <A NAME="tex2html5105"
-  HREF="node9.html">Starting the MDK menue</A>
- &nbsp; <B>  <A NAME="tex2html5113"
+<B> Next:</B> <A NAME="tex2html5121"
+  HREF="node11.html">mdoc info block</A>
+<B> Up:</B> <A NAME="tex2html5117"
+  HREF="node8.html">mdoc</A>
+<B> Previous:</B> <A NAME="tex2html5111"
+  HREF="node9.html">what is mdoc?</A>
+ &nbsp; <B>  <A NAME="tex2html5119"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00500000000000000000">
-database</A>
-</H1>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html5116"
-  HREF="node11.html">overview</A>
-<LI><A NAME="tex2html5117"
-  HREF="node12.html">the tables</A>
+<H2><A NAME="SECTION00412000000000000000">
+how to make your source code mdoc compatible?</A>
+</H2>
+To tell mdoc that it should search for comments mark the begin of the search area with "/**" and the end with "**/". You have tree comment tapes:
+<BR>
 <UL>
-<LI><A NAME="tex2html5118"
-  HREF="node13.html">clientjobs</A>
-<LI><A NAME="tex2html5119"
-  HREF="node14.html">clientlogs</A>
-<LI><A NAME="tex2html5120"
-  HREF="node15.html">clientpackages</A>
-<LI><A NAME="tex2html5121"
-  HREF="node16.html">clientpreferences</A>
-<LI><A NAME="tex2html5122"
-  HREF="node17.html">clients</A>
-<LI><A NAME="tex2html5123"
-  HREF="node18.html">ftpusers</A>
-<LI><A NAME="tex2html5124"
-  HREF="node19.html">groups</A>
-<LI><A NAME="tex2html5125"
-  HREF="node20.html">plugins</A>
-<LI><A NAME="tex2html5126"
-  HREF="node21.html">recommendpackages</A>
-<LI><A NAME="tex2html5127"
-  HREF="node22.html">remotevar</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<LI>**n : for the name, you should leave the name of the function with all parameters here
+</LI>
+<LI>**d : this is the description of the function. here you can write longer comments about the usage, restrictions, ...
+</LI>
+<LI>**p : deals with a single parameter used for the function. you should describe all parameters used to call the function with a "**p" line each.
+</LI>
+</UL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

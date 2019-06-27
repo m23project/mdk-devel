@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>getServerGateway</TITLE>
-<META NAME="description" CONTENT="getServerGateway">
+<TITLE>./inc/dhcp.php</TITLE>
+<META NAME="description" CONTENT="./inc/dhcp.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,51 +19,100 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1107.html">
-<LINK REL="previous" HREF="node1105.html">
-<LINK REL="up" HREF="node1088.html">
+<LINK REL="next" HREF="node1127.html">
+<LINK REL="previous" HREF="node1065.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node1107.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21714"
+<A NAME="tex2html21719"
   HREF="node1107.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21710"
-  HREF="node1088.html">
+<A NAME="tex2html21715"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21704"
+<A NAME="tex2html21709"
   HREF="node1105.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21712"
+<A NAME="tex2html21717"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21715"
-  HREF="node1107.html">sendClientStatus</A>
-<B> Up:</B> <A NAME="tex2html21711"
-  HREF="node1088.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html21705"
-  HREF="node1105.html">getDNSServers</A>
- &nbsp; <B>  <A NAME="tex2html21713"
+<B> Next:</B> <A NAME="tex2html21720"
+  HREF="node1107.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<B> Up:</B> <A NAME="tex2html21716"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html21710"
+  HREF="node1105.html">DB_changeAllCollations</A>
+ &nbsp; <B>  <A NAME="tex2html21718"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093718000000000000000">
-getServerGateway</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes the gateway of the m23 server
+<H1><A NAME="SECTION006380000000000000000">
+./inc/dhcp.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Daniel Kasten (DKasten@pc-kiel.de), Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions to add and remove a client to/from the dhcp server list.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html21721"
+  HREF="node1107.html">DHCP_exportDHCPSettingsForExternalDHCPServer</A>
+<LI><A NAME="tex2html21722"
+  HREF="node1108.html">DHCP_lineNumberAffterLastClient</A>
+<LI><A NAME="tex2html21723"
+  HREF="node1109.html">DHCP_addSubnetDefinition</A>
+<LI><A NAME="tex2html21724"
+  HREF="node1110.html">DHCP_delSubnetDefinition</A>
+<LI><A NAME="tex2html21725"
+  HREF="node1111.html">DHCP_addDynamicRange</A>
+<LI><A NAME="tex2html21726"
+  HREF="node1112.html">DHCP_getDynamicRanges</A>
+<LI><A NAME="tex2html21727"
+  HREF="node1113.html">DHCP_getNetmaskOfDynamicRanges</A>
+<LI><A NAME="tex2html21728"
+  HREF="node1114.html">DHCP_delDynamicRange</A>
+<LI><A NAME="tex2html21729"
+  HREF="node1115.html">DHCP_bootTypeToNewFormat</A>
+<LI><A NAME="tex2html21730"
+  HREF="node1116.html">DHCP_runScript</A>
+<LI><A NAME="tex2html21731"
+  HREF="node1117.html">DHCP_addClient</A>
+<LI><A NAME="tex2html21732"
+  HREF="node1118.html">DHCP_addLineToDHCPDConf</A>
+<LI><A NAME="tex2html21733"
+  HREF="node1119.html">DHCP_restartDHCPserver</A>
+<LI><A NAME="tex2html21734"
+  HREF="node1120.html">DHCP_rmClient</A>
+<LI><A NAME="tex2html21735"
+  HREF="node1121.html">DHCP_setBootimage</A>
+<LI><A NAME="tex2html21736"
+  HREF="node1122.html">DHCP_activateBoot</A>
+<LI><A NAME="tex2html21737"
+  HREF="node1123.html">DHCP_calcPXEIP</A>
+<LI><A NAME="tex2html21738"
+  HREF="node1124.html">DHCP_writePXEcfg</A>
+<LI><A NAME="tex2html21739"
+  HREF="node1125.html">DHCP_removePXEcfg</A>
+<LI><A NAME="tex2html21740"
+  HREF="node1126.html">DHCP_isNetworkBootingActive</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

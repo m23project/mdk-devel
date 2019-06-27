@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::addDiskLayoutEntry</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::addDiskLayoutEntry">
+<TITLE>CFDiskGUI::getHDSizes</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getHDSizes">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node521.html">
 <LINK REL="previous" HREF="node519.html">
-<LINK REL="up" HREF="node496.html">
+<LINK REL="up" HREF="node472.html">
 <LINK REL="next" HREF="node521.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14163"
+<A NAME="tex2html14167"
   HREF="node521.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14159"
-  HREF="node496.html">
+<A NAME="tex2html14163"
+  HREF="node472.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14153"
+<A NAME="tex2html14159"
   HREF="node519.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14161"
+<A NAME="tex2html14165"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14164"
-  HREF="node521.html">CFDiskGUI::newDiskLayout</A>
-<B> Up:</B> <A NAME="tex2html14160"
-  HREF="node496.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14154"
-  HREF="node519.html">CFDiskGUI::showPartTable</A>
- &nbsp; <B>  <A NAME="tex2html14162"
+<B> Next:</B> <A NAME="tex2html14168"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Up:</B> <A NAME="tex2html14164"
+  HREF="node472.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14160"
+  HREF="node519.html">CFDiskGUI::getFstabTable</A>
+ &nbsp; <B>  <A NAME="tex2html14166"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091424000000000000000">
-CFDiskGUI::addDiskLayoutEntry</A>
+<H2><A NAME="SECTION0061448000000000000000">
+CFDiskGUI::getHDSizes</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a new entry (partition or free space on a disk) to the disk layout (for rendering only).
+<SPAN  CLASS="textbf">Description:</SPAN> Returnes the sizes of all harddisks in a string, sperated by given line separator.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>lineSeparator: String to separate the output entries in the output string.
 </LI>
-<LI>start: start point of the partition (in MB)
-</LI>
-<LI>end: end point of the partition (in MB)
-</LI>
-<LI>type: type of the partition (primary, logical)
-</LI>
-<LI>fs: File system.
-</LI>
-<LI>dev: Device name (optional)
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Sizes of all harddisks in a string, sperated by given line separator.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +73,7 @@ CFDiskGUI::addDiskLayoutEntry</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

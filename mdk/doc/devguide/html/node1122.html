@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>pingIP</TITLE>
-<META NAME="description" CONTENT="pingIP">
+<TITLE>DHCP_activateBoot</TITLE>
+<META NAME="description" CONTENT="DHCP_activateBoot">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1123.html">
 <LINK REL="previous" HREF="node1121.html">
-<LINK REL="up" HREF="node1088.html">
+<LINK REL="up" HREF="node1106.html">
 <LINK REL="next" HREF="node1123.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21906"
+<A NAME="tex2html21931"
   HREF="node1123.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21902"
-  HREF="node1088.html">
+<A NAME="tex2html21927"
+  HREF="node1106.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21896"
+<A NAME="tex2html21921"
   HREF="node1121.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21904"
+<A NAME="tex2html21929"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21907"
-  HREF="node1123.html">delFromArray</A>
-<B> Up:</B> <A NAME="tex2html21903"
-  HREF="node1088.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html21897"
-  HREF="node1121.html">isProgrammInstalled</A>
- &nbsp; <B>  <A NAME="tex2html21905"
+<B> Next:</B> <A NAME="tex2html21932"
+  HREF="node1123.html">DHCP_calcPXEIP</A>
+<B> Up:</B> <A NAME="tex2html21928"
+  HREF="node1106.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21922"
+  HREF="node1121.html">DHCP_setBootimage</A>
+ &nbsp; <B>  <A NAME="tex2html21930"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093734000000000000000">
-pingIP</A>
+<H2><A NAME="SECTION0063816000000000000000">
+DHCP_activateBoot</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> tests, if someone is answering the ping on a given IP address. returnes true, if someone answers (needs "iputils-ping" to be installed)
+<SPAN  CLASS="textbf">Description:</SPAN> switches the network boot on or off
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ip
+<LI>clientName: name of the client
+</LI>
+<LI>on: true activates the network boot, false deactivates
+</LI>
+<LI>bootType: The boot type CAN be given here (e.g. pxe or etherboot)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ pingIP</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

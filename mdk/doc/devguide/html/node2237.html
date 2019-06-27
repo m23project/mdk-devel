@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PLG_checkOverwriting</TITLE>
-<META NAME="description" CONTENT="PLG_checkOverwriting">
+<TITLE>./inc/pool.php</TITLE>
+<META NAME="description" CONTENT="./inc/pool.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,58 +19,98 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2238.html">
-<LINK REL="previous" HREF="node2236.html">
-<LINK REL="up" HREF="node2225.html">
+<LINK REL="next" HREF="node2257.html">
+<LINK REL="previous" HREF="node2213.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node2238.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html36307"
+<A NAME="tex2html36323"
   HREF="node2238.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html36303"
-  HREF="node2225.html">
+<A NAME="tex2html36319"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html36297"
+<A NAME="tex2html36313"
   HREF="node2236.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html36305"
+<A NAME="tex2html36321"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html36308"
-  HREF="node2238.html">PLG_DBInstall</A>
-<B> Up:</B> <A NAME="tex2html36304"
-  HREF="node2225.html">./inc/plugin.php</A>
-<B> Previous:</B> <A NAME="tex2html36298"
-  HREF="node2236.html">PLG_showDownloadStatus</A>
- &nbsp; <B>  <A NAME="tex2html36306"
+<B> Next:</B> <A NAME="tex2html36324"
+  HREF="node2238.html">POOL_selectPoolType</A>
+<B> Up:</B> <A NAME="tex2html36320"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html36314"
+  HREF="node2236.html">PLG_realUpdate</A>
+ &nbsp; <B>  <A NAME="tex2html36322"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0097012000000000000000">
-PLG_checkOverwriting</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if the plugin files would overwrite existing files. the plugin file is extracted to a temporary directory. all file names are logged to a file that contains only the file names. these file names are checked against currently installed files. this routine checks if current files would be overwritten by the files of the plugin package. a list of files that would be overwritten is generated and aligned by a table.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>logfile: filename with whole path of the logfile containing the file names of the plugin file
-</LI>
-<LI>tempDir: where to store the plugin file temporary
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006710000000000000000">
+./inc/pool.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: functions for administrating package pools
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html36325"
+  HREF="node2238.html">POOL_selectPoolType</A>
+<LI><A NAME="tex2html36326"
+  HREF="node2239.html">POOL_getPools</A>
+<LI><A NAME="tex2html36327"
+  HREF="node2240.html">POOL_showLoadDeleteCreate</A>
+<LI><A NAME="tex2html36328"
+  HREF="node2241.html">POOL_create</A>
+<LI><A NAME="tex2html36329"
+  HREF="node2242.html">POOL_setProperty</A>
+<LI><A NAME="tex2html36330"
+  HREF="node2243.html">POOL_getProperty</A>
+<LI><A NAME="tex2html36331"
+  HREF="node2244.html">POOL_delete</A>
+<LI><A NAME="tex2html36332"
+  HREF="node2245.html">POOL_showReadCD</A>
+<LI><A NAME="tex2html36333"
+  HREF="node2246.html">POOL_readCD</A>
+<LI><A NAME="tex2html36334"
+  HREF="node2247.html">POOL_createExtendedPackageIndex</A>
+<LI><A NAME="tex2html36335"
+  HREF="node2248.html">POOL_showCreatePackageIndex</A>
+<LI><A NAME="tex2html36336"
+  HREF="node2249.html">POOL_getSize</A>
+<LI><A NAME="tex2html36337"
+  HREF="node2250.html">POOL_getDir</A>
+<LI><A NAME="tex2html36338"
+  HREF="node2251.html">POOL_download</A>
+<LI><A NAME="tex2html36339"
+  HREF="node2252.html">POOL_showDownloadStatus</A>
+<LI><A NAME="tex2html36340"
+  HREF="node2253.html">POOL_prepare</A>
+<LI><A NAME="tex2html36341"
+  HREF="node2254.html">POOL_makeRepository</A>
+<LI><A NAME="tex2html36342"
+  HREF="node2255.html">POOL_getCDDistributionRelease</A>
+<LI><A NAME="tex2html36343"
+  HREF="node2256.html">POOL_showSourcesList</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

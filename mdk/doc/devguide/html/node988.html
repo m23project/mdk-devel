@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPool::setPoolDownloadBasePackages</TITLE>
-<META NAME="description" CONTENT="CPool::setPoolDownloadBasePackages">
+<TITLE>CPool::checkForDistributionSpecificPackageFunction</TITLE>
+<META NAME="description" CONTENT="CPool::checkForDistributionSpecificPackageFunction">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node989.html">
 <LINK REL="previous" HREF="node987.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node950.html">
 <LINK REL="next" HREF="node989.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20201"
+<A NAME="tex2html20208"
   HREF="node989.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20197"
-  HREF="node973.html">
+<A NAME="tex2html20204"
+  HREF="node950.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20191"
+<A NAME="tex2html20198"
   HREF="node987.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20199"
+<A NAME="tex2html20206"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20202"
-  HREF="node989.html">CPool::getPoolImportedPackageList</A>
-<B> Up:</B> <A NAME="tex2html20198"
-  HREF="node973.html">./inc/CPool.php</A>
-<B> Previous:</B> <A NAME="tex2html20192"
-  HREF="node987.html">CPool::hasPoolDownloadBasePackages</A>
- &nbsp; <B>  <A NAME="tex2html20200"
+<B> Next:</B> <A NAME="tex2html20209"
+  HREF="node989.html">CPool::preparePool</A>
+<B> Up:</B> <A NAME="tex2html20205"
+  HREF="node950.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html20199"
+  HREF="node987.html">CPool::destroyPool</A>
+ &nbsp; <B>  <A NAME="tex2html20207"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093315000000000000000">
-CPool::setPoolDownloadBasePackages</A>
+<H2><A NAME="SECTION0063338000000000000000">
+CPool::checkForDistributionSpecificPackageFunction</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets, if base packages should be downloaded.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks for a distribution specific package function in the distribution's packages.php file and generates an error message in case it cannot be found.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>downloadBasePackages: true, when base packages should be downloaded otherwise false.
+<LI>fkt: Name of the function to check for.
+</LI>
+<LI>errorMsg: Error message to add, if the function cannot be found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ CPool::setPoolDownloadBasePackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

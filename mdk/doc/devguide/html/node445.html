@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::setBootType</TITLE>
-<META NAME="description" CONTENT="CClient::setBootType">
+<TITLE>CFDiskBasic::formatJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::formatJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node446.html">
 <LINK REL="previous" HREF="node444.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node446.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13188"
+<A NAME="tex2html13223"
   HREF="node446.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13184"
-  HREF="node335.html">
+<A NAME="tex2html13219"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13178"
+<A NAME="tex2html13213"
   HREF="node444.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13186"
+<A NAME="tex2html13221"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13189"
-  HREF="node446.html">CClient::getNetworkBootTypesArrayForSelection</A>
-<B> Up:</B> <A NAME="tex2html13185"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13179"
-  HREF="node444.html">CClient::usesDynamicIP</A>
- &nbsp; <B>  <A NAME="tex2html13187"
+<B> Next:</B> <A NAME="tex2html13224"
+  HREF="node446.html">CFDiskBasic::createRaidJob</A>
+<B> Up:</B> <A NAME="tex2html13220"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13214"
+  HREF="node444.html">CFDiskBasic::EFItypeAndGUIDJob</A>
+ &nbsp; <B>  <A NAME="tex2html13222"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912110000000000000000">
-CClient::setBootType</A>
+<H2><A NAME="SECTION006137000000000000000">
+CFDiskBasic::formatJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the client's (network) boot type.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a partition format job and adds it to the list of partition steps.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>bootType: CClient::BOOTTYPE_PXE, CClient::BOOTTYPE_NOBOOT, CClient::BOOTTYPE_ETHERBOOT, CClient::BOOTTYPE_GRUB2EFIX64
+<LI>dev: device to format (e.g. /dev/hda1)
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true on successfully setting the client's boot type, otherwise false.
+<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
+</LI>
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ CClient::setBootType</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

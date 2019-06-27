@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getPackageDescriptionSize</TITLE>
-<META NAME="description" CONTENT="PKG_getPackageDescriptionSize">
+<TITLE>PKG_listPackages</TITLE>
+<META NAME="description" CONTENT="PKG_listPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1255.html">
 <LINK REL="previous" HREF="node1253.html">
-<LINK REL="up" HREF="node1238.html">
+<LINK REL="up" HREF="node1250.html">
 <LINK REL="next" HREF="node1255.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23614"
+<A NAME="tex2html23631"
   HREF="node1255.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23610"
-  HREF="node1238.html">
+<A NAME="tex2html23627"
+  HREF="node1250.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23604"
+<A NAME="tex2html23621"
   HREF="node1253.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23612"
+<A NAME="tex2html23629"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23615"
-  HREF="node1255.html">PKG_printStatus</A>
-<B> Up:</B> <A NAME="tex2html23611"
-  HREF="node1238.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23605"
-  HREF="node1253.html">PKG_getLongPackageDescription</A>
- &nbsp; <B>  <A NAME="tex2html23613"
+<B> Next:</B> <A NAME="tex2html23632"
+  HREF="node1255.html">PKG_previewInstall</A>
+<B> Up:</B> <A NAME="tex2html23628"
+  HREF="node1250.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23622"
+  HREF="node1253.html">pkgUpdateCacheOnServer</A>
+ &nbsp; <B>  <A NAME="tex2html23630"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094116000000000000000">
-PKG_getPackageDescriptionSize</A>
+<H2><A NAME="SECTION006434000000000000000">
+PKG_listPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returnes the description and size of a package
+<SPAN  CLASS="textbf">Description:</SPAN> list packages matching the key
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the name of the distribution
+<LI>key: search key
 </LI>
-<LI>packagesource: the name of the package source list
+<LI>distr: the distribution name
 </LI>
-<LI>package: name if the package
+<LI>packagesource: name of the package source
+</LI>
+<LI>client: Name of the client the packages are searched for. (Not used here and only for halfSister)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Amount of found packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +80,7 @@ PKG_getPackageDescriptionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getPartitionNumber</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getPartitionNumber">
+<TITLE>CFDiskIO::getPossiblePartitionTypesBetween</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getPossiblePartitionTypesBetween">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node593.html">
 <LINK REL="previous" HREF="node591.html">
-<LINK REL="up" HREF="node545.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node593.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15147"
+<A NAME="tex2html15153"
   HREF="node593.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15143"
-  HREF="node545.html">
+<A NAME="tex2html15149"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15137"
+<A NAME="tex2html15143"
   HREF="node591.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15145"
+<A NAME="tex2html15151"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15148"
-  HREF="node593.html">CFDiskIO::getPartitionSize</A>
-<B> Up:</B> <A NAME="tex2html15144"
-  HREF="node545.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15138"
-  HREF="node591.html">CFDiskIO::getPartitionStart</A>
- &nbsp; <B>  <A NAME="tex2html15146"
+<B> Next:</B> <A NAME="tex2html15154"
+  HREF="node593.html">CFDiskIO::isNewPartitionOfTypeCreatable</A>
+<B> Up:</B> <A NAME="tex2html15150"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15144"
+  HREF="node591.html">CFDiskIO::isFreeSpaceBetween</A>
+ &nbsp; <B>  <A NAME="tex2html15152"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091547000000000000000">
-CFDiskIO::getPartitionNumber</A>
+<H2><A NAME="SECTION0061571000000000000000">
+CFDiskIO::getPossiblePartitionTypesBetween</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the physical partition number of a virtual partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Get a list of partition types that can be created in a range on a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
+<LI>start: Start position (in MB) of the partition to create.
 </LI>
-<LI>return: This will returned in case of an error, if set to another value, than 'null'.
+<LI>end: End position (in MB) of the partition to create.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Physical partition number of a virtual partition.
+<LI>List of partition types that can be created in a range on a disk.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ CFDiskIO::getPartitionNumber</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

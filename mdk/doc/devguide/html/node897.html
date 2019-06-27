@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CMessageManager::hasInfos</TITLE>
-<META NAME="description" CONTENT="CMessageManager::hasInfos">
+<TITLE>CObjectStorage::__construct</TITLE>
+<META NAME="description" CONTENT="CObjectStorage::__construct">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node898.html">
 <LINK REL="previous" HREF="node896.html">
-<LINK REL="up" HREF="node888.html">
+<LINK REL="up" HREF="node895.html">
 <LINK REL="next" HREF="node898.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19015"
+<A NAME="tex2html19036"
   HREF="node898.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19011"
-  HREF="node888.html">
+<A NAME="tex2html19032"
+  HREF="node895.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19005"
+<A NAME="tex2html19026"
   HREF="node896.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19013"
+<A NAME="tex2html19034"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19016"
-  HREF="node898.html">CMessageManager::hasWarnings</A>
-<B> Up:</B> <A NAME="tex2html19012"
-  HREF="node888.html">./inc/CMessageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html19006"
-  HREF="node896.html">CMessageManager::deleteAllMessages</A>
- &nbsp; <B>  <A NAME="tex2html19014"
+<B> Next:</B> <A NAME="tex2html19037"
+  HREF="node898.html">CObjectStorage::__destruct</A>
+<B> Up:</B> <A NAME="tex2html19033"
+  HREF="node895.html">./inc/CObjectStorage.php</A>
+<B> Previous:</B> <A NAME="tex2html19027"
+  HREF="node896.html">CObjectStorage::statusCodeToHumanReadable</A>
+ &nbsp; <B>  <A NAME="tex2html19035"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009259000000000000000">
-CMessageManager::hasInfos</A>
+<H2><A NAME="SECTION006272000000000000000">
+CObjectStorage::__construct</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns if there are infos.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Constructor for new CObjectStorage objects. The object saves/updates or loads an object.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if there have infos been occurred otherwise false.
+<LI>ident: Identifier for objects belonging to e.g. a client.
+</LI>
+<LI>classOrObject: Class name of the object or the object itself.
+</LI>
+<LI>readFromDBIfObjectExists: Set to true, if an existing object should read from the DB, even if an object is given.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CMessageManager::hasInfos</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

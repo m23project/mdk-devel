@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_listMonitors</TITLE>
-<META NAME="description" CONTENT="MSR_listMonitors">
+<TITLE>PKG_addUser</TITLE>
+<META NAME="description" CONTENT="PKG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,46 +19,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node2100.html">
 <LINK REL="previous" HREF="node2098.html">
-<LINK REL="up" HREF="node2063.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2100.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34512"
+<A NAME="tex2html34645"
   HREF="node2100.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34508"
-  HREF="node2063.html">
+<A NAME="tex2html34641"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34504"
+<A NAME="tex2html34635"
   HREF="node2098.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34510"
+<A NAME="tex2html34643"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34513"
-  HREF="node2100.html">./inc/packageBuilder.php</A>
-<B> Up:</B> <A NAME="tex2html34509"
-  HREF="node2063.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34505"
-  HREF="node2098.html">MSR_addMonitor</A>
- &nbsp; <B>  <A NAME="tex2html34511"
+<B> Next:</B> <A NAME="tex2html34646"
+  HREF="node2100.html">PKG_cleanPackageLine</A>
+<B> Up:</B> <A NAME="tex2html34642"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html34636"
+  HREF="node2098.html">PKG_addDebianUser</A>
+ &nbsp; <B>  <A NAME="tex2html34644"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096636000000000000000">
-MSR_listMonitors</A>
+<H2><A NAME="SECTION006684000000000000000">
+PKG_addUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a job for creating an user on the client.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>list of monitors
+<LI>client: Name of the client.
+</LI>
+<LI>login: Login name of the new user.
+</LI>
+<LI>firstpw: Password for the new user.
+</LI>
+<LI>groups: Array of groups the user should be added.
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
+</LI>
+<LI>debianAndUbuntu: If set to true, groups for Debian and Ubuntu systems are added and the job chooses the groups when it is executed on the system.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -66,7 +80,7 @@ MSR_listMonitors</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

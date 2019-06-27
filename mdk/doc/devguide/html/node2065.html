@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_curDynIPCommand</TITLE>
-<META NAME="description" CONTENT="MSR_curDynIPCommand">
+<TITLE>MSR_copyDiffFileFromClient</TITLE>
+<META NAME="description" CONTENT="MSR_copyDiffFileFromClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2066.html">
 <LINK REL="previous" HREF="node2064.html">
-<LINK REL="up" HREF="node2063.html">
+<LINK REL="up" HREF="node2051.html">
 <LINK REL="next" HREF="node2066.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34106"
+<A NAME="tex2html34124"
   HREF="node2066.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34102"
-  HREF="node2063.html">
+<A NAME="tex2html34120"
+  HREF="node2051.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34096"
+<A NAME="tex2html34114"
   HREF="node2064.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34104"
+<A NAME="tex2html34122"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34107"
-  HREF="node2066.html">MSR_buildPoolFromClientDebsCMD</A>
-<B> Up:</B> <A NAME="tex2html34103"
-  HREF="node2063.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34097"
-  HREF="node2064.html">MSR_decodeMessage</A>
- &nbsp; <B>  <A NAME="tex2html34105"
+<B> Next:</B> <A NAME="tex2html34125"
+  HREF="node2066.html">MSR_markm23normalAsDone</A>
+<B> Up:</B> <A NAME="tex2html34121"
+  HREF="node2051.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html34115"
+  HREF="node2064.html">MSR_CommandCopyClientPackageStatus</A>
+ &nbsp; <B>  <A NAME="tex2html34123"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009662000000000000000">
-MSR_curDynIPCommand</A>
+<H2><A NAME="SECTION0066614000000000000000">
+MSR_copyDiffFileFromClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the commands to transfer the current dynamic IP of the m23 client to the server.
+<SPAN  CLASS="textbf">Description:</SPAN> Sends a file from the client to the server and tries to send only the changes towards an existing file on the server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>return: true, if the commands should be returned, false when shown.
+<LI>clientFile: Name of the file on client side (with full path)
+</LI>
+<LI>serverFile: Name of the file on server side (with full path)
+</LI>
+<LI>type: Type of the message understood by MSR_decodeMessage (extended by the type of transfer XXXfull or XXXdiff)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ MSR_curDynIPCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -19,11 +19,25 @@ else
 	arch=`dpkg-architecture | grep DEB_HOST_ARCH= | cut -d'=' -f2`
 fi
 
+out="$suite-$arch.tar.7z"
+
 mkdir "$suite-$arch"
 cd "$suite-$arch"
 
+debootstrapBin="$(whereis debootstrap | awk '{print $2}')"
+
+if [ ! -f "$debootstrapBin" ]
+then
+	echo "ERROR: debootstrap could NOT befound!"
+	exit 1
+fi
+
+mv /usr/bin/arch-test /usr/bin/arch-test.raus
+
 #Debootstrap the distribution
-debootstrap --arch=$arch --include="parted wget net-tools" $suite . http://ftp.de.debian.org/debian
+"$debootstrapBin" --arch=$arch --include="parted wget net-tools gnupg" $suite . http://ftp.de.debian.org/debian
+
+mv /usr/bin/arch-test.raus /usr/bin/arch-test
 
 #Delete the packages
 rm ./var/cache/apt/archives/* 2> /dev/null
@@ -32,7 +46,22 @@ rm ./var/cache/apt/archives/* 2> /dev/null
 rm ./var/lib/apt/lists/* 2> /dev/null
 
 #Compress the debootstrapped dir
-tar -c --same-owner . | 7za a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si ../"$suite-$arch.tar.7z"
-
+tar -cf - --same-owner . | 7za a -si ../"$out"
+#old parameters: tar -cf - --same-owner . | 7za a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on -si ../"$suite-$arch.tar.7z"
 cd ..
+
+
+# Test the compressed tar.7z by extracting it
+mkdir test
+cd test
+7zr x -so ../"$out" | tar xp --same-owner
+if [ $? -ne 0 ]
+then
+	echo "ERROR: Testing tar.7z failed!"
+	exit 1
+fi
+cd ..
+rm -r test
+
+
 rm -r "$suite-$arch"

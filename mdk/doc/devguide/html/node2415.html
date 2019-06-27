@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UCS_getUDMInfo</TITLE>
-<META NAME="description" CONTENT="UCS_getUDMInfo">
+<TITLE>UCS_addLDAPUser</TITLE>
+<META NAME="description" CONTENT="UCS_addLDAPUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2416.html">
 <LINK REL="previous" HREF="node2414.html">
-<LINK REL="up" HREF="node2406.html">
+<LINK REL="up" HREF="node2395.html">
 <LINK REL="next" HREF="node2416.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38601"
+<A NAME="tex2html38620"
   HREF="node2416.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38597"
-  HREF="node2406.html">
+<A NAME="tex2html38616"
+  HREF="node2395.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38591"
+<A NAME="tex2html38610"
   HREF="node2414.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38599"
+<A NAME="tex2html38618"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38602"
-  HREF="node2416.html">UCS_networkObjectExists</A>
-<B> Up:</B> <A NAME="tex2html38598"
-  HREF="node2406.html">./inc/ucs.php</A>
-<B> Previous:</B> <A NAME="tex2html38592"
-  HREF="node2414.html">UCS_getAllClientNamesLDAP</A>
- &nbsp; <B>  <A NAME="tex2html38600"
+<B> Next:</B> <A NAME="tex2html38621"
+  HREF="node2416.html">UCS_getEtc_ucr_master</A>
+<B> Up:</B> <A NAME="tex2html38617"
+  HREF="node2395.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38611"
+  HREF="node2414.html">UCS_openFirewallPort</A>
+ &nbsp; <B>  <A NAME="tex2html38619"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009789000000000000000">
-UCS_getUDMInfo</A>
+<H2><A NAME="SECTION0067820000000000000000">
+UCS_addLDAPUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Get information from the UCS's LDAP by udm tool.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the UCS LDAP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>udmModule: Name of the udm module (eg. networks/network or computers/linux).
+<LI>account: the login name
 </LI>
-<LI>afterLines: Amount of lines with information after the line containing the keyword.
+<LI>forename: the forename of the user
 </LI>
-<LI>keyWord: Keyword matching the first line to find the block with the wanted information.
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: Associative array with the information.
+<LI>The output from udm after executing the parameters.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +84,7 @@ UCS_getUDMInfo</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

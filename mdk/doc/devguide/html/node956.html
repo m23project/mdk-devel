@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPoolFromClientGUI::saveInObjectStorage</TITLE>
-<META NAME="description" CONTENT="CPoolFromClientGUI::saveInObjectStorage">
+<TITLE>CPool::convertPackagesToRepository</TITLE>
+<META NAME="description" CONTENT="CPool::convertPackagesToRepository">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node957.html">
 <LINK REL="previous" HREF="node955.html">
-<LINK REL="up" HREF="node948.html">
+<LINK REL="up" HREF="node950.html">
 <LINK REL="next" HREF="node957.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19759"
+<A NAME="tex2html19824"
   HREF="node957.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19755"
-  HREF="node948.html">
+<A NAME="tex2html19820"
+  HREF="node950.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19751"
+<A NAME="tex2html19814"
   HREF="node955.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19757"
+<A NAME="tex2html19822"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19760"
-  HREF="node957.html">./inc/CPoolGUI.php</A>
-<B> Up:</B> <A NAME="tex2html19756"
-  HREF="node948.html">./inc/CPoolFromClientGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html19752"
-  HREF="node955.html">CPoolFromClientGUI::runCOSLoop</A>
- &nbsp; <B>  <A NAME="tex2html19758"
+<B> Next:</B> <A NAME="tex2html19825"
+  HREF="node957.html">CPool::isPackageTaskRunning</A>
+<B> Up:</B> <A NAME="tex2html19821"
+  HREF="node950.html">./inc/CPool.php</A>
+<B> Previous:</B> <A NAME="tex2html19815"
+  HREF="node955.html">CPool::isConvertPackagesToRepositoryRunning</A>
+ &nbsp; <B>  <A NAME="tex2html19823"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009308000000000000000">
-CPoolFromClientGUI::saveInObjectStorage</A>
+<H2><A NAME="SECTION006336000000000000000">
+CPool::convertPackagesToRepository</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Saves this object in the object storage.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a package source from packages stored in one directory.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>returnCommands: If set to true, the commands for downloading the packages will be returned instead of executed.
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Commands for creating the package source when $returnCommands is true, true when the screen session for creating the package source is started and false on errors.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

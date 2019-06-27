@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClient::isDefinedClient</TITLE>
-<META NAME="description" CONTENT="CClient::isDefinedClient">
+<TITLE>CFDiskBasic::deletePartitionJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::deletePartitionJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node442.html">
 <LINK REL="previous" HREF="node440.html">
-<LINK REL="up" HREF="node335.html">
+<LINK REL="up" HREF="node438.html">
 <LINK REL="next" HREF="node442.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13140"
+<A NAME="tex2html13175"
   HREF="node442.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13136"
-  HREF="node335.html">
+<A NAME="tex2html13171"
+  HREF="node438.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13130"
+<A NAME="tex2html13165"
   HREF="node440.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13138"
+<A NAME="tex2html13173"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13141"
-  HREF="node442.html">CClient::generateHTMLStatusBar</A>
-<B> Up:</B> <A NAME="tex2html13137"
-  HREF="node335.html">./inc/CClient.php</A>
-<B> Previous:</B> <A NAME="tex2html13131"
-  HREF="node440.html">CClient::getStatus</A>
- &nbsp; <B>  <A NAME="tex2html13139"
+<B> Next:</B> <A NAME="tex2html13176"
+  HREF="node442.html">CFDiskBasic::createPartitionJob</A>
+<B> Up:</B> <A NAME="tex2html13172"
+  HREF="node438.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13166"
+  HREF="node440.html">CFDiskBasic::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html13174"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00912106000000000000000">
-CClient::isDefinedClient</A>
+<H2><A NAME="SECTION006133000000000000000">
+CFDiskBasic::deletePartitionJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the client is defined client.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a partition removal job and adds it to the list of partition steps.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the client is defined client, otherwise false.
+<LI>dev: selected device (e.g. hda)
+</LI>
+<LI>pPart: Physical partition number, minor number in parted
+</LI>
+<LI>addAtTheBeginning: Adds the job to the beginning of the partitionSteps and partitionStepsForShift arrays.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ CClient::isDefinedClient</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

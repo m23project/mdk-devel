@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_showPreviewInstallationDeinstallation</TITLE>
-<META NAME="description" CONTENT="PKG_showPreviewInstallationDeinstallation">
+<TITLE>PKG_getClientsByPackages</TITLE>
+<META NAME="description" CONTENT="PKG_getClientsByPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2182.html">
 <LINK REL="previous" HREF="node2180.html">
-<LINK REL="up" HREF="node2107.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2182.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35611"
+<A NAME="tex2html35629"
   HREF="node2182.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35607"
-  HREF="node2107.html">
+<A NAME="tex2html35625"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35601"
+<A NAME="tex2html35619"
   HREF="node2180.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35609"
+<A NAME="tex2html35627"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35612"
-  HREF="node2182.html">PKG_updateSourcesListAtAllClients</A>
-<B> Up:</B> <A NAME="tex2html35608"
-  HREF="node2107.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35602"
-  HREF="node2180.html">PKG_previewInstallationDeinstallation</A>
- &nbsp; <B>  <A NAME="tex2html35610"
+<B> Next:</B> <A NAME="tex2html35630"
+  HREF="node2182.html">PKG_countPackages</A>
+<B> Up:</B> <A NAME="tex2html35626"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35620"
+  HREF="node2180.html">PKG_getClientsWithWaitingJobs</A>
+ &nbsp; <B>  <A NAME="tex2html35628"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096874000000000000000">
-PKG_showPreviewInstallationDeinstallation</A>
+<H2><A NAME="SECTION0066886000000000000000">
+PKG_getClientsByPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> showes what happens if a client installs / deinstalls waiting packages and generates a table with title
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>packageNames: Array with the packages to check.
 </LI>
-<LI>install: set to true, if packages should be installed. if false the packages should be deinstalled
+<LI>status: Debian status code or true for "installed".
+</LI>
+<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
+</LI>
+<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with all clients that have the specific package (not) installed (or with another given status).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +80,7 @@ PKG_showPreviewInstallationDeinstallation</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

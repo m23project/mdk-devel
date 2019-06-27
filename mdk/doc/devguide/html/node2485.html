@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_GUIstepCheckHost</TITLE>
-<META NAME="description" CONTENT="VM_GUIstepCheckHost">
+<TITLE>VM_createVM</TITLE>
+<META NAME="description" CONTENT="VM_createVM">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,74 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2486.html">
 <LINK REL="previous" HREF="node2484.html">
-<LINK REL="up" HREF="node2436.html">
+<LINK REL="up" HREF="node2425.html">
 <LINK REL="next" HREF="node2486.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39508"
+<A NAME="tex2html39528"
   HREF="node2486.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39504"
-  HREF="node2436.html">
+<A NAME="tex2html39524"
+  HREF="node2425.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39498"
+<A NAME="tex2html39518"
   HREF="node2484.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39506"
+<A NAME="tex2html39526"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39509"
-  HREF="node2486.html">VM_GUIstepSelectHost</A>
-<B> Up:</B> <A NAME="tex2html39505"
-  HREF="node2436.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39499"
-  HREF="node2484.html">VM_GUIstepCreateGuest</A>
- &nbsp; <B>  <A NAME="tex2html39507"
+<B> Next:</B> <A NAME="tex2html39529"
+  HREF="node2486.html">VM_insertBootISO</A>
+<B> Up:</B> <A NAME="tex2html39525"
+  HREF="node2425.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39519"
+  HREF="node2484.html">VM_restoreSnapshot</A>
+ &nbsp; <B>  <A NAME="tex2html39527"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0098049000000000000000">
-VM_GUIstepCheckHost</A>
+<H2><A NAME="SECTION0068060000000000000000">
+VM_createVM</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog part with information about the chose VM host.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a virtual machine.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>type: VM_SW_VBOX for VirtualBox OSE
+</LI>
+<LI>vmName: Name of the VM.
+</LI>
+<LI>ramSize: Size of the memory in MB.
+</LI>
+<LI>diskName: Name of the virtual harddisk file.
+</LI>
+<LI>mac: MAC address of the virtual network card. It can be in the format 12:23:34:45:56:78 or 122334455678.
+</LI>
+<LI>netDev: Device of the real network card that is used to let the VM communictae with the outer world.
+</LI>
+<LI>imageDir: Base directory where to create the directory structure for storing the VM files.
+</LI>
+<LI>arch: Architecture of the VM (amd64 or i386)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>BASH code to create a virtual machine.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

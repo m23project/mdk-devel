@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_runScript</TITLE>
-<META NAME="description" CONTENT="DHCP_runScript">
+<TITLE>CLCFG_copyMBRToAllDevices</TITLE>
+<META NAME="description" CONTENT="CLCFG_copyMBRToAllDevices">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1140.html">
 <LINK REL="previous" HREF="node1138.html">
-<LINK REL="up" HREF="node1129.html">
+<LINK REL="up" HREF="node1127.html">
 <LINK REL="next" HREF="node1140.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22128"
+<A NAME="tex2html22213"
   HREF="node1140.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22124"
-  HREF="node1129.html">
+<A NAME="tex2html22209"
+  HREF="node1127.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22118"
+<A NAME="tex2html22203"
   HREF="node1138.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22126"
+<A NAME="tex2html22211"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22129"
-  HREF="node1140.html">DHCP_addClient</A>
-<B> Up:</B> <A NAME="tex2html22125"
-  HREF="node1129.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html22119"
-  HREF="node1138.html">DHCP_bootTypeToNewFormat</A>
- &nbsp; <B>  <A NAME="tex2html22127"
+<B> Next:</B> <A NAME="tex2html22214"
+  HREF="node1140.html">CLCFG_activateBOOT_DEGRADED</A>
+<B> Up:</B> <A NAME="tex2html22210"
+  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22204"
+  HREF="node1138.html">CLCFG_installMintDM</A>
+ &nbsp; <B>  <A NAME="tex2html22212"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093810000000000000000">
-DHCP_runScript</A>
+<H2><A NAME="SECTION0063912000000000000000">
+CLCFG_copyMBRToAllDevices</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Runs the script for controlling an external DHCP server.
+<SPAN  CLASS="textbf">Description:</SPAN> Copies the MBR code from the boot device to all other devices.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>command: 'add' for adding an entry to the DHCP server or 'remove' for removing.
-</LI>
-<LI>clientName: name of the client
-</LI>
-<LI>ip: ip address of the client
-</LI>
-<LI>netmask: netmask for the ip
-</LI>
-<LI>mac: mac addresse of the network card
-</LI>
-<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
-</LI>
-<LI>gateway: The gateway for the client.
+<LI>bootDevice: Device name of the device with the original MBR (e.g. /dev/sda).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +68,7 @@ DHCP_runScript</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

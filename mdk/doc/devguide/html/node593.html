@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getPartitionSize</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getPartitionSize">
+<TITLE>CFDiskIO::isNewPartitionOfTypeCreatable</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isNewPartitionOfTypeCreatable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node594.html">
 <LINK REL="previous" HREF="node592.html">
-<LINK REL="up" HREF="node545.html">
+<LINK REL="up" HREF="node521.html">
 <LINK REL="next" HREF="node594.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15159"
+<A NAME="tex2html15165"
   HREF="node594.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15155"
-  HREF="node545.html">
+<A NAME="tex2html15161"
+  HREF="node521.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15149"
+<A NAME="tex2html15155"
   HREF="node592.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15157"
+<A NAME="tex2html15163"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15160"
-  HREF="node594.html">CFDiskIO::getPartitionDev</A>
-<B> Up:</B> <A NAME="tex2html15156"
-  HREF="node545.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15150"
-  HREF="node592.html">CFDiskIO::getPartitionNumber</A>
- &nbsp; <B>  <A NAME="tex2html15158"
+<B> Next:</B> <A NAME="tex2html15166"
+  HREF="node594.html">CFDiskIO::getCreatablePartitionTypes</A>
+<B> Up:</B> <A NAME="tex2html15162"
+  HREF="node521.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15156"
+  HREF="node592.html">CFDiskIO::getPossiblePartitionTypesBetween</A>
+ &nbsp; <B>  <A NAME="tex2html15164"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0091548000000000000000">
-CFDiskIO::getPartitionSize</A>
+<H2><A NAME="SECTION0061572000000000000000">
+CFDiskIO::isNewPartitionOfTypeCreatable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the size of a virtual partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if a new partition from a certain type can be created.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL)
 </LI>
-<LI>return: This will returned in case of an error, if set to another value, than 'null'.
+<LI>addErrorMsg: Set to true, if the error messages should be added.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Size (in MB) of a virtual partition.
+<LI>true, if a new partition can be created, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +78,7 @@ CFDiskIO::getPartitionSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getLongPackageDescription</TITLE>
-<META NAME="description" CONTENT="PKG_getLongPackageDescription">
+<TITLE>pkgUpdateCacheOnServer</TITLE>
+<META NAME="description" CONTENT="pkgUpdateCacheOnServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1254.html">
 <LINK REL="previous" HREF="node1252.html">
-<LINK REL="up" HREF="node1238.html">
+<LINK REL="up" HREF="node1250.html">
 <LINK REL="next" HREF="node1254.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23602"
+<A NAME="tex2html23619"
   HREF="node1254.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23598"
-  HREF="node1238.html">
+<A NAME="tex2html23615"
+  HREF="node1250.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23592"
+<A NAME="tex2html23609"
   HREF="node1252.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23600"
+<A NAME="tex2html23617"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23603"
-  HREF="node1254.html">PKG_getPackageDescriptionSize</A>
-<B> Up:</B> <A NAME="tex2html23599"
-  HREF="node1238.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23593"
-  HREF="node1252.html">PKG_getPackageName</A>
- &nbsp; <B>  <A NAME="tex2html23601"
+<B> Next:</B> <A NAME="tex2html23620"
+  HREF="node1254.html">PKG_listPackages</A>
+<B> Up:</B> <A NAME="tex2html23616"
+  HREF="node1250.html">./inc/distr/halfSister/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23610"
+  HREF="node1252.html">PKG_fastGetInstalledPackages</A>
+ &nbsp; <B>  <A NAME="tex2html23618"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094115000000000000000">
-PKG_getLongPackageDescription</A>
+<H2><A NAME="SECTION006433000000000000000">
+pkgUpdateCacheOnServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the description of a package.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>package: Name of the package.
+<LI>$1 (packagesourcename): Name der Paketquellenliste
 </LI>
-<LI>distr: the distribution name
+<LI>$2 (packagesource): Inhalt der Paketquellenliste
 </LI>
-<LI>packagesource: name of the package source
+<LI>$3 (force): set to true (1) if you want to update the package info and the time is not over
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Description of the package.
+<LI>$4 (arch): Architecture (amd64/i386) to get package infos for.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +73,7 @@ PKG_getLongPackageDescription</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

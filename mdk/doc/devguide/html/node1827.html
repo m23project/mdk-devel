@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getQuestionnaireURL</TITLE>
-<META NAME="description" CONTENT="HTML_getQuestionnaireURL">
+<TITLE>HTML_newStatusBar</TITLE>
+<META NAME="description" CONTENT="HTML_newStatusBar">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1828.html">
 <LINK REL="previous" HREF="node1826.html">
-<LINK REL="up" HREF="node1807.html">
+<LINK REL="up" HREF="node1792.html">
 <LINK REL="next" HREF="node1828.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html31049"
+<A NAME="tex2html31064"
   HREF="node1828.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html31045"
-  HREF="node1807.html">
+<A NAME="tex2html31060"
+  HREF="node1792.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html31039"
+<A NAME="tex2html31054"
   HREF="node1826.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html31047"
+<A NAME="tex2html31062"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html31050"
-  HREF="node1828.html">HTML_questionnaire</A>
-<B> Up:</B> <A NAME="tex2html31046"
-  HREF="node1807.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html31040"
-  HREF="node1826.html">HTML_logArea</A>
- &nbsp; <B>  <A NAME="tex2html31048"
+<B> Next:</B> <A NAME="tex2html31065"
+  HREF="node1828.html">HTML_showStatusBar</A>
+<B> Up:</B> <A NAME="tex2html31061"
+  HREF="node1792.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html31055"
+  HREF="node1826.html">HTML_getStatusBarID</A>
+ &nbsp; <B>  <A NAME="tex2html31063"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095720000000000000000">
-HTML_getQuestionnaireURL</A>
+<H2><A NAME="SECTION0065735000000000000000">
+HTML_newStatusBar</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the complete URL to the m23 questionnaire in the language of the webinterface.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Shows the iframe for a status bar. This actually displays the status bar.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Complete URL to the m23 questionnaire in the language of the webinterface.
+<LI>name: The name of the status bar.
+</LI>
+<LI>client: The name of the client, the status bar belongs to (or other values for identifying the object the status bar belongs to)
+</LI>
+<LI>type: The method of calculating/getting the percentage to display in the status bar.
+</LI>
+<LI>cmd: BASH command, if type is STATUSBAR_TYPE_bash.
+</LI>
+<LI>refreshtime: Time (in seconds) between refreshes of the status bar.
+</LI>
+<LI>statustext: A text message that should be shown under the status bar.
+</LI>
+<LI>percent: Percent value to write into the DB.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: The status bar ID of the just created status bar or false, if it could not be created.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +86,7 @@ HTML_getQuestionnaireURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

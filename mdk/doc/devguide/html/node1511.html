@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_listPackages</TITLE>
-<META NAME="description" CONTENT="PKG_listPackages">
+<TITLE>EDIT_insertAfterLineNumber</TITLE>
+<META NAME="description" CONTENT="EDIT_insertAfterLineNumber">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1512.html">
 <LINK REL="previous" HREF="node1510.html">
-<LINK REL="up" HREF="node1493.html">
+<LINK REL="up" HREF="node1500.html">
 <LINK REL="next" HREF="node1512.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26926"
+<A NAME="tex2html26960"
   HREF="node1512.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26922"
-  HREF="node1493.html">
+<A NAME="tex2html26956"
+  HREF="node1500.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26916"
+<A NAME="tex2html26950"
   HREF="node1510.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26924"
+<A NAME="tex2html26958"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26927"
-  HREF="node1512.html">PKG_getAptArchOptions</A>
-<B> Up:</B> <A NAME="tex2html26923"
-  HREF="node1493.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26917"
-  HREF="node1510.html">PKG_printStatus</A>
- &nbsp; <B>  <A NAME="tex2html26925"
+<B> Next:</B> <A NAME="tex2html26961"
+  HREF="node1512.html">EDIT_insertAtLineNumber</A>
+<B> Up:</B> <A NAME="tex2html26957"
+  HREF="node1500.html">./inc/edit.php</A>
+<B> Previous:</B> <A NAME="tex2html26951"
+  HREF="node1510.html">EDIT_commentout</A>
+ &nbsp; <B>  <A NAME="tex2html26959"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0095018000000000000000">
-PKG_listPackages</A>
+<H2><A NAME="SECTION0065111000000000000000">
+EDIT_insertAfterLineNumber</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> list packages matching the key
+<SPAN  CLASS="textbf">Description:</SPAN> inserts a text AFTER a line number
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>key: search key
+<LI>file: the name of the file
 </LI>
-<LI>distr: the distribution name
+<LI>lineNumber: reference line number for inserting
 </LI>
-<LI>packagesource: name of the package source
+<LI>insertText: text to insert
 </LI>
-<LI>client: Name of the client the packages are searched for. (Not used here and only for halfSister)
-</LI>
-<LI>completeDescription: If set to true, the full package description and sizes are fetched (time consuming)
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Amount of found packages.
+<LI>addIfNotExists: set to true, if the the line should be added only if the line doesn't exist. false, if the line should be added on every execution.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +74,7 @@ PKG_listPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

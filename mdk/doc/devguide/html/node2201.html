@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getAllPackageSelections</TITLE>
-<META NAME="description" CONTENT="PKG_getAllPackageSelections">
+<TITLE>PKG_getDuplicatedIdenticalJobs</TITLE>
+<META NAME="description" CONTENT="PKG_getDuplicatedIdenticalJobs">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2202.html">
 <LINK REL="previous" HREF="node2200.html">
-<LINK REL="up" HREF="node2107.html">
+<LINK REL="up" HREF="node2095.html">
 <LINK REL="next" HREF="node2202.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35851"
+<A NAME="tex2html35869"
   HREF="node2202.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35847"
-  HREF="node2107.html">
+<A NAME="tex2html35865"
+  HREF="node2095.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35841"
+<A NAME="tex2html35859"
   HREF="node2200.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35849"
+<A NAME="tex2html35867"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35852"
-  HREF="node2202.html">PKG_multiPackageSelectionsSelection</A>
-<B> Up:</B> <A NAME="tex2html35848"
-  HREF="node2107.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35842"
-  HREF="node2200.html">PKG_deletePackageselection</A>
- &nbsp; <B>  <A NAME="tex2html35850"
+<B> Next:</B> <A NAME="tex2html35870"
+  HREF="node2202.html">PKG_removeDuplicatedIdenticalJobs</A>
+<B> Up:</B> <A NAME="tex2html35866"
+  HREF="node2095.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35860"
+  HREF="node2200.html">PKG_savePackagesList</A>
+ &nbsp; <B>  <A NAME="tex2html35868"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0096894000000000000000">
-PKG_getAllPackageSelections</A>
+<H2><A NAME="SECTION00668106000000000000000">
+PKG_getDuplicatedIdenticalJobs</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns all package selection names
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with a list of all jobs that are identical by package, priority, status and params.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>addEmpty: set to true to add an empty entry at the beginning.
+<LI>clientName: Name of the client.
+</LI>
+<LI>omitFirstID: Set to true if the first ID of each duplicate jobs block should be omitted.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with a list of all jobs that are identical by package, priority, status and params.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ PKG_getAllPackageSelections</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

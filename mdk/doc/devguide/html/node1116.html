@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DB_genPassword</TITLE>
-<META NAME="description" CONTENT="DB_genPassword">
+<TITLE>DHCP_runScript</TITLE>
+<META NAME="description" CONTENT="DHCP_runScript">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1117.html">
 <LINK REL="previous" HREF="node1115.html">
-<LINK REL="up" HREF="node1088.html">
+<LINK REL="up" HREF="node1106.html">
 <LINK REL="next" HREF="node1117.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21834"
+<A NAME="tex2html21859"
   HREF="node1117.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21830"
-  HREF="node1088.html">
+<A NAME="tex2html21855"
+  HREF="node1106.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21824"
+<A NAME="tex2html21849"
   HREF="node1115.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21832"
+<A NAME="tex2html21857"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21835"
-  HREF="node1117.html">getClientIP</A>
-<B> Up:</B> <A NAME="tex2html21831"
-  HREF="node1088.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html21825"
-  HREF="node1115.html">DB_queryNoDie</A>
- &nbsp; <B>  <A NAME="tex2html21833"
+<B> Next:</B> <A NAME="tex2html21860"
+  HREF="node1117.html">DHCP_addClient</A>
+<B> Up:</B> <A NAME="tex2html21856"
+  HREF="node1106.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21850"
+  HREF="node1115.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html21858"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093728000000000000000">
-DB_genPassword</A>
+<H2><A NAME="SECTION0063810000000000000000">
+DHCP_runScript</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a random password with a specified length
+<SPAN  CLASS="textbf">Description:</SPAN> Runs the script for controlling an external DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>length: length of password
+<LI>command: 'add' for adding an entry to the DHCP server or 'remove' for removing.
+</LI>
+<LI>clientName: name of the client
+</LI>
+<LI>ip: ip address of the client
+</LI>
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +80,7 @@ DB_genPassword</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

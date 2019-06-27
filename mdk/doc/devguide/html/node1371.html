@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_preparePool</TITLE>
-<META NAME="description" CONTENT="PKG_preparePool">
+<TITLE>DISTR_getDebianUserGroups</TITLE>
+<META NAME="description" CONTENT="DISTR_getDebianUserGroups">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1372.html">
 <LINK REL="previous" HREF="node1370.html">
-<LINK REL="up" HREF="node1363.html">
+<LINK REL="up" HREF="node1369.html">
 <LINK REL="next" HREF="node1372.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25128"
+<A NAME="tex2html25148"
   HREF="node1372.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25124"
-  HREF="node1363.html">
+<A NAME="tex2html25144"
+  HREF="node1369.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25118"
+<A NAME="tex2html25138"
   HREF="node1370.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25126"
+<A NAME="tex2html25146"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25129"
-  HREF="node1372.html">PKG_convertPackagesToRepository</A>
-<B> Up:</B> <A NAME="tex2html25125"
-  HREF="node1363.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html25119"
-  HREF="node1370.html">PKG_rsyncDebsFromClientToServer</A>
- &nbsp; <B>  <A NAME="tex2html25127"
+<B> Next:</B> <A NAME="tex2html25149"
+  HREF="node1372.html">DISTR_releaseVersionTranslator</A>
+<B> Up:</B> <A NAME="tex2html25145"
+  HREF="node1369.html">./inc/distr.php</A>
+<B> Previous:</B> <A NAME="tex2html25139"
+  HREF="node1370.html">DISTR_getUbuntuUserGroups</A>
+ &nbsp; <B>  <A NAME="tex2html25147"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009468000000000000000">
-PKG_preparePool</A>
+<H2><A NAME="SECTION006472000000000000000">
+DISTR_getDebianUserGroups</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates the needed configuration file for reprepro.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the default groups an user of a Debian system should be in.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>release: Release of the pool.
+<LI>arrayOrSeparator: If set to true, the groups are returned as array, otherwise the value is used as separator character.
 </LI>
-<LI>distr: Distribution of the pool.
-</LI>
-<LI>arch: Architecture of the pool (POOL_ARCH_I386 or CPoolLister::POOL_ARCH_AMD64).
-</LI>
-<LI>poolName: Name of the pool (if a pool with the given name exists =<SPAN CLASS="MATH"></SPAN> load)
-</LI>
-<LI>poolDir: Directory of the pool with full path.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Default groups as array or as string, where the groups are separates by a separator character.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ PKG_preparePool</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

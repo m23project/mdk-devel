@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_disablePlymouth</TITLE>
-<META NAME="description" CONTENT="CLCFG_disablePlymouth">
+<TITLE>CLCFG_genFstab</TITLE>
+<META NAME="description" CONTENT="CLCFG_genFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1169.html">
 <LINK REL="previous" HREF="node1167.html">
-<LINK REL="up" HREF="node1150.html">
+<LINK REL="up" HREF="node1127.html">
 <LINK REL="next" HREF="node1169.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22553"
+<A NAME="tex2html22561"
   HREF="node1169.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22549"
-  HREF="node1150.html">
+<A NAME="tex2html22557"
+  HREF="node1127.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22543"
+<A NAME="tex2html22551"
   HREF="node1167.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22551"
+<A NAME="tex2html22559"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22554"
-  HREF="node1169.html">CLCFG_disableAvahiDaemon</A>
-<B> Up:</B> <A NAME="tex2html22550"
-  HREF="node1150.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22544"
-  HREF="node1167.html">CLCFG_makeDev</A>
- &nbsp; <B>  <A NAME="tex2html22552"
+<B> Next:</B> <A NAME="tex2html22562"
+  HREF="node1169.html">CLCFG_interfaces</A>
+<B> Up:</B> <A NAME="tex2html22558"
+  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22552"
+  HREF="node1167.html">CLCFG_efi</A>
+ &nbsp; <B>  <A NAME="tex2html22560"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093918000000000000000">
-CLCFG_disablePlymouth</A>
+<H2><A NAME="SECTION0063941000000000000000">
+CLCFG_genFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Disables the plymouth.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
+</LI>
+<LI>rootDevice: the path to the installation partition (e.g. /dev/hda1)
+</LI>
+<LI>bootloader: Name of the boot loader to install and configure (actually grub only)
+</LI>
+<LI>ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+</LI>
+<LI>isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

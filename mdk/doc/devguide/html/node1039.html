@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CScredit.php</TITLE>
-<META NAME="description" CONTENT="./inc/CScredit.php">
+<TITLE>CSYSTEMPROXY_getUserPasswordString</TITLE>
+<META NAME="description" CONTENT="CSYSTEMPROXY_getUserPasswordString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,98 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1059.html">
-<LINK REL="previous" HREF="node1020.html">
-<LINK REL="up" HREF="node102.html">
+<LINK REL="next" HREF="node1040.html">
+<LINK REL="previous" HREF="node1038.html">
+<LINK REL="up" HREF="node1036.html">
 <LINK REL="next" HREF="node1040.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20827"
+<A NAME="tex2html20879"
   HREF="node1040.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20823"
-  HREF="node102.html">
+<A NAME="tex2html20875"
+  HREF="node1036.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20817"
+<A NAME="tex2html20869"
   HREF="node1038.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20825"
+<A NAME="tex2html20877"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20828"
-  HREF="node1040.html">CScredit::__construct</A>
-<B> Up:</B> <A NAME="tex2html20824"
-  HREF="node102.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html20818"
-  HREF="node1038.html">CRON_translateEveryIntervallValue</A>
- &nbsp; <B>  <A NAME="tex2html20826"
+<B> Next:</B> <A NAME="tex2html20880"
+  HREF="node1040.html">CSYSTEMPROXY_getEnvironmentVariables</A>
+<B> Up:</B> <A NAME="tex2html20876"
+  HREF="node1036.html">./inc/CSystemProxy.php</A>
+<B> Previous:</B> <A NAME="tex2html20870"
+  HREF="node1038.html">CSYSTEMPROXY_addCurlProxySettings</A>
+ &nbsp; <B>  <A NAME="tex2html20878"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION009350000000000000000">
-./inc/CScredit.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for the embedded script editor.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION006363000000000000000">
+CSYSTEMPROXY_getUserPasswordString</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a string with the user/password combination ($user:$pass@).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>connector: Character to connect the user/password combination with the following words.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>String with the user/password combination ($user:$pass@) or empty string, if no proxy authentifictaion is used.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html20829"
-  HREF="node1040.html">CScredit::__construct</A>
-<LI><A NAME="tex2html20830"
-  HREF="node1041.html">CScredit::setCurrentScriptFilename</A>
-<LI><A NAME="tex2html20831"
-  HREF="node1042.html">CScredit::getCurrentScriptFilename</A>
-<LI><A NAME="tex2html20832"
-  HREF="node1043.html">CScredit::getCurrentScriptFilenameFullPath</A>
-<LI><A NAME="tex2html20833"
-  HREF="node1044.html">CScredit::getCurrentScriptFilenameWithoutInstallPhp</A>
-<LI><A NAME="tex2html20834"
-  HREF="node1045.html">CScredit::getLocalScriptFilenames</A>
-<LI><A NAME="tex2html20835"
-  HREF="node1046.html">CScredit::updateOnlineScriptInfo</A>
-<LI><A NAME="tex2html20836"
-  HREF="node1047.html">CScredit::getNextOnlineScriptInfo</A>
-<LI><A NAME="tex2html20837"
-  HREF="node1048.html">CScredit::loadOnlineScript</A>
-<LI><A NAME="tex2html20838"
-  HREF="node1049.html">CScredit::getOnlineScriptDialog</A>
-<LI><A NAME="tex2html20839"
-  HREF="node1050.html">CScredit::isNotSaved</A>
-<LI><A NAME="tex2html20840"
-  HREF="node1051.html">CScredit::getNewScriptTemplate</A>
-<LI><A NAME="tex2html20841"
-  HREF="node1052.html">CScredit::uploadScript</A>
-<LI><A NAME="tex2html20842"
-  HREF="node1053.html">CScredit::getCurrentScript</A>
-<LI><A NAME="tex2html20843"
-  HREF="node1054.html">CScredit::setCurrentScript</A>
-<LI><A NAME="tex2html20844"
-  HREF="node1055.html">CScredit::deleteCurrentScript</A>
-<LI><A NAME="tex2html20845"
-  HREF="node1056.html">CScredit::getViewScriptOutputDialog</A>
-<LI><A NAME="tex2html20846"
-  HREF="node1057.html">CScredit::saveScript</A>
-<LI><A NAME="tex2html20847"
-  HREF="node1058.html">CScredit::show</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

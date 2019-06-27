@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>POOL_getPools</TITLE>
-<META NAME="description" CONTENT="POOL_getPools">
+<TITLE>POOL_download</TITLE>
+<META NAME="description" CONTENT="POOL_download">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2252.html">
 <LINK REL="previous" HREF="node2250.html">
-<LINK REL="up" HREF="node2249.html">
+<LINK REL="up" HREF="node2237.html">
 <LINK REL="next" HREF="node2252.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html36492"
+<A NAME="tex2html36510"
   HREF="node2252.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html36488"
-  HREF="node2249.html">
+<A NAME="tex2html36506"
+  HREF="node2237.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html36482"
+<A NAME="tex2html36500"
   HREF="node2250.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html36490"
+<A NAME="tex2html36508"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html36493"
-  HREF="node2252.html">POOL_showLoadDeleteCreate</A>
-<B> Up:</B> <A NAME="tex2html36489"
-  HREF="node2249.html">./inc/pool.php</A>
-<B> Previous:</B> <A NAME="tex2html36483"
-  HREF="node2250.html">POOL_selectPoolType</A>
- &nbsp; <B>  <A NAME="tex2html36491"
+<B> Next:</B> <A NAME="tex2html36511"
+  HREF="node2252.html">POOL_showDownloadStatus</A>
+<B> Up:</B> <A NAME="tex2html36507"
+  HREF="node2237.html">./inc/pool.php</A>
+<B> Previous:</B> <A NAME="tex2html36501"
+  HREF="node2250.html">POOL_getDir</A>
+ &nbsp; <B>  <A NAME="tex2html36509"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009712000000000000000">
-POOL_getPools</A>
+<H2><A NAME="SECTION0067114000000000000000">
+POOL_download</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array with all pool names
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> shows error messages if the checks for distribution, sourceslist or packages are failing. Otherwise starts the distribution specific download routine.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>poolName: name of the pool
+</LI>
+<LI>distr: name of the distribution
+</LI>
+<LI>sourceslist: list of the package sources
+</LI>
+<LI>release: release branch of the choosen distribution to download the packages from
+</LI>
+<LI>downloadBasePackages: set to true if a bunch of basic packages should be included into the pool
+</LI>
+<LI>arch: download the packages for a specific CPU architecture
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

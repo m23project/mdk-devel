@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClientLister::getCheckedClientNames</TITLE>
-<META NAME="description" CONTENT="CClientLister::getCheckedClientNames">
+<TITLE>CClientLister::addStatusFilter</TITLE>
+<META NAME="description" CONTENT="CClientLister::addStatusFilter">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node295.html">
 <LINK REL="previous" HREF="node293.html">
-<LINK REL="up" HREF="node290.html">
+<LINK REL="up" HREF="node264.html">
 <LINK REL="next" HREF="node295.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11250"
+<A NAME="tex2html11254"
   HREF="node295.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11246"
-  HREF="node290.html">
+<A NAME="tex2html11250"
+  HREF="node264.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11240"
+<A NAME="tex2html11244"
   HREF="node293.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11248"
+<A NAME="tex2html11252"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11251"
-  HREF="node295.html">CClientLister::isVisibleByPingableFilter</A>
-<B> Up:</B> <A NAME="tex2html11247"
-  HREF="node290.html">./inc/CClientLister.php</A>
-<B> Previous:</B> <A NAME="tex2html11241"
-  HREF="node293.html">CClientLister::importCheckedClientNamesIds</A>
- &nbsp; <B>  <A NAME="tex2html11249"
+<B> Next:</B> <A NAME="tex2html11255"
+  HREF="node295.html">CClientLister::addKeyValueStoreFilter</A>
+<B> Up:</B> <A NAME="tex2html11251"
+  HREF="node264.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html11245"
+  HREF="node293.html">CClientLister::setOrderBy</A>
+ &nbsp; <B>  <A NAME="tex2html11253"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009114000000000000000">
-CClientLister::getCheckedClientNames</A>
+<H2><A NAME="SECTION0061130000000000000000">
+CClientLister::addStatusFilter</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns name (as key) and ID (as value) of checked clients as array.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds an OR filter to get only clients that gave the given status (stati).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array containing name (as key) and ID (as value) of checked clients.
+<LI>operator: Operator (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects if the client status should be equal, smaler or bigger that the given status.
+</LI>
+<LI>status: Status to compare with the state of the client
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ CClientLister::getCheckedClientNames</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

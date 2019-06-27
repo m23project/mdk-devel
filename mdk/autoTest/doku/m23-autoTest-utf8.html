@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Hauke Goos-Habermann" />
-  <title>m23 autoTest</title>
+  <title>m23-autoTest</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -47,7 +47,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <div id="header">
-<h1 class="title">m23 autoTest</h1>
+<h1 class="title">m23-autoTest</h1>
 <h2 class="author">Hauke Goos-Habermann</h2>
 </div>
 <div id="TOC">
@@ -61,6 +61,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#zu-testender-m23-server">Zu testender m23-Server</a></li>
 <li><a href="#optional-debian-minimal-vms-zum-testen-der-m23-server-pakate">(Optional) Debian-Minimal-VMs zum Testen der m23-Server-Pakate</a></li>
 <li><a href="#optional-ucs-vm-zum-testen-der-m23-server-pakate">(Optional) UCS-VM zum Testen der m23-Server-Pakate</a></li>
+<li><a href="#optional-raspberry-pi">(Optional) Raspberry Pi</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#http2seleniumbridge-beispiele-und-installation">HTTP2SeleniumBridge: Beispiele und Installation</a><ul>
@@ -73,10 +74,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li><a href="#fehlendes">Fehlendes</a></li>
 </ul></li>
+<li><a href="#testparcours-mit-autotestscriptgenerator.php-erstellen">Testparcours mit autoTestScriptGenerator.php erstellen</a><ul>
+<li><a href="#zusätzliche-eigenschaften-der-bash-skripte">Zusätzliche Eigenschaften der BASH-Skripte</a></li>
+</ul></li>
 <li><a href="#autotest.php-kommandozeile-und-xml-definition">autoTest.php-Kommandozeile und XML-Definition</a><ul>
 <li><a href="#installation-und-konfiguration">Installation und Konfiguration</a></li>
 <li><a href="#autotest-starten">autoTest starten</a></li>
 <li><a href="#testbeschreibungsdateien">Testbeschreibungsdateien</a><ul>
+<li><a href="#mitgelieferte-testbeschreibungsdateien">Mitgelieferte Testbeschreibungsdateien</a></li>
 <li><a href="#allgemeiner-aufbau">Allgemeiner Aufbau</a></li>
 <li><a href="#begriffserklärung">Begriffserklärung</a></li>
 <li><a href="#variablen-und-konstanten">Variablen und Konstanten</a></li>
@@ -102,15 +107,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li><a href="#sonstige-funktionen">Sonstige Funktionen</a><ul>
 <li><a href="#triggergoodwarnbad-3">Trigger/good/warn/bad</a></li>
+<li><a href="#triggeraction">Trigger/Action</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 <p></p>
 <h1 id="einleitung">Einleitung</h1>
-<p><em>m23 autoTest</em> wurde entwickelt, um m23-Funktionen (Client anlegen, partitionieren und formatieren, Distribution mit Desktop installieren, ...) durch <em>Fernsteuerung</em> der m23-Weboberfläche automatisch zu testen. Zum Testen der clientseitigen Funktionen werden virtuelle Maschinen dynamisch angelegt. Desweiteren kann die Installation des m23-Servers von einem ISO in VirtualBox automatisiert durchgeführt werden, indem autoTest Bildschirmausgaben per OCR erkennt und Tastendrücke emuliert.</p>
+<p><em>m23-autoTest</em> wurde entwickelt, um m23-Funktionen automatisch in vielen Kombinationen aus m23-Client- und m23-Server-Konfigurationen massenhaft zu testen.</p>
+<p>Mit <em>m23-autoTest</em> konnten erstmals m23-Server auf verschiedenen Plattformen (Debian 9 und 8 (jeweils 32- und 64-Bit), UCS 4.3, UCS 4.4, lokales m23-Entwicklungssytem, Raspberry Pi, m23-Installations-ISO) mit m23-Clients aller unterstützten Clientdistributionen systematisch untersucht werden. So konnten auch Fehler gefunden werden, die nur sporadisch auftreten.</p>
+<p>m23-autoTest simuliert hierbei das Verhalten eines menschlichen Administrators durch <em>Fernsteuerung</em> (<a href="https://de.wikipedia.org/wiki/Selenium" title="Selenium">Selenium</a>) der m23-Weboberfläche. So geschieht z.B. das Anlegen von m23-Clients, das Partitionieren und Formatieren oder das Installieren von Distributionen mit grafischen Oberflächen über das automatische Ausfüllen der Formulare in den dazugehörigen Dialogen.</p>
+<p>Ein <em>Testdurchlauf</em> beinhaltet die Installation <em>eines m23-Servers</em> und (aktuell) <em>18</em> durch diesen installierten <em>m23-Clients</em>. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.</p>
+<p>Alle Test werden - für eine schnelle Durchführung und Wiederholbarkeit - in virtuellen Maschinen vorgenommen. Über diverse <em>Meßpunkte</em> (z.B. Meldungen auf dem Bildschirm der VM, die durch Texterkennung identifiziert werden, Nachrichten in der m23-Oberfläche oder Rückgabewerte von in der VM ausgeführten Kommandos) wird laufend der <em>Installationstatus überprüft und bewertet</em>. Diese ermöglichen es m23-autoTest, auf Ereignisse z.B. mit simulierten Tastendrücken oder Aktionen in der m23-Weboberfläche zu reagieren. Im Falle von kritischen Fehlern (z.B. nichtlaufende Serverdienste) kann m23-autoTest den Testlauf auch ganz abbrechen. Für die <em>anschließende Analyse</em> wird das Geschehen auf dem Bildschirm der VM in einer <em>Videodatei</em> aufgezeichnet, sowie ein <em>Installationsprotokoll</em> geschrieben, welches im Debug-Modus viele zusätzliche Informationen enthält.</p>
 <p>Auch wenn der Funktionsumfang auf die Belange von m23 ausgerichtet ist, kann aber dennoch für andere Projekte nützlich sein.</p>
-<p>Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes <code>autoTest.php</code>.</p>
+<p>Diese Dokumentation beschreibt die Installation und Konfiguration der Testumgebung und einzelnen Komponenten sowie die Benutzung des steuernden Kommandozeilenprogrammes <code>autoTest.php</code> nebst Erläuterung des Datenformates der <em>XML-Testbeschreibungsdateien</em>. Diese Testbeschreibungsdateien bündeln alle Aktionen, Kommandos und erwarteten Ergebnisse, die für einen kompletten Testlauf (z.B. Installation eines m23-Debian-Clients mit Mate-Deskop und französischen Spracheinstellungen, anschließender Nachinstallation des Midnight Commanders und Überprüfung eines LDAP-Benutzers) benötigt werden.</p>
 <div class="figure">
 <img src="autoTest-Schema.png" title="autoTest-Schema" style="width:75.0%" />
 
@@ -132,8 +142,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 id="installation-2">Installation</h4>
 <ul>
 <li>Debian oder Ubuntu in 64-Bit-Version installieren</li>
-<li>VirtualBox und gocr installieren</li>
-<li>Einen Benutzer anlegen, der über <code>VBoxManage</code> virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe <code>vboxusers</code> aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren.</li>
+<li>VirtualBox (5.2.x empfohlen), tesseract, convert (ImageMagicl) und gocr installieren</li>
+<li>Einen Benutzer anlegen, der über <code>VBoxManage</code> virtuelle Maschinen anlegen und starten kann. Dazu den Benutzer in die Gruppe <code>vboxusers</code> aufnehmen. Den SSH-Schlüssel des autoTest-Skript-Benutzers importieren. Zum Ausführen von Tests muß dieser Benutzer grafisch (lokal oder per x2go) eingeloggt sein. In der X-Sitzung dieses Benutzers werden die VirtualBox-Fenster gestartet. Der Benutzer darf nur einmalig grafisch eingeloggt werden, da ansonsten die zu verwendenden X-Sitzung nicht zuverlässig erkannt werden kann.</li>
 <li>(Optional) x2go installieren</li>
 </ul>
 <p>m23-Server: paßwortloser Zugriff vom autoTest-ausführenden Benutzer auf root per SSH oder sudo?</p>
@@ -198,6 +208,19 @@ z.B. UCS 4.4: 192.168.1.144</li>
 <li>Beschreibung: UCS X.Y frisch installiert</li>
 </ul></li>
 <li>VMs als OVA exportieren</li>
+</ul>
+<h3 id="optional-raspberry-pi">(Optional) Raspberry Pi</h3>
+<ul>
+<li>Partitionen aus dem Abbild auf Gerätedateien umlenken: <code>kpartx -a -v 20XX-YY-ZZ-raspbian-stretch-lite.img</code></li>
+<li>Boot-Partition einhängen: <code>mount /dev/mapper/loop0p1 /mnt/loop/</code></li>
+<li>SSH-Server beim Booten aktivieren: <code>touch /mnt/loop/ssh</code></li>
+<li>System-Partition einhängen: <code>mount /dev/mapper/loop0p2 /mnt/loop/</code></li>
+<li>In <code>/mnt/loop/etc/ssh/sshd_config</code> &quot;PermitRootLogin yes&quot; setzen</li>
+<li><p>In <code>/mnt/loop/etc/shadow</code> die bestehende &quot;root&quot;-Zeile ersetzen durch:</p>
+<p>root:<span class="math inline">6</span>Lc6S7BJt$/Rc4cLBYjzK012BxttQOnPpa9Sh3IEuxEAyzf/oKcfwwQKOqvadHI0uEhDrkeQRsarJuqP3d0I1Z0/Yjq1l641:17964:0:99999:7:::</p></li>
+<li>Zweite Partition aushängen: <code>umount /mnt/loop</code></li>
+<li>Umlenkung aufheben: <code>kpartx -d -v 20XX-YY-ZZ-raspbian-stretch-lite.img</code></li>
+<li><p>Abbild komprimieren: <code>bzip2 -9 20XX-YY-ZZ-raspbian-stretch-lite.img</code></p></li>
 </ul>
 <p></p>
 <h1 id="http2seleniumbridge-beispiele-und-installation">HTTP2SeleniumBridge: Beispiele und Installation</h1>
@@ -319,6 +342,13 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <li>deselectFrom</li>
 <li>quit</li>
 </ul>
+<h1 id="testparcours-mit-autotestscriptgenerator.php-erstellen">Testparcours mit autoTestScriptGenerator.php erstellen</h1>
+<p>Das Skript <code>autoTestScriptGenerator.php</code> erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 und 8 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein <em>Testdurchlauf</em> beinhaltet die Installation <em>eines m23-Servers</em> und (aktuell) <em>18</em> durch diesen installierten <em>m23-Clients</em>. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.</p>
+<h2 id="zusätzliche-eigenschaften-der-bash-skripte">Zusätzliche Eigenschaften der BASH-Skripte</h2>
+<ul>
+<li>Die so generierten BASH-Skripte erzeugen Logdateien, die bis auf die Dateiendung (<code>.log</code> statt <code>.sh</code>) wie die BASH-Skripte heißen.</li>
+<li>Gibt es im Verzeichnis eines BASH-Skriptes eine Stop-Datei (Dateiendung <code>.stop</code>), so wird die aktuell laufende Clientinstallation bis zum Ende ausgeführt, aber keine neue mehr begonnen.</li>
+</ul>
 <p></p>
 <h1 id="autotest.php-kommandozeile-und-xml-definition">autoTest.php-Kommandozeile und XML-Definition</h1>
 <h2 id="installation-und-konfiguration">Installation und Konfiguration</h2>
@@ -329,6 +359,13 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <p>Der Ablauf einer jeden Installation ist in einer Testbeschreibungsdatei beschrieben, die zusätzliche Parameter über die Kommandozeile anfordern kann.</p>
 <h2 id="testbeschreibungsdateien">Testbeschreibungsdateien</h2>
 <p>Die Testbeschreibungsdateien mit der Endung <em>&quot;.m23test&quot;</em> beinhalten Testblöcke, die die einzelnen Schritte (z.B. Anlegen der virtuellen Maschine, in der m23-Oberfläche einzugebende Werte bzw. anzuklickende Elemente, ...) und (erwartete) Ergebnisse zum Installieren eines m23-Clients oder -Servers enthalten. Andere Teile der Datei definieren die Parameter, die über die Kommandozeile angeben werden und die Dimensionierung der anzulegenden virtuellen Maschine.</p>
+<h3 id="mitgelieferte-testbeschreibungsdateien">Mitgelieferte Testbeschreibungsdateien</h3>
+<p>Im Verzeichnis <code>/mdk/autoTest/</code> befinden sich auf dem m23-Server diverse Testbeschreibungsdateien. Beispielhaft seien die folgenden erwähnt:</p>
+<ul>
+<li><code>1m23client-distro-install.m23test</code>: Installiert einen m23-Clienten in einer neuen VM (löscht ggf. eine zuvor vorhandene VM mit selben Namen nebst dazugehörigem Eintrag aus der m23-Weboberfläche) mit grafischer Oberfläche. Erkennt den Login-Manager und installiert und deinstalliert den Midnight Commander.</li>
+<li><code>1m23server-auf-debian-installieren.m23test</code>: Installiert die m23-Server-Pakete von 192.168.1.77 auf einer gesicherten VM (Sicherungspunkt &quot;vor&quot;).</li>
+<li><code>1m23server-iso-install.m23test</code>: Installiert das m23-Server-Installations-ISO in einer VM.</li>
+</ul>
 <h3 id="allgemeiner-aufbau">Allgemeiner Aufbau</h3>
 <div class="sourceCode" id="m23testxml"><table class="sourceCode xml numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -424,6 +461,8 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <li>VM_HDSIZE: Größe der virtuellen Festplatte in MB.</li>
 <li>VM_IP: IP-Adresse, die genutzt werden soll, um die VM per SSH anzusprechen. Ansonsten wird der Name der VM (VM_NAME) als Hostname verwendet.</li>
 <li>VM_NAME: Name der VM und ggf. Hostname zum Ansprechen der VM per SSH.</li>
+<li>AT_debug: Gesetzt, wenn autoTest im Debug-Modus ist und zusätzliche Informationen ausgeben soll.</li>
+<li>AT_M23_SSH_PASSWORD: Das Paßwort, um den m23-Server per SSH als Benutzer root zu erreichen.</li>
 </ul>
 <p>In der <code>settings.m23test</code> sollten minimal folgende Konstanten gesetzt sein:</p>
 <div class="sourceCode" id="m23test-VM-Parameter"><table class="sourceCode xml numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -482,6 +521,8 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <li><code>${...}</code>: &quot;...&quot; wird durch den Wert einer vorher definierte Konstante ersetzt.</li>
 <li><code>|{str1|str2|str3}</code>: str1 ... str3 sind alternative Zeichenketten, von denen beim Vergleichen nur eine übereinstimmen muß.</li>
 <li><code>$I18N_...</code>: Wird nacheinander durch die Übersetzungen in allen Sprachen ersetzt und jeweils verglichen. Hierbei muß nur eine Übersetzung übereinstimmen.</li>
+<li><code>!</code>: Bei <code>good/warn/bad</code> kann die Bedingung durch ein vorgestelltes &quot;!&quot; umgekehrt werden.<br />
+Die folgende Bedingung trifft zu, wenn die Zeichenkette &quot;C0C&quot; NICHT gefunden wurde: <code>&lt;bad type=&quot;ssh_commandoutput&quot; password=&quot;test&quot; sshanswer=&quot;!C0C&quot; description=&quot;Ausfall&quot;&gt;cat m&lt;/bad&gt;</code></li>
 <li><code>&lt;include&gt;DATEI&lt;/include&gt;</code>: Fügt den Inhalt der angegebene Datei an der Stelle dynamisch ein.</li>
 </ul>
 <h3 id="bedingtes-ausführen-von-test-blöcken">Bedingtes Ausführen von test-Blöcken</h3>
@@ -500,13 +541,17 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <ul>
 <li><code>&gt;</code>: Interne Variable größer als Vergleichswert (Zahl)</li>
 <li><code>&gt;=</code>: Interne Variable größer als oder gleich dem Vergleichswert (Zahl)</li>
-<li><code>==</code>: Interne Variable und Vergleichswert sind identisch (Zahl oder Zeichenkette)</li>
+<li><code>==</code>: Interne Variable und Vergleichswert sind identisch (Zahl oder Zeichenkette)
+<ul>
+<li><strong>Sonderfall</strong>: Ist der Vergleichswert &quot;NULL&quot;, so wird nur überprüft, ob die interne <em>nicht</em> Variable gesetzt ist.<br />
+Beispiel: <code>runIf=&quot;AT_test==NULL&quot;</code> (Ausführen, wenn AT_test <em>nicht</em> einen Wert hat)</li>
+</ul></li>
 <li><code>&lt;</code>: Interne Variable kleiner als Vergleichswert (Zahl)</li>
 <li><code>&lt;=</code>: Interne Variable kleiner oder gleich dem Vergleichswert (Zahl)</li>
 <li><code>!=</code>: Interne Variable ungleich dem Vergleichswert (Zahl oder Zeichenkette)
 <ul>
 <li><strong>Sonderfall</strong>: Ist der Vergleichswert &quot;NULL&quot;, so wird nur überprüft, ob die interne Variable gesetzt ist.<br />
-Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
+Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code> (Ausführen, wenn AT_test einen Wert hat)</li>
 </ul></li>
 </ul>
 <h4 id="beispiel-aufruf-von-autotest.php-mit-umgebungsvariablen">Beispiel: Aufruf von autoTest.php mit Umgebungsvariablen</h4>
@@ -594,12 +639,14 @@ Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
 <h4 id="ssh_commandoutput">ssh_commandoutput</h4>
 <p>Führt einen Befehl per SSH aus und überprüft, ob in der Ausgabe der gewünschte Text vorhanden ist. Sind autoTest-System (lokale IP) und m23-Server (Konstante: <code>TEST_M23_IP</code>) identisch, so wird der SSH-Client direkt vom autoTest-System aus aufgerufen. Ansonsten wird der Befehl mit Umweg über den m23-Server ausgeführt. Ist die Konstante <code>VM_IP</code> gesetzt, so wird die darin hinterlegte IP bzw. der Hostname zu Kontaktieren des Zielsystems verwendet. Ansonsten wird verwendet, was in der Konstante <code>VM_NAME</code> gespeichert ist.</p>
 <ul>
-<li>Parameter: In der Ausgabe der SSH-Abfrage vorkommender Text.</li>
-<li>Attribut <code>cmd</code>: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
+<li>Parameter: Kommando, das auf dem Zielsystem ausgeführt werden soll.</li>
+<li>Attribut <code>sshanswer</code>: In der Ausgabe der SSH-Abfrage vorkommender Text.</li>
 <li>Optionales Attribut <code>password</code>: SSH-Paßwort, wenn kein SSH-Schlüssel verwendet werden soll.</li>
 <li>Optionales Attribut <code>description</code>: Beschreibung, die ausgegeben und ins Protokoll geschrieben wird, wenn good/warn/bad ausgelöst wird.</li>
 </ul>
-<p>~<sub>~</sub> {ssh_commandoutput-Parameter .xml .numberLines} <good type="ssh_commandoutput" password="a" cmd="cat /tmp/y">0</good> <bad type="ssh_commandoutput" password="a" cmd="cat /tmp/x" description="Keine Pakete zu aktualisieren">X1Y</bad> <sub>~</sub>~~</p>
+<p>~<sub>~</sub> {ssh_commandoutput-Parameter .xml .numberLines} <good type="ssh_commandoutput" password="a" sshanswer="0">cat /tmp/y</good> <bad type="ssh_commandoutput" password="a" sshanswer="X1Y" description="Keine Pakete zu aktualisieren">cat /tmp/x</bad> <sub>~</sub>~~</p>
+<h4 id="vsssh_commandoutput">vsssh_commandoutput</h4>
+<p>Wie <code>ssh_commandoutput</code>, nur daß das Kommando auf dem Virtualisierungsserver ausgeführt wird.</p>
 <h3 id="action-1">Action</h3>
 <h4 id="ssh_command">ssh_command</h4>
 <p>Funktioniert prinzipiell wie <code>ssh_commandoutput</code> mit dem Unterschied, daß nichts überprüft wird und der Befehl als XML-Parameter und nicht als Attribut übergeben wird.</p>
@@ -611,6 +658,8 @@ Beispiel: <code>runIf=&quot;AT_test!=NULL&quot;</code></li>
 echo <span class="math inline">? &gt; /<em>t</em><em>m</em><em>p</em>/<em>u</em><em>p</em><em>d</em><em>a</em><em>t</em><em>e</em>.<em>r</em><em>e</em><em>t</em>; <em>x</em>=</span>(grep &quot;^0 upgraded&quot; -c /tmp/update.log);<br />
 echo -n &quot;X${x}Y&quot; &gt; /tmp/update.combi;<br />
 cat /tmp/update.ret &gt;&gt; /tmp/update.combi</action> <sub>~</sub>~~</p>
+<h4 id="vsssh_command">vsssh_command</h4>
+<p>Wie <code>ssh_command</code>, nur daß das Kommando auf dem Virtualisierungsserver ausgeführt wird.</p>
 <h2 id="virtualbox-funktionen">VirtualBox-Funktionen</h2>
 <h3 id="action-2">Action</h3>
 <h4 id="key">key</h4>
@@ -635,8 +684,9 @@ cat /tmp/update.ret &gt;&gt; /tmp/update.combi</action> <sub>~</sub>~~</p>
 <h3 id="triggergoodwarnbad-3">Trigger/good/warn/bad</h3>
 <h4 id="true">true</h4>
 <p>Wird sofort ausgelöst.</p>
+<h3 id="triggeraction">Trigger/Action</h3>
 <h4 id="wait">wait</h4>
-<p>Löst erst nach einer gewissen Zeit aus ausgelöst.</p>
+<p>Löst erst nach einer gewissen Zeit aus.</p>
 <ul>
 <li>Parameter: Zeit in Sekunden, die bis zum Auslösen gewartet werden soll.</li>
 </ul>

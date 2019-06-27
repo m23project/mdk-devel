@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPool::setPoolType</TITLE>
-<META NAME="description" CONTENT="CPool::setPoolType">
+<TITLE>CRON_addJobDayly</TITLE>
+<META NAME="description" CONTENT="CRON_addJobDayly">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1005.html">
 <LINK REL="previous" HREF="node1003.html">
-<LINK REL="up" HREF="node973.html">
+<LINK REL="up" HREF="node997.html">
 <LINK REL="next" HREF="node1005.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20393"
+<A NAME="tex2html20416"
   HREF="node1005.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20389"
-  HREF="node973.html">
+<A NAME="tex2html20412"
+  HREF="node997.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20383"
+<A NAME="tex2html20406"
   HREF="node1003.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20391"
+<A NAME="tex2html20414"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20394"
-  HREF="node1005.html">CPool::getPoolArch</A>
-<B> Up:</B> <A NAME="tex2html20390"
-  HREF="node973.html">./inc/CPool.php</A>
-<B> Previous:</B> <A NAME="tex2html20384"
-  HREF="node1003.html">CPool::getPoolType</A>
- &nbsp; <B>  <A NAME="tex2html20392"
+<B> Next:</B> <A NAME="tex2html20417"
+  HREF="node1005.html">CRON_addJobWeekly</A>
+<B> Up:</B> <A NAME="tex2html20413"
+  HREF="node997.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20407"
+  HREF="node1003.html">CRON_addJobHourly</A>
+ &nbsp; <B>  <A NAME="tex2html20415"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0093331000000000000000">
-CPool::setPoolType</A>
+<H2><A NAME="SECTION006347000000000000000">
+CRON_addJobDayly</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the type value of the pool.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every day at a specified time.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: Type of the pool (POOL_TYPE_CD or CPoolLister::POOL_TYPE_DOWNLOAD or CPoolLister::POOL_TYPE_USECLIENTDEBS).
+<LI>min: Minute or * for every minute to execute the cron job. (0-59)
+</LI>
+<LI>hour: Hour or * for every hour to execute the cron job. (0-23)
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CPool::setPoolType</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

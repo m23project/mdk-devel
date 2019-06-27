@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MAIL_getHeader</TITLE>
-<META NAME="description" CONTENT="MAIL_getHeader">
+<TITLE>./inc/massTools.php</TITLE>
+<META NAME="description" CONTENT="./inc/massTools.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,112 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2003.html">
-<LINK REL="previous" HREF="node2001.html">
-<LINK REL="up" HREF="node1996.html">
+<LINK REL="next" HREF="node2029.html">
+<LINK REL="previous" HREF="node1983.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node2003.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html33277"
+<A NAME="tex2html33292"
   HREF="node2003.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html33273"
-  HREF="node1996.html">
+<A NAME="tex2html33288"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html33267"
+<A NAME="tex2html33282"
   HREF="node2001.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html33275"
+<A NAME="tex2html33290"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html33278"
-  HREF="node2003.html">MAIL_gpgSignDetached</A>
-<B> Up:</B> <A NAME="tex2html33274"
-  HREF="node1996.html">./inc/mail.php</A>
-<B> Previous:</B> <A NAME="tex2html33268"
-  HREF="node2001.html">MAIL_attach</A>
- &nbsp; <B>  <A NAME="tex2html33276"
+<B> Next:</B> <A NAME="tex2html33293"
+  HREF="node2003.html">MASS_EGKradioBoxes</A>
+<B> Up:</B> <A NAME="tex2html33289"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html33283"
+  HREF="node2001.html">MAIL_cryptMailServer</A>
+ &nbsp; <B>  <A NAME="tex2html33291"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION009626000000000000000">
-MAIL_getHeader</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a mail header with sender and reply-to field, mail software and a BCC to send a copy to the admin.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>from: The sender's eMail address
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Complete mail header.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006630000000000000000">
+./inc/massTools.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: routines for mass installations
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html33294"
+  HREF="node2003.html">MASS_EGKradioBoxes</A>
+<LI><A NAME="tex2html33295"
+  HREF="node2004.html">MASS_FHradioBoxes</A>
+<LI><A NAME="tex2html33296"
+  HREF="node2005.html">MASS_showFileHandDialog</A>
+<LI><A NAME="tex2html33297"
+  HREF="node2006.html">MASS_propertyKeys</A>
+<LI><A NAME="tex2html33298"
+  HREF="node2007.html">MASS_showFileFormatDialog</A>
+<LI><A NAME="tex2html33299"
+  HREF="node2008.html">MASS_keyToI18N</A>
+<LI><A NAME="tex2html33300"
+  HREF="node2009.html">MASS_I18NTokey</A>
+<LI><A NAME="tex2html33301"
+  HREF="node2010.html">MASS_showTableDefinition</A>
+<LI><A NAME="tex2html33302"
+  HREF="node2011.html">MASS_checkAndSaveFields</A>
+<LI><A NAME="tex2html33303"
+  HREF="node2012.html">MASS_openDBFile</A>
+<LI><A NAME="tex2html33304"
+  HREF="node2013.html">MASS_readDBFile</A>
+<LI><A NAME="tex2html33305"
+  HREF="node2014.html">MASS_readDBFileRaw</A>
+<LI><A NAME="tex2html33306"
+  HREF="node2015.html">MASS_closeDBFile</A>
+<LI><A NAME="tex2html33307"
+  HREF="node2016.html">MASS_getXProperties</A>
+<LI><A NAME="tex2html33308"
+  HREF="node2017.html">MASS_showGeneratorOptions</A>
+<LI><A NAME="tex2html33309"
+  HREF="node2018.html">MASS_passGenerator</A>
+<LI><A NAME="tex2html33310"
+  HREF="node2019.html">MASS_loginGenerator</A>
+<LI><A NAME="tex2html33311"
+  HREF="node2020.html">MASS_ipGenerator</A>
+<LI><A NAME="tex2html33312"
+  HREF="node2021.html">MASS_minMaxIP</A>
+<LI><A NAME="tex2html33313"
+  HREF="node2022.html">MASS_generateNetmask</A>
+<LI><A NAME="tex2html33314"
+  HREF="node2023.html">MASS_generateClientNames</A>
+<LI><A NAME="tex2html33315"
+  HREF="node2024.html">MASS_saveGeneratorOptions</A>
+<LI><A NAME="tex2html33316"
+  HREF="node2025.html">MASS_showOverview</A>
+<LI><A NAME="tex2html33317"
+  HREF="node2026.html">MASS_getAllFromFile</A>
+<LI><A NAME="tex2html33318"
+  HREF="node2027.html">MASS_getLongestLength</A>
+<LI><A NAME="tex2html33319"
+  HREF="node2028.html">MASS_startInstall</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>

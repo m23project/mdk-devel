@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_genFstab</TITLE>
-<META NAME="description" CONTENT="CLCFG_genFstab">
+<TITLE>CLCFG_dialogGaugeProcPos</TITLE>
+<META NAME="description" CONTENT="CLCFG_dialogGaugeProcPos">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1321.html">
 <LINK REL="previous" HREF="node1319.html">
-<LINK REL="up" HREF="node1280.html">
+<LINK REL="up" HREF="node1258.html">
 <LINK REL="next" HREF="node1321.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24492"
+<A NAME="tex2html24501"
   HREF="node1321.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24488"
-  HREF="node1280.html">
+<A NAME="tex2html24497"
+  HREF="node1258.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24482"
+<A NAME="tex2html24491"
   HREF="node1319.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24490"
+<A NAME="tex2html24499"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24493"
-  HREF="node1321.html">CLCFG_interfaces</A>
-<B> Up:</B> <A NAME="tex2html24489"
-  HREF="node1280.html">./inc/distr/imaging/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html24483"
-  HREF="node1319.html">CLCFG_efi</A>
- &nbsp; <B>  <A NAME="tex2html24491"
+<B> Next:</B> <A NAME="tex2html24502"
+  HREF="node1321.html">CLCFG_dialogInfoBox</A>
+<B> Up:</B> <A NAME="tex2html24498"
+  HREF="node1258.html">./inc/distr/imaging/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html24492"
+  HREF="node1319.html">CLCFG_fetchm23BasicTools</A>
+ &nbsp; <B>  <A NAME="tex2html24500"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0094440000000000000000">
-CLCFG_genFstab</A>
+<H2><A NAME="SECTION0064462000000000000000">
+CLCFG_dialogGaugeProcPos</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to auto detect the partitions and generate the fstab file
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the BASH code for showing a dialog with status bar that uses /proc/pid/fdinfo for current file position
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
+<LI>backtitle: title on top of the screen
 </LI>
-<LI>rootDevice: the path to the installation partition (e.g. /dev/hda1)
+<LI>title: message title
+</LI>
+<LI>message: message to show over the status bar
+</LI>
+<LI>infofilecmd: BASH code to figure out the needed status file in the proc filesystem
+</LI>
+<LI>fullsize: The full size of the file that should be written.
+</LI>
+<LI>force: Forces showing of the dialog box
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ CLCFG_genFstab</A>
 <BR><HR>
 <ADDRESS>
 root
-2018-05-08
+2019-06-03
 </ADDRESS>
 </BODY>
 </HTML>
