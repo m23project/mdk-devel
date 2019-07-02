@@ -1117,6 +1117,12 @@ updateSQLIfOlder $oldversionint 181101085 "CREATE TABLE monitors ( vendor varcha
 updateSQLIfOlder $oldversionint 181101085 "ALTER TABLE monitors ADD PRIMARY KEY (vendor,model);"
 
 
+if [ -n "$oldversionint" ] && [ $oldversionint -lt 191101276 ]
+then
+	/m23/bin/mkCert.sh renewServerCert
+fi
+
+
 ######################
 # DB adjustments END #
 ######################

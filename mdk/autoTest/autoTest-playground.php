@@ -14,13 +14,13 @@ include('/m23/inc/CChecks.php');
 include('/m23/inc/CSystemProxy.php');
 include('/m23/inc/server.php');
 
-define('AT_OVA_EXPORT_DIR', '/crypto/iso');
+// define('AT_OVA_EXPORT_DIR', '/crypto/iso');
 define('TEST_VBOX_HOST', 'tuxedo');
 define('TEST_VBOX_USER', 'dodger');
 
-AUTOTEST_VM_export_m23ServerISO_as_OVA('ramdisk1', $VMExportMessage);
+$r=AUTOTEST_VM_screenPixelDiff('seleniumvm2018');
 
-print("\nMSG: $VMExportMessage\n");
+print("\nMSG: $r\n");
 
 
 

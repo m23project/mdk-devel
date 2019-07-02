@@ -287,6 +287,8 @@ Testparcours mit autoTestScriptGenerator.php erstellen
 
 Das Skript `autoTestScriptGenerator.php` erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 und 8 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein *Testdurchlauf* beinhaltet die Installation *eines m23-Servers* und (aktuell) *18* durch diesen installierten *m23-Clients*. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.
 
+`autoTestScriptGenerator.php` kann mit dem Namen einer Paketquellenliste als optionalen Parameter aufgerufen werden. Wird dieser gesetzt, so enthalten die generierten Skripte ausschließlich Tests für die angegebene Distribution allerdings mit allen verfügbaren Desktops.
+
 ## Zusätzliche Eigenschaften der BASH-Skripte
 
 

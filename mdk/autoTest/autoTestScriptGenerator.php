@@ -45,7 +45,8 @@ class CATSG
 			$desktopPickAmount = 2,
 			$clientArch = 'amd64',
 			$webinterfaceLangArray = array(),
-			$webinterfaceLangActive = 0;
+			$webinterfaceLangActive = 0,
+			$sourceNamesArray = array();
 
 
 
@@ -111,6 +112,11 @@ class CATSG
 	}
 
 
+
+	private function initSourceNamesArray()
+	{
+		$this->sourceNamesArray = SRCLST_getExportedListNames();
+	}
 
 
 
@@ -196,7 +202,7 @@ class CATSG
 	{
 		$i = 0;
 		
-		$sourceNamesA = SRCLST_getExportedListNames();
+		$sourceNamesA = $this->sourceNamesArray;
 		shuffle($sourceNamesA);
 		
 		foreach ($sourceNamesA as $sourceName)
@@ -225,6 +231,28 @@ class CATSG
 			
 			$i++;
 		}
+	}
+
+
+
+
+
+/**
+**name CATSG::unsetAllButOneInClientsArray($sourceName)
+**description Removes all but one sourcesnames from the clients array.
+**parameter sourceName: Name of the sources list to keep.
+**returns true, if there is left sourcesname in the clients array.
+**/
+	private function unsetAllButOneInClientsArray($sourceName)
+	{
+		foreach ($this->sourceNamesArray as $i => $name)
+			if ($name == $sourceName)
+			{
+				$this->sourceNamesArray = array($sourceName);
+				return(true);
+			}
+
+		return(false);
 	}
 
 
@@ -531,10 +559,21 @@ fi
 			chmod($bashFile, 500);
 		}
 	}
-	
-	
+
+
 	public function __construct()
 	{
+		$this->initSourceNamesArray();
+	
+		global $argv;
+	
+		if (isset($argv[1]))
+		{
+			$this->desktopPickAmount = 100;
+			if (!$this->unsetAllButOneInClientsArray($argv[1]))
+				die("ERROR: Given sources list name \"$argv[1]\" doesn't exist!\n");
+		}
+
 		$this->initLangArray();
 		$this->initServerArray();
 	}
