@@ -18,9 +18,9 @@ include('/m23/inc/server.php');
 define('TEST_VBOX_HOST', 'tuxedo');
 define('TEST_VBOX_USER', 'dodger');
 
-$r=AUTOTEST_VM_screenPixelDiff('seleniumvm2018');
+$r=AUTOTEST_VM_screenPixelDiff('m23deb10');
 
-print("\nMSG: $r\n");
+print("\nMSG: #$r#\n");
 
 
 

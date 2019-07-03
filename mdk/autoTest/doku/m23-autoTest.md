@@ -359,7 +359,7 @@ Im Verzeichnis `/mdk/autoTest/` befinden sich auf dem m23-Server diverse Testbes
 		<VM_IP description="IP der VM"></VM_IP>
 	</cli>
 	<sequence>
-		<test timeout="180" description="Client anlegen">
+		<test timeout="180" vmScreenChangeIntervall="60" description="Client anlegen">
 			<trigger type="sel_hostReady"></trigger>
 			<action type="sel_open">${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1</action>
 			<action type="sel_typeInto" ID="ED_login">test</action>
@@ -450,6 +450,8 @@ Ein Testblock umfaßt immer alle Teile eines Tests, die folgendermaßen abgearbe
 3. Die good/warn/bad-Tags werden immer wieder durchlaufen, bis eine Bedingung zutrifft. `bad` führt zum Abbruch, die anderen (nur) zu einem Eintrag in die Logdatei und Ausführen des nächsten Testblocks.
 
 `timeout` (in Sekunden) gibt an, wie lange auf den Trigger und das Abschließen durch ein good-Tag gewartet werden soll. Nach Überschreiten um mehr als zwei Minuten wird eine Warnung ausgegeben, nach mehr als 5 Minuten wird das Skript mit einem Fehler abgebrochen.
+
+`vmScreenChangeIntervall` gibt das Zeitintervall (in Sekunden) zwischen dem Erstellen von zwei Screenshots der VM an. Nach Ablauf der Zeit werden die Screenshots pixelweise miteinander verglichen und die die Anzahl der abweichenden Pixel ermittelt. Liegt die Anzahl unter 50 Pixeln, so geht m23-autoTest davon aus, daß die VM nicht mehr reagiert.
 
 `description` ist die Beschreibung, die in den Logdateien vermerkt wird.
 
