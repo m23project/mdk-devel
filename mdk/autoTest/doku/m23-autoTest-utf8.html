@@ -344,6 +344,7 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 </ul>
 <h1 id="testparcours-mit-autotestscriptgenerator.php-erstellen">Testparcours mit autoTestScriptGenerator.php erstellen</h1>
 <p>Das Skript <code>autoTestScriptGenerator.php</code> erstellt BASH-Dateien, die auf m23-Server-Plattformen (z.B. Debian 9 und 8 (32- und 64-Bit), UCS 4.3, UCS 4.4, m23-Installations-ISO, ...) Tests durchführen. Hierbei werden auf der Ziel-VM die m23-Serverpakete installiert oder ein neuer m23-Server mit dem m23-Serverinstallations-ISO aufgesetzt. Ein <em>Testdurchlauf</em> beinhaltet die Installation <em>eines m23-Servers</em> und (aktuell) <em>18</em> durch diesen installierten <em>m23-Clients</em>. Pro Distribution werden zwei Clients als 32- und 64-Bit-Variante mit zufällig ausgewählten Desktops und abwechselnd mit deutschen, englischen und französischen Spracheinstellungen installiert.</p>
+<p><code>autoTestScriptGenerator.php</code> kann mit dem Namen einer Paketquellenliste als optionalen Parameter aufgerufen werden. Wird dieser gesetzt, so enthalten die generierten Skripte ausschließlich Tests für die angegebene Distribution allerdings mit allen verfügbaren Desktops.</p>
 <h2 id="zusätzliche-eigenschaften-der-bash-skripte">Zusätzliche Eigenschaften der BASH-Skripte</h2>
 <ul>
 <li>Die so generierten BASH-Skripte erzeugen Logdateien, die bis auf die Dateiendung (<code>.log</code> statt <code>.sh</code>) wie die BASH-Skripte heißen.</li>
@@ -418,7 +419,7 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
         <span class="kw">&lt;VM_IP</span><span class="ot"> description=</span><span class="st">&quot;IP der VM&quot;</span><span class="kw">&gt;&lt;/VM_IP&gt;</span>
     <span class="kw">&lt;/cli&gt;</span>
     <span class="kw">&lt;sequence&gt;</span>
-        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client anlegen&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;180&quot;</span><span class="ot"> vmScreenChangeIntervall=</span><span class="st">&quot;60&quot;</span><span class="ot"> description=</span><span class="st">&quot;Client anlegen&quot;</span><span class="kw">&gt;</span>
             <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;sel_hostReady&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>
             <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_open&quot;</span><span class="kw">&gt;</span>${TEST_M23_BASE_URL}/index.php?page=addclient%26clearSession=1<span class="kw">&lt;/action&gt;</span>
             <span class="kw">&lt;action</span><span class="ot"> type=</span><span class="st">&quot;sel_typeInto&quot;</span><span class="ot"> ID=</span><span class="st">&quot;ED_login&quot;</span><span class="kw">&gt;</span>test<span class="kw">&lt;/action&gt;</span>
@@ -499,6 +500,7 @@ geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
 <li>Die good/warn/bad-Tags werden immer wieder durchlaufen, bis eine Bedingung zutrifft. <code>bad</code> führt zum Abbruch, die anderen (nur) zu einem Eintrag in die Logdatei und Ausführen des nächsten Testblocks.</li>
 </ol>
 <p><code>timeout</code> (in Sekunden) gibt an, wie lange auf den Trigger und das Abschließen durch ein good-Tag gewartet werden soll. Nach Überschreiten um mehr als zwei Minuten wird eine Warnung ausgegeben, nach mehr als 5 Minuten wird das Skript mit einem Fehler abgebrochen.</p>
+<p><code>vmScreenChangeIntervall</code> gibt das Zeitintervall (in Sekunden) zwischen dem Erstellen von zwei Screenshots der VM an. Nach Ablauf der Zeit werden die Screenshots pixelweise miteinander verglichen und die die Anzahl der abweichenden Pixel ermittelt. Liegt die Anzahl unter 50 Pixeln, so geht m23-autoTest davon aus, daß die VM nicht mehr reagiert.</p>
 <p><code>description</code> ist die Beschreibung, die in den Logdateien vermerkt wird.</p>
 <div class="sourceCode" id="m23test-testblock"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;test</span><span class="ot"> timeout=</span><span class="st">&quot;600&quot;</span><span class="ot"> description=</span><span class="st">&quot;VM erstellen und starten&quot;</span><span class="kw">&gt;</span>
         <span class="kw">&lt;trigger</span><span class="ot"> type=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/trigger&gt;</span>

@@ -637,7 +637,7 @@ then
 		sed -i 's/ISO-8859-1/UTF-8/' /m23/data+scripts/index.php /m23/data+scripts/m23admin/index.php
 	fi
 
-	for phpFile in `find /etc/php?/apache* /etc/php/7.0 2> /dev/null | grep php.ini` `find /etc/php?/cli | grep php.ini`
+	for phpFile in `find /etc/php?/apache* /etc/php/7.0 /etc/php/7.3 2> /dev/null | grep php.ini` `find /etc/php?/cli | grep php.ini`
 	do
 		#PHP settings
 		sed -i -e 's/short_open_tag = Off/short_open_tag = On/g' $phpFile
@@ -748,12 +748,12 @@ echo "	<VirtualHost *:443>
 	fi
 	
 	#Get the absolute path to the PHP ini file(s)
-	for phpFile in `find /etc/php?/apache* /etc/php/7.0 | grep php.ini` `find /etc/php?/cli | grep php.ini`
+	for phpFile in `find /etc/php?/apache* /etc/php/7.0 /etc/php/7.3 | grep php.ini` `find /etc/php?/cli | grep php.ini`
 	do
 		#PHP settings
 		sed -i -e 's/register_globals = Off/register_globals = On/g' -e 's/memory_limit[ =0-9MG]*;/memory_limit = 32M;/g' -e 's/short_open_tag = Off/short_open_tag = On/g' -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 5/g' -e 's/^session.gc_divisor[ =0-9]*/session.gc_divisor = 100/g' $phpFile
 		
-		if [ -e /etc/php/7.0 ]
+		if [ -e /etc/php/7.0 ] || [ -e /etc/php/7.3 ]
 		then
 			sed -i -e 's/^session.gc_probability[ =0-9]*/session.gc_probability = 0/g' $phpFile
 		else

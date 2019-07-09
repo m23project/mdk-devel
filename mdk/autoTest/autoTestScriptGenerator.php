@@ -147,6 +147,14 @@ class CATSG
 		$this->servers[$i++]['scr'] = SV_UCSUnivention_SCR;
 
 		// Debian VMs with snapshots
+		$this->servers[$i]['name'] = 'Debian10-amd64';
+		$this->servers[$i]['ip'] = '192.168.1.106';
+		$this->servers[$i++]['scr'] = SV_DEB_SCR;
+		
+		$this->servers[$i]['name'] = 'Debian10-i386';
+		$this->servers[$i]['ip'] = '192.168.1.103';
+		$this->servers[$i++]['scr'] = SV_DEB_SCR;
+
 		$this->servers[$i]['name'] = 'Debian9-amd64';
 		$this->servers[$i]['ip'] = '192.168.1.96';
 		$this->servers[$i++]['scr'] = SV_DEB_SCR;

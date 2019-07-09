@@ -188,4 +188,12 @@ then
 fi
 
 
+tryCounter=0
+while [ $tryCounter -lt 10 ] && [ $(ps -A | grep slapd -c) -eq 0 ]
+do
+	/etc/init.d/slapd restart
+	sleep 6
+	tryCounter=$[ $tryCounter + 1 ]
+done
+
 db_stop
