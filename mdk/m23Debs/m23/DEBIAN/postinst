@@ -1220,6 +1220,34 @@ fi
 # 	sleep 5
 # fi
 
+
+# MariaDB 10.3 (Debian 10) needs additional parameters to accept INSERTs without setting all values on tables with fields that have no explicit default value
+if [ $(mysql --version | egrep '10\.3\.[0-9]+-MariaDB' -c) -gt 0 ] && [ -d /etc/mysql/mariadb.conf.d ]
+then
+	
+# Fix for server part (mysqld)
+	if [ ! -f /etc/mysql/mariadb.conf.d/99-server_added_by_m23.cnf ]
+	then
+		cat >> /etc/mysql/mariadb.conf.d/99-server_added_by_m23.cnf << "EOF"
+[server]
+sql_mode = NO_ENGINE_SUBSTITUTION
+EOF
+	fi
+
+# Fix for client part (mysql)
+	if [ ! -f /etc/mysql/mariadb.conf.d/99-client_added_by_m23.cnf ]
+	then
+		cat >> /etc/mysql/mariadb.conf.d/99-client_added_by_m23.cnf << "EOF"
+[client]
+init-command="set sql_mode='NO_ENGINE_SUBSTITUTION'"
+EOF
+	fi
+
+	/etc/init.d/mysql restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
+fi
+
+
+
 postinstHook='/m23/bin/postinstHook.sh'
 if [ -f $postinstHook ]
 then
