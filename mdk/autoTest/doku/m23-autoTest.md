@@ -143,11 +143,31 @@ Ein m23-Server, der verwendet wird, um einen m23-Client zu installieren. Wird vo
 * Partitionen aus dem Abbild auf Gerätedateien umlenken: `kpartx -a -v 20XX-YY-ZZ-raspbian-stretch-lite.img`
 * Boot-Partition einhängen: `mount /dev/mapper/loop0p1 /mnt/loop/`
 * SSH-Server beim Booten aktivieren: `touch /mnt/loop/ssh`
+* Erste Partition aushängen: `umount /mnt/loop`
 * System-Partition einhängen: `mount /dev/mapper/loop0p2 /mnt/loop/`
 * In `/mnt/loop/etc/ssh/sshd_config` "PermitRootLogin yes" setzen
-* In `/mnt/loop/etc/shadow` die bestehende "root"-Zeile ersetzen durch:
+* In `/mnt/loop/etc/shadow` die bestehende "root"-Zeile ersetzen durch (Paßwort = test):
 
     root:$6$Lc6S7BJt$/Rc4cLBYjzK012BxttQOnPpa9Sh3IEuxEAyzf/oKcfwwQKOqvadHI0uEhDrkeQRsarJuqP3d0I1Z0/Yjq1l641:17964:0:99999:7:::
+
+* In `/mnt/loop/etc/shadow` die bestehende "pi"-Zeile ersetzen durch (Paßwort = test):
+
+    pi:$6$rMmaUT.QhJnCOC5L$T6kh.rOkTnc6TSllFa5F1qUF3DU9wQNJagEvMTtopg6cpCU3HihGY8EsndlHMjSAwS9d4kJIevXEJjvDarYqr0:18092:0:99999:7:::
+
+* In `/mnt/loop/etc/network/interfaces` folgendes einfügen:
+
+allow-hotplug eth0
+iface eth0 inet static
+	address 192.168.1.122
+	netmask 255.255.255.0
+	network 192.168.1.0
+	broadcast 192.168.1.255
+	gateway 192.168.1.5
+	dns-nameservers 192.168.1.5
+
+* In `/mnt/loop/etc/resolv.conf` folgendes einfügen:
+	nameserver 192.168.1.5
+
 
 * Zweite Partition aushängen: `umount /mnt/loop`
 * Umlenkung aufheben: `kpartx -d -v 20XX-YY-ZZ-raspbian-stretch-lite.img`
