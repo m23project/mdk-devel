@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Generates .stop files to stop proceding the testing scripts for the next client
+
+ls aTS-*.sh | while read f
+do
+	touch "$(echo "$f" | sed 's/\.sh$/.stop/g')"
+done
