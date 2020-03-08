@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_bootflagJob</TITLE>
-<META NAME="description" CONTENT="FDISK_bootflagJob">
+<TITLE>FDISK_deletePartitionFromParam</TITLE>
+<META NAME="description" CONTENT="FDISK_deletePartitionFromParam">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1609.html">
 <LINK REL="previous" HREF="node1607.html">
-<LINK REL="up" HREF="node1527.html">
+<LINK REL="up" HREF="node1536.html">
 <LINK REL="next" HREF="node1609.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28231"
+<A NAME="tex2html28267"
   HREF="node1609.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28227"
-  HREF="node1527.html">
+<A NAME="tex2html28263"
+  HREF="node1536.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28221"
+<A NAME="tex2html28257"
   HREF="node1607.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28229"
+<A NAME="tex2html28265"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28232"
-  HREF="node1609.html">FDISK_formatJob</A>
-<B> Up:</B> <A NAME="tex2html28228"
-  HREF="node1527.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28222"
-  HREF="node1607.html">FDISK_addJob</A>
- &nbsp; <B>  <A NAME="tex2html28230"
+<B> Next:</B> <A NAME="tex2html28268"
+  HREF="node1609.html">FDISK_virtualDeletePartition</A>
+<B> Up:</B> <A NAME="tex2html28264"
+  HREF="node1536.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28258"
+  HREF="node1607.html">FDISK_listSupportedFS</A>
+ &nbsp; <B>  <A NAME="tex2html28266"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065281000000000000000">
-FDISK_bootflagJob</A>
+<H2><A NAME="SECTION0065272000000000000000">
+FDISK_deletePartitionFromParam</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> enables the booting flag on a partition
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes all partition parameters of a partition from param without correcting the other partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>path: device to activate booting on (e.g. /dev/hda1)
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-<LI>devNr: number of partition, minor number in parted
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
 </LI>
-<LI>partJobs: associative array with partition jobs
+<LI>param: parameter string containing status informations about the harddisks.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Changed param without the partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +78,7 @@ FDISK_bootflagJob</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

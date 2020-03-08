@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClientLister::getColumnNrToSort</TITLE>
-<META NAME="description" CONTENT="CClientLister::getColumnNrToSort">
+<TITLE>CClientLister::isVisibleByPingableFilter</TITLE>
+<META NAME="description" CONTENT="CClientLister::isVisibleByPingableFilter">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node276.html">
 <LINK REL="previous" HREF="node274.html">
-<LINK REL="up" HREF="node264.html">
+<LINK REL="up" HREF="node270.html">
 <LINK REL="next" HREF="node276.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html11026"
+<A NAME="tex2html11059"
   HREF="node276.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html11022"
-  HREF="node264.html">
+<A NAME="tex2html11055"
+  HREF="node270.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html11016"
+<A NAME="tex2html11049"
   HREF="node274.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html11024"
+<A NAME="tex2html11057"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html11027"
-  HREF="node276.html">CClientLister::getColumnNrWithContinousNumber</A>
-<B> Up:</B> <A NAME="tex2html11023"
-  HREF="node264.html">./inc/CClientLister.php</A>
-<B> Previous:</B> <A NAME="tex2html11017"
-  HREF="node274.html">CClientLister::setClientListExtraLine</A>
- &nbsp; <B>  <A NAME="tex2html11025"
+<B> Next:</B> <A NAME="tex2html11060"
+  HREF="node276.html">CClientLister::setVisibleByPingableFilter</A>
+<B> Up:</B> <A NAME="tex2html11056"
+  HREF="node270.html">./inc/CClientLister.php</A>
+<B> Previous:</B> <A NAME="tex2html11050"
+  HREF="node274.html">CClientLister::getCheckedClientNames</A>
+ &nbsp; <B>  <A NAME="tex2html11058"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061111000000000000000">
-CClientLister::getColumnNrToSort</A>
+<H2><A NAME="SECTION006115000000000000000">
+CClientLister::isVisibleByPingableFilter</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Figures out to column number which contains the values to sort.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if only clients that can (not) be pinged should be shown and if the given client matches the filter rule.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Column number which contains the values to sort or false, if $this-<SPAN CLASS="MATH"></SPAN>orderBy is a SQL sorting statement.
+<LI>CClientO: Object to the client to check.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if there is no pingable filter rule, or if the client matches the filter rule.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CClientLister::getColumnNrToSort</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

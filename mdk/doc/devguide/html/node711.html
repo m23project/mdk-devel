@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CGPGSign::getGPGID</TITLE>
-<META NAME="description" CONTENT="CGPGSign::getGPGID">
+<TITLE>CGPGSign::gpgSignDetached</TITLE>
+<META NAME="description" CONTENT="CGPGSign::gpgSignDetached">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node712.html">
 <LINK REL="previous" HREF="node710.html">
-<LINK REL="up" HREF="node698.html">
+<LINK REL="up" HREF="node704.html">
 <LINK REL="next" HREF="node712.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16643"
+<A NAME="tex2html16676"
   HREF="node712.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16639"
-  HREF="node698.html">
+<A NAME="tex2html16672"
+  HREF="node704.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16633"
+<A NAME="tex2html16666"
   HREF="node710.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16641"
+<A NAME="tex2html16674"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16644"
-  HREF="node712.html">CGPGSign::setStoreMode</A>
-<B> Up:</B> <A NAME="tex2html16640"
-  HREF="node698.html">./inc/CGPGSign.php</A>
-<B> Previous:</B> <A NAME="tex2html16634"
-  HREF="node710.html">CGPGSign::setGPGID</A>
- &nbsp; <B>  <A NAME="tex2html16642"
+<B> Next:</B> <A NAME="tex2html16677"
+  HREF="node712.html">CGPGSign::gpgSignClear</A>
+<B> Up:</B> <A NAME="tex2html16673"
+  HREF="node704.html">./inc/CGPGSign.php</A>
+<B> Previous:</B> <A NAME="tex2html16667"
+  HREF="node710.html">CGPGSign::getKeyInfo</A>
+ &nbsp; <B>  <A NAME="tex2html16675"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061813000000000000000">
-CGPGSign::getGPGID</A>
+<H2><A NAME="SECTION006187000000000000000">
+CGPGSign::gpgSignDetached</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the GPG ID to use.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a detached signature file for a given private GPG key ID and input file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>allowReturnNull: Set to true, if NULL may be returned as ID (eg. there is no config file).
+<LI>inFile: The file to create a signature for.
+</LI>
+<LI>outFile: The file with the detached signature.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>GPG ID to use or dies, if no ID is set.
+<LI>: true, if the signature file was created and the input file exists, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CGPGSign::getGPGID</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

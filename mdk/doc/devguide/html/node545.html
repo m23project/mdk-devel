@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::addPartitionStepBeforeFormatArray</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::addPartitionStepBeforeFormatArray">
+<TITLE>CFDiskIO::discardUndo</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::discardUndo">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,62 +21,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node546.html">
 <LINK REL="previous" HREF="node544.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node546.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14589"
+<A NAME="tex2html14622"
   HREF="node546.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14585"
-  HREF="node521.html">
+<A NAME="tex2html14618"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14579"
+<A NAME="tex2html14612"
   HREF="node544.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14587"
+<A NAME="tex2html14620"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14590"
-  HREF="node546.html">CFDiskIO::addPartitionStep</A>
-<B> Up:</B> <A NAME="tex2html14586"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14580"
-  HREF="node544.html">CFDiskIO::addPartitionStepBeforeFormat</A>
- &nbsp; <B>  <A NAME="tex2html14588"
+<B> Next:</B> <A NAME="tex2html14623"
+  HREF="node546.html">CFDiskIO::updateUndoMd5</A>
+<B> Up:</B> <A NAME="tex2html14619"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14613"
+  HREF="node544.html">CFDiskIO::findAndSetEFIBootPartDev</A>
+ &nbsp; <B>  <A NAME="tex2html14621"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061524000000000000000">
-CFDiskIO::addPartitionStepBeforeFormatArray</A>
+<H2><A NAME="SECTION0061518000000000000000">
+CFDiskIO::discardUndo</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds a step to the partitionSteps and partitionStepsForShift arrays before the formating of the RAID device (given in the $partJob).
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>newJob: The RAID creation commands to add.
-</LI>
-<LI>partJobs: Pointer to the array with the partition steps (partitionSteps or partitionStepsForShift).
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, if there was a formating job for the RAID device. false, if the new job was placed at the end.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Discards all undo steps.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

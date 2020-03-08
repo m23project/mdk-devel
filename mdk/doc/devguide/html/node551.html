@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getCurrentDiskSizesForDefinedDiskSizes</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getCurrentDiskSizesForDefinedDiskSizes">
+<TITLE>CFDiskIO::addPartitionStepBeforeFormatArray</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::addPartitionStepBeforeFormatArray">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node552.html">
 <LINK REL="previous" HREF="node550.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node552.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14661"
+<A NAME="tex2html14694"
   HREF="node552.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14657"
-  HREF="node521.html">
+<A NAME="tex2html14690"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14651"
+<A NAME="tex2html14684"
   HREF="node550.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14659"
+<A NAME="tex2html14692"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14662"
-  HREF="node552.html">CFDiskIO::saveDefinedDiskSizesToDB</A>
-<B> Up:</B> <A NAME="tex2html14658"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14652"
-  HREF="node550.html">CFDiskIO::fdiskSaveToDB</A>
- &nbsp; <B>  <A NAME="tex2html14660"
+<B> Next:</B> <A NAME="tex2html14695"
+  HREF="node552.html">CFDiskIO::addPartitionStep</A>
+<B> Up:</B> <A NAME="tex2html14691"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14685"
+  HREF="node550.html">CFDiskIO::addPartitionStepBeforeFormat</A>
+ &nbsp; <B>  <A NAME="tex2html14693"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061530000000000000000">
-CFDiskIO::getCurrentDiskSizesForDefinedDiskSizes</A>
+<H2><A NAME="SECTION0061524000000000000000">
+CFDiskIO::addPartitionStepBeforeFormatArray</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the disk devices and their sizes, if the client is a defined client.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a step to the partitionSteps and partitionStepsForShift arrays before the formating of the RAID device (given in the $partJob).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>overwrite: Set to true, if the disk devices and their sizes should be saved even if the client is NOT a defined client.
+<LI>newJob: The RAID creation commands to add.
+</LI>
+<LI>partJobs: Pointer to the array with the partition steps (partitionSteps or partitionStepsForShift).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with disk devices and their sizes, if the client is a defined client, otherwise false.
+<LI>true, if there was a formating job for the RAID device. false, if the new job was placed at the end.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CFDiskIO::getCurrentDiskSizesForDefinedDiskSizes</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

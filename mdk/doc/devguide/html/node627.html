@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getSupportedFS</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getSupportedFS">
+<TITLE>CFDiskIO::getDrivesAndPartitions</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getDrivesAndPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node628.html">
 <LINK REL="previous" HREF="node626.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node628.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15573"
+<A NAME="tex2html15606"
   HREF="node628.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15569"
-  HREF="node521.html">
+<A NAME="tex2html15602"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15563"
+<A NAME="tex2html15596"
   HREF="node626.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15571"
+<A NAME="tex2html15604"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15574"
-  HREF="node628.html">CFDiskIO::swapFilesystems</A>
-<B> Up:</B> <A NAME="tex2html15570"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15564"
-  HREF="node626.html">CFDiskIO::getNotFS</A>
- &nbsp; <B>  <A NAME="tex2html15572"
+<B> Next:</B> <A NAME="tex2html15607"
+  HREF="node628.html">CFDiskIO::getUnusedMDs</A>
+<B> Up:</B> <A NAME="tex2html15603"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15597"
+  HREF="node626.html">CFDiskIO::virtualDeleteRaidDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15605"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00615106000000000000000">
-CFDiskIO::getSupportedFS</A>
+<H2><A NAME="SECTION00615100000000000000000">
+CFDiskIO::getDrivesAndPartitions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates and returns an array with the list of supported file systems.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an array that contains all disks and partitions of a given client with the disk devices as keys and the information as values.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with the list of supported file systems as key and value.
+<LI>devFilter: Set this to another value than false if you want only devices with a given string in it. If you add an "!" the beginning all is given out that doesn't contains the filter string (without the "!").
+</LI>
+<LI>addSizesAndTypes: If set to true, the array will contain the sizes, filesystems and types of the partitions and drives.
+</LI>
+<LI>filterOutSetRaidLvmLock: If set to true, drives and partitions with set raidLvmLock will not be listed.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with drives and partitions and (optionally) their sizes, filesystems and types.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CFDiskIO::getSupportedFS</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

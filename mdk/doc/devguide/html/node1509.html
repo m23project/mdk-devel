@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_uncomment</TITLE>
-<META NAME="description" CONTENT="EDIT_uncomment">
+<TITLE>./inc/edit.php</TITLE>
+<META NAME="description" CONTENT="./inc/edit.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,112 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1510.html">
-<LINK REL="previous" HREF="node1508.html">
-<LINK REL="up" HREF="node1500.html">
+<LINK REL="next" HREF="node1536.html">
+<LINK REL="previous" HREF="node1482.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node1510.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26936"
+<A NAME="tex2html26946"
   HREF="node1510.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26932"
-  HREF="node1500.html">
+<A NAME="tex2html26942"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26926"
+<A NAME="tex2html26936"
   HREF="node1508.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26934"
+<A NAME="tex2html26944"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26937"
-  HREF="node1510.html">EDIT_commentout</A>
-<B> Up:</B> <A NAME="tex2html26933"
-  HREF="node1500.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html26927"
-  HREF="node1508.html">EDIT_calc</A>
- &nbsp; <B>  <A NAME="tex2html26935"
+<B> Next:</B> <A NAME="tex2html26947"
+  HREF="node1510.html">EDIT_sedSearchAddInsert</A>
+<B> Up:</B> <A NAME="tex2html26943"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html26937"
+  HREF="node1508.html">PKG_getDebootStrapBasePackages</A>
+ &nbsp; <B>  <A NAME="tex2html26945"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006519000000000000000">
-EDIT_uncomment</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> uncomments all with m23 commented lines of a file
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>file: the name of the file
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006510000000000000000">
+./inc/edit.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: routines for editing files with sed
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html26948"
+  HREF="node1510.html">EDIT_sedSearchAddInsert</A>
+<LI><A NAME="tex2html26949"
+  HREF="node1511.html">EDIT_writeToFile</A>
+<LI><A NAME="tex2html26950"
+  HREF="node1512.html">EDIT_setOption</A>
+<LI><A NAME="tex2html26951"
+  HREF="node1513.html">EDIT_genClientm23Random</A>
+<LI><A NAME="tex2html26952"
+  HREF="node1514.html">EDIT_commentoutInsert</A>
+<LI><A NAME="tex2html26953"
+  HREF="node1515.html">EDIT_commentoutAll</A>
+<LI><A NAME="tex2html26954"
+  HREF="node1516.html">EDIT_countMatches</A>
+<LI><A NAME="tex2html26955"
+  HREF="node1517.html">EDIT_calc</A>
+<LI><A NAME="tex2html26956"
+  HREF="node1518.html">EDIT_uncomment</A>
+<LI><A NAME="tex2html26957"
+  HREF="node1519.html">EDIT_commentout</A>
+<LI><A NAME="tex2html26958"
+  HREF="node1520.html">EDIT_insertAfterLineNumber</A>
+<LI><A NAME="tex2html26959"
+  HREF="node1521.html">EDIT_insertAtLineNumber</A>
+<LI><A NAME="tex2html26960"
+  HREF="node1522.html">EDIT_insertLineNumber</A>
+<LI><A NAME="tex2html26961"
+  HREF="node1523.html">EDIT_searchLineNumber</A>
+<LI><A NAME="tex2html26962"
+  HREF="node1524.html">EDIT_searchLastLineNumber</A>
+<LI><A NAME="tex2html26963"
+  HREF="node1525.html">EDIT_searchNextLineNumber</A>
+<LI><A NAME="tex2html26964"
+  HREF="node1526.html">EDIT_replace</A>
+<LI><A NAME="tex2html26965"
+  HREF="node1527.html">EDIT_prepareStr</A>
+<LI><A NAME="tex2html26966"
+  HREF="node1528.html">EDIT_savePerms</A>
+<LI><A NAME="tex2html26967"
+  HREF="node1529.html">EDIT_restorePerms</A>
+<LI><A NAME="tex2html26968"
+  HREF="node1530.html">EDIT_deleteLines</A>
+<LI><A NAME="tex2html26969"
+  HREF="node1531.html">EDIT_deleteLinesAmount</A>
+<LI><A NAME="tex2html26970"
+  HREF="node1532.html">EDIT_addIfNotExists</A>
+<LI><A NAME="tex2html26971"
+  HREF="node1533.html">EDIT_deleteMatching</A>
+<LI><A NAME="tex2html26972"
+  HREF="node1534.html">EDIT_replaceLineElseAdd</A>
+<LI><A NAME="tex2html26973"
+  HREF="node1535.html">EDIT_appendToFile</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

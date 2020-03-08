@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::virtualAddPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::virtualAddPartition">
+<TITLE>CFDiskIO::getLogicalpParts</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getLogicalpParts">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node587.html">
 <LINK REL="previous" HREF="node585.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node587.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15081"
+<A NAME="tex2html15114"
   HREF="node587.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15077"
-  HREF="node521.html">
+<A NAME="tex2html15110"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15071"
+<A NAME="tex2html15104"
   HREF="node585.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15079"
+<A NAME="tex2html15112"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15082"
-  HREF="node587.html">CFDiskIO::virtualAddDisk</A>
-<B> Up:</B> <A NAME="tex2html15078"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15072"
-  HREF="node585.html">CFDiskIO::getLowestValueOf</A>
- &nbsp; <B>  <A NAME="tex2html15080"
+<B> Next:</B> <A NAME="tex2html15115"
+  HREF="node587.html">CFDiskIO::correctLogical</A>
+<B> Up:</B> <A NAME="tex2html15111"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15105"
+  HREF="node585.html">CFDiskIO::getvPartBypPart</A>
+ &nbsp; <B>  <A NAME="tex2html15113"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061565000000000000000">
-CFDiskIO::virtualAddPartition</A>
+<H2><A NAME="SECTION0061559000000000000000">
+CFDiskIO::getLogicalpParts</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new (virtual) partition on a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Builds an array with all physical partition numbers of the logical partitions.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda2).
-</LI>
-<LI>start: Start position (in MB) of the partition to create.
-</LI>
-<LI>end: End position (in MB) of the partition to create.
-</LI>
-<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Physical partition number of the new partition.
+<LI>Array with all physical partition numbers of the logical partitions.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ CFDiskIO::virtualAddPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

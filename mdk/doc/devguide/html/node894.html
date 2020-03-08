@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CObjectStorageManager::showList</TITLE>
-<META NAME="description" CONTENT="CObjectStorageManager::showList">
+<TITLE>CObjectStorageManager::getObjectMethodReturnValue</TITLE>
+<META NAME="description" CONTENT="CObjectStorageManager::getObjectMethodReturnValue">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,50 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node895.html">
 <LINK REL="previous" HREF="node893.html">
-<LINK REL="up" HREF="node881.html">
+<LINK REL="up" HREF="node887.html">
 <LINK REL="next" HREF="node895.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18995"
+<A NAME="tex2html19030"
   HREF="node895.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18991"
-  HREF="node881.html">
+<A NAME="tex2html19026"
+  HREF="node887.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18987"
+<A NAME="tex2html19020"
   HREF="node893.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18993"
+<A NAME="tex2html19028"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18996"
-  HREF="node895.html">./inc/CObjectStorage.php</A>
-<B> Up:</B> <A NAME="tex2html18992"
-  HREF="node881.html">./inc/CObjectStorageManager.php</A>
-<B> Previous:</B> <A NAME="tex2html18988"
-  HREF="node893.html">CObjectStorageManager::getCOSName</A>
- &nbsp; <B>  <A NAME="tex2html18994"
+<B> Next:</B> <A NAME="tex2html19031"
+  HREF="node895.html">CObjectStorageManager::getCOSStatus</A>
+<B> Up:</B> <A NAME="tex2html19027"
+  HREF="node887.html">./inc/CObjectStorageManager.php</A>
+<B> Previous:</B> <A NAME="tex2html19021"
+  HREF="node893.html">CObjectStorageManager::deleteObject</A>
+ &nbsp; <B>  <A NAME="tex2html19029"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0062613000000000000000">
-CObjectStorageManager::showList</A>
+<H2><A NAME="SECTION006267000000000000000">
+CObjectStorageManager::getObjectMethodReturnValue</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a list of existing objects matching criteria set by getBy* functions.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if an objects implements a method, calls it and returns the return value. If the method is unimplemented, an error value will be returned.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>object: Object to use.
+</LI>
+<LI>fkt: Name of the function (method)
+</LI>
+<LI>error: Error value to return, if the method is unimplemented.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Return value of the implemented method or given error value if unimplemented.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::mayPartitioningBeChanged</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::mayPartitioningBeChanged">
+<TITLE>CFDiskIO::collidesWithPartitionOfType</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::collidesWithPartitionOfType">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node597.html">
 <LINK REL="previous" HREF="node595.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node597.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15201"
+<A NAME="tex2html15234"
   HREF="node597.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15197"
-  HREF="node521.html">
+<A NAME="tex2html15230"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15191"
+<A NAME="tex2html15224"
   HREF="node595.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15199"
+<A NAME="tex2html15232"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15202"
-  HREF="node597.html">CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</A>
-<B> Up:</B> <A NAME="tex2html15198"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15192"
-  HREF="node595.html">CFDiskIO::mayLogicalPartitionsBeChanged</A>
- &nbsp; <B>  <A NAME="tex2html15200"
+<B> Next:</B> <A NAME="tex2html15235"
+  HREF="node597.html">CFDiskIO::isFreeSpaceBetween</A>
+<B> Up:</B> <A NAME="tex2html15231"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15225"
+  HREF="node595.html">CFDiskIO::FDISK_dev2VDiskVPart_Legacy</A>
+ &nbsp; <B>  <A NAME="tex2html15233"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061575000000000000000">
-CFDiskIO::mayPartitioningBeChanged</A>
+<H2><A NAME="SECTION0061569000000000000000">
+CFDiskIO::collidesWithPartitionOfType</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if the whole disk or at least one partition on the disk is used in a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if a partition (to be created) defined by start and end position would collide with existing partitions of given type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>vDisk: Virtual (internally used) device number.
+</LI>
+<LI>type: type of the partition (primary, extended, logical, efipart, or -1 to match all partition types)
+</LI>
+<LI>start: start position for the partition (to be created)
+</LI>
+<LI>end: end position for the  partition (to be created)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the partitioning of the disk may be changed, otherwise false.
+<LI>true, if the partition to create would collide, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +80,7 @@ CFDiskIO::mayPartitioningBeChanged</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

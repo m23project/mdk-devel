@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/helper.php</TITLE>
-<META NAME="description" CONTENT="./inc/helper.php">
+<TITLE>HS_statusFileCommand</TITLE>
+<META NAME="description" CONTENT="HS_statusFileCommand">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,178 +19,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1787.html">
-<LINK REL="previous" HREF="node1670.html">
-<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node1728.html">
+<LINK REL="previous" HREF="node1726.html">
+<LINK REL="up" HREF="node1679.html">
 <LINK REL="next" HREF="node1728.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html29741"
+<A NAME="tex2html29779"
   HREF="node1728.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html29737"
-  HREF="node25.html">
+<A NAME="tex2html29775"
+  HREF="node1679.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html29731"
+<A NAME="tex2html29769"
   HREF="node1726.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html29739"
+<A NAME="tex2html29777"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html29742"
-  HREF="node1728.html">HELPER_getClientNameAndID</A>
-<B> Up:</B> <A NAME="tex2html29738"
-  HREF="node25.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html29732"
-  HREF="node1726.html">HS_sendCommandExecutionStatus</A>
- &nbsp; <B>  <A NAME="tex2html29740"
+<B> Next:</B> <A NAME="tex2html29780"
+  HREF="node1728.html">HS_pkgUpdateCache</A>
+<B> Up:</B> <A NAME="tex2html29776"
+  HREF="node1679.html">./inc/halfSister.php</A>
+<B> Previous:</B> <A NAME="tex2html29770"
+  HREF="node1726.html">HS_pkgDeinstallPreview</A>
+ &nbsp; <B>  <A NAME="tex2html29778"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006550000000000000000">
-./inc/helper.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Helper functions that did not fit into another include file.
+<H2><A NAME="SECTION0065448000000000000000">
+HS_statusFileCommand</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the commands to send the package infos to the server (This has the same functionality as MSR_statusFileCommand).
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html29743"
-  HREF="node1728.html">HELPER_getClientNameAndID</A>
-<LI><A NAME="tex2html29744"
-  HREF="node1729.html">HELPER_indentLines</A>
-<LI><A NAME="tex2html29745"
-  HREF="node1730.html">HELPER_filterOutUnwantedSSHOutputs</A>
-<LI><A NAME="tex2html29746"
-  HREF="node1731.html">dieWithExitCode</A>
-<LI><A NAME="tex2html29747"
-  HREF="node1732.html">HELPER_str_equal_UTF8ISO</A>
-<LI><A NAME="tex2html29748"
-  HREF="node1733.html">HELPER_logToFile</A>
-<LI><A NAME="tex2html29749"
-  HREF="node1734.html">HELPER_splitDayHourMinuteString</A>
-<LI><A NAME="tex2html29750"
-  HREF="node1735.html">HELPER_showScriptHeader</A>
-<LI><A NAME="tex2html29751"
-  HREF="node1736.html">HELPER_showScriptFooter</A>
-<LI><A NAME="tex2html29752"
-  HREF="node1737.html">HELPER_URIencode</A>
-<LI><A NAME="tex2html29753"
-  HREF="node1738.html">HELPER_isUpper</A>
-<LI><A NAME="tex2html29754"
-  HREF="node1739.html">HELPER_filesize</A>
-<LI><A NAME="tex2html29755"
-  HREF="node1740.html">HELPER_isExecutedInCLI</A>
-<LI><A NAME="tex2html29756"
-  HREF="node1741.html">HELPER_isExecutedOnUCS</A>
-<LI><A NAME="tex2html29757"
-  HREF="node1742.html">HELPER_getContentFromURL</A>
-<LI><A NAME="tex2html29758"
-  HREF="node1743.html">HELPER_trimValue</A>
-<LI><A NAME="tex2html29759"
-  HREF="node1744.html">HELPER_xargsRecursive</A>
-<LI><A NAME="tex2html29760"
-  HREF="node1745.html">HELPER_resetNewLogLines</A>
-<LI><A NAME="tex2html29761"
-  HREF="node1746.html">HELPER_getNewLogLines</A>
-<LI><A NAME="tex2html29762"
-  HREF="node1747.html">HELPER_rmRecursive</A>
-<LI><A NAME="tex2html29763"
-  HREF="node1748.html">HELPER_showBAfH</A>
-<LI><A NAME="tex2html29764"
-  HREF="node1749.html">HELPER_ucrc32</A>
-<LI><A NAME="tex2html29765"
-  HREF="node1750.html">HELPER_md5x5</A>
-<LI><A NAME="tex2html29766"
-  HREF="node1751.html">HELPER_netmaskAmountOfSetBits</A>
-<LI><A NAME="tex2html29767"
-  HREF="node1752.html">HELPER_networkCalculator</A>
-<LI><A NAME="tex2html29768"
-  HREF="node1753.html">HELPER_netmaskCalculator</A>
-<LI><A NAME="tex2html29769"
-  HREF="node1754.html">HELPER_importAllIntoPOST</A>
-<LI><A NAME="tex2html29770"
-  HREF="node1755.html">HELPER_randomUsername</A>
-<LI><A NAME="tex2html29771"
-  HREF="node1756.html">HELPER_createSelfSignedCAAndServerCertificate</A>
-<LI><A NAME="tex2html29772"
-  HREF="node1757.html">HELPER_arrayReOrderKeynumbers</A>
-<LI><A NAME="tex2html29773"
-  HREF="node1758.html">HELPER_arrayInsertBeforeKeynumber</A>
-<LI><A NAME="tex2html29774"
-  HREF="node1759.html">HELPER_arrayInsertAfterKeynumber</A>
-<LI><A NAME="tex2html29775"
-  HREF="node1760.html">HELPER_m23Array2Array</A>
-<LI><A NAME="tex2html29776"
-  HREF="node1761.html">HELPER_array2m23Array</A>
-<LI><A NAME="tex2html29777"
-  HREF="node1762.html">print_r2</A>
-<LI><A NAME="tex2html29778"
-  HREF="node1763.html">HELPER_debugBacktraceToFile</A>
-<LI><A NAME="tex2html29779"
-  HREF="node1764.html">HELPER_getRemoteFileContents</A>
-<LI><A NAME="tex2html29780"
-  HREF="node1765.html">HELPER_passGenerator</A>
-<LI><A NAME="tex2html29781"
-  HREF="node1766.html">HELPER_array2AssociativeArray</A>
-<LI><A NAME="tex2html29782"
-  HREF="node1767.html">HELPER_randomMAC</A>
-<LI><A NAME="tex2html29783"
-  HREF="node1768.html">HELPER_generateSalt</A>
-<LI><A NAME="tex2html29784"
-  HREF="node1769.html">HELPER_grubMd5Crypt</A>
-<LI><A NAME="tex2html29785"
-  HREF="node1770.html">HELPER_listFilesInDir</A>
-<LI><A NAME="tex2html29786"
-  HREF="node1771.html">HELPER_getBootLoaders</A>
-<LI><A NAME="tex2html29787"
-  HREF="node1772.html">HELPER_getTimeZones</A>
-<LI><A NAME="tex2html29788"
-  HREF="node1773.html">HELPER_calcMBSize</A>
-<LI><A NAME="tex2html29789"
-  HREF="node1774.html">HELPER_grep</A>
-<LI><A NAME="tex2html29790"
-  HREF="node1775.html">HELPER_grepNot</A>
-<LI><A NAME="tex2html29791"
-  HREF="node1776.html">HELPER_grepCount</A>
-<LI><A NAME="tex2html29792"
-  HREF="node1777.html">HELPER_getFdiskMountPoints</A>
-<LI><A NAME="tex2html29793"
-  HREF="node1778.html">HELPER_getApacheUser</A>
-<LI><A NAME="tex2html29794"
-  HREF="node1779.html">HELPER_getApacheGroup</A>
-<LI><A NAME="tex2html29795"
-  HREF="node1780.html">HELPER_putFileContents</A>
-<LI><A NAME="tex2html29796"
-  HREF="node1781.html">HELPER_getFileContents</A>
-<LI><A NAME="tex2html29797"
-  HREF="node1782.html">HELPER_showFileContents</A>
-<LI><A NAME="tex2html29798"
-  HREF="node1783.html">HELPER_maxPhpUploadSize</A>
-<LI><A NAME="tex2html29799"
-  HREF="node1784.html">HELPER_compareLengthAbc</A>
-<LI><A NAME="tex2html29800"
-  HREF="node1785.html">HELPER_sortByLength</A>
-<LI><A NAME="tex2html29801"
-  HREF="node1786.html">HELPER_hostname2IP</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

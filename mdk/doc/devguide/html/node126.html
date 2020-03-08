@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/CAutoTest.php</TITLE>
-<META NAME="description" CONTENT="./inc/CAutoTest.php">
+<TITLE>CAPTURE_deleteById</TITLE>
+<META NAME="description" CONTENT="CAPTURE_deleteById">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,188 +19,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node191.html">
-<LINK REL="previous" HREF="node113.html">
-<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node127.html">
+<LINK REL="previous" HREF="node125.html">
+<LINK REL="up" HREF="node116.html">
 <LINK REL="next" HREF="node127.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9065"
+<A NAME="tex2html9097"
   HREF="node127.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9061"
-  HREF="node25.html">
+<A NAME="tex2html9093"
+  HREF="node116.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9055"
+<A NAME="tex2html9087"
   HREF="node125.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9063"
+<A NAME="tex2html9095"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9066"
-  HREF="node127.html">CAutoTest::__construct</A>
-<B> Up:</B> <A NAME="tex2html9062"
-  HREF="node25.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html9056"
-  HREF="node125.html">CAPTURE_showTableWith</A>
- &nbsp; <B>  <A NAME="tex2html9064"
+<B> Next:</B> <A NAME="tex2html9098"
+  HREF="node127.html">CAPTURE_showMarker</A>
+<B> Up:</B> <A NAME="tex2html9094"
+  HREF="node116.html">./inc/capture.php</A>
+<B> Previous:</B> <A NAME="tex2html9088"
+  HREF="node125.html">CAPTURE_showEntries</A>
+ &nbsp; <B>  <A NAME="tex2html9096"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00680000000000000000">
-./inc/CAutoTest.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Class for test automation.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION006710000000000000000">
+CAPTURE_deleteById</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> deletes a capture entry.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>id: the id of the capture entry to delete
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html9067"
-  HREF="node127.html">CAutoTest::__construct</A>
-<LI><A NAME="tex2html9068"
-  HREF="node128.html">CAutoTest::__destruct</A>
-<LI><A NAME="tex2html9069"
-  HREF="node129.html">CAutoTest::internalVariablesToConstants</A>
-<LI><A NAME="tex2html9070"
-  HREF="node130.html">CAutoTest::importEnvironmentVariables</A>
-<LI><A NAME="tex2html9071"
-  HREF="node131.html">CAutoTest::loadXMLFile</A>
-<LI><A NAME="tex2html9072"
-  HREF="node132.html">CAutoTest::readSettings</A>
-<LI><A NAME="tex2html9073"
-  HREF="node133.html">CAutoTest::internalValuesFromXML</A>
-<LI><A NAME="tex2html9074"
-  HREF="node134.html">CAutoTest::VMCreate</A>
-<LI><A NAME="tex2html9075"
-  HREF="node135.html">CAutoTest::VMStop</A>
-<LI><A NAME="tex2html9076"
-  HREF="node136.html">CAutoTest::VMStart</A>
-<LI><A NAME="tex2html9077"
-  HREF="node137.html">CAutoTest::VMRestoreSnapshot</A>
-<LI><A NAME="tex2html9078"
-  HREF="node138.html">CAutoTest::getISO</A>
-<LI><A NAME="tex2html9079"
-  HREF="node139.html">CAutoTest::isVM</A>
-<LI><A NAME="tex2html9080"
-  HREF="node140.html">CAutoTest::isXMLTEST</A>
-<LI><A NAME="tex2html9081"
-  HREF="node141.html">CAutoTest::getMovieFileName</A>
-<LI><A NAME="tex2html9082"
-  HREF="node142.html">CAutoTest::getLogFileName</A>
-<LI><A NAME="tex2html9083"
-  HREF="node143.html">CAutoTest::addToLogFile</A>
-<LI><A NAME="tex2html9084"
-  HREF="node144.html">CAutoTest::getTimestampString</A>
-<LI><A NAME="tex2html9085"
-  HREF="node145.html">CAutoTest::setTriggered</A>
-<LI><A NAME="tex2html9086"
-  HREF="node146.html">CAutoTest::isTriggered</A>
-<LI><A NAME="tex2html9087"
-  HREF="node147.html">CAutoTest::setTimeout</A>
-<LI><A NAME="tex2html9088"
-  HREF="node148.html">CAutoTest::decTimeout</A>
-<LI><A NAME="tex2html9089"
-  HREF="node149.html">CAutoTest::addToSequence</A>
-<LI><A NAME="tex2html9090"
-  HREF="node150.html">CAutoTest::matchArray</A>
-<LI><A NAME="tex2html9091"
-  HREF="node151.html">CAutoTest::getAnswersA</A>
-<LI><A NAME="tex2html9092"
-  HREF="node152.html">CAutoTest::getTriggerTypes</A>
-<LI><A NAME="tex2html9093"
-  HREF="node153.html">CAutoTest::getTriggerAttributes</A>
-<LI><A NAME="tex2html9094"
-  HREF="node154.html">CAutoTest::getTriggerParams</A>
-<LI><A NAME="tex2html9095"
-  HREF="node155.html">CAutoTest::getExecTypes</A>
-<LI><A NAME="tex2html9096"
-  HREF="node156.html">CAutoTest::getExecParams</A>
-<LI><A NAME="tex2html9097"
-  HREF="node157.html">CAutoTest::getExecAttributes</A>
-<LI><A NAME="tex2html9098"
-  HREF="node158.html">CAutoTest::checkTriggerResult</A>
-<LI><A NAME="tex2html9099"
-  HREF="node159.html">CAutoTest::isAnswerFoundInTriggerResult</A>
-<LI><A NAME="tex2html9100"
-  HREF="node160.html">CAutoTest::executePHPFunction</A>
-<LI><A NAME="tex2html9101"
-  HREF="node161.html">CAutoTest::executeTriggerAction</A>
-<LI><A NAME="tex2html9102"
-  HREF="node162.html">CAutoTest::waitForTrigger</A>
-<LI><A NAME="tex2html9103"
-  HREF="node163.html">CAutoTest::getCurElement</A>
-<LI><A NAME="tex2html9104"
-  HREF="node164.html">CAutoTest::nextCurElement</A>
-<LI><A NAME="tex2html9105"
-  HREF="node165.html">CAutoTest::isConsecutiveIdenticalMessage</A>
-<LI><A NAME="tex2html9106"
-  HREF="node166.html">CAutoTest::showAndLogMessage</A>
-<LI><A NAME="tex2html9107"
-  HREF="node167.html">CAutoTest::debugPrint</A>
-<LI><A NAME="tex2html9108"
-  HREF="node168.html">CAutoTest::isDebug</A>
-<LI><A NAME="tex2html9109"
-  HREF="node169.html">CAutoTest::getStatusDescriptionInBraces</A>
-<LI><A NAME="tex2html9110"
-  HREF="node170.html">CAutoTest::evaluateRunIf</A>
-<LI><A NAME="tex2html9111"
-  HREF="node171.html">CAutoTest::evaluateSetVar</A>
-<LI><A NAME="tex2html9112"
-  HREF="node172.html">CAutoTest::elemGood</A>
-<LI><A NAME="tex2html9113"
-  HREF="node173.html">CAutoTest::elemWarn</A>
-<LI><A NAME="tex2html9114"
-  HREF="node174.html">CAutoTest::elemGoodOrWarn</A>
-<LI><A NAME="tex2html9115"
-  HREF="node175.html">CAutoTest::elemBad</A>
-<LI><A NAME="tex2html9116"
-  HREF="node176.html">CAutoTest::setVariableFromXML</A>
-<LI><A NAME="tex2html9117"
-  HREF="node177.html">CAutoTest::triggerTypeToConstant</A>
-<LI><A NAME="tex2html9118"
-  HREF="node178.html">CAutoTest::parseTriggerFromXML</A>
-<LI><A NAME="tex2html9119"
-  HREF="node179.html">CAutoTest::parseActionFromXML</A>
-<LI><A NAME="tex2html9120"
-  HREF="node180.html">CAutoTest::seleniumReload</A>
-<LI><A NAME="tex2html9121"
-  HREF="node181.html">CAutoTest::seleniumGetSource</A>
-<LI><A NAME="tex2html9122"
-  HREF="node182.html">CAutoTest::seleniumExec</A>
-<LI><A NAME="tex2html9123"
-  HREF="node183.html">CAutoTest::seleniumExecExtra</A>
-<LI><A NAME="tex2html9124"
-  HREF="node184.html">CAutoTest::gotSeleniumDriverID</A>
-<LI><A NAME="tex2html9125"
-  HREF="node185.html">CAutoTest::getSeleniumDriverID</A>
-<LI><A NAME="tex2html9126"
-  HREF="node186.html">CAutoTest::freeSeleniumDriverID</A>
-<LI><A NAME="tex2html9127"
-  HREF="node187.html">CAutoTest::seleniumGetStatus</A>
-<LI><A NAME="tex2html9128"
-  HREF="node188.html">CAutoTest::seleniumHostRunning</A>
-<LI><A NAME="tex2html9129"
-  HREF="node189.html">CAutoTest::parseAnswersFromXML</A>
-<LI><A NAME="tex2html9130"
-  HREF="node190.html">CAutoTest::parseXML</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

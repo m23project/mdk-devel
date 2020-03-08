@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_statusFileCommand</TITLE>
-<META NAME="description" CONTENT="MSR_statusFileCommand">
+<TITLE>MSR_decodeClientSideBase64</TITLE>
+<META NAME="description" CONTENT="MSR_decodeClientSideBase64">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2077.html">
 <LINK REL="previous" HREF="node2075.html">
-<LINK REL="up" HREF="node2051.html">
+<LINK REL="up" HREF="node2060.html">
 <LINK REL="next" HREF="node2077.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34256"
+<A NAME="tex2html34292"
   HREF="node2077.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34252"
-  HREF="node2051.html">
+<A NAME="tex2html34288"
+  HREF="node2060.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34246"
+<A NAME="tex2html34282"
   HREF="node2075.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34254"
+<A NAME="tex2html34290"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34257"
-  HREF="node2077.html">MSR_importStatusFile</A>
-<B> Up:</B> <A NAME="tex2html34253"
-  HREF="node2051.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34247"
-  HREF="node2075.html">MSR_logCommand</A>
- &nbsp; <B>  <A NAME="tex2html34255"
+<B> Next:</B> <A NAME="tex2html34293"
+  HREF="node2077.html">MSR_clientSideBase64Encode</A>
+<B> Up:</B> <A NAME="tex2html34289"
+  HREF="node2060.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html34283"
+  HREF="node2075.html">MSR_markm23normalAsDone</A>
+ &nbsp; <B>  <A NAME="tex2html34291"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0066625000000000000000">
-MSR_statusFileCommand</A>
+<H2><A NAME="SECTION0066616000000000000000">
+MSR_decodeClientSideBase64</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to send the package infos and package status file
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Decodes the slightly modificated base64 input stream created from MSR_clientSideBase64Encode.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>in: Base64 encoded input string.
+</LI>
+<LI>md5: md5 sum of the original input file.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Decoded (maybe binary) string.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

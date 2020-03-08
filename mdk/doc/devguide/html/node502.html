@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::getCurrentPartDev</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::getCurrentPartDev">
+<TITLE>CFDiskGUI::addDiskLayoutEntry</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::addDiskLayoutEntry">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node503.html">
 <LINK REL="previous" HREF="node501.html">
-<LINK REL="up" HREF="node472.html">
+<LINK REL="up" HREF="node478.html">
 <LINK REL="next" HREF="node503.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13953"
+<A NAME="tex2html13986"
   HREF="node503.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13949"
-  HREF="node472.html">
+<A NAME="tex2html13982"
+  HREF="node478.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13943"
+<A NAME="tex2html13976"
   HREF="node501.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13951"
+<A NAME="tex2html13984"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13954"
-  HREF="node503.html">CFDiskGUI::finalChecksAndRealPartitionAndFormatStart</A>
-<B> Up:</B> <A NAME="tex2html13950"
-  HREF="node472.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13944"
-  HREF="node501.html">CFDiskGUI::getCurrentDiskvDev</A>
- &nbsp; <B>  <A NAME="tex2html13952"
+<B> Next:</B> <A NAME="tex2html13987"
+  HREF="node503.html">CFDiskGUI::newDiskLayout</A>
+<B> Up:</B> <A NAME="tex2html13983"
+  HREF="node478.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13977"
+  HREF="node501.html">CFDiskGUI::showPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html13985"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061430000000000000000">
-CFDiskGUI::getCurrentPartDev</A>
+<H2><A NAME="SECTION0061424000000000000000">
+CFDiskGUI::addDiskLayoutEntry</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the currently choosen (in the GUI) partition device name.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a new entry (partition or free space on a disk) to the disk layout (for rendering only).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Currently choosen (in the GUI) partition device name.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>start: start point of the partition (in MB)
+</LI>
+<LI>end: end point of the partition (in MB)
+</LI>
+<LI>type: type of the partition (primary, logical)
+</LI>
+<LI>fs: File system.
+</LI>
+<LI>dev: Device name (optional)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CFDiskGUI::getCurrentPartDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

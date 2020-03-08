@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::formatPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::formatPartition">
+<TITLE>CFDiskBasic::rereadPartTable</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::rereadPartTable">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node456.html">
 <LINK REL="previous" HREF="node454.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node456.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13343"
+<A NAME="tex2html13376"
   HREF="node456.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13339"
-  HREF="node438.html">
+<A NAME="tex2html13372"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13333"
+<A NAME="tex2html13366"
   HREF="node454.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13341"
+<A NAME="tex2html13374"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13344"
-  HREF="node456.html">CFDiskBasic::deleteAllPartitions</A>
-<B> Up:</B> <A NAME="tex2html13340"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13334"
-  HREF="node454.html">CFDiskBasic::deletePartition</A>
- &nbsp; <B>  <A NAME="tex2html13342"
+<B> Next:</B> <A NAME="tex2html13377"
+  HREF="node456.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
+<B> Up:</B> <A NAME="tex2html13373"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13367"
+  HREF="node454.html">CFDiskBasic::makeInstOrEFIPartBootable</A>
+ &nbsp; <B>  <A NAME="tex2html13375"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061317000000000000000">
-CFDiskBasic::formatPartition</A>
+<H2><A NAME="SECTION0061311000000000000000">
+CFDiskBasic::rereadPartTable</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Formats a partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: partition to format (e.g. /dev/hda1)
-</LI>
-<LI>fs: type of filesystem
+<LI>dev: The device that was changed/created (e.g. /dev/sda5).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +68,7 @@ CFDiskBasic::formatPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

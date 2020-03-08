@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_delEtcHosts</TITLE>
-<META NAME="description" CONTENT="SERVER_delEtcHosts">
+<TITLE>SERVER_runInBackground</TITLE>
+<META NAME="description" CONTENT="SERVER_runInBackground">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2347.html">
 <LINK REL="previous" HREF="node2345.html">
-<LINK REL="up" HREF="node2291.html">
+<LINK REL="up" HREF="node2300.html">
 <LINK REL="next" HREF="node2347.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37733"
+<A NAME="tex2html37769"
   HREF="node2347.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37729"
-  HREF="node2291.html">
+<A NAME="tex2html37765"
+  HREF="node2300.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37723"
+<A NAME="tex2html37759"
   HREF="node2345.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37731"
+<A NAME="tex2html37767"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37734"
-  HREF="node2347.html">SERVER_getInstallationMedium</A>
-<B> Up:</B> <A NAME="tex2html37730"
-  HREF="node2291.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html37724"
-  HREF="node2345.html">SERVER_addEtcHosts</A>
- &nbsp; <B>  <A NAME="tex2html37732"
+<B> Next:</B> <A NAME="tex2html37770"
+  HREF="node2347.html">SERVER_runningInBackground</A>
+<B> Up:</B> <A NAME="tex2html37766"
+  HREF="node2300.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37760"
+  HREF="node2345.html">SERVER_programmStatusTableHeader</A>
+ &nbsp; <B>  <A NAME="tex2html37768"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0067655000000000000000">
-SERVER_delEtcHosts</A>
+<H2><A NAME="SECTION0067646000000000000000">
+SERVER_runInBackground</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a host entry from /etc/hosts and /etc/backuppc/hosts
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a script with "screen" in the background under a given user
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>hostname: name of the host to delete
+<LI>jobName: name of the job screen should show
+</LI>
+<LI>cmds: the commands of the script 
+</LI>
+<LI>user: user the script should be run under
+</LI>
+<LI>runInScreen: Set to true if the execution should be done in "screen". False executes it under the normal BASH.
+</LI>
+<LI>redirectStdErr: Set to true if stderr should be redirected and not shown on in the console.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ SERVER_delEtcHosts</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

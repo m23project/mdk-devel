@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_rmClient</TITLE>
-<META NAME="description" CONTENT="DHCP_rmClient">
+<TITLE>DHCP_delDynamicRange</TITLE>
+<META NAME="description" CONTENT="DHCP_delDynamicRange">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1121.html">
 <LINK REL="previous" HREF="node1119.html">
-<LINK REL="up" HREF="node1106.html">
+<LINK REL="up" HREF="node1112.html">
 <LINK REL="next" HREF="node1121.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21907"
+<A NAME="tex2html21940"
   HREF="node1121.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21903"
-  HREF="node1106.html">
+<A NAME="tex2html21936"
+  HREF="node1112.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21897"
+<A NAME="tex2html21930"
   HREF="node1119.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21905"
+<A NAME="tex2html21938"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21908"
-  HREF="node1121.html">DHCP_setBootimage</A>
-<B> Up:</B> <A NAME="tex2html21904"
-  HREF="node1106.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html21898"
-  HREF="node1119.html">DHCP_restartDHCPserver</A>
- &nbsp; <B>  <A NAME="tex2html21906"
+<B> Next:</B> <A NAME="tex2html21941"
+  HREF="node1121.html">DHCP_bootTypeToNewFormat</A>
+<B> Up:</B> <A NAME="tex2html21937"
+  HREF="node1112.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21931"
+  HREF="node1119.html">DHCP_getNetmaskOfDynamicRanges</A>
+ &nbsp; <B>  <A NAME="tex2html21939"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063814000000000000000">
-DHCP_rmClient</A>
+<H2><A NAME="SECTION006388000000000000000">
+DHCP_delDynamicRange</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> removes a client from dhcpd.conf and restarts the dhcpd-server
+<SPAN  CLASS="textbf">Description:</SPAN> Removes a dynamic IP range from the dhcpd.conf and restarts the DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
+<LI>firstIP: The first IP marking the begin of the dynamic IP range.
+</LI>
+<LI>lastIP: The last IP marking the end of the dynamic IP range.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ DHCP_rmClient</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

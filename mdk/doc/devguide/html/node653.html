@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::checkConsistencyDiskKey</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::checkConsistencyDiskKey">
+<TITLE>CFDiskTest::addLineToReplay</TITLE>
+<META NAME="description" CONTENT="CFDiskTest::addLineToReplay">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node654.html">
 <LINK REL="previous" HREF="node652.html">
-<LINK REL="up" HREF="node644.html">
+<LINK REL="up" HREF="node650.html">
 <LINK REL="next" HREF="node654.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15920"
+<A NAME="tex2html15953"
   HREF="node654.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15916"
-  HREF="node644.html">
+<A NAME="tex2html15949"
+  HREF="node650.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15910"
+<A NAME="tex2html15943"
   HREF="node652.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15918"
+<A NAME="tex2html15951"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15921"
-  HREF="node654.html">CFDiskTest::checkConsistencyvDiskvPartKey</A>
-<B> Up:</B> <A NAME="tex2html15917"
-  HREF="node644.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html15911"
-  HREF="node652.html">CFDiskTest::checkBothSetKey</A>
- &nbsp; <B>  <A NAME="tex2html15919"
+<B> Next:</B> <A NAME="tex2html15954"
+  HREF="node654.html">CFDiskTest::rand</A>
+<B> Up:</B> <A NAME="tex2html15950"
+  HREF="node650.html">./inc/CFDiskTest.php</A>
+<B> Previous:</B> <A NAME="tex2html15944"
+  HREF="node652.html">CFDiskTest::nextTurn</A>
+ &nbsp; <B>  <A NAME="tex2html15952"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006169000000000000000">
-CFDiskTest::checkConsistencyDiskKey</A>
+<H2><A NAME="SECTION006163000000000000000">
+CFDiskTest::addLineToReplay</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks for consistancy of $vDisk keys between virtual calculation and actual client partitioning. Differences will be inserted into $this-<SPAN CLASS="MATH"></SPAN>diffConsistency.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a line to the run log file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
-</LI>
-<LI>key: The key to check for.
-</LI>
-<LI>bothUnsetAllowed: Set to true, if both values may be unset (used for the loop).
-</LI>
-<LI>tolerance: Maximal allowerd difference between the (numeric) values.
+<LI>line: The line to add.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if virtual calculation and actual client value are equal and both present, otherwise false.
+<LI>true on sucessfully writing the line, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +74,7 @@ CFDiskTest::checkConsistencyDiskKey</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

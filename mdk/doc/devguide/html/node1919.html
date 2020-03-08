@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>m23SHARED_init</TITLE>
-<META NAME="description" CONTENT="m23SHARED_init">
+<TITLE>LDAP_matchLDAPserver</TITLE>
+<META NAME="description" CONTENT="LDAP_matchLDAPserver">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,48 +19,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1920.html">
 <LINK REL="previous" HREF="node1918.html">
-<LINK REL="up" HREF="node1911.html">
+<LINK REL="up" HREF="node1894.html">
 <LINK REL="next" HREF="node1920.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html32282"
+<A NAME="tex2html32247"
   HREF="node1920.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html32278"
-  HREF="node1911.html">
+<A NAME="tex2html32243"
+  HREF="node1894.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html32272"
+<A NAME="tex2html32239"
   HREF="node1918.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html32280"
+<A NAME="tex2html32245"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html32283"
-  HREF="node1920.html">m23SHARED_new</A>
-<B> Up:</B> <A NAME="tex2html32279"
-  HREF="node1911.html">./inc/m23shared/m23shared-raus.php</A>
-<B> Previous:</B> <A NAME="tex2html32273"
-  HREF="node1918.html">m23SHARED_getDBnameByClient</A>
- &nbsp; <B>  <A NAME="tex2html32281"
+<B> Next:</B> <A NAME="tex2html32248"
+  HREF="node1920.html">./inc/m23shared/m23shared-raus.php</A>
+<B> Up:</B> <A NAME="tex2html32244"
+  HREF="node1894.html">./inc/ldap.php</A>
+<B> Previous:</B> <A NAME="tex2html32240"
+  HREF="node1918.html">LDAP_getFreeGroupIDs</A>
+ &nbsp; <B>  <A NAME="tex2html32246"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006618000000000000000">
-m23SHARED_init</A>
+<H2><A NAME="SECTION0066025000000000000000">
+LDAP_matchLDAPserver</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if a m23shared environment is present, sets the variables in the session and chooses the according DB.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the name of a LDAP server and returns the name of the found server or false
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>True if an m23 m23shared environment is present, false on error or no m23shared.
+<LI>host: the IP or hostname of the LDAP server
+</LI>
+<LI>base: the base DN (e.g. dc=m23, dc=de)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +69,7 @@ m23SHARED_init</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

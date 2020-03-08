@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_dialogMsgBox</TITLE>
-<META NAME="description" CONTENT="CLCFG_dialogMsgBox">
+<TITLE>CLCFG_debootstrap</TITLE>
+<META NAME="description" CONTENT="CLCFG_debootstrap">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1192.html">
 <LINK REL="previous" HREF="node1190.html">
-<LINK REL="up" HREF="node1127.html">
+<LINK REL="up" HREF="node1133.html">
 <LINK REL="next" HREF="node1192.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22837"
+<A NAME="tex2html22871"
   HREF="node1192.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22833"
-  HREF="node1127.html">
+<A NAME="tex2html22867"
+  HREF="node1133.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22827"
+<A NAME="tex2html22861"
   HREF="node1190.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22835"
+<A NAME="tex2html22869"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22838"
-  HREF="node1192.html">CLCFG_dialogAllBox</A>
-<B> Up:</B> <A NAME="tex2html22834"
-  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22828"
-  HREF="node1190.html">CLCFG_dialogInfoBox</A>
- &nbsp; <B>  <A NAME="tex2html22836"
+<B> Next:</B> <A NAME="tex2html22872"
+  HREF="node1192.html">CLCFG_downgradeExt</A>
+<B> Up:</B> <A NAME="tex2html22868"
+  HREF="node1133.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22862"
+  HREF="node1190.html">CLCFG_setDebconf</A>
+ &nbsp; <B>  <A NAME="tex2html22870"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063964000000000000000">
-CLCFG_dialogMsgBox</A>
+<H2><A NAME="SECTION0063958000000000000000">
+CLCFG_debootstrap</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates the BASH code for showing an dialog message box
+<SPAN  CLASS="textbf">Description:</SPAN> bootstraps a Debian system
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>backtitle: title on top of the screen
+<LI>suite: select the Debian suite (sarge, sid, woody, potato)
 </LI>
-<LI>title: message title
+<LI>DNSServers: DNS server for resolving the names of the installation server
 </LI>
-<LI>message: the message itself
+<LI>gateway: gateway for fetching the packages
 </LI>
-<LI>force forces showing of the dialog box
+<LI>packageProxy: the ip of the proxy the packages should be fetched from
+</LI>
+<LI>packagePort: the proxy port
+</LI>
+<LI>mirror: the Debian mirror the packages should be fetched from
+</LI>
+<LI>arch: the computer architecture of the client
+</LI>
+<LI>exclude: packages to exclude (as comma-seperated list)
+</LI>
+<LI>include: additional packages to include
+</LI>
+<LI>isCritical: selects if debootstrap errors should be critical
+</LI>
+<LI>additionalPackages: space seperated list of additional packages that should be installed during bootstrapping
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +88,7 @@ CLCFG_dialogMsgBox</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

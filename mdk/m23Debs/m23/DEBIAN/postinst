@@ -140,6 +140,9 @@ then
 fi
 
 
+
+
+
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
 DNS=`/m23/bin/serverInfoDNS`
@@ -223,7 +226,7 @@ db_get m23/configMySQL
 if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
 then
 	# Make sure, innoDB is enabled
-	sed -i 's/skip-innodb/#skip-innodb/' /etc/mysql/my.cnf
+	sed -i 's/^skip-innodb/#skip-innodb/' /etc/mysql/my.cnf
 	
 	# Make sure MariaDB uses latin1 and not 4-byte utf8 which would lead to an exceeding of the 1000 bytes limit for unique keys
 	if [ -d /etc/mysql/mariadb.conf.d ]
@@ -768,6 +771,13 @@ echo "	<VirtualHost *:443>
 		chmod 644 $phpFile
 	done
 
+	# Remove the now unknown "default_charset" parameter from Apache configuration
+# 	if [ $(grep -c 'Debian GNU/Linux 10' /etc/issue) -gt 0 ]
+# 	then
+# 		sed -i '/default_charset/d' /etc/apache2/sites-enabled/*.conf
+# 	fi
+
+
 	#Sets the phpver and phpini variables to the version of php that are installed.
 	. /usr/share/wwwconfig-common/php.get
 	server="apache$apacheV"
@@ -1241,6 +1251,13 @@ EOF
 [client]
 init-command="set sql_mode='NO_ENGINE_SUBSTITUTION'"
 EOF
+	fi
+
+# Fix for systems that upgraded from MySQL and aren't configured to read files from /etc/mysql/mariadb.conf.d
+	if [ -d /etc/mysql/conf.d ]
+	then
+		ln -s /etc/mysql/mariadb.conf.d/99-client_added_by_m23.cnf /etc/mysql/conf.d
+		ln -s /etc/mysql/mariadb.conf.d/99-server_added_by_m23.cnf /etc/mysql/conf.d
 	fi
 
 	/etc/init.d/mysql restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createFormatPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createFormatPartition">
+<TITLE>CFDiskBasic::createUEFIPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createUEFIPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node460.html">
 <LINK REL="previous" HREF="node458.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node460.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13391"
+<A NAME="tex2html13424"
   HREF="node460.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13387"
-  HREF="node438.html">
+<A NAME="tex2html13420"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13381"
+<A NAME="tex2html13414"
   HREF="node458.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13389"
+<A NAME="tex2html13422"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13392"
-  HREF="node460.html">CFDiskBasic::autoPartitionDisk</A>
-<B> Up:</B> <A NAME="tex2html13388"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13382"
-  HREF="node458.html">CFDiskBasic::createSwapPartition</A>
- &nbsp; <B>  <A NAME="tex2html13390"
+<B> Next:</B> <A NAME="tex2html13425"
+  HREF="node460.html">CFDiskBasic::deletePartition</A>
+<B> Up:</B> <A NAME="tex2html13421"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13415"
+  HREF="node458.html">CFDiskBasic::createPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13423"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061321000000000000000">
-CFDiskBasic::createFormatPartition</A>
+<H2><A NAME="SECTION0061315000000000000000">
+CFDiskBasic::createUEFIPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates and formats a partition.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new UEFI partition with a size of 512 MB at the start of the disk (if possible).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>diskDev: The disk device (e.g. /dev/hda) where the installation partition should be created on.
+<LI>dev: The device (e.g. /dev/sda).
 </LI>
-<LI>instStart: Start position of the installation partition (in MB).
-</LI>
-<LI>instEnd: End position of the installation partition (in MB).
-</LI>
-<LI>fileSystem: Type of the file system (eg. ext4)
-</LI>
-<LI>partType: Type of the partition (eg. CFDiskIO::PT_PRIMARY)
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The physical partition number of the newly created partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CFDiskBasic::createFormatPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getLongPackageDescription</TITLE>
-<META NAME="description" CONTENT="PKG_getLongPackageDescription">
+<TITLE>PKG_rsyncDebsFromClientToServer</TITLE>
+<META NAME="description" CONTENT="PKG_rsyncDebsFromClientToServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1358.html">
 <LINK REL="previous" HREF="node1356.html">
-<LINK REL="up" HREF="node1342.html">
+<LINK REL="up" HREF="node1350.html">
 <LINK REL="next" HREF="node1358.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24969"
+<A NAME="tex2html25004"
   HREF="node1358.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24965"
-  HREF="node1342.html">
+<A NAME="tex2html25000"
+  HREF="node1350.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24959"
+<A NAME="tex2html24994"
   HREF="node1356.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24967"
+<A NAME="tex2html25002"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24970"
-  HREF="node1358.html">PKG_getPackageDescriptionSize</A>
-<B> Up:</B> <A NAME="tex2html24966"
-  HREF="node1342.html">./inc/distr/imaging/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html24960"
-  HREF="node1356.html">PKG_getPackageName</A>
- &nbsp; <B>  <A NAME="tex2html24968"
+<B> Next:</B> <A NAME="tex2html25005"
+  HREF="node1358.html">PKG_preparePool</A>
+<B> Up:</B> <A NAME="tex2html25001"
+  HREF="node1350.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html24995"
+  HREF="node1356.html">PKG_ncTarDebsFromClientToServer_Server</A>
+ &nbsp; <B>  <A NAME="tex2html25003"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0064615000000000000000">
-PKG_getLongPackageDescription</A>
+<H2><A NAME="SECTION006467000000000000000">
+PKG_rsyncDebsFromClientToServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the description of a package.
+<SPAN  CLASS="textbf">Description:</SPAN> Copies all the Debian packages from a client to a given directory on the server via rsync.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>package: Name of the package.
+<LI>clientIP: The IP of the client.
 </LI>
-<LI>distr: the distribution name
-</LI>
-<LI>packagesource: name of the package source
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Description of the package.
+<LI>poolDir: The directory on the server to store the Debian packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +70,7 @@ PKG_getLongPackageDescription</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

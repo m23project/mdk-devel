@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_addClient</TITLE>
-<META NAME="description" CONTENT="CLIENT_addClient">
+<TITLE>CLIENT_getCurrentFreeSpaceInDir</TITLE>
+<META NAME="description" CONTENT="CLIENT_getCurrentFreeSpaceInDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,135 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node776.html">
 <LINK REL="previous" HREF="node774.html">
-<LINK REL="up" HREF="node742.html">
+<LINK REL="up" HREF="node748.html">
 <LINK REL="next" HREF="node776.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html17534"
+<A NAME="tex2html17567"
   HREF="node776.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17530"
-  HREF="node742.html">
+<A NAME="tex2html17563"
+  HREF="node748.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17524"
+<A NAME="tex2html17557"
   HREF="node774.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17532"
+<A NAME="tex2html17565"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html17535"
-  HREF="node776.html">CLIENT_IPexists</A>
-<B> Up:</B> <A NAME="tex2html17531"
-  HREF="node742.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html17525"
-  HREF="node774.html">CLIENT_isBasesystemInstalledFromImage</A>
- &nbsp; <B>  <A NAME="tex2html17533"
+<B> Next:</B> <A NAME="tex2html17568"
+  HREF="node776.html">CLIENT_getClientID</A>
+<B> Up:</B> <A NAME="tex2html17564"
+  HREF="node748.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html17558"
+  HREF="node774.html">CLIENT_getCurrentMemoryUsage</A>
+ &nbsp; <B>  <A NAME="tex2html17566"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0062233000000000000000">
-CLIENT_addClient</A>
+<H2><A NAME="SECTION0062227000000000000000">
+CLIENT_getCurrentFreeSpaceInDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the database and prepares the client for the installation
+<SPAN  CLASS="textbf">Description:</SPAN> Get the amount of free space in a given directory on a client or localhost.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>data['client']: client name
+<LI>clientNameOrIP: The name of the client or localhost or an IP.
 </LI>
-<LI>data['office']: office
+<LI>dir: The directory to check for.
 </LI>
-<LI>data['name']: name of the user
-</LI>
-<LI>data['familyname']: family name of the user
-</LI>
-<LI>data['email']: email
-</LI>
-<LI>data['mac']: client MAC
-</LI>
-<LI>data['ip']: IP of the client
-</LI>
-<LI>data['netmask']: netmask of the client
-</LI>
-<LI>data['gateway']: gateway of the client
-</LI>
-<LI>data['dns1']: DNS server 1
-</LI>
-<LI>data['dns2']: DNS server 2
-</LI>
-<LI>data['newgroup']: group of the client
-</LI>
-<LI>data['language']: client language
-</LI>
-<LI>data['firstpw']: password for the first user login
-</LI>
-<LI>data['rootpassword']: root password
-</LI>
-<LI>options['packageProxy']: the ip of the proxy the packages should be fetched from
-</LI>
-<LI>options['packagePort']: the proxy port
-</LI>
-<LI>options['netRootPwd']: password for root during network booting
-</LI>
-<LI>options['ldaptype']: type of the LDAP server
-</LI>
-<LI>options['ldapserver']: name of the LDAP server
-</LI>
-<LI>options['nfshomeserver']: NFS home server with full path
-</LI>
-<LI>options['login']: login name for the user
-</LI>
-<LI>options['userID']: user ID for the LDAP account
-</LI>
-<LI>options['groupID']: group ID for the LDAP account
-</LI>
-<LI>options['addNewLocalLogin']		= $_POST[addNewLocalLogin];
-</LI>
-<LI>options['timeZone']: POSIX timezone
-</LI>
-<LI>options['getSystemtimeByNTP']: "yes", if the system time should be set with NTP
-</LI>
-<LI>options['installPrinter']: "yes", if printer drivers should be installed and printers detected
-</LI>
-<LI>clientAddType: can be CLIENT_ADD_TYPE_add if the client should be added, CLIENT_ADD_TYPE_define if it should be defined for mass installation or CLIENT_ADD_TYPE_assimilate if the client should be imported into the m23 system.
-</LI>
-<LI>cryptRootPw: set to true, if the password should be encrypted or false, if it's already encrypted
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The amount of free space in the directory in 1K blocks.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html17534"
-  HREF="node776.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html17530"
-  HREF="node742.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html17524"
-  HREF="node774.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html17532"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html17535"
-  HREF="node776.html">CLIENT_IPexists</A>
-<B> Up:</B> <A NAME="tex2html17531"
-  HREF="node742.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html17525"
-  HREF="node774.html">CLIENT_isBasesystemInstalledFromImage</A>
- &nbsp; <B>  <A NAME="tex2html17533"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_GUIstepCreateCloudStackVM</TITLE>
-<META NAME="description" CONTENT="VM_GUIstepCreateCloudStackVM">
+<TITLE>VM_CloudStackDisablePortForwarding</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackDisablePortForwarding">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2445.html">
 <LINK REL="previous" HREF="node2443.html">
-<LINK REL="up" HREF="node2425.html">
+<LINK REL="up" HREF="node2434.html">
 <LINK REL="next" HREF="node2445.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39036"
+<A NAME="tex2html39072"
   HREF="node2445.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39032"
-  HREF="node2425.html">
+<A NAME="tex2html39068"
+  HREF="node2434.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39026"
+<A NAME="tex2html39062"
   HREF="node2443.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39034"
+<A NAME="tex2html39070"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39037"
-  HREF="node2445.html">VM_CloudStack_available</A>
-<B> Up:</B> <A NAME="tex2html39033"
-  HREF="node2425.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39027"
-  HREF="node2443.html">VM_CloudStack_getServerIP</A>
- &nbsp; <B>  <A NAME="tex2html39035"
+<B> Next:</B> <A NAME="tex2html39073"
+  HREF="node2445.html">VM_CloudStackSendSetVisualURL</A>
+<B> Up:</B> <A NAME="tex2html39069"
+  HREF="node2434.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39063"
+  HREF="node2443.html">VM_CloudStackEnablePortForwarding</A>
+ &nbsp; <B>  <A NAME="tex2html39071"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0068019000000000000000">
-VM_GUIstepCreateCloudStackVM</A>
+<H2><A NAME="SECTION0068010000000000000000">
+VM_CloudStackDisablePortForwarding</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows a dialog to create a new VM in CloudStack.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> deletes a port forwarding rule for a virtual machine, with private port and public port being the same (CLOUDSTACK_X2GO_PORTNUMBER)
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>virtualMachineId: the cloudstack ID of the virtual machine from which the port forwarding rule shall be deleted
+</LI>
+<LI>pFDSuccess: is set to true, if the rule was deleted successfully
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>textmessage about result (errormessage or success message) and sets pFDSuccess to True if action succeeded, false otherwise
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

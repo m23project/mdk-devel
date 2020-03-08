@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_clientSideBase64Encode</TITLE>
-<META NAME="description" CONTENT="MSR_clientSideBase64Encode">
+<TITLE>MSR_genericSendCommand</TITLE>
+<META NAME="description" CONTENT="MSR_genericSendCommand">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2069.html">
 <LINK REL="previous" HREF="node2067.html">
-<LINK REL="up" HREF="node2051.html">
+<LINK REL="up" HREF="node2060.html">
 <LINK REL="next" HREF="node2069.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34160"
+<A NAME="tex2html34196"
   HREF="node2069.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34156"
-  HREF="node2051.html">
+<A NAME="tex2html34192"
+  HREF="node2060.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34150"
+<A NAME="tex2html34186"
   HREF="node2067.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34158"
+<A NAME="tex2html34194"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34161"
-  HREF="node2069.html">MSR_genSendBinayFileCommand</A>
-<B> Up:</B> <A NAME="tex2html34157"
-  HREF="node2051.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34151"
-  HREF="node2067.html">MSR_decodeClientSideBase64</A>
- &nbsp; <B>  <A NAME="tex2html34159"
+<B> Next:</B> <A NAME="tex2html34197"
+  HREF="node2069.html">MSR_statusBar</A>
+<B> Up:</B> <A NAME="tex2html34193"
+  HREF="node2060.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html34187"
+  HREF="node2067.html">MSR_statusBarCommand</A>
+ &nbsp; <B>  <A NAME="tex2html34195"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0066617000000000000000">
-MSR_clientSideBase64Encode</A>
+<H2><A NAME="SECTION006668000000000000000">
+MSR_genericSendCommand</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Encodes a given file to (a slighly different, + is converted to - for sending it as post variable via wget) base64 format and appends the output to statusdata.post. There are three methods for generating the base64 output. First and second the native uuencode and base64 tools that are very fast and third a plattform idependent implementation of base64 encode in AWK taken from the HylaFAX package.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a generic command for sending information from the client to the server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>fileName: name of the file
+<LI>type: Type of the message understood by MSR_decodeMessage
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Commands for encoding the file.
+<LI>params: Parameters to send with POST to the server in the form of "var1=val1&amp;var2=val2&amp;var3=val3..."
+</LI>
+<LI>wgetParams: Extra parameters for wget.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +72,7 @@ MSR_clientSideBase64Encode</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

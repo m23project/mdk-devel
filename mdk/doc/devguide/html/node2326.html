@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SERVER_checkPackageInstalled</TITLE>
-<META NAME="description" CONTENT="SERVER_checkPackageInstalled">
+<TITLE>SERVER_changeHtpasswd</TITLE>
+<META NAME="description" CONTENT="SERVER_changeHtpasswd">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2327.html">
 <LINK REL="previous" HREF="node2325.html">
-<LINK REL="up" HREF="node2291.html">
+<LINK REL="up" HREF="node2300.html">
 <LINK REL="next" HREF="node2327.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html37493"
+<A NAME="tex2html37529"
   HREF="node2327.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html37489"
-  HREF="node2291.html">
+<A NAME="tex2html37525"
+  HREF="node2300.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html37483"
+<A NAME="tex2html37519"
   HREF="node2325.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html37491"
+<A NAME="tex2html37527"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html37494"
-  HREF="node2327.html">SERVER_daemonStartStop</A>
-<B> Up:</B> <A NAME="tex2html37490"
-  HREF="node2291.html">./inc/server.php</A>
-<B> Previous:</B> <A NAME="tex2html37484"
-  HREF="node2325.html">SERVER_isProgramRunning</A>
- &nbsp; <B>  <A NAME="tex2html37492"
+<B> Next:</B> <A NAME="tex2html37530"
+  HREF="node2327.html">SERVER_delFromHtpasswd</A>
+<B> Up:</B> <A NAME="tex2html37526"
+  HREF="node2300.html">./inc/server.php</A>
+<B> Previous:</B> <A NAME="tex2html37520"
+  HREF="node2325.html">SERVER_getPublicSSHKeyOfm23Server</A>
+ &nbsp; <B>  <A NAME="tex2html37528"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0067635000000000000000">
-SERVER_checkPackageInstalled</A>
+<H2><A NAME="SECTION0067626000000000000000">
+SERVER_changeHtpasswd</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a certain package is installed
+<SPAN  CLASS="textbf">Description:</SPAN> Changes the password of a user in a htpasswd file.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>pkgName: the name of the package
+<LI>: htpasswdFile: htpasswd file that contains user names and crypted passwords.
+</LI>
+<LI>: username: Name of the user to change
+</LI>
+<LI>: password: The according new password
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: True if the password was changed sucessfully.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ SERVER_checkPackageInstalled</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_activateBoot</TITLE>
-<META NAME="description" CONTENT="DHCP_activateBoot">
+<TITLE>DHCP_runScript</TITLE>
+<META NAME="description" CONTENT="DHCP_runScript">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1123.html">
 <LINK REL="previous" HREF="node1121.html">
-<LINK REL="up" HREF="node1106.html">
+<LINK REL="up" HREF="node1112.html">
 <LINK REL="next" HREF="node1123.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21931"
+<A NAME="tex2html21964"
   HREF="node1123.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21927"
-  HREF="node1106.html">
+<A NAME="tex2html21960"
+  HREF="node1112.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21921"
+<A NAME="tex2html21954"
   HREF="node1121.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21929"
+<A NAME="tex2html21962"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21932"
-  HREF="node1123.html">DHCP_calcPXEIP</A>
-<B> Up:</B> <A NAME="tex2html21928"
-  HREF="node1106.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html21922"
-  HREF="node1121.html">DHCP_setBootimage</A>
- &nbsp; <B>  <A NAME="tex2html21930"
+<B> Next:</B> <A NAME="tex2html21965"
+  HREF="node1123.html">DHCP_addClient</A>
+<B> Up:</B> <A NAME="tex2html21961"
+  HREF="node1112.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21955"
+  HREF="node1121.html">DHCP_bootTypeToNewFormat</A>
+ &nbsp; <B>  <A NAME="tex2html21963"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063816000000000000000">
-DHCP_activateBoot</A>
+<H2><A NAME="SECTION0063810000000000000000">
+DHCP_runScript</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> switches the network boot on or off
+<SPAN  CLASS="textbf">Description:</SPAN> Runs the script for controlling an external DHCP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
+<LI>command: 'add' for adding an entry to the DHCP server or 'remove' for removing.
+</LI>
 <LI>clientName: name of the client
 </LI>
-<LI>on: true activates the network boot, false deactivates
+<LI>ip: ip address of the client
 </LI>
-<LI>bootType: The boot type CAN be given here (e.g. pxe or etherboot)
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +80,7 @@ DHCP_activateBoot</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

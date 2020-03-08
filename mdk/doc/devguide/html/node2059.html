@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_genericSendCommand</TITLE>
-<META NAME="description" CONTENT="MSR_genericSendCommand">
+<TITLE>MSG_DeActivateBlogDialog</TITLE>
+<META NAME="description" CONTENT="MSG_DeActivateBlogDialog">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,9 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2060.html">
 <LINK REL="previous" HREF="node2058.html">
-<LINK REL="up" HREF="node2051.html">
+<LINK REL="up" HREF="node2042.html">
 <LINK REL="next" HREF="node2060.html">
 </HEAD>
 
@@ -32,9 +31,9 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   HREF="node2060.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
 <A NAME="tex2html34048"
-  HREF="node2051.html">
+  HREF="node2042.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34042"
+<A NAME="tex2html34044"
   HREF="node2058.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
 <A NAME="tex2html34050"
@@ -42,29 +41,39 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A NAME="tex2html34053"
-  HREF="node2060.html">MSR_statusBar</A>
+  HREF="node2060.html">./inc/messageReceive.php</A>
 <B> Up:</B> <A NAME="tex2html34049"
-  HREF="node2051.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34043"
-  HREF="node2058.html">MSR_statusBarCommand</A>
+  HREF="node2042.html">./inc/message.php</A>
+<B> Previous:</B> <A NAME="tex2html34045"
+  HREF="node2058.html">MSG_showNewFeature</A>
  &nbsp; <B>  <A NAME="tex2html34051"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006668000000000000000">
-MSR_genericSendCommand</A>
+<H2><A NAME="SECTION0066517000000000000000">
+MSG_DeActivateBlogDialog</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a generic command for sending information from the client to the server.
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a dialog to en/disable a blog. The displaying state is written to the DB.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: Type of the message understood by MSR_decodeMessage
+<LI>blogVarName: Variable name of the blog to store in the DB.
 </LI>
-<LI>params: Parameters to send with POST to the server in the form of "var1=val1&amp;var2=val2&amp;var3=val3..."
+<LI>css: Name of the CSS class to color the dialog.
 </LI>
-<LI>wgetParams: Extra parameters for wget.
+<LI>blogName: Name of the blog als human readle heading.
+</LI>
+<LI>width: Width of the box containing the switch dialog.
+</LI>
+<LI>dialogCode: The HTML code of the dialog element is written to this variable.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: True if the blog should be shown otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +81,7 @@ MSR_genericSendCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

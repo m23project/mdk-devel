@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_captureVMScreenAsMovie</TITLE>
-<META NAME="description" CONTENT="VM_captureVMScreenAsMovie">
+<TITLE>UCS_udmSuccessOrErrorMessage</TITLE>
+<META NAME="description" CONTENT="UCS_udmSuccessOrErrorMessage">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,66 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2428.html">
 <LINK REL="previous" HREF="node2426.html">
-<LINK REL="up" HREF="node2425.html">
+<LINK REL="up" HREF="node2404.html">
 <LINK REL="next" HREF="node2428.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38832"
+<A NAME="tex2html38800"
   HREF="node2428.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38828"
-  HREF="node2425.html">
+<A NAME="tex2html38796"
+  HREF="node2404.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38822"
+<A NAME="tex2html38790"
   HREF="node2426.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38830"
+<A NAME="tex2html38798"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38833"
-  HREF="node2428.html">VM_CloudStackDeleteClientVM</A>
-<B> Up:</B> <A NAME="tex2html38829"
-  HREF="node2425.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html38823"
-  HREF="node2426.html">VM_isHost</A>
- &nbsp; <B>  <A NAME="tex2html38831"
+<B> Next:</B> <A NAME="tex2html38801"
+  HREF="node2428.html">UCS_getUsedIPs</A>
+<B> Up:</B> <A NAME="tex2html38797"
+  HREF="node2404.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38791"
+  HREF="node2426.html">UCS_enableClientLDAP</A>
+ &nbsp; <B>  <A NAME="tex2html38799"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006802000000000000000">
-VM_captureVMScreenAsMovie</A>
+<H2><A NAME="SECTION0067823000000000000000">
+UCS_udmSuccessOrErrorMessage</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Enables/disables capturing the screen of a VM to a movie file.
+<SPAN  CLASS="textbf">Description:</SPAN> Takes the output from an udm command and checks for the return code (must be a single number in the last line). If the return code is non-zero, all lines above the last line are treated as error message and written to $errorMessage.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>type: VM_SW_VBOX for VirtualBox OSE
+<LI>ret: The complete message block with return code (must be a single number in the last line)
 </LI>
-<LI>vmname: Name of the VM.
-</LI>
-<LI>enable: true for enabling the capturing, false for disabling.
-</LI>
-<LI>movieFile: File to store the capturing in.
-</LI>
-<LI>width: Width of the movie.
-</LI>
-<LI>height: Height of the movie.
-</LI>
-<LI>rate: Bitrate of the movie.
-</LI>
-<LI>fps: Frames per second
+<LI>errorMessage: The variable, the error message may be written to.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>BASH code for enabling/disabling the capturing of the VM's screens to a movie file.
+<LI>true, if the udm command returned a success return code (0), otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -88,7 +76,7 @@ VM_captureVMScreenAsMovie</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>VM_rebootAndActivateNetboot</TITLE>
-<META NAME="description" CONTENT="VM_rebootAndActivateNetboot">
+<TITLE>VM_CloudStackClientName2ClientID</TITLE>
+<META NAME="description" CONTENT="VM_CloudStackClientName2ClientID">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2450.html">
 <LINK REL="previous" HREF="node2448.html">
-<LINK REL="up" HREF="node2425.html">
+<LINK REL="up" HREF="node2434.html">
 <LINK REL="next" HREF="node2450.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html39096"
+<A NAME="tex2html39132"
   HREF="node2450.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html39092"
-  HREF="node2425.html">
+<A NAME="tex2html39128"
+  HREF="node2434.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html39086"
+<A NAME="tex2html39122"
   HREF="node2448.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html39094"
+<A NAME="tex2html39130"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html39097"
-  HREF="node2450.html">VM_shutdownAndDisableNetbootAfterInstall</A>
-<B> Up:</B> <A NAME="tex2html39093"
-  HREF="node2425.html">./inc/vm.php</A>
-<B> Previous:</B> <A NAME="tex2html39087"
-  HREF="node2448.html">VM_shutdownAndDisableNetbootAfterInstall</A>
- &nbsp; <B>  <A NAME="tex2html39095"
+<B> Next:</B> <A NAME="tex2html39133"
+  HREF="node2450.html">VM_CloudStackNetBootActivate</A>
+<B> Up:</B> <A NAME="tex2html39129"
+  HREF="node2434.html">./inc/vm.php</A>
+<B> Previous:</B> <A NAME="tex2html39123"
+  HREF="node2448.html">VM_CloudStackGetVMStatus</A>
+ &nbsp; <B>  <A NAME="tex2html39131"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0068024000000000000000">
-VM_rebootAndActivateNetboot</A>
+<H2><A NAME="SECTION0068015000000000000000">
+VM_CloudStackClientName2ClientID</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Reboots an VM and activates network booting.
+<SPAN  CLASS="textbf">Description:</SPAN> returns the Cloudstack-ID of a client with the given client host name
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vmname: Name of the VM.
+<LI>clientname: Host name of the virtual machine
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Cloudstack-Client-ID if the clientname can be retrieved, False otherwise 
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ VM_rebootAndActivateNetboot</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

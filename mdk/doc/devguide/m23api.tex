@@ -69,6 +69,17 @@
 \item true, if autoTest is in debug mode, otherwise false.
 \end{itemize}
 
+\subsection{AUTOTEST\_sshVMServer}
+\textbf{Description:} Executes commands on virtualisation server.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item cmds: The commands to execute on the virtualisation server.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item The output of the commands.
+\end{itemize}
+
 \subsection{AUTOTEST\_sshTunnelOverServer}
 \textbf{Description:} Executes commands on a client indirectly, that is reachable over an m23 server only. SSH connections require root user on the m23 server and the client.\\
 \textbf{Parameter:}
@@ -200,6 +211,14 @@
 \item VMDeletionMessage: Variable where the VirtualBox (error) messages will be written to.
 \end{itemize}
 
+\subsection{AUTOTEST\_VM\_export\_m23ServerISO\_as\_OVA}
+\textbf{Description:} Exports a VM, that was installed via the m23 server installation ISO, to OVA file.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\item \$VMExportMessage: Variable where the VirtualBox (error) messages will be written to.
+\end{itemize}
+
 \subsection{AUTOTEST\_VM\_stop}
 \textbf{Description:} Stops a VM.\\
 \textbf{Parameter:}
@@ -265,6 +284,17 @@
 \textbf{Returns:}
 \begin{itemize}
 \item The recognised text of the display.
+\end{itemize}
+
+\subsection{AUTOTEST\_VM\_screenPixelDiff}
+\textbf{Description:} Compares the VM's screen with a previously saved screen and gives back the amount of changed pixels.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item vmName: Name of the VM.
+\end{itemize}
+\textbf{Returns:}
+\begin{itemize}
+\item Amount of changed pixels (or 99999999999 if there is no previously saved screen).
 \end{itemize}
 
 \subsection{AUTOTEST\_VM\_getStatus}
@@ -801,6 +831,9 @@
 \item snapshotName: Name of the snapshot to restore.
 \end{itemize}
 
+\subsection{CAutoTest::VMexportm23ServerISOasOVA}
+\textbf{Description:} Exports a VM, that was installed via the m23 server installation ISO, to OVA file.\\
+
 \subsection{CAutoTest::getISO}
 \textbf{Description:} Get the filename and path to the ISO image for booting.\\
 \textbf{Returns:}
@@ -871,6 +904,12 @@
 \subsection{CAutoTest::setTimeout}
 \textbf{Description:} Sets the timeout for the current sequence element.\\
 
+\subsection{CAutoTest::setVMScreenChangeIntervall}
+\textbf{Description:} Sets the time to wait (in seconds) between making two screenshots and checking for changes.\\
+
+\subsection{CAutoTest::checkVMScreenChange}
+\textbf{Description:} Makes another screenshot and compares it with the previous, if the waiting time is over. In case that too less pixels have been changed a warning is logged and shown.\\
+
 \subsection{CAutoTest::decTimeout}
 \textbf{Description:} Decrements the remaining time for the timeout.\\
 
@@ -888,6 +927,7 @@
 \item description: Description for the test.
 \item triggerAttributes: Trigger attribute(s). Can hold additional parameters. (Result is written to this pointer)
 \item runIf: Value of the runIf attribute.
+\item vmScreenChangeIntervall: Time to wait (in seconds) between making two screenshots and checking for changes.
 \end{itemize}
 
 \subsection{CAutoTest::matchArray}
@@ -8820,6 +8860,13 @@
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_blacklistPackageInstallation}
+\textbf{Description:} Blacklists a package for APT to make it uninstallable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item package: Name of the package.
+\end{itemize}
+
 \subsection{CLCFG\_executeNextWorkEveryMinute}
 \textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\
 \textbf{Parameter:}
@@ -9789,6 +9836,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
 
+\subsection{CLCFG\_blacklistPackageInstallation}
+\textbf{Description:} Blacklists a package for APT to make it uninstallable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item package: Name of the package.
+\end{itemize}
+
 \subsection{CLCFG\_executeNextWorkEveryMinute}
 \textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\
 \textbf{Parameter:}
@@ -10690,6 +10744,13 @@ Description: Basic package operations (search, add,...) for halfSister distribut
 \newpage\section{./inc/distr/ubuntu/clientConfigCommon.php}
  Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)\\
  Description: Common management funtions shared by Linux distributions.\\
+
+\subsection{CLCFG\_blacklistPackageInstallation}
+\textbf{Description:} Blacklists a package for APT to make it uninstallable.\\
+\textbf{Parameter:}
+\begin{itemize}
+\item package: Name of the package.
+\end{itemize}
 
 \subsection{CLCFG\_executeNextWorkEveryMinute}
 \textbf{Description:} Runs executeNextWork in a loop every minute and shows a status message about elapsed waiting time.\\

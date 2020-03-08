@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::setCurrentPartitioning</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::setCurrentPartitioning">
+<TITLE>./inc/CFDiskIO.php</TITLE>
+<META NAME="description" CONTENT="./inc/CFDiskIO.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,51 +19,304 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node528.html">
-<LINK REL="previous" HREF="node526.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="next" HREF="node650.html">
+<LINK REL="previous" HREF="node478.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node528.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14373"
+<A NAME="tex2html14284"
   HREF="node528.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14369"
-  HREF="node521.html">
+<A NAME="tex2html14280"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14363"
+<A NAME="tex2html14274"
   HREF="node526.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14371"
+<A NAME="tex2html14282"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14374"
-  HREF="node528.html">CFDiskIO::fdiskLoadFromDB</A>
-<B> Up:</B> <A NAME="tex2html14370"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14364"
-  HREF="node526.html">CFDiskIO::getCurrentPartitioning</A>
- &nbsp; <B>  <A NAME="tex2html14372"
+<B> Next:</B> <A NAME="tex2html14285"
+  HREF="node528.html">CFDiskIO::__construct</A>
+<B> Up:</B> <A NAME="tex2html14281"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html14275"
+  HREF="node526.html">CFDiskGUI::getHDSizes</A>
+ &nbsp; <B>  <A NAME="tex2html14283"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006156000000000000000">
-CFDiskIO::setCurrentPartitioning</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets the current (physical) partitioning (of a client).
+<H1><A NAME="SECTION006150000000000000000">
+./inc/CFDiskIO.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for lowlevel organisation of partitioning and formating.
 <BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html14286"
+  HREF="node528.html">CFDiskIO::__construct</A>
+<LI><A NAME="tex2html14287"
+  HREF="node529.html">CFDiskIO::__destruct</A>
+<LI><A NAME="tex2html14288"
+  HREF="node530.html">CFDiskIO::isTypeFreeSpace</A>
+<LI><A NAME="tex2html14289"
+  HREF="node531.html">CFDiskIO::fdiskGetProperty</A>
+<LI><A NAME="tex2html14290"
+  HREF="node532.html">CFDiskIO::getCurrentPartitioning</A>
+<LI><A NAME="tex2html14291"
+  HREF="node533.html">CFDiskIO::setCurrentPartitioning</A>
+<LI><A NAME="tex2html14292"
+  HREF="node534.html">CFDiskIO::fdiskLoadFromDB</A>
+<LI><A NAME="tex2html14293"
+  HREF="node535.html">CFDiskIO::setCFDiskTemp</A>
+<LI><A NAME="tex2html14294"
+  HREF="node536.html">CFDiskIO::getDiskDevs</A>
+<LI><A NAME="tex2html14295"
+  HREF="node537.html">CFDiskIO::getDiskAmount</A>
+<LI><A NAME="tex2html14296"
+  HREF="node538.html">CFDiskIO::getPartAmount</A>
+<LI><A NAME="tex2html14297"
+  HREF="node539.html">CFDiskIO::getpDiskAndpPartFromDev</A>
+<LI><A NAME="tex2html14298"
+  HREF="node540.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
+<LI><A NAME="tex2html14299"
+  HREF="node541.html">CFDiskIO::dev2VDiskVPart</A>
+<LI><A NAME="tex2html14300"
+  HREF="node542.html">CFDiskIO::getPreviousPartitionStep</A>
+<LI><A NAME="tex2html14301"
+  HREF="node543.html">CFDiskIO::backToPreviousPartitionStep</A>
+<LI><A NAME="tex2html14302"
+  HREF="node544.html">CFDiskIO::findAndSetEFIBootPartDev</A>
+<LI><A NAME="tex2html14303"
+  HREF="node545.html">CFDiskIO::discardUndo</A>
+<LI><A NAME="tex2html14304"
+  HREF="node546.html">CFDiskIO::updateUndoMd5</A>
+<LI><A NAME="tex2html14305"
+  HREF="node547.html">CFDiskIO::getUndoMd5</A>
+<LI><A NAME="tex2html14306"
+  HREF="node548.html">CFDiskIO::addUndo</A>
+<LI><A NAME="tex2html14307"
+  HREF="node549.html">CFDiskIO::addPartitionStepAtTheBeginning</A>
+<LI><A NAME="tex2html14308"
+  HREF="node550.html">CFDiskIO::addPartitionStepBeforeFormat</A>
+<LI><A NAME="tex2html14309"
+  HREF="node551.html">CFDiskIO::addPartitionStepBeforeFormatArray</A>
+<LI><A NAME="tex2html14310"
+  HREF="node552.html">CFDiskIO::addPartitionStep</A>
+<LI><A NAME="tex2html14311"
+  HREF="node553.html">CFDiskIO::shiftPartitionStep</A>
+<LI><A NAME="tex2html14312"
+  HREF="node554.html">CFDiskIO::resetWantedPartitioningAndSteps</A>
+<LI><A NAME="tex2html14313"
+  HREF="node555.html">CFDiskIO::resetWantedPartitioning</A>
+<LI><A NAME="tex2html14314"
+  HREF="node556.html">CFDiskIO::fdiskSaveToDB</A>
+<LI><A NAME="tex2html14315"
+  HREF="node557.html">CFDiskIO::getCurrentDiskSizesForDefinedDiskSizes</A>
+<LI><A NAME="tex2html14316"
+  HREF="node558.html">CFDiskIO::saveDefinedDiskSizesToDB</A>
+<LI><A NAME="tex2html14317"
+  HREF="node559.html">CFDiskIO::getDefinedDiskSizes</A>
+<LI><A NAME="tex2html14318"
+  HREF="node560.html">CFDiskIO::convertPartitioning2Array</A>
+<LI><A NAME="tex2html14319"
+  HREF="node561.html">CFDiskIO::isDiskRaid</A>
+<LI><A NAME="tex2html14320"
+  HREF="node562.html">CFDiskIO::isDevRaid</A>
+<LI><A NAME="tex2html14321"
+  HREF="node563.html">CFDiskIO::isNVMe</A>
+<LI><A NAME="tex2html14322"
+  HREF="node564.html">CFDiskIO::setDiskPartLockedByRaid</A>
+<LI><A NAME="tex2html14323"
+  HREF="node565.html">CFDiskIO::isDiskOrPartLockedByRaid</A>
+<LI><A NAME="tex2html14324"
+  HREF="node566.html">CFDiskIO::isPartitionLockedByRaid</A>
+<LI><A NAME="tex2html14325"
+  HREF="node567.html">CFDiskIO::isDiskLockedByRaid</A>
+<LI><A NAME="tex2html14326"
+  HREF="node568.html">CFDiskIO::isDiskNotLockedByRaidAgainstCreationOfNewPartition</A>
+<LI><A NAME="tex2html14327"
+  HREF="node569.html">CFDiskIO::getPartitionAmountOfType</A>
+<LI><A NAME="tex2html14328"
+  HREF="node570.html">CFDiskIO::getExtendedVPart</A>
+<LI><A NAME="tex2html14329"
+  HREF="node571.html">CFDiskIO::getDiskSize</A>
+<LI><A NAME="tex2html14330"
+  HREF="node572.html">CFDiskIO::getDiskDev</A>
+<LI><A NAME="tex2html14331"
+  HREF="node573.html">CFDiskIO::getPartitionStart</A>
+<LI><A NAME="tex2html14332"
+  HREF="node574.html">CFDiskIO::getPartitionNumber</A>
+<LI><A NAME="tex2html14333"
+  HREF="node575.html">CFDiskIO::getPartitionSize</A>
+<LI><A NAME="tex2html14334"
+  HREF="node576.html">CFDiskIO::getPartitionDev</A>
+<LI><A NAME="tex2html14335"
+  HREF="node577.html">CFDiskIO::getDevBypDiskpPart</A>
+<LI><A NAME="tex2html14336"
+  HREF="node578.html">CFDiskIO::getPartitionDevs</A>
+<LI><A NAME="tex2html14337"
+  HREF="node579.html">CFDiskIO::getPartitionEnd</A>
+<LI><A NAME="tex2html14338"
+  HREF="node580.html">CFDiskIO::getPartitionType</A>
+<LI><A NAME="tex2html14339"
+  HREF="node581.html">CFDiskIO::getPartitionFileSystem</A>
+<LI><A NAME="tex2html14340"
+  HREF="node582.html">CFDiskIO::setPartitionFileSystem</A>
+<LI><A NAME="tex2html14341"
+  HREF="node583.html">CFDiskIO::virtualDelPartition</A>
+<LI><A NAME="tex2html14342"
+  HREF="node584.html">CFDiskIO::virtualDeleteDisk</A>
+<LI><A NAME="tex2html14343"
+  HREF="node585.html">CFDiskIO::getvPartBypPart</A>
+<LI><A NAME="tex2html14344"
+  HREF="node586.html">CFDiskIO::getLogicalpParts</A>
+<LI><A NAME="tex2html14345"
+  HREF="node587.html">CFDiskIO::correctLogical</A>
+<LI><A NAME="tex2html14346"
+  HREF="node588.html">CFDiskIO::devNrExists</A>
+<LI><A NAME="tex2html14347"
+  HREF="node589.html">CFDiskIO::getBiggestLowestValueOf</A>
+<LI><A NAME="tex2html14348"
+  HREF="node590.html">CFDiskIO::getBiggestValueOf</A>
+<LI><A NAME="tex2html14349"
+  HREF="node591.html">CFDiskIO::getLowestValueOf</A>
+<LI><A NAME="tex2html14350"
+  HREF="node592.html">CFDiskIO::virtualAddPartition</A>
+<LI><A NAME="tex2html14351"
+  HREF="node593.html">CFDiskIO::virtualAddDisk</A>
+<LI><A NAME="tex2html14352"
+  HREF="node594.html">CFDiskIO::getBelongingRaidDev</A>
+<LI><A NAME="tex2html14353"
+  HREF="node595.html">CFDiskIO::FDISK_dev2VDiskVPart_Legacy</A>
+<LI><A NAME="tex2html14354"
+  HREF="node596.html">CFDiskIO::collidesWithPartitionOfType</A>
+<LI><A NAME="tex2html14355"
+  HREF="node597.html">CFDiskIO::isFreeSpaceBetween</A>
+<LI><A NAME="tex2html14356"
+  HREF="node598.html">CFDiskIO::getPossiblePartitionTypesBetween</A>
+<LI><A NAME="tex2html14357"
+  HREF="node599.html">CFDiskIO::isNewPartitionOfTypeCreatable</A>
+<LI><A NAME="tex2html14358"
+  HREF="node600.html">CFDiskIO::getCreatablePartitionTypes</A>
+<LI><A NAME="tex2html14359"
+  HREF="node601.html">CFDiskIO::mayLogicalPartitionsBeChanged</A>
+<LI><A NAME="tex2html14360"
+  HREF="node602.html">CFDiskIO::mayPartitioningBeChanged</A>
+<LI><A NAME="tex2html14361"
+  HREF="node603.html">CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</A>
+<LI><A NAME="tex2html14362"
+  HREF="node604.html">CFDiskIO::nextLogicalDevNr</A>
+<LI><A NAME="tex2html14363"
+  HREF="node605.html">CFDiskIO::nextPrimaryDevNr</A>
+<LI><A NAME="tex2html14364"
+  HREF="node606.html">CFDiskIO::nextPrimaryDevNr</A>
+<LI><A NAME="tex2html14365"
+  HREF="node607.html">CFDiskIO::getWantedPartitioning</A>
+<LI><A NAME="tex2html14366"
+  HREF="node608.html">CFDiskIO::sortDiskKeyByDev</A>
+<LI><A NAME="tex2html14367"
+  HREF="node609.html">CFDiskIO::sortPartitionKeyByStart</A>
+<LI><A NAME="tex2html14368"
+  HREF="node610.html">CFDiskIO::getRaidLevelNumbers</A>
+<LI><A NAME="tex2html14369"
+  HREF="node611.html">CFDiskIO::isRaidLevelNumberValid</A>
+<LI><A NAME="tex2html14370"
+  HREF="node612.html">CFDiskIO::getRaidDevsBuildingDisk</A>
+<LI><A NAME="tex2html14371"
+  HREF="node613.html">CFDiskIO::getvrDevNrByrDev</A>
+<LI><A NAME="tex2html14372"
+  HREF="node614.html">CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
+<LI><A NAME="tex2html14373"
+  HREF="node615.html">CFDiskIO::addDevToRaid</A>
+<LI><A NAME="tex2html14374"
+  HREF="node616.html">CFDiskIO::delDevFromRaid</A>
+<LI><A NAME="tex2html14375"
+  HREF="node617.html">CFDiskIO::updateRAIDSize</A>
+<LI><A NAME="tex2html14376"
+  HREF="node618.html">CFDiskIO::getRaidCompleteParameters</A>
+<LI><A NAME="tex2html14377"
+  HREF="node619.html">CFDiskIO::isRaidComplete</A>
+<LI><A NAME="tex2html14378"
+  HREF="node620.html">CFDiskIO::maximumDevicesForRaidReached</A>
+<LI><A NAME="tex2html14379"
+  HREF="node621.html">CFDiskIO::areAllRaidsComplete</A>
+<LI><A NAME="tex2html14380"
+  HREF="node622.html">CFDiskIO::getRaidDevsBuildingDiskAmount</A>
+<LI><A NAME="tex2html14381"
+  HREF="node623.html">CFDiskIO::setRaidLevel</A>
+<LI><A NAME="tex2html14382"
+  HREF="node624.html">CFDiskIO::getDiskSize</A>
+<LI><A NAME="tex2html14383"
+  HREF="node625.html">CFDiskIO::virtualCreateRaidDisk</A>
+<LI><A NAME="tex2html14384"
+  HREF="node626.html">CFDiskIO::virtualDeleteRaidDisk</A>
+<LI><A NAME="tex2html14385"
+  HREF="node627.html">CFDiskIO::getDrivesAndPartitions</A>
+<LI><A NAME="tex2html14386"
+  HREF="node628.html">CFDiskIO::getUnusedMDs</A>
+<LI><A NAME="tex2html14387"
+  HREF="node629.html">CFDiskIO::getUnusedDiskDev</A>
+<LI><A NAME="tex2html14388"
+  HREF="node630.html">CFDiskIO::getUsedMDs</A>
+<LI><A NAME="tex2html14389"
+  HREF="node631.html">CFDiskIO::getPartDevs</A>
+<LI><A NAME="tex2html14390"
+  HREF="node632.html">CFDiskIO::getNotFS</A>
+<LI><A NAME="tex2html14391"
+  HREF="node633.html">CFDiskIO::getSupportedFS</A>
+<LI><A NAME="tex2html14392"
+  HREF="node634.html">CFDiskIO::swapFilesystems</A>
+<LI><A NAME="tex2html14393"
+  HREF="node635.html">CFDiskIO::installFilesystems</A>
+<LI><A NAME="tex2html14394"
+  HREF="node636.html">CFDiskIO::fdiskAddFstab</A>
+<LI><A NAME="tex2html14395"
+  HREF="node637.html">CFDiskIO::fdiskGetEntry</A>
+<LI><A NAME="tex2html14396"
+  HREF="node638.html">CFDiskIO::fdiskDelFstabEntry</A>
+<LI><A NAME="tex2html14397"
+  HREF="node639.html">CFDiskIO::adjustFstabParam</A>
+<LI><A NAME="tex2html14398"
+  HREF="node640.html">CFDiskIO::genManualFstab</A>
+<LI><A NAME="tex2html14399"
+  HREF="node641.html">CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
+<LI><A NAME="tex2html14400"
+  HREF="node642.html">CFDiskIO::FDISK_genManualFstab</A>
+<LI><A NAME="tex2html14401"
+  HREF="node643.html">CFDiskIO::fdiskGetFstabArray</A>
+<LI><A NAME="tex2html14402"
+  HREF="node644.html">CFDiskIO::getPartitionStepsArray</A>
+<LI><A NAME="tex2html14403"
+  HREF="node645.html">CFDiskIO::findFstabMountPointByDev</A>
+<LI><A NAME="tex2html14404"
+  HREF="node646.html">CFDiskIO::getPrimaryOrEfiPartitionType</A>
+<LI><A NAME="tex2html14405"
+  HREF="node647.html">CFDiskIO::changeToEfiPartitionTypeIfInUefiMode</A>
+<LI><A NAME="tex2html14406"
+  HREF="node648.html">CFDiskIO::getNVMeMknodCommand</A>
+<LI><A NAME="tex2html14407"
+  HREF="node649.html">CFDiskIO::getMknodCommand</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

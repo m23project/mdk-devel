@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_autoPart</TITLE>
-<META NAME="description" CONTENT="FDISK_autoPart">
+<TITLE>FDISK_listInstPartSelector</TITLE>
+<META NAME="description" CONTENT="FDISK_listInstPartSelector">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1613.html">
 <LINK REL="previous" HREF="node1611.html">
-<LINK REL="up" HREF="node1527.html">
+<LINK REL="up" HREF="node1536.html">
 <LINK REL="next" HREF="node1613.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28279"
+<A NAME="tex2html28315"
   HREF="node1613.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28275"
-  HREF="node1527.html">
+<A NAME="tex2html28311"
+  HREF="node1536.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28269"
+<A NAME="tex2html28305"
   HREF="node1611.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28277"
+<A NAME="tex2html28313"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28280"
-  HREF="node1613.html">FDISK_printColorDefinitions</A>
-<B> Up:</B> <A NAME="tex2html28276"
-  HREF="node1527.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28270"
-  HREF="node1611.html">FDISK_getFreeSpaces</A>
- &nbsp; <B>  <A NAME="tex2html28278"
+<B> Next:</B> <A NAME="tex2html28316"
+  HREF="node1613.html">FDISK_formatExisting</A>
+<B> Up:</B> <A NAME="tex2html28312"
+  HREF="node1536.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28306"
+  HREF="node1611.html">FDISK_listPartTable</A>
+ &nbsp; <B>  <A NAME="tex2html28314"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065285000000000000000">
-FDISK_autoPart</A>
+<H2><A NAME="SECTION0065276000000000000000">
+FDISK_listInstPartSelector</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generation of param string and command list for automatic partition
+<SPAN  CLASS="textbf">Description:</SPAN> lists all partitions to select for swap and install partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>clientName: name of the client
-</LI>
-<LI>command: parted commands are written to $command
-</LI>
-<LI>dev: selected device (e.g. /dev/hda)
-</LI>
 <LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>instPart: the variable the installation device name is written to
+<LI>default: partition that should be shown as selected
 </LI>
-<LI>swapPart: the variable the swap device name is written to
+<LI>type: array with filesystems that are possible for installation or swap
 </LI>
-<LI>minSwap: Minimal size of the swap partition in MB.
-</LI>
-<LI>maxSwap: Maximal size of the swap partition in MB.
+<LI>selName: name of the selection
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +74,7 @@ FDISK_autoPart</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

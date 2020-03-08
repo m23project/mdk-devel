@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::isRaidComplete</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::isRaidComplete">
+<TITLE>CFDiskIO::getvrDevNrByrDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getvrDevNrByrDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node614.html">
 <LINK REL="previous" HREF="node612.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node614.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15405"
+<A NAME="tex2html15438"
   HREF="node614.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15401"
-  HREF="node521.html">
+<A NAME="tex2html15434"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15395"
+<A NAME="tex2html15428"
   HREF="node612.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15403"
+<A NAME="tex2html15436"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15406"
-  HREF="node614.html">CFDiskIO::maximumDevicesForRaidReached</A>
-<B> Up:</B> <A NAME="tex2html15402"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15396"
-  HREF="node612.html">CFDiskIO::getRaidCompleteParameters</A>
- &nbsp; <B>  <A NAME="tex2html15404"
+<B> Next:</B> <A NAME="tex2html15439"
+  HREF="node614.html">CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
+<B> Up:</B> <A NAME="tex2html15435"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15429"
+  HREF="node612.html">CFDiskIO::getRaidDevsBuildingDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15437"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061592000000000000000">
-CFDiskIO::isRaidComplete</A>
+<H2><A NAME="SECTION0061586000000000000000">
+CFDiskIO::getvrDevNrByrDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks, if there are too less or too much devices building the RAID or if the amount is not a multiple of needed devices.
+<SPAN  CLASS="textbf">Description:</SPAN> Returns the (virtual) number of the given device building the RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vrDisk: Virtual (internally used) RAID disk number.
+<LI>vrDisk: Virtual (internally used) disk number of the RAID.
+</LI>
+<LI>dev: Device to search in the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if all requirements for building the RAID are met or it is not a RAID.
+<LI>Virtual number of the given device building the RAID or false, if the device is not part of the RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CFDiskIO::isRaidComplete</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

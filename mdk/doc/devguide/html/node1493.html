@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_addAPTConfigFiles</TITLE>
-<META NAME="description" CONTENT="PKG_addAPTConfigFiles">
+<TITLE>PKG_fastGetNewInstalledPackages</TITLE>
+<META NAME="description" CONTENT="PKG_fastGetNewInstalledPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1494.html">
 <LINK REL="previous" HREF="node1492.html">
-<LINK REL="up" HREF="node1473.html">
+<LINK REL="up" HREF="node1482.html">
 <LINK REL="next" HREF="node1494.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26720"
+<A NAME="tex2html26756"
   HREF="node1494.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26716"
-  HREF="node1473.html">
+<A NAME="tex2html26752"
+  HREF="node1482.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26710"
+<A NAME="tex2html26746"
   HREF="node1492.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26718"
+<A NAME="tex2html26754"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26721"
-  HREF="node1494.html">PKG_preparePackageDir</A>
-<B> Up:</B> <A NAME="tex2html26717"
-  HREF="node1473.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26711"
-  HREF="node1492.html">PKG_getAptArchOptions</A>
- &nbsp; <B>  <A NAME="tex2html26719"
+<B> Next:</B> <A NAME="tex2html26757"
+  HREF="node1494.html">PKG_searchFor</A>
+<B> Up:</B> <A NAME="tex2html26753"
+  HREF="node1482.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26747"
+  HREF="node1492.html">PKG_fastGetInstalledPackages</A>
+ &nbsp; <B>  <A NAME="tex2html26755"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065020000000000000000">
-PKG_addAPTConfigFiles</A>
+<H2><A NAME="SECTION0065011000000000000000">
+PKG_fastGetNewInstalledPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates the config files for the package manager on the m23 server.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets new installed packages by comparing status files (before and after the installation).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>sourceName: The name of the package source list
+<LI>oldStatusFile: File with the list of all installed packages before the installation of the new packages
 </LI>
-<LI>dir: The directory on the m23 server where the config files should be created.
+<LI>newStatusFile: File with the list of all installed packages after the installation of the new packages
+</LI>
+<LI>storeFile: File name to store the list of new installed on the client.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +72,7 @@ PKG_addAPTConfigFiles</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

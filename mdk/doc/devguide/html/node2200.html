@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_savePackagesList</TITLE>
-<META NAME="description" CONTENT="PKG_savePackagesList">
+<TITLE>PKG_showAllPackageSelections</TITLE>
+<META NAME="description" CONTENT="PKG_showAllPackageSelections">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2201.html">
 <LINK REL="previous" HREF="node2199.html">
-<LINK REL="up" HREF="node2095.html">
+<LINK REL="up" HREF="node2104.html">
 <LINK REL="next" HREF="node2201.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35857"
+<A NAME="tex2html35893"
   HREF="node2201.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35853"
-  HREF="node2095.html">
+<A NAME="tex2html35889"
+  HREF="node2104.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35847"
+<A NAME="tex2html35883"
   HREF="node2199.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35855"
+<A NAME="tex2html35891"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35858"
-  HREF="node2201.html">PKG_getDuplicatedIdenticalJobs</A>
-<B> Up:</B> <A NAME="tex2html35854"
-  HREF="node2095.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35848"
-  HREF="node2199.html">PKG_getPackagesListMarker</A>
- &nbsp; <B>  <A NAME="tex2html35856"
+<B> Next:</B> <A NAME="tex2html35894"
+  HREF="node2201.html">PKG_getPackageParams</A>
+<B> Up:</B> <A NAME="tex2html35890"
+  HREF="node2104.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35884"
+  HREF="node2199.html">PKG_multiPackageSelectionsSelection</A>
+ &nbsp; <B>  <A NAME="tex2html35892"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00668105000000000000000">
-PKG_savePackagesList</A>
+<H2><A NAME="SECTION0066896000000000000000">
+PKG_showAllPackageSelections</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> stores the package names in the DB
+<SPAN  CLASS="textbf">Description:</SPAN> returns all package selection as HTML selection
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>listName: name of the list to store the packages 
+<LI>selName: name of the selection
 </LI>
-<LI>packages: array or blank seperated list of packages
+<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+</LI>
+<LI>addEmpty: set to true to add an empty entry at the beginning.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +72,7 @@ PKG_savePackagesList</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

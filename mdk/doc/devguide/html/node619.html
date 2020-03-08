@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::virtualCreateRaidDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::virtualCreateRaidDisk">
+<TITLE>CFDiskIO::isRaidComplete</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isRaidComplete">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node620.html">
 <LINK REL="previous" HREF="node618.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node620.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15477"
+<A NAME="tex2html15510"
   HREF="node620.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15473"
-  HREF="node521.html">
+<A NAME="tex2html15506"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15467"
+<A NAME="tex2html15500"
   HREF="node618.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15475"
+<A NAME="tex2html15508"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15478"
-  HREF="node620.html">CFDiskIO::virtualDeleteRaidDisk</A>
-<B> Up:</B> <A NAME="tex2html15474"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15468"
-  HREF="node618.html">CFDiskIO::getDiskSize</A>
- &nbsp; <B>  <A NAME="tex2html15476"
+<B> Next:</B> <A NAME="tex2html15511"
+  HREF="node620.html">CFDiskIO::maximumDevicesForRaidReached</A>
+<B> Up:</B> <A NAME="tex2html15507"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15501"
+  HREF="node618.html">CFDiskIO::getRaidCompleteParameters</A>
+ &nbsp; <B>  <A NAME="tex2html15509"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061598000000000000000">
-CFDiskIO::virtualCreateRaidDisk</A>
+<H2><A NAME="SECTION0061592000000000000000">
+CFDiskIO::isRaidComplete</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new RAID disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if there are too less or too much devices building the RAID or if the amount is not a multiple of needed devices.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: Device name for the RAID (eg. /dev/md0)
-</LI>
-<LI>level: RAID level.
+<LI>vrDisk: Virtual (internally used) RAID disk number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Virtual RAID disk number, if the device string is suitable for a RAID, otherwise false.
+<LI>true, if all requirements for building the RAID are met or it is not a RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ CFDiskIO::virtualCreateRaidDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

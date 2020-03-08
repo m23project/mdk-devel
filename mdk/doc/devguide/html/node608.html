@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::doesDiskHavePartitionsLockedByRaid</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::doesDiskHavePartitionsLockedByRaid">
+<TITLE>CFDiskIO::sortDiskKeyByDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::sortDiskKeyByDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node609.html">
 <LINK REL="previous" HREF="node607.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node609.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15345"
+<A NAME="tex2html15378"
   HREF="node609.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15341"
-  HREF="node521.html">
+<A NAME="tex2html15374"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15335"
+<A NAME="tex2html15368"
   HREF="node607.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15343"
+<A NAME="tex2html15376"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15346"
-  HREF="node609.html">CFDiskIO::addDevToRaid</A>
-<B> Up:</B> <A NAME="tex2html15342"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15336"
-  HREF="node607.html">CFDiskIO::getvrDevNrByrDev</A>
- &nbsp; <B>  <A NAME="tex2html15344"
+<B> Next:</B> <A NAME="tex2html15379"
+  HREF="node609.html">CFDiskIO::sortPartitionKeyByStart</A>
+<B> Up:</B> <A NAME="tex2html15375"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15369"
+  HREF="node607.html">CFDiskIO::getWantedPartitioning</A>
+ &nbsp; <B>  <A NAME="tex2html15377"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061587000000000000000">
-CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
+<H2><A NAME="SECTION0061581000000000000000">
+CFDiskIO::sortDiskKeyByDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if the disk has at least one partition that was assigned to a RAID.
+<SPAN  CLASS="textbf">Description:</SPAN> Sorts the elements with numeric keys (disks) of the input array by the subkey 'dev'. The numeric keys will be ascending and in the same order than the ascending subkey 'dev' with /dev/mdX at the end.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) disk number.
+<LI>in: Input array of a disk.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if there is at least one partition that was assigned to a RAID on the disk, otherwise false.
+<LI>Array with sorted disks.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::doesDiskHavePartitionsLockedByRaid</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

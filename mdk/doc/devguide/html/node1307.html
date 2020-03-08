@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_language</TITLE>
-<META NAME="description" CONTENT="CLCFG_language">
+<TITLE>CLCFG_genFstab</TITLE>
+<META NAME="description" CONTENT="CLCFG_genFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1308.html">
 <LINK REL="previous" HREF="node1306.html">
-<LINK REL="up" HREF="node1258.html">
+<LINK REL="up" HREF="node1265.html">
 <LINK REL="next" HREF="node1308.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html24345"
+<A NAME="tex2html24380"
   HREF="node1308.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html24341"
-  HREF="node1258.html">
+<A NAME="tex2html24376"
+  HREF="node1265.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html24335"
+<A NAME="tex2html24370"
   HREF="node1306.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html24343"
+<A NAME="tex2html24378"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html24346"
-  HREF="node1308.html">CLCFG_setRootPassword</A>
-<B> Up:</B> <A NAME="tex2html24342"
-  HREF="node1258.html">./inc/distr/imaging/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html24336"
-  HREF="node1306.html">CLCFG_hwdetect</A>
- &nbsp; <B>  <A NAME="tex2html24344"
+<B> Next:</B> <A NAME="tex2html24381"
+  HREF="node1308.html">CLCFG_interfaces</A>
+<B> Up:</B> <A NAME="tex2html24377"
+  HREF="node1265.html">./inc/distr/imaging/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html24371"
+  HREF="node1306.html">CLCFG_efi</A>
+ &nbsp; <B>  <A NAME="tex2html24379"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0064449000000000000000">
-CLCFG_language</A>
+<H2><A NAME="SECTION0064442000000000000000">
+CLCFG_genFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> sets the language for keyboard in console and X11 and console language
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to auto detect the partitions and generate the fstab file and installs a boot manager
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>lang: 2 letter language code (de,fr,it,en)
+<LI>bootDevice: the device the bootloader should be installed on (e.g. /dev/hda)
 </LI>
-<LI>release: The release name of the distribution (for special handling).
+<LI>rootDevice: the path to the installation partition (e.g. /dev/hda1)
+</LI>
+<LI>bootloader: Name of the boot loader to install and configure (actually grub only)
+</LI>
+<LI>ignoreErrors: Set to true, if some errors should be ignored instead of logging them.
+</LI>
+<LI>isReconfiguredWithExtraDistr: Set to true, the function is called to reconfigure a distribution that was installed by imaging.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ CLCFG_language</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

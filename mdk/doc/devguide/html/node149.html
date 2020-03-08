@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoTest::addToSequence</TITLE>
-<META NAME="description" CONTENT="CAutoTest::addToSequence">
+<TITLE>CAutoTest::setTriggered</TITLE>
+<META NAME="description" CONTENT="CAutoTest::setTriggered">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node150.html">
 <LINK REL="previous" HREF="node148.html">
-<LINK REL="up" HREF="node126.html">
+<LINK REL="up" HREF="node129.html">
 <LINK REL="next" HREF="node150.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html9405"
+<A NAME="tex2html9438"
   HREF="node150.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html9401"
-  HREF="node126.html">
+<A NAME="tex2html9434"
+  HREF="node129.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html9395"
+<A NAME="tex2html9428"
   HREF="node148.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html9403"
+<A NAME="tex2html9436"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html9406"
-  HREF="node150.html">CAutoTest::matchArray</A>
-<B> Up:</B> <A NAME="tex2html9402"
-  HREF="node126.html">./inc/CAutoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html9396"
-  HREF="node148.html">CAutoTest::decTimeout</A>
- &nbsp; <B>  <A NAME="tex2html9404"
+<B> Next:</B> <A NAME="tex2html9439"
+  HREF="node150.html">CAutoTest::isTriggered</A>
+<B> Up:</B> <A NAME="tex2html9435"
+  HREF="node129.html">./inc/CAutoTest.php</A>
+<B> Previous:</B> <A NAME="tex2html9429"
+  HREF="node148.html">CAutoTest::getTimestampString</A>
+ &nbsp; <B>  <A NAME="tex2html9437"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006823000000000000000">
-CAutoTest::addToSequence</A>
+<H2><A NAME="SECTION006820000000000000000">
+CAutoTest::setTriggered</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds an element to the sequence.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the trigger state ofthe current sequence event.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>triggerType: Type of the trigger (CAutoTest::TRIGGER_*) or the type event, that should happen to begin with the given element of the sequence.
+<LI>triggered: true, when the current sequence event was triggered, otherwise false.
 </LI>
-<LI>triggerParam: Parameter for the trigger (e.g. string that should be read from the screen when in CAutoTest::TRIGGER_OCR mode).
-</LI>
-<LI>answersA: Associative array with the answers and parameters.
-</LI>
-<LI>execType: Type of action (CAutoTest::EXEC_*), that will be executed when the trigger is hit.
-</LI>
-<LI>execParam: Parameter for the action (e.g. keys to press, when in CAutoTest::EXEC_KEY mode).
-</LI>
-<LI>execAttributes: Additional attributes (parameters) (eg. name/ID for Selenium calls)
-</LI>
-<LI>timeout: Time to wait (in seconds) until the element of sequence will become a failure.
-</LI>
-<LI>description: Description for the test.
-</LI>
-<LI>triggerAttributes: Trigger attribute(s). Can hold additional parameters. (Result is written to this pointer)
-</LI>
-<LI>runIf: Value of the runIf attribute.
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, when the current sequence event was triggered.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -86,7 +74,7 @@ CAutoTest::addToSequence</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

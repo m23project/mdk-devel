@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_statusBar</TITLE>
-<META NAME="description" CONTENT="MSR_statusBar">
+<TITLE>./inc/messageReceive.php</TITLE>
+<META NAME="description" CONTENT="./inc/messageReceive.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,9 +19,9 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node2061.html">
-<LINK REL="previous" HREF="node2059.html">
-<LINK REL="up" HREF="node2051.html">
+<LINK REL="next" HREF="node2097.html">
+<LINK REL="previous" HREF="node2042.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node2061.html">
 </HEAD>
 
@@ -32,7 +32,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   HREF="node2061.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
 <A NAME="tex2html34060"
-  HREF="node2051.html">
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html34054"
   HREF="node2059.html">
@@ -42,35 +42,109 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A NAME="tex2html34065"
-  HREF="node2061.html">MSR_curDynIP</A>
+  HREF="node2061.html">MSR_decodeMessage</A>
 <B> Up:</B> <A NAME="tex2html34061"
-  HREF="node2051.html">./inc/messageReceive.php</A>
+  HREF="node25.html">m23 API reference</A>
 <B> Previous:</B> <A NAME="tex2html34055"
-  HREF="node2059.html">MSR_genericSendCommand</A>
+  HREF="node2059.html">MSG_DeActivateBlogDialog</A>
  &nbsp; <B>  <A NAME="tex2html34063"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006669000000000000000">
-MSR_statusBar</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets new percent value and/or new status text.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>percent: Percent value to write into the DB (may be empty, if it should not be changed).
-</LI>
-<LI>statustext: A text message that should be shown under the status bar and written to the DB (may be empty, if it should not be changed).
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006660000000000000000">
+./inc/messageReceive.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Functions for handling messages sent by m23 clients.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html34066"
+  HREF="node2061.html">MSR_decodeMessage</A>
+<LI><A NAME="tex2html34067"
+  HREF="node2062.html">MSR_curDynIPCommand</A>
+<LI><A NAME="tex2html34068"
+  HREF="node2063.html">MSR_buildPoolFromClientDebsCMD</A>
+<LI><A NAME="tex2html34069"
+  HREF="node2064.html">MSR_buildPoolFromClientDebs</A>
+<LI><A NAME="tex2html34070"
+  HREF="node2065.html">MSR_statusBarInc</A>
+<LI><A NAME="tex2html34071"
+  HREF="node2066.html">MSR_statusBarIncCommand</A>
+<LI><A NAME="tex2html34072"
+  HREF="node2067.html">MSR_statusBarCommand</A>
+<LI><A NAME="tex2html34073"
+  HREF="node2068.html">MSR_genericSendCommand</A>
+<LI><A NAME="tex2html34074"
+  HREF="node2069.html">MSR_statusBar</A>
+<LI><A NAME="tex2html34075"
+  HREF="node2070.html">MSR_curDynIP</A>
+<LI><A NAME="tex2html34076"
+  HREF="node2071.html">MSR_copyClientPackageStatus</A>
+<LI><A NAME="tex2html34077"
+  HREF="node2072.html">MSR_importDiffFile</A>
+<LI><A NAME="tex2html34078"
+  HREF="node2073.html">MSR_CommandCopyClientPackageStatus</A>
+<LI><A NAME="tex2html34079"
+  HREF="node2074.html">MSR_copyDiffFileFromClient</A>
+<LI><A NAME="tex2html34080"
+  HREF="node2075.html">MSR_markm23normalAsDone</A>
+<LI><A NAME="tex2html34081"
+  HREF="node2076.html">MSR_decodeClientSideBase64</A>
+<LI><A NAME="tex2html34082"
+  HREF="node2077.html">MSR_clientSideBase64Encode</A>
+<LI><A NAME="tex2html34083"
+  HREF="node2078.html">MSR_genSendBinayFileCommand</A>
+<LI><A NAME="tex2html34084"
+  HREF="node2079.html">MSR_m23ImagerMBR</A>
+<LI><A NAME="tex2html34085"
+  HREF="node2080.html">MSR_m23ImagerSize</A>
+<LI><A NAME="tex2html34086"
+  HREF="node2081.html">MSR_getm23clientIDCMD</A>
+<LI><A NAME="tex2html34087"
+  HREF="node2082.html">MSR_importPackageStatus</A>
+<LI><A NAME="tex2html34088"
+  HREF="node2083.html">MSR_importLog</A>
+<LI><A NAME="tex2html34089"
+  HREF="node2084.html">MSR_logCommand</A>
+<LI><A NAME="tex2html34090"
+  HREF="node2085.html">MSR_statusFileCommand</A>
+<LI><A NAME="tex2html34091"
+  HREF="node2086.html">MSR_importStatusFile</A>
+<LI><A NAME="tex2html34092"
+  HREF="node2087.html">MSR_genSendCommand</A>
+<LI><A NAME="tex2html34093"
+  HREF="node2088.html">MSR_clientChangeCommand</A>
+<LI><A NAME="tex2html34094"
+  HREF="node2089.html">MSR_clientChange</A>
+<LI><A NAME="tex2html34095"
+  HREF="node2090.html">MSR_partHwDataCommand</A>
+<LI><A NAME="tex2html34096"
+  HREF="node2091.html">MSR_importPartHwData</A>
+<LI><A NAME="tex2html34097"
+  HREF="node2092.html">MSR_getClientSettingsCommand</A>
+<LI><A NAME="tex2html34098"
+  HREF="node2093.html">MSR_clientSettings</A>
+<LI><A NAME="tex2html34099"
+  HREF="node2094.html">MSR_setOnline</A>
+<LI><A NAME="tex2html34100"
+  HREF="node2095.html">MSR_addMonitor</A>
+<LI><A NAME="tex2html34101"
+  HREF="node2096.html">MSR_listMonitors</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

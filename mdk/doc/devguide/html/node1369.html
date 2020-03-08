@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>./inc/distr.php</TITLE>
-<META NAME="description" CONTENT="./inc/distr.php">
+<TITLE>PKG_getAptArchOptions</TITLE>
+<META NAME="description" CONTENT="PKG_getAptArchOptions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,86 +19,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1383.html">
-<LINK REL="previous" HREF="node1342.html">
-<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node1370.html">
+<LINK REL="previous" HREF="node1368.html">
+<LINK REL="up" HREF="node1350.html">
 <LINK REL="next" HREF="node1370.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html25111"
+<A NAME="tex2html25148"
   HREF="node1370.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html25107"
-  HREF="node25.html">
+<A NAME="tex2html25144"
+  HREF="node1350.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html25101"
+<A NAME="tex2html25138"
   HREF="node1368.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html25109"
+<A NAME="tex2html25146"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html25112"
-  HREF="node1370.html">DISTR_getUbuntuUserGroups</A>
-<B> Up:</B> <A NAME="tex2html25108"
-  HREF="node25.html">m23 API reference</A>
-<B> Previous:</B> <A NAME="tex2html25102"
-  HREF="node1368.html">PKG_getDebootStrapBasePackages</A>
- &nbsp; <B>  <A NAME="tex2html25110"
+<B> Next:</B> <A NAME="tex2html25149"
+  HREF="node1370.html">PKG_addAPTConfigFiles</A>
+<B> Up:</B> <A NAME="tex2html25145"
+  HREF="node1350.html">./inc/distr/imaging/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html25139"
+  HREF="node1368.html">PKG_listPackages</A>
+ &nbsp; <B>  <A NAME="tex2html25147"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION006470000000000000000">
-./inc/distr.php</A>
-</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
- Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
-<BR>
-Description: Functions for handling distributions.
-<BR></SMALL></SMALL>
+<H2><A NAME="SECTION0064619000000000000000">
+PKG_getAptArchOptions</A>
+</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Description:</SPAN> Generates options to specify the architecture of a client that can be appended to an apt-get line.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>arch: Architecture to get package infos for.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Parameter for architecture specific apt-get commands, if architecture is not i386.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html25113"
-  HREF="node1370.html">DISTR_getUbuntuUserGroups</A>
-<LI><A NAME="tex2html25114"
-  HREF="node1371.html">DISTR_getDebianUserGroups</A>
-<LI><A NAME="tex2html25115"
-  HREF="node1372.html">DISTR_releaseVersionTranslator</A>
-<LI><A NAME="tex2html25116"
-  HREF="node1373.html">DISTR_listDistributions</A>
-<LI><A NAME="tex2html25117"
-  HREF="node1374.html">DISTR_getDescriptionValues</A>
-<LI><A NAME="tex2html25118"
-  HREF="node1375.html">DISTR_DistributionsSelections</A>
-<LI><A NAME="tex2html25119"
-  HREF="node1376.html">DISTR_geti18nValue</A>
-<LI><A NAME="tex2html25120"
-  HREF="node1377.html">DISTR_listCommaSeperated</A>
-<LI><A NAME="tex2html25121"
-  HREF="node1378.html">DISTR_commaSeperatedSelections</A>
-<LI><A NAME="tex2html25122"
-  HREF="node1379.html">DISTR_getDesktopsCBList</A>
-<LI><A NAME="tex2html25123"
-  HREF="node1380.html">DISTR_getDesktopDescription</A>
-<LI><A NAME="tex2html25124"
-  HREF="node1381.html">DISTR_getSelectedDesktopsArr</A>
-<LI><A NAME="tex2html25125"
-  HREF="node1382.html">DISTR_getSelectedDesktopsStr</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

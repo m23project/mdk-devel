@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::devNrExists</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::devNrExists">
+<TITLE>CFDiskIO::setPartitionFileSystem</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::setPartitionFileSystem">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node583.html">
 <LINK REL="previous" HREF="node581.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node583.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15033"
+<A NAME="tex2html15066"
   HREF="node583.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15029"
-  HREF="node521.html">
+<A NAME="tex2html15062"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15023"
+<A NAME="tex2html15056"
   HREF="node581.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15031"
+<A NAME="tex2html15064"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15034"
-  HREF="node583.html">CFDiskIO::getBiggestLowestValueOf</A>
-<B> Up:</B> <A NAME="tex2html15030"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15024"
-  HREF="node581.html">CFDiskIO::correctLogical</A>
- &nbsp; <B>  <A NAME="tex2html15032"
+<B> Next:</B> <A NAME="tex2html15067"
+  HREF="node583.html">CFDiskIO::virtualDelPartition</A>
+<B> Up:</B> <A NAME="tex2html15063"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15057"
+  HREF="node581.html">CFDiskIO::getPartitionFileSystem</A>
+ &nbsp; <B>  <A NAME="tex2html15065"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061561000000000000000">
-CFDiskIO::devNrExists</A>
+<H2><A NAME="SECTION0061555000000000000000">
+CFDiskIO::setPartitionFileSystem</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if a certain (physical) partition number exists.
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the file system of a partition.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
-<LI>devNr: Device numer you want to check (e.g. 2 for /dev/sda2)
+<LI>vPart: the virtual partition number, that is used to build the variable name to access the associative array.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>true, when the (physical) partition number exists on the disk.
+<LI>fs: File system (e.g. ext4)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +72,7 @@ CFDiskIO::devNrExists</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

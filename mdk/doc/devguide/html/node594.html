@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getCreatablePartitionTypes</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getCreatablePartitionTypes">
+<TITLE>CFDiskIO::getBelongingRaidDev</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getBelongingRaidDev">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node595.html">
 <LINK REL="previous" HREF="node593.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node595.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15177"
+<A NAME="tex2html15210"
   HREF="node595.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15173"
-  HREF="node521.html">
+<A NAME="tex2html15206"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15167"
+<A NAME="tex2html15200"
   HREF="node593.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15175"
+<A NAME="tex2html15208"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15178"
-  HREF="node595.html">CFDiskIO::mayLogicalPartitionsBeChanged</A>
-<B> Up:</B> <A NAME="tex2html15174"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15168"
-  HREF="node593.html">CFDiskIO::isNewPartitionOfTypeCreatable</A>
- &nbsp; <B>  <A NAME="tex2html15176"
+<B> Next:</B> <A NAME="tex2html15211"
+  HREF="node595.html">CFDiskIO::FDISK_dev2VDiskVPart_Legacy</A>
+<B> Up:</B> <A NAME="tex2html15207"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15201"
+  HREF="node593.html">CFDiskIO::virtualAddDisk</A>
+ &nbsp; <B>  <A NAME="tex2html15209"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061573000000000000000">
-CFDiskIO::getCreatablePartitionTypes</A>
+<H2><A NAME="SECTION0061567000000000000000">
+CFDiskIO::getBelongingRaidDev</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates an array with the types of partitions that could be created on a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for the RAID device, a physical partition belongs to, if it is part of a RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+<LI>dev: The physical partition (e.g. /dev/hda4) that belongs to a RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with types of partitions that could be created on a disk.
+<LI>The RAID device (e.g. /dev/md0) the physical partition belongs to or false, if no belonging RAID was found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::getCreatablePartitionTypes</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

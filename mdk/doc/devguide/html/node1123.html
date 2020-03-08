@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>DHCP_calcPXEIP</TITLE>
-<META NAME="description" CONTENT="DHCP_calcPXEIP">
+<TITLE>DHCP_addClient</TITLE>
+<META NAME="description" CONTENT="DHCP_addClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1124.html">
 <LINK REL="previous" HREF="node1122.html">
-<LINK REL="up" HREF="node1106.html">
+<LINK REL="up" HREF="node1112.html">
 <LINK REL="next" HREF="node1124.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21943"
+<A NAME="tex2html21976"
   HREF="node1124.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21939"
-  HREF="node1106.html">
+<A NAME="tex2html21972"
+  HREF="node1112.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21933"
+<A NAME="tex2html21966"
   HREF="node1122.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21941"
+<A NAME="tex2html21974"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21944"
-  HREF="node1124.html">DHCP_writePXEcfg</A>
-<B> Up:</B> <A NAME="tex2html21940"
-  HREF="node1106.html">./inc/dhcp.php</A>
-<B> Previous:</B> <A NAME="tex2html21934"
-  HREF="node1122.html">DHCP_activateBoot</A>
- &nbsp; <B>  <A NAME="tex2html21942"
+<B> Next:</B> <A NAME="tex2html21977"
+  HREF="node1124.html">DHCP_addLineToDHCPDConf</A>
+<B> Up:</B> <A NAME="tex2html21973"
+  HREF="node1112.html">./inc/dhcp.php</A>
+<B> Previous:</B> <A NAME="tex2html21967"
+  HREF="node1122.html">DHCP_runScript</A>
+ &nbsp; <B>  <A NAME="tex2html21975"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063817000000000000000">
-DHCP_calcPXEIP</A>
+<H2><A NAME="SECTION0063811000000000000000">
+DHCP_addClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> calculates the ip for the pxe config file
+<SPAN  CLASS="textbf">Description:</SPAN> adds a new client to the dhcpd.conf and restarts the dhcpd-server
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>ip: ip address to convert to the PXE file name
+<LI>clientName: name of the client
+</LI>
+<LI>ip: ip address of the client
+</LI>
+<LI>netmask: netmask for the ip
+</LI>
+<LI>mac: mac addresse of the network card
+</LI>
+<LI>bootType: Parameter can be boolean for backward compatibility: if true use PXE for the client, otherwise use Etherboot
+</LI>
+<LI>bootType: Parameter can a string: pxe, etherboot, gpxe, none
+</LI>
+<LI>gateway: The gateway for the client.
+</LI>
+<LI>updateDB: If set to true, the boot type is set for the client in the DB.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the DHCP server could be restarted with the new settings.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +88,7 @@ DHCP_calcPXEIP</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

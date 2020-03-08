@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_aptConf</TITLE>
-<META NAME="description" CONTENT="CLCFG_aptConf">
+<TITLE>CLCFG_addUser</TITLE>
+<META NAME="description" CONTENT="CLCFG_addUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1173.html">
 <LINK REL="previous" HREF="node1171.html">
-<LINK REL="up" HREF="node1127.html">
+<LINK REL="up" HREF="node1133.html">
 <LINK REL="next" HREF="node1173.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html22609"
+<A NAME="tex2html22643"
   HREF="node1173.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html22605"
-  HREF="node1127.html">
+<A NAME="tex2html22639"
+  HREF="node1133.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html22599"
+<A NAME="tex2html22633"
   HREF="node1171.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html22607"
+<A NAME="tex2html22641"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html22610"
-  HREF="node1173.html">CLCFG_sourceslist</A>
-<B> Up:</B> <A NAME="tex2html22606"
-  HREF="node1127.html">./inc/distr/debian/clientConfigCommon.php</A>
-<B> Previous:</B> <A NAME="tex2html22600"
-  HREF="node1171.html">CLCFG_resolvConf</A>
- &nbsp; <B>  <A NAME="tex2html22608"
+<B> Next:</B> <A NAME="tex2html22644"
+  HREF="node1173.html">CLCFG_createBootDeviceNode</A>
+<B> Up:</B> <A NAME="tex2html22640"
+  HREF="node1133.html">./inc/distr/debian/clientConfigCommon.php</A>
+<B> Previous:</B> <A NAME="tex2html22634"
+  HREF="node1171.html">CLCFG_writeHosts</A>
+ &nbsp; <B>  <A NAME="tex2html22642"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063945000000000000000">
-CLCFG_aptConf</A>
+<H2><A NAME="SECTION0063939000000000000000">
+CLCFG_addUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a script that writes the /etc/apt/apt.conf.d/70debconf file.
+<SPAN  CLASS="textbf">Description:</SPAN> generates the commands to add a user on the client. it adds the user account, creates a home directory, copies the m23 skel files and sets the
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>proxyServer: IP or name of the proxy server
+<LI>userName: the username for the account
 </LI>
-<LI>proxyPort: port the proxy server listens on
+<LI>password: the unecrypted password for the account
+</LI>
+<LI>groups: the groups the user should be added to
+</LI>
+<LI>skelDir: directory to the skeleton files
+</LI>
+<LI>uid: Optional user ID of the new user.
+</LI>
+<LI>gid: Optional group ID of the new user.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ CLCFG_aptConf</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

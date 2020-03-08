@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getUnusedDiskDev</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getUnusedDiskDev">
+<TITLE>CFDiskIO::setRaidLevel</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::setRaidLevel">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node624.html">
 <LINK REL="previous" HREF="node622.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node624.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15525"
+<A NAME="tex2html15558"
   HREF="node624.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15521"
-  HREF="node521.html">
+<A NAME="tex2html15554"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15515"
+<A NAME="tex2html15548"
   HREF="node622.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15523"
+<A NAME="tex2html15556"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15526"
-  HREF="node624.html">CFDiskIO::getUsedMDs</A>
-<B> Up:</B> <A NAME="tex2html15522"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15516"
-  HREF="node622.html">CFDiskIO::getUnusedMDs</A>
- &nbsp; <B>  <A NAME="tex2html15524"
+<B> Next:</B> <A NAME="tex2html15559"
+  HREF="node624.html">CFDiskIO::getDiskSize</A>
+<B> Up:</B> <A NAME="tex2html15555"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15549"
+  HREF="node622.html">CFDiskIO::getRaidDevsBuildingDiskAmount</A>
+ &nbsp; <B>  <A NAME="tex2html15557"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00615102000000000000000">
-CFDiskIO::getUnusedDiskDev</A>
+<H2><A NAME="SECTION0061596000000000000000">
+CFDiskIO::setRaidLevel</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an associative array with the unused device names (e.g. /dev/sda, /dev/sdb, ...) as key and value.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Sets the RAID level on a new RAID disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Associative array with the unused device names (e.g. /dev/sda, /dev/sdb, ...) as key and value.
+<LI>vrDisk: Virtual (internally used) disk number.
+</LI>
+<LI>level: RAID level number.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the RAID level is valid, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskIO::getUnusedDiskDev</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::getTestDiskvDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::getTestDiskvDisk">
+<TITLE>CFDiskIO::getMknodCommand</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getMknodCommand">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,48 +19,53 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node650.html">
 <LINK REL="previous" HREF="node648.html">
-<LINK REL="up" HREF="node644.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node650.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15872"
+<A NAME="tex2html15868"
   HREF="node650.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15868"
-  HREF="node644.html">
+<A NAME="tex2html15864"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15862"
+<A NAME="tex2html15860"
   HREF="node648.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15870"
+<A NAME="tex2html15866"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15873"
-  HREF="node650.html">CFDiskTest::getRandomPartitionDev</A>
-<B> Up:</B> <A NAME="tex2html15869"
-  HREF="node644.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html15863"
-  HREF="node648.html">CFDiskTest::rand</A>
- &nbsp; <B>  <A NAME="tex2html15871"
+<B> Next:</B> <A NAME="tex2html15869"
+  HREF="node650.html">./inc/CFDiskTest.php</A>
+<B> Up:</B> <A NAME="tex2html15865"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15861"
+  HREF="node648.html">CFDiskIO::getNVMeMknodCommand</A>
+ &nbsp; <B>  <A NAME="tex2html15867"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006165000000000000000">
-CFDiskTest::getTestDiskvDisk</A>
+<H2><A NAME="SECTION00615122000000000000000">
+CFDiskIO::getMknodCommand</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the vDisk for the testing fisk.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the mknod command for a given /dev/sdX(Y) device (disk or partition).
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk for the testing fisk.
+<LI>dev: The device (e.g. /dev/sda5) to created the mknod command for.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>mknod command with the parameter matching the given /dev/sdX(Y).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +73,7 @@ CFDiskTest::getTestDiskvDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

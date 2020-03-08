@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::collidesWithPartitionOfType</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::collidesWithPartitionOfType">
+<TITLE>CFDiskIO::getBiggestValueOf</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::getBiggestValueOf">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,58 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node591.html">
 <LINK REL="previous" HREF="node589.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node591.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15129"
+<A NAME="tex2html15162"
   HREF="node591.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15125"
-  HREF="node521.html">
+<A NAME="tex2html15158"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15119"
+<A NAME="tex2html15152"
   HREF="node589.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15127"
+<A NAME="tex2html15160"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15130"
-  HREF="node591.html">CFDiskIO::isFreeSpaceBetween</A>
-<B> Up:</B> <A NAME="tex2html15126"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15120"
-  HREF="node589.html">CFDiskIO::FDISK_dev2VDiskVPart_Legacy</A>
- &nbsp; <B>  <A NAME="tex2html15128"
+<B> Next:</B> <A NAME="tex2html15163"
+  HREF="node591.html">CFDiskIO::getLowestValueOf</A>
+<B> Up:</B> <A NAME="tex2html15159"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15153"
+  HREF="node589.html">CFDiskIO::getBiggestLowestValueOf</A>
+ &nbsp; <B>  <A NAME="tex2html15161"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061569000000000000000">
-CFDiskIO::collidesWithPartitionOfType</A>
+<H2><A NAME="SECTION0061563000000000000000">
+CFDiskIO::getBiggestValueOf</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Checks if a partition (to be created) defined by start and end position would collide with existing partitions of given type.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the biggest value from all partitions of a given type.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vDisk: Virtual (internally used) device number.
+<LI>vDisk: Virtual (internally used) disk number.
 </LI>
-<LI>type: type of the partition (primary, extended, logical, efipart, or -1 to match all partition types)
+<LI>partType: Type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL, CFDiskIO::PT_EFI)
 </LI>
-<LI>start: start position for the partition (to be created)
-</LI>
-<LI>end: end position for the  partition (to be created)
+<LI>varType: Variable in the associative array ($this-<SPAN CLASS="MATH"></SPAN>wantedPartitioning[$vDisk][$vPart][$varType]) to check.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true, if the partition to create would collide, otherwise false.
+<LI>Biggest value from all partitions of a given type.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -80,7 +78,7 @@ CFDiskIO::collidesWithPartitionOfType</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

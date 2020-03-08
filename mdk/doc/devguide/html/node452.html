@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::createPartition</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::createPartition">
+<TITLE>CFDiskBasic::createRaidJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::createRaidJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,60 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node453.html">
 <LINK REL="previous" HREF="node451.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node453.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13307"
+<A NAME="tex2html13340"
   HREF="node453.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13303"
-  HREF="node438.html">
+<A NAME="tex2html13336"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13297"
+<A NAME="tex2html13330"
   HREF="node451.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13305"
+<A NAME="tex2html13338"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13308"
-  HREF="node453.html">CFDiskBasic::createUEFIPartition</A>
-<B> Up:</B> <A NAME="tex2html13304"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13298"
-  HREF="node451.html">CFDiskBasic::genPartedCommands</A>
- &nbsp; <B>  <A NAME="tex2html13306"
+<B> Next:</B> <A NAME="tex2html13341"
+  HREF="node453.html">CFDiskBasic::deleteRaidJob</A>
+<B> Up:</B> <A NAME="tex2html13337"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13331"
+  HREF="node451.html">CFDiskBasic::formatJob</A>
+ &nbsp; <B>  <A NAME="tex2html13339"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061314000000000000000">
-CFDiskBasic::createPartition</A>
+<H2><A NAME="SECTION006138000000000000000">
+CFDiskBasic::createRaidJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Creates a new partition on a disk (if possible).
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a RAID creation job and adds it to the list of partition steps.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device (e.g. /dev/sda).
+<LI>dev: RAID device to create (e.g. /dev/md0)
 </LI>
-<LI>start: Start position (in MB) of the partition to create.
+<LI>devsBuildingDiskArray: Array with the devices that build the RAID.
 </LI>
-<LI>end: End position (in MB) of the partition to create.
-</LI>
-<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL)
-</LI>
-<LI>bootable: Set to true, if the partition should be made bootable.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The physical partition number of the newly created partition.
+<LI>level: RAID level.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -82,7 +72,7 @@ CFDiskBasic::createPartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

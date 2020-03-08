@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_printStatus</TITLE>
-<META NAME="description" CONTENT="PKG_printStatus">
+<TITLE>PKG_preparePool</TITLE>
+<META NAME="description" CONTENT="PKG_preparePool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1491.html">
 <LINK REL="previous" HREF="node1489.html">
-<LINK REL="up" HREF="node1473.html">
+<LINK REL="up" HREF="node1482.html">
 <LINK REL="next" HREF="node1491.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26684"
+<A NAME="tex2html26720"
   HREF="node1491.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26680"
-  HREF="node1473.html">
+<A NAME="tex2html26716"
+  HREF="node1482.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26674"
+<A NAME="tex2html26710"
   HREF="node1489.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26682"
+<A NAME="tex2html26718"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26685"
-  HREF="node1491.html">PKG_listPackages</A>
-<B> Up:</B> <A NAME="tex2html26681"
-  HREF="node1473.html">./inc/distr/ubuntu/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html26675"
-  HREF="node1489.html">PKG_getPackageDescriptionSize</A>
- &nbsp; <B>  <A NAME="tex2html26683"
+<B> Next:</B> <A NAME="tex2html26721"
+  HREF="node1491.html">PKG_convertPackagesToRepository</A>
+<B> Up:</B> <A NAME="tex2html26717"
+  HREF="node1482.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26711"
+  HREF="node1489.html">PKG_rsyncDebsFromClientToServer</A>
+ &nbsp; <B>  <A NAME="tex2html26719"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065017000000000000000">
-PKG_printStatus</A>
+<H2><A NAME="SECTION006508000000000000000">
+PKG_preparePool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> prints the package status, e.g. amount of packages,...
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the needed configuration file for reprepro.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>distr: the name of the distribution
+<LI>release: Release of the pool.
 </LI>
-<LI>packagesource: the name of the package source list
+<LI>distr: Distribution of the pool.
+</LI>
+<LI>arch: Architecture of the pool (POOL_ARCH_I386 or CPoolLister::POOL_ARCH_AMD64).
+</LI>
+<LI>poolName: Name of the pool (if a pool with the given name exists =<SPAN CLASS="MATH"></SPAN> load)
+</LI>
+<LI>poolDir: Directory of the pool with full path.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +76,7 @@ PKG_printStatus</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

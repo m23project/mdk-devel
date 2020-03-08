@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::fdiskSessionHelpPage</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::fdiskSessionHelpPage">
+<TITLE>./inc/CFDiskGUI.php</TITLE>
+<META NAME="description" CONTENT="./inc/CFDiskGUI.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,62 +19,156 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node479.html">
-<LINK REL="previous" HREF="node477.html">
-<LINK REL="up" HREF="node472.html">
+<LINK REL="next" HREF="node527.html">
+<LINK REL="previous" HREF="node444.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node479.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13665"
+<A NAME="tex2html13650"
   HREF="node479.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13661"
-  HREF="node472.html">
+<A NAME="tex2html13646"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13655"
+<A NAME="tex2html13640"
   HREF="node477.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13663"
+<A NAME="tex2html13648"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13666"
-  HREF="node479.html">CFDiskGUI::getDiskLayoutEntryStart</A>
-<B> Up:</B> <A NAME="tex2html13662"
-  HREF="node472.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13656"
-  HREF="node477.html">FDISK_fdiskSessionReset</A>
- &nbsp; <B>  <A NAME="tex2html13664"
+<B> Next:</B> <A NAME="tex2html13651"
+  HREF="node479.html">CFDiskBasic::__construct</A>
+<B> Up:</B> <A NAME="tex2html13647"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html13641"
+  HREF="node477.html">CFDiskBasic::fdiskAdjustPartitioning</A>
+ &nbsp; <B>  <A NAME="tex2html13649"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006146000000000000000">
-CFDiskGUI::fdiskSessionHelpPage</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Stores the help page in the session or loads it.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>newPage: The new help page to set or false for not changing.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The current help page.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006140000000000000000">
+./inc/CFDiskGUI.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for visualisation of partitioning and formating.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html13652"
+  HREF="node479.html">CFDiskBasic::__construct</A>
+<LI><A NAME="tex2html13653"
+  HREF="node480.html">CFDiskGUI::__destruct</A>
+<LI><A NAME="tex2html13654"
+  HREF="node481.html">CFDiskGUI::fdiskSessionSetter</A>
+<LI><A NAME="tex2html13655"
+  HREF="node482.html">CFDiskGUI::fdiskSessionPage</A>
+<LI><A NAME="tex2html13656"
+  HREF="node483.html">FDISK_fdiskSessionReset</A>
+<LI><A NAME="tex2html13657"
+  HREF="node484.html">CFDiskGUI::fdiskSessionHelpPage</A>
+<LI><A NAME="tex2html13658"
+  HREF="node485.html">CFDiskGUI::getDiskLayoutEntryStart</A>
+<LI><A NAME="tex2html13659"
+  HREF="node486.html">CFDiskGUI::getDiskLayoutEntryEnd</A>
+<LI><A NAME="tex2html13660"
+  HREF="node487.html">CFDiskGUI::getDiskLayoutEntrySize</A>
+<LI><A NAME="tex2html13661"
+  HREF="node488.html">CFDiskGUI::getDiskLayoutEntryType</A>
+<LI><A NAME="tex2html13662"
+  HREF="node489.html">CFDiskGUI::getDiskLayoutEntryFileSystem</A>
+<LI><A NAME="tex2html13663"
+  HREF="node490.html">CFDiskGUI::getFileSystemTranslator</A>
+<LI><A NAME="tex2html13664"
+  HREF="node491.html">CFDiskGUI::getPartitionTypeTranslator</A>
+<LI><A NAME="tex2html13665"
+  HREF="node492.html">CFDiskGUI::getDiskLayoutEntryDev</A>
+<LI><A NAME="tex2html13666"
+  HREF="node493.html">CFDiskGUI::getDiskLayoutEntriesAmount</A>
+<LI><A NAME="tex2html13667"
+  HREF="node494.html">CFDiskGUI::getFreeSpaceHTMLColor</A>
+<LI><A NAME="tex2html13668"
+  HREF="node495.html">CFDiskGUI::showFreeSpaceBarBlock</A>
+<LI><A NAME="tex2html13669"
+  HREF="node496.html">CFDiskGUI::showEmptyDiskTable</A>
+<LI><A NAME="tex2html13670"
+  HREF="node497.html">CFDiskGUI::getPartitionExtraIconHTML</A>
+<LI><A NAME="tex2html13671"
+  HREF="node498.html">CFDiskGUI::getExtraCSSForExtended</A>
+<LI><A NAME="tex2html13672"
+  HREF="node499.html">CFDiskGUI::showPartitionBarBlock</A>
+<LI><A NAME="tex2html13673"
+  HREF="node500.html">CFDiskGUI::printBars</A>
+<LI><A NAME="tex2html13674"
+  HREF="node501.html">CFDiskGUI::showPartTable</A>
+<LI><A NAME="tex2html13675"
+  HREF="node502.html">CFDiskGUI::addDiskLayoutEntry</A>
+<LI><A NAME="tex2html13676"
+  HREF="node503.html">CFDiskGUI::newDiskLayout</A>
+<LI><A NAME="tex2html13677"
+  HREF="node504.html">CFDiskGUI::updateDiskLayout</A>
+<LI><A NAME="tex2html13678"
+  HREF="node505.html">CFDiskGUI::showCombinedFdiskGUIDialog</A>
+<LI><A NAME="tex2html13679"
+  HREF="node506.html">CFDiskGUI::getCurrentDiskDev</A>
+<LI><A NAME="tex2html13680"
+  HREF="node507.html">CFDiskGUI::getCurrentDiskvDev</A>
+<LI><A NAME="tex2html13681"
+  HREF="node508.html">CFDiskGUI::getCurrentPartDev</A>
+<LI><A NAME="tex2html13682"
+  HREF="node509.html">CFDiskGUI::finalChecksAndRealPartitionAndFormatStart</A>
+<LI><A NAME="tex2html13683"
+  HREF="node510.html">CFDiskGUI::showFdiskCombinedGUIFunctions</A>
+<LI><A NAME="tex2html13684"
+  HREF="node511.html">CFDiskGUI::getPartitionPercent</A>
+<LI><A NAME="tex2html13685"
+  HREF="node512.html">CFDiskGUI::getHTMLColorForFilesystemOrType</A>
+<LI><A NAME="tex2html13686"
+  HREF="node513.html">CFDiskGUI::getPartTableEntryNr</A>
+<LI><A NAME="tex2html13687"
+  HREF="node514.html">CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
+<LI><A NAME="tex2html13688"
+  HREF="node515.html">CFDiskGUI::printAllBars</A>
+<LI><A NAME="tex2html13689"
+  HREF="node516.html">CFDiskGUI::getPartInfoIcon</A>
+<LI><A NAME="tex2html13690"
+  HREF="node517.html">CFDiskGUI::getPartInfoString</A>
+<LI><A NAME="tex2html13691"
+  HREF="node518.html">CFDiskGUI::getDiskInfoString</A>
+<LI><A NAME="tex2html13692"
+  HREF="node519.html">CFDiskGUI::getDriveInfoIcon</A>
+<LI><A NAME="tex2html13693"
+  HREF="node520.html">CFDiskGUI::listPartJobs</A>
+<LI><A NAME="tex2html13694"
+  HREF="node521.html">CFDiskGUI::showAllPartTables</A>
+<LI><A NAME="tex2html13695"
+  HREF="node522.html">CFDiskGUI::getRaidTable</A>
+<LI><A NAME="tex2html13696"
+  HREF="node523.html">CFDiskGUI::showColorDefinitions</A>
+<LI><A NAME="tex2html13697"
+  HREF="node524.html">CFDiskGUI::fstabAddDialog</A>
+<LI><A NAME="tex2html13698"
+  HREF="node525.html">CFDiskGUI::getFstabTable</A>
+<LI><A NAME="tex2html13699"
+  HREF="node526.html">CFDiskGUI::getHDSizes</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

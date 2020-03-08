@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>MSR_logCommand</TITLE>
-<META NAME="description" CONTENT="MSR_logCommand">
+<TITLE>MSR_markm23normalAsDone</TITLE>
+<META NAME="description" CONTENT="MSR_markm23normalAsDone">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2076.html">
 <LINK REL="previous" HREF="node2074.html">
-<LINK REL="up" HREF="node2051.html">
+<LINK REL="up" HREF="node2060.html">
 <LINK REL="next" HREF="node2076.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html34244"
+<A NAME="tex2html34280"
   HREF="node2076.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html34240"
-  HREF="node2051.html">
+<A NAME="tex2html34276"
+  HREF="node2060.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html34234"
+<A NAME="tex2html34270"
   HREF="node2074.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html34242"
+<A NAME="tex2html34278"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html34245"
-  HREF="node2076.html">MSR_statusFileCommand</A>
-<B> Up:</B> <A NAME="tex2html34241"
-  HREF="node2051.html">./inc/messageReceive.php</A>
-<B> Previous:</B> <A NAME="tex2html34235"
-  HREF="node2074.html">MSR_importLog</A>
- &nbsp; <B>  <A NAME="tex2html34243"
+<B> Next:</B> <A NAME="tex2html34281"
+  HREF="node2076.html">MSR_decodeClientSideBase64</A>
+<B> Up:</B> <A NAME="tex2html34277"
+  HREF="node2060.html">./inc/messageReceive.php</A>
+<B> Previous:</B> <A NAME="tex2html34271"
+  HREF="node2074.html">MSR_copyDiffFileFromClient</A>
+ &nbsp; <B>  <A NAME="tex2html34279"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0066624000000000000000">
-MSR_logCommand</A>
+<H2><A NAME="SECTION0066615000000000000000">
+MSR_markm23normalAsDone</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates BASH code to send a log file to the server
+<SPAN  CLASS="textbf">Description:</SPAN> Marks comming m23normal install jobs as done if the packages they would install are already installed. This may happen when a package with dependencies is installed.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>logFile: name of the logfile
-</LI>
-<LI>show: If set to true, the output is shown directly, if set to false, it is returned.
+<LI>$_POST['data']: List of new installed packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +68,7 @@ MSR_logCommand</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

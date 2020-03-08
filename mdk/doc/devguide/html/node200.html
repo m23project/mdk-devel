@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CAutoUpdate::delSet</TITLE>
-<META NAME="description" CONTENT="CAutoUpdate::delSet">
+<TITLE>CAutoUpdate::addSet</TITLE>
+<META NAME="description" CONTENT="CAutoUpdate::addSet">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node201.html">
 <LINK REL="previous" HREF="node199.html">
-<LINK REL="up" HREF="node191.html">
+<LINK REL="up" HREF="node197.html">
 <LINK REL="next" HREF="node201.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10046"
+<A NAME="tex2html10079"
   HREF="node201.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10042"
-  HREF="node191.html">
+<A NAME="tex2html10075"
+  HREF="node197.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10036"
+<A NAME="tex2html10069"
   HREF="node199.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10044"
+<A NAME="tex2html10077"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10047"
-  HREF="node201.html">CAutoUpdate::getAllSets</A>
-<B> Up:</B> <A NAME="tex2html10043"
-  HREF="node191.html">./inc/CAutoUpdate.php</A>
-<B> Previous:</B> <A NAME="tex2html10037"
-  HREF="node199.html">CAutoUpdate::getUpdateTypeTranslation</A>
- &nbsp; <B>  <A NAME="tex2html10045"
+<B> Next:</B> <A NAME="tex2html10080"
+  HREF="node201.html">CAutoUpdate::setParallelUpdates</A>
+<B> Up:</B> <A NAME="tex2html10076"
+  HREF="node197.html">./inc/CAutoUpdate.php</A>
+<B> Previous:</B> <A NAME="tex2html10070"
+  HREF="node199.html">CAutoUpdate::getActiveSet</A>
+ &nbsp; <B>  <A NAME="tex2html10078"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00699000000000000000">
-CAutoUpdate::delSet</A>
+<H2><A NAME="SECTION00693000000000000000">
+CAutoUpdate::addSet</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes one set.
+<SPAN  CLASS="textbf">Description:</SPAN> Adds an entry to the schedule.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>id: ID of the set to delete.
+<LI>startsEnds: Array with the start and end times
+</LI>
+<LI>groups: Array with the groups.
+</LI>
+<LI>type: Type of update (CAutoUpdate::UPDATE_FULL or CAutoUpdate::UPDATE_NORMAL)
+</LI>
+<LI>parallelUpdates: Amount of clients that should be updated in parallel.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: true, of the set with the given ID could be deleted, otherwise dies.
+<LI>: true, on successfully insert, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +80,7 @@ CAutoUpdate::delSet</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

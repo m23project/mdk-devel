@@ -214,10 +214,18 @@ z.B. UCS 4.4: 192.168.1.144</li>
 <li>Partitionen aus dem Abbild auf Gerätedateien umlenken: <code>kpartx -a -v 20XX-YY-ZZ-raspbian-stretch-lite.img</code></li>
 <li>Boot-Partition einhängen: <code>mount /dev/mapper/loop0p1 /mnt/loop/</code></li>
 <li>SSH-Server beim Booten aktivieren: <code>touch /mnt/loop/ssh</code></li>
+<li>Erste Partition aushängen: <code>umount /mnt/loop</code></li>
 <li>System-Partition einhängen: <code>mount /dev/mapper/loop0p2 /mnt/loop/</code></li>
 <li>In <code>/mnt/loop/etc/ssh/sshd_config</code> &quot;PermitRootLogin yes&quot; setzen</li>
-<li><p>In <code>/mnt/loop/etc/shadow</code> die bestehende &quot;root&quot;-Zeile ersetzen durch:</p>
+<li><p>In <code>/mnt/loop/etc/shadow</code> die bestehende &quot;root&quot;-Zeile ersetzen durch (Paßwort = test):</p>
 <p>root:<span class="math inline">6</span>Lc6S7BJt$/Rc4cLBYjzK012BxttQOnPpa9Sh3IEuxEAyzf/oKcfwwQKOqvadHI0uEhDrkeQRsarJuqP3d0I1Z0/Yjq1l641:17964:0:99999:7:::</p></li>
+<li><p>In <code>/mnt/loop/etc/shadow</code> die bestehende &quot;pi&quot;-Zeile ersetzen durch (Paßwort = test):</p>
+<p>pi:<span class="math inline">6</span>rMmaUT.QhJnCOC5L$T6kh.rOkTnc6TSllFa5F1qUF3DU9wQNJagEvMTtopg6cpCU3HihGY8EsndlHMjSAwS9d4kJIevXEJjvDarYqr0:18092:0:99999:7:::</p></li>
+<li><p>In <code>/mnt/loop/etc/network/interfaces</code> folgendes einfügen:</p></li>
+</ul>
+<p>allow-hotplug eth0 iface eth0 inet static address 192.168.1.122 netmask 255.255.255.0 network 192.168.1.0 broadcast 192.168.1.255 gateway 192.168.1.5 dns-nameservers 192.168.1.5</p>
+<ul>
+<li><p>In <code>/mnt/loop/etc/resolv.conf</code> folgendes einfügen: nameserver 192.168.1.5</p></li>
 <li>Zweite Partition aushängen: <code>umount /mnt/loop</code></li>
 <li>Umlenkung aufheben: <code>kpartx -d -v 20XX-YY-ZZ-raspbian-stretch-lite.img</code></li>
 <li><p>Abbild komprimieren: <code>bzip2 -9 20XX-YY-ZZ-raspbian-stretch-lite.img</code></p></li>

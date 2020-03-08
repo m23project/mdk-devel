@@ -949,7 +949,7 @@ copym23()
 	sed -i 's/rock/rock-devel/' $m23DevelDir/inc/version.php
 	
 	cd $m23DevelDir
-	createNewBazaarRepo
+	#createNewBazaarRepo
 
 	cd $m23ReadLink
 }

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::autoPartitionDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::autoPartitionDisk">
+<TITLE>CFDiskBasic::deletePartition</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::deletePartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node461.html">
 <LINK REL="previous" HREF="node459.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node461.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13403"
+<A NAME="tex2html13436"
   HREF="node461.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13399"
-  HREF="node438.html">
+<A NAME="tex2html13432"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13393"
+<A NAME="tex2html13426"
   HREF="node459.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13401"
+<A NAME="tex2html13434"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13404"
-  HREF="node461.html">CFDiskBasic::PM_auto2Disk1SysSwap2Home</A>
-<B> Up:</B> <A NAME="tex2html13400"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13394"
-  HREF="node459.html">CFDiskBasic::createFormatPartition</A>
- &nbsp; <B>  <A NAME="tex2html13402"
+<B> Next:</B> <A NAME="tex2html13437"
+  HREF="node461.html">CFDiskBasic::formatPartition</A>
+<B> Up:</B> <A NAME="tex2html13433"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13427"
+  HREF="node459.html">CFDiskBasic::createUEFIPartition</A>
+ &nbsp; <B>  <A NAME="tex2html13435"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061322000000000000000">
-CFDiskBasic::autoPartitionDisk</A>
+<H2><A NAME="SECTION0061316000000000000000">
+CFDiskBasic::deletePartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Automatically partitions and formats a disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes a partition from a disk.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>diskDev: The disk device (e.g. /dev/hda) that should be partitionated and formated automatically.
+<LI>dev: The device (e.g. /dev/sda).
 </LI>
-<LI>minSwap: Minimal size of the swap partition in MB.
+<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
 </LI>
-<LI>maxSwap: Maximal size of the swap partition in MB.
+<LI>massInstallMode: Adds the job to the beginning of the partitionSteps and partitionStepsForShift arrays and doesn't unset installation and swap partition.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +72,7 @@ CFDiskBasic::autoPartitionDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

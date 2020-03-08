@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClientLister::showClientTable</TITLE>
-<META NAME="description" CONTENT="CClientLister::showClientTable">
+<TITLE>CChecks::checkIPRange</TITLE>
+<META NAME="description" CONTENT="CChecks::checkIPRange">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,62 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node266.html">
 <LINK REL="previous" HREF="node264.html">
-<LINK REL="up" HREF="node264.html">
+<LINK REL="up" HREF="node229.html">
 <LINK REL="next" HREF="node266.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10906"
+<A NAME="tex2html10897"
   HREF="node266.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10902"
-  HREF="node264.html">
+<A NAME="tex2html10893"
+  HREF="node229.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10896"
+<A NAME="tex2html10887"
   HREF="node264.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10904"
+<A NAME="tex2html10895"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10907"
-  HREF="node266.html">CClientLister::generateHTMLClientNameIdCheckbox</A>
-<B> Up:</B> <A NAME="tex2html10903"
-  HREF="node264.html">./inc/CClientLister.php</A>
-<B> Previous:</B> <A NAME="tex2html10897"
-  HREF="node264.html">./inc/CClientLister.php</A>
- &nbsp; <B>  <A NAME="tex2html10905"
+<B> Next:</B> <A NAME="tex2html10898"
+  HREF="node266.html">CChecks::checkStatus</A>
+<B> Up:</B> <A NAME="tex2html10894"
+  HREF="node229.html">./inc/CChecks.php</A>
+<B> Previous:</B> <A NAME="tex2html10888"
+  HREF="node264.html">CChecks::checkNonusedMAC</A>
+ &nbsp; <B>  <A NAME="tex2html10896"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006111000000000000000">
-CClientLister::showClientTable</A>
+<H2><A NAME="SECTION0061036000000000000000">
+CChecks::checkIPRange</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows the table with matching clients and their given columns.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input IPs are valid and if the first IP is "smaler" than the second. Then adds an error message to the message manager in case of an error.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>firstIp: The first IP marking the begin of the IP range.
+</LI>
+<LI>lastIp: The last IP marking the end of the IP range.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the IPs are correct and the first IP is "smaler" otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

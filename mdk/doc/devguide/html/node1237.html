@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_preparePackageDir</TITLE>
-<META NAME="description" CONTENT="PKG_preparePackageDir">
+<TITLE>PKG_getPackageName</TITLE>
+<META NAME="description" CONTENT="PKG_getPackageName">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,64 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1238.html">
 <LINK REL="previous" HREF="node1236.html">
-<LINK REL="up" HREF="node1216.html">
+<LINK REL="up" HREF="node1223.html">
 <LINK REL="next" HREF="node1238.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23418"
+<A NAME="tex2html23452"
   HREF="node1238.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23414"
-  HREF="node1216.html">
+<A NAME="tex2html23448"
+  HREF="node1223.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23408"
+<A NAME="tex2html23442"
   HREF="node1236.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23416"
+<A NAME="tex2html23450"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23419"
-  HREF="node1238.html">PKG_updatePackageInfo</A>
-<B> Up:</B> <A NAME="tex2html23415"
-  HREF="node1216.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23409"
-  HREF="node1236.html">PKG_addAPTConfigFiles</A>
- &nbsp; <B>  <A NAME="tex2html23417"
+<B> Next:</B> <A NAME="tex2html23453"
+  HREF="node1238.html">PKG_getLongPackageDescription</A>
+<B> Up:</B> <A NAME="tex2html23449"
+  HREF="node1223.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23443"
+  HREF="node1236.html">PKG_getDescription</A>
+ &nbsp; <B>  <A NAME="tex2html23451"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0064121000000000000000">
-PKG_preparePackageDir</A>
+<H2><A NAME="SECTION0064114000000000000000">
+PKG_getPackageName</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
+<SPAN  CLASS="textbf">Description:</SPAN> gets the name of a package
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dir: the directory to prepare
-</LI>
-<LI>packagesource: sources list
-</LI>
-<LI>logFile: Name of the file the messages from apt-get should be written to.
-</LI>
-<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
-</LI>
-<LI>arch: Architecture to get package infos for.
-</LI>
-<LI>sourceName: The name of the package source list
-</LI>
-<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: Error text on error or empty string on success.
+<LI>line: line containing package name and description
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -86,7 +68,7 @@ PKG_preparePackageDir</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

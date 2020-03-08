@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getUndoMd5</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getUndoMd5">
+<TITLE>CFDiskIO::dev2VDiskVPart</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::dev2VDiskVPart">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node542.html">
 <LINK REL="previous" HREF="node540.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node542.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14541"
+<A NAME="tex2html14574"
   HREF="node542.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14537"
-  HREF="node521.html">
+<A NAME="tex2html14570"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14531"
+<A NAME="tex2html14564"
   HREF="node540.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14539"
+<A NAME="tex2html14572"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14542"
-  HREF="node542.html">CFDiskIO::addUndo</A>
-<B> Up:</B> <A NAME="tex2html14538"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14532"
-  HREF="node540.html">CFDiskIO::updateUndoMd5</A>
- &nbsp; <B>  <A NAME="tex2html14540"
+<B> Next:</B> <A NAME="tex2html14575"
+  HREF="node542.html">CFDiskIO::getPreviousPartitionStep</A>
+<B> Up:</B> <A NAME="tex2html14571"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14565"
+  HREF="node540.html">CFDiskIO::isDevValidDiskPartitionOrRaid</A>
+ &nbsp; <B>  <A NAME="tex2html14573"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061520000000000000000">
-CFDiskIO::getUndoMd5</A>
+<H2><A NAME="SECTION0061514000000000000000">
+CFDiskIO::dev2VDiskVPart</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the md5 sum of the partitionSteps arrays.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for a device (e.g. /dev/sda2) and writes the virtual disk and partition numbers to the variables. These values can be used to access the array $this-<SPAN CLASS="MATH"></SPAN>wantedPartitioning.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>dev: The device (e.g. /dev/sda2).
+</LI>
+<LI>vDisk: Internal disk number (for accessing the disk information in the array) or false, if no matching (physical) disk number was found.
+</LI>
+<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array) or false, if no matching (physical) partition number was found.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true if the search worked otherwise false.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getRaidLevelNumbers</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getRaidLevelNumbers">
+<TITLE>CFDiskIO::nextLogicalDevNr</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::nextLogicalDevNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node605.html">
 <LINK REL="previous" HREF="node603.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node605.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15297"
+<A NAME="tex2html15330"
   HREF="node605.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15293"
-  HREF="node521.html">
+<A NAME="tex2html15326"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15287"
+<A NAME="tex2html15320"
   HREF="node603.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15295"
+<A NAME="tex2html15328"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15298"
-  HREF="node605.html">CFDiskIO::isRaidLevelNumberValid</A>
-<B> Up:</B> <A NAME="tex2html15294"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15288"
-  HREF="node603.html">CFDiskIO::sortPartitionKeyByStart</A>
- &nbsp; <B>  <A NAME="tex2html15296"
+<B> Next:</B> <A NAME="tex2html15331"
+  HREF="node605.html">CFDiskIO::nextPrimaryDevNr</A>
+<B> Up:</B> <A NAME="tex2html15327"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15321"
+  HREF="node603.html">CFDiskIO::getNextFreePhysicalVirtualPartitionNumber</A>
+ &nbsp; <B>  <A NAME="tex2html15329"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061583000000000000000">
-CFDiskIO::getRaidLevelNumbers</A>
+<H2><A NAME="SECTION0061577000000000000000">
+CFDiskIO::nextLogicalDevNr</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with valid RAID levels.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the next free logical (physical) partition number.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with valid RAID levels.
+<LI>vDisk: Virtual (internally used) disk number.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Next free logical (physical) partition number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CFDiskIO::getRaidLevelNumbers</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

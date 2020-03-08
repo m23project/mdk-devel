@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>AUTOTEST_SEL_getURLByMatch</TITLE>
-<META NAME="description" CONTENT="AUTOTEST_SEL_getURLByMatch">
+<TITLE>AUTOTEST_replaceConstantsInString</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_replaceConstantsInString">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,47 +28,45 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8099"
+<A NAME="tex2html8129"
   HREF="node49.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8095"
+<A NAME="tex2html8125"
   HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8089"
+<A NAME="tex2html8119"
   HREF="node47.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8097"
+<A NAME="tex2html8127"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8100"
-  HREF="node49.html">AUTOTEST_getKey</A>
-<B> Up:</B> <A NAME="tex2html8096"
+<B> Next:</B> <A NAME="tex2html8130"
+  HREF="node49.html">AUTOTEST_SEL_getURLByMatch</A>
+<B> Up:</B> <A NAME="tex2html8126"
   HREF="node40.html">./inc/autoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html8090"
-  HREF="node47.html">AUTOTEST_replaceConstantsInString</A>
- &nbsp; <B>  <A NAME="tex2html8098"
+<B> Previous:</B> <A NAME="tex2html8120"
+  HREF="node47.html">AUTOTEST_VM_hostSanityCheck</A>
+ &nbsp; <B>  <A NAME="tex2html8128"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00638000000000000000">
-AUTOTEST_SEL_getURLByMatch</A>
+AUTOTEST_replaceConstantsInString</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Searches for one URL in the given HTML code that must contain all search terms.
+<SPAN  CLASS="textbf">Description:</SPAN> Searches for variable declarations in a string and replaces them with the values of according constants.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlsource: The HTML code.
-</LI>
-<LI>searchA: Array with the search terms.
+<LI>in: Input string. eg. "name=$VM_NAME" may become "name=debianVM"
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>The one matching URL or NULL if there is none matching.
+<LI>The input string with replaced variable declarations.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ AUTOTEST_SEL_getURLByMatch</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

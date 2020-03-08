@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>checkNetmask</TITLE>
-<META NAME="description" CONTENT="checkNetmask">
+<TITLE>CHECK_strAlphaNum</TITLE>
+<META NAME="description" CONTENT="CHECK_strAlphaNum">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node733.html">
 <LINK REL="previous" HREF="node731.html">
-<LINK REL="up" HREF="node715.html">
+<LINK REL="up" HREF="node721.html">
 <LINK REL="next" HREF="node733.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16913"
+<A NAME="tex2html16946"
   HREF="node733.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16909"
-  HREF="node715.html">
+<A NAME="tex2html16942"
+  HREF="node721.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16903"
+<A NAME="tex2html16936"
   HREF="node731.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16911"
+<A NAME="tex2html16944"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16914"
-  HREF="node733.html">checkEmail</A>
-<B> Up:</B> <A NAME="tex2html16910"
-  HREF="node715.html">./inc/checks.php</A>
-<B> Previous:</B> <A NAME="tex2html16904"
-  HREF="node731.html">checkMAC</A>
- &nbsp; <B>  <A NAME="tex2html16912"
+<B> Next:</B> <A NAME="tex2html16947"
+  HREF="node733.html">CHECK_letFWDie</A>
+<B> Up:</B> <A NAME="tex2html16943"
+  HREF="node721.html">./inc/checks.php</A>
+<B> Previous:</B> <A NAME="tex2html16937"
+  HREF="node731.html">CHECK_strAlpha</A>
+ &nbsp; <B>  <A NAME="tex2html16945"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061917000000000000000">
-checkNetmask</A>
+<H2><A NAME="SECTION0061911000000000000000">
+CHECK_strAlphaNum</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> checks if a netmask is valid
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if the input value is a string that contains only characters and digits and shuts down the application if not.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>string: netmask value to check
+<LI>val: Input value to check.
+</LI>
+<LI>maxlen: The maximal length of the the string or 0 if the string length doesn't matter.
+</LI>
+<LI>allowEmpty: Set to true if you want to allow empty strings.
+</LI>
+<LI>returnNoDie: Set to true if you want to return (instead of aborting the program) when an error in the input is found.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>true if netmask is valid, else false
+<LI>The input value if it contains only characters and digits or stops (or false, if $returnNoDie is true) the program on an error.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +80,7 @@ checkNetmask</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

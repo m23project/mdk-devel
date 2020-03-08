@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::fdiskGetFstabArray</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::fdiskGetFstabArray">
+<TITLE>CFDiskIO::fdiskGetEntry</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::fdiskGetEntry">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node638.html">
 <LINK REL="previous" HREF="node636.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node638.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15693"
+<A NAME="tex2html15726"
   HREF="node638.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15689"
-  HREF="node521.html">
+<A NAME="tex2html15722"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15683"
+<A NAME="tex2html15716"
   HREF="node636.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15691"
+<A NAME="tex2html15724"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15694"
-  HREF="node638.html">CFDiskIO::getPartitionStepsArray</A>
-<B> Up:</B> <A NAME="tex2html15690"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15684"
-  HREF="node636.html">CFDiskIO::FDISK_genManualFstab</A>
- &nbsp; <B>  <A NAME="tex2html15692"
+<B> Next:</B> <A NAME="tex2html15727"
+  HREF="node638.html">CFDiskIO::fdiskDelFstabEntry</A>
+<B> Up:</B> <A NAME="tex2html15723"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15717"
+  HREF="node636.html">CFDiskIO::fdiskAddFstab</A>
+ &nbsp; <B>  <A NAME="tex2html15725"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00615116000000000000000">
-CFDiskIO::fdiskGetFstabArray</A>
+<H2><A NAME="SECTION00615110000000000000000">
+CFDiskIO::fdiskGetEntry</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the fstab of a client as array.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Gets an entry to from the fstab array. Can be called more times to get all entries.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with the fstab (each line of the fstab as item).
+<LI>dev: Device to mount (e.g. /dev/hda1)
+</LI>
+<LI>mountpoint: Location where to mount the device (e.g. /mnt/hda1)
+</LI>
+<LI>parameter: Mount parameter.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if an entry to from the fstab array could be fetched from the array, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CFDiskIO::fdiskGetFstabArray</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

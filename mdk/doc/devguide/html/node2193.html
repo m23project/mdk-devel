@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getClientbyPackageID</TITLE>
-<META NAME="description" CONTENT="PKG_getClientbyPackageID">
+<TITLE>PKG_copyPackagesToClient</TITLE>
+<META NAME="description" CONTENT="PKG_copyPackagesToClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2194.html">
 <LINK REL="previous" HREF="node2192.html">
-<LINK REL="up" HREF="node2095.html">
+<LINK REL="up" HREF="node2104.html">
 <LINK REL="next" HREF="node2194.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35773"
+<A NAME="tex2html35809"
   HREF="node2194.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35769"
-  HREF="node2095.html">
+<A NAME="tex2html35805"
+  HREF="node2104.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35763"
+<A NAME="tex2html35799"
   HREF="node2192.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35771"
+<A NAME="tex2html35807"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35774"
-  HREF="node2194.html">PKG_getInfoFromPackageID</A>
-<B> Up:</B> <A NAME="tex2html35770"
-  HREF="node2095.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35764"
-  HREF="node2192.html">PKG_getPackageParams</A>
- &nbsp; <B>  <A NAME="tex2html35772"
+<B> Next:</B> <A NAME="tex2html35810"
+  HREF="node2194.html">PKG_remNormalPackages</A>
+<B> Up:</B> <A NAME="tex2html35806"
+  HREF="node2104.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35800"
+  HREF="node2192.html">PKG_copyWait4accPackagesToClient</A>
+ &nbsp; <B>  <A NAME="tex2html35808"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0066898000000000000000">
-PKG_getClientbyPackageID</A>
+<H2><A NAME="SECTION0066889000000000000000">
+PKG_copyPackagesToClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> gets the clientname that owns a selected package ID
+<SPAN  CLASS="textbf">Description:</SPAN> copies all with a selected status jobs from one client to another
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>id: package ID
+<LI>from: the source client
+</LI>
+<LI>to: the destination client
+</LI>
+<LI>status: can be set to a package status or be empty to copy all jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +72,7 @@ PKG_getClientbyPackageID</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

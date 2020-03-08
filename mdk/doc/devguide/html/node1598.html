@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>FDISK_listSupportedFS</TITLE>
-<META NAME="description" CONTENT="FDISK_listSupportedFS">
+<TITLE>FDISK_getAfterPartition</TITLE>
+<META NAME="description" CONTENT="FDISK_getAfterPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1599.html">
 <LINK REL="previous" HREF="node1597.html">
-<LINK REL="up" HREF="node1527.html">
+<LINK REL="up" HREF="node1536.html">
 <LINK REL="next" HREF="node1599.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html28111"
+<A NAME="tex2html28147"
   HREF="node1599.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html28107"
-  HREF="node1527.html">
+<A NAME="tex2html28143"
+  HREF="node1536.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html28101"
+<A NAME="tex2html28137"
   HREF="node1597.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html28109"
+<A NAME="tex2html28145"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html28112"
-  HREF="node1599.html">FDISK_deletePartitionFromParam</A>
-<B> Up:</B> <A NAME="tex2html28108"
-  HREF="node1527.html">./inc/fdisk.php</A>
-<B> Previous:</B> <A NAME="tex2html28102"
-  HREF="node1597.html">FDISK_getSupportedFS</A>
- &nbsp; <B>  <A NAME="tex2html28110"
+<B> Next:</B> <A NAME="tex2html28148"
+  HREF="node1599.html">FDISK_getBeforeFristPartition</A>
+<B> Up:</B> <A NAME="tex2html28144"
+  HREF="node1536.html">./inc/fdisk.php</A>
+<B> Previous:</B> <A NAME="tex2html28138"
+  HREF="node1597.html">FDISK_getPartitionPercent</A>
+ &nbsp; <B>  <A NAME="tex2html28146"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065271000000000000000">
-FDISK_listSupportedFS</A>
+<H2><A NAME="SECTION0065262000000000000000">
+FDISK_getAfterPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> lists all supported fileSystems for the menu.
+<SPAN  CLASS="textbf">Description:</SPAN> calculates ??? of free size after a selected partition
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>selName: name the selection list, used for the html form
+<LI>param: parameter string containing status informations about the harddisks
 </LI>
-<LI>showFirst: name of file system shown first
+<LI>vDev: Virtual (internally used) device number.
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>The currently choosen file system.
+<LI>vPart: Virtual (internally used) partition number. This is normally another number than the physical number (e.g. 1 on /dev/hda1)
+</LI>
+<LI>factor: the factor to multiplay percent amount of free space
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ FDISK_listSupportedFS</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

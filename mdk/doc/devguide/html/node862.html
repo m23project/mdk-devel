@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Cm23Admin::addToDB</TITLE>
-<META NAME="description" CONTENT="Cm23Admin::addToDB">
+<TITLE>Cm23Admin::delete</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::delete">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node863.html">
 <LINK REL="previous" HREF="node861.html">
-<LINK REL="up" HREF="node853.html">
+<LINK REL="up" HREF="node859.html">
 <LINK REL="next" HREF="node863.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18589"
+<A NAME="tex2html18622"
   HREF="node863.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18585"
-  HREF="node853.html">
+<A NAME="tex2html18618"
+  HREF="node859.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18579"
+<A NAME="tex2html18612"
   HREF="node861.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18587"
+<A NAME="tex2html18620"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18590"
-  HREF="node863.html">Cm23Admin::addToPwFiles</A>
-<B> Up:</B> <A NAME="tex2html18586"
-  HREF="node853.html">./inc/Cm23Admin.php</A>
-<B> Previous:</B> <A NAME="tex2html18580"
-  HREF="node861.html">Cm23Admin::getLanguage</A>
- &nbsp; <B>  <A NAME="tex2html18588"
+<B> Next:</B> <A NAME="tex2html18623"
+  HREF="node863.html">Cm23Admin::changePw</A>
+<B> Up:</B> <A NAME="tex2html18619"
+  HREF="node859.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18613"
+  HREF="node861.html">Cm23Admin::__destruct</A>
+ &nbsp; <B>  <A NAME="tex2html18621"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006249000000000000000">
-Cm23Admin::addToDB</A>
+<H2><A NAME="SECTION006243000000000000000">
+Cm23Admin::delete</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds an m23 administrator to the DB
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Deletes an m23 administrator from the database and from the password hash files for m23, backup, backuppc and phpmyldap.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>$name: User name entered by the user
-</LI>
-<LI>$password: Password entered by the user
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>: True if database action was successful.
+<LI>: True if admin could be deleted, False if admin doesn't exist or cannot be deleted (one must remain, can't delete yourself, or errors with DB or files).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +68,7 @@ Cm23Admin::addToDB</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

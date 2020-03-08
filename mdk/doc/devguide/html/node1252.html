@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_fastGetInstalledPackages</TITLE>
-<META NAME="description" CONTENT="PKG_fastGetInstalledPackages">
+<TITLE>CLCFG_listHSReleasesGeneric</TITLE>
+<META NAME="description" CONTENT="CLCFG_listHSReleasesGeneric">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,39 +28,49 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23607"
+<A NAME="tex2html23636"
   HREF="node1253.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23603"
+<A NAME="tex2html23632"
   HREF="node1250.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23597"
+<A NAME="tex2html23626"
   HREF="node1251.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23605"
+<A NAME="tex2html23634"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23608"
-  HREF="node1253.html">pkgUpdateCacheOnServer</A>
-<B> Up:</B> <A NAME="tex2html23604"
-  HREF="node1250.html">./inc/distr/halfSister/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23598"
-  HREF="node1251.html">PKG_updatePackageSearchCacheFile</A>
- &nbsp; <B>  <A NAME="tex2html23606"
+<B> Next:</B> <A NAME="tex2html23637"
+  HREF="node1253.html">CLCFG_listHSReleasesGeneric</A>
+<B> Up:</B> <A NAME="tex2html23633"
+  HREF="node1250.html">./inc/distr/halfSister/clientConfig.php</A>
+<B> Previous:</B> <A NAME="tex2html23627"
+  HREF="node1251.html">CLCFG_copyClientPackageStatus</A>
+ &nbsp; <B>  <A NAME="tex2html23635"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006432000000000000000">
-PKG_fastGetInstalledPackages</A>
+<H2><A NAME="SECTION006422000000000000000">
+CLCFG_listHSReleasesGeneric</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets a list of all installed packages (faster than dpkg -get-selections).
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an array of the different releases (e.g. sarge, sid, woody, potato) of a distribution.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>storeFile: File name to store the list of installed on the client or empty if the list should be outputted to stdout.
+<LI>selName: the name of the selection
+</LI>
+<LI>first: the release to show first
+</LI>
+<LI>distr: distribution directory
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Array with release names.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ PKG_fastGetInstalledPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

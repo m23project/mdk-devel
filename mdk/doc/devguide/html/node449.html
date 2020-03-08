@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::rereadPartTable</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::rereadPartTable">
+<TITLE>CFDiskBasic::bootflagJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::bootflagJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,48 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node450.html">
 <LINK REL="previous" HREF="node448.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node450.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13271"
+<A NAME="tex2html13304"
   HREF="node450.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13267"
-  HREF="node438.html">
+<A NAME="tex2html13300"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13261"
+<A NAME="tex2html13294"
   HREF="node448.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13269"
+<A NAME="tex2html13302"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13272"
-  HREF="node450.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
-<B> Up:</B> <A NAME="tex2html13268"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13262"
-  HREF="node448.html">CFDiskBasic::makeInstOrEFIPartBootable</A>
- &nbsp; <B>  <A NAME="tex2html13270"
+<B> Next:</B> <A NAME="tex2html13305"
+  HREF="node450.html">CFDiskBasic::EFItypeAndGUIDJob</A>
+<B> Up:</B> <A NAME="tex2html13301"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13295"
+  HREF="node448.html">CFDiskBasic::createPartitionJob</A>
+ &nbsp; <B>  <A NAME="tex2html13303"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061311000000000000000">
-CFDiskBasic::rereadPartTable</A>
+<H2><A NAME="SECTION006135000000000000000">
+CFDiskBasic::bootflagJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Let the OS re-read the partition table.
+<SPAN  CLASS="textbf">Description:</SPAN> Enables the booting flag on a partition and adds it to the list of partition steps.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The device that was changed/created (e.g. /dev/sda5).
+<LI>dev: Disk to activate booting on (e.g. /dev/hda)
+</LI>
+<LI>pPart: number of partition, minor number in parted
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +70,7 @@ CFDiskBasic::rereadPartTable</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

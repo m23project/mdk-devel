@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_multiPackageSelectionsSelection</TITLE>
-<META NAME="description" CONTENT="PKG_multiPackageSelectionsSelection">
+<TITLE>PKG_getClientsByPackages</TITLE>
+<META NAME="description" CONTENT="PKG_getClientsByPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,50 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2191.html">
 <LINK REL="previous" HREF="node2189.html">
-<LINK REL="up" HREF="node2095.html">
+<LINK REL="up" HREF="node2104.html">
 <LINK REL="next" HREF="node2191.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html35737"
+<A NAME="tex2html35773"
   HREF="node2191.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html35733"
-  HREF="node2095.html">
+<A NAME="tex2html35769"
+  HREF="node2104.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html35727"
+<A NAME="tex2html35763"
   HREF="node2189.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html35735"
+<A NAME="tex2html35771"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html35738"
-  HREF="node2191.html">PKG_showAllPackageSelections</A>
-<B> Up:</B> <A NAME="tex2html35734"
-  HREF="node2095.html">./inc/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html35728"
-  HREF="node2189.html">PKG_getAllPackageSelections</A>
- &nbsp; <B>  <A NAME="tex2html35736"
+<B> Next:</B> <A NAME="tex2html35774"
+  HREF="node2191.html">PKG_countPackages</A>
+<B> Up:</B> <A NAME="tex2html35770"
+  HREF="node2104.html">./inc/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html35764"
+  HREF="node2189.html">PKG_getClientsWithWaitingJobs</A>
+ &nbsp; <B>  <A NAME="tex2html35772"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0066895000000000000000">
-PKG_multiPackageSelectionsSelection</A>
+<H2><A NAME="SECTION0066886000000000000000">
+PKG_getClientsByPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates a multi selection with all package selections.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets all clients that have the specific packages (not) installed (or with another given status).
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>selName: name of the selection
+<LI>packageNames: Array with the packages to check.
 </LI>
-<LI>first: entry that should be shown first (this is the internal value and NOT the name shown to the user). the first value from the list will be written to $first. set first to "false" to disable writing the first entry.
+<LI>status: Debian status code or true for "installed".
 </LI>
-<LI>addEmpty: set to true to add an empty entry at the beginning.
+<LI>and: Set to true, if all packages must (not) match the status or, if false, at least one package must match the status.
+</LI>
+<LI>not: If set to true, only clients, that have no packes with the given status will be added to the output array.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with all clients that have the specific package (not) installed (or with another given status).
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -72,7 +80,7 @@ PKG_multiPackageSelectionsSelection</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

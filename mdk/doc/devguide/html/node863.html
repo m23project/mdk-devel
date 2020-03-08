@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Cm23Admin::addToPwFiles</TITLE>
-<META NAME="description" CONTENT="Cm23Admin::addToPwFiles">
+<TITLE>Cm23Admin::changePw</TITLE>
+<META NAME="description" CONTENT="Cm23Admin::changePw">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node864.html">
 <LINK REL="previous" HREF="node862.html">
-<LINK REL="up" HREF="node853.html">
+<LINK REL="up" HREF="node859.html">
 <LINK REL="next" HREF="node864.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18601"
+<A NAME="tex2html18634"
   HREF="node864.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18597"
-  HREF="node853.html">
+<A NAME="tex2html18630"
+  HREF="node859.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18591"
+<A NAME="tex2html18624"
   HREF="node862.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18599"
+<A NAME="tex2html18632"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18602"
-  HREF="node864.html">Cm23Admin::delFromPwFiles</A>
-<B> Up:</B> <A NAME="tex2html18598"
-  HREF="node853.html">./inc/Cm23Admin.php</A>
-<B> Previous:</B> <A NAME="tex2html18592"
-  HREF="node862.html">Cm23Admin::addToDB</A>
- &nbsp; <B>  <A NAME="tex2html18600"
+<B> Next:</B> <A NAME="tex2html18635"
+  HREF="node864.html">Cm23Admin::setCSS</A>
+<B> Up:</B> <A NAME="tex2html18631"
+  HREF="node859.html">./inc/Cm23Admin.php</A>
+<B> Previous:</B> <A NAME="tex2html18625"
+  HREF="node862.html">Cm23Admin::delete</A>
+ &nbsp; <B>  <A NAME="tex2html18633"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0062410000000000000000">
-Cm23Admin::addToPwFiles</A>
+<H2><A NAME="SECTION006244000000000000000">
+Cm23Admin::changePw</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Adds an m23 administrator to the password files
+<SPAN  CLASS="textbf">Description:</SPAN> Changes the password of an m23 administrator in the password hash files for m23, backup, backuppc and phpmyldap.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>$name: User name entered by the user
+<LI>$oldpassword: Password entered by the user, must be correct to be able to change password
 </LI>
-<LI>$password: Password entered by the user
+<LI>$newpassword: New password chosen by the user
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>: True if file write action for m23 password file was successful.
+<LI>: True if password was changed successfully, false otherwise
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +76,7 @@ Cm23Admin::addToPwFiles</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

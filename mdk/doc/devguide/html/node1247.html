@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLCFG_listHSReleases</TITLE>
-<META NAME="description" CONTENT="CLCFG_listHSReleases">
+<TITLE>PKG_getKernels</TITLE>
+<META NAME="description" CONTENT="PKG_getKernels">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1248.html">
 <LINK REL="previous" HREF="node1246.html">
-<LINK REL="up" HREF="node1243.html">
+<LINK REL="up" HREF="node1223.html">
 <LINK REL="next" HREF="node1248.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23542"
+<A NAME="tex2html23572"
   HREF="node1248.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23538"
-  HREF="node1243.html">
+<A NAME="tex2html23568"
+  HREF="node1223.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23532"
+<A NAME="tex2html23562"
   HREF="node1246.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23540"
+<A NAME="tex2html23570"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23543"
-  HREF="node1248.html">CLCFG_addDistributionSpecificOptions</A>
-<B> Up:</B> <A NAME="tex2html23539"
-  HREF="node1243.html">./inc/distr/halfSister/clientConfig.php</A>
-<B> Previous:</B> <A NAME="tex2html23533"
-  HREF="node1246.html">CLCFG_listHSReleasesGeneric</A>
- &nbsp; <B>  <A NAME="tex2html23541"
+<B> Next:</B> <A NAME="tex2html23573"
+  HREF="node1248.html">PKG_downloadPool</A>
+<B> Up:</B> <A NAME="tex2html23569"
+  HREF="node1223.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23563"
+  HREF="node1246.html">PKG_previewInstall</A>
+ &nbsp; <B>  <A NAME="tex2html23571"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006424000000000000000">
-CLCFG_listHSReleases</A>
+<H2><A NAME="SECTION0064124000000000000000">
+PKG_getKernels</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> generates a selection of the different HS releases (sarge, sid, woody, potato)
+<SPAN  CLASS="textbf">Description:</SPAN> Generates an associative array with the available kernels for an architecture and distribution as keys and values, where kernels containing the term 'generic' are at the front.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>selName: the name of the selection
+<LI>distr: the distribution name
 </LI>
-<LI>first: the release to show first
+<LI>packagesource: name of the package source
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Associative array with the available kernels for an architecture and distribution as keys and values with kernels containing the term 'generic' at the front, sorted by length and then by alphabet.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +78,7 @@ CLCFG_listHSReleases</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

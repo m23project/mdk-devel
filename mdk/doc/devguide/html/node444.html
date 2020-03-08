@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::EFItypeAndGUIDJob</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::EFItypeAndGUIDJob">
+<TITLE>./inc/CFDiskBasic.php</TITLE>
+<META NAME="description" CONTENT="./inc/CFDiskBasic.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,9 +19,9 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node445.html">
-<LINK REL="previous" HREF="node443.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="next" HREF="node478.html">
+<LINK REL="previous" HREF="node315.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node445.html">
 </HEAD>
 
@@ -32,7 +32,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   HREF="node445.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
 <A NAME="tex2html13207"
-  HREF="node438.html">
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
 <A NAME="tex2html13201"
   HREF="node443.html">
@@ -42,35 +42,103 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A NAME="tex2html13212"
-  HREF="node445.html">CFDiskBasic::formatJob</A>
+  HREF="node445.html">CFDiskBasic::__construct</A>
 <B> Up:</B> <A NAME="tex2html13208"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
+  HREF="node25.html">m23 API reference</A>
 <B> Previous:</B> <A NAME="tex2html13202"
-  HREF="node443.html">CFDiskBasic::bootflagJob</A>
+  HREF="node443.html">CClient::getVmSoftware</A>
  &nbsp; <B>  <A NAME="tex2html13210"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006136000000000000000">
-CFDiskBasic::EFItypeAndGUIDJob</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Sets EFI boot partition type and GUID for the EFI boot partition and adds it to the list of partition steps.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>dev: Disk with the EFI partition (e.g. /dev/hda)
-</LI>
-<LI>pPart: Number of EFI partition, minor number in parted
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006130000000000000000">
+./inc/CFDiskBasic.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: Class for basic partitioning and formating functions.
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html13213"
+  HREF="node445.html">CFDiskBasic::__construct</A>
+<LI><A NAME="tex2html13214"
+  HREF="node446.html">CFDiskBasic::__destruct</A>
+<LI><A NAME="tex2html13215"
+  HREF="node447.html">CFDiskBasic::deletePartitionJob</A>
+<LI><A NAME="tex2html13216"
+  HREF="node448.html">CFDiskBasic::createPartitionJob</A>
+<LI><A NAME="tex2html13217"
+  HREF="node449.html">CFDiskBasic::bootflagJob</A>
+<LI><A NAME="tex2html13218"
+  HREF="node450.html">CFDiskBasic::EFItypeAndGUIDJob</A>
+<LI><A NAME="tex2html13219"
+  HREF="node451.html">CFDiskBasic::formatJob</A>
+<LI><A NAME="tex2html13220"
+  HREF="node452.html">CFDiskBasic::createRaidJob</A>
+<LI><A NAME="tex2html13221"
+  HREF="node453.html">CFDiskBasic::deleteRaidJob</A>
+<LI><A NAME="tex2html13222"
+  HREF="node454.html">CFDiskBasic::makeInstOrEFIPartBootable</A>
+<LI><A NAME="tex2html13223"
+  HREF="node455.html">CFDiskBasic::rereadPartTable</A>
+<LI><A NAME="tex2html13224"
+  HREF="node456.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
+<LI><A NAME="tex2html13225"
+  HREF="node457.html">CFDiskBasic::genPartedCommands</A>
+<LI><A NAME="tex2html13226"
+  HREF="node458.html">CFDiskBasic::createPartition</A>
+<LI><A NAME="tex2html13227"
+  HREF="node459.html">CFDiskBasic::createUEFIPartition</A>
+<LI><A NAME="tex2html13228"
+  HREF="node460.html">CFDiskBasic::deletePartition</A>
+<LI><A NAME="tex2html13229"
+  HREF="node461.html">CFDiskBasic::formatPartition</A>
+<LI><A NAME="tex2html13230"
+  HREF="node462.html">CFDiskBasic::deleteAllPartitions</A>
+<LI><A NAME="tex2html13231"
+  HREF="node463.html">CFDiskBasic::createInstallPartition</A>
+<LI><A NAME="tex2html13232"
+  HREF="node464.html">CFDiskBasic::createSwapPartition</A>
+<LI><A NAME="tex2html13233"
+  HREF="node465.html">CFDiskBasic::createFormatPartition</A>
+<LI><A NAME="tex2html13234"
+  HREF="node466.html">CFDiskBasic::autoPartitionDisk</A>
+<LI><A NAME="tex2html13235"
+  HREF="node467.html">CFDiskBasic::PM_auto2Disk1SysSwap2Home</A>
+<LI><A NAME="tex2html13236"
+  HREF="node468.html">CFDiskBasic::PM_auto500GBsysSwapData</A>
+<LI><A NAME="tex2html13237"
+  HREF="node469.html">CFDiskBasic::createAllRaidJobs</A>
+<LI><A NAME="tex2html13238"
+  HREF="node470.html">CFDiskBasic::createRaidJobForRaid</A>
+<LI><A NAME="tex2html13239"
+  HREF="node471.html">CFDiskBasic::createRaid</A>
+<LI><A NAME="tex2html13240"
+  HREF="node472.html">CFDiskBasic::deleteRaid</A>
+<LI><A NAME="tex2html13241"
+  HREF="node473.html">CFDiskBasic::assignDeviceToRaid</A>
+<LI><A NAME="tex2html13242"
+  HREF="node474.html">CFDiskBasic::deleteDeviceFromRaid</A>
+<LI><A NAME="tex2html13243"
+  HREF="node475.html">CFDiskBasic::deleteAllPartitionsOnDisk</A>
+<LI><A NAME="tex2html13244"
+  HREF="node476.html">CFDiskBasic::fdiskAdjustPartitioningLinearScale</A>
+<LI><A NAME="tex2html13245"
+  HREF="node477.html">CFDiskBasic::fdiskAdjustPartitioning</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

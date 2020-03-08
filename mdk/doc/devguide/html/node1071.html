@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>getInstDev</TITLE>
-<META NAME="description" CONTENT="getInstDev">
+<TITLE>./inc/db.php</TITLE>
+<META NAME="description" CONTENT="./inc/db.php">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,56 +19,140 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
-<LINK REL="next" HREF="node1072.html">
-<LINK REL="previous" HREF="node1070.html">
-<LINK REL="up" HREF="node1065.html">
+<LINK REL="next" HREF="node1112.html">
+<LINK REL="previous" HREF="node1042.html">
+<LINK REL="up" HREF="node25.html">
 <LINK REL="next" HREF="node1072.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html21301"
+<A NAME="tex2html21294"
   HREF="node1072.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html21297"
-  HREF="node1065.html">
+<A NAME="tex2html21290"
+  HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html21291"
+<A NAME="tex2html21284"
   HREF="node1070.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html21299"
+<A NAME="tex2html21292"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html21302"
-  HREF="node1072.html">DB_getConnection</A>
-<B> Up:</B> <A NAME="tex2html21298"
-  HREF="node1065.html">./inc/db.php</A>
-<B> Previous:</B> <A NAME="tex2html21292"
-  HREF="node1070.html">getClientLanguage</A>
- &nbsp; <B>  <A NAME="tex2html21300"
+<B> Next:</B> <A NAME="tex2html21295"
+  HREF="node1072.html">ip2longSafe</A>
+<B> Up:</B> <A NAME="tex2html21291"
+  HREF="node25.html">m23 API reference</A>
+<B> Previous:</B> <A NAME="tex2html21285"
+  HREF="node1070.html">CSystemProxy::getUserPasswordString</A>
+ &nbsp; <B>  <A NAME="tex2html21293"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006376000000000000000">
-getInstDev</A>
-</H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> fetch the device for installation
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>id: package ID
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
+<H1><A NAME="SECTION006370000000000000000">
+./inc/db.php</A>
+</H1><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+ Author: Daniel Kasten (DKasten@pc-kiel.de) ,Hauke Goos-Habermann (HHabermann@pc-kiel.de)
+<BR>
+Description: database functions, open, close the database, get ip of the calling client
+<BR></SMALL></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html21296"
+  HREF="node1072.html">ip2longSafe</A>
+<LI><A NAME="tex2html21297"
+  HREF="node1073.html">getArchList</A>
+<LI><A NAME="tex2html21298"
+  HREF="node1074.html">isMySQL3used</A>
+<LI><A NAME="tex2html21299"
+  HREF="node1075.html">encryptShadow</A>
+<LI><A NAME="tex2html21300"
+  HREF="node1076.html">getClientLanguage</A>
+<LI><A NAME="tex2html21301"
+  HREF="node1077.html">getInstDev</A>
+<LI><A NAME="tex2html21302"
+  HREF="node1078.html">DB_getConnection</A>
+<LI><A NAME="tex2html21303"
+  HREF="node1079.html">DB_setConnection</A>
+<LI><A NAME="tex2html21304"
+  HREF="node1080.html">DB_isConnectionValid</A>
+<LI><A NAME="tex2html21305"
+  HREF="node1081.html">dbConnect</A>
+<LI><A NAME="tex2html21306"
+  HREF="node1082.html">dbClose</A>
+<LI><A NAME="tex2html21307"
+  HREF="node1083.html">DB_getSuperUserName</A>
+<LI><A NAME="tex2html21308"
+  HREF="node1084.html">DB_getSuperUserPassword</A>
+<LI><A NAME="tex2html21309"
+  HREF="node1085.html">getServerIP</A>
+<LI><A NAME="tex2html21310"
+  HREF="node1086.html">getServerNetmask</A>
+<LI><A NAME="tex2html21311"
+  HREF="node1087.html">getServerNetwork</A>
+<LI><A NAME="tex2html21312"
+  HREF="node1088.html">getDNSServers</A>
+<LI><A NAME="tex2html21313"
+  HREF="node1089.html">getServerGateway</A>
+<LI><A NAME="tex2html21314"
+  HREF="node1090.html">sendClientStatus</A>
+<LI><A NAME="tex2html21315"
+  HREF="node1091.html">sendClientStageStatus</A>
+<LI><A NAME="tex2html21316"
+  HREF="node1092.html">returnClientStageStatus</A>
+<LI><A NAME="tex2html21317"
+  HREF="node1093.html">sendClientLogStatus</A>
+<LI><A NAME="tex2html21318"
+  HREF="node1094.html">deleteClientLogs</A>
+<LI><A NAME="tex2html21319"
+  HREF="node1095.html">workPhpName</A>
+<LI><A NAME="tex2html21320"
+  HREF="node1096.html">executeNextWork</A>
+<LI><A NAME="tex2html21321"
+  HREF="node1097.html">DB_query</A>
+<LI><A NAME="tex2html21322"
+  HREF="node1098.html">DB_queryNoDie</A>
+<LI><A NAME="tex2html21323"
+  HREF="node1099.html">DB_genPassword</A>
+<LI><A NAME="tex2html21324"
+  HREF="node1100.html">getClientIP</A>
+<LI><A NAME="tex2html21325"
+  HREF="node1101.html">implodeAssoc</A>
+<LI><A NAME="tex2html21326"
+  HREF="node1102.html">explodeAssoc</A>
+<LI><A NAME="tex2html21327"
+  HREF="node1103.html">sedSearchReplace</A>
+<LI><A NAME="tex2html21328"
+  HREF="node1104.html">isProgrammInstalled</A>
+<LI><A NAME="tex2html21329"
+  HREF="node1105.html">pingIP</A>
+<LI><A NAME="tex2html21330"
+  HREF="node1106.html">delFromArray</A>
+<LI><A NAME="tex2html21331"
+  HREF="node1107.html">delValuesFromArray</A>
+<LI><A NAME="tex2html21332"
+  HREF="node1108.html">DB_getLikeableColumns</A>
+<LI><A NAME="tex2html21333"
+  HREF="node1109.html">DB_getArrayAssoc</A>
+<LI><A NAME="tex2html21334"
+  HREF="node1110.html">DB_getTableColumns</A>
+<LI><A NAME="tex2html21335"
+  HREF="node1111.html">DB_changeAllCollations</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

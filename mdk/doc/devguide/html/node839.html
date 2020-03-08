@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CLIENT_getNamesWithPackages</TITLE>
-<META NAME="description" CONTENT="CLIENT_getNamesWithPackages">
+<TITLE>CLIENT_query</TITLE>
+<META NAME="description" CONTENT="CLIENT_query">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node840.html">
 <LINK REL="previous" HREF="node838.html">
-<LINK REL="up" HREF="node742.html">
+<LINK REL="up" HREF="node748.html">
 <LINK REL="next" HREF="node840.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html18302"
+<A NAME="tex2html18335"
   HREF="node840.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html18298"
-  HREF="node742.html">
+<A NAME="tex2html18331"
+  HREF="node748.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html18292"
+<A NAME="tex2html18325"
   HREF="node838.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html18300"
+<A NAME="tex2html18333"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html18303"
-  HREF="node840.html">CLIENT_changeClient</A>
-<B> Up:</B> <A NAME="tex2html18299"
-  HREF="node742.html">./inc/client.php</A>
-<B> Previous:</B> <A NAME="tex2html18293"
-  HREF="node838.html">CLIENT_getNames</A>
- &nbsp; <B>  <A NAME="tex2html18301"
+<B> Next:</B> <A NAME="tex2html18336"
+  HREF="node840.html">CLIENT_addChangeElement</A>
+<B> Up:</B> <A NAME="tex2html18332"
+  HREF="node748.html">./inc/client.php</A>
+<B> Previous:</B> <A NAME="tex2html18326"
+  HREF="node838.html">CLIENT_getId</A>
+ &nbsp; <B>  <A NAME="tex2html18334"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0062297000000000000000">
-CLIENT_getNamesWithPackages</A>
+<H2><A NAME="SECTION0062291000000000000000">
+CLIENT_query</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns an array with all clients having packages installed
+<SPAN  CLASS="textbf">Description:</SPAN> returnes the result of a query for getting all clients matching selected states and groupNames. Empty values are interpreted as 'all' for this kind of value.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>showFakeClients: if set to true, fake clients used to store package lists are shown. false only shows real clients
+<LI>o1: operator 1 (can be '=', '<SPAN CLASS="MATH"></SPAN>', '<SPAN CLASS="MATH"></SPAN>') selects of the first state should be equal, smaler or bigger that the state in s1
+</LI>
+<LI>s1: first state to compare with the state of the client
+</LI>
+<LI>o2: operator 2
+</LI>
+<LI>s2: second state to compare
+</LI>
+<LI>groupName: if you want to filter for special group, set it to the group name
+</LI>
+<LI>o3: operator 3
+</LI>
+<LI>s3: third state to compare
+</LI>
+<LI>search: Search string to search all clients for and only list matching clients or all if $search is empty.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +82,7 @@ CLIENT_getNamesWithPackages</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HELPER_grubMd5Crypt</TITLE>
-<META NAME="description" CONTENT="HELPER_grubMd5Crypt">
+<TITLE>HELPER_m23Array2Array</TITLE>
+<META NAME="description" CONTENT="HELPER_m23Array2Array">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1770.html">
 <LINK REL="previous" HREF="node1768.html">
-<LINK REL="up" HREF="node1727.html">
+<LINK REL="up" HREF="node1736.html">
 <LINK REL="next" HREF="node1770.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30304"
+<A NAME="tex2html30340"
   HREF="node1770.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30300"
-  HREF="node1727.html">
+<A NAME="tex2html30336"
+  HREF="node1736.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30294"
+<A NAME="tex2html30330"
   HREF="node1768.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30302"
+<A NAME="tex2html30338"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30305"
-  HREF="node1770.html">HELPER_listFilesInDir</A>
-<B> Up:</B> <A NAME="tex2html30301"
-  HREF="node1727.html">./inc/helper.php</A>
-<B> Previous:</B> <A NAME="tex2html30295"
-  HREF="node1768.html">HELPER_generateSalt</A>
- &nbsp; <B>  <A NAME="tex2html30303"
+<B> Next:</B> <A NAME="tex2html30341"
+  HREF="node1770.html">HELPER_array2m23Array</A>
+<B> Up:</B> <A NAME="tex2html30337"
+  HREF="node1736.html">./inc/helper.php</A>
+<B> Previous:</B> <A NAME="tex2html30331"
+  HREF="node1768.html">HELPER_arrayInsertAfterKeynumber</A>
+ &nbsp; <B>  <A NAME="tex2html30339"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065542000000000000000">
-HELPER_grubMd5Crypt</A>
+<H2><A NAME="SECTION0065533000000000000000">
+HELPER_m23Array2Array</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Encrypts a password to the MD5 hash as expected by grub.
+<SPAN  CLASS="textbf">Description:</SPAN> Converts an m23 array to a normal array.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>password: Password to encrypt.
-</LI>
-<LI>length: Length of the salt.
+<LI>m23Array: The m23 array to convert. The m23 array is a 2D array, that consists of keys build of a parameter names combined with a parameter number. Parameter names with the same parameter number belong together. (e.g. [command0] =<SPAN CLASS="MATH"></SPAN> format, [path0] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs0] =<SPAN CLASS="MATH"></SPAN> ext4, ...)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Encrypted password in grub style or false if MD5 hash function isn't available.
+<LI>A normal array, that may be edited more easyly. (e.g [0] =<SPAN CLASS="MATH"></SPAN> Array([command] =<SPAN CLASS="MATH"></SPAN> format, [path] =<SPAN CLASS="MATH"></SPAN> /dev/md0, [fs] =<SPAN CLASS="MATH"></SPAN> ext4 ))
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +74,7 @@ HELPER_grubMd5Crypt</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

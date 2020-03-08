@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CRON_getEntriesByIdentifier</TITLE>
-<META NAME="description" CONTENT="CRON_getEntriesByIdentifier">
+<TITLE>CRON_addJobWeekly</TITLE>
+<META NAME="description" CONTENT="CRON_addJobWeekly">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,58 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1012.html">
 <LINK REL="previous" HREF="node1010.html">
-<LINK REL="up" HREF="node997.html">
+<LINK REL="up" HREF="node1003.html">
 <LINK REL="next" HREF="node1012.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html20500"
+<A NAME="tex2html20533"
   HREF="node1012.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html20496"
-  HREF="node997.html">
+<A NAME="tex2html20529"
+  HREF="node1003.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html20490"
+<A NAME="tex2html20523"
   HREF="node1010.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html20498"
+<A NAME="tex2html20531"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html20501"
-  HREF="node1012.html">CRON_getNextIdentifierNr</A>
-<B> Up:</B> <A NAME="tex2html20497"
-  HREF="node997.html">./inc/cron.php</A>
-<B> Previous:</B> <A NAME="tex2html20491"
-  HREF="node1010.html">CRON_isEntryPresent</A>
- &nbsp; <B>  <A NAME="tex2html20499"
+<B> Next:</B> <A NAME="tex2html20534"
+  HREF="node1012.html">CRON_getTimeBaseArray</A>
+<B> Up:</B> <A NAME="tex2html20530"
+  HREF="node1003.html">./inc/cron.php</A>
+<B> Previous:</B> <A NAME="tex2html20524"
+  HREF="node1010.html">CRON_addJobDayly</A>
+ &nbsp; <B>  <A NAME="tex2html20532"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0063414000000000000000">
-CRON_getEntriesByIdentifier</A>
+<H2><A NAME="SECTION006348000000000000000">
+CRON_addJobWeekly</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Parses the crontab for all lines matching the identifier.
+<SPAN  CLASS="textbf">Description:</SPAN> Runs a command every week on a specified week day at a specified time.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>identifier: A string to identify the cron entries
+<LI>min: Minute or * for every minute to execute the cron job. (0-59)
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Associative array with the crontab lines that match the identifier and named by the parameters.
+<LI>hour: Hour or * for every hour to execute the cron job. (0-23)
+</LI>
+<LI>dayOfWeek: The day in the week or * for every week days to execute the cron job. (0-7 (0 or 7 is Sun))
+</LI>
+<LI>user: The user the cron job should be run under.
+</LI>
+<LI>cmd: The command to exectute.
+</LI>
+<LI>identifier: A string to identify the cron entry (for deletion)
+</LI>
+<LI>runInScreen: Set to true if the command should be run in a screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +80,7 @@ CRON_getEntriesByIdentifier</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

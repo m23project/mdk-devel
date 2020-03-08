@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_downloadPool</TITLE>
-<META NAME="description" CONTENT="PKG_downloadPool">
+<TITLE>PKG_listPackages</TITLE>
+<META NAME="description" CONTENT="PKG_listPackages">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,54 +21,60 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1242.html">
 <LINK REL="previous" HREF="node1240.html">
-<LINK REL="up" HREF="node1216.html">
+<LINK REL="up" HREF="node1223.html">
 <LINK REL="next" HREF="node1242.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23466"
+<A NAME="tex2html23500"
   HREF="node1242.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23462"
-  HREF="node1216.html">
+<A NAME="tex2html23496"
+  HREF="node1223.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23456"
+<A NAME="tex2html23490"
   HREF="node1240.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23464"
+<A NAME="tex2html23498"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23467"
-  HREF="node1242.html">PKG_getDebootStrapBasePackages</A>
-<B> Up:</B> <A NAME="tex2html23463"
-  HREF="node1216.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23457"
-  HREF="node1240.html">PKG_getKernels</A>
- &nbsp; <B>  <A NAME="tex2html23465"
+<B> Next:</B> <A NAME="tex2html23501"
+  HREF="node1242.html">PKG_getAptArchOptions</A>
+<B> Up:</B> <A NAME="tex2html23497"
+  HREF="node1223.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23491"
+  HREF="node1240.html">PKG_printStatus</A>
+ &nbsp; <B>  <A NAME="tex2html23499"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0064125000000000000000">
-PKG_downloadPool</A>
+<H2><A NAME="SECTION0064118000000000000000">
+PKG_listPackages</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to download packages from a sources list to a directory.
+<SPAN  CLASS="textbf">Description:</SPAN> list packages matching the key
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>destDir: the directory the packages should be downloaded to
+<LI>key: search key
 </LI>
-<LI>sourceslist: package source list
+<LI>distr: the distribution name
 </LI>
-<LI>packagesArr: array of the lists that contain packages to download (seperated by blanks)
+<LI>packagesource: name of the package source
 </LI>
-<LI>arch: CPU architecture to download the packages for.
+<LI>client: Name of the client the packages are searched for. (Not used here and only for halfSister)
 </LI>
-<LI>release: Select the Debian/Ubuntu suite (squeeze, sarge, sid, precise).
+<LI>completeDescription: If set to true, the full package description and sizes are fetched (time consuming)
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: Amount of found packages.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -76,7 +82,7 @@ PKG_downloadPool</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

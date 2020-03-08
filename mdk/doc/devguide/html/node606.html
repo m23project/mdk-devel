@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getRaidDevsBuildingDisk</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getRaidDevsBuildingDisk">
+<TITLE>CFDiskIO::nextPrimaryDevNr</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::nextPrimaryDevNr">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node607.html">
 <LINK REL="previous" HREF="node605.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node607.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15321"
+<A NAME="tex2html15354"
   HREF="node607.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15317"
-  HREF="node521.html">
+<A NAME="tex2html15350"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15311"
+<A NAME="tex2html15344"
   HREF="node605.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15319"
+<A NAME="tex2html15352"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15322"
-  HREF="node607.html">CFDiskIO::getvrDevNrByrDev</A>
-<B> Up:</B> <A NAME="tex2html15318"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15312"
-  HREF="node605.html">CFDiskIO::isRaidLevelNumberValid</A>
- &nbsp; <B>  <A NAME="tex2html15320"
+<B> Next:</B> <A NAME="tex2html15355"
+  HREF="node607.html">CFDiskIO::getWantedPartitioning</A>
+<B> Up:</B> <A NAME="tex2html15351"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15345"
+  HREF="node605.html">CFDiskIO::nextPrimaryDevNr</A>
+ &nbsp; <B>  <A NAME="tex2html15353"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061585000000000000000">
-CFDiskIO::getRaidDevsBuildingDisk</A>
+<H2><A NAME="SECTION0061579000000000000000">
+CFDiskIO::nextPrimaryDevNr</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with all disk or partition devices building the RAID of the disk (if it is a RAID).
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the next free EFI (physical) partition number.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>vrDisk: Virtual (internally used) disk number.
+<LI>vDisk: Virtual (internally used) disk number.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all disk or partition devices building the RAID of the disk (if it is a RAID) or empty array if the disk is no RAID.
+<LI>Next free EFI (physical) partition number or -1, if there are no free partition numbers.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +74,7 @@ CFDiskIO::getRaidDevsBuildingDisk</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

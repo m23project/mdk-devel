@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>SRCLST_getListnamesWithEfiSupport</TITLE>
-<META NAME="description" CONTENT="SRCLST_getListnamesWithEfiSupport">
+<TITLE>SRCLST_packageInformationOlderThan</TITLE>
+<META NAME="description" CONTENT="SRCLST_packageInformationOlderThan">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node2383.html">
 <LINK REL="previous" HREF="node2381.html">
-<LINK REL="up" HREF="node2355.html">
+<LINK REL="up" HREF="node2364.html">
 <LINK REL="next" HREF="node2383.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38202"
+<A NAME="tex2html38238"
   HREF="node2383.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38198"
-  HREF="node2355.html">
+<A NAME="tex2html38234"
+  HREF="node2364.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38192"
+<A NAME="tex2html38228"
   HREF="node2381.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38200"
+<A NAME="tex2html38236"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38203"
-  HREF="node2383.html">SRCLST_clientUsesEfiButSourcesListDoesntSupportEfi</A>
-<B> Up:</B> <A NAME="tex2html38199"
-  HREF="node2355.html">./inc/sourceslist.php</A>
-<B> Previous:</B> <A NAME="tex2html38193"
-  HREF="node2381.html">SRCLST_doesDistrSupportEFI</A>
- &nbsp; <B>  <A NAME="tex2html38201"
+<B> Next:</B> <A NAME="tex2html38239"
+  HREF="node2383.html">SRCLST_getStorageFS</A>
+<B> Up:</B> <A NAME="tex2html38235"
+  HREF="node2364.html">./inc/sourceslist.php</A>
+<B> Previous:</B> <A NAME="tex2html38229"
+  HREF="node2381.html">SRCLST_packageInformationChangeTime</A>
+ &nbsp; <B>  <A NAME="tex2html38237"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0067727000000000000000">
-SRCLST_getListnamesWithEfiSupport</A>
+<H2><A NAME="SECTION0067718000000000000000">
+SRCLST_packageInformationOlderThan</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets a list with all sources lists that support EFI.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Checks if a package info is older than a selected amount of minutes or if the package info directory is too smal.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array with all sources lists that support EFI.
+<LI>minutes: the amount of minutes the package information can be older to return true
+</LI>
+<LI>distr: the short name of the distribution
+</LI>
+<LI>sourceName: the name of the package source list
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>: true when package info is older than a selected amount of minutes or if the package info directory is too smal, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ SRCLST_getListnamesWithEfiSupport</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getPrimaryOrEfiPartitionType</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getPrimaryOrEfiPartitionType">
+<TITLE>CFDiskIO::genManualFstab</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::genManualFstab">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node641.html">
 <LINK REL="previous" HREF="node639.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node641.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html15729"
+<A NAME="tex2html15762"
   HREF="node641.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html15725"
-  HREF="node521.html">
+<A NAME="tex2html15758"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html15719"
+<A NAME="tex2html15752"
   HREF="node639.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html15727"
+<A NAME="tex2html15760"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html15730"
-  HREF="node641.html">CFDiskIO::changeToEfiPartitionTypeIfInUefiMode</A>
-<B> Up:</B> <A NAME="tex2html15726"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html15720"
-  HREF="node639.html">CFDiskIO::findFstabMountPointByDev</A>
- &nbsp; <B>  <A NAME="tex2html15728"
+<B> Next:</B> <A NAME="tex2html15763"
+  HREF="node641.html">CFDiskIO::FDISK_getOldStyleFstabArrayForHalfSister</A>
+<B> Up:</B> <A NAME="tex2html15759"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html15753"
+  HREF="node639.html">CFDiskIO::adjustFstabParam</A>
+ &nbsp; <B>  <A NAME="tex2html15761"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION00615119000000000000000">
-CFDiskIO::getPrimaryOrEfiPartitionType</A>
+<H2><A NAME="SECTION00615113000000000000000">
+CFDiskIO::genManualFstab</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns a primary (on BIOS booted systems) partition type or an EFI (on UEFI booted systems).
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generates commands to edit a given fstab, add new entries and remove old ones before.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Primary (on BIOS booted systems) or an EFI (on UEFI booted systems).
+<LI>mntPrefix: Prefix to set before the mountpoint (e.g. /mnt/m23root/)
+</LI>
+<LI>sourceName: Name of the client's sources list.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if fstab data in new format is used on the client, otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +76,7 @@ CFDiskIO::getPrimaryOrEfiPartitionType</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

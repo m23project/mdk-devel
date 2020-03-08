@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskIO::getDiskSize</TITLE>
-<META NAME="description" CONTENT="CFDiskIO::getDiskSize">
+<TITLE>CFDiskIO::isDiskOrPartLockedByRaid</TITLE>
+<META NAME="description" CONTENT="CFDiskIO::isDiskOrPartLockedByRaid">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,52 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node566.html">
 <LINK REL="previous" HREF="node564.html">
-<LINK REL="up" HREF="node521.html">
+<LINK REL="up" HREF="node527.html">
 <LINK REL="next" HREF="node566.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14829"
+<A NAME="tex2html14862"
   HREF="node566.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14825"
-  HREF="node521.html">
+<A NAME="tex2html14858"
+  HREF="node527.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14819"
+<A NAME="tex2html14852"
   HREF="node564.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14827"
+<A NAME="tex2html14860"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14830"
-  HREF="node566.html">CFDiskIO::getDiskDev</A>
-<B> Up:</B> <A NAME="tex2html14826"
-  HREF="node521.html">./inc/CFDiskIO.php</A>
-<B> Previous:</B> <A NAME="tex2html14820"
-  HREF="node564.html">CFDiskIO::getExtendedVPart</A>
- &nbsp; <B>  <A NAME="tex2html14828"
+<B> Next:</B> <A NAME="tex2html14863"
+  HREF="node566.html">CFDiskIO::isPartitionLockedByRaid</A>
+<B> Up:</B> <A NAME="tex2html14859"
+  HREF="node527.html">./inc/CFDiskIO.php</A>
+<B> Previous:</B> <A NAME="tex2html14853"
+  HREF="node564.html">CFDiskIO::setDiskPartLockedByRaid</A>
+ &nbsp; <B>  <A NAME="tex2html14861"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061544000000000000000">
-CFDiskIO::getDiskSize</A>
+<H2><A NAME="SECTION0061538000000000000000">
+CFDiskIO::isDiskOrPartLockedByRaid</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the size of the disk.
+<SPAN  CLASS="textbf">Description:</SPAN> Checks, if a partition or disk is used as RAID.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
 <LI>vDisk: Internal disk number (for accessing the disk information in the array).
 </LI>
+<LI>vPart: Internal partition number in a disk (for accessing the disk information in the array).
+</LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Size of the disk.
+<LI>true, if the disk or partition is locked by a RAID.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -74,7 +76,7 @@ CFDiskIO::getDiskSize</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

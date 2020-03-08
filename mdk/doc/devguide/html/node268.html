@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CClientLister::getCheckedClientNames</TITLE>
-<META NAME="description" CONTENT="CClientLister::getCheckedClientNames">
+<TITLE>CChecks::genericCHECK_FW</TITLE>
+<META NAME="description" CONTENT="CChecks::genericCHECK_FW">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,56 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node269.html">
 <LINK REL="previous" HREF="node267.html">
-<LINK REL="up" HREF="node264.html">
+<LINK REL="up" HREF="node229.html">
 <LINK REL="next" HREF="node269.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html10942"
+<A NAME="tex2html10933"
   HREF="node269.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html10938"
-  HREF="node264.html">
+<A NAME="tex2html10929"
+  HREF="node229.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html10932"
+<A NAME="tex2html10923"
   HREF="node267.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html10940"
+<A NAME="tex2html10931"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html10943"
-  HREF="node269.html">CClientLister::isVisibleByPingableFilter</A>
-<B> Up:</B> <A NAME="tex2html10939"
-  HREF="node264.html">./inc/CClientLister.php</A>
-<B> Previous:</B> <A NAME="tex2html10933"
-  HREF="node267.html">CClientLister::importCheckedClientNamesIds</A>
- &nbsp; <B>  <A NAME="tex2html10941"
+<B> Next:</B> <A NAME="tex2html10934"
+  HREF="node269.html">CChecks::checkPoolName</A>
+<B> Up:</B> <A NAME="tex2html10930"
+  HREF="node229.html">./inc/CChecks.php</A>
+<B> Previous:</B> <A NAME="tex2html10924"
+  HREF="node267.html">CChecks::checkBootType</A>
+ &nbsp; <B>  <A NAME="tex2html10932"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006114000000000000000">
-CClientLister::getCheckedClientNames</A>
+<H2><A NAME="SECTION0061039000000000000000">
+CChecks::genericCHECK_FW</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns name (as key) and ID (as value) of checked clients as array.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Generic checking routine, that checks if an input value matches a rule.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Array containing name (as key) and ID (as value) of checked clients.
+<LI>rule: CHECK_FW rule to check the input value with.
+</LI>
+<LI>val: Value to check.
+</LI>
+<LI>errorMsg: Error message to add, if the checking fails.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>true, if the input value matches the rule otherwise false.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +78,7 @@ CClientLister::getCheckedClientNames</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

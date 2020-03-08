@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>AUTOTEST_getSeleniumSafeString</TITLE>
-<META NAME="description" CONTENT="AUTOTEST_getSeleniumSafeString">
+<TITLE>AUTOTEST_sshTunnelOverServer</TITLE>
+<META NAME="description" CONTENT="AUTOTEST_sshTunnelOverServer">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -28,44 +28,51 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html8051"
+<A NAME="tex2html8081"
   HREF="node45.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html8047"
+<A NAME="tex2html8077"
   HREF="node40.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html8041"
+<A NAME="tex2html8071"
   HREF="node43.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html8049"
+<A NAME="tex2html8079"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html8052"
+<B> Next:</B> <A NAME="tex2html8082"
   HREF="node45.html">AUTOTEST_getSeleniumSafeString</A>
-<B> Up:</B> <A NAME="tex2html8048"
+<B> Up:</B> <A NAME="tex2html8078"
   HREF="node40.html">./inc/autoTest.php</A>
-<B> Previous:</B> <A NAME="tex2html8042"
-  HREF="node43.html">AUTOTEST_sshTunnelOverServer</A>
- &nbsp; <B>  <A NAME="tex2html8050"
+<B> Previous:</B> <A NAME="tex2html8072"
+  HREF="node43.html">AUTOTEST_sshVMServer</A>
+ &nbsp; <B>  <A NAME="tex2html8080"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A NAME="SECTION00634000000000000000">
-AUTOTEST_getSeleniumSafeString</A>
+AUTOTEST_sshTunnelOverServer</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Replaces characters in a string to make it safe for usage in Selenium and SimpleXMLElement.
+<SPAN  CLASS="textbf">Description:</SPAN> Executes commands on a client indirectly, that is reachable over an m23 server only. SSH connections require root user on the m23 server and the client.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>in: Input string. eg. "&amp;page=fdisk" becomes "</LI>
+<LI>serverNameOrIP: The name of the m23 server or its IP.
+</LI>
+<LI>clientNameOrIP: The name of the client or its IP.
+</LI>
+<LI>cmds: The commands to execute on the client 
+</LI>
+<LI>password: Parameter to set the SSH password or NULL to use SSH keys only.
+</LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Safe made string.
+<LI>The output of the client's screen.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -73,7 +80,7 @@ AUTOTEST_getSeleniumSafeString</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

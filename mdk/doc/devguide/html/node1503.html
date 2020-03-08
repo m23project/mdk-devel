@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>EDIT_setOption</TITLE>
-<META NAME="description" CONTENT="EDIT_setOption">
+<TITLE>PKG_preparePackageDir</TITLE>
+<META NAME="description" CONTENT="PKG_preparePackageDir">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1504.html">
 <LINK REL="previous" HREF="node1502.html">
-<LINK REL="up" HREF="node1500.html">
+<LINK REL="up" HREF="node1482.html">
 <LINK REL="next" HREF="node1504.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html26864"
+<A NAME="tex2html26876"
   HREF="node1504.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html26860"
-  HREF="node1500.html">
+<A NAME="tex2html26872"
+  HREF="node1482.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html26854"
+<A NAME="tex2html26866"
   HREF="node1502.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html26862"
+<A NAME="tex2html26874"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html26865"
-  HREF="node1504.html">EDIT_genClientm23Random</A>
-<B> Up:</B> <A NAME="tex2html26861"
-  HREF="node1500.html">./inc/edit.php</A>
-<B> Previous:</B> <A NAME="tex2html26855"
-  HREF="node1502.html">EDIT_writeToFile</A>
- &nbsp; <B>  <A NAME="tex2html26863"
+<B> Next:</B> <A NAME="tex2html26877"
+  HREF="node1504.html">PKG_updatePackageInfo</A>
+<B> Up:</B> <A NAME="tex2html26873"
+  HREF="node1482.html">./inc/distr/ubuntu/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html26867"
+  HREF="node1502.html">PKG_addAPTConfigFiles</A>
+ &nbsp; <B>  <A NAME="tex2html26875"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006513000000000000000">
-EDIT_setOption</A>
+<H2><A NAME="SECTION0065021000000000000000">
+PKG_preparePackageDir</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Changes an option in a configuration file to a given value.
+<SPAN  CLASS="textbf">Description:</SPAN> creates the needed files + sources list in a directory to use it for "local apt".
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>file: Name of the file to change.
+<LI>dir: the directory to prepare
 </LI>
-<LI>option: Name of the option to change.
+<LI>packagesource: sources list
 </LI>
-<LI>value: Value to set.
+<LI>logFile: Name of the file the messages from apt-get should be written to.
+</LI>
+<LI>returnCmd: Set to true, if the apt command should be returned or to false to execute it in this function.
+</LI>
+<LI>arch: Architecture to get package infos for.
+</LI>
+<LI>sourceName: The name of the package source list
+</LI>
+<LI>hardTryUpdate: Set to true, if the apt-get update should be run until it succeeds
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
 <SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>sed code to change the option in the file to the value.
+<LI>: Error text on error or empty string on success.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +86,7 @@ EDIT_setOption</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

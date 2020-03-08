@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>UPDATE_getInfo</TITLE>
-<META NAME="description" CONTENT="UPDATE_getInfo">
+<TITLE>UCS_addLDAPUser</TITLE>
+<META NAME="description" CONTENT="UCS_addLDAPUser">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node2425.html">
 <LINK REL="previous" HREF="node2423.html">
-<LINK REL="up" HREF="node2420.html">
+<LINK REL="up" HREF="node2404.html">
 <LINK REL="next" HREF="node2425.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html38728"
+<A NAME="tex2html38764"
   HREF="node2425.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html38724"
-  HREF="node2420.html">
+<A NAME="tex2html38760"
+  HREF="node2404.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html38720"
+<A NAME="tex2html38754"
   HREF="node2423.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html38726"
+<A NAME="tex2html38762"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html38729"
-  HREF="node2425.html">./inc/vm.php</A>
-<B> Up:</B> <A NAME="tex2html38725"
-  HREF="node2420.html">./inc/update.php</A>
-<B> Previous:</B> <A NAME="tex2html38721"
-  HREF="node2423.html">UPDATE_getUrl</A>
- &nbsp; <B>  <A NAME="tex2html38727"
+<B> Next:</B> <A NAME="tex2html38765"
+  HREF="node2425.html">UCS_getEtc_ucr_master</A>
+<B> Up:</B> <A NAME="tex2html38761"
+  HREF="node2404.html">./inc/ucs.php</A>
+<B> Previous:</B> <A NAME="tex2html38755"
+  HREF="node2423.html">UCS_openFirewallPort</A>
+ &nbsp; <B>  <A NAME="tex2html38763"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006794000000000000000">
-UPDATE_getInfo</A>
+<H2><A NAME="SECTION0067820000000000000000">
+UCS_addLDAPUser</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> returns the information text from the URL
+<SPAN  CLASS="textbf">Description:</SPAN> Adds a posix account to the UCS LDAP server.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>URL: URL to the information text
+<LI>account: the login name
 </LI>
-<LI>refreshTime: The time in minutes the file is downloaded again.
+<LI>forename: the forename of the user
+</LI>
+<LI>familyname: the familyname of the user
+</LI>
+<LI>pwd: the unencrypted password
+</LI>
+<LI>uid: Linux user ID
+</LI>
+<LI>gid: Linux group ID
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>The output from udm after executing the parameters.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -69,7 +84,7 @@ UPDATE_getInfo</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

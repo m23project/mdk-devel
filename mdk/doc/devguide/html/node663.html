@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::deletePartition</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::deletePartition">
+<TITLE>CFDiskTest::getDiskDevsFromClient</TITLE>
+<META NAME="description" CONTENT="CFDiskTest::getDiskDevsFromClient">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,48 +21,46 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node664.html">
 <LINK REL="previous" HREF="node662.html">
-<LINK REL="up" HREF="node644.html">
+<LINK REL="up" HREF="node650.html">
 <LINK REL="next" HREF="node664.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16040"
+<A NAME="tex2html16073"
   HREF="node664.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16036"
-  HREF="node644.html">
+<A NAME="tex2html16069"
+  HREF="node650.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16030"
+<A NAME="tex2html16063"
   HREF="node662.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16038"
+<A NAME="tex2html16071"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16041"
-  HREF="node664.html">CFDiskTest::randomDeletePartition</A>
-<B> Up:</B> <A NAME="tex2html16037"
-  HREF="node644.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html16031"
-  HREF="node662.html">CFDiskTest::randomCreatePartition</A>
- &nbsp; <B>  <A NAME="tex2html16039"
+<B> Next:</B> <A NAME="tex2html16074"
+  HREF="node664.html">CFDiskTest::getPartInfoFromClient</A>
+<B> Up:</B> <A NAME="tex2html16070"
+  HREF="node650.html">./inc/CFDiskTest.php</A>
+<B> Previous:</B> <A NAME="tex2html16064"
+  HREF="node662.html">CFDiskTest::getDiskArrayFromClient</A>
+ &nbsp; <B>  <A NAME="tex2html16072"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061619000000000000000">
-CFDiskTest::deletePartition</A>
+<H2><A NAME="SECTION0061613000000000000000">
+CFDiskTest::getDiskDevsFromClient</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Deletes a partition from a disk and checks for consistancy of the partioning between virtual calculation and actual client partitioning.
-<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Returns an array with all disk devices (/dev/sdX) as key and value from the current client.
+<BR><SPAN  CLASS="textbf">Returns:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>dev: The partition device (e.g. /dev/sda1).
-</LI>
-<LI>deleteBelongingRaid: If set to true, the RAID, the partition belongs to will be destroyed.
+<LI>Array with all disk devices (/dev/sdX) as key and value.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -70,7 +68,7 @@ CFDiskTest::deletePartition</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

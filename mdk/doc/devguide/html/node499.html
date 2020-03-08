@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::showCombinedFdiskGUIDialog</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::showCombinedFdiskGUIDialog">
+<TITLE>CFDiskGUI::showPartitionBarBlock</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::showPartitionBarBlock">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node500.html">
 <LINK REL="previous" HREF="node498.html">
-<LINK REL="up" HREF="node472.html">
+<LINK REL="up" HREF="node478.html">
 <LINK REL="next" HREF="node500.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13917"
+<A NAME="tex2html13950"
   HREF="node500.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13913"
-  HREF="node472.html">
+<A NAME="tex2html13946"
+  HREF="node478.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13907"
+<A NAME="tex2html13940"
   HREF="node498.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13915"
+<A NAME="tex2html13948"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13918"
-  HREF="node500.html">CFDiskGUI::getCurrentDiskDev</A>
-<B> Up:</B> <A NAME="tex2html13914"
-  HREF="node472.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html13908"
-  HREF="node498.html">CFDiskGUI::updateDiskLayout</A>
- &nbsp; <B>  <A NAME="tex2html13916"
+<B> Next:</B> <A NAME="tex2html13951"
+  HREF="node500.html">CFDiskGUI::printBars</A>
+<B> Up:</B> <A NAME="tex2html13947"
+  HREF="node478.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html13941"
+  HREF="node498.html">CFDiskGUI::getExtraCSSForExtended</A>
+ &nbsp; <B>  <A NAME="tex2html13949"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061427000000000000000">
-CFDiskGUI::showCombinedFdiskGUIDialog</A>
+<H2><A NAME="SECTION0061421000000000000000">
+CFDiskGUI::showPartitionBarBlock</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Shows the new partition and formating screen.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Shows a block for with free space in the bar visualising the partitioning of a disk.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>pDisk: The physical device name of the disk (eg. /dev/sda)
+</LI>
+<LI>start: Start point of the partition (in MB)
+</LI>
+<LI>end: End point of the partition (in MB)
+</LI>
+<LI>width: The width of the block in percent (without 
+</LI>
+<LI>type: Type of the partition.
+</LI>
+<LI>fileSystem: Filesystem name.
+</LI>
+<LI>addJavaScript: Set to true to add JavaScript code that calls the JS function emptySpace(), if empty parts of the drive are clicked, selectPartition(), if a partition is clicked and showPartTable(), if the mouse is over the bar.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

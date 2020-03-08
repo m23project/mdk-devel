@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CPoolFromClientDebsGUI::DEFINE_checkboxForAddingm23BuildPoolFromClientDebsPackage</TITLE>
-<META NAME="description" CONTENT="CPoolFromClientDebsGUI::DEFINE_checkboxForAddingm23BuildPoolFromClientDebsPackage">
+<TITLE>CPackageStatusCompare::showStatusRow</TITLE>
+<META NAME="description" CONTENT="CPackageStatusCompare::showStatusRow">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,49 +19,66 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="devguide.css">
 
+<LINK REL="next" HREF="node925.html">
 <LINK REL="previous" HREF="node923.html">
-<LINK REL="up" HREF="node921.html">
+<LINK REL="up" HREF="node907.html">
 <LINK REL="next" HREF="node925.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html19376"
+<A NAME="tex2html19410"
   HREF="node925.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html19372"
-  HREF="node921.html">
+<A NAME="tex2html19406"
+  HREF="node907.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html19368"
+<A NAME="tex2html19400"
   HREF="node923.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html19374"
+<A NAME="tex2html19408"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html19377"
-  HREF="node925.html">./inc/CPoolFromClientGUI.php</A>
-<B> Up:</B> <A NAME="tex2html19373"
-  HREF="node921.html">./inc/CPoolFromClientDebsGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html19369"
-  HREF="node923.html">CPoolFromClientDebsGUI::addm23BuildPoolFromClientDebsJob</A>
- &nbsp; <B>  <A NAME="tex2html19375"
+<B> Next:</B> <A NAME="tex2html19411"
+  HREF="node925.html">CPackageStatusCompare::diff</A>
+<B> Up:</B> <A NAME="tex2html19407"
+  HREF="node907.html">./inc/CPackageStatusCompare.php</A>
+<B> Previous:</B> <A NAME="tex2html19401"
+  HREF="node923.html">CPackageStatusCompare::getStatusFile</A>
+ &nbsp; <B>  <A NAME="tex2html19409"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION006293000000000000000">
-CPoolFromClientDebsGUI::DEFINE_checkboxForAddingm23BuildPoolFromClientDebsPackage</A>
+<H2><A NAME="SECTION0062817000000000000000">
+CPackageStatusCompare::showStatusRow</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Defines a checkbox, that adds a m23BuildPoolFromClientDebs job when checked.
+<SPAN  CLASS="textbf">Description:</SPAN> Gets the file name of a package status file. If a client name is give, a temporary package status file will be written.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>htmlName: Name of the HTML element and constant.
+<LI>left: Left package name.
 </LI>
-<LI>clientName: Name of the client, the pool should be build from.
+<LI>leftVersion: Left version of the package.
+</LI>
+<LI>leftStatus: Left status of the package.
+</LI>
+<LI>type: diff type.
+</LI>
+<LI>right: Right package name.
+</LI>
+<LI>rightVersion: Right version of the package.
+</LI>
+<LI>rightStatus: Right status of the package.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Array with, the package file name, the version and the status.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -69,7 +86,7 @@ CPoolFromClientDebsGUI::DEFINE_checkboxForAddingm23BuildPoolFromClientDebsPackag
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

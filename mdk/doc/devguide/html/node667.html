@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskTest::getRandomFilesystem</TITLE>
-<META NAME="description" CONTENT="CFDiskTest::getRandomFilesystem">
+<TITLE>CFDiskTest::createPartition</TITLE>
+<META NAME="description" CONTENT="CFDiskTest::createPartition">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node668.html">
 <LINK REL="previous" HREF="node666.html">
-<LINK REL="up" HREF="node644.html">
+<LINK REL="up" HREF="node650.html">
 <LINK REL="next" HREF="node668.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html16088"
+<A NAME="tex2html16121"
   HREF="node668.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html16084"
-  HREF="node644.html">
+<A NAME="tex2html16117"
+  HREF="node650.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html16078"
+<A NAME="tex2html16111"
   HREF="node666.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html16086"
+<A NAME="tex2html16119"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html16089"
-  HREF="node668.html">CFDiskTest::getRandomPartitionType</A>
-<B> Up:</B> <A NAME="tex2html16085"
-  HREF="node644.html">./inc/CFDiskTest.php</A>
-<B> Previous:</B> <A NAME="tex2html16079"
-  HREF="node666.html">CFDiskTest::randomFormatPartition</A>
- &nbsp; <B>  <A NAME="tex2html16087"
+<B> Next:</B> <A NAME="tex2html16122"
+  HREF="node668.html">CFDiskTest::randomCreatePartition</A>
+<B> Up:</B> <A NAME="tex2html16118"
+  HREF="node650.html">./inc/CFDiskTest.php</A>
+<B> Previous:</B> <A NAME="tex2html16112"
+  HREF="node666.html">CFDiskTest::executePartedCommands</A>
+ &nbsp; <B>  <A NAME="tex2html16120"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061623000000000000000">
-CFDiskTest::getRandomFilesystem</A>
+<H2><A NAME="SECTION0061617000000000000000">
+CFDiskTest::createPartition</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns an random filesytem.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a new partition on a disk (if possible) and checks for consistancy of the partioning between virtual calculation and actual client partitioning.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Random filesytem.
+<LI>dev: The device (e.g. /dev/sda).
+</LI>
+<LI>start: Start position (in MB) of the partition to create.
+</LI>
+<LI>end: End position (in MB) of the partition to create.
+</LI>
+<LI>type: type of the partition (CFDiskIO::PT_PRIMARY, CFDiskIO::PT_EXTENDED, CFDiskIO::PT_LOGICAL)
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ CFDiskTest::getRandomFilesystem</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

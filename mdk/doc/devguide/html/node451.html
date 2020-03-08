@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskBasic::genPartedCommands</TITLE>
-<META NAME="description" CONTENT="CFDiskBasic::genPartedCommands">
+<TITLE>CFDiskBasic::formatJob</TITLE>
+<META NAME="description" CONTENT="CFDiskBasic::formatJob">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,50 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node452.html">
 <LINK REL="previous" HREF="node450.html">
-<LINK REL="up" HREF="node438.html">
+<LINK REL="up" HREF="node444.html">
 <LINK REL="next" HREF="node452.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html13295"
+<A NAME="tex2html13328"
   HREF="node452.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html13291"
-  HREF="node438.html">
+<A NAME="tex2html13324"
+  HREF="node444.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html13285"
+<A NAME="tex2html13318"
   HREF="node450.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html13293"
+<A NAME="tex2html13326"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html13296"
-  HREF="node452.html">CFDiskBasic::createPartition</A>
-<B> Up:</B> <A NAME="tex2html13292"
-  HREF="node438.html">./inc/CFDiskBasic.php</A>
-<B> Previous:</B> <A NAME="tex2html13286"
-  HREF="node450.html">CFDiskBasic::getMknodCommandsForDeviceArray</A>
- &nbsp; <B>  <A NAME="tex2html13294"
+<B> Next:</B> <A NAME="tex2html13329"
+  HREF="node452.html">CFDiskBasic::createRaidJob</A>
+<B> Up:</B> <A NAME="tex2html13325"
+  HREF="node444.html">./inc/CFDiskBasic.php</A>
+<B> Previous:</B> <A NAME="tex2html13319"
+  HREF="node450.html">CFDiskBasic::EFItypeAndGUIDJob</A>
+ &nbsp; <B>  <A NAME="tex2html13327"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061313000000000000000">
-CFDiskBasic::genPartedCommands</A>
+<H2><A NAME="SECTION006137000000000000000">
+CFDiskBasic::formatJob</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Generates commands for creating and deletion of partitions, formating or building RAIDs.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates a partition format job and adds it to the list of partition steps.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>mkfsextOptions: Extra parameter for mkfs.extX .
+<LI>dev: device to format (e.g. /dev/hda1)
 </LI>
-<LI>sourceslist: Name of the package sources list of the client (needed for finding a supported file system).
+<LI>fileSys: file system of the partition: ext3, ext2, linux-swap
 </LI>
-<LI>addLogStatusCommands: Set to true, if after each partition / format command a check and reporting to the m23 server should be added.
-</LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Commands for creating and deletion of partitions, formating or building RAIDs.
+<LI>partJobs: associative array with partition jobs
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +72,7 @@ CFDiskBasic::genPartedCommands</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>PKG_getLongPackageDescription</TITLE>
-<META NAME="description" CONTENT="PKG_getLongPackageDescription">
+<TITLE>PKG_preparePool</TITLE>
+<META NAME="description" CONTENT="PKG_preparePool">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,56 +21,54 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1232.html">
 <LINK REL="previous" HREF="node1230.html">
-<LINK REL="up" HREF="node1216.html">
+<LINK REL="up" HREF="node1223.html">
 <LINK REL="next" HREF="node1232.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html23346"
+<A NAME="tex2html23380"
   HREF="node1232.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html23342"
-  HREF="node1216.html">
+<A NAME="tex2html23376"
+  HREF="node1223.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html23336"
+<A NAME="tex2html23370"
   HREF="node1230.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html23344"
+<A NAME="tex2html23378"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html23347"
-  HREF="node1232.html">PKG_getPackageDescriptionSize</A>
-<B> Up:</B> <A NAME="tex2html23343"
-  HREF="node1216.html">./inc/distr/debian/packages.php</A>
-<B> Previous:</B> <A NAME="tex2html23337"
-  HREF="node1230.html">PKG_getPackageName</A>
- &nbsp; <B>  <A NAME="tex2html23345"
+<B> Next:</B> <A NAME="tex2html23381"
+  HREF="node1232.html">PKG_convertPackagesToRepository</A>
+<B> Up:</B> <A NAME="tex2html23377"
+  HREF="node1223.html">./inc/distr/debian/packages.php</A>
+<B> Previous:</B> <A NAME="tex2html23371"
+  HREF="node1230.html">PKG_rsyncDebsFromClientToServer</A>
+ &nbsp; <B>  <A NAME="tex2html23379"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0064115000000000000000">
-PKG_getLongPackageDescription</A>
+<H2><A NAME="SECTION006418000000000000000">
+PKG_preparePool</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Gets the description of a package.
+<SPAN  CLASS="textbf">Description:</SPAN> Generates the needed configuration file for reprepro.
 <BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>package: Name of the package.
+<LI>release: Release of the pool.
 </LI>
-<LI>distr: the distribution name
+<LI>distr: Distribution of the pool.
 </LI>
-<LI>packagesource: name of the package source
+<LI>arch: Architecture of the pool (POOL_ARCH_I386 or CPoolLister::POOL_ARCH_AMD64).
 </LI>
-</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Returns:</SPAN>
-</SMALL></SMALL>
-<UL>
-<LI>Description of the package.
+<LI>poolName: Name of the pool (if a pool with the given name exists =<SPAN CLASS="MATH"></SPAN> load)
+</LI>
+<LI>poolDir: Directory of the pool with full path.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -78,7 +76,7 @@ PKG_getLongPackageDescription</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

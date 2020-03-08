@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>HTML_getQuestionnaireURL</TITLE>
-<META NAME="description" CONTENT="HTML_getQuestionnaireURL">
+<TITLE>HTML_liveSpan</TITLE>
+<META NAME="description" CONTENT="HTML_liveSpan">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,46 +21,52 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node1813.html">
 <LINK REL="previous" HREF="node1811.html">
-<LINK REL="up" HREF="node1792.html">
+<LINK REL="up" HREF="node1801.html">
 <LINK REL="next" HREF="node1813.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html30884"
+<A NAME="tex2html30920"
   HREF="node1813.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html30880"
-  HREF="node1792.html">
+<A NAME="tex2html30916"
+  HREF="node1801.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html30874"
+<A NAME="tex2html30910"
   HREF="node1811.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html30882"
+<A NAME="tex2html30918"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html30885"
-  HREF="node1813.html">HTML_questionnaire</A>
-<B> Up:</B> <A NAME="tex2html30881"
-  HREF="node1792.html">./inc/html.php</A>
-<B> Previous:</B> <A NAME="tex2html30875"
-  HREF="node1811.html">HTML_logArea</A>
- &nbsp; <B>  <A NAME="tex2html30883"
+<B> Next:</B> <A NAME="tex2html30921"
+  HREF="node1813.html">HTML_manipulateOutputBuffer</A>
+<B> Up:</B> <A NAME="tex2html30917"
+  HREF="node1801.html">./inc/html.php</A>
+<B> Previous:</B> <A NAME="tex2html30911"
+  HREF="node1811.html">HTML_AJAXAutoSubmit</A>
+ &nbsp; <B>  <A NAME="tex2html30919"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0065720000000000000000">
-HTML_getQuestionnaireURL</A>
+<H2><A NAME="SECTION0065711000000000000000">
+HTML_liveSpan</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Returns the complete URL to the m23 questionnaire in the language of the webinterface.
-<BR><SPAN  CLASS="textbf">Returns:</SPAN>
+<SPAN  CLASS="textbf">Description:</SPAN> Creates a span that updates itself via AJAX by polling from a given URL.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
 </SMALL></SMALL>
 <UL>
-<LI>Complete URL to the m23 questionnaire in the language of the webinterface.
+<LI>htmlNames: Name of the span.
+</LI>
+<LI>url: The HTTP URL to poll.
+</LI>
+<LI>staticValue: Value that should be shown, when AJAX is not available (e.g. when JavaScript is disabled)
+</LI>
+<LI>timeout: Time in milliseconds to poll the URL for new status.
 </LI>
 </UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
@@ -68,7 +74,7 @@ HTML_getQuestionnaireURL</A>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>CFDiskGUI::listPartJobs</TITLE>
-<META NAME="description" CONTENT="CFDiskGUI::listPartJobs">
+<TITLE>CFDiskGUI::getJSSelectPartTypeForNewPartitions</TITLE>
+<META NAME="description" CONTENT="CFDiskGUI::getJSSelectPartTypeForNewPartitions">
 <META NAME="keywords" CONTENT="devguide">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -21,49 +21,64 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="next" HREF="node515.html">
 <LINK REL="previous" HREF="node513.html">
-<LINK REL="up" HREF="node472.html">
+<LINK REL="up" HREF="node478.html">
 <LINK REL="next" HREF="node515.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html14097"
+<A NAME="tex2html14130"
   HREF="node515.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html14093"
-  HREF="node472.html">
+<A NAME="tex2html14126"
+  HREF="node478.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html14087"
+<A NAME="tex2html14120"
   HREF="node513.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html14095"
+<A NAME="tex2html14128"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html14098"
-  HREF="node515.html">CFDiskGUI::showAllPartTables</A>
-<B> Up:</B> <A NAME="tex2html14094"
-  HREF="node472.html">./inc/CFDiskGUI.php</A>
-<B> Previous:</B> <A NAME="tex2html14088"
-  HREF="node513.html">CFDiskGUI::getDriveInfoIcon</A>
- &nbsp; <B>  <A NAME="tex2html14096"
+<B> Next:</B> <A NAME="tex2html14131"
+  HREF="node515.html">CFDiskGUI::printAllBars</A>
+<B> Up:</B> <A NAME="tex2html14127"
+  HREF="node478.html">./inc/CFDiskGUI.php</A>
+<B> Previous:</B> <A NAME="tex2html14121"
+  HREF="node513.html">CFDiskGUI::getPartTableEntryNr</A>
+ &nbsp; <B>  <A NAME="tex2html14129"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A NAME="SECTION0061442000000000000000">
-CFDiskGUI::listPartJobs</A>
+<H2><A NAME="SECTION0061436000000000000000">
+CFDiskGUI::getJSSelectPartTypeForNewPartitions</A>
 </H2><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
-<SPAN  CLASS="textbf">Description:</SPAN> Show all part jobs in the table.
-<BR></SMALL></SMALL>
+<SPAN  CLASS="textbf">Description:</SPAN> Get the first entry of the list of partition types that can be created in a range on a disk as selectPartTypeForNewPartitions JavaScript function.
+<BR><SPAN  CLASS="textbf">Parameter:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>vDisk: Internal disk number (for accessing the disk information in the array).
+</LI>
+<LI>start: Start position (in MB) of the partition to create.
+</LI>
+<LI>end: End position (in MB) of the partition to create.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"><SMALL CLASS="FOOTNOTESIZE">
+<SPAN  CLASS="textbf">Returns:</SPAN>
+</SMALL></SMALL>
+<UL>
+<LI>Call for selectPartTypeForNewPartitions with partition type that can be created or empty, if there no partion can be created.
+</LI>
+</UL><SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <P>
 <SMALL CLASS="FOOTNOTESIZE"></SMALL>
 <BR><HR>
 <ADDRESS>
 root
-2019-06-03
+2019-07-18
 </ADDRESS>
 </BODY>
 </HTML>
