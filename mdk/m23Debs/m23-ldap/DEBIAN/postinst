@@ -109,12 +109,12 @@ killall -9 slapd
 /etc/init.d/slapd restart 2>> /m23/log/m23PostinstNonCriticalErrorMessages.log
 fi
 
-tryCounter=0
+export tryCounter=0
 while [ $tryCounter -lt 10 ] && [ $(ps -A | grep slapd -c) -eq 0 ]
 do
 	/etc/init.d/slapd restart
 	sleep 6
-	tryCounter=$[ $tryCounter + 1 ]
+	export tryCounter=$[ $tryCounter + 1 ]
 done
 
 
