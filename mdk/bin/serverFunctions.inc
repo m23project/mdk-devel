@@ -254,6 +254,14 @@ cd $ISOBuildDir
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 exportDBInitTable()
 {
+	# Disable options, that may disturb mysqldump, temporarily
+	if [ -f /etc/mysql/mariadb.conf.d/99-server_added_by_m23.cnf ]
+	then
+		mv /etc/mysql/mariadb.conf.d/99-server_added_by_m23.cnf /etc
+		/etc/init.d/mysql restart
+	fi
+
+
 . /tmp/menuVars
 #cd $ISOBuildDir
 
@@ -310,6 +318,14 @@ echo -n "Export database for generating screenshots..."
 	mysqldump --skip-add-drop-table $dbuserParam $dbpassParam m23captured | sed 's/ DEFAULT CHARSET=latin1//g' > m23captured.sql
 	bzip2 -f m23captured.sql
 echo " done"
+
+	# Re-enable options, that may disturb mysqldump, again
+	if [ -f /etc/99-server_added_by_m23.cnf ]
+	then
+		mv /etc/99-server_added_by_m23.cnf /etc/mysql/mariadb.conf.d/
+		/etc/init.d/mysql restart
+	fi
+
 
 echo "Are there error messages? Press \"Return\" to continue..."
 }

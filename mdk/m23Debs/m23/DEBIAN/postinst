@@ -145,11 +145,37 @@ fi
 
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
-DNS=`/m23/bin/serverInfoDNS`
-BROADINT=`/m23/bin/serverInfoBroadcast`
-IPINT=`/m23/bin/serverInfoIP`
-GATEINT=`/m23/bin/serverInfoGateway`
+# DNS=`/m23/bin/serverInfoDNS`
+# BROADINT=`/m23/bin/serverInfoBroadcast`
+# IPINT=`/m23/bin/serverInfoIP`
+# GATEINT=`/m23/bin/serverInfoGateway`
 
+
+checkIPAskForAlternative()
+{
+	export ip="$1"
+	dVar="$2"
+	confFile="$3"
+
+	/m23/bin/checkIP "$ip"
+	export retCode=$?
+
+	while [ $retCode -ne 0 ]
+	do
+		db_get "$dVar"
+		/m23/bin/checkIP "$RET"
+		export retCode=$?
+		echo -n "$RET" > "$confFile"
+		export ip="$RET"
+	done
+
+	echo -n "$ip"
+}
+
+DNS="$(checkIPAskForAlternative "`/m23/bin/serverInfoDNS`" "m23/configDNS" "/m23/etc/dns.override")"
+BROADINT="$(checkIPAskForAlternative "`/m23/bin/serverInfoBroadcast`" "m23/configBROADCAST" "/m23/etc/broadcast.override")"
+IPINT="$(checkIPAskForAlternative "`/m23/bin/serverInfoIP`" "m23/configIP" "/m23/etc/address.override")"
+GATEINT="$(checkIPAskForAlternative "`/m23/bin/serverInfoGateway`" "m23/configGATEWAY" "/m23/etc/gateway.override")"
 
 
 

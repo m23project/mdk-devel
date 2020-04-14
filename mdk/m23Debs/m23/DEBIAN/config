@@ -47,3 +47,33 @@ then
 	db_input high m23/warnDHCP || true
 	db_go
 fi
+
+
+
+/m23/bin/checkIP "`/m23/bin/serverInfoDNS`"
+if [ $? -ne 0 ]
+then
+	db_input high m23/configDNS
+	db_go
+fi
+
+/m23/bin/checkIP "`/m23/bin/serverInfoIP`"
+if [ $? -ne 0 ]
+then
+	db_input high m23/configIP
+	db_go
+fi
+
+/m23/bin/checkIP "`/m23/bin/serverInfoGateway`"
+if [ $? -ne 0 ]
+then
+	db_input high m23/configGATEWAY
+	db_go
+fi
+
+/m23/bin/checkIP "`/m23/bin/serverInfoBroadcast`"
+if [ $? -ne 0 ]
+then
+	db_input high m23/configBROADCAST
+	db_go
+fi

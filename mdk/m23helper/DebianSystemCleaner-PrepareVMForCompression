@@ -7,10 +7,10 @@ apt-get clean
 find /var/lib/apt/lists /var/log -type f | xargs rm
 
 #Fill the device with zeros
-dd if=/dev/zero of=/tmp/z bs=1M
+dd if=/dev/zero of=/z bs=1M
 
 #Remove the zero file
-rm /tmp/z
+rm /z
 
 #Remove m23debs (test sources)
 grep -v "http://m23debs" /etc/apt/sources.list > /tmp/sources.list

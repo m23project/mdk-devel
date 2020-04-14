@@ -4,41 +4,6 @@
 . /usr/share/debconf/confmodule
 
 
-#Shows the mysql password (if needed (only on MySQL))
-showDBAdmPassword()
-{
-	grep "^password" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
-}
-
-
-
-
-
-#Shows the MySQL / MariaDB password parameter (if needed (only on MySQL))
-showDBAdmPasswordParameter()
-{
-	dbadmpass=`showDBAdmPassword`
-
-	if [ $dbadmpass ]
-	then
-		echo -n "-p$dbadmpass"
-	fi
-}
-
-
-
-
-
-#Shows the MySQL / MariaDB admin user
-showDBAdmUser()
-{
-	grep "^user" /etc/mysql/debian.cnf | tr -d '[:blank:]' | cut -d'=' -f2 | head -1
-}
-
-
-#Get MySQL/MariaDB user and password
-dbadmin=`showDBAdmUser`
-dbadmpassParam=`showDBAdmPasswordParameter`
 
 
 
