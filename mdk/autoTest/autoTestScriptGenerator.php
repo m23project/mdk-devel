@@ -225,6 +225,7 @@ class CATSG
 			$d = 0;
 			$this->clients[$i]['name'] = $sourceName;
 			$this->clients[$i]['desktops'] = array();
+			$this->clients[$i]['archs'] = SRCLST_getArchitectures($sourceName);
 			$this->clients[$i]['scr'] = CL_DISTR_INST_SCR;
 		
 			foreach (SRCLST_getDesktopList($sourceName) as $desktop)
@@ -436,12 +437,15 @@ class CATSG
 
 
 /**
-**name CATSG::toggleClientArch()
+**name CATSG::toggleClientArch($archs)
 **description Toggles the client's architecture from amd64 to i386 and reverse.
+**parameter archs: Assoziative array with all possible architectures for the selected package source.
 **/
-	private function toggleClientArch()
+	private function toggleClientArch($archs)
 	{
-		if ($this->clientArch == 'amd64')
+		
+	
+		if (($this->clientArch == 'amd64') && in_array('i386', $archs))
 			$this->clientArch = 'i386';
 		else
 			$this->clientArch = 'amd64';
@@ -556,7 +560,7 @@ then
 fi
 \n";
 	
-						$this->toggleClientArch();
+						$this->toggleClientArch($client['archs']);
 						$this->nextWebinterfaceLang();
 					}
 				}

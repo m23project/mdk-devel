@@ -66,14 +66,23 @@ getTemplates()
 
 			wget -q "$mirror/$package" -O "$tempDir/cur.deb"
 			ar x "$tempDir/cur.deb"
-			tar -xz -C$tempDir -f control.tar.gz
+			if [ -f control.tar.gz ]
+			then
+				tar -xz -C$tempDir -f control.tar.gz
+			fi
+
+			if [ -f control.tar.xz ]
+			then
+				tar -xJ -C$tempDir -f control.tar.xz
+			fi
+			
 			if [ -e "$tempDir/templates" ]
 			then
 				mv "$tempDir/templates" $templateFile
 			else
 				touch $templateFile
 			fi
-			rm control.tar.gz data.tar.* debian-binary
+			rm control.tar.* data.tar.* debian-binary
 		fi
 	done
 }
