@@ -432,7 +432,7 @@ addWindows()
 	deviceName=`basename "$pathLocal"`
 
 	#Add it to fstab, if it is bootable
-	if [ $bootable -eq 1 ]
+	if [ $bootable ] && [ $bootable -eq 1 ]
 	then
 		echo "other=$pathLocal
 label=Windows($deviceName)
@@ -440,7 +440,7 @@ table=$pathLocal" >> /etc/lilo.conf
 	fi
 
 	addHD $pathLocal $fs ""
-};
+}
 
 
 

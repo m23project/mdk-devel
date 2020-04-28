@@ -34,12 +34,20 @@ squidStop()
 # Starts Squid (3)
 squidStart()
 {
-	if [ -f /etc/init.d/squid3 ]
-	then
-		/etc/init.d/squid3 start
-	else
-		/etc/init.d/squid start
-	fi
+	sRet=1
+
+	while [ $sRet -ne 0 ]
+	do
+		sleep 5
+		if [ -f /etc/init.d/squid3 ]
+		then
+			/etc/init.d/squid3 start
+		else
+			/etc/init.d/squid start
+		fi
+		http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
+		sRet=$?
+	done
 }
 
 

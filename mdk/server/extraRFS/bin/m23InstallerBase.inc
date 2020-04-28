@@ -444,6 +444,17 @@ showRootPwDialog()
 }
 
 
+checkIP()
+{
+	ipcalc -b "$1" &> /tmp/ipcalc.ret
+
+	[ $( grep 'bad IP address' -c /tmp/ipcalc.ret) -eq 0 ]
+	ret=$?
+
+	rm /tmp/ipcalc.ret
+	return $ret
+}
+
 
 #dialog for entering network settings for the server
 #returns: $host: hostname
@@ -459,9 +470,15 @@ showNetworkDialog()
 	showDialog "$I18N_windowheader" "$I18N_hostnameheader" inputbox 11 51 "$I18N_hostnametext"
 	host=`cat /tmp/dialog.value`
 
-	# enter IP
-	showDialog "$I18N_windowheader" "$I18N_ipheader" inputbox 10 51 "$I18N_iptext"
-	ip=`cat /tmp/dialog.value`
+	export retCode=1
+	while [ $retCode -ne 0 ]
+	do
+		# enter IP
+		showDialog "$I18N_windowheader" "$I18N_ipheader" inputbox 10 51 "$I18N_iptext"
+		ip=`cat /tmp/dialog.value`
+		checkIP "$ip"
+		export retCode=$?
+	done
 
 	# enter subnetmask
 	showDialog "$I18N_windowheader" "$I18N_netmaskheader" inputbox 10 51 "$I18N_netmasktext" notDisabled `ipcalc -m $ip | cut -d'=' -f2`
@@ -475,13 +492,26 @@ showNetworkDialog()
 	showDialog "$I18N_windowheader" "$I18N_broadcastheader" inputbox 10 51 "$I18N_broadcasttext" notDisabled `ipcalc -b $ip $submask | cut -d'=' -f2`
 	broadcast=`cat /tmp/dialog.value`
 
-	# enter gateway
-	showDialog "$I18N_windowheader" "$I18N_gatewayheader" inputbox 10 51 "$I18N_gatewaytext"
-	gateway=`cat /tmp/dialog.value`
+	export retCode=1
+	while [ $retCode -ne 0 ]
+	do
+		# enter gateway
+		showDialog "$I18N_windowheader" "$I18N_gatewayheader" inputbox 10 51 "$I18N_gatewaytext"
+		gateway=`cat /tmp/dialog.value`
+		checkIP "$gateway"
+		export retCode=$?
+	done
 
-	# enter nameserver
-	showDialog "$I18N_windowheader" "$I18N_nameserverheader" inputbox 10 51 "$I18N_nameservertext" notDisabled "85.88.19.10"
-	nameserver=`cat /tmp/dialog.value`
+
+	export retCode=1
+	while [ $retCode -ne 0 ]
+	do
+		# enter nameserver
+		showDialog "$I18N_windowheader" "$I18N_nameserverheader" inputbox 10 51 "$I18N_nameservertext" notDisabled "85.88.19.10"
+		nameserver=`cat /tmp/dialog.value`
+		checkIP "$nameserver"
+		export retCode=$?
+	done
 
 	#reload language file to fill in changed variables
 	. $langFile

@@ -60,6 +60,7 @@ checkKernelBranch()
 	else
 dialog --clear --title "Kernel version" \
         --menu "Please select the kernel version" 11 40 4 \
+"5.4" "Linux kernel v5.4" \
 "4.9" "Linux kernel v4.9" \
 "4.4" "Linux kernel v4.4" \
 "3.16" "Linux kernel v3.16" \
@@ -139,7 +140,7 @@ checkKernelBranch
 . /tmp/menuVars
 
 # Check, if the a Linux Kernel 3.x is used and adjust the download source directory
-if [ $(echo $kernelBranch | grep -c "^[34]") -eq 1 ]
+if [ $(echo $kernelBranch | grep -c "^[345]") -eq 1 ]
 then
 	kernelDownloadDir="`echo $kernelBranch | cut -c 1-1`.x"
 else
@@ -298,27 +299,27 @@ compileKernel()
 	if [ $lastCompilationArch != "none" ] && [ $lastCompilationArch != `getBuildArch` ]
 	then
 		cp .config /tmp
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
 		cp  /tmp/.config .
 	fi
 
 	if test `getBuildArch` == "x86"
 	then
 	
-# 		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 dep
+# 		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 dep
 # 		
 # 		cp .config /tmp
-# 			make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 mrproper
+# 			make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 mrproper
 # 		cp  /tmp/.config .
 		
 		# Fix compile error
 		EDIT_commentOut .config "^CONFIG_DRM_AMDGPU" "#"
 		EDIT_addIfNotExists .config "^CONFIG_DRM_AMDGPU=n" "CONFIG_DRM_AMDGPU=n"
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 bzImage
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules_install
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 bzImage
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=i386 modules_install
 	else
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc dep
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc dep
 
 		EDIT_addIfNotExists .config "^CONFIG_IA32_EMULATION=y" "CONFIG_IA32_EMULATION=y"
 		EDIT_addIfNotExists .config "^CONFIG_IA32_AOUT=y" "CONFIG_IA32_AOUT=y"
@@ -376,13 +377,13 @@ compileKernel()
 		if [ $lastCompilationArch != "x86-64" ]
 		then
 			cp .config /tmp
-			make INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
+			make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` distclean
 			cp  /tmp/.config .
 		fi
 
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc bzImage
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules
-		make INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules_install
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc bzImage
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules
+		make -j$(nproc) INSTALL_MOD_PATH=`getCompiledDirWithArch` ARCH=x86_64 CC=gcc modules_install
 
 		backupKernelConfig
 	fi

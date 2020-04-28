@@ -34,8 +34,16 @@ fi
 
 mv /usr/bin/arch-test /usr/bin/arch-test.raus
 
+if [ $(grep -i debian /etc/issue -c) -gt 0 ]
+then
+	mirror='http://ftp.de.debian.org/debian'
+else
+	mirror=''
+fi
+
+
 #Debootstrap the distribution
-"$debootstrapBin" --arch=$arch --include="parted wget net-tools gnupg" $suite . http://ftp.de.debian.org/debian
+"$debootstrapBin" --arch=$arch --include="parted wget net-tools gnupg" $suite . $mirror
 
 mv /usr/bin/arch-test.raus /usr/bin/arch-test
 
