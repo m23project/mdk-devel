@@ -146,11 +146,14 @@ fi
 
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
-
-termOld="$TERM"
-export TERM='linux'
-/m23/bin/networkCheckSetDialog
-export TERM="$termOld"
+# Don't run on UCS
+if [ $(UCS_detect) -ne 0 ]
+then
+	termOld="$TERM"
+	export TERM='linux'
+	/m23/bin/networkCheckSetDialog
+	export TERM="$termOld"
+fi
 
 DNS="$(/m23/bin/serverInfoDNS)"
 BROADINT="$(/m23/bin/serverInfoBroadcast)"
@@ -1119,6 +1122,7 @@ updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clientjobs ADD INDEX idx_
 updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients CHANGE client client VARCHAR(512) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;"
 updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD INDEX idx_client (client);"
 
+
 # Add triggers to calculate the sum of client packages in the SQL database itself
 # updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD trg_sum_clientpackages INT UNSIGNED NOT NULL DEFAULT '0' AFTER lastmodify;"
 # updateSQLIfOlder $oldversionint 173101041 "CREATE TRIGGER trg_sum_clientpackages_add AFTER INSERT ON clientpackages FOR EACH ROW UPDATE clients SET trg_sum_clientpackages = trg_sum_clientpackages + 1 WHERE client = NEW.clientname;"
@@ -1132,11 +1136,16 @@ updateSQLIfOlder $oldversionint 173101041 "ALTER TABLE clients ADD INDEX idx_cli
 updateSQLIfOlder $oldversionint 181101085 "CREATE TABLE monitors ( vendor varchar(255) NOT NULL COMMENT 'Vendor name', model varchar(255) NOT NULL COMMENT 'Model name' ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
 updateSQLIfOlder $oldversionint 181101085 "ALTER TABLE monitors ADD PRIMARY KEY (vendor,model);"
 
-
 if [ -n "$oldversionint" ] && [ $oldversionint -lt 191101276 ]
 then
 	/m23/bin/mkCert.sh renewServerCert
 fi
+
+# Create table for group settings
+updateSQLIfOlder $oldversionint 201101333 "CREATE TABLE groupSettings ( id int(11) NOT NULL, groupid int(11) NOT NULL, type int(11) NOT NULL, var varchar(200) NOT NULL, val longtext NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings ADD PRIMARY KEY (id);"
+updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings MODIFY id int(11) NOT NULL AUTO_INCREMENT;"
+updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings ADD UNIQUE( groupid, type, var);"
 
 
 ######################
