@@ -414,6 +414,12 @@ showDialog()
 		esac
 	fi
 
+	# Quit the installer when "m23quit" is entered
+	if [ -f /tmp/dialog.value ] && [ "`cat /tmp/dialog.value`" ] && [ `cat /tmp/dialog.value` = 'm23quit' ]
+	then
+		exit 0
+	fi
+
 	return $ret
 }
 

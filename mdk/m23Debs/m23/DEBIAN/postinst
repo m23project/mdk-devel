@@ -146,8 +146,8 @@ fi
 
 ln -s /sbin/lilo /sbin/update-grub 2> /dev/null
 
-# Don't run on UCS
-if [ $(UCS_detect) -ne 0 ]
+# Don't run on UCS or when installing from the m23 server ISO
+if [ $(UCS_detect) -ne 0 ] && [ ! -d /tmp/oldsys ]
 then
 	termOld="$TERM"
 	export TERM='linux'
@@ -372,6 +372,44 @@ else
 	fi
 fi
 
+
+db_get m23/configureAPTCacherNG
+if [ "$RET" = "true" ] || [ $(UCS_detect) -eq 0 ]
+then
+
+# Is there Squid proxy configuration that uses port 2323? Indicating that Squid was configured by an older release of m23
+if [ $(grep 'http_port 2323' /etc/squid*/squid.conf | wc -l) -gt 0 ]
+then
+	# Stop Squid for now
+	/etc/init.d/squid* stop
+	systemctl stop squid.service
+
+	# Make sure Squid won't be started again
+	systemctl disable squid.service
+	update-rc.d squid remove
+	update-rc.d squid3 remove
+fi
+
+
+echo 'CacheDir: /var/cache/apt-cacher-ng
+
+LogDir: /var/log/apt-cacher-ng
+
+Port:2323
+
+ReportPage: acng-report.html
+
+ForceManaged: 0
+
+ExTreshold: 4
+
+PfilePattern = .*(.7z|.deb|.rpm|.exe|.dsc|.tar.gz.gpg|.tar.gz|.diff.gz|.diff.bz2|.jigdo|.template|changelog|copyright|.udeb|.diff/.*.gz|vmlinuz|initrd.gz|(Devel)?ReleaseAnnouncement(\?.*)?)$
+
+LocalDirs: acng-doc /usr/share/doc/apt-cacher-ng
+' > /etc/apt-cacher-ng/acng.conf
+
+/etc/init.d/apt-cacher-ng restart
+fi
 
 
 db_get m23/configureSquid
@@ -1286,15 +1324,18 @@ then
 	bash $postinstHook
 fi
 
-# Restart Squid as long until it is availabe via port 2323
-sRet=1
-while [ -f /tmp/squidName ] && [ $sRet -ne 0 ] && [ ! -e /tmp/oldsys ]
-do
-	/etc/init.d/$(cat /tmp/squidName) restart 2>> /var/log/m23PostinstNonCriticalErrorMessages.log
-	sleep 60
-	http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
-	sRet=$?
-done
+if [ $(cat /tmp/squidName) ]
+then
+	# Restart Squid as long until it is availabe via port 2323
+	sRet=1
+	while [ -f /tmp/squidName ] && [ $sRet -ne 0 ] && [ ! -e /tmp/oldsys ]
+	do
+		/etc/init.d/$(cat /tmp/squidName) restart 2>> /var/log/m23PostinstNonCriticalErrorMessages.log
+		sleep 60
+		http_proxy="http://127.0.0.1:2323" wget http://127.0.0.1 -O /dev/null -q
+		sRet=$?
+	done
+fi
 
 
 mkdir -p /m23/m23customPatch

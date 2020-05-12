@@ -64,6 +64,19 @@ Description-de: Squid fuer das Verteilen von Paketen einrichten?
  weniger haeufig ihren Inhalt. Die Squid-Standard-Einstellung ist nicht geeignet, um
  Softwarepakete zu Speichern.
 
+Template: m23/configureAPTCacherNG
+Type: boolean
+Default: true
+Description: Configure Apt-Cacher NG for distribution of packages?
+ The Apt-Cacher NG is used for caching software packages if they are downloaded from the
+ internet. This ensures that each package is downloaded only once. Software packages
+ are much bigger that web pages and should remain longer in the cache.
+Description-de: Apt-Cacher NG fuer das Verteilen von Paketen einrichten?
+ m23 verwendet Apt-Cacher NG zum Zwischenspeichern von Softwarepaketen, die aus dem
+ Internet heruntergeladen werden. Hiermit wird sichergestellt, dass jedes Paket nur
+ einmal heruntergeladen wird. Softwarepakete sind groesser als Webseiten und wechseln
+ weniger haeufig ihren Inhalt.
+
 Template: m23/configureSSL
 Type: boolean
 Default: true
@@ -160,3 +173,15 @@ Description: Broadcast address
  The broadcast address could not be detected. Please enter it.
 Description-de: Broadcast-Adresse
  Die Broadcast-Adresse konnte nicht ermittelt werden. Geben Sie sie bitte an.
+
+Template: m23/SquidReplacedByAPTCacherNG
+Type: note
+Description: Disabling Squid proxy, that was configured to cache Debian packages
+ Older m23 servers were using Squid to cache Debian packages. Squid is now replaced
+ by Apt-Cacher NG. The Squid proxy will be disabled and Apt-Cacher NG will overtake.
+Description-de: Deaktivierung des Squid-Proxys
+ Aeltere m23-Server haben den Squid-Proxy verwendet, um aus dem Internet
+ heruntergeladene Debian-Pakete zwischenzuspeichern, sodass jedes Paket nur
+ einmalig heruntergeladen werden musste. Squid wird nun durch Apt-Cacher NG
+ abgeloest. Squid wird daher deaktiviert und das Paket-Zwischenspeichern von
+ Apt-Cacher NG uebernommen.

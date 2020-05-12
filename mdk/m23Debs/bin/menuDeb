@@ -82,8 +82,6 @@ dialog --clear --backtitle "m23 Software Development Kit (MDK)" --title "m23 deb
 	"knoppix" "fetches and build static Knoppix debs (hwsetup and co.) [$knoppixver]" \
 	"m23extra" "build m23-ksp.,-skel,-initsc.,m23-vbox [$extraver]" \
 	"upload" "upload the packages to SF"\
-	"squidcl" "Remove Packages* from local Squid"\
-	"emptysquid" "Remove ALL from local Squid"\
 	"-m23inst-" "-=m23 server software installation packages=-"\
 	"build" "check for file changes and (re)create the packages"\
 	"directuplinst" "upload the m23 installation packages directly"\
@@ -97,6 +95,9 @@ case $retval in
 	255)
 		exit;;
 esac
+
+#	"squidcl" "Remove Packages* from local Squid"\
+#	"emptysquid" "Remove ALL from local Squid"\
 
 #"uplinst" "upload the m23 installation packages"\
 #"hwscanner" "build m23 hwscanner [$hwscannerver]" \

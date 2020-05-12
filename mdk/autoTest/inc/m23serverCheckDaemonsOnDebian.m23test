@@ -1,14 +1,17 @@
 		<test timeout="600" description="m23-Dämonen überprüfen">
 			<trigger type="true"></trigger>
 			<action type="ssh_command" password="test">
-				ps -A | grep squid -q; echo -n "S$?S" > /tmp/m.status
+				#ps -A | grep squid -q; echo -n "S$?S" > /tmp/m.status
+				ps -A | grep apt-cacher-ng -q; echo -n "A$?A" > /tmp/m.status
 				ps -A | grep mysql -q; echo -n "M$?M" >> /tmp/m.status
 				ps -A | grep slapd -q; echo -n "L$?L" >> /tmp/m.status
 				ps -A | grep dhcpd -q; echo -n "D$?D" >> /tmp/m.status
 			</action>
-			<bad type="ssh_commandoutput" password="test" sshanswer="S1S" description="Squid ausgefallen">cat /tmp/m.status</bad>
+			<bad type="ssh_commandoutput" password="test" sshanswer="A1A" description="APT-Cacher NG ausgefallen">cat /tmp/m.status</bad>
+<!--			<bad type="ssh_commandoutput" password="test" sshanswer="S1S" description="Squid ausgefallen">cat /tmp/m.status</bad> -->
 			<bad type="ssh_commandoutput" password="test" sshanswer="M1M" description="MySQL/MariaDB ausgefallen">cat /tmp/m.status</bad>
 			<bad type="ssh_commandoutput" password="test" sshanswer="L1L" description="OpenLDAP ausgefallen">cat /tmp/m.status</bad>
 <!--			<bad type="ssh_commandoutput" password="test" sshanswer="D1D" description="DHCP-Server ausgefallen">cat /tmp/m.status</bad> -->
-			<good type="ssh_commandoutput" password="test" sshanswer="S0SM0ML0L" description="m23-Komponenten laufen">cat /tmp/m.status</good>
+<!--			<good type="ssh_commandoutput" password="test" sshanswer="S0SM0ML0L" description="m23-Komponenten laufen">cat /tmp/m.status</good> -->
+			<good type="ssh_commandoutput" password="test" sshanswer="A0AM0ML0L" description="m23-Komponenten laufen">cat /tmp/m.status</good>
 		</test>
