@@ -1187,6 +1187,8 @@ updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings ADD UNIQUE(
 
 # Add fields for adding and finish times to the clientjobs table.
 updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD addtime INT(10) NOT NULL AFTER installedSize, ADD finishtime INT(10) NOT NULL AFTER addtime;"
+updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD starttime INT(10) NOT NULL DEFAULT '0' AFTER finishtime;"
+
 
 
 ######################
