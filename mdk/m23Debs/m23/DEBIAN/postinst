@@ -1190,6 +1190,10 @@ updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD addtime IN
 updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD starttime INT(10) NOT NULL DEFAULT '0' AFTER finishtime;"
 
 
+# Add a field to store the timestamp of the reboot of the client, that became necessary because of newly installed Debian packages.
+updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clients ADD rebootAfterJobsStarted INT(10) NOT NULL AFTER autoUpdate_fails;"
+
+
 
 ######################
 # DB adjustments END #
