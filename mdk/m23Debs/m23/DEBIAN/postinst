@@ -413,7 +413,7 @@ fi
 
 
 db_get m23/configureSquid
-if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ]
+if [ "$RET" = "true" ] && [ $(UCS_detect) -ne 0 ] && [ $(grep -c 'Port:2323' /etc/apt-cacher-ng/acng.conf) -eq 0 ]
 then
 
 # 	if [ -d /etc/squid3 ]
@@ -1180,18 +1180,24 @@ then
 fi
 
 # Create table for group settings
-updateSQLIfOlder $oldversionint 201101333 "CREATE TABLE groupSettings ( id int(11) NOT NULL, groupid int(11) NOT NULL, type int(11) NOT NULL, var varchar(200) NOT NULL, val longtext NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings ADD PRIMARY KEY (id);"
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings MODIFY id int(11) NOT NULL AUTO_INCREMENT;"
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE groupSettings ADD UNIQUE( groupid, type, var);"
+updateSQLIfOlder $oldversionint 201101353 "CREATE TABLE groupSettings ( id int(11) NOT NULL, groupid int(11) NOT NULL, type int(11) NOT NULL, var varchar(200) NOT NULL, val longtext NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE groupSettings ADD PRIMARY KEY (id);"
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE groupSettings MODIFY id int(11) NOT NULL AUTO_INCREMENT;"
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE groupSettings ADD UNIQUE( groupid, type, var);"
 
 # Add fields for adding and finish times to the clientjobs table.
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD addtime INT(10) NOT NULL AFTER installedSize, ADD finishtime INT(10) NOT NULL AFTER addtime;"
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clientjobs ADD starttime INT(10) NOT NULL DEFAULT '0' AFTER finishtime;"
-
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE clientjobs ADD addtime INT(10) NOT NULL AFTER installedSize, ADD finishtime INT(10) NOT NULL, ADD starttime INT(10) NOT NULL DEFAULT '0';"
 
 # Add a field to store the timestamp of the reboot of the client, that became necessary because of newly installed Debian packages.
-updateSQLIfOlder $oldversionint 201101333 "ALTER TABLE clients ADD rebootAfterJobsStarted INT(10) NOT NULL AFTER autoUpdate_fails;"
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE clients ADD rebootAfterJobsStarted INT(10) NOT NULL AFTER autoUpdate_fails;"
+
+# Create table for client reports
+updateSQLIfOlder $oldversionint 201101353 "CREATE TABLE clientreporting ( id int(11) NOT NULL, reportCreationTime int(10) NOT NULL, client varchar(512) COLLATE latin1_general_ci NOT NULL, packageamount int(10) NOT NULL, onlinestatus tinyint(1) NOT NULL, rebootstatus tinyint(1) NOT NULL, updatestatus tinyint(1) NOT NULL, lastupdate int(10) NOT NULL ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;"
+updateSQLIfOlder $oldversionint 201101353 "ALTER TABLE clientreporting ADD PRIMARY KEY (id), ADD KEY id (id,reportCreationTime,client);"
+
+
+
+
 
 
 
@@ -1333,7 +1339,7 @@ then
 	bash $postinstHook
 fi
 
-if [ $(cat /tmp/squidName) ]
+if [ $(cat /tmp/squidName) ] && [ $(grep -c 'Port:2323' /etc/apt-cacher-ng/acng.conf) -eq 0 ]
 then
 	# Restart Squid as long until it is availabe via port 2323
 	sRet=1
