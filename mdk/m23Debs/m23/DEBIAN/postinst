@@ -391,7 +391,7 @@ then
 fi
 
 
-echo 'CacheDir: /var/cache/apt-cacher-ng
+echo "CacheDir: /var/cache/apt-cacher-ng
 
 LogDir: /var/log/apt-cacher-ng
 
@@ -403,10 +403,12 @@ ForceManaged: 0
 
 ExTreshold: 4
 
+DontCache: $IPINT
+
 PfilePattern = .*(.7z|.deb|.rpm|.exe|.dsc|.tar.gz.gpg|.tar.gz|.diff.gz|.diff.bz2|.jigdo|.template|changelog|copyright|.udeb|.diff/.*.gz|vmlinuz|initrd.gz|(Devel)?ReleaseAnnouncement(\?.*)?)$
 
 LocalDirs: acng-doc /usr/share/doc/apt-cacher-ng
-' > /etc/apt-cacher-ng/acng.conf
+" > /etc/apt-cacher-ng/acng.conf
 
 /etc/init.d/apt-cacher-ng restart
 fi
