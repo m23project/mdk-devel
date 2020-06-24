@@ -29,3 +29,13 @@ DEBIAN_FRONTEND=noninteractive LC_ALL=C apt-get install m23 --allow-unauthentica
 
 			<good type="ssh_commandoutput" password="test" sshanswer="0" description="m23 installiert">cat /tmp/update.ret</good>
 		</test>
+		<test timeout="600" description="sudo auf unerwünschte Ausgaben testen">
+			<trigger type="true"></trigger>
+			<action type="ssh_command" password="test">
+				[ $(sudo su - pi -c whoami | wc -l) -eq 1 ]
+				echo $? > /tmp/sudoClean.ret
+			</action>
+
+			<good type="ssh_commandoutput" password="test" sshanswer="0" description="sudo zeigt keine unerwünschten Ausgaben">cat /tmp/sudoClean.ret</good>
+			<bad type="ssh_commandoutput" password="test" sshanswer="1" description="sudo zeigt unerwünschte Ausgaben">cat /tmp/sudoClean.ret</bad>
+		</test>

@@ -1366,4 +1366,17 @@ chmod 777 -R /m23/tmp
 
 /m23/bin/m23cli.php GPG_set1stKey
 
+
+# Restart Apache on Raspbian a 2nd time (seems to be needed on newer Raspbian versions to disable PrivateTmp)
+if [ `grep -c Raspbian /etc/issue` -eq 0 ]
+then
+	/etc/init.d/apache2 restart
+fi
+
+# Disable complaining about disabled Wi-Fi on login. The message will confuse some m23 functions that login via SSH
+if [ -f /etc/profile.d/wifi-check.sh ]
+then
+	mv /etc/profile.d/wifi-check.sh /etc/profile.d/wifi-check.sh.disabled
+fi
+
 db_stop
